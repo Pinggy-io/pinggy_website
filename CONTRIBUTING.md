@@ -9,6 +9,20 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
+## Add SSH Key to your Gitlab Account 
+
+Create a SSH keypair using
+
+```
+ssh-keygen
+```
+
+Get the public key as follow and add it to Gitlab Account.
+
+```
+cat /path/to/id_rsa.pub
+```
+
 ## Clone
 
 
