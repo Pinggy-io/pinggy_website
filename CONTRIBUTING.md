@@ -67,6 +67,6 @@ Create a PR from your branch to main.
 Run this command in the root directory of your Hugo project.
 
 ```
-Hugo    
+hugo    
 ```
 This builds your site, publishing the files to the public directory.

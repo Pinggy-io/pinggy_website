@@ -1,10 +1,9 @@
-h1 {
-    color: aqua;
-}
-
-
 /* footer CSS */
 
 footer {
-    background-color: black;
+    background-color: rgba(29, 28, 28, 0.955);
+    position: absolute;
+    bottom: 0;
+    height: 10vh;
+    width: 100%;
 }
