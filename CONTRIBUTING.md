@@ -60,3 +60,13 @@ git push origin `your_branch_name`
 Go to gitlab: https://gitlab.com/alstonia/pinggy_website
 
 Create a PR from your branch to main.
+
+
+## Deploying Site 
+
+Run this command in the root directory of your Hugo project.
+
+```
+Hugo    
+```
+This builds your site, publishing the files to the public directory.
