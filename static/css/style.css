@@ -1,14 +1,69 @@
-main .container-fluid {
-    border: 2px sollid red;
-}
-
-
-/* footer CSS */
-
-footer {
-    background-color: rgba(29, 28, 28, 0.955);
-    position: absolute;
-    bottom: 0;
-    height: 10vh;
-    width: 100%;
-}
+ /* Banner And Navbar CSS */
+ 
+ .Banner_Section,
+ .navbar {
+     background-color: rgb(31, 33, 33);
+ }
+ 
+ .Banner_Text {
+     font-size: 3rem;
+     font-weight: 600;
+ }
+ 
+ .Banner_Buttons a {
+     font-size: 1.3rem;
+ }
+ 
+ .Banner_Description {
+     font-size: 1.5rem;
+     font-weight: 300;
+ }
+ /* Features Section CSS */
+ 
+ .feature-icon {
+     width: max-content;
+     border-radius: 8px;
+ }
+ 
+ .fa {
+     font-size: 30px;
+ }
+ 
+ .feature-name {
+     font-weight: 600;
+     font-size: 1.6rem;
+ }
+ /* Form Section Css */
+ 
+ .Form-icon {
+     width: max-content;
+     border-radius: 8px;
+     margin: auto;
+ }
+ 
+ .Form-Body {
+     width: 50%;
+     margin: auto;
+ }
+ /* footer CSS */
+ 
+ footer {
+     background-color: rgba(37, 35, 35, 0.955);
+     height: 10vh;
+     width: 100%;
+     font-size: 1.2rem;
+     font-weight: 500;
+ }
+ /* CSS for Screen size less than 650px */
+ 
+ @media screen and (max-width:650px) {
+     .Form-Body {
+         width: 100%;
+     }
+     .Banner_Text {
+         font-size: 2.5rem;
+     }
+     .Banner_Description {
+         font-size: 1.2rem;
+     }
+ }
