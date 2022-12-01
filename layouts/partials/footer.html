@@ -1,0 +1,9 @@
+ {{/* Footer Section */}}
+<footer class="text-white footer  text-center pt-lg-4 px-3 pt-2"></footer>
+
+
+{{/* Function For Automatically generating Year */}}
+<script>
+    var date = new Date();
+    document.getElementsByClassName("footer")[0].innerHTML = "Copyright&copy;&nbsp;&nbsp; {{.Site.Title}} &nbsp;&nbsp;" + date.getFullYear();
+</script>

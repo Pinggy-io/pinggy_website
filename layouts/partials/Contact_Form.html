@@ -1,0 +1,30 @@
+ {{/* Container For Contact Section */}}
+<div class="container-fluid Contact_form d-flex flex-column justify-content-center my-4 py-3">
+
+    {{/* Form Header */}}
+    <div class="Form-Header d-flex justify-content-center flex-column">
+        <div class="Form-icon bg-primary bg-gradient text-white rounded-3 p-3 mt-3"><i class="fa fa-envelope text-center" aria-hidden="true"></i></div>
+        <div class="text-center my-2 h2">Get in Touch</div>
+        <div class="text-center my-2" style="font-size: 1.5rem;font-weight:400;">We'd love to hear from you</div>
+    </div>
+
+    {{/* Form Container/Body */}}
+    <div class="Form-Body my-3">
+        <form>
+            <div class="mb-3 mx-1">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Full Name" required>
+            </div>
+            <div class=" mb-3 mx-1">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email Address" required>
+            </div>
+            <div class="mb-3 mx-1">
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Phone Number" required>
+            </div>
+
+            <div class="mb-3 mx-1">
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3 mx-1" style="width:100%;">Submit</button>
+        </form>
+    </div>
+</div>
