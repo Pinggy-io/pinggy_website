@@ -1,0 +1,18 @@
+baseURL : ''
+languageCode : 'en-us'
+title : 'Pinggy - Simple Localhost Tunnels'  
+
+menus: 
+  main:
+  - name: Home
+    url: "/"
+    weight: 90
+  - name: Downloads
+    url: /download
+    weight: 100
+  - name: Contact
+    url: /contact
+    weight: 110
+  - name: Privacy Policy
+    url: /privacy_policy
+    weight: 120
