@@ -7,7 +7,11 @@
 </head>
 
 <body>
-    {{partial "navbar.html" .}} {{- block "main" . }}{{- end }} {{- partial "footer.html" . -}}
+    {{partial "navbar.html" .}}
+    
+    {{- block "main" . }}{{- end }} 
+    
+    {{- partial "footer.html" . -}}
 </body>
 
 </html>
