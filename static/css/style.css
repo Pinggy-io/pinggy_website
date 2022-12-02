@@ -19,8 +19,9 @@
      font-size: 1.3rem;
  }
  
- .active {
-     background-color: aqua;
+ .client_info {
+     font-size: 1.3rem;
+     font-weight: 200;
  }
  
  .Banner_Description {
@@ -74,5 +75,9 @@
      }
      .Banner_Description {
          font-size: 1.2rem;
+     }
+     .client_info {
+         font-size: 1.1rem;
+         font-weight: 200;
      }
  }
