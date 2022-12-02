@@ -1,0 +1,26 @@
+baseURL : ''
+languageCode : 'en-us'
+title : 'Pinggy - Simple Localhost Tunnels' 
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+menus: 
+  main:
+  - name: Home
+    url: "/"
+    weight: 90
+  - name: Contact Us
+    url: /contact_us
+    weight: 100
+  - name: Privacy Policy
+    url: /privacy_policy
+    weight: 120
+  - name: Terms of Service
+    url: /Terms_of_Service
+    weight: 110
+  - name: Cancellation and Return Policy
+    url: /Return_policy
+    weight: 120

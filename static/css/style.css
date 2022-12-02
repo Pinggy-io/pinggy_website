@@ -1,3 +1,8 @@
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
  /* Banner And Navbar CSS */
  
  .Banner_Section,
@@ -12,6 +17,11 @@
  
  .Banner_Buttons a {
      font-size: 1.3rem;
+ }
+ 
+ .client_info {
+     font-size: 1.3rem;
+     font-weight: 200;
  }
  
  .Banner_Description {
@@ -65,5 +75,9 @@
      }
      .Banner_Description {
          font-size: 1.2rem;
+     }
+     .client_info {
+         font-size: 1.1rem;
+         font-weight: 200;
      }
  }
