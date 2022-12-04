@@ -13,6 +13,7 @@
     
     {{- partial "footer.html" . -}}
 </body>
-<script src="/js/index.js"></script>
+
+{{- block "pagespecificjs" . }}{{- end }}
 
 </html>
