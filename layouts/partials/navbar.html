@@ -1,16 +1,16 @@
  {{/* Responsive Navbar */}}
-<nav class="navbar navbar-expand-lg navbar-info">
-    <div class="container  px-5">
-        <a class="navbar-brand mx-lg-5 mx-md-3" href="/">
-            <img height="30" src="/assets/logo.png" />
+ <nav class="navbar navbar-expand-lg navbar-info">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img height="24" src="/assets/logo.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <i class="fa fa-bars text-white" aria-hidden="true"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+            <ul class="navbar-nav">
                 {{ range .Site.Menus.main }}
-                <li class="nav-item h6 mx-lg-2 py-1 px-1">
+                <li class="nav-item">
                     <a class="text-white nav-link{{ if $.IsMenuCurrent " main " . }} active" aria-current="page{{ end }}" href="{{ .URL }}">{{ .Pre
                     }}
                     <span>{{ .Name }}</span></a>
