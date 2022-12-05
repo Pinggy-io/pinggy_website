@@ -1,9 +1,11 @@
 {{ define "main" }}
 
 {{ partial "Banner" . }}
-
 {{ partial "Features.html" . }}
-
 {{ partial "Contact_Form.html" . }}
 
+{{ end }}
+
+{{ define "pagespecificjs" }}
+<script src="/js/index.js"></script>
 {{ end }}
