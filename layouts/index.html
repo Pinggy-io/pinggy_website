@@ -14,13 +14,20 @@
                         <a href="#features" class="btn btn-outline-light px-2 py-2 mx-1 my-md-2 my-1">Learn More</a>
                         <br/>
                     </div> -->
-                    <form class="form-inline">
-                        <label class="text-white" for="portform">Port</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" id="portform" placeholder="8000" value="8000">
+                    <form>
+                        <div class="row mb-3">
+                            <label for="portform" class="col-sm-4 col-form-label text-white text-end">Port to share:</label>
+                            <div class="col-sm-6">
+                            <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
+                            </div>
+                        </div>
                     </form>
                     <p class="text-white">Single command to get started:</p>
-                    <div>
-                        <kbd>ssh -p 7878 -R0:localhost:<span id="portcommand">8000</span> b.pinggy.io</kbd>
+
+                    <div class="input-group">
+                        
+                        <input id="portcommand" class="form-control" value="ssh -p 7878 -R0:localhost:8000 b.pinggy.io" readonly="readonly"></input>
+                        <button class="btn btn-outline-light" type="button" id="copybutton" onclick="copytoclipboard()"><i class="bi bi-clipboard"></i></button>
                     </div>
                 </div>
             </div>
@@ -71,8 +78,6 @@
                 </div>
             </div>
         </section>
-
-{{ partial "Contact_Form.html" . }}
 
 {{ end }}
 
