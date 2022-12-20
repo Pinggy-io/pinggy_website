@@ -1,7 +1,68 @@
 {{ define "main" }}
 
-{{ partial "Banner" . }}
-{{ partial "Features.html" . }}
+<!-- Banner -->
+<header class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <h1 class="display-5 fw-bolder text-white mb-2">Public URLs to Localhost</h1>
+                    <p class="lead text-white-50 mb-4">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting behind firewalls and NATs.</p>
+
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a id="downloadlink" href="javascript:void(0)" class="btn btn-primary px-4 py-2 mx-2 my-md-2 my-1">Download <span id="downloadlinktext"></span></a>
+                        <a href="javascript:void(0)" class="btn btn-outline-light px-2 py-2 mx-1 my-md-2 my-1">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Features -->
+
+        <!-- Features section-->
+        <section class="py-5 border-bottom" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                        <h2 class="h4 fw-bolder">Test your website</h2>
+                        <p>Get a public URL for your website running locally and send it to your clients and friends.</p>
+                        <!-- 
+                        <a class="text-decoration-none" href="#!">
+                            Call to action
+                            <i class="bi bi-arrow-right"></i>
+                        </a> 
+                        -->
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-cpu"></i></div>
+                        <h2 class="h4 fw-bolder">Connect your IoT</h2>
+                        <p>Access your IoT devices from anywhere with Pinggy public URLs. You can also now SSH into your devices through Pinggy TCP tunnels.</p>
+                        <!--                         
+                        <a class="text-decoration-none" href="#!">
+                            Call to action
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                         -->
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                        <h2 class="h4 fw-bolder">Receive Webhooks</h2>
+                        <p>Host your chatbots in your local network and receive webhooks through Pinggy tunnel.</p>
+                        <!--                         
+                        <a class="text-decoration-none" href="#!">
+                            Call to action
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                         -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
 {{ partial "Contact_Form.html" . }}
 
 {{ end }}

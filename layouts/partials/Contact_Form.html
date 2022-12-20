@@ -1,30 +1,68 @@
- {{/* Container For Contact Section */}}
-<div class="container-fluid Contact_form d-flex flex-column justify-content-center my-4 py-3">
 
-    {{/* Form Header */}}
-    <div class="Form-Header d-flex justify-content-center flex-column">
-        <div class="Form-icon bg-primary bg-gradient text-white rounded-3 p-3 mt-3"><i class="fa fa-envelope text-center" aria-hidden="true"></i></div>
-        <div class="text-center my-2 h2">Get in Touch</div>
-        <div class="text-center my-2" style="font-size: 1.5rem;font-weight:400;">We'd love to hear from you</div>
-    </div>
-
-    {{/* Form Container/Body */}}
-    <div class="Form-Body my-3">
-        <form>
-            <div class="mb-3 mx-1">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Full Name" required>
+        <!-- Contact section-->
+        <section class="bg-light py-5">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                    <h2 class="fw-bolder">Get in touch</h2>
+                    <p class="lead mb-0">We'd love to hear from you</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <label for="phone">Phone number</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Message</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class=" mb-3 mx-1">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email Address" required>
-            </div>
-            <div class="mb-3 mx-1">
-                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Phone Number" required>
-            </div>
-
-            <div class="mb-3 mx-1">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mb-3 mx-1" style="width:100%;">Submit</button>
-        </form>
-    </div>
-</div>
+        </section>
