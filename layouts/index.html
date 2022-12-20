@@ -9,9 +9,18 @@
                     <h1 class="display-5 fw-bolder text-white mb-2">Public URLs to Localhost</h1>
                     <p class="lead text-white-50 mb-4">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting behind firewalls and NATs.</p>
 
-                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <!-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                         <a id="downloadlink" href="javascript:void(0)" class="btn btn-primary px-4 py-2 mx-2 my-md-2 my-1">Download <span id="downloadlinktext"></span></a>
-                        <a href="javascript:void(0)" class="btn btn-outline-light px-2 py-2 mx-1 my-md-2 my-1">Learn More</a>
+                        <a href="#features" class="btn btn-outline-light px-2 py-2 mx-1 my-md-2 my-1">Learn More</a>
+                        <br/>
+                    </div> -->
+                    <form class="form-inline">
+                        <label class="text-white" for="portform">Port</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="portform" placeholder="8000" value="8000">
+                    </form>
+                    <p class="text-white">Single command to get started:</p>
+                    <div>
+                        <kbd>ssh -p 7878 -R0:localhost:<span id="portcommand">8000</span> b.pinggy.io</kbd>
                     </div>
                 </div>
             </div>
