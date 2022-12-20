@@ -1,5 +1,10 @@
 # Instructions to contribute
 
+## Run site
+```
+hugo server
+```
+
 ## Setup git
 
 Install git and set your name and email  as follows:
