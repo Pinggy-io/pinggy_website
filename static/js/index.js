@@ -2,9 +2,18 @@ let portinput = document.getElementById('portform');
 let  portcommand = document.getElementById('portcommand');
 
 portinput.addEventListener('keyup', function(){
-    portcommand.innerHTML = portinput.value;
+    portcommand.value = "ssh -p 7878 -R0:localhost:" +  (portinput.value || "8000") + " b.pinggy.io";
         
 })
+
+function copytoclipboard() {
+    // Get the text field
+    portcommand.select(); 
+    portcommand.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(portcommand.value);
+}
 
 
 os_arch_to_link = {
