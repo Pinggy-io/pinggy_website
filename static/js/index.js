@@ -1,3 +1,12 @@
+let portinput = document.getElementById('portform');
+let  portcommand = document.getElementById('portcommand');
+
+portinput.addEventListener('keyup', function(){
+    portcommand.innerHTML = portinput.value;
+        
+})
+
+
 os_arch_to_link = {
     "windows": {
         "amd64": "pinggy_windows_amd64",
@@ -58,3 +67,5 @@ function osfunction ()
 }
 
 osfunction();
+
+
