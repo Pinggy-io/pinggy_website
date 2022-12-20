@@ -7,13 +7,18 @@
 </head>
 
 <body>
-    {{partial "navbar.html" .}}
+    {{- partial "navbar.html" .}}
     
     {{- block "main" . }}{{- end }} 
     
     {{- partial "footer.html" . -}}
 </body>
 
+{{- partial "jslibraries.html" . -}}
+
+
+
+<!-- PAGE SPECIFIC JS -->
 {{- block "pagespecificjs" . }}{{- end }}
 
 </html>
