@@ -1,6 +1,6 @@
 baseURL : ''
 languageCode : 'en-us'
-title : 'Pinggy - Simple Localhost Tunnels' 
+title : 'Pinggy' 
 
 markup:
   goldmark:
@@ -12,9 +12,12 @@ menus:
   - name: Home
     url: "/"
     weight: 90
+  - name: Download
+    url: /download
+    weight: 100
   - name: Contact Us
     url: /contact_us
-    weight: 100
+    weight: 110
   # - name: Privacy Policy
   #   url: /privacy_policy
   #   weight: 120
