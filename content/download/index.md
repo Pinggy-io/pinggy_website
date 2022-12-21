@@ -75,12 +75,12 @@
                 <tr>
                 <td>amd64</td>
                 <td>alpha</td>
-                <td><a target="_blank" href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/pinggy_windows_amd64">pinggy_windows_amd64</a></td>
+                <td><a target="_blank" href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/pinggy_windows_amd64.exe">pinggy_windows_amd64</a></td>
                 </tr>
                 <tr>
                 <td>x86</td>
                 <td>alpha</td>
-                <td><a target="_blank" href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/pinggy_windows_386">pinggy_windows_386</a></td>
+                <td><a target="_blank" href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/pinggy_windows_386.exe">pinggy_windows_386</a></td>
                 </tr>
             </tbody>
         </table>
