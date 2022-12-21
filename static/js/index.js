@@ -15,18 +15,15 @@ function copytoclipboard() {
     navigator.clipboard.writeText(portcommand.value);
 }
 
+// Download button system auto detect:
+
 
 os_arch_to_link = {
     "windows": {
-        "amd64": "pinggy_windows_amd64",
-        "x86_32": "pinggy_windows_x86"
+        "amd64": "pinggy_windows_386.exe"    
     },
     "linux": {
         "amd64": "pinggy_linux_amd64",
-        "x86_32": "pinggy_linux_x86"
-    },
-    "mac": {
-        "amd64": "pinggy_mac_amd64",
     }
 }
 
@@ -63,14 +60,20 @@ function osfunction ()
     else if(os.search("x86_32")){
         arch = "x86_32"
     }
+    else if(os.search("arm")){
+        arch = "arm"
+    }
 
-    download_link = os_arch_to_link[finalOs][arch]
+    var download_link;
+    if(os_arch_to_link[finalOs]){
+            download_link = os_arch_to_link[finalOs][arch];
+    }
 
     if(download_link){
         document.getElementById('downloadlinktext').innerText = download_link;
-        document.getElementById('downloadlink').setAttribute("href", "/downloads/" + download_link);
+        document.getElementById('downloadlink').setAttribute("href", "https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/" + download_link);
     } else {
-        document.getElementById('downloadlink').setAttribute("href", "/downloads");
+        document.getElementById('downloadlink').setAttribute("href", "/download");
     }
 
 }
