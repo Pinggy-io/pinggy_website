@@ -13,6 +13,12 @@ function copytoclipboard() {
   
      // Copy the text inside the text field
     navigator.clipboard.writeText(portcommand.value);
+
+    var amplitudeEvent = "SSH url copy button clicked";
+    var eventProperties = {
+        "url": portcommand.value
+    };
+    amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
 }
 
 // Download button system auto detect:
