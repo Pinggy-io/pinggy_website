@@ -29,7 +29,12 @@
     ;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
     }return n._iq[e]};e.amplitude=n})(window,document);
   
-    amplitude.getInstance().init("33252b19bc60d9fd8c591ca4e84e4d4b");
-
-    amplitude.getInstance().logEvent('EVENT_NAME_HERE');
+    amplitude.getInstance().init("33252b19bc60d9fd8c591ca4e84e4d4b", null, {
+    // optional configuration options
+    saveEvents: true,
+    includeUtm: true,
+    includeReferrer: true
+    })
+    
+    amplitude.getInstance().logEvent('Page loaded');
   </script>
