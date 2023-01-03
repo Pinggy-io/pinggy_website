@@ -1,159 +1,87 @@
 ---
-title: "Terms_of_Service"
+title: "Terms of Service"
 date: 2022-12-02T14:15:25+05:30
 draft: false
 ---
-# Terms and Conditions
+# Terms of Service
 
-Last updated: December 02, 2022
+Last updated: January 1, 2023
 
-Please read these terms and conditions carefully before using Our Service.
 
-# Interpretation and Definitions
+## Agreement
 
-## Interpretation
+These Terms of Service (the "Terms" or this “Agreement”) cover your use of the services "Pinggy", including Pinggy client, Pinggy dashboard, Pinggy website, and Pinggy tunneling service, and any other software or services related to Pinggy that is offered by Alstonia, West Bengal, India in connection with any of the above services (collectively, the "Pinggy Services" or the "Services").
+You must agree to the Terms in order to use the Services. Your use of the Pinggy Services means your acceptance of and agreement to the Terms. Pinggy will treat your use of any portion of the Services as acceptance of, and agreement to, the Terms from that point on. The Pinggy Services are available only to individuals who are at least 18 years old and to companies that are appropriately licensed and otherwise legally permitted to conduct business. You represent and warrant that, (a) if you are an individual, you are at least 18 years old, and (b) if you are a company, that (i) you are appropriately licensed and legally permitted to conduct business and (ii) the individual accepting these terms on your behalf is authorized to do so.
+Pinggy may make changes to the Terms from time to time. We will provide notice at the top of this page of the latest update date, if the Terms change in any substantive way. We will provide at least seven (7) days' notice before the changes take effect, during which period of time you may reject the changes by stopping all use of and access to the Pinggy Services and (if you have an Pinggy account) terminating your account.
 
-The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
 
-## Definitions
 
-For the purposes of these Terms and Conditions:
+## Use of Services
 
+**License to Pinggy Services.** Subject to these Terms, Pinggy grants to you a non-exclusive, non-transferable, non-sublicensable, revocable right: (a) to access and use the Pinggy Services during the Term (as defined below); and (b) to download and, copy the Pinggy client; and (c) if you have an Pinggy account, distribute the Pinggy client to third parties to whom you make available an application created by you using the Pinggy Software in connection with which you, not your customer, maintain an account with Pinggy.
+Such third parties are referred to as “Customer Licensees.” Notwithstanding the foregoing, you may, subject to Pinggy’s prior written consent (which it may grant or withhold in its discretion), distribute the Pinggy client to your customers who maintain their own accounts with Pinggy. All rights not expressly granted by Pinggy hereunder remain the sole property of Pinggy.
 
+**Terms of using Pinggy Services.** You will be solely responsible for all use of the Pinggy Services accessed by you (including but not limited to use by the Customer Licensees and whether or not authorized) or under your account, and you shall ensure that all such use is in accordance with this Agreement. You will be solely responsible for all acts and omissions of your representatives, consultants, contractors, subcontractors, agents or Customer Licensees who are authorized by Pinggy or you to use the Pinggy Services. You will take all reasonable precautions to prevent unauthorized access to or use of the Pinggy Services and will promptly notify Pinggy in writing immediately of any unauthorized access to or use of the Pinggy Services of which you become aware.
 
-- __Affiliate__ means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
+**Customer Data.** You will ensure that Pinggy is entitled to use any data, information or material provided, submitted, or otherwise made available by you or on behalf of you to Pinggy in the course of using or accessing the Pinggy Services (“Customer Data”) as needed to provide you with the functionality of the Pinggy Services. You understand and agree that Pinggy's Privacy Policy, shall apply to all Customer Data. Pinggy may collect, retain, use, and disclose data and other information about you and your users, including but not limited to Customer Data, subject to the terms of Pinggy’s Privacy Policy. 
+You shall ensure that all users have provided all necessary consents and permissions for you to make Customer Data available to Pinggy under these Terms, including for use, retention, and disclosure in accordance with Pinggy's Privacy Policy. If you are an EU data subject (as defined under the EU General Data Protection Regulation (“GDPR”), you shall ensure that Customer Data does not include sensitive personal data (as defined under the GDPR). Please note that, for the version of the Pinggy Services for which Pinggy does not charge a fee, Pinggy may include the IP address of the Pinggy Agent in the hostnames Pinggy assigns to you or in HTTP headers included in responses to requests passing through the Proxy Service, thus making that IP address available in connection with any HTTP request to the Proxy Service. Accordingly, and without limiting your other obligations under this Agreement, to the extent the GDPR applies, you acknowledge and agree that (a) such use of the data subject’s IP address is part of your processing of personal data as a controller under the GDPR, and (b) you will promptly inform the data subject(s) who may be identified by such IP address(es) that the IP address(es) will be so available. You acknowledge and agree that Pinggy may use Customer Data to improve your use of the Pinggy Services and may use aggregated and anonymized Customer Data to improve the Pinggy Services generally. You also acknowledge and agree that Pinggy may access, preserve and disclose your account information and other Customer Data if required to do so by any applicable law or if Pinggy in good faith believes that such access, preservation or disclosure is reasonably necessary to: (i) comply with any applicable legal process; (ii) enforce this Agreement; (iii) respond to claims that any Customer Data violates the rights of third parties; (iv) respond to your requests for customer service; or (v) protect the rights, property or personal safety of Pinggy, its customers and/or users and/or the public. In no event shall Pinggy or its designees have any liability or obligation to you in connection with exercising any rights set forth in this Section. You may not use the Services if you are a person barred from receiving the Services under the laws of India or other countries, including the country in which you are resident or from which you use the Services.
 
-- __Country__ refers to: West Bengal,  India
-- __Company__ (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to My Site.
+**Usage.** You agree that, except as expressly provided in these Terms, you will not: (i) copy the Pinggy Services or Pinggy website and Pinggy dashboard materials or any portion thereof; (ii) distribute, modify, adapt, translate, reverse engineer, decompile, disassemble, create derivative works based on, print any part of, or otherwise attempt to discover the source code, compiled executables, intermediate files, or underlying structure, ideas, know-how or algorithms relating in any way to the Pinggy Services or Pinggy dashboard or Pinggy website materials; (iii) rent, transfer, resell, lease, license, assign, grant any rights in, or otherwise make available the Pinggy Services or Pinggy dashboard or Pinggy website materials to third parties or offer it on a standalone basis; (iv) *use the Pinggy Services or Pinggy dashboard or Pinggy website materials in a fashion that could reasonably be deemed to compete with the business of Pinggy; (v) use the Pinggy Services or Pinggy dashboard or Pinggy website materials to send or store infringing, obscene, threatening, libelous, or otherwise unlawful material, including material that violates third party rights;* (vi) use the Pinggy Services or Pinggy dashboard or Pinggy website materials to conduct “phishing” or other similar activities or in any other manner that could be misleading to third parties; (vii) use the Pinggy Services or Pinggy dashboard or Pinggy website materials to create, use, send, store, or run material containing software viruses, worms, Trojan horses or otherwise engage in any malicious act or disrupt the security, integrity or operation of the Pinggy Services or Pinggy dashboard or Pinggy website materials; (viii) use the Pinggy Services or Pinggy dashboard or Pinggy website materials in any manner that violates any applicable foreign, federal, state or local law, rule or regulation; or (ix) use the Pinggy Services or Pinggy dashboard or Pinggy website materials in any manner that violates any third party rights or this Agreement.
 
-- __Device__ means any device that can access the Service such as a computer, a cellphone or a digital tablet.
+## Pinggy Account
+Some Pinggy Services are available only if you register and create an account with Pinggy. If you create an Pinggy account, you must provide full and accurate information for such registration and account; you are responsible for maintaining the security of your account and all associated materials, including but not limited to your passwords and other account-related access tokens; and you are fully responsible for all activities that occur under the account and any other actions taken in connection with the account. You must immediately notify Pinggy of any unauthorized uses of your account or any other breaches of security. Pinggy will not be liable for any acts or omissions by you, including any damages of any kind incurred as a result of such acts or omissions. The personal information you provide to Pinggy for the purpose of creating and maintaining your account is governed by the Pinggy Privacy Policy.
 
+## Term and Termination
+We may terminate or suspend access to the Services immediately, without prior notice or liability (other than refunding pre-paid fees to the extent we terminate based on no action or omission on your part), for any reason whatsoever, including, but not limited to, if you breach any of the Terms. All provisions of the Terms which, by their nature, should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnifications and limitations of liability.
 
+## Responsibility and Conduct
+You are solely responsible for your actions and omissions, the actions and omissions of all users of your account, and any data that is created, stored, displayed by, or transmitted through your account while using Pinggy. You will not engage in any activity that interferes with or disrupts the Services or networks connected to Pinggy.
 
+## Limited License
+You are granted a limited, non-sublicensable license to access and use the Pinggy website Materials solely in connection with the Pinggy Services. Such license is subject to this Agreement and does not include: (a) any resale or commercial use of the Pinggy website materials therein; (b) the distribution, public performance or public display of any Pinggy website materials except in connection with your authorized use of the Pinggy website and the Pinggy Services; (c) modifying or otherwise making any derivative uses of the Pinggy website materials, or any portion thereof; (d) use of any data mining, robots, page scraping or similar data gathering or extraction methods; (e) reverse engineering or attempting to reverse-engineer any functionality provided on the Pinggy website materials or (f) any use of the Pinggy website materials other than for their intended purpose.
 
+## User Content
+The Pinggy Service may invite or enable you and other users to create, submit, record, post, display, transmit, perform, publish or distribute communications (including but not limited to voice communications), content and materials (including without limitation text, writings, photographs, graphics, images, comments, chat text, personally identifiable information, etc.), including by making the foregoing available to Pinggy and other users of the Pinggy Service, whether via e-mail or through online forums, chat rooms or features, message boards, messaging services, blogs or other functionality of the Pinggy Service or portions thereof (collectively, “User Content”). Pinggy has no obligation to accept, display, review, maintain or otherwise exploit any User Content.
 
+You understand that all User Content available in connection with the Pinggy Service is the sole responsibility of the person from whom such User Content originated. Pinggy has no obligation to pre-screen, review, examine, evaluate or otherwise monitor any User Content for accuracy, validity, legality, decency, integrity or any other quality. Pinggy makes no, and hereby disclaims any and all, warranties or other guarantees with respect to User Content. You understand that your use of the Pinggy Service is at your own risk and that by using the Pinggy Service, you may be exposed to User Content that is offensive, indecent, objectionable or that does not otherwise meet your needs. You bear all risks associated with the use of any User Content available in connection with the Pinggy Service. Pinggy shall not be liable in any way for any User Content made available via the Pinggy Service, including, but not limited to, any errors or omissions in any such User Content, or any loss or damage of any kind incurred as a result of the use of such User Content.
 
+Notwithstanding the foregoing, Pinggy reserves the right in its sole discretion to pre-screen, review, monitor, refuse, remove from the Pinggy Service, censor, edit, alter, delete, disable access to or otherwise make unavailable any User Content (including without limitation Your Content) without notice for any reason, including without limitation the violation of these Terms, or for no reason, at any time. You may bring User Content that you believe violates these Terms, or other inappropriate user behavior, to Pinggy’s attention by contacting Pinggy at contact@pinggy.io.
 
-- __Service__ refers to the Website.
+User Content that you make available in connection with the Pinggy Service is referred to herein as “Your Content.” You agree that Your Content is not confidential. You further agree that Your Content will not be returned to you. You represent and warrant that Your Content is original to you and that you exclusively own the rights to Your Content, including the right to grant all of the rights and licenses in these Terms without Pinggy incurring any third party obligations or liability arising out of its exercise of such rights and licenses. Pinggy does not claim any ownership rights in Your Content and nothing in these Terms will be deemed to restrict any rights that you may have to use and exploit Your Content. Pinggy has no obligation to monitor or enforce your intellectual property rights in or to Your Content. Pinggy shall not be responsible for another user’s misuse or misappropriation of any of Your Content.
 
+You hereby grant to Pinggy a worldwide, irrevocable, perpetual, non-exclusive, transferable, royalty-free license, (with the right to sublicense), to use, copy, adapt, modify, distribute, license, sell, transfer, publicly display, publicly perform, transmit, stream, broadcast and otherwise exploit for any purpose Your Content via the Pinggy Service or by any other means. You also hereby grant to Pinggy the right to sublicense and authorize others to exercise any of the rights granted to Pinggy under these Terms. You further hereby irrevocably grant to Pinggy the unconditional right to use and exploit your name, voice, persona and likeness included in any User Content and in connection with any User Content, without any obligation to you. Except as prohibited by law, you waive any rights of attribution and/or any moral rights you may have in Your Content, regardless whether Your Content is altered or changed in a manner not agreeable to you.
 
-- __Terms and Conditions__ (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the [TermsFeed Terms and Conditions Generator](https://www.termsfeed.com/terms-conditions-generator/).
-- __Third-party Social Media Service__ means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.
-- __Website__ refers to My Site, accessible from [https://test_website.com](https://test_website.com)
-- __You__ means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
+## Third Party Content
+Pinggy may use data provided by third parties in the content on the Site and in the Services and may provide links to web pages and content of third parties (collectively the "Third Party Content") as a service to those interested in this information. Pinggy does not monitor or have any control over any Third Party Content or third party websites. Pinggy does not represent or warrant the accuracy of any information contained therein and undertakes no responsibility to update or review any Third Party Content. Users use these links and Third Party Content contained therein at their own risk. When you leave the Site, you should be aware that our terms and policies no longer govern. You should review the applicable terms and policies, including privacy and data gathering practices, of any site to which you navigate from the Site.
 
-# Acknowledgment
+To the extent you are allowed to post Third Party Content on the Site, you agree to abide by all terms of service and/or end-user license agreements of said third parties, and you further warrant that you have the right to post the Third Party Content on the Site and you indemnify and will hold Pinggy harmless for any damages resulting from posting said Third Party Content on the Site.
 
-These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.
 
-Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.
+## Disclaimer of Warranties
+YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SERVICES IS AT YOUR SOLE RISK AND THAT THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE."
+NOTHING IN THESE TERMS SHALL EXCLUDE OR LIMIT PINGGY's WARRANTY OR LIABILITY FOR LOSSES WHICH MAY NOT BE LAWFULLY EXCLUDED OR LIMITED BY APPLICABLE LAW.
+PINGGY MAKES NO EXPRESS WARRANTIES AND DISCLAIMS ALL EXPRESS AND IMPLIED WARRANTIES REGARDING THE SERVICES, INCLUDING EXPRESS AND IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, PINGGY DOES NOT REPRESENT OR WARRANT TO YOU THAT: (A) YOUR USE OF THE SERVICES WILL MEET YOUR REQUIREMENTS, OR (B) YOUR USE OF THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE, OR FREE FROM ERROR.
 
-By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.
+## Limitation of Liability
+YOU EXPRESSLY UNDERSTAND AND AGREE THAT TO THE EXTENT PERMITTED BY APPLICABLE LAW, PINGGY SHALL NOT BE LIABLE TO YOU UNDER BREACH OF CONTRACT, TORT, OR ANY OTHER LEGAL THEORY (A) FOR ERRORS IN THE PINGGY SERVICES OR MATERIALS, LOSS OR INACCURACY OR CORRUPTION OF DATA, COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, OR LOSS OF PROFITS OR BUSINESS; (B) FOR ANY INDIRECT, EXEMPLARY, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES, WHETHER OR NOT PINGGY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES; (C) FOR ANY MATTER BEYOND PINGGY'S REASONABLE CONTROL; OR (D) FOR ANY AMOUNTS THAT, IN THE AGGREGATE, EXCEED THE GREATER OF (I) 1000 INR OR (II) THE AMOUNT PAID OR PAYABLE BY YOU TO PINGGY FOR THE PINGGY SERVICES IN THE SIX (6) MONTHS PRIOR TO THE ACT THAT GAVE RISE TO THE LIABILITY.
 
+## General Representation and Warranty
+You represent and warrant that your use of the Pinggy website and Services will be in strict accordance with with this Agreement and with all applicable laws and regulations, including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from India or the country in which you reside.
 
-You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.
+## Indemnification
+YOU AGREE TO DEFEND, HOLD HARMLESS AND INDEMNIFY ALSTONIA, PINGGY, AND ITS SUBSIDIARIES, AFFILIATES, OFFICERS, AGENTS, EMPLOYEES, ADVERTISERS, LICENSORS, SUPPLIERS OR PARTNERS FROM AND AGAINST ANY THIRD PARTY CLAIM ARISING FROM OR IN ANY WAY RELATED TO YOUR OR YOUR LICENSEES' (INCLUDING BUT NOT LIMITED TO THE CUSTOMER LICENSEES’) (A) BREACH OF THESE TERMS, (B) USE OF THE SERVICES OR MATERIALS OR (C) VIOLATION OF APPLICABLE LAWS, RULES OR REGULATIONS IN CONNECTION WITH THE SERVICES, OR ARISING FROM CONTENT MADE AVAILABLE OVER YOUR OR YOUR LICENSEES' (INCLUDING BUT NOT LIMITED TO THE CUSTOMER LICENSEES’) TUNNELS, INCLUDING ANY LIABILITY OR EXPENSE ARISING FROM ANY CLAIMS, LOSSES, DAMAGES (ACTUAL AND CONSEQUENTIAL), SUITS, JUDGMENTS, LITIGATION COSTS AND ATTORNEYS' FEES, OF EVERY KIND AND NATURE.
 
+## Notice and Assignment
+You agree that Pinggy may provide you with notices, including those regarding changes to the Terms, by email, regular mail, or postings on the Pinggy website. You agree to provide Pinggy with your current email and regular mail address at all times. Except to an acquirer of, or other successor in interest to, your entire business, you shall not assign or otherwise transfer any of your rights or obligations hereunder and any such attempt is void. Pinggy and you are independent contractors and are not legal partners or agents.
 
-Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.
+## Entire Agreement
+These Terms (including any policies, guidelines or amendments that are referenced herein or may be presented to you from time to time) constitute the agreement between you and Pinggy regarding their subject matter and govern your use of the Pinggy Services, superseding any prior agreements between you and Pinggy for the use of the Pinggy Services.
 
+## Governing Law, Jurisdiction, and Venue
+This Agreement shall be governed by and construed in accordance with the laws of West Bengal, India without reference to its choice of law rules. Any action or proceeding arising out of this Agreement shall be brought only in a court located in Bolpur, Birbhum, India. Customer hereby consents to the jurisdiction of, and laying of venue in, such court(s) and waives any objection thereto. The Parties specifically exclude the United Nations Convention on Contracts for the International Sale of Goods from this Agreement and any transaction that may be implemented in connection with this Agreement.
 
+## Waiver and Severability of Terms
+The failure of Pinggy to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. If any provision of these Terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavor to give effect to the party's intentions as reflected in the provision, and the other provisions of these Terms remain in full force and effect.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Links to Other Websites
-
-Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.
-
-The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.
-
-We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.
-
-# Termination
-
-We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.
-
-Upon termination, Your right to use the Service will cease immediately.
-
-
-# Limitation of Liability
-
-Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.
-
-To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.
-
-Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.
-
-# "AS IS" and "AS AVAILABLE" Disclaimer
-
-The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.
-
-Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.
-
-Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.
-
-# Governing Law
-
-The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.
-
-# Disputes Resolution
-
-If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.
-
-
-# For European Union (EU) Users
-
-If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which you are resident in.
-
-
-
-
-
-# United States Legal Compliance
-
-You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.
-
-
-# Severability and Waiver
-
-## Severability
-
-If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
-
-## Waiver
-
-Except as provided herein, the failure to exercise a right or to require performance of an obligation under these Terms shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall the waiver of a breach constitute a waiver of any subsequent breach.
-
-# Translation Interpretation
-
-These Terms and Conditions may have been translated if We have made them available to You on our Service.
-You agree that the original English text shall prevail in the case of a dispute.
-
-# Changes to These Terms and Conditions
-
-We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.
-
-By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.
-
-# Contact Us
-
-If you have any questions about these Terms and Conditions, You can contact us:
-
-
-- By email: office@mycompany.com
-
-
-- By visiting this page on our website: [http://www.mycompany.com/contact](http://www.mycompany.com/contact)
+## Statute of Limitations
+You agree that regardless of any statute or law to the contrary, any claim or cause of action by you arising out of or related to use of the Pinggy Services or the Terms must be filed within one (1) year after such claim or cause of action arises or be forever barred.
