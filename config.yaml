@@ -15,12 +15,13 @@ menus:
   - name: Download
     url: /download
     weight: 100
+  - name: Docs
+    url: /docs
+    weight: 110
   - name: Contact Us
     url: /contact_us
-    weight: 110
-  # - name: Privacy Policy
-  #   url: /privacy_policy
-  #   weight: 120
+    weight: 120
+
   # - name: Terms of Service
   #   url: /Terms_of_Service
   #   weight: 110
