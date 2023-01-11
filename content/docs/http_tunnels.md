@@ -14,4 +14,41 @@ ssh -p 7878 -R0:localhost:8000 b.pinggy.io
 
 *Replace `8000` with the port where your service is running*.
 
-## Using Pinggy client
+The above command will provide you http and https URLs as follows:
+
+```
+You can access local server via following URL(s):
+http://fakqxzqrohxxx.b.pinggy.io
+https://fakqxzqrohxxx.b.pinggy.io
+```
+
+You can access your localhost service using these URLs.
+
+**These URLs will change every time you create a new tunnel. If you want a persistent subdomain** <b><a target="_blank" href="http://dashboard.pinggy.io">Sign in</a></b>.
+
+
+
+## Using the Pinggy client
+
+Download the Pinggy client for your platform (Mac, Linux, Windows).
+
+Make sure the downloaded binary is executable using `chmod +x pinggy_mac_amd64`. Replace `pinggy_mac_amd64` with the filename that you downloaded.
+
+To run an HTTP / HTTPS tunnel on port `8000` use the command:
+
+```
+./pinggy_mac_amd64 -p 8000
+```
+
+Replace `8000` with the port where your service is running in localhost.
+
+You will get the public URL in the terminal.
+
+![Pinggy client HTTP tunnel](/doc_img/pinggy_cli_http.jpg)
+
+
+
+**These URLs will change every time you create a new tunnel. If you want a persistent subdomain** <b><a target="_blank" href="http://dashboard.pinggy.io">Sign in</a></b>.
+
+
+
