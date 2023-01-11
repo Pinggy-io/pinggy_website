@@ -1,3 +1,9 @@
+---
+ title: "HTTP / HTTPS Tunnels" 
+ date: 2023-01-10T14:15:25+05:30 
+ draft: false 
+---
+
 # Create HTTP / HTTPS Tunnels with Pinggy
 
 Pinggy allows you to create HTTP / HTTPS tunnels to your localhost using the following two methods:
@@ -30,7 +36,7 @@ You can access your localhost service using these URLs.
 
 ## Using the Pinggy client
 
-Download the Pinggy client for your platform (Mac, Linux, Windows).
+<a href="https://pinggy.io/download/" target="_blank">Download</a> the Pinggy client for your platform (Mac, Linux, Windows).
 
 Make sure the downloaded binary is executable using `chmod +x pinggy_mac_amd64`. Replace `pinggy_mac_amd64` with the filename that you downloaded.
 
