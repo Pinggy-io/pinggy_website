@@ -4,11 +4,14 @@
  draft: false 
 ---
 
-## Download Pinggy
+# Download Pinggy
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+    <button class="nav-link active" id="mac-tab" data-bs-toggle="tab" data-bs-target="#mac-tab-pane" type="button" role="tab" aria-controls="mac-tab-pane" aria-selected="true">Mac</button>
+  </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="linux-tab" data-bs-toggle="tab" data-bs-target="#linux-tab-pane" type="button" role="tab" aria-controls="linux-tab-pane" aria-selected="true">Linux</button>
+    <button class="nav-link" id="linux-tab" data-bs-toggle="tab" data-bs-target="#linux-tab-pane" type="button" role="tab" aria-controls="linux-tab-pane" aria-selected="true">Linux</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows-tab-pane" type="button" role="tab" aria-controls="windows-tab-pane" aria-selected="false">Windows</button>
@@ -16,7 +19,33 @@
 </ul>
 
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="linux-tab-pane" role="tabpanel" aria-labelledby="linux-tab" tabindex="0">
+<div class="tab-pane fade show active" id="mac-tab-pane" role="tabpanel" aria-labelledby="mac-tab" tabindex="0">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Architecture</th>
+                <th scope="col">Version</th>
+                <th scope="col">Download Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>All</td>
+                <td>alpha</td>
+                <td><a target="_blank" href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/pinggy_mac_univ">pinggy_mac_univ</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Instructions</h3>
+        <span>Make the downloaded binary executable:</span>
+        <kbd>chmod +x pinggy_mac_univ</kbd>
+        <br>
+        <span>Run the executable.<br></span>
+        <kbd>./pinggy_mac_univ</kbd>
+        <hr>
+
+  </div>
+  <div class="tab-pane fade" id="linux-tab-pane" role="tabpanel" aria-labelledby="linux-tab" tabindex="0">
         <table class="table">
             <thead>
                 <tr>
