@@ -15,7 +15,7 @@ First, run the service you want to share in localhost. You need to know the port
 Command to start a tunnel to port `8000`:
 <br>
 ```
-ssh -p 7878 -R0:localhost:8000 b.pinggy.io
+ssh -p 7878 -R0:localhost:8000 a.pinggy.io
 ```
 
 *Replace `8000` with the port where your service is running*.
@@ -24,8 +24,8 @@ The above command will provide you http and https URLs as follows:
 
 ```
 You can access local server via following URL(s):
-http://fakqxzqrohxxx.b.pinggy.io
-https://fakqxzqrohxxx.b.pinggy.io
+http://fakqxzqrohxxx.a.pinggy.io
+https://fakqxzqrohxxx.a.pinggy.io
 ```
 
 You can access your localhost service using these URLs.
