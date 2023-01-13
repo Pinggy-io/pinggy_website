@@ -22,7 +22,7 @@ This will start a server at <a href="http://localhost:8000" target="_blank">http
 
 
 ```
-ssh -p 7878 -R0:localhost:8000 b.pinggy.io
+ssh -p 7878 -R0:localhost:8000 a.pinggy.io
 ```
 
 Replace the port `8000` with the localhost port where your service is running.
@@ -34,8 +34,8 @@ The above command will provide you http and https URLs as follows:
 
 ```
 You can access local server via following URL(s):
-http://fakqxzqrohxxx.b.pinggy.io
-https://fakqxzqrohxxx.b.pinggy.io
+http://fakqxzqrohxxx.a.pinggy.io
+https://fakqxzqrohxxx.a.pinggy.io
 ```
 
 You can access your localhost service using these URLs.
