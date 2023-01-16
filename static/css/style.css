@@ -10,6 +10,73 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+ /* Extra font */
+ /* Font */
+@font-face {
+  font-family: uncut sans;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-Regular.otf) format('otf')
+}
+
+@font-face {
+  font-family: uncut sans;
+  font-style: italic;
+  font-weight: 400;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-RegularOblique.otf) format('woff')
+}
+
+@font-face {
+  font-family: uncut sans;
+  font-style: normal;
+  font-weight: 500;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-Medium.otf) format('woff')
+}
+
+@font-face {
+  font-family: uncut sans;
+  font-style: italic;
+  font-weight: 500;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-MediumOblique.otf) format('woff')
+}
+
+@font-face {
+  font-family: uncut sans;
+  font-style: normal;
+  font-weight: 600;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-Semibold.otf) format('woff')
+}
+
+@font-face {
+  font-family: uncut sans;
+  font-style: italic;
+  font-weight: 600;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-SemiboldOblique.otf) format('woff')
+}
+
+@font-face {
+  font-family: uncut sans;
+  font-style: normal;
+  font-weight: 700;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-Bold.otf) format('woff')
+}
+
+@font-face {
+  font-family: uncut sans;
+  font-style: italic;
+  font-weight: 700;
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-BoldOblique.otf) format('woff')
+}
+
+@font-face {
+  font-family: uncut sans vf;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Uncut Sans VF'), url(../fonts/uncut-sans/Uncut-Sans-VF.ttf) format('woff')
+}
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

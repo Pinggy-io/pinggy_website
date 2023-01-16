@@ -1,14 +1,14 @@
 {{ define "main" }}
 
 <!-- Banner -->
-<header class="bg-dark py-5">
+<header class="py-5">
     <div class="container px-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <div class="text-center my-5">
-                    <h1 class="display-5 fw-bolder text-white mb-2">Public URLs for Localhost</h1>
-                    <span class="fw-bolder text-white mb-2 fs-4">Without downloading any binary</span>
-                    <p class="lead text-white-50 mb-4">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting behind firewalls and NATs.</p>
+                    <h1 class="display-5 fw-bolder mb-2">Public URLs for Localhost</h1>
+                    <span class="fw-bolder mb-2 fs-4">Without downloading any binary</span>
+                    <p class="lead mb-4">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting behind firewalls and NATs.</p>
 
                     <!-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                         <a id="downloadlink" href="javascript:void(0)" class="btn btn-primary px-4 py-2 mx-2 my-md-2 my-1">Download <span id="downloadlinktext"></span></a>
@@ -17,20 +17,24 @@
                     </div> -->
                     <form>
                         <div class="row mb-3">
-                            <label for="portform" class="col-sm-4 col-form-label text-white text-end">Port to share:</label>
+                            <label for="portform" class="col-sm-4 col-form-label text-end">Port to share:</label>
                             <div class="col-sm-6">
                             <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
                             </div>
                         </div>
                     </form>
-                    <p class="text-white">Single command to get started:</p>
+                    <p class="">Single command to get started:</p>
 
                     <div class="input-group">
                         
                         <input id="portcommand" class="form-control" value="ssh -p 7878 -R0:localhost:8000 a.pinggy.io" readonly="readonly"></input>
                         <button class="btn btn-outline-light" type="button" id="copybutton" onclick="copytoclipboard()"><i class="bi bi-clipboard"></i></button>
                     </div>
-                    <h3 class="fw-bolder text-white my-4"><a href="https://dashboard.pinggy.io">Sign in</a> to join our early adopters and get a persistent subdomain for free!</h3>
+
+                    <div>
+                        <h3 class="d-inline-block mt-4"><a href="https://dashboard.pinggy.io" id="signinbutton">Sign in</a>
+                        to join our early adopters and get a persistent subdomain for free!</h3>
+                    </div>
 
                 </div>
             </div>
