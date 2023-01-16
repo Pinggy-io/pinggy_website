@@ -1,3 +1,16 @@
+html {
+    background: rgb(242 244 247);
+}
+
+#signinbutton {
+    display: inline-block;
+}
+
+body {
+    font-family: Uncut Sans, sans-serif;
+    background: rgb(242 244 247);
+}
+
 #portcommand {
     background: #ffffff;
     color: rgb(0, 0, 0) !important;
@@ -21,6 +34,7 @@
     background-color: transparent;
     border: 0;
 }
+
 .btn-toggle:hover,
 .btn-toggle:focus {
     color: rgba(0, 0, 0, .85);
@@ -38,6 +52,7 @@
 .btn-toggle[aria-expanded="true"] {
     color: rgba(0, 0, 0, .85);
 }
+
 .btn-toggle[aria-expanded="true"]::before {
     transform: rotate(90deg);
 }
@@ -49,6 +64,7 @@
     margin-left: 1.25rem;
     text-decoration: none;
 }
+
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
     background-color: #d2f4ea;
@@ -58,8 +74,13 @@
     overflow-y: auto;
 }
 
-.fw-semibold { font-weight: 600; }
-.lh-tight { line-height: 1.25; }
+.fw-semibold {
+    font-weight: 600;
+}
+
+.lh-tight {
+    line-height: 1.25;
+}
 
 /* Sidebar end */
 
