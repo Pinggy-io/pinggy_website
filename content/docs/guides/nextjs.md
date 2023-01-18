@@ -26,5 +26,5 @@ The application will start at `http://localhost:3000` by default.
 Create a tunnel using the command:
 <br>
 ```
-ssh -p 7878 -R0:localhost:3000 b.pinggy.io
+ssh -p 443 -R0:localhost:3000 b.pinggy.io
 ```

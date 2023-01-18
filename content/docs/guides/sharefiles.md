@@ -38,7 +38,7 @@ http-server -p 8000
 Create a tunnel using the command:
 <br>
 ```
-ssh -p 7878 -R0:localhost:8000 b.pinggy.io
+ssh -p 443 -R0:localhost:8000 b.pinggy.io
 ```
 
 Access your files using the URLs given by Pinggy after the above command.
