@@ -15,7 +15,7 @@ First, run the service you want to share in localhost. You need to know the port
 Command to start a tunnel to port `8000`:
 <br>
 ```
-ssh -p 7878 -R0:localhost:8000 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
 ```
 
 *Replace `8000` with the port where your service is running*.

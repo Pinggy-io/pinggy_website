@@ -22,7 +22,7 @@ This will start a server at <a href="http://localhost:8000" target="_blank">http
 
 
 ```
-ssh -p 7878 -R0:localhost:8000 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
 ```
 
 Replace the port `8000` with the localhost port where your service is running.
