@@ -27,7 +27,7 @@ Create a tunnel either using the ssh command or the Pinggy client.
 Command to start a tunnel to port `8000` and with token `b0b87d56-653f-45fb-98d9-8e43779c9081`:
 <br>
 ```
-ssh -p 7878 -R0:localhost:8000 b0b87d56-653f-45fb-98d9-8e43779c9081@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 b0b87d56-653f-45fb-98d9-8e43779c9081@a.pinggy.io
 ```
 
 *Replace `8000` with the port where your service is running*.
