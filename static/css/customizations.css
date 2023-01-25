@@ -9,8 +9,8 @@ html {
 body {
     font-family: Uncut Sans, sans-serif;
     background-image: linear-gradient( to bottom,
-    #f1f5f9f9,
-    #fefefe), url('../assets/header_grid.jpg');
+    #f1f5f9f7,
+    #fefefe 30%), url('../assets/header_grid.jpg');
     background-repeat: no-repeat;
     background-size: contain;
 }
