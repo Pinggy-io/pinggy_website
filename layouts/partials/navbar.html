@@ -1,14 +1,16 @@
  {{/* Responsive Navbar */}}
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container px-3">
-        <a class="navbar-brand" href="/">
-            <img height="24" src="/assets/logo.png"/>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+ <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid py-2">
+       <div class="logo navbar-brand">
+         <a href="/">
+            <img height="50" src="/assets/pinggy_logo.png"/>
+            </a>
+       </div>
+        <button class="navbar-toggler primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i>        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav  mb-2 mb-lg-0">
                 {{ range .Site.Menus.main }}
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link{{ if $.IsMenuCurrent " main " . }} active" aria-current="page{{ end }}" href="{{ .URL }}">{{ .Pre
                     }}
                     <span>{{ .Name }}</span></a>
@@ -16,5 +18,10 @@
                 {{ end }}
             </ul>
         </div>
+        <div class="nav-button">
+            <a href="#" id="LoginBtn" class="p-2 mx-1"> Login</a>   
+            <a href="#" id="FreeTrailBtn" class="bg-dark py-2 px-3"> Start your Free Trail</a>    
+        </div>
     </div>
+    <div class="container-fluid rainbowborder"></div>
 </nav>
