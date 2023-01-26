@@ -2,14 +2,20 @@ html {
     background: rgb(242 244 247);
 }
 
+
 #signinbutton {
     display: inline-block;
 }
 
 body {
     font-family: Uncut Sans, sans-serif;
-    background: rgb(242 244 247);
+    background-image: linear-gradient( to bottom,
+    #f1f5f9f7,
+    #fefefe 30%), url('../assets/header_grid.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+
 
 #portcommand {
     background: #ffffff;
@@ -17,6 +23,7 @@ body {
 }
 
 /* Sidebar  */
+
 
 .sidebar {
     border-right: 1px solid #dfdfdf;
@@ -96,4 +103,62 @@ body {
 code {
     background-color: rgb(243, 243, 243);
     color: #d63384 !important;
+}
+
+
+/* Navbar */
+.navbar{
+    font-size: 1.2em;
+   display: block;
+   box-shadow: 2px 2px 15px rgba(255, 234, 234, 0.84);
+   padding: 0;
+    
+}
+.navbar .container-fluid{
+    background-color: #ffffff !important;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-around;
+}
+.navbar .rainbowborder{
+    height: 0.24vh;
+    background-image: linear-gradient(90deg, #00fff27a 0%, #ffd0004c 49%, #fc4f4f1e 80%, #00bfff55 100%);
+}
+.nav-link span{
+    color: rgb(52, 59, 70);
+    font-weight: 400;
+    font-size: 0.92em;
+}
+
+.nav-item{
+    border-radius: 7px;
+    transition: all 200ms;
+}
+.nav-item:hover{
+    background-color: rgba(241, 245, 249);
+}
+.navbar #LoginBtn{
+    text-decoration: none;
+    border: 1px solid gray;
+    border-radius: 7px;
+    color:black;
+}
+.navbar #LoginBtn:hover{
+    border: 1px solid black;
+    
+}
+.navbar #FreeTrailBtn{
+    text-decoration: none;
+    border-radius: 7px;
+    color: white;
+}
+.navbar #FreeTrailBtn:hover{
+    background-color: rgb(51, 65 ,85 ) !important;
+}
+
+/* Big header */
+#lead2 {
+    color: rgba(52, 59, 70, 0.748);
+    margin-top: 1em;
 }
