@@ -160,5 +160,34 @@ code {
 /* Big header */
 #lead2 {
     color: rgba(52, 59, 70, 0.748);
-    margin-top: 1em;
+    margin-top: 0.6em;
+    font-size: 1.2em;
+}
+
+#tryityourselftext {
+    background: #e9ecef57;
+}
+#tryityourselfprecommand {
+    color: rgb(64, 80, 107);
+    background-color: white;
+}
+
+#signinbutton {
+    background-color: rgba(0, 0, 0, 0.774);
+    border: black;
+    padding: 0.6em;
+}
+
+.btn-outline-dark {
+    border-color: #d1d1d1;
+}
+
+#bigcodecolumn {
+    background-color: white;
+    margin-top: 3.5em;
+    border-radius: 1em;
+}
+
+#bigcodediv {
+    margin: 1em;
 }

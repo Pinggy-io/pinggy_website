@@ -3,37 +3,56 @@
 <!-- Banner -->
 <header class="py-5">
     <div class="container px-5">
-        <div class="row gx-5 justify-content-center">
-            <div class="col-lg-6">
-                <div class="text-center my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="text-left my-5">
                     <h1 class="display-5 fw-bolder mb-2">Public URLs for Localhost</h1>
-                    <span class="mb-2 fs-4">Without downloading any binary</span>
-                    <p class="lead mb-4" id="lead2">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting behind firewalls and NATs.</p>
-
-                    <!-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a id="downloadlink" href="javascript:void(0)" class="btn btn-primary px-4 py-2 mx-2 my-md-2 my-1">Download <span id="downloadlinktext"></span></a>
-                        <a href="#features" class="btn btn-outline-light px-2 py-2 mx-1 my-md-2 my-1">Learn More</a>
-                        <br/>
-                    </div> -->
-                    <form>
-                        <div class="row mb-3">
-                            <label for="portform" class="col-sm-4 col-form-label text-end">Port to share:</label>
-                            <div class="col-sm-6">
-                            <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
-                            </div>
-                        </div>
-                    </form>
-                    <p class="">Single command to get started:</p>
-
-                    <div class="input-group">
-                        
-                        <input id="portcommand" class="form-control" value="ssh -p 443 -R0:localhost:8000 a.pinggy.io" readonly="readonly"></input>
-                        <button class="btn btn-outline-dark" type="button" id="copybutton" onclick="copytoclipboard()"><i class="bi bi-clipboard"></i></button>
-                    </div>
+                    <span class="mb-2 fs-3">Without downloading any binary</span>
+                    <p class="mb-4" id="lead2">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting behind firewalls and NATs.</p>
 
                     <div>
-                        <a href="https://dashboard.pinggy.io" id="signinbutton" class="btn btn-primary mt-3">Sign in for TCP and TLS tunnels</a> <span></span>
+                        <a href="https://dashboard.pinggy.io" id="signinbutton" class="btn btn-dark mt-3">Sign in for TCP and TLS tunnels</a> <span></span>
                     </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-5" id="bigcodecolumn">
+                <div class="text-left" id="bigcodediv">
+
+                    <div class="input-group my-4">
+                        
+                            <label class="input-group-text" id="tryityourselftext">Try it yourself with:</label>
+                        
+                            <select class="form-select" id="techselect">
+                                <option data-label="You may start a local server using:" data-command="python3 -m http.server" data-port="8000" value="python" selected>Python</option>
+                                <option data-label="You may start a local server using:" data-command="npx http-server" data-port="8080" value="nodejs">Node.js</option>
+                                <option data-label="Nginx by default runs at port 80" data-command="" data-port="80" value="nginx">Nginx</option>
+                            </select>
+                        
+                    </div>
+
+                    <label class="text-bold" id="tryityourselflabel">You may start a local server using:</label>
+                    <div class="input-group mb-3">
+                        <input id="tryityourselfprecommand" type="text" class="form-control" value="python3 -m http.server" readonly>
+                        <button class="btn btn-outline-dark" type="button" id="copybutton2" onclick="copytoclipboard(this,'#tryityourselfprecommand', 'Pre command copy button clicked')"><i class="bi bi-clipboard"></i></button>
+                    </div>
+
+
+                    <form>
+                            <label for="portform" class="text-bold"><strong>Your local port:</strong></label>
+                            <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
+                    </form>
+
+                    <label class="text-bold mt-3"><strong>Single command to start tunnel:</strong></label>
+                    <div class="input-group">
+                        <input id="portcommand" class="form-control" value="ssh -p 443 -R0:localhost:8000 a.pinggy.io" readonly="readonly"></input>
+                        <button class="btn btn-outline-dark" type="button" id="copybutton" onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"><i class="bi bi-clipboard"></i></button>
+                    </div>
+
+                    <!-- <div>
+                        <a href="https://dashboard.pinggy.io" id="signinbutton" class="btn btn-primary mt-3">Sign in for TCP and TLS tunnels</a> <span></span>
+                    </div> -->
                 </div>
             </div>
         </div>
