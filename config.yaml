@@ -21,9 +21,6 @@ menus:
   - name: Contact Us
     url: /contact_us
     weight: 120
-  - name: Dashboard
-    url: https://dashboard.pinggy.io
-    weight: 130
 
   # - name: Terms of Service
   #   url: /Terms_of_Service
