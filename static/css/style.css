@@ -17,7 +17,7 @@
   font-family: uncut sans;
   font-style: normal;
   font-weight: 400;
-  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-Regular.otf) format('otf')
+  src: local('Uncut Sans'), url(../fonts/uncut-sans/Uncut-Sans-Regular.otf) format('woff')
 }
 
 @font-face {
