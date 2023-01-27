@@ -12,8 +12,8 @@ menus:
   - name: Home
     url: "/"
     weight: 90
-  - name: Download
-    url: /download
+  - name: Pricing
+    url: /#prices
     weight: 100
   - name: Docs
     url: /docs
