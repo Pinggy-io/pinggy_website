@@ -10,10 +10,9 @@ html {
 body {
     font-family: Uncut Sans, sans-serif;
     background-image: linear-gradient( to bottom,
-    #f1f5f9f7,
-    #fefefe 30%), url('../assets/header_grid.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
+    #f1f5f980,
+    #fefefe 30%), url('../assets/header_grid2.png');
+    background-repeat: repeat;
 }
 
 
@@ -118,12 +117,11 @@ code {
     background-color: #ffffff !important;
     display: flex;
     flex-direction: row;
-    width: 100vw;
     justify-content: space-around;
 }
 .navbar .rainbowborder{
-    height: 0.24vh;
-    background-image: linear-gradient(90deg, #00fff27a 0%, #ffd0004c 49%, #fc4f4f1e 80%, #00bfff55 100%);
+    height: 0.06em;
+    background-image: linear-gradient(90deg,#44ff9b3a -.55%,#44b1ff3b 22.86%,#8c44ff3b 48.36%,#ff664433 73.33%,#ecff703f 99.34%);
 }
 .nav-link span{
     color: rgb(52, 59, 70);
@@ -191,3 +189,61 @@ code {
 #bigcodediv {
     margin: 1em;
 }
+
+
+/* Pricing section */
+/* ------ Hide monthly prices by default ---- */
+.monthly {
+    display: none;
+  }
+
+
+/* ----------  Toggle button ------------- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+      border-radius: 34px;
+  
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+      border-radius: 34px;
+  
+  }
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+  }

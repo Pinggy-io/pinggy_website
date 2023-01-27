@@ -60,34 +60,22 @@
 </header>
 
 
-<header class="bg-light py-5">
-    <div class="container px-5">
-        <div class="row gx-5">
-            <div class="col-lg-7">
-                <div class="tmy-5">
-                    <h1 class="display-5 fw-bolder mb-2">Download Pinggy client for a better experience.</h1>
-                    <p class="lead text-50 mb-4">
-                        📈 View detailed stats.
-                        <br>
-                        🧑‍💻 Create TCP or TLS tunnels.
-                    </p>
-                </div>
-                <div class="">
-                    <a id="downloadlink" href="javascript:void(0)" class="btn btn-primary px-4 py-2 mx-2 my-md-2 my-1">Download <span id="downloadlinktext"></span></a>
-                </div>
-                
-                
-            </div>
-            <div class="col-lg-5">
-                <div class="tmy-5">
-                    <img class="img-fluid" src="/assets/pinggy_screenshot.jpg"/>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
 <!-- Features -->
+
+
+        <!-- Features section-->
+        <section class="py-5 border-bottom" id="features">
+            <div class="container px-5 my-5">
+                <div class="row justify-content-center">
+                    <div class="col-10">
+                        <img class="img-fluid" src="/assets/header3.png"/>
+                    </div>
+                    <div class="col-10">
+                        <h1 class="mb-2 text-center fw-light">Quickest way to share your <span id="textchanger">website.</span></h1>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Features section-->
         <section class="py-5 border-bottom" id="features">
@@ -129,6 +117,122 @@
                 </div>
             </div>
         </section>
+
+
+<header class="bg-light py-5" id="prices">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <!-- Begin Page Content -->
+            <div class="col-10">
+
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="text-bold fw-normal">Subscribe to the easiest localhost tunneling.</h1>
+                <p class="fs-5 text-muted">Make your developement experience smoother by unlocking the full potential of Pinggy.</p>
+            </div>
+
+            <label class="toggler toggler--is-active" id="filt-monthly">Monthly</label>
+            <label class="switch">
+                <input id="toggleswitch" type="checkbox" checked="">
+                <span class="slider round"></span>
+            </label>
+            <label class="toggler" id="filt-hourly">Yearly</label>
+
+                <main>
+                    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-sm">
+                                <div class="card-header py-3">
+                                    <h4 class="my-0 fw-normal">Free</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                                        <span class="text-muted fw-light">Free for life</span>
+                                    </div>
+                                    <ul class="list-unstyled mt-3 mb-4 list-group text-left">
+                                        <li class="list-group-item p-2">Single command tunneling</li>
+                                        <li class="list-group-item p-2"><b>10 minutes tunnel timeout</b></li>
+                                        <li class="list-group-item p-2">HTTP and HTTPS tunnels</li>
+                                        <li class="list-group-item p-2">TCP / TLS tunnels</li>
+                                        <li class="list-group-item p-2">Random domains</li>
+                                        <li class="list-group-item p-2">Restricted bandwidth and connections</li>
+                                        <li class="list-group-item p-2">Free mail support</li>
+                                    </ul>
+                                    <a href="https://dashboard.pinggy.io/"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Go to dashboard</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-sm">
+                                <div class="card-header py-3">
+                                    <h4 class="my-0 fw-normal">Pro</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="yearly">
+                                        <h1 class="card-title pricing-card-title">$10<small class="text-muted fw-light">/mo</small></h1>
+                                        <span class="text-muted fw-light">(billed annually)</span>
+                                    </div>
+                                    <div class="monthly">
+                                        <h1 class="card-title pricing-card-title">$12<small class="text-muted fw-light">/mo</small></h1>
+                                        <span class="text-muted fw-light">(billed monthly)</span>
+                                    </div>
+                                    <ul class="list-unstyled mt-3 mb-4 text-left list-group">
+                                        <li class="list-group-item p-2">Everyting in Free plan</li>
+                                        <li class="list-group-item p-2"><b>1 persistent tunnel</b></li>
+                                        <li class="list-group-item p-2"><b>Persistent subdomain</b></li>
+                                        <li class="list-group-item p-2">HTTP / TCP / TLS tunnels</li>
+                                        <li class="list-group-item p-2">Priority mail support</li>
+
+                                        <hr>
+                                        <li class="text-gray-600">Coming soon</li>
+                                        <li class="list-group-item p-2">Custom domain support</li>
+                                    </ul>
+
+                                    <a class="w-100 btn btn-lg btn-primary" id="checkout-and-portal-button-3" href="https://dashboard.pinggy.io/billing/plans">Get Started</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                                <div class="card-header py-3 text-white bg-primary border-primary">
+                                    <h4 class="my-0 fw-normal">Pro Team</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="yearly">
+                                        <h1 class="card-title pricing-card-title">$40<small class="text-muted fw-light">/mo</small></h1>
+                                        <span class="text-muted fw-light">(billed annually)</span>
+                                    </div>
+                                    <div class="monthly">
+                                        <h1 class="card-title pricing-card-title">$44<small class="text-muted fw-light">/mo</small></h1>
+                                        <span class="text-muted fw-light">(billed monthly)</span>
+                                    </div>
+
+                                    <ul class="list-unstyled mt-3 mb-4 list-group text-left">
+                                        <li class="list-group-item p-2">Everyting in Pro plan</li>
+                                        <li class="list-group-item p-2"><b>5 persistent tunnels</b></li>
+                                        <li class="list-group-item p-2"><b>5 persistent subdomains</b></li>
+                                        <li class="list-group-item p-2">Unrestricted bandwidth</li>
+                                        <li class="list-group-item p-2">Slack Support</li>
+                                        <hr>
+                                        <li class="text-gray-600">Coming soon</li>
+                                        <li class="list-group-item p-2">Account sharing with team</li>
+                                    </ul>
+                                    <a class="w-100 btn btn-lg btn-primary" id="checkout-and-portal-button-3" href="https://dashboard.pinggy.io/billing/plans">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+
+
+            </div>
+        </div>
+    </div>
+</header>
+
 
 {{ end }}
 
