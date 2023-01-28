@@ -21,7 +21,7 @@ body {
     color: rgb(0, 0, 0) !important;
 }
 
-/* Sidebar  */
+/* Sidebar  -------------------------- */
 
 
 .sidebar {
@@ -105,7 +105,7 @@ code {
 }
 
 
-/* Navbar */
+/* Navbar --------------------------------- */
 .navbar{
     font-size: 1.2em;
    display: block;
@@ -113,11 +113,9 @@ code {
    padding: 0;
     
 }
-.navbar .container-fluid{
+.navbar-expand-lg {
     background-color: #ffffff !important;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+
 }
 .navbar .rainbowborder{
     height: 0.06em;
@@ -155,7 +153,8 @@ code {
     background-color: rgb(51, 65 ,85 ) !important;
 }
 
-/* Big header */
+/* Big header --------------------------------- */
+
 #lead2 {
     color: rgba(52, 59, 70, 0.748);
     margin-top: 0.6em;
@@ -191,7 +190,12 @@ code {
 }
 
 
-/* Pricing section */
+#textchanger {
+    color: rgb(99, 68, 172);
+    font-weight: bolder;
+}
+
+/* Pricing section --------------------------  */
 /* ------ Hide monthly prices by default ---- */
 .monthly {
     display: none;
