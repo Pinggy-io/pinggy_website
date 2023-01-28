@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 <!-- Banner -->
-<header class="py-5">
-    <div class="container px-5">
-        <div class="row justify-content-center">
+<header class="pt-5">
+    <div class="container">
+        <div class="row justify-content-evenly">
             <div class="col-lg-5">
                 <div class="text-left my-5">
-                    <h1 class="display-5 fw-bolder mb-2">Public URLs for Localhost</h1>
+                    <h1 class="display-5 fw-bolder mb-2 biggestheader">Public URLs for Localhost</h1>
                     <span class="mb-2 fs-3">Without downloading any binary</span>
                     <p class="mb-4" id="lead2">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting behind firewalls and NATs.</p>
 
@@ -15,8 +15,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="col-lg-5" id="bigcodecolumn">
                 <div class="text-left" id="bigcodediv">
 
@@ -65,22 +63,24 @@
 
         <!-- Features section-->
         <section class="py-5 border-bottom" id="features">
-            <div class="container px-5 my-5">
+            <div class="container my-5">
                 <div class="row justify-content-center">
-                    <div class="col-10">
+                    <div class="col-lg-6">
+                        <h2 class="mb-5 text-left fw-light">Quickest way to  <span id="textchanger"></span></h2>
+                    </div>
+                    <div class="col-lg-10">
                         <img class="img-fluid" src="/assets/header3.png"/>
                     </div>
-                    <div class="col-10">
-                        <h1 class="mb-2 text-center fw-light">Quickest way to share your <span id="textchanger">website.</span></h1>
-                    </div>
                 </div>
+                
             </div>
         </section>
+        
 
         <!-- Features section-->
         <section class="py-5 border-bottom" id="features">
-            <div class="container px-5 my-5">
-                <div class="row gx-5">
+            <div class="container my-5">
+                <div class="row">
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
                         <h2 class="h4 fw-bolder">Test your website</h2>
@@ -123,7 +123,7 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <!-- Begin Page Content -->
-            <div class="col-10">
+            <div class="col-lg-10">
 
             <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
                 <h1 class="text-bold fw-normal">Subscribe to the easiest localhost tunneling.</h1>
