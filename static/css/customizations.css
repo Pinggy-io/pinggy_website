@@ -39,6 +39,15 @@ body {
    background-color: white;
 }
 
+.bg-subtlegray {
+    background: rgb(248 250 252);
+}
+.border-subtlegray {
+    border-color: rgb(226 232 240);
+    border-width: 1px;
+    border-style: solid;
+}
+
 /* Sidebar  -------------------------- */
 
 

@@ -40,13 +40,3 @@ https://fakqxzqrohxxx.a.pinggy.io
 
 You can access your localhost service using these URLs.
 
-**These URLs will change every time you create a new tunnel. If you want a static subdomain** <b><a target="_blank" href="http://dashboard.pinggy.io">Sign in</a></b>.
-
-
-----
-
-## Know who is accessing your URL
-
-If you want to access more features such as a log of visitors clicking your URL, the volume of data transferred, and more, then download the Pinggy client.
-
-<a id="downloadlink" href="https://pinggy.io/download/" target="_blank" class="btn btn-primary px-4 py-2 mx-2 my-md-2 my-1">Download Client <span id="downloadlinktext"></span></a>
