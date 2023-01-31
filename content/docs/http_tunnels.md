@@ -6,9 +6,8 @@
 
 # Create HTTP / HTTPS Tunnels with Pinggy
 
-Pinggy allows you to create HTTP / HTTPS tunnels to your localhost using the following two methods:
+Pinggy allows you to create HTTP / HTTPS tunnels to your localhost using a single command:
 
-## Using ssh command
 
 First, run the service you want to share in localhost. You need to know the port where the service is running, for example `8000`. Check if the service is accessible from localhost through <a href="http://localhost:8080" target="_blank">http://localhost:8000</a>.
 
@@ -30,31 +29,6 @@ https://fakqxzqrohxxx.a.pinggy.io
 
 You can access your localhost service using these URLs.
 
-**These URLs will change every time you create a new tunnel. If you want a persistent subdomain** <b><a target="_blank" href="http://dashboard.pinggy.io">Sign in</a></b>.
-
-
-
-## Using the Pinggy client
-
-<a href="https://pinggy.io/download/" target="_blank">Download</a> the Pinggy client for your platform (Mac, Linux, Windows).
-
-Make sure the downloaded binary is executable using `chmod +x pinggy_mac_amd64`. Replace `pinggy_mac_amd64` with the filename that you downloaded.
-
-To run an HTTP / HTTPS tunnel on port `8000` use the command:
-
-```
-./pinggy_mac_amd64 -p 8000
-```
-
-Replace `8000` with the port where your service is running in localhost.
-
-You will get the public URL in the terminal.
-
-![Pinggy client HTTP tunnel](/doc_img/pinggy_cli_http.jpg)
-
-
-
-**These URLs will change every time you create a new tunnel. If you want a persistent subdomain** <b><a target="_blank" href="http://dashboard.pinggy.io">Sign in</a></b>.
-
+**These URLs will change every time you create a new tunnel.<br> If you want a persistent subdomain** <b><a target="_blank" href="http://localhost:1313/#prices">upgrade to Pinggy Pro</a></b>.
 
 
