@@ -8,10 +8,11 @@
 <body>
     {{- partial "navbar.html" .}}
 
-    <div class="container-fluid py-3">
-    
+    <div class="container py-3 contentcontainer">
+        <span id="sidebarexpandbtn" class="fs-5 text-center text-black border border-dark rounded px-2" onclick="showsidebar()"><i class="fa-solid fa-bars"></i></span>
+
         <div class="row  flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+            <div class="col col-md-4 col-xl-3 px-sm-3 px-0 sidebarcol">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     {{- partial "docsidebar.html" .}}
                 </div>
