@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <!-- Banner -->
-<header class="pt-5">
+<header class="pt-5 contentcontainer">
     <div class="container">
         <div class="row justify-content-evenly">
             <div class="col-lg-5">
@@ -140,11 +140,11 @@
                 <main>
                     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                         <div class="col">
-                            <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="pricecard card mb-4 rounded-3 shadow-sm">
                                 <div class="card-header py-3">
                                     <h4 class="my-0 fw-normal">Free</h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <div>
                                         <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
                                         <span class="text-muted fw-light">Free for life</span>
@@ -158,16 +158,16 @@
                                         <li class="list-group-item p-2">Restricted bandwidth and connections</li>
                                         <li class="list-group-item p-2">Free mail support</li>
                                     </ul>
-                                    <a href="https://dashboard.pinggy.io/"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Go to dashboard</button></a>
+                                    <a class="mt-auto" href="https://dashboard.pinggy.io/"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Go to dashboard</button></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="pricecard card mb-4 rounded-3 shadow-sm">
                                 <div class="card-header py-3">
                                     <h4 class="my-0 fw-normal">Pro</h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <div class="yearly">
                                         <h1 class="card-title pricing-card-title">$10<small class="text-muted fw-light">/mo</small></h1>
                                         <span class="text-muted fw-light">(billed annually)</span>
@@ -188,18 +188,18 @@
                                         <li class="list-group-item p-2">Custom domain support</li>
                                     </ul>
 
-                                    <a class="w-100 btn btn-lg btn-primary" id="checkout-and-portal-button-3" href="https://dashboard.pinggy.io/billing/plans">Get Started</a>
+                                    <a class="mt-auto w-100 btn btn-lg btn-primary" id="checkout-and-portal-button-3" href="https://dashboard.pinggy.io/billing/plans">Get Started</a>
 
 
                                 </div>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="pricecard card mb-4 rounded-3 shadow-sm border-primary">
                                 <div class="card-header py-3 text-white bg-primary border-primary">
                                     <h4 class="my-0 fw-normal">Pro Team</h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <div class="yearly">
                                         <h1 class="card-title pricing-card-title">$40<small class="text-muted fw-light">/mo</small></h1>
                                         <span class="text-muted fw-light">(billed annually)</span>
@@ -219,7 +219,7 @@
                                         <li class="text-gray-600">Coming soon</li>
                                         <li class="list-group-item p-2">Account sharing with team</li>
                                     </ul>
-                                    <a class="w-100 btn btn-lg btn-primary" id="checkout-and-portal-button-3" href="https://dashboard.pinggy.io/billing/plans">Get Started</a>
+                                    <a class="mt-auto w-100 btn btn-lg btn-primary" id="checkout-and-portal-button-3" href="https://dashboard.pinggy.io/billing/plans">Get Started</a>
                                 </div>
                             </div>
                         </div>
