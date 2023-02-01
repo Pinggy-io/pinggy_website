@@ -30,6 +30,7 @@ body {
     color: white;
     border-color: black;
 }
+
 .btn-pinggy :hover {
     background-color: rgb(0, 0, 0);
 }
@@ -41,6 +42,14 @@ body {
 
 .bg-subtlegray {
     background: rgb(248 250 252);
+}
+.bg-gray {
+    background-color: rgba(0, 0, 0, 0.774);
+}
+.border-gray {
+    border-color: rgba(0, 0, 0, 0.774);
+    border-width: 1px;
+    border-style: solid;
 }
 .border-subtlegray {
     border-color: rgb(226 232 240);
@@ -251,8 +260,13 @@ code {
 
 
 #textchanger {
-    color: rgb(99, 68, 172);
-    font-weight: bolder;
+    color: rgb(57, 57, 58);
+    font-weight: bold;
+}
+
+.videocontainer {
+    cursor: pointer;
+    box-shadow: 0 0 13px -4px #dfdfdf;
 }
 
 /* Pricing section --------------------------  */
