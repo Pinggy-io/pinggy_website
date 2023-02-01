@@ -6,7 +6,7 @@
 
 # SSH IoT device from anywhere
 
-You IoT device such as Raspberry Pi does not have a public IP address? No problem, with Pinggy you can ssh into your Raspberry Pi and other similar IoT devices from anywehere.
+Your IoT device such as Raspberry Pi does not have a public IP address? No problem, with Pinggy you can ssh into your Raspberry Pi and other similar IoT devices from anywehere.
 
 You need to <a target="_blank" href="https://dashboard.pinggy.io">sign in to Pinggy</a> to create TCP tunnels.
 

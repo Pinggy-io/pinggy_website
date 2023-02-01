@@ -25,6 +25,8 @@
                             <select class="form-select" id="techselect">
                                 <option data-label="You may start a local server using:" data-command="python3 -m http.server" data-port="8000" value="python" selected>Python</option>
                                 <option data-label="You may start a local server using:" data-command="npx http-server" data-port="8080" value="nodejs">Node.js</option>
+                                <option data-label="You may start a React.js app using:" data-command="npx create-react-app app && cd app && npm start" data-port="3000" value="reactjs">React.js</option>
+                                <option data-label="You may start a Next.js app using:" data-command="npx create-next-app app && cd app && npm run dev" data-port="3000" value="nextjs">Next.js</option>
                                 <option data-label="Nginx by default runs at port 80" data-command="" data-port="80" value="nginx">Nginx</option>
                             </select>
                         
@@ -79,8 +81,13 @@
             </div>
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                <h2 class="h3 fw-bolder">Share your website and apps in seconds!</h2>
-                <p>Get a public URL for your website running locally and send it to your clients and friends.</p>
+                <h2 class="h3 fw-bolder">Share your websites and apps in seconds!</h2>
+                <ul class="list-unstyled text-muted">
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Skip uploading to cloud</li>
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> No need to download any tool</li>
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Get custom subdomains</li>
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Link your own domain</li>
+                  </ul>
                 <a class="text-decoration-none" href="http://localhost:1313/docs/http_tunnels/">
                     Learn more
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
