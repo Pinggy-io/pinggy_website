@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{- partial "header.html" . -}}
+</head>
+
+<body>
+    {{- partial "navbar.html" .}}
+
+    <div class="container py-3 contentcontainer">
+        <div class="row  flex-nowrap row justify-content-evenly">
+            <div class="col-lg-12 doccontent">
+                {{- block "main" . }}{{- end }} 
+            </div>
+        </div>
+    </div>
+
+    
+    
+    {{- partial "footer.html" . -}}
+</body>
+
+{{- partial "jslibraries.html" . -}}
+
+
+
+<!-- PAGE SPECIFIC JS -->
+{{- block "pagespecificjs" . }}{{- end }}
+
+</html>

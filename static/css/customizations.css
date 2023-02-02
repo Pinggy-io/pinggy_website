@@ -26,13 +26,15 @@ body {
 }
 
 .btn-pinggy {
-    background-color: rgba(0, 0, 0, 0.774);
+    background-color: rgba(24, 24, 24, 0.774);
     color: white;
     border-color: black;
 }
 
-.btn-pinggy :hover {
+.btn-pinggy:hover {
     background-color: rgb(0, 0, 0);
+    color: white;
+    box-shadow: 0 0 3px 0 #b3e0ff;
 }
 .btn-outline-pinggy {
     border-color: rgba(0, 0, 0, 0.774);
@@ -55,6 +57,13 @@ body {
     border-color: rgb(226 232 240);
     border-width: 1px;
     border-style: solid;
+}
+
+.pinggy-link {
+    color: #0695ff;
+}
+.pinggy-link :hover {
+    color: #005a9c;
 }
 
 /* Sidebar  -------------------------- */
@@ -142,7 +151,7 @@ body {
 
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
-    background-color: #d2f4ea;
+    background-color: #e4e4e4;
 }
 
 .scrollarea {
@@ -299,7 +308,7 @@ code {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: rgb(232, 232, 232);
     -webkit-transition: .4s;
     transition: .4s;
       border-radius: 34px;
@@ -319,10 +328,10 @@ code {
   
   }
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #535353;
   }
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #e4f3fb;
   }
   input:checked + .slider:before {
     -webkit-transform: translateX(18px);
