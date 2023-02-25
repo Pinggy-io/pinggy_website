@@ -1,6 +1,33 @@
 {{ define "main" }}
+<main>
+    <article>
+        <header>
+            <h1>{{.Title}}</h1>
+        </header>
+        <hr>
+        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+        {{.Content}}
+    </article>
+    <ul>
+        <!-- orders content according to the "date" field in front matter -->
+        {{ range .Pages.ByDate }}
+            <article>
+            <!-- this <div> includes the title summary -->
+            <div>
+              <h1 class="h4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+              <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time><br>
 
-    {{ .Content}}
+              {{ .Summary }}
+            </div>
+            {{ if .Truncated }}
+            <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+            <div>
+              <a href="{{ .RelPermalink }}">Read More…</a>
+            </div>
+            {{ end }}
 
+            </article><hr>
+        {{ end }}
+    </ul>
+</main>
 {{ end }}
-
