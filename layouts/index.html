@@ -44,6 +44,16 @@
                             <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
                     </form>
 
+                    <div class="mt-3">
+                        <label class="switch">
+                            <input type="checkbox" id="webdebuggerinput">
+                            <span class="slider round"></span>
+                        </label>
+                        <label class="form-check-label align-middle" for="webdebuggerinput">Enable Web Debugger</label>
+                        
+                    </div>
+                    
+
                     <label class="text-bold mt-3"><strong>Single command to start tunnel:</strong></label>
                     <div class="input-group">
                         <input id="portcommand" class="form-control" value="ssh -p 443 -R0:localhost:8000 a.pinggy.io" readonly="readonly"></input>
@@ -88,11 +98,77 @@
                     <li class="my-3"><i class="fa-solid fa-check me-2"></i> Get custom subdomains</li>
                     <li class="my-3"><i class="fa-solid fa-check me-2"></i> Link your own domain</li>
                   </ul>
-                <a class="text-decoration-none pinggy-link" href="http://localhost:1313/docs/http_tunnels/">
+                <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
                     Learn more
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a> 
             </div>
+        </div>
+        
+    </div>
+</section>
+
+<section class="pt-5 mt-5" id="features">
+    <div class="container my-5">
+        <div class="row justify-content-evenly">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"><i class="bi bi-bug"></i></div>
+                <h2 class="h3 fw-bolder">Debug on the go!</h2>
+                <ul class="list-unstyled text-muted">
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Debug HTTP / HTTPS requests live</li>
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> No need to download any tool</li>
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Replay requests</li>
+                  </ul>
+                <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
+                    Learn more
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a> 
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <img src="/assets/webdebug.png" class="img-fluid"/>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<section class="pt-5 mt-5" id="features">
+    <div class="container my-5">
+        <div class="row justify-content-evenly">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div id="carouselTUI" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="/assets/tui1.png" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="2000">
+                        <img src="/assets/tui2.png" class="d-block w-100">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTUI" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselTUI" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"><i class="bi bi-terminal"></i></div>
+                <h2 class="h3 fw-bolder">Rich Terminal Interface</h2>
+                <ul class="list-unstyled text-muted">
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Live request logs</li>
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> View request / response headers</li>
+                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Stats on bandwidth and more</li>
+                  </ul>
+                <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
+                    Learn more
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a> 
+            </div>
+            
         </div>
         
     </div>
@@ -175,12 +251,12 @@
                 <span class="fs-5 px-4 py-2 badge" style="background: rgba(77, 79, 179, 1) !important">Limited time offer!</span>
             </div>
 
-            <label class="toggler toggler--is-active" id="filt-monthly">Monthly</label>
+            <label class="toggler toggler--is-active align-middle" id="filt-monthly">Monthly</label>
             <label class="switch">
                 <input id="toggleswitch" type="checkbox" checked="">
                 <span class="slider round"></span>
             </label>
-            <label class="toggler" id="filt-hourly">Yearly</label>
+            <label class="toggler align-middle" id="filt-hourly">Yearly</label>
 
                 <main>
                     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
@@ -283,5 +359,5 @@
 {{ end }}
 
 {{ define "pagespecificjs" }}
-<script src="/js/index.js"></script>
+<script src="/js/index.js?v=1"></script>
 {{ end }}

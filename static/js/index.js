@@ -37,11 +37,19 @@ $('#techselect').on('change', function() {
     
 });
 
+$('#webdebuggerinput').change(function() {
+    console.log("change1");
+    $('#portform').trigger("input");
+});
+
 
 // ---------- ------------
 
 $( "#portform" ).on("input", function() {
-    $( "#portcommand" ).val("ssh -p 443 -R0:localhost:" +  ($( "#portform" ).val() || "8000") + " a.pinggy.io");
+    console.log("change2");
+    console.log($('#webdebuggerinput').is(":checked"));
+
+    $( "#portcommand" ).val("ssh -p 443 -R0:localhost:" +  ($( "#portform" ).val() || "8000") + ($('#webdebuggerinput').is(":checked") ? " -L4300:localhost:4300":"") + " a.pinggy.io");
 });
 
 function copytoclipboard(element, inputselector, amplitudemsg) {
