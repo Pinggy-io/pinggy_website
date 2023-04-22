@@ -66,6 +66,10 @@ body {
     color: #005a9c;
 }
 
+#webdebugurl {
+    display: none;
+}
+
 /* Sidebar  -------------------------- */
 
 

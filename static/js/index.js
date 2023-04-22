@@ -38,7 +38,12 @@ $('#techselect').on('change', function() {
 });
 
 $('#webdebuggerinput').change(function() {
-    console.log("change1");
+    if($('#webdebuggerinput').is(":checked")) {
+    $('#webdebugurl').slideDown();
+    } else {
+    $('#webdebugurl').slideUp();
+
+    }
     $('#portform').trigger("input");
 });
 
@@ -46,9 +51,6 @@ $('#webdebuggerinput').change(function() {
 // ---------- ------------
 
 $( "#portform" ).on("input", function() {
-    console.log("change2");
-    console.log($('#webdebuggerinput').is(":checked"));
-
     $( "#portcommand" ).val("ssh -p 443 -R0:localhost:" +  ($( "#portform" ).val() || "8000") + ($('#webdebuggerinput').is(":checked") ? " -L4300:localhost:4300":"") + " a.pinggy.io");
 });
 
