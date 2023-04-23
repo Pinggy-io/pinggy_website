@@ -66,6 +66,10 @@ body {
     color: #005a9c;
 }
 
+#webdebugurl {
+    display: none;
+}
+
 /* Sidebar  -------------------------- */
 
 
@@ -295,6 +299,7 @@ code {
     display: inline-block;
     width: 40px;
     height: 20px;
+    vertical-align: middle;
   }
   .switch input {
     opacity: 0;
