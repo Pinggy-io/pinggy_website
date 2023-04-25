@@ -78,6 +78,18 @@ function copytoclipboard(element, inputselector, amplitudemsg) {
 
 }
 
+function trynow() {
+    var amplitudeEvent = "Try now button clicked";
+    var eventProperties = {};
+    amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
+    $("#bigcodecolumn").addClass('shadowhighlight');
+    setTimeout(
+        function() 
+        {
+            $("#bigcodecolumn").removeClass('shadowhighlight');
+        }, 2000);    
+}
+
 // ---------------- price monthly yearly toggle -------------
 $("#toggleswitch").change(function() {
     if(this.checked) {

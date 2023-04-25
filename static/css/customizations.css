@@ -2,11 +2,6 @@ html {
     background: rgb(242 244 247);
 }
 
-
-#signinbutton {
-    display: inline-block;
-}
-
 body {
     font-family: Uncut Sans, sans-serif;
     background-image: linear-gradient( to bottom,
@@ -252,9 +247,17 @@ code {
 }
 
 #signinbutton {
+    display: inline-block;
     background-color: rgba(0, 0, 0, 0.774);
     border: black;
     padding: 0.6em;
+}
+#trybutton {
+    margin-left: 0.2em;
+    display: inline-block;
+    background-color: rgba(15, 37, 164, 0.77);
+    border: rgb(26, 134, 196);
+    padding: 0.6em 1em;
 }
 
 .btn-outline-dark {
@@ -342,4 +345,18 @@ code {
     -webkit-transform: translateX(18px);
     -ms-transform: translateX(18px);
     transform: translateX(18px);
+  }
+
+  #bigcodecolumn{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+  .shadowhighlight {
+    box-shadow: 0px 0px 10px -6px blue !important;
+    transform: scale(1.02);
+  }
+  .shadowhighlight2 {
+    box-shadow: 0px 0px 10px -1px blue !important;
   }
