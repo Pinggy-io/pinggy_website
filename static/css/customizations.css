@@ -20,6 +20,10 @@ body {
     color: rgb(0, 0, 0) !important;
 }
 
+#finalcommand {
+    background-color: #ecf2ff;
+}
+
 .btn-pinggy {
     background-color: rgba(24, 24, 24, 0.774);
     color: white;
@@ -266,8 +270,8 @@ code {
 
 #bigcodecolumn {
     background-color: white;
-    margin-top: 3.5em;
     border-radius: 1em;
+    padding: 0;
 }
 
 
