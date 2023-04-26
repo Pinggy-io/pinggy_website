@@ -9,11 +9,10 @@ body {
     text-align: justify;
 }
 .blogcontent img {
-    margin: 2em 2em;
-    border: 2px solid #f0f0f0;
+    max-width: 100%;
 }
 
 #blogtitle {
     text-align: center;
-    font-size: 3.6em;
+    font-size: calc(2.4rem + 1.5vw);
 }

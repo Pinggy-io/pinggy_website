@@ -8,7 +8,7 @@
 
 <div class="row">
 
-<div class="col">
+<div class="col-12 col-lg-6">
   <i class="bi bi-calendar4-event me-1"></i><span>{{ .Date.Format "Jan 2, 2006" }}</span><span class="text-end"> · {{ .ReadingTime }} min{{ if (ne .ReadingTime 1) }}s{{ end }} read</span>
 
 <div class="mt-1">
@@ -19,7 +19,7 @@
   
 </div>
 
-<div class="col">
+<div class="col-12 col-lg-6">
 
   {{ partial "share-buttons.html" . }}
 </div>

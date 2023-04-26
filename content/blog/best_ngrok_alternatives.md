@@ -3,6 +3,7 @@
  date: 2023-02-01T14:15:25+05:30 
  draft: false 
  tags: ["guide", "comparison"]
+ og_image: "/blog_img/localxpose.png"
 ---
 
 <a href="https://ngrok.com" target="_blank">Ngrok</a> is an ingress-as-a-service that provides tunnels facilitating instant ingress to your apps in any cloud, private network, or device.
