@@ -5,8 +5,6 @@
  tags: ["guide", "comparison"]
 ---
 
-# Top ngrok alternatives for localhost tunnels
-
 <a href="https://ngrok.com" target="_blank">Ngrok</a> is an ingress-as-a-service that provides tunnels facilitating instant ingress to your apps in any cloud, private network, or device.
 Although very mature, ngrok has its own limitations of being a complex ingress-as-a-service. In this article we will explore some top 3 alternatives of ngrok.
 

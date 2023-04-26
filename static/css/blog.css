@@ -8,6 +8,10 @@ body {
     max-width: 60em;
     text-align: justify;
 }
+.blogcontent img {
+    margin: 2em 2em;
+    border: 2px solid #f0f0f0;
+}
 
 #blogtitle {
     text-align: center;
