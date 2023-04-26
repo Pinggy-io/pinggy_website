@@ -2,6 +2,7 @@
  title: "Best ngrok alternatives for localhost tunnels" 
  date: 2023-02-01T14:15:25+05:30 
  draft: false 
+ tags: ["guide", "comparison"]
 ---
 
 # Top ngrok alternatives for localhost tunnels
@@ -63,7 +64,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 
 [Localtunnel](https://localtunnel.github.io/www/) is a npm package that lets you create http / https tunnels to localhost. It provides a random subdomain when you run it through your terminal. Being a node package, localtunnel can be integrated to your applications as a library and you can use it to test your nodejs apps.
 
-<img class="img-fluid my-2" src="/blog_img/localtunnel.png" alt="localtunnel screenshot">
+<img src="/blog_img/localtunnel.png" alt="localtunnel screenshot">
 
 #### Pros of localtunnel
 
@@ -84,7 +85,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 
 [LocalXpose](https://localxpose.io/) is a reverse proxy tool that provides a public URL to localhost. By simply downloading their client you can create HTTP / HTTPS tunnels, and also TCP / TLS as well as UDP tunnels. Among the three it is the only one that supports UDP traffic. LocalXpose also provides a built-in file server to share your files instantly. 
 
-<img class="img-fluid my-2" src="/blog_img/localxpose.png" alt="localxpose screenshot">
+<img src="/blog_img/localxpose.png" alt="localxpose screenshot">
 
 #### Pros of LocalXpose
 

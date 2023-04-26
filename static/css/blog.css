@@ -1,0 +1,15 @@
+body {
+    font-family: Uncut Sans, sans-serif;
+    background-image: linear-gradient( to bottom, #ffffff, #fefefea6 15%), url(../assets/header_grid2.png);
+    background-repeat: repeat;
+}
+
+.blogcontent {
+    max-width: 60em;
+    text-align: justify;
+}
+
+#blogtitle {
+    text-align: center;
+    font-size: 3.6em;
+}

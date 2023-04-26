@@ -1,5 +1,21 @@
 {{ define "main" }}
 
-    {{ .Content}}
+
+
+<h1 id="blogtitle">
+  {{.Title}}
+</h1>
+
+<div>
+  <i class="bi bi-calendar4-event"></i> <span class="me-2">{{ .Date | time.Format ":date_medium" }}</span>
+  {{ range (.GetTerms "tags") }}
+  <span class="badge bg-secondary">{{ .LinkTitle }}</span>
+  {{ end }}
+
+</div>
+
+<hr>
+
+{{ .Content}}
 
 {{ end }}
