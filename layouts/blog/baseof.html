@@ -3,6 +3,8 @@
 
 <head>
     {{- partial "header.html" . -}}
+    <link href="/css/blog.css?v=2" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -10,7 +12,7 @@
 
     <div class="container py-3 contentcontainer maincontent">
         <div class="row  flex-nowrap row justify-content-evenly">
-            <div class="col-lg-12 doccontent">
+            <div class="col-lg-12 blogcontent">
                 {{- block "main" . }}{{- end }} 
             </div>
         </div>
