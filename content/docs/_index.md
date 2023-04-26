@@ -21,7 +21,7 @@ This will start a server at <a href="http://localhost:8000" target="_blank">http
 #### Step 2: Create a tunnel using a single command
 
 
-```
+```bash
 ssh -p 443 -R0:localhost:8000 a.pinggy.io
 ```
 
