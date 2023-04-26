@@ -3,7 +3,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>{{.Site.Title}}{{ if .IsHome }} - Simple Localhost Tunnels{{ else }}{{ if .Page.Title }} - {{ .Page.Title }}{{ end }}{{ end }}</title>
+<title>{{ if .IsHome }}Pinggy - Simple Localhost Tunnels{{ else }}{{ if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}}{{ end }}{{ end }}</title>
 
 
 <!-- Favicon-->
