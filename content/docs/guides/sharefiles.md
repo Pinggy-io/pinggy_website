@@ -27,7 +27,7 @@ python -m http.server
 ```
 
 If you are using NodeJs, use the following commands:
-```
+```bash
 npm install http-server -g
 http-server -p 8000
 ```
