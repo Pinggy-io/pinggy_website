@@ -437,3 +437,50 @@ pre {
     border-radius: 0.2em;
 
 }
+
+
+/* TABS ==== */
+ .tab-nav-button {
+    border-width: 1px 1px 1px 1px !important;
+    border-color: #ccc !important;
+    border-radius: 4px 4px 0 0 !important;
+    background-color: #ddd !important;
+    float: left;
+    display: block;
+    position: relative;
+    margin-left: 4px;
+    bottom: -1px;
+}
+ .tab-nav-button:first-child {
+    margin-left: 0px;
+}
+ .tab-nav-button.active {
+    background-color: #fff !important;
+    border-bottom-color: #fff !important;
+}
+
+ .tab-panel {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+ .tab-content {
+    display: block;
+    clear: both;
+    padding: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+}
+ .tab-content .tab-item{
+    display: none;
+}
+
+ .tab-content .tab-item.active{
+    display: block;
+}
+
+ .tab-item pre{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+/* ----------------- */

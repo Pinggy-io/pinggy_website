@@ -38,7 +38,7 @@ http-server -p 8000
 Create a tunnel using the command:
 <br>
 ```
-ssh -p 443 -R0:localhost:8000 b.pinggy.io
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
 ```
 
 Access your files using the URLs given by Pinggy after the above command.
@@ -46,6 +46,6 @@ Access your files using the URLs given by Pinggy after the above command.
 Example:
 ```
 You can access local server via following URL(s):
-http://fakqxzqrohxxx.b.pinggy.io
-https://fakqxzqrohxxx.b.pinggy.io
+http://fakqxzqrohxxx.a.pinggy.io
+https://fakqxzqrohxxx.a.pinggy.io
 ```
