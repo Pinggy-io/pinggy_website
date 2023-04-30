@@ -15,27 +15,38 @@ The following command ensures that your tunnels stay alive and restart on its ow
 
 {{< tabs >}}
 {{% tab name="Linux" %}}
+
 ```bash
+# pinggy.sh
+
 while true;
     do ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 token@a.pinggy.io;
     sleep 2;
 done
 ```
+
 {{% /tab %}}
 {{% tab name="macOS" %}}
+
 ```bash
+# pinggy.sh
+
 while true;
     do ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 token@a.pinggy.io;
     sleep 2;
 done
 ```
+
 {{% /tab %}}
 {{% tab name="Windows" %}}
+
 ```bash
+# pinggy.bat
+
 FOR /L %N IN () DO ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 token@a.pinggy.io
 ```
+
 {{% /tab %}}
 {{< /tabs >}}
-
 
 Replace `8000` with the port you want to share, and `token` with your tunnel token.
