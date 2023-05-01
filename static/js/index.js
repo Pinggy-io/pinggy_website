@@ -82,12 +82,15 @@ function trynow() {
     var amplitudeEvent = "Try now button clicked";
     var eventProperties = {};
     amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
+    $('html, body').animate({
+        scrollTop: $("#bigcodecolumn").offset().top - 100
+    }, 1000);
     $("#bigcodecolumn").addClass('shadowhighlight');
     setTimeout(
         function() 
         {
             $("#bigcodecolumn").removeClass('shadowhighlight');
-        }, 2000);    
+        }, 2000);
 }
 
 // ---------------- price monthly yearly toggle -------------
