@@ -7,7 +7,7 @@
 # Create TCP Tunnels with Pinggy
 
 
-You need to <a target="_blank" href="http://localhost:1313/#prices">sign in to Pinggy</a> to create TCP tunnels.
+You need to <a target="_blank" href="https://pinggy.io/#prices">sign in to Pinggy</a> to create TCP tunnels.
 
 Once you sign in, you will be presented a dashboard where you will find your access token.
 

@@ -72,8 +72,20 @@ body {
 }
 
 #webdebugurl {
-    display: none;
+    display: block;
 }
+
+.enablewebdebuglabel {
+    font-weight: 500;
+}
+
+.featureimage {
+    box-shadow: 0 0 10px 0px #4783b13b;
+    transition: transform 0.6s;
+}
+.featureimage:hover {
+    transform: scale(1.02);
+  }
 
 /* Sidebar  -------------------------- */
 

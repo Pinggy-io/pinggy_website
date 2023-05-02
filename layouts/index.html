@@ -61,10 +61,11 @@
 
                         <div class="mt-3">
                             <label class="switch">
-                                <input type="checkbox" id="webdebuggerinput">
+                                <input type="checkbox" id="webdebuggerinput" checked>
                                 <span class="slider round"></span>
                             </label>
-                            <label class="form-check-label align-middle" for="webdebuggerinput">Enable Web
+                            <label class="form-check-label align-middle enablewebdebuglabel"
+                                for="webdebuggerinput">Enable Web
                                 Debugger</label>
 
                         </div>
@@ -74,7 +75,8 @@
                         <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                         <div class="input-group mt-2">
                             <input id="portcommand" class="form-control"
-                                value="ssh -p 443 -R0:localhost:8000 a.pinggy.io" readonly="readonly"></input>
+                                value="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 a.pinggy.io"
+                                readonly="readonly"></input>
                             <button class="btn btn-dark" type="button" id="copybutton"
                                 onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"><i
                                     class="bi bi-clipboard"></i></button>
@@ -155,7 +157,7 @@
                 </a>
             </div>
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <img src="/assets/webdebug.png" class="img-fluid" />
+                <img src="/assets/webdebug.png" class="img-fluid featureimage"/>
             </div>
         </div>
 
@@ -166,7 +168,7 @@
     <div class="container my-5">
         <div class="row justify-content-evenly">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <div id="carouselTUI" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselTUI" class="carousel slide featureimage" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="2000">
                             <img src="/assets/tui1.png" class="d-block w-100">
@@ -296,7 +298,8 @@
                         <input id="toggleswitch" type="checkbox" checked="">
                         <span class="slider round"></span>
                     </label>
-                    <label class="toggler align-middle" id="filt-hourly">Yearly</label><span class="align-middle" style="color: rgba(70, 117, 199, 1); font-size: 0.8em;"> (Save upto 17%)</span>
+                    <label class="toggler align-middle" id="filt-hourly">Yearly</label><span class="align-middle"
+                        style="color: rgba(70, 117, 199, 1); font-size: 0.8em;"> (Save upto 17%)</span>
 
                 </div>
 
@@ -410,6 +413,119 @@
         </div>
     </div>
 </header>
+
+<!-- Features section-->
+<section class="py-5 border-top" id="faq">
+    <div class="container my-5">
+        <div class="my-3 row justify-content-center">
+            <div class="col-lg-12">
+                <h2 class="mb-5 text-center fw-light">Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="accordionFaq">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                The command uses SSH. Doesn't it open up my computer to threats?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>
+                                    Pinggy relies on SSH remote port forwarding. The option
+                                    <code>-R 0:localhost:8000</code> in the command only implies that connections to the
+                                    public URL given by pinggy are forwarded to your <code>localhost:8000</code>.
+                                </p>
+                                <p class="alert alert-dark bg-light bg-gradient">
+                                    No other port than the one specified by you can be accessed by Pinggy or by anyone
+                                    through the public URLs provided by Pinggy.
+                                </p>
+                                <p>
+                                    You can read more about the <code>-R</code> option of openssh client <a
+                                        href="https://man7.org/linux/man-pages/man1/ssh.1.html"
+                                        target="_blank">here</a>. If you are using a different ssh client, then refer to
+                                    its documentation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                The URL changes after I restart the tunnel.
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Pinggy's free plan has a tunnel timeout of 60 minutes. If the tunnel is closed by you
+                                    or reaches the time limit, starting a new tunnel will generate a new URL.</p>
+                                <p>To obtain a permanent or persistent URL, or to use your own domain, you must
+                                    subscribe to Pinggy Pro.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Does it work on all platforms: Linux, Windows, Mac, and Android?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Yes. Current versions of Windows, Mac, as well as almost all Linux distributions come
+                                    with openssh client pre-installed. Therefore Pinggy will just work out of the box.
+                                </p>
+                                <p>To learn more about using Pinggy on Android read our <a
+                                        href="https://pinggy.io/blog/host_website_on_android/" target="_blank">blog
+                                        post.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                How to use TCP and TLS tunnels?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>You can use TCP and TLS tunnels for free with Pinggy. You just need to <a
+                                        href="https://dashboard.pinggy.io/">sign-up with a free account.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                My tunnel breaks or stops working after a few minutes.
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Read our guide on long running tunnels <a
+                                        href="https://pinggy.io/docs/guides/long_running_tunnels/"
+                                        target="_blank">here</a>. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 
 {{ end }}

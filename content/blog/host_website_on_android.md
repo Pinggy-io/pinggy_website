@@ -10,7 +10,7 @@ Hosting your website or blog from your pocket sounds fun? This blog post will de
 
 We will be using <a href="https://termux.dev/en/" target="_blank">**`Termux`**</a>, which is an Android terminal emulator on which we can run a web server such as a Node.js http-server, and <a href="https://pinggy.io" target="_blank">**`Pinggy`**</a> for obtaining public URLs for accessing that server.
 
-To give you a glimpse of a blog running on a 180$ Android phone, here are some screenshots. The first image shows the Node.js http-server running, while the second image displays Pinggy's terminal user interface showing the live requests to the website as they arrive.
+To give you a glimpse of a blog running on a $180 Android phone, here are some screenshots. The first image shows the Node.js http-server running, while the second image displays Pinggy's terminal user interface showing the live requests to the website as they arrive.
 
 <div class="row mb-4">
 <div class="col">
