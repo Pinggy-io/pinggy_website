@@ -4,7 +4,7 @@
  draft: false 
 ---
 
-# Pinggy - Getting Started
+# Pinggy - Quickstart
 
 Pinggy is the easiest way to get public URLs for your localhost. You can use it to quickly host a website from your laptop, receive webhooks, share files, connect to your Raspberry Pi, and more.
 

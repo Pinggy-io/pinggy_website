@@ -7,7 +7,7 @@
 # Persistent Subdomain
 
 
-If you want a URL that does not change every time you create a new tunnel, you just need to <a target="_blank" href="http://localhost:1313/#prices">upgrade to Pinggy Pro.</a>.
+If you want a URL that does not change every time you create a new tunnel, you just need to <a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro.</a>.
 
 Once you sign in, you will be presented a dashboard where you will find your access token.
 
