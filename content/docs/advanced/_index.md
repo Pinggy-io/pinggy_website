@@ -4,23 +4,22 @@
  draft: false 
 ---
 
-Pinggy provides multiple advanced features with the basic tunneling system. These advaced features are
+Pinggy provides multiple advanced features in addition to the basic tunneling system. These advanced features include:
 
-* Interactive UI in the terminal
+* An interactive UI in the terminal
 * Introspection or live debugging
 * Live request header modification
 
-Pinggy supports these features by default. However, users and developer may needs to take extra effort to enable these feature due to the nature of SSH protocol and the ssh command as well.
+Pinggy supports these features by default. However, users and developers may need to take extra steps to enable these features due to the nature of the SSH protocol and the `ssh` command.
 
-The advanced features are only available when ssh client starts an interactive session. On top of this, interactive terminal UI also needs the allocation of PTY (psuedo tty).
+The advanced features are only available when the `ssh` client starts an interactive session. Furthermore, the interactive terminal UI also requires the allocation of a PTY (pseudo tty).
 
-The `ssh` command in most of system starts an interactive session by default. It also allocate pty if no `commands` are provided. It also provides arguments to enable or disable these behavior. We list some of those flags here. Kindly refer to man page for more details.
-
+The `ssh` command in most systems starts an interactive session by default. It also allocates a PTY if no `commands` are provided. The command also provides arguments to enable or disable these behaviors. We list some of those flags here. Please refer to the man page for more details.
 ```
--T   Disables the psuedo-terminal allocation
+-T: Disables pseudo-terminal allocation
 
--t   Force psuedo-terminal allocation
+-t: Forces pseudo-terminal allocation
 
--N   Do not execute the remote command. This flag instract ssh command not to open a interactive session.
+-N: Does not execute the remote command. This flag instructs the `ssh` 
+    command not to open an interactive session.
 ```
-
