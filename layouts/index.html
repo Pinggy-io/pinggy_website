@@ -6,20 +6,25 @@
         <div class="row justify-content-evenly">
             <div class="col-lg-5">
                 <div class="text-left my-5">
-                    <h1 class="display-5 fw-bolder mb-2 biggestheader">Public URLs for Localhost</h1>
-                    <span class="mb-2 fs-3">Without downloading any binary</span>
-                    <p class="mb-4" id="lead2">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting
-                        behind firewalls and NATs.</p>
-
-                    <div>
-                        <a href="https://dashboard.pinggy.io" id="signinbutton" class="btn btn-dark mt-3">Sign in for
-                            TCP and TLS tunnels</a>
-                        <button id="trybutton" class="btn btn-primary mt-3" onclick="trynow()">Try Now!</button>
+                    <h1 class="display-5 fw-bolder biggestheader d-inline">Public URLs for Localhost.</h1>
+                    <span class="mb-2 mt-2 fs-3 d-block">Without downloading any binary!</span>
+                    <div class="mt-4" id="lead2">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting
+                        behind firewalls and NATs.</div>
+                    <div style="margin-top: 4em; max-width: 28em;">
+                        <div style="font-weight: 500;"><span class="highlight">&nbspFree persistent URL&nbsp;</span> for 30 days & custom domain support:</div>
+                        <div class="input-group mt-1">
+                            <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" id="trialemail">
+                            <div style="border-radius: 0.2em;" class="invalid-tooltip" id="emailinvalidtooltip">
+                                Please enter a valid email
+                              </div>
+                            <button style="border-color: rgb(71, 117, 198); background-color: rgba(70, 117, 199, 1); padding: 0.6em 1em; box-shadow: 0 0 4px 0px #a3599b8c; font-weight: 500;" class="btn btn-secondary" type="button" id="button-addon2" onclick="starttrial()">Start free trial</button>
+                          </div>
+                        <button onclick="trynow()" id="trynow">Or just try it for free →</button>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 mt-3" id="bigcodecolumn">
-                <div class="text-left">
+            <div class="col-lg-5 mt-3">
+                <div class="text-left" id="bigcodecolumn">
                     <div class="px-4">
 
                         <div class="input-group my-4">
