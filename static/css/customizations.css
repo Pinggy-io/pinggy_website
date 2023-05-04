@@ -87,6 +87,16 @@ body {
     transform: scale(1.02);
   }
 
+  .highlight {
+    animation: AnimationName 10s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes AnimationName {
+    0% { background-color: #ffffff00; }
+    100% { background-color: #f8ff95; }
+  }
+
 /* Sidebar  -------------------------- */
 
 
@@ -290,12 +300,19 @@ code {
     padding: 0.6em;
 }
 
-#trybutton {
-    margin-left: 0.2em;
-    display: inline-block;
-    background-color: rgba(70, 117, 199, 1);
-    border: rgb(26, 134, 196);
-    padding: 0.6em 1em;
+#trynow {
+    margin:0;
+    padding: 0;
+    width: 100%;
+    text-align: right;
+    margin-top: 0.6em;
+    border: 0;
+    background: transparent;
+    border-radius: 0.2em;
+    font-size: 1em;
+    vertical-align: text-bottom;
+    color: #395d9bae;
+    transition: 0.2s;
 }
 
 .btn-outline-dark {
@@ -306,6 +323,7 @@ code {
     background-color: white;
     border-radius: 1em;
     padding: 0;
+    padding-top: 0.2em;
 }
 
 
