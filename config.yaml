@@ -21,6 +21,9 @@ markup:
     renderer:
       unsafe: true
 
+taxonomies:
+  tag: tags
+
 menus: 
   main:
   - name: Home
