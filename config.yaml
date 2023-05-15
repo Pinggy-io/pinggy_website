@@ -29,19 +29,19 @@ menus:
   - name: Home
     url: "/"
     weight: 90
-  - name: Pricing
-    url: /#prices
-    weight: 100
   - name: Docs
     url: /docs
-    weight: 110
+    weight: 100
   - name: Blog
     url: /blog
-    weight: 120
+    weight: 110
   - name: FAQ
     url: /#faq
+    weight: 120
+  - name: Pricing
+    url: /#prices
     weight: 130
-  - name: Contact Us
+  - name: About
     url: /contact_us
     weight: 140
 
