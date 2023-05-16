@@ -1,36 +1,35 @@
 {{ define "main" }}
 
-
-
-<h1 id="blogtitle">
+<h1 class="display-6 mb-4" id="blogtitle">
   {{.Title}}
 </h1>
 
-<div class="row">
+<div class="row justify-content-center">
+  <div class="col-12 col-md-12 blogbody">
+    <div class="row">
+      <div class="col col-12 col-lg-6">
+        <i class="bi bi-calendar4-event me-1"></i><span>{{ .Date.Format "Jan 2, 2006" }}</span><span class="text-end"> <span class="mx-2">·</span> {{
+          .ReadingTime }} min{{ if (ne .ReadingTime 1) }}s{{ end }} read</span>
+        <div class="mt-1">
+          {{ range (.GetTerms "tags") }}
+          <span class="badge bg-secondary">{{ .LinkTitle }}</span>
+          {{ end }}
+        </div>
+      </div>
+      <div class="col col-12 col-lg-6">
+        {{ partial "share-buttons.html" . }}
+      </div>
+    </div>
+  </div>
 
-<div class="col-12 col-lg-6">
-  <i class="bi bi-calendar4-event me-1"></i><span>{{ .Date.Format "Jan 2, 2006" }}</span><span class="text-end"> · {{ .ReadingTime }} min{{ if (ne .ReadingTime 1) }}s{{ end }} read</span>
-
-<div class="mt-1">
-  {{ range (.GetTerms "tags") }}
-  <span class="badge bg-secondary">{{ .LinkTitle }}</span>
-  {{ end }}
-</div>
   
-</div>
-
-<div class="col-12 col-lg-6">
-
-  {{ partial "share-buttons.html" . }}
+<hr class="mt-3">
+<div class="col-12 col-lg-12 blogbody">
+  {{ .Content}}
 </div>
 </div>
-
-
-<hr>
-
-{{ .Content}}
-
 {{ end }}
+
 
 {{ define "pagespecificjs" }}
 <script src="/js/clipboard.min.js"></script>

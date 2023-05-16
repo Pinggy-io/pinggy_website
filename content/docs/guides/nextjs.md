@@ -7,7 +7,7 @@
 
 # Host Next.js application on laptop using Pinggy
 
-[Next.js](https://nextjs.org/) is a popular forntend framework based on React that helps developers build fast web applications. Usually you have to host such an application in the cloud in order to show it to your friends and collaborators. But Pinggy makes this process as simple as pasting one command in the terminal.
+[Next.js](https://nextjs.org/) is a popular frontend framework based on React that helps developers build fast web applications. Usually you have to host such an application in the cloud in order to show it to your friends and collaborators. But Pinggy makes this process as simple as pasting one command in the terminal.
 
 <br>
 
