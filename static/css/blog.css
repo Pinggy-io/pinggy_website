@@ -12,6 +12,10 @@ body {
     max-width: 42em;
     text-align: justify;
 }
+.blogbody p, .blogbody li {
+    line-height: 1.7rem;
+}
+
 .blogcontent img {
     max-width: 100%;
     margin: 1.2em 1em;
