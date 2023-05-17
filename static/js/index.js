@@ -54,6 +54,90 @@ $("#portform").on("input", function () {
   );
 });
 
+// Advanced form =========================================
+$("#adv_platformselect").change(generateAdvancedCommand);
+$("#adv_localPort").on('input', generateAdvancedCommand);
+$("#adv_keepalive").change(generateAdvancedCommand);
+$("#adv_restart").change(generateAdvancedCommand);
+$("#adv_webdebugPort").on('input', generateAdvancedCommand);
+$("#adv_rsaCheck").change(generateAdvancedCommand);
+$("#headermodificationcontainer").on('change', '.headermodificationmode, .headername, .headerval', generateAdvancedCommand);
+$("#headermodificationcontainer").on('input', '.headername, .headerval', generateAdvancedCommand);
+$("#advancedModalButton").on('click', generateAdvancedCommand);
+
+$('#adv_webdebugCheck').change(function() {
+  if(this.checked) {
+      $("#adv_webdebuggerportselector").slideDown();
+  } else {
+    $("#adv_webdebuggerportselector").slideUp();
+  }
+  generateAdvancedCommand();
+});
+
+function addheadermodificationrow() {
+  $("#headermodificationcontainer").append($("#headermodificationinputsample").children().clone())
+}
+
+$("#headermodificationcontainer").on('click', '.removeheadermodificationrow', function() {
+  $(this).closest(".headermodificationgroup").remove();
+});
+
+
+function generateAdvancedCommand() {
+  let localport = $("#adv_localPort").val();
+  let debugport = $("#adv_webdebugPort").val();
+  let debugenabled = $("#adv_webdebugCheck").is(":checked");
+  let manuelcheck = $("#adv_rsaCheck").is(":checked");
+  let keepalive = $("#adv_keepalive").is(":checked");
+  let restart = $("#adv_restart").is(":checked");
+  let platform = $("#adv_platformselect").val();
+
+
+  let options = "";
+  let headercommands = "";
+
+  if(debugenabled) {
+    let webdebugoption = `-L${debugport}:localhost:${debugport}`
+    options += " " + webdebugoption;
+  }
+  if(!manuelcheck) {
+    options += " -o StrictHostKeyChecking=no";
+  }
+  if(keepalive) {
+    options += " -o ServerAliveInterval=30";
+  }
+
+  let headermodificationrows = $("#headermodificationcontainer").children();
+  for( let i = 0; i < headermodificationrows.length; i++){ 
+    let mode = $(headermodificationrows[i]).children(".headermodificationmode").val();
+    let headername = $(headermodificationrows[i]).children(".headername").val();
+    let headerval = $(headermodificationrows[i]).children(".headerval").val();
+    $(headermodificationrows[i]).children(".headerval").prop('disabled', (mode == "r"));
+
+    let thiscommand = `\\\"${mode}:${headername}${headerval ? ":" + headerval : ""}\\\"`
+    headercommands += " " + thiscommand;
+  }
+
+  command = `ssh -p 443 -R 0:localhost:${localport} ${options}  a.pinggy.io` + headercommands;
+
+  // restarting
+  if(restart){
+    if(platform == "unix"){
+        command = "while true; do \n    " + command + "; \nsleep 5; done"
+      $("#advancedcommand").attr('rows',4);
+    } else {
+      command = "FOR /L %N IN () DO " + command
+    }
+  } else {
+    $("#advancedcommand").attr('rows',2);
+  }
+
+  $("#advancedcommand").val(command);
+}
+
+
+// =======================================================
+
 function copytoclipboard(element, inputselector, amplitudemsg) {
   var portcommand = $(inputselector)[0];
   // Get the text field

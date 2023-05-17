@@ -349,6 +349,11 @@ code {
 
 
 /* ----------  Toggle button ------------- */
+.form-check-input:checked {
+    background-color: #505050;
+    border-color: #575757;
+}
+
 .switch {
     position: relative;
     display: inline-block;
