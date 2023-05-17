@@ -176,8 +176,9 @@
                         <label class="form-check-label" for="adv_rsaCheck">Manually check host key</label>
                     </div>
 
-                    <div class="input-group mt-2">
-                        <textarea style="background: white;" id="advancedcommand" class="form-control font-monospace" style="font-size: 0.8rem;"
+                    <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
+                    <div class="input-group mt-1">
+                        <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommand" class="form-control font-monospace" style="font-size: 0.8rem;"
                             readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
                         <button class="btn btn-outline-dark" type="button" id="copybutton"
                             onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
