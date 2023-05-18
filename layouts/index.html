@@ -116,7 +116,7 @@
 <!-- Modal -->
 <div class="modal fade" id="advancedModal" tabindex="-1" aria-labelledby="advancedModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content px-2 pb-4">
+        <div class="modal-content px-2 pb-3">
             <div class="modal-header">
                 <span class="modal-title" id="advancedModalLabel">Advanced HTTP(s) Tunnel Configuration</span>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -154,29 +154,41 @@
                         </div>
                     </div>
 
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
-                        <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
+                    <div class="row">
+                        <div class="col col-12 col-lg-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
+                                <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
+                            </div>
+                        </div>
+                        <div class="col col-12 col-lg-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="adv_rsaCheck">
+                                <label class="form-check-label" for="adv_rsaCheck">Manually check host key <i class="bi bi-info-circle"
+                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Type 'yes' to manually validate host key"></i></label>
+                            </div>
+                        </div>
                     </div>
+
+                    
                     <div class="form-floating mb-3" id="adv_webdebuggerportselector">
                         <input type="number" class="form-control" id="adv_webdebugPort" placeholder="4300" value="4300">
                         <label for="adv_webdebugPort">Web Debugger Port</label>
                     </div>
 
-                    <label class="form-check-label">Live Header Modifications</label>
+                    <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
+                        type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                        title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i></label>
                     <div id="headermodificationcontainer">
 
                     </div>
                     <button type="button" class="btn btn-outline-dark mb-3 mt-2" onclick="addheadermodificationrow()">
                         <i class="bi bi-plus"></i> Add header modification rule</button>
 
-
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input" type="checkbox" id="adv_rsaCheck">
-                        <label class="form-check-label" for="adv_rsaCheck">Manually check host key</label>
+                    <div>
+                        <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                     </div>
-
-                    <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                     <div class="input-group mt-1">
                         <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommand" class="form-control font-monospace" style="font-size: 0.8rem;"
                             readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
@@ -184,8 +196,10 @@
                             onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
                                 class="bi bi-clipboard"></i></button>
                     </div>
-
-
+                    <div class="mt-3" style="font-size: 0.8rem;" id="adv_webdebugurl">Web Debugger URL: <a href="http://localhost:4300" target="_blank">http://localhost:4300</a></div>
+                    <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem; display: none;" role="alert" id="adv_alert">
+                        When the tunnel reconnects, your public URL will change. Upgrade to <a href="/#prices">Pinggy Pro</a> for persistent URLs.
+                    </div>
                 </form>
             </div>
         </div>

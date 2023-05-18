@@ -75,9 +75,9 @@ $("#advancedModalButton").on("click", generateAdvancedCommand);
 
 $("#adv_webdebugCheck").change(function () {
   if (this.checked) {
-    $("#adv_webdebuggerportselector").slideDown();
+    $("#adv_webdebuggerportselector, #adv_webdebugurl").slideDown();
   } else {
-    $("#adv_webdebuggerportselector").slideUp();
+    $("#adv_webdebuggerportselector, #adv_webdebugurl").slideUp();
   }
   generateAdvancedCommand();
 });
@@ -112,6 +112,10 @@ function generateAdvancedCommand() {
   if (debugenabled) {
     let webdebugoption = `-L${debugport}:localhost:${debugport}`;
     options += " " + webdebugoption;
+
+    // update url
+    $("#adv_webdebugurl > a").attr("href", `http://localhost:${debugport}`)
+    $("#adv_webdebugurl > a").text(`http://localhost:${debugport}`)
   }
   if (!manuelcheck) {
     options += " -o StrictHostKeyChecking=no";
@@ -150,10 +154,13 @@ function generateAdvancedCommand() {
       command = "while true; do \n    " + command + "; \nsleep 5; done";
       $("#advancedcommand").attr("rows", 4);
     } else {
-      command = "FOR /L %N IN () DO " + command;
+      command = "FOR /L %N IN () DO (" + command + "\ntimeout /t 5)";
+      $("#advancedcommand").attr("rows", 4);
     }
+    $("#adv_alert").slideDown();
   } else {
     $("#advancedcommand").attr("rows", 2);
+    $("#adv_alert").slideUp();
   }
 
   $("#advancedcommand").val(command);
