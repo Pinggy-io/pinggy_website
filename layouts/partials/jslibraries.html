@@ -1,6 +1,7 @@
 <!-- JS LIBRARIES -->
 <!-- JQuery -->
-<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -10,44 +11,102 @@
 
 <!-- Enable tooltip -->
 <script type="text/javascript">
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+  const tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    const tooltip = new bootstrap.Tooltip(tooltipTriggerEl, {
+      trigger: "manual",
+    });
+
+    let tooltipTimeout;
+    let currentToolTip;
+
+    tooltipTriggerEl.addEventListener("mouseenter", function () {
+      let toolTipID;
+
+      // Clear Set Timeout
+      clearTimeout(tooltipTimeout);
+
+      // Show Tooltip
+      tooltip.show();
+
+      // Assign current tooltip ID to toolTipID variable
+      toolTipID = tooltipTriggerEl.getAttribute("aria-describedby");
+
+      // Assign current tooltip to currentToolTip variable
+      currentToolTip = document.querySelector(`#${toolTipID}`);
+
+      // Hide tooltip on tooltip mouse leave
+      currentToolTip.addEventListener("mouseleave", function () {
+        tooltip.hide();
+      });
+    });
+
+
+    tooltipTriggerEl.addEventListener("mouseleave", function () {
+      // SetTimeout before tooltip disappears
+      tooltipTimeout = setTimeout(function () {
+        // Hide tooltip if not hovered.
+        if (!currentToolTip.matches(":hover")) {
+          tooltip.hide();
+        }
+      }, 100);
+    });
+
+    return tooltip;
+  });
 </script>
 
 <!-- AMPLITUDE ANALYTICS -->
 <script type="text/javascript">
-    (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
-    ;r.type="text/javascript"
-    ;r.integrity="sha384-+EO59vL/X7v6VE2s6/F4HxfHlK0nDUVWKVg8K9oUlvffAeeaShVBmbORTC2D3UF+"
-    ;r.crossOrigin="anonymous";r.async=true
-    ;r.src="https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
-    ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
-    console.log("[Amplitude] Error: could not load SDK")}}
-    ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
-    ;function s(e,t){e.prototype[t]=function(){
-    this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-    var o=function(){this._q=[];return this}
-    ;var a=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove"]
-    ;for(var c=0;c<a.length;c++){s(o,a[c])}n.Identify=o;var u=function(){this._q=[]
-    ;return this}
-    ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
-    ;for(var p=0;p<l.length;p++){s(u,l[p])}n.Revenue=u
-    ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
-    ;function v(e){function t(t){e[t]=function(){
-    e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
-    for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
-    e=(!e||e.length===0?"$default_instance":e).toLowerCase()
-    ;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
-    }return n._iq[e]};e.amplitude=n})(window,document);
-  
-    amplitude.getInstance().init("33252b19bc60d9fd8c591ca4e84e4d4b", null, {
+  (function (e, t) {
+    var n = e.amplitude || { _q: [], _iq: {} }; var r = t.createElement("script")
+      ; r.type = "text/javascript"
+      ; r.integrity = "sha384-+EO59vL/X7v6VE2s6/F4HxfHlK0nDUVWKVg8K9oUlvffAeeaShVBmbORTC2D3UF+"
+      ; r.crossOrigin = "anonymous"; r.async = true
+      ; r.src = "https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
+      ; r.onload = function () {
+        if (!e.amplitude.runQueuedFunctions) {
+          console.log("[Amplitude] Error: could not load SDK")
+        }
+      }
+      ; var i = t.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i)
+      ; function s(e, t) {
+        e.prototype[t] = function () {
+          this._q.push([t].concat(Array.prototype.slice.call(arguments, 0))); return this
+        }
+      }
+    var o = function () { this._q = []; return this }
+      ; var a = ["add", "append", "clearAll", "prepend", "set", "setOnce", "unset", "preInsert", "postInsert", "remove"]
+      ; for (var c = 0; c < a.length; c++) { s(o, a[c]) } n.Identify = o; var u = function () {
+        this._q = []
+        ; return this
+      }
+      ; var l = ["setProductId", "setQuantity", "setPrice", "setRevenueType", "setEventProperties"]
+      ; for (var p = 0; p < l.length; p++) { s(u, l[p]) } n.Revenue = u
+      ; var d = ["init", "logEvent", "logRevenue", "setUserId", "setUserProperties", "setOptOut", "setVersionName", "setDomain", "setDeviceId", "enableTracking", "setGlobalUserProperties", "identify", "clearUserProperties", "setGroup", "logRevenueV2", "regenerateDeviceId", "groupIdentify", "onInit", "logEventWithTimestamp", "logEventWithGroups", "setSessionId", "resetSessionId"]
+      ; function v(e) {
+        function t(t) {
+          e[t] = function () {
+            e._q.push([t].concat(Array.prototype.slice.call(arguments, 0)))
+          }
+        }
+        for (var n = 0; n < d.length; n++) { t(d[n]) }
+      } v(n); n.getInstance = function (e) {
+        e = (!e || e.length === 0 ? "$default_instance" : e).toLowerCase()
+          ; if (!Object.prototype.hasOwnProperty.call(n._iq, e)) {
+            n._iq[e] = { _q: [] }; v(n._iq[e])
+          } return n._iq[e]
+      }; e.amplitude = n
+  })(window, document);
+
+  amplitude.getInstance().init("33252b19bc60d9fd8c591ca4e84e4d4b", null, {
     // optional configuration options
     saveEvents: true,
     includeUtm: true,
     includeReferrer: true
-    })
-    
-    amplitude.getInstance().logEvent('Page loaded');
-  </script>
+  })
+
+  amplitude.getInstance().logEvent('Page loaded');
+</script>
