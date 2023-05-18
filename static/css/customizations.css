@@ -350,8 +350,8 @@ code {
 
 /* ----------  Toggle button ------------- */
 .form-check-input:checked {
-    background-color: #505050;
-    border-color: #575757;
+    background-color: #4688eb;
+    border-color: #2f5a81;
 }
 
 .switch {
