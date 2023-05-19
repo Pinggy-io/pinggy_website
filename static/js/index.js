@@ -114,8 +114,8 @@ function generateAdvancedCommand() {
     options += " " + webdebugoption;
 
     // update url
-    $("#adv_webdebugurl > a").attr("href", `http://localhost:${debugport}`)
-    $("#adv_webdebugurl > a").text(`http://localhost:${debugport}`)
+    $("#adv_webdebugurl > a").attr("href", `http://localhost:${debugport}`);
+    $("#adv_webdebugurl > a").text(`http://localhost:${debugport}`);
   }
   if (!manuelcheck) {
     options += " -o StrictHostKeyChecking=no";
@@ -129,18 +129,23 @@ function generateAdvancedCommand() {
     let mode = $(headermodificationrows[i])
       .children(".headermodificationmode")
       .val();
+    mode == "r"
+      ? $(headermodificationrows[i])
+          .children(".headerval")
+          .prop("disabled", true)
+          .val("")
+      : $(headermodificationrows[i])
+          .children(".headerval")
+          .prop("disabled", false);
     let headername = $(headermodificationrows[i]).children(".headername").val();
     let headerval = $(headermodificationrows[i]).children(".headerval").val();
-    $(headermodificationrows[i])
-      .children(".headerval")
-      .prop("disabled", mode == "r");
 
     let thiscommand = `\\\"${mode}:${headername}${
       headerval ? ":" + headerval : ""
     }\\\"`;
     headercommands += " " + thiscommand;
   }
-  if(headercommands != "") {
+  if (headercommands != "") {
     options += " -t";
   }
 
