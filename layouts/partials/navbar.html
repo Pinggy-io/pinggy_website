@@ -1,14 +1,14 @@
 {{/* Responsive Navbar */}}
-<nav class="navbar navbar-expand-lg fixed-top ">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light">
     <div class="container py-2">
         <div class="logo navbar-brand">
             <a href="/">
-                <img height="50" src="/assets/pinggy_logo.png" />
+                <img height="50" src="/assets/pinggy_logo.png" alt="Pinggy brand logo" />
             </a>
         </div>
-        <button class="navbar-toggler primary" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mb-2 mb-lg-0">
                 {{ range .Site.Menus.main }}

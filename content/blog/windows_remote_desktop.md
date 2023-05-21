@@ -1,7 +1,7 @@
 ---
  title: "Pinggy made windows remote desktop really remote" 
  date: 2023-05-01T01:15:25+05:30 
- draft: false 
+ draft: true 
  tags: ["guide", "windows", "RDP", "remote desktop"]
 ---
 

@@ -6,23 +6,38 @@
         <div class="row justify-content-evenly">
             <div class="col-lg-5">
                 <div class="text-left my-5">
-                    <h1 class="display-5 fw-bolder mb-2 biggestheader">Public URLs for Localhost</h1>
-                    <span class="mb-2 fs-3">Without downloading any binary</span>
-                    <p class="mb-4" id="lead2">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is sitting
-                        behind firewalls and NATs.</p>
-
-                    <div>
-                        <a href="https://dashboard.pinggy.io" id="signinbutton" class="btn btn-dark mt-3">Sign in for
-                            TCP and TLS tunnels</a>
-                        <button id="trybutton" class="btn btn-primary mt-3" onclick="trynow()">Try Now!</button>
+                    <h1 class="display-5 fw-bolder biggestheader d-inline">Public URLs for Localhost.</h1>
+                    <span class="mb-2 mt-2 fs-3 d-block">Without downloading any binary!</span>
+                    <div class="mt-4" id="lead2">Create HTTP, TCP or TLS tunnels to your Mac/PC.<br>Even if it is
+                        sitting
+                        behind firewalls and NATs.</div>
+                    <div style="margin-top: 4em; max-width: 28em;">
+                        <div style="font-weight: 500;"><span class="highlight">&nbspFree persistent URL&nbsp;</span> for
+                            30 days & custom domain support:</div>
+                        <div class="input-group mt-1">
+                            <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+                                aria-describedby="button-addon2" id="trialemail">
+                            <div style="border-radius: 0.2em;" class="invalid-tooltip" id="emailinvalidtooltip">
+                                Please enter a valid email
+                            </div>
+                            <button
+                                style="border-color: rgb(71, 117, 198); background-color: rgba(70, 117, 199, 1); padding: 0.6em 1em; box-shadow: 0 0 4px 0px #a3599b8c; font-weight: 500;"
+                                class="btn btn-secondary" type="button" id="button-addon2" onclick="starttrial()">Start
+                                free trial</button>
+                        </div>
+                        <button onclick="trynow()" id="trynow">Or just try it for free →</button>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 mt-3" id="bigcodecolumn">
-                <div class="text-left">
+            <div class="col-lg-5 mt-3">
+                <div class="text-left" id="bigcodecolumn">
                     <div class="px-4">
+                        <button type="button" class="btn btn-link text-decoration-none float-end" data-bs-toggle="modal"
+                            data-bs-target="#advancedModal" id="advancedModalButton">
+                            <i class="bi bi-gear"></i> Advanced Settings <i class="bi bi-chevron-right" style="font-size: 0.8rem;"></i>
+                        </button>
 
-                        <div class="input-group my-4">
+                        <div class="input-group mb-4 pt-1">
 
                             <label class="input-group-text" id="tryityourselftext">Try it yourself with:</label>
 
@@ -98,6 +113,113 @@
     </div>
 </header>
 
+<!-- Modal -->
+<div class="modal fade" id="advancedModal" tabindex="-1" aria-labelledby="advancedModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content px-2 pb-3">
+            <div class="modal-header">
+                <span class="modal-title" id="advancedModalLabel">Advanced HTTP(s) Tunnel Configuration</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-4">
+                <form>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Select platform id" id="adv_platformselect">
+                            <option value="unix" selected>Mac / Linux</option>
+                            <option value="windows">Windows</option>
+                        </select>
+                        <label for="adv_platformselect">Platform</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="adv_localPort" placeholder="8000" value="8000">
+                        <label for="adv_localPort">Local Port</label>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-12 col-lg-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="adv_keepalive" checked>
+                                <label class="form-check-label" for="adv_keepalive">Keep Alive <i class="bi bi-info-circle"
+                                        type="button" data-bs-toggle="tooltip" data-bs-placement="right"
+                                        title="Send keep alive packets for a stable tunnel"></i></label>
+                            </div>
+                        </div>
+                        <div class="col col-12 col-lg-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="adv_restart">
+                                <label class="form-check-label" for="adv_restart">Auto Reconnect <i class="bi bi-info-circle"
+                                        type="button" data-bs-toggle="tooltip" data-bs-placement="right"
+                                        title="Automatically reconnect tunnel on failure."></i></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-12 col-lg-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
+                                <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
+                            </div>
+                        </div>
+                        <div class="col col-12 col-lg-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="adv_rsaCheck">
+                                <label class="form-check-label" for="adv_rsaCheck">Manually check host key <i class="bi bi-info-circle"
+                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Type 'yes' to manually validate host key"></i></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-floating mb-3" id="adv_webdebuggerportselector">
+                        <input type="number" class="form-control" id="adv_webdebugPort" placeholder="4300" value="4300">
+                        <label for="adv_webdebugPort">Web Debugger Port</label>
+                    </div>
+
+                    <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
+                        type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                        title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i></label>
+                    <div id="headermodificationcontainer">
+
+                    </div>
+                    <button type="button" class="btn btn-outline-dark mb-3 mt-2" onclick="addheadermodificationrow()">
+                        <i class="bi bi-plus"></i> Add header modification rule</button>
+
+                    <div>
+                        <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
+                    </div>
+                    <div class="input-group mt-1">
+                        <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommand" class="form-control font-monospace" style="font-size: 0.8rem;"
+                            readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
+                        <button class="btn btn-outline-dark" type="button" id="copybutton"
+                            onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
+                                class="bi bi-clipboard"></i></button>
+                    </div>
+                    <div class="mt-3" style="font-size: 0.8rem;" id="adv_webdebugurl">Web Debugger URL: <a href="http://localhost:4300" target="_blank">http://localhost:4300</a></div>
+                    <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem; display: none;" role="alert" id="adv_alert">
+                        When the tunnel reconnects, your public URL will change. Upgrade to <a href="/#prices">Pinggy Pro</a> for persistent URLs.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none;" id="headermodificationinputsample">
+        <div class="input-group headermodificationgroup">
+            <select class="form-select headermodificationmode">
+                <option value="a" selected>Add</option>
+                <option value="u">Replace</option>
+                <option value="r">Remove</option>
+            </select>
+            <input type="text" aria-label="header name" placeholder="Header Name" class="form-control headername">
+            <input type="text" aria-label="header value" placeholder="Value" class="form-control headerval">
+            <button class="btn btn-outline-danger removeheadermodificationrow" type="button"><i
+                    class="bi bi-x"></i></a></button>
+        </div>
+    </div>
+</div>
+
 
 <!-- Features -->
 
@@ -124,14 +246,14 @@
                         class="bi bi-collection"></i></div>
                 <h2 class="h3 fw-bolder">Share your websites and apps in seconds!</h2>
                 <ul class="list-unstyled text-muted">
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Skip uploading to cloud</li>
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> No need to download any tool</li>
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Get custom subdomains</li>
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Link your own domain</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Skip uploading to cloud</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> No need to download any tool</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Get custom subdomains</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Link your own domain</li>
                 </ul>
                 <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
                     Learn more
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <i class="bi bi-arrow-up-right-square"></i>
                 </a>
             </div>
         </div>
@@ -147,17 +269,17 @@
                 </div>
                 <h2 class="h3 fw-bolder">Debug on the go!</h2>
                 <ul class="list-unstyled text-muted">
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Debug HTTP / HTTPS requests live</li>
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> No need to download any tool</li>
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Replay requests</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Debug HTTP / HTTPS requests live</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> No need to download any tool</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Replay requests</li>
                 </ul>
                 <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
                     Learn more
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <i class="bi bi-arrow-up-right-square"></i>
                 </a>
             </div>
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <img src="/assets/webdebug.png" class="img-fluid featureimage"/>
+                <img src="/assets/webdebug.png" class="img-fluid featureimage" alt="Pinggy web debugger screenshot" />
             </div>
         </div>
 
@@ -171,10 +293,12 @@
                 <div id="carouselTUI" class="carousel slide featureimage" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="2000">
-                            <img src="/assets/tui1.png" class="d-block w-100">
+                            <img src="/assets/tui1.png" class="d-block w-100"
+                                alt="Pinggy terminal user interface (TUI) screenshot showing list of requests">
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="/assets/tui2.png" class="d-block w-100">
+                            <img src="/assets/tui2.png" class="d-block w-100"
+                                alt="Pinggy terminal user interface (TUI) screenshot showing request and response headers of an HTTP request">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselTUI"
@@ -194,13 +318,13 @@
                         class="bi bi-terminal"></i></div>
                 <h2 class="h3 fw-bolder">Rich Terminal Interface</h2>
                 <ul class="list-unstyled text-muted">
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Live request logs</li>
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> View request / response headers</li>
-                    <li class="my-3"><i class="fa-solid fa-check me-2"></i> Stats on bandwidth and more</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Live request logs</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> View request / response headers</li>
+                    <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Stats on bandwidth and more</li>
                 </ul>
                 <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
                     Learn more
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <i class="bi bi-arrow-up-right-square"></i>
                 </a>
             </div>
 
@@ -219,7 +343,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <img class="img-fluid" src="/assets/header5.png" />
+                <img class="img-fluid" src="/assets/header5.png"
+                    alt="Pinggy tunnel network diagram showing how the tunnel works" />
             </div>
         </div>
 
@@ -339,8 +464,8 @@
                                 <div class="card-body d-flex flex-column">
                                     <div class="yearly">
                                         <h2 class="card-title pricing-card-title"><small
-                                                class="text-muted fw-light"><del>$5.0 /month</del></small></h2>
-                                        <h1 class="card-title pricing-card-title">$2.5<small
+                                                class="text-muted fw-light"><del>$5.00 /month</del></small></h2>
+                                        <h1 class="card-title pricing-card-title">$2.50<small
                                                 class="text-muted fw-light">/month</small></h1>
                                         <span class="text-muted fw-light">(billed annually)</span>
                                     </div>
@@ -449,6 +574,23 @@
                                         href="https://man7.org/linux/man-pages/man1/ssh.1.html"
                                         target="_blank">here</a>. If you are using a different ssh client, then refer to
                                     its documentation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingServerLocation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseServerLocation" aria-expanded="false"
+                                aria-controls="collapseServerLocation">
+                                Where are Pinggy servers located?
+                            </button>
+                        </h2>
+                        <div id="collapseServerLocation" class="accordion-collapse collapse"
+                            aria-labelledby="headingServerLocation" data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>
+                                    <code>a.pinggy.io</code> is located in USA</code>.
                                 </p>
                             </div>
                         </div>
