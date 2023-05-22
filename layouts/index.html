@@ -34,7 +34,8 @@
                     <div class="px-4">
                         <button type="button" class="btn btn-link text-decoration-none float-end" data-bs-toggle="modal"
                             data-bs-target="#advancedModal" id="advancedModalButton">
-                            <i class="bi bi-gear"></i> Advanced Settings <i class="bi bi-chevron-right" style="font-size: 0.8rem;"></i>
+                            <i class="bi bi-gear"></i> Advanced Settings <i class="bi bi-chevron-right"
+                                style="font-size: 0.8rem;"></i>
                         </button>
 
                         <div class="input-group mb-4 pt-1">
@@ -118,104 +119,200 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content px-2 pb-3">
             <div class="modal-header">
-                <span class="modal-title" id="advancedModalLabel">Advanced HTTP(s) Tunnel Configuration</span>
+                <span class="modal-title" id="advancedModalLabel">Advanced Tunnel Configuration</span>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body pt-4">
-                <form>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" aria-label="Select platform id" id="adv_platformselect">
-                            <option value="unix" selected>Mac / Linux</option>
-                            <option value="windows">Windows</option>
-                        </select>
-                        <label for="adv_platformselect">Platform</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="adv_localPort" placeholder="8000" value="8000">
-                        <label for="adv_localPort">Local Port</label>
-                    </div>
-
-                    <div class="row">
-                        <div class="col col-12 col-lg-6">
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="adv_keepalive" checked>
-                                <label class="form-check-label" for="adv_keepalive">Keep Alive <i class="bi bi-info-circle"
-                                        type="button" data-bs-toggle="tooltip" data-bs-placement="right"
-                                        title="Send keep alive packets for a stable tunnel"></i></label>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="http-tab" data-bs-toggle="tab"
+                            data-bs-target="#http-tab-pane" type="button" role="tab" aria-controls="http-tab-pane"
+                            aria-selected="true">HTTP(S)</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tcp-tab" data-bs-toggle="tab" data-bs-target="#tcp-tab-pane"
+                            type="button" role="tab" aria-controls="tcp-tab-pane" aria-selected="false">TCP</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tls-tab" data-bs-toggle="tab" data-bs-target="#tcp-tab-pane"
+                            type="button" role="tab" aria-controls="tls-tab-pane" aria-selected="false">TLS</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="advancedSettingsTabContent">
+                    <div class="tab-pane fade show active" id="http-tab-pane" role="tabpanel" aria-labelledby="http-tab"
+                        tabindex="0">
+                        <form>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="adv_localPort" placeholder="8000"
+                                    value="8000">
+                                <label for="adv_localPort">Local Port</label>
                             </div>
-                        </div>
-                        <div class="col col-12 col-lg-6">
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="adv_restart">
-                                <label class="form-check-label" for="adv_restart">Auto Reconnect <i class="bi bi-info-circle"
-                                        type="button" data-bs-toggle="tooltip" data-bs-placement="right"
-                                        title="Automatically reconnect tunnel on failure."></i></label>
+
+                            <div class="row">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_keepalive" checked>
+                                        <label class="form-check-label" for="adv_keepalive">Keep Alive <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Send keep alive packets for a stable tunnel"></i></label>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_restart">
+                                        <label class="form-check-label" for="adv_restart">Auto Reconnect <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Automatically reconnect tunnel on failure."></i></label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col col-12 col-lg-6">
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
-                                <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
+                            <div class="row">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
+                                        <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_rsaCheck">
+                                        <label class="form-check-label" for="adv_rsaCheck">Manually check host key <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Type 'yes' to manually validate host key"></i></label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col col-12 col-lg-6">
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="adv_rsaCheck">
-                                <label class="form-check-label" for="adv_rsaCheck">Manually check host key <i class="bi bi-info-circle"
-                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right"
-                                    title="Type 'yes' to manually validate host key"></i></label>
+
+
+                            <div class="form-floating mb-3" id="adv_webdebuggerportselector">
+                                <input type="number" class="form-control" id="adv_webdebugPort" placeholder="4300"
+                                    value="4300">
+                                <label for="adv_webdebugPort">Web Debugger Port</label>
                             </div>
-                        </div>
-                    </div>
 
-                    
-                    <div class="form-floating mb-3" id="adv_webdebuggerportselector">
-                        <input type="number" class="form-control" id="adv_webdebugPort" placeholder="4300" value="4300">
-                        <label for="adv_webdebugPort">Web Debugger Port</label>
-                    </div>
+                            <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
+                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                                    title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i></label>
+                            <div id="headermodificationcontainer">
 
-                    <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
-                        type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
-                        title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i></label>
-                    <div id="headermodificationcontainer">
+                            </div>
+                            <button type="button" class="btn btn-outline-dark mb-3 mt-2"
+                                onclick="addheadermodificationrow()">
+                                <i class="bi bi-plus"></i> Add header modification rule</button>
 
+                            <div class="form-floating mb-3" id="adv_platformselect_div" style="display: none;">
+                                <select class="form-select" aria-label="Select platform id" id="adv_platformselect">
+                                    <option value="unix" selected>Mac / Linux</option>
+                                    <option value="windows">Windows</option>
+                                </select>
+                                <label for="adv_platformselect">Platform</label>
+                            </div>
+                            <div>
+                                <label class="text-bold mt-2"><strong>Paste this command to start
+                                        tunnel:</strong></label>
+                            </div>
+                            <div class="input-group mt-1">
+                                <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommand"
+                                    class="form-control font-monospace" style="font-size: 0.8rem;"
+                                    readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
+                                <button class="btn btn-outline-dark" type="button" id="copybutton"
+                                    onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
+                                        class="bi bi-clipboard"></i></button>
+                            </div>
+                            <div class="mt-3" style="font-size: 0.8rem;" id="adv_webdebugurl">Web Debugger URL: <a
+                                    href="http://localhost:4300" target="_blank">http://localhost:4300</a></div>
+                            <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem; display: none;"
+                                role="alert" id="adv_alert">
+                                When the tunnel reconnects, your public URL will change. Upgrade to <a
+                                    href="/#prices">Pinggy Pro</a> for persistent URLs.
+                            </div>
+                        </form>
                     </div>
-                    <button type="button" class="btn btn-outline-dark mb-3 mt-2" onclick="addheadermodificationrow()">
-                        <i class="bi bi-plus"></i> Add header modification rule</button>
+                    <div class="tab-pane fade" id="tcp-tab-pane" role="tabpanel" aria-labelledby="tcp-tab" tabindex="0">
+                        <form class="tcptls_adv_conf_form">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="adv_localPort_tcp" placeholder="8000"
+                                    value="8000">
+                                <label for="adv_localPort_tcp">Local Port</label>
+                            </div>
 
-                    <div>
-                        <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
+                            <div class="row">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_keepalive_tcp" checked>
+                                        <label class="form-check-label" for="adv_keepalive_tcp">Keep Alive <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Send keep alive packets for a stable tunnel"></i></label>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_restart_tcp">
+                                        <label class="form-check-label" for="adv_restart_tcp">Auto Reconnect <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Automatically reconnect tunnel on failure."></i></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_rsaCheck_tcp">
+                                        <label class="form-check-label" for="adv_rsaCheck_tcp">Manually check host key
+                                            <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Type 'yes' to manually validate host key"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3" id="adv_platformselect_tcp_div" style="display: none;">
+                                <select class="form-select" aria-label="Select platform id" id="adv_platformselect_tcp">
+                                    <option value="unix" selected>Mac / Linux</option>
+                                    <option value="windows">Windows</option>
+                                </select>
+                                <label for="adv_platformselect_tcp">Platform</label>
+                            </div>
+                            <div>
+                                <label class="text-bold mt-2"><strong>Paste this command to start
+                                        tunnel:</strong></label>
+                            </div>
+                            <div class="input-group mt-1">
+                                <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommandtcp"
+                                    class="form-control font-monospace" style="font-size: 0.8rem;"
+                                    readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
+                                <button class="btn btn-outline-dark" type="button" id="copybutton"
+                                    onclick="copytoclipboard(this,'#advancedcommandtcp','SSH url copy button clicked')"><i
+                                        class="bi bi-clipboard"></i></button>
+                            </div>
+                            <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem; display: none;"
+                                role="alert" id="adv_alert">
+                                When the tunnel reconnects, your public URL will change. Upgrade to <a
+                                    href="/#prices">Pinggy Pro</a> for persistent URLs.
+                            </div>
+                        </form>
                     </div>
-                    <div class="input-group mt-1">
-                        <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommand" class="form-control font-monospace" style="font-size: 0.8rem;"
-                            readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
-                        <button class="btn btn-outline-dark" type="button" id="copybutton"
-                            onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
-                                class="bi bi-clipboard"></i></button>
-                    </div>
-                    <div class="mt-3" style="font-size: 0.8rem;" id="adv_webdebugurl">Web Debugger URL: <a href="http://localhost:4300" target="_blank">http://localhost:4300</a></div>
-                    <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem; display: none;" role="alert" id="adv_alert">
-                        When the tunnel reconnects, your public URL will change. Upgrade to <a href="/#prices">Pinggy Pro</a> for persistent URLs.
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div style="display: none;" id="headermodificationinputsample">
-        <div class="input-group headermodificationgroup">
-            <select class="form-select headermodificationmode">
-                <option value="a" selected>Add</option>
-                <option value="u">Replace</option>
-                <option value="r">Remove</option>
-            </select>
-            <input type="text" aria-label="header name" placeholder="Header Name" class="form-control headername">
-            <input type="text" aria-label="header value" placeholder="Value" class="form-control headerval">
-            <button class="btn btn-outline-danger removeheadermodificationrow" type="button"><i
-                    class="bi bi-x"></i></a></button>
+        <div style="display: none;" id="headermodificationinputsample">
+            <div class="input-group headermodificationgroup">
+                <select class="form-select headermodificationmode">
+                    <option value="a" selected>Add</option>
+                    <option value="u">Replace</option>
+                    <option value="r">Remove</option>
+                </select>
+                <input type="text" aria-label="header name" placeholder="Header Name" class="form-control headername">
+                <input type="text" aria-label="header value" placeholder="Value" class="form-control headerval">
+                <button class="btn btn-outline-danger removeheadermodificationrow" type="button"><i
+                        class="bi bi-x"></i></a></button>
+            </div>
         </div>
     </div>
 </div>
@@ -375,7 +472,8 @@
                 <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"><i class="bi bi-cpu"></i>
                 </div>
                 <h2 class="h3 fw-bolder">Connect your IoT</h2>
-                <p>Access your IoT devices from anywhere with Pinggy public URLs. You can also now SSH into your devices
+                <p>Access your IoT devices from anywhere with Pinggy public URLs. You can also now SSH into your
+                    devices
                     through Pinggy TCP tunnels.</p>
                 <!--                         
                         <a class="text-decoration-none" href="#!">
@@ -413,7 +511,8 @@
                         potential of Pinggy.</p>
                 </div>
                 <div class="text-center">
-                    <span class="fs-5 px-4 py-2 badge" style="background: rgba(70, 117, 199, 1) !important">Limited time
+                    <span class="fs-5 px-4 py-2 badge" style="background: rgba(70, 117, 199, 1) !important">Limited
+                        time
                         offer!</span>
                 </div>
 
@@ -562,17 +661,20 @@
                             <div class="accordion-body">
                                 <p>
                                     Pinggy relies on SSH remote port forwarding. The option
-                                    <code>-R 0:localhost:8000</code> in the command only implies that connections to the
+                                    <code>-R 0:localhost:8000</code> in the command only implies that connections to
+                                    the
                                     public URL given by pinggy are forwarded to your <code>localhost:8000</code>.
                                 </p>
                                 <p class="alert alert-dark bg-light bg-gradient">
-                                    No other port than the one specified by you can be accessed by Pinggy or by anyone
+                                    No other port than the one specified by you can be accessed by Pinggy or by
+                                    anyone
                                     through the public URLs provided by Pinggy.
                                 </p>
                                 <p>
                                     You can read more about the <code>-R</code> option of openssh client <a
                                         href="https://man7.org/linux/man-pages/man1/ssh.1.html"
-                                        target="_blank">here</a>. If you are using a different ssh client, then refer to
+                                        target="_blank">here</a>. If you are using a different ssh client, then
+                                    refer to
                                     its documentation.
                                 </p>
                             </div>
@@ -605,7 +707,8 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionFaq">
                             <div class="accordion-body">
-                                <p>Pinggy's free plan has a tunnel timeout of 60 minutes. If the tunnel is closed by you
+                                <p>Pinggy's free plan has a tunnel timeout of 60 minutes. If the tunnel is closed by
+                                    you
                                     or reaches the time limit, starting a new tunnel will generate a new URL.</p>
                                 <p>To obtain a permanent or persistent URL, or to use your own domain, you must
                                     subscribe to Pinggy Pro.</p>
@@ -622,8 +725,10 @@
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionFaq">
                             <div class="accordion-body">
-                                <p>Yes. Current versions of Windows, Mac, as well as almost all Linux distributions come
-                                    with openssh client pre-installed. Therefore Pinggy will just work out of the box.
+                                <p>Yes. Current versions of Windows, Mac, as well as almost all Linux distributions
+                                    come
+                                    with openssh client pre-installed. Therefore Pinggy will just work out of the
+                                    box.
                                 </p>
                                 <p>To learn more about using Pinggy on Android read our <a
                                         href="https://pinggy.io/blog/host_website_on_android/" target="_blank">blog

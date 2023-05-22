@@ -498,6 +498,10 @@ pre {
     margin-top: 32px;
     margin-bottom: 32px;
 }
+
+#advancedSettingsTabContent {
+    border: 0;
+}
  .tab-content {
     display: block;
     clear: both;
