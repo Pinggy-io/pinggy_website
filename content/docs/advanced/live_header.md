@@ -46,3 +46,44 @@ Here we need to escape the `"` because we have space in between the header value
 The first argument is the header name for all three operations. The header name is case-insensitive, but we would recommend using upper camel casing syntax. It cannot contain any spaces or special characters. Read more about header name syntax at the Mozilla documentation.
 
 Kindly note that the `Host` header is very special. It cannot be removed, but only updated. It cannot have multiple values. If one provides multiple values, only the last one will be considered.
+
+## Example
+* Let's say we want to start a `HTTP` tunnel for the server running at `localhost:8080` while changing `Host` to `example.com`.
+```
+ssh -p443 -R0:localhost:8080 a.pinggy.io u:Host:example.com
+```
+
+<div class="row mb-4">
+<div class="col">
+<img style="max-width: 48em; margin: 0 auto; display: block;" src="/doc_img/live_header/notui.png" alt="Host name manipulation without pty">
+</div>
+</div>
+
+* So last command does not provide the interactive UI. To get the interactive UI we have to add `-t` switch to the `ssh` command like below.
+```
+ssh -p443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com
+```
+
+<div class="row mb-4">
+<div class="col">
+<img style="max-width: 48em; margin: 0 auto; display: block;" src="/doc_img/live_header/pty.png" alt="Host name manipulation with pty">
+</div>
+</div>
+
+<div class="row mb-4">
+<div class="col">
+<img style="max-width: 48em; margin: 0 auto; display: block;" src="/doc_img/live_header/pty.png" alt="Host name manipulation with pty">
+</div>
+</div>
+
+
+* How to add more manipulation? Just add at the end. For example, if we want to remove `Referer` header along with changing the `Host`, we need following command
+```
+ssh -p443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com r:Referer
+```
+
+<div class="row mb-4">
+<div class="col">
+<img style="max-width: 48em; margin: 0 auto; display: block;" src="/doc_img/live_header/multiple-header.png" alt="Host name manipulation with Referer removal">
+</div>
+</div>
