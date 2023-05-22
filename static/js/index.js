@@ -58,7 +58,14 @@ $("#portform").on("input", function () {
 $("#adv_platformselect").change(generateAdvancedCommand);
 $("#adv_localPort").on("input", generateAdvancedCommand);
 $("#adv_keepalive").change(generateAdvancedCommand);
-$("#adv_restart").change(generateAdvancedCommand);
+$("#adv_restart").change(() => {
+  if ($("#adv_restart").is(":checked")) {
+    $("#adv_platformselect_div").slideDown();
+  } else {
+    $("#adv_platformselect_div").slideUp();
+  }
+  generateAdvancedCommand();
+});
 $("#adv_webdebugPort").on("input", generateAdvancedCommand);
 $("#adv_rsaCheck").change(generateAdvancedCommand);
 $("#headermodificationcontainer").on(
@@ -169,6 +176,64 @@ function generateAdvancedCommand() {
   }
 
   $("#advancedcommand").val(command);
+}
+
+// Advanced form TCP / TLS =========================================
+var mode_tcp = "tcp";
+$("#adv_platformselect_tcp").change(advGenerateAdvancedCommand);
+$("#adv_localPort_tcp").on("input", advGenerateAdvancedCommand);
+$("#adv_keepalive_tcp").change(advGenerateAdvancedCommand);
+$("#adv_restart_tcp").change(() => {
+  if ($("#adv_restart_tcp").is(":checked")) {
+    $("#adv_platformselect_tcp_div").slideDown();
+  } else {
+    $("#adv_platformselect_tcp_div").slideUp();
+  }
+  advGenerateAdvancedCommand();
+});
+$("#adv_rsaCheck_tcp").on("input", advGenerateAdvancedCommand);
+$("#advancedModalButton").on("click", advGenerateAdvancedCommand);
+$("#tcp-tab").on("click", () => {
+  (mode_tcp = "tcp"), advGenerateAdvancedCommand();
+});
+$("#tls-tab").on("click", () => {
+  (mode_tcp = "tls"), advGenerateAdvancedCommand();
+});
+
+function advGenerateAdvancedCommand() {
+  let localport_tcp = $("#adv_localPort_tcp").val();
+  let manuelcheck_tcp = $("#adv_rsaCheck_tcp").is(":checked");
+  let keepalive_tcp = $("#adv_keepalive_tcp").is(":checked");
+  let restart_tcp = $("#adv_restart_tcp").is(":checked");
+  let platform_tcp = $("#adv_platformselect_tcp").val();
+
+  let options_tcp = "";
+
+  if (!manuelcheck_tcp) {
+    options_tcp += " -o StrictHostKeyChecking=no";
+  }
+  if (keepalive_tcp) {
+    options_tcp += " -o ServerAliveInterval=30";
+  }
+
+  command = `ssh -p 443 -R0:localhost:${localport_tcp} ${options_tcp} ${mode_tcp}@a.pinggy.io`;
+
+  // restarting
+  if (restart_tcp) {
+    if (platform_tcp == "unix") {
+      command = "while true; do \n    " + command + "; \nsleep 5; done";
+      $("#advancedcommandtcp").attr("rows", 4);
+    } else {
+      command = "FOR /L %N IN () DO (" + command + "\ntimeout /t 5)";
+      $("#advancedcommandtcp").attr("rows", 4);
+    }
+    $("#adv_alert").slideDown();
+  } else {
+    $("#advancedcommandtcp").attr("rows", 2);
+    $("#adv_alert").slideUp();
+  }
+
+  $("#advancedcommandtcp").val(command);
 }
 
 // =======================================================
