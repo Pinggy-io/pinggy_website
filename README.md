@@ -14,3 +14,15 @@ This are static pages which are outside the scope of dashboard.pinggy.io
   - [ ] Terms of Service page mentioning cancellation and refund policies.
   - [ ] Privacy Policy page. It must describe the information collected, its purpose of use, to whom and how to disclose it and reasonable security practices followed to safeguard such information.
   - [ ] Cancellation & Refund Policy page. You can also submit Terms Of Service URL, if it has the Cancellation & Refund Policy mentioned abiding Indian laws.
+
+  Tunnel shortcode example:
+```
+
+  {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jupyter Notebook:" portstring="Jupyter Notebook Port" localport="1313" webdebugenabled=false keepalive=true webdebugport="8080" mode="tcp" headermodifications=`[{"mode":"u", "headername":"Host", "headerval": "localhost:3000"}, {"mode":"r", "headername":"Host2", "headerval": "localhost:3000"}]` >}}
+{{< /pinggytunnel >}}
+```
+
+```
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jupyter Notebook:" portstring="Jupyter Notebook Port" localport="1313" webdebugenabled=true keepalive=false webdebugport="8080" headermodifications=`[{"mode":"a", "headername":"Custom", "headerval": "abc"}]` >}}
+{{< /pinggytunnel >}}
+```
