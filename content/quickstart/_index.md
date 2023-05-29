@@ -1,6 +1,14 @@
 # Get secure tunnel to your favourite app or service
 
-<div class="row">
+<div class="input-group my-5">
+    <input class="form-control" type="search" id="quickstart-search-input" placeholder="Search">
+    <span class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="quickstart-search-btn" >
+            <i class="bi bi-search"></i>
+        </button>
+    </span>
+</div>
+<div class="row quickstartcard-container">
 {{< quickstartcard  image="./images/jupyter.svg" imagealt="Jupyter notebook logo" title="Jupyter Notebook" description="Jupyter Notebook is a web-based interactive coding environment." link="./jupyternotebook">}}
 
 {{< quickstartcard  image="./images/django.svg" imagealt="Django logo" title="Django" description="Django is a Python-based web framework that simplifies and accelerates the process of building web applications." link="./django">}}
@@ -54,5 +62,4 @@
 {{< quickstartcard  image="./images/stripe.svg" imagealt="Stripe logo" title="Stripe" description="Stripe is a payment processing platform that enables online businesses to accept payments securely and easily." link="./stripe">}}
 
 {{< quickstartcard  image="./images/wamp.svg" imagealt="WAMP logo" title="WAMP" description="WAMP (Windows, Apache, MySQL, PHP) is a software stack used for web development on Windows operating systems." link="./wamp">}}
-
 </div>

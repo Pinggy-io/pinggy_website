@@ -6,7 +6,7 @@
  og_image: "/quickstart/images/shopify.svg"
 ---
 
-With [pinggy.io](https://pinggy.io) you can test your Shopify Webhook from localhost with just a single command. **Replace the port 3030 with the port where your webhook is running and make sure the webhook is ready to receive requests(e.g. http://localhost:3030/webhooks).**
+With [pinggy.io](https://pinggy.io) you can test your Shopify Webhook from localhost with just a single command. **Replace the port 8080 with the port where your local development server is running and make sure it is ready to receive requests (e.g. http://localhost:3030/webhooks).**
 
 Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.io`. Use this URL to access the webhook.
 

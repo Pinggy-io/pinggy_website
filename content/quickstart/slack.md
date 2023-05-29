@@ -6,7 +6,7 @@
  og_image: "/quickstart/images/slack.svg"
 ---
 
-With [pinggy.io](https://pinggy.io) you can test your Slack Webhook from localhost with just a single command. **Replace the port 8080 with the port where your webhook is running and make sure the webhook is ready to receive requests (e.g. http://localhost:8080/webhook-url).**
+With [pinggy.io](https://pinggy.io) you can test your Slack Webhook from localhost with just a single command. **Replace the port 8080 with the port where your local development server is running and make sure it is ready to receive requests (e.g. http://localhost:8080/webhook-url).**
 
 Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.io`. Use this URL to access the webhook.
 
