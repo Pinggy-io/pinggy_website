@@ -3,7 +3,7 @@
 {{ $title := .Get "title" | default "Tunnel" }}
 {{ $description := .Get "description" | default "Tunnel to localhost" }}
 {{ $link := .Get "link" | default "#" }}
-<div class="col-12 col-sm-6 col-lg-4">
+<div class="col-12 col-sm-6 col-lg-4 quickstartcard" data-title="{{ $title }}" data-description="{{ $description }}">
     <a href="{{ $link }}" class="text-decoration-none text-reset">
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
