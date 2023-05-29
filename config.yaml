@@ -21,23 +21,29 @@ markup:
     renderer:
       unsafe: true
 
+taxonomies:
+  tag: tags
+
 menus: 
   main:
   - name: Home
     url: "/"
     weight: 90
-  - name: Pricing
-    url: /#prices
-    weight: 100
   - name: Docs
     url: /docs
-    weight: 110
+    weight: 100
   - name: Blog
     url: /blog
+    weight: 110
+  - name: FAQ
+    url: /#faq
     weight: 120
-  - name: Contact Us
-    url: /contact_us
+  - name: Pricing
+    url: /#prices
     weight: 130
+  - name: About
+    url: /contact_us
+    weight: 140
 
   # - name: Terms of Service
   #   url: /Terms_of_Service

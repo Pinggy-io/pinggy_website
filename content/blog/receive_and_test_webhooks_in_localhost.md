@@ -17,6 +17,7 @@ Before jumping in we will have a brief overview of Pinggy.
 ## Getting started with Pinggy
 You do not need to do anything to get started. For better features you might want to sign in to https://pinggy.io later.
 
+
 ## Step 1 - Start a pinggy localhost tunnel
 
 On you terminal type:
@@ -34,6 +35,11 @@ Now that you have pinggy running, you can use it to receive webhooks from other 
 ## Step 2 - There is no step 2. Just test.
 
 For example, if you are testing a webhook integration with Stripe, you would log into your Stripe account, navigate to the webhook settings, and enter your pinggy URL as the webhook endpoint. Stripe will then send webhook events to your pinggy URL, which will be forwarded to your local development server.
+
+## Try it yourself now
+
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start receiving webhooks:" portstring="Localhost Port" localport="3000" webdebugenabled=true keepalive=false >}}
+{{< /pinggytunnel >}}
 
 ## Debugging with pinggy [coming soon]
 One of the benefits of using Pinggy is that it will allow you to see the webhook requests that are being sent to your local server. When a webhook event is received, Pinggy will log the request details in your terminal, including the request method, URL, headers, and body.

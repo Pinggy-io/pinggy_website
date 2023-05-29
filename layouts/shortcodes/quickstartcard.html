@@ -1,0 +1,24 @@
+{{ $image := .Get "image" | default "" }}
+{{ $imagealt := .Get "imagealt" | default "" }}
+{{ $title := .Get "title" | default "Tunnel" }}
+{{ $description := .Get "description" | default "Tunnel to localhost" }}
+{{ $link := .Get "link" | default "#" }}
+<div class="col-12 col-sm-6 col-lg-4">
+    <a href="{{ $link }}" class="text-decoration-none text-reset">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            {{ if ne $image ""}}
+            <div class="col-md-4">
+                <img src="{{ $image }}" class="img-fluid rounded-start" alt="{{ $imagealt }}" style="width: 100%; padding: 1rem">
+            </div>
+            {{ end }}
+            <div {{ if ne $image ""}}class="col-md-8"{{ end }}>
+                <div class="card-body">
+                    <h5 class="card-title">{{ $title }}</h5>
+                    <p class="card-text fs-6">{{ $description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+</div>

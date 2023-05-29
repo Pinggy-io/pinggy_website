@@ -72,8 +72,30 @@ body {
 }
 
 #webdebugurl {
-    display: none;
+    display: block;
 }
+
+.enablewebdebuglabel {
+    font-weight: 500;
+}
+
+.featureimage {
+    box-shadow: 0 0 10px 0px #4783b13b;
+    transition: transform 0.6s;
+}
+.featureimage:hover {
+    transform: scale(1.02);
+  }
+
+  .highlight {
+    animation: AnimationName 10s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes AnimationName {
+    0% { background-color: #ffffff00; }
+    100% { background-color: #f8ff95; }
+  }
 
 /* Sidebar  -------------------------- */
 
@@ -278,12 +300,19 @@ code {
     padding: 0.6em;
 }
 
-#trybutton {
-    margin-left: 0.2em;
-    display: inline-block;
-    background-color: rgba(70, 117, 199, 1);
-    border: rgb(26, 134, 196);
-    padding: 0.6em 1em;
+#trynow {
+    margin:0;
+    padding: 0;
+    width: 100%;
+    text-align: right;
+    margin-top: 0.6em;
+    border: 0;
+    background: transparent;
+    border-radius: 0.2em;
+    font-size: 1em;
+    vertical-align: text-bottom;
+    color: #395d9bae;
+    transition: 0.2s;
 }
 
 .btn-outline-dark {
@@ -294,6 +323,7 @@ code {
     background-color: white;
     border-radius: 1em;
     padding: 0;
+    padding-top: 0.2em;
 }
 
 
@@ -319,6 +349,11 @@ code {
 
 
 /* ----------  Toggle button ------------- */
+.form-check-input:checked {
+    background-color: #4688eb;
+    border-color: #2f5a81;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -437,3 +472,54 @@ pre {
     border-radius: 0.2em;
 
 }
+
+
+/* TABS ==== */
+ .tab-nav-button {
+    border-width: 1px 1px 1px 1px !important;
+    border-color: #ccc !important;
+    border-radius: 4px 4px 0 0 !important;
+    background-color: #ddd !important;
+    float: left;
+    display: block;
+    position: relative;
+    margin-left: 4px;
+    bottom: -1px;
+}
+ .tab-nav-button:first-child {
+    margin-left: 0px;
+}
+ .tab-nav-button.active {
+    background-color: #fff !important;
+    border-bottom-color: #fff !important;
+}
+
+ .tab-panel {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+#advancedSettingsTabContent {
+    border: 0;
+}
+ .tab-content {
+    display: block;
+    clear: both;
+    padding: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+}
+ .tab-content .tab-item{
+    display: none;
+}
+
+ .tab-content .tab-item.active{
+    display: block;
+}
+
+ .tab-item pre{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+/* ----------------- */
