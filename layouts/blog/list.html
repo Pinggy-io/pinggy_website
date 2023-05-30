@@ -10,7 +10,7 @@
     </article>
     <ul>
         <!-- orders content according to the "date" field in front matter -->
-        {{ range .Pages.ByDate }}
+        {{ range .Pages.ByDate.Reverse }}
             <article>
             <!-- this <div> includes the title summary -->
             <div>
