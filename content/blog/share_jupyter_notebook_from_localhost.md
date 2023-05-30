@@ -30,7 +30,7 @@ Through this guide you will be able to:
 
     Replace **8888** with the port where your Jupyter notebook is running. *Put a random password if asked.*
 
-4. Access the URL given by Pinggy. Enter the token obtained in step 3 in the browser when asked.
+4. Access the URL given by Pinggy. Enter the token in the browser when asked.
 
 *Note: Do not share Jupyter notebook token publicly, as it will grant remote execution capability to anyone who has it.*
 
