@@ -15,6 +15,7 @@ body {
 
 .blogcontent a {
     hyphens: auto;
+    word-break: break-all;
 }
 
 
