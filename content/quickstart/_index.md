@@ -33,7 +33,7 @@
 
 {{< quickstartcard  image="./images/mssql.svg" imagealt="MsSQL logo" title="MsSQL" description="MS SQL Server is a relational database management system developed by Microsoft." link="./mssql">}}
 
-{{< quickstartcard  image="./images/nuxtjs.svg" imagealt="Nuxt logo" title="Nuxt" description="Nuxt is a Vue.js framework that makes building server-rendered, SEO-friendly, and performance-optimized web applications easy." link="./nuxt">}}
+{{< quickstartcard  image="./images/Expressjs.svg" imagealt="Express logo" title="Express" description="Express is a Vue.js framework that makes building server-rendered, SEO-friendly, and performance-optimized web applications easy." link="./Express">}}
 
 {{< quickstartcard  image="./images/nginx.svg" imagealt="Nginx logo" title="Nginx" description="Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache." link="./nginx">}}
 
@@ -62,4 +62,23 @@
 {{< quickstartcard  image="./images/stripe.svg" imagealt="Stripe logo" title="Stripe" description="Stripe is a payment processing platform that enables online businesses to accept payments securely and easily." link="./stripe">}}
 
 {{< quickstartcard  image="./images/wamp.svg" imagealt="WAMP logo" title="WAMP" description="WAMP (Windows, Apache, MySQL, PHP) is a software stack used for web development on Windows operating systems." link="./wamp">}}
+
+{{< quickstartcard  image="./images/rails.svg" imagealt="Rails logo" title="Rails" description="Rails is a server-side web application framework written in Ruby." link="./rails">}}
+
+{{< quickstartcard  image="./images/react.svg" imagealt="React logo" title="React" description="React is a open-source front-end JavaScript library for building user interfaces based on components." link="./react">}}
+
+{{< quickstartcard  image="./images/svelte.svg" imagealt="Svelte logo" title="Svelte" description="Svelte is a component-based JavaScript framework for building fast and efficient web applications." link="./svelte">}}
+
+{{< quickstartcard  image="./images/next.svg" imagealt="Next logo" title="Next" description="Next.js is a React framework that enables server-side rendering and simplifies building scalable web applications." link="./next">}}
+
+{{< quickstartcard  image="./images/express.svg" imagealt="Express logo" title="Express" description="Express.js is a back end web application framework for building RESTful APIs with Node.js." link="./express">}}
+
+{{< quickstartcard  image="./images/springboot.svg" imagealt="Spring Boot logo" title="Spring Boot" description="Java framework for efficient web app development, leveraging Spring ecosystem with simplified configuration." link="./springboot">}}
+
+{{< quickstartcard  image="./images/nextcloud.svg" imagealt="Nextcloud logo" title="Nextcloud" description="Nextcloud is a suite of client-server software for creating and using file hosting services." link="./nextcloud">}}
+
+{{< quickstartcard  image="./images/twilio.svg" imagealt="Twilio logo" title="Twilio" description="Cloud platform enabling developers to integrate messaging, voice, and video capabilities into applications using APIs." link="./twilio">}}
+
+{{< quickstartcard  image="./images/telegram.svg" imagealt="Telegram logo" title="Telegram" description="Cloud-based messaging app providing secure and fast communication through features like messaging, groups, and channels." link="./telegram">}}
+
 </div>
