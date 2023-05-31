@@ -1,5 +1,5 @@
 ---
- title: "Sharing Apache HTTP server from localhost" 
+ title: "Sharing Apache HTTP from localhost" 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
