@@ -1,11 +1,15 @@
 ---
- title: "Sharing Jupyter Notebooks with Pinggy" 
+ title: "Sharing Jupyter Notebooks from localhost" 
  date: 2023-05-29T14:15:25+05:30 
  draft: false 
+ og_image: "/blog/images/jupyter/image0.png"
 ---
 
 
+
 {{% link href="https://jupyter.org/" %}}Jupyter Notebook{{% /link %}} allows users to create and share documents containing live code, equations, visualizations, and explanatory text. However, by default, Jupyter Notebook is limited to local access, requiring users to be on the same machine or network to collaborate effectively. This guide shows how you can share Jupyter Notebook with your teammates, collaborators, and friends.
+
+{{< figure src="../images/jupyter/image0.png" alt="Sharing jupyter notebook through Pinggy public URLs" >}}
 
 Through this guide you will be able to:
 
@@ -17,57 +21,81 @@ Through this guide you will be able to:
 
 {{% tldr %}}
 
-1. Install Jupyter Notebook
-2. Start Notebook
+1. Start Notebook: `jupyter notebook` (or `python -m notebook`)
+2. Observe the `token` from the output of the above command such as `http://localhost:8888/?token=4a0b8fdd640d8d3d14dbf5819ca865a8d4b4272aaf124xxx`
+3. Keep the last terminal running. In a separate terminal, start Pinggy tunnel: 
+    ```
+    ssh -p 443 -R0:localhost:8888 -t a.pinggy.io "a:Host:localhost:8888"
+    ```
+
+    Replace **8888** with the port where your Jupyter notebook is running. *Put a random password if asked.*
+
+4. Access the URL given by Pinggy. Enter the token in the browser when asked.
+
+*Note: Do not share Jupyter notebook token publicly, as it will grant remote execution capability to anyone who has it.*
 
 {{% /tldr %}} 
 
+## Installing Jupyter Notebook
 
-
-
-
-
-
-
-
-
-## Overview of pinggy.io
-Before jumping in we will have a brief overview of Pinggy.
-
-
-[Pinggy.io](https://pinggy.io) is a tunneling solution that provides a public address to reach your local computer's server, even if it's behind a firewall or NAT. This can be accomplished with a single command, without the need for any downloads. Using the pinggy command, users can access your locally hosted website or application without having to configure the cloud, perform port forwarding, DNS setup, or VPN connections.
-
-## Getting started with Pinggy
-You do not need to do anything to get started. For better features you might want to sign in to https://pinggy.io later.
-
-
-## Step 1 - Start a pinggy localhost tunnel
-
-On you terminal type:
+Before we dive into sharing Jupyter Notebooks with Pinggy, let's quickly go over the installation process for Jupyter Notebook. You can find detailed instructions on the official Jupyter website ({{< link href="https://jupyter.org/install" >}}https://jupyter.org/install{{< /link >}} ). Typically, the installation can be done using a single command:
 ```
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+python -m pip install notebook
 ```
 
-This will give you a public url such as:
+Once Jupyter Notebook is installed, you can start the notebook server by running the following command in your terminal or command prompt:
 ```
-https://ranxxxxydxmwb.a.pinggy.io
+jupyter notebook
 ```
+Or `python -m notebook`
 
-Now that you have pinggy running, you can use it to receive webhooks from other services to localhost:3000. To do this, you will need to configure the external service to send webhooks to your pinggy URL. You can change the port from 3000 to any port of your choice.
+After starting the notebook we get an output like this:
 
-## Step 2 - There is no step 2. Just test.
+{{< figure src="../images/jupyter/image4.png" alt="Jupyter notebook running in terminal, showing the URL with token." >}}
 
-For example, if you are testing a webhook integration with Stripe, you would log into your Stripe account, navigate to the webhook settings, and enter your pinggy URL as the webhook endpoint. Stripe will then send webhook events to your pinggy URL, which will be forwarded to your local development server.
+**Get the token:** The output will contain the URL to access it: 
+[http://localhost:8888/?token=4a0b8fdd640d8d3d14dbf5819ca865a8d4b4272aaf124xxx](#)
 
-## Try it yourself now
+The URL provided in the output (http://localhost:8888/?token=...) is the default address for accessing Jupyter Notebook in your browser locally. Note that a **token** is provided in the URL: `4a0b8fdd640d8d3d14dbf5819ca865a8d4b4272aaf124xxx`
 
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start receiving webhooks:" portstring="Localhost Port" localport="3000" webdebugenabled=true keepalive=false >}}
+
+## Share Jupyter Notebook with Pinggy
+
+Pinggy simplifies the process of sharing your Jupyter Notebooks by providing a secure and accessible way to collaborate with others over the internet. With Pinggy, you can make your locally running Jupyter Notebook accessible through a public URL. Here's how you can share your Jupyter Notebook using Pinggy:
+
+1. By default, Jupyter Notebook runs on port `8888`. You can ensure that your Jupyter Notebook runs on a specific port (e.g., port `8888`) by starting the server with the `--port` flag: `jupyter notebook --port=8888`
+
+
+2. Using pinggy you just need to add one live header modification to share it. Use this single command to share it:
+
+    ```
+    ssh -p 443 -R0:localhost:8888 -t a.pinggy.io "a:Host:localhost:8888"
+    ```
+
+    **In this command, replace `8888` with your output port number on which your Jupyter Notebook server is running, if it differs.**
+
+    {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jupyter Notebook:" portstring="Jupyter Notebook Port" localport="8888" webdebugenabled=false keepalive=true headermodifications=`[{"mode":"a", "headername":"Host", "headerval": "localhost:8888"}]` >}}
 {{< /pinggytunnel >}}
 
-## Debugging with pinggy [coming soon]
-One of the benefits of using Pinggy is that it will allow you to see the webhook requests that are being sent to your local server. When a webhook event is received, Pinggy will log the request details in your terminal, including the request method, URL, headers, and body.
+3. After executing the command, you will receive a Pinggy URL that can be used to access your shared Jupyter Notebook. The URL will look similar to the following: https://ranlkfsbjkxry.a.pinggy.io 
+    {{< figure src="../images/jupyter/image2.png" alt="Pinggy cli showing public URL to jupyter notebook" >}}
 
-This can be incredibly useful for debugging and troubleshooting webhook integrations, as it allows you to see exactly what data is being sent to your server and how it is being processed.
+4. To access your Jupyter Notebook through the Pinggy URL, just open the url and input the **token** to access it. 
+
+    Or you can append the token obtained from your locally running server to the URL as a query parameter. The token is included in the original URL provided when starting the Jupyter Notebook server. The final URL will look something like this:	
+
+    https://ranlkfsbjkxry.a.pinggy.io?token=09f45d3196cfa14ff25ce2f4c60c23d7a7df2be3eb2xxxx
+
+## Security
+
+It's essential to exercise caution and avoid sharing the notebook token in public, as it grants access to your notebooks and allows execution of code on your system.
+
 
 ## Conclusion
-In conclusion, pinggy is a powerful tool for testing and developing webhooks on your local development environment. By exposing your local server to the internet, pinggy allows external services to send data to your server in real-time, making it easy to test and debug webhook integrations. With pinggy, you can streamline your webhook development workflow and build more robust and reliable webhook integrations.
+
+By following these simple steps, you can now securely share your Jupyter Notebooks with colleagues, clients, or collaborators located anywhere in the world. Pinggy eliminates the need for complex network configurations or exposing your local machine to the internet, providing a hassle-free solution for sharing your Jupyter Notebooks.
+
+	
+
+
+

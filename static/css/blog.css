@@ -8,6 +8,17 @@ body {
     max-width: 60em;
     text-align: justify;
 }
+
+.blogcontent p {
+    hyphens: auto;
+}
+
+.blogcontent a {
+    hyphens: auto;
+    word-break: break-all;
+}
+
+
 .blogbody {
     max-width: 42em;
     text-align: justify;
@@ -18,7 +29,7 @@ body {
 
 .blogcontent img {
     max-width: 100%;
-    margin: 1.2em 1em;
+    padding: 1em 0.8em;
     border-radius: 1%;
 }
 
