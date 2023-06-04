@@ -33,7 +33,7 @@
 
 {{< quickstartcard  image="./images/mssql.svg" imagealt="MsSQL logo" title="MsSQL" description="MS SQL Server is a relational database management system developed by Microsoft." link="./mssql">}}
 
-{{< quickstartcard  image="./images/Expressjs.svg" imagealt="Express logo" title="Express" description="Express is a Vue.js framework that makes building server-rendered, SEO-friendly, and performance-optimized web applications easy." link="./Express">}}
+{{< quickstartcard  image="./images/nuxt.svg" imagealt="Nuxt logo" title="Nuxt" description="Nuxt is a Vue.js framework that makes building server-rendered, SEO-friendly, and performance-optimized web applications easy." link="./nuxt">}}
 
 {{< quickstartcard  image="./images/nginx.svg" imagealt="Nginx logo" title="Nginx" description="Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache." link="./nginx">}}
 
@@ -80,5 +80,13 @@
 {{< quickstartcard  image="./images/twilio.svg" imagealt="Twilio logo" title="Twilio" description="Cloud platform enabling developers to integrate messaging, voice, and video capabilities into applications using APIs." link="./twilio">}}
 
 {{< quickstartcard  image="./images/telegram.svg" imagealt="Telegram logo" title="Telegram" description="Cloud-based messaging app providing secure and fast communication through features like messaging, groups, and channels." link="./telegram">}}
+
+{{< quickstartcard  image="./images/hugo.svg" imagealt="Hugo logo" title="Hugo" description="Hugo is a static site generator written in Go." link="./hugo">}}
+
+{{< quickstartcard  image="./images/jekyll.svg" imagealt="Jekyll logo" title="Jekyll" description="Jekyll is a static site generator written in Ruby used for creating websites and blogs." link="./jekyll">}}
+
+{{< quickstartcard  image="./images/netdata.webp" imagealt="Netdata logo" title="Netdata" description="Netdata is an open source tool designed to collect real-time metrics, such as CPU usage, disk activity, bandwidth usage, website visits, etc." link="./netdata">}}
+
+{{< quickstartcard  image="./images/strapi.svg" imagealt="Strapi logo" title="Strapi" description="Strapi is a headless CMS (Content Management System) that allows easy creation of customizable APIs." link="./strapi">}}
 
 </div>
