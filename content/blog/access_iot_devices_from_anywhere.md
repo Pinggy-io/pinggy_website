@@ -6,8 +6,7 @@
 ---
 
 
-
-IoT devices are increasingly popular in homes and businesses, offering convenient control and monitoring for lighting, security systems, and more. They enhance efficiency and user experiences by leveraging internet connectivity. In the era of the Internet of Things (IoT), the ability to remotely access and manage our devices from anywhere has become increasingly vital. As developers and devops engineers we need remote access to our IoT fleets to monitor, maintain, push updates, and add features to our IoT applications. The ability to access IoT devices from anywhere through ssh is key in this aspect. Enter {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, an incredibly powerful yet simple tool that provides a TCP tunnel for SSH access, enabling us to connect to our IoT devices from anywhere in the world. This service ensures seamless remote access, simplifying the management of web portals, camera access, and other functionalities, all from virtually anywhere.
+In the era of the Internet of Things (IoT), the ability to remotely access and manage our devices from anywhere has become increasingly vital. As developers and devops engineers we need remote access to our IoT fleets to monitor, maintain, push updates, and add features to our IoT applications. The ability to access IoT devices from anywhere through ssh is key in this aspect. Enter {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, an incredibly powerful yet simple tool that provides a TCP tunnel for SSH access, enabling us to connect to our IoT devices from anywhere in the world. This service ensures seamless remote access, simplifying the management of web portals, camera access, and other functionalities, all from virtually anywhere.
 
 {{< figure src="../images/iot/head.webp" alt="Accessing IoT Devices from Anywhere through ssh tunnel using pinggy" >}}
 
