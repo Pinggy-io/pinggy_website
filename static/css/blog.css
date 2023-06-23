@@ -45,3 +45,8 @@ body {
     text-align: center;
     font-size: calc(2.4rem + 1.5vw);
 }
+
+blockquote {
+    border-left: rgb(237, 237, 237) 3px solid;
+    padding-left: 0.8rem;
+}
