@@ -16,7 +16,7 @@
                     <a class="nav-link{{ if $.IsMenuCurrent " main " . }} active" aria-current="page{{ end }}"
                         href="{{ .URL }}">{{ .Pre
                         }}
-                        <span>{{ .Name }}</span></a>
+                        <span style="display:block" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">{{ .Name }}</span></a>
                 </li>
                 {{ end }}
                 <li class="nav-item mx-2">
