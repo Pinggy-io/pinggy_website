@@ -66,6 +66,18 @@ $("#adv_restart").change(() => {
   }
   generateAdvancedCommand();
 });
+
+$("#adv_passwordCheck").change(() => {
+  if ($("#adv_passwordCheck").is(":checked")) {
+    $("#adv_passwordfields").slideDown();
+  } else {
+    $("#adv_passwordfields").slideUp();
+  }
+  generateAdvancedCommand();
+});
+$("#adv_basicusername").on("input", generateAdvancedCommand);
+$("#adv_basicpass").on("input", generateAdvancedCommand);
+
 $("#adv_webdebugPort").on("input", generateAdvancedCommand);
 $("#adv_rsaCheck").change(generateAdvancedCommand);
 $("#headermodificationcontainer").on(
@@ -113,6 +125,10 @@ function generateAdvancedCommand() {
   let restart = $("#adv_restart").is(":checked");
   let platform = $("#adv_platformselect").val();
 
+  let passwordenabled = $("#adv_passwordCheck").is(":checked");
+  let basicusername = $("#adv_basicusername").val();
+  let basicpass = $("#adv_basicpass").val();
+
   let options = "";
   let headercommands = "";
 
@@ -152,6 +168,12 @@ function generateAdvancedCommand() {
     }\\\"`;
     headercommands += " " + thiscommand;
   }
+
+  if(passwordenabled && basicusername && basicpass ) {
+    headercommands += " " + `\\\"b:${basicusername}:${basicpass}\\\"`;
+  }
+
+  
   if (headercommands != "") {
     options += " -t";
   }
