@@ -185,10 +185,10 @@ function generateAdvancedCommand() {
   // restarting
   if (restart) {
     if (platform == "unix") {
-      command = "while true; do \n    " + command + "; \nsleep 5; done";
+      command = "while true; do \n    " + command + "; \nsleep 10; done";
       $("#advancedcommand").attr("rows", 4);
     } else {
-      command = "FOR /L %N IN () DO (" + command + "\ntimeout /t 5)";
+      command = "FOR /L %N IN () DO (" + command + "\ntimeout /t 10)";
       $("#advancedcommand").attr("rows", 4);
     }
     $("#adv_alert").slideDown();
