@@ -8,7 +8,7 @@
 
 With [pinggy.io](https://pinggy.io) you can share your Ghost server from localhost with just a single command. **Replace the port 2368 with the port where your server is running.**
 
-Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.io`. Use this URL to access the server.
+Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.online`. Use this URL to access the server.
 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Ghost server:" portstring="Ghost Port" localport="2368" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}

@@ -77,14 +77,14 @@ Pinggy simplifies the process of sharing your Jupyter Notebooks by providing a s
     {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jupyter Notebook:" portstring="Jupyter Notebook Port" localport="8888" webdebugenabled=false keepalive=true headermodifications=`[{"mode":"a", "headername":"Host", "headerval": "localhost:8888"}]` >}}
 {{< /pinggytunnel >}}
 
-3. After executing the command, you will receive a Pinggy URL that can be used to access your shared Jupyter Notebook. The URL will look similar to the following: https://ranlkfsbjkxry.a.pinggy.io 
+3. After executing the command, you will receive a Pinggy URL that can be used to access your shared Jupyter Notebook. The URL will look similar to the following: https://ranlkfsbjkxry.a.pinggy.online 
     {{< figure src="../images/jupyter/image2.png" alt="Pinggy cli showing public URL to jupyter notebook" >}}
 
 4. To access your Jupyter Notebook through the Pinggy URL, just open the url and input the **token** to access it. 
 
     Or you can append the token obtained from your locally running server to the URL as a query parameter. The token is included in the original URL provided when starting the Jupyter Notebook server. The final URL will look something like this:	
 
-    https://ranlkfsbjkxry.a.pinggy.io?token=09f45d3196cfa14ff25ce2f4c60c23d7a7df2be3eb2xxxx
+    https://ranlkfsbjkxry.a.pinggy.online?token=09f45d3196cfa14ff25ce2f4c60c23d7a7df2be3eb2xxxx
 
 ## Security
 

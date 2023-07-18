@@ -81,7 +81,7 @@ This will start the server on port `8080` by default. Check the output to confir
 ssh -p 443 -R0:localhost:8080 a.pinggy.io
 ```
 
-You will get a public URL such as https://ranxyzxxxx.a.pinggy.io, which you can use to access your server running on your phone! Next we will discuss how to use a domain or subdomain of your choice.
+You will get a public URL such as https://ranxyzxxxx.a.pinggy.online, which you can use to access your server running on your phone! Next we will discuss how to use a domain or subdomain of your choice.
 
 In case you get a different port than `8080` on the above command, change it in the Pinggy command also. You can use *Ctrl + C* to stop the tunnel.
 
@@ -106,7 +106,7 @@ The first image above shows the Node.js http-server running and listening on por
 
 ## Connect it to your own domain
 
-You can also use your own domain or choose a subdomain for accessing this server. Or you can also choose a suitable subdomain such as https://myandroidblog.a.pinggy.io .
+You can also use your own domain or choose a subdomain for accessing this server. Or you can also choose a suitable subdomain such as https://myandroidblog.a.pinggy.online .
 
 First you need to sign-up for <a href="https://pinggy.io" target="_blank">**`Pinggy`**</a> and subscribe to Pinggy Pro. Then go to the dashboard and click on *Custom Domains* on the nav bar.
 
