@@ -32,12 +32,12 @@ ssh -p 443 -R0:localhost:22 b0b87d56-653f-45fb-98d9-8e43779c9081+tcp@a.pinggy.io
 
 This will give you a public URL like:
 ```
-tcp://tljocjkijs.a.pinggy.io:40527
+tcp://tljocjkijs.a.pinggy.online:40527
 ```
 
 Given this public URL and port you can now ssh into your device using the command:
 
 ```
-ssh -p 40527 username@tljocjkijs.a.pinggy.io
+ssh -p 40527 username@tljocjkijs.a.pinggy.online
 ```
 Replace the `username` with the username of the IoT device, and use the url and port from the output of the first ssh command.

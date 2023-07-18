@@ -46,6 +46,6 @@ Access your files using the URLs given by Pinggy after the above command.
 Example:
 ```
 You can access local server via following URL(s):
-http://fakqxzqrohxxx.a.pinggy.io
-https://fakqxzqrohxxx.a.pinggy.io
+http://fakqxzqrohxxx.a.pinggy.online
+https://fakqxzqrohxxx.a.pinggy.online
 ```

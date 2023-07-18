@@ -21,7 +21,7 @@ While trying to manage DNS updates on the fly and trying to do it fast we had th
 
 ## Why is it difficult?
 
-**Our objective** is simple. When a user creates a new tunnel, take the persistent domain set by the user (e.g. `example.a.pinggy.io`), and add a DNS record to point to the VM hosting the tunnel.
+**Our objective** is simple. When a user creates a new tunnel, take the persistent domain set by the user (e.g. `example.a.pinggy.online`), and add a DNS record to point to the VM hosting the tunnel.
 
 When visitors open the domain in their browser, they should be able to reach the present tunnel.
 
@@ -30,7 +30,7 @@ When visitors open the domain in their browser, they should be able to reach the
 
 **The cause** of such failure in name resolution can be the following:
 
-1. The authoritative server (e.g. for `a.pinggy.io`) **does not yet** have a record for the domain (e.g. `example.a.pinggy.io`).
+1. The authoritative server (e.g. for `a.pinggy.io`) **does not yet** have a record for the domain (e.g. `example.a.pinggy.online`).
 2. The authoritative server has an outdated record for the domain which points to a wrong VM.
 3. The authoritative server is updated, but the DNS the visitor is using (e.g. `8.8.8.8`) has an outdated record.
 
@@ -39,7 +39,7 @@ When visitors open the domain in their browser, they should be able to reach the
 
 1. The tunnel was created before the authoritative server record was updated. This should not be allowed.
 2. Same as 1.
-3. The TTL of the record (e.g. `example.a.pinggy.io`) did not expire when the visitor visited the domain.
+3. The TTL of the record (e.g. `example.a.pinggy.online`) did not expire when the visitor visited the domain.
 
 **Solutions appear simple**
 
@@ -61,10 +61,10 @@ Each such edge location is essentially a copy of the authoritative name server f
 
 **Example scenario:** 
 
-* Suppose a user creates a tunnel with a domain, say `example.a.pinggy.io`, 
-* Pinggy updates the record for the domain, say `example.a.pinggy.io. 600 CNAME pinggyvm1.com`, in Route 53. 
-* Immediately after this, a visitor visits the domain `example.a.pinggy.io`.
-* The visitor connects to an edge of Route 53 which does not have the record for `example.a.pinggy.io.`
+* Suppose a user creates a tunnel with a domain, say `example.a.pinggy.online`, 
+* Pinggy updates the record for the domain, say `example.a.pinggy.online. 600 CNAME pinggyvm1.com`, in Route 53. 
+* Immediately after this, a visitor visits the domain `example.a.pinggy.online`.
+* The visitor connects to an edge of Route 53 which does not have the record for `example.a.pinggy.online.`
 * Visitor fails to connect to the tunnel.
 
 At this point, the reader is possibly shouting "reduce the TTL". We will discuss the caveats of that next.
@@ -72,10 +72,10 @@ At this point, the reader is possibly shouting "reduce the TTL". We will discuss
 
 ## Understanding TTL
 
-First approach towards a solution is reducing the TTL of the records. If we reduce the TTL for the record `example.a.pinggy.io` to `10` seconds, then it seems that the visitor can just retry after 10 seconds and the tunnel will work... no big deal. But TTL of the record will expire and the DNS server will refetch the record only if it had the record and the corresponding TTL in the first place.
+First approach towards a solution is reducing the TTL of the records. If we reduce the TTL for the record `example.a.pinggy.online` to `10` seconds, then it seems that the visitor can just retry after 10 seconds and the tunnel will work... no big deal. But TTL of the record will expire and the DNS server will refetch the record only if it had the record and the corresponding TTL in the first place.
 
 **When a record is not set, what is the TTL?** <br>
-In this case, the record for `example.a.pinggy.io` does not exist in the first place when the visitor tries to resolve it. As a result there is was TTL. The next time the visitor retries to resolve it, does the name server assume TTL to be 0 and try to resolve it? The answer is no. The name server will again try to refetch the record when the TTL of the SOA record set in the authoratitive server (say `a.pinggy.io`) expires.
+In this case, the record for `example.a.pinggy.online` does not exist in the first place when the visitor tries to resolve it. As a result there is was TTL. The next time the visitor retries to resolve it, does the name server assume TTL to be 0 and try to resolve it? The answer is no. The name server will again try to refetch the record when the TTL of the SOA record set in the authoratitive server (say `a.pinggy.io`) expires.
 
 > When a record is not found in an authoratitive server once, the record is refetched by a name server only after the TTL of the SOA record of the authoratitive server expires.
 
