@@ -102,17 +102,18 @@ $("#adv_webdebugCheck").change(function () {
 });
 
 function addheadermodificationrow() {
+  $("#headermodificationinputsample").children().hide();
   $("#headermodificationcontainer").append(
     $("#headermodificationinputsample").children().clone()
   );
+  $('#headermodificationcontainer').find(".headermodificationgroup:last").slideDown("fast");
 }
 
 $("#headermodificationcontainer").on(
   "click",
   ".removeheadermodificationrow",
   function () {
-    $(this).closest(".headermodificationgroup").remove();
-    generateAdvancedCommand();
+    $(this).closest(".headermodificationgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
   }
 );
 
