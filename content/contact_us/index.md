@@ -46,6 +46,154 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
 </div>
 </div>
 
+<section class="py-5 border-top" id="faq">
+    <div class="container my-5">
+        <div class="my-3 row justify-content-center">
+            <div class="col-lg-12">
+                <h2 class="mb-5 text-center fw-light">Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="accordionFaq">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                The command uses SSH. Doesn't it open up my computer to threats?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>
+                                    Pinggy relies on SSH remote port forwarding. The option
+                                    <code>-R 0:localhost:8000</code> in the command only implies that connections to
+                                    the
+                                    public URL given by pinggy are forwarded to your <code>localhost:8000</code>.
+                                </p>
+                                <p class="alert alert-dark bg-light bg-gradient">
+                                    No other port than the one specified by you can be accessed by Pinggy or by
+                                    anyone
+                                    through the public URLs provided by Pinggy.
+                                </p>
+                                <p>
+                                    You can read more about the <code>-R</code> option of openssh client <a
+                                        href="https://man7.org/linux/man-pages/man1/ssh.1.html"
+                                        target="_blank">here</a>. If you are using a different ssh client, then
+                                    refer to
+                                    its documentation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingServerLocation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseServerLocation" aria-expanded="false"
+                                aria-controls="collapseServerLocation">
+                                Where are Pinggy servers located?
+                            </button>
+                        </h2>
+                        <div id="collapseServerLocation" class="accordion-collapse collapse"
+                            aria-labelledby="headingServerLocation" data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>
+                                    <code>a.pinggy.io</code> is routed to the Pinggy server nearest to your location. Currently we have our servers in USA, Stockholm, and Singapore.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                The URL changes after I restart the tunnel.
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Pinggy's free plan has a tunnel timeout of 60 minutes. If the tunnel is closed by
+                                    you
+                                    or reaches the time limit, starting a new tunnel will generate a new URL.</p>
+                                <p>To obtain a permanent or persistent URL, or to use your own domain, you must
+                                    subscribe to Pinggy Pro.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Does it work on all platforms: Linux, Windows, Mac, and Android?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Yes. Current versions of Windows, Mac, as well as almost all Linux distributions
+                                    come
+                                    with openssh client pre-installed. Therefore Pinggy will just work out of the
+                                    box.
+                                </p>
+                                <p>To learn more about using Pinggy on Android read our <a
+                                        href="https://pinggy.io/blog/host_website_on_android/" target="_blank">blog
+                                        post.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                How to use TCP and TLS tunnels?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>You can use TCP and TLS tunnels for free with Pinggy. Click on "Advanced Settings" on the top of the homepage, and select TCP.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                My tunnel breaks or stops working after a few minutes.
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Read our guide on long running tunnels <a
+                                        href="https://pinggy.io/docs/guides/long_running_tunnels/"
+                                        target="_blank">here</a>. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Can Pinggy read my data?
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Pinggy does read tunnel traffic for providing the Web Debugger feature.</p>
+                                <p><b>Use TLS tunnels for Zero trust mode</b>, where Pinggy cannot read your data. In this case your traffic is end-to-end encrypted.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <script>window.Reform=window.Reform||function(){(Reform.q=Reform.q||[]).push(arguments)};</script>
 <script id="reform-script" async src="https://embed.reform.app/v1/embed.js"></script>
