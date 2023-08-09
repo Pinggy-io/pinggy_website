@@ -29,22 +29,19 @@ menus:
   - name: Home
     url: "/"
     weight: 90
-  - name: Docs
-    url: /docs
-    weight: 100
-  - name: Quickstart
-    url: /quickstart
-    weight: 110
-  - name: Blog
-    url: /blog
-    weight: 120
-  - name: FAQ
-    url: /#faq
-    weight: 130
   - name: Pricing
     url: /#prices
+    weight: 100
+  - name: Docs
+    url: /docs
+    weight: 120
+  - name: Quickstart
+    url: /quickstart
+    weight: 130
+  - name: Blog
+    url: /blog
     weight: 140
-  - name: About
+  - name: Contact
     url: /contact_us
     weight: 150
 

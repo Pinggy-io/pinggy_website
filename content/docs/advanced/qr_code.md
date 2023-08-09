@@ -1,39 +1,41 @@
 ---
  title: "Display qr code in terminal"
  date: 2023-08-07T14:15:25+05:30
- draft: true
+ draft: false
 ---
 
 
 # QR-Code
+
+You can get the QR code for your tunnel URL within the terminal by pressing **`c`** or **`u`**.
+
+To hide the qr code again, just press **`Esc`**. 
+
 ## ASCII
-Pinggy now started displaying qrCode in the terminal. In normal mode just press `c` to display QR-Code. It will display QR-Code for the redirection url in ASCII format like this.
-<div class="row mb-4">
-<div class="col">
-<img style="max-width: 48em; margin: 0 auto; display: block;" src="/doc_img/qrcode/qr-ascii.png" alt="ASCII QR Code">
-</div>
-</div>
+In normal mode just press `c` to display QR-Code.
+It will display QR-Code for the tunnel url in ASCII format like this.
 
-One can use the use **arrow keys** to change the QR Code for different url. Press `Esc` to return to normal page.
+You can use the **arrow keys** to change the QR Code for different urls. Press `Esc` to return to normal page.
 
-This is QR Code is design using ASCII character thus it is compatible with most of the terminal. However, it is very big, thus takes up lot of space.
+
+{{< figure src="../../../doc_img/qrcode/qr-ascii.png" alt="Press c to display QR-Code in ASCII" >}}
+
+
+This QR Code is printed using ASCII characters. Thus, it is compatible with most of the terminals. However, it might not fit into small terminal windows. For a more compact QR Code, use the unicode version.
 
 ## Unicode
-To get a smaller size QR Code, we have option for unicode qr. Press `u` to print QR-Code drawn using unicode like following.
-<div class="row mb-4">
-<div class="col">
-<img style="max-width: 48em; margin: 0 auto; display: block;" src="/doc_img/qrcode/qr-unicode.png" alt="Unicode QR Code">
-</div>
-</div>
-Unicode QR-Code can easily fit inside 80x25 terminal. However, terminal must have support for Unicode character-set. Otherwise result it unpredictable.
+To get a compact QR Code, we have option for unicode QR. Press `u` to print QR-Code drawn using unicode.
+
+{{< figure src="../../../doc_img/qrcode/qr-unicode.png" alt="Press u to display QR-Code in unicode" >}}
+
+
+Unicode QR-Code can easily fit inside a 80x25 terminal. However, the terminal must have support for unicode character-set. Otherwise the result is unpredictable.
 
 # Allways show QR-Code
-Pinggy also supports keywords `qr` and `aqr` while creating tunnel to print QR in the TUI like following.
-<div class="row mb-4">
-<div class="col">
-<img style="max-width: 48em; margin: 0 auto; display: block;" src="/doc_img/qrcode/qr-inline-unicode.png" alt="Unicode QR Code">
-</div>
-</div>
+Pinggy also supports keywords `qr` and `aqr` while creating tunnel to print QR in the TUI like the following.
+
+{{< figure src="../../../doc_img/qrcode/qr-inline-unicode.png" alt="Always display QR-Code in TUI" >}}
+
 
 This keyword needs to be passed with the username as following
 ```
