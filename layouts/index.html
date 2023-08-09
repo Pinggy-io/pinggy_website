@@ -766,7 +766,7 @@
                             aria-labelledby="headingServerLocation" data-bs-parent="#accordionFaq">
                             <div class="accordion-body">
                                 <p>
-                                    <code>a.pinggy.io</code> is located in USA</code>.
+                                    <code>a.pinggy.io</code> is routed to the Pinggy server nearest to your location. Currently we have our servers in USA, Stockholm, and Singapore.
                                 </p>
                             </div>
                         </div>
@@ -837,6 +837,21 @@
                                 <p>Read our guide on long running tunnels <a
                                         href="https://pinggy.io/docs/guides/long_running_tunnels/"
                                         target="_blank">here</a>. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Can Pinggy read my data?
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>Pinggy does read tunnel traffic for providing the Web Debugger feature.</p>
+                                <p><b>Use TLS tunnels for Zero trust mode</b>, where Pinggy cannot read your data. In this case your traffic is end-to-end encrypted.</p>
                             </div>
                         </div>
                     </div>
