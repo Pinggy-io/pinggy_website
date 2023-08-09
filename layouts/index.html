@@ -2,7 +2,7 @@
 
 <!-- Banner -->
 <header class="pt-1 contentcontainer">
-<a class="text-decoration-none text-dark text-center" href="/blog/fixed_deceptive_website_warning/" target="_blank"><div class="p-2" style="font-size: 0.8em; background: #daffe9;">Updates to counter "Deceptive Website Warning" when accessing certain tunnels.</div></a>
+<a class="text-decoration-none text-dark text-center" href="/docs/advanced/qr_code/" target="_blank"><div class="p-1" style="font-size: 1em; background: #e8daff;">Introducing QR-Codes for Pinggy URLs 🎉</div></a>
 
     <div class="container">
         <div class="row justify-content-evenly">
@@ -56,10 +56,14 @@
                                 <option data-label="You may start a Next.js app using:"
                                     data-command="npx create-next-app app && cd app && npm run dev" data-port="3000"
                                     value="nextjs">Next.js</option>
-                                <option data-label="Nginx by default runs at port 80" data-command="" data-port="80"
-                                    value="nginx">Nginx</option>
+                                <option data-label="Apache / Nginx by default runs at port 80" data-command="" data-port="80"
+                                    value="nginx">Apache / Nginx</option>
                                 <option data-label="Rails developement server runs on port 3000 by default" data-command="" data-port="3000"
                                     value="rails">Ruby on Rails</option>
+                                <option data-label="Laravel / Symfony developement server runs on port 8000 by default" data-command="" data-port="8000"
+                                    value="laravel">Laravel / Symfony</option>
+                                <option data-label="Hugo developement server runs on port 1313 by default" data-command="" data-port="1313"
+                                    value="hugo">Hugo</option>
                             </select>
 
                         </div>
@@ -79,15 +83,27 @@
                             <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
                         </form>
 
-                        <div class="mt-3">
-                            <label class="switch">
-                                <input type="checkbox" id="webdebuggerinput" checked>
-                                <span class="slider round"></span>
-                            </label>
-                            <label class="form-check-label align-middle enablewebdebuglabel"
-                                for="webdebuggerinput">Enable Web
-                                Debugger</label>
-
+                        <div class="mt-3 row">
+                            <div class="col-md-6">
+                                <label class="switch">
+                                    <input type="checkbox" id="webdebuggerinput" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                <label class="form-check-label align-middle enablewebdebuglabel"
+                                    for="webdebuggerinput">Web
+                                    Debugger</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="switch">
+                                    <input type="checkbox" id="qrinput" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                <label class="form-check-label align-middle enablewebdebuglabel"
+                                    for="qrinput">QR
+                                    Code <i class="bi bi-info-circle"
+                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                                    title="Show QR code for the URL"></i></label>
+                            </div>
                         </div>
                     </div>
 
@@ -95,7 +111,7 @@
                         <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                         <div class="input-group mt-2">
                             <input id="portcommand" class="form-control"
-                                value="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 a.pinggy.io"
+                                value="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 qr@a.pinggy.io"
                                 readonly="readonly"></input>
                             <button class="btn btn-dark" type="button" id="copybutton"
                                 onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"><i
@@ -153,12 +169,20 @@
                             </div>
 
                             <div class="row">
-                                <div class="col col-12 col-lg-12">
+                                <div class="col col-6 col-lg-6">
                                     <div class="form-check form-switch mb-3">
                                         <input class="form-check-input" type="checkbox" id="adv_passwordCheck">
                                         <label class="form-check-label" for="adv_passwordCheck">Password Protect <i class="bi bi-info-circle"
                                             type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
                                             title="Enable basic authentication"></i></label>
+                                    </div>
+                                </div>
+                                <div class="col col-6 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_qrCheck">
+                                        <label class="form-check-label" for="adv_qrCheck">QR Code <i class="bi bi-info-circle"
+                                            type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                                            title="Show QR Code for the URL"></i></label>
                                     </div>
                                 </div>
                             </div>
@@ -378,6 +402,7 @@
                     <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Link your own domain</li>
                     <li class="my-3"><i class="bi bi-check2-circle me-2"></i> Basic Authentication</li>
                 </ul>
+                <a href="/quickstart"><button class="btn btn-primary me-2" style="background-color: rgba(70, 117, 199, 1);">Quickstart</button></a>
                 <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
                     Learn more
                     <i class="bi bi-arrow-up-right-square"></i>

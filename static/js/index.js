@@ -43,6 +43,10 @@ $("#webdebuggerinput").change(function () {
   $("#portform").trigger("input");
 });
 
+$("#qrinput").change(function () {
+  $("#portform").trigger("input");
+});
+
 // ---------- ------------
 
 $("#portform").on("input", function () {
@@ -50,7 +54,8 @@ $("#portform").on("input", function () {
     "ssh -p 443 -R0:localhost:" +
       ($("#portform").val() || "8000") +
       ($("#webdebuggerinput").is(":checked") ? " -L4300:localhost:4300" : "") +
-      " a.pinggy.io"
+      ($("#qrinput").is(":checked") ? " qr@" : " ") +
+      "a.pinggy.io"
   );
 });
 
@@ -75,6 +80,7 @@ $("#adv_passwordCheck").change(() => {
   }
   generateAdvancedCommand();
 });
+$("#adv_qrCheck").on("input", generateAdvancedCommand);
 $("#adv_basicusername").on("input", generateAdvancedCommand);
 $("#adv_basicpass").on("input", generateAdvancedCommand);
 
@@ -123,6 +129,7 @@ function generateAdvancedCommand() {
   let debugenabled = $("#adv_webdebugCheck").is(":checked");
   let manuelcheck = $("#adv_rsaCheck").is(":checked");
   let keepalive = $("#adv_keepalive").is(":checked");
+  let qr = $("#adv_qrCheck").is(":checked");
   let restart = $("#adv_restart").is(":checked");
   let platform = $("#adv_platformselect").val();
 
@@ -179,8 +186,13 @@ function generateAdvancedCommand() {
     options += " -t";
   }
 
+  sshuser = ""
+  if(qr){
+    sshuser = "qr@"
+  }
+
   command =
-    `ssh -p 443 -R0:localhost:${localport} ${options} a.pinggy.io` +
+    `ssh -p 443 -R0:localhost:${localport} ${options} ${sshuser}a.pinggy.io` +
     headercommands;
 
   // restarting

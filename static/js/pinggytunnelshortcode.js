@@ -24,10 +24,14 @@ const generateShortcodeCommand = (wrapperelement) => {
   // Get checkbox values
   let keepalive = wrapperelement.find(".shortcode_keepalive").is(":checked");
   let restart = wrapperelement.find(".shortcode_restart").is(":checked");
+  let passwordCheck = wrapperelement.find(".shortcode_passwordCheck").is(":checked");
+  let qrCheck = wrapperelement.find(".shortcode_qrcheck").is(":checked");
   let webdebug = wrapperelement.find(".shortcode_webdebugCheck").is(":checked");
   let rsacheck = wrapperelement.find(".shortcode_rsaCheck").is(":checked");
   let localPort = wrapperelement.find(".shortcode_localPort").val();
   let webdebugPort = wrapperelement.find(".shortcode_webdebugPort").val();
+  let basicusername = wrapperelement.find(".shortcode_basicusername").val();
+  let basicpass = wrapperelement.find(".shortcode_basicpass").val();
   let platform = wrapperelement.find(".shortcode_platformselect").val();
   let mode = wrapperelement.data("mode");
 
@@ -40,6 +44,9 @@ const generateShortcodeCommand = (wrapperelement) => {
   }
   if (mode == "tls") {
     modestring = "tls";
+  }
+  if(modestring.length == 0 && qrCheck){
+    modestring = "qr"
   }
 
   if (webdebug) {
@@ -57,6 +64,17 @@ const generateShortcodeCommand = (wrapperelement) => {
   } else {
     wrapperelement.find(".shortcode_webdebugurl").slideUp();
     wrapperelement.find(".shortcode_webdebuggerportselector").slideUp();
+  }
+
+  console.log("trigger");
+  if(passwordCheck) {
+    wrapperelement.find(".shortcode_passwordfields").slideDown();
+
+    if(basicusername && basicpass ) {
+      headercommands += " " + `\\\"b:${basicusername}:${basicpass}\\\"`;
+    }
+  } else {
+    wrapperelement.find(".shortcode_passwordfields").slideUp();
   }
 
   if (!rsacheck) {
@@ -85,6 +103,7 @@ const generateShortcodeCommand = (wrapperelement) => {
     }\\\"`;
     headercommands += " " + thiscommand;
   }
+
   if (headercommands != "") {
     options += " -t";
   }
@@ -123,7 +142,7 @@ const generateShortcodeCommand = (wrapperelement) => {
 // Trigger change on toggle buttons
 $(".pinggytunnelshortcode").on(
   "change",
-  ".shortcode_keepalive, .shortcode_restart, .shortcode_webdebugCheck, .shortcode_rsaCheck, .shortcode_platformselect",
+  ".shortcode_keepalive, .shortcode_restart, .shortcode_webdebugCheck, .shortcode_rsaCheck, .shortcode_platformselect, .shortcode_qrcheck, .shortcode_passwordCheck",
   function () {
     generateShortcodeCommand($(this).closest(".pinggytunnelshortcode"));
   }
@@ -132,7 +151,7 @@ $(".pinggytunnelshortcode").on(
 // Trigger change on port changes and header changes
 $(".pinggytunnelshortcode").on(
   "input",
-  ".shortcode_webdebugPort, .shortcode_localPort, .shortcode_headername, .shortcode_headerval",
+  ".shortcode_webdebugPort, .shortcode_localPort, .shortcode_headername, .shortcode_headerval, .shortcode_basicusername, .shortcode_basicpass",
   function () {
     generateShortcodeCommand($(this).closest(".pinggytunnelshortcode"));
   }
