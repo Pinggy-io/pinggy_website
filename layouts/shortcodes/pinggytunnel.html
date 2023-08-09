@@ -6,6 +6,8 @@
 {{ $webdebugport := .Get "webdebugport" | default "4300" }}
 {{ $webdebugenabled := .Get "webdebugenabled" | default false }}
 {{ $keepalive := .Get "keepalive" | default false }}
+{{ $passwordCheck := .Get "passwordCheck" | default false }}
+{{ $qrcheck := .Get "qrcheck" | default false }}
 {{ $reconnect := .Get "reconnect" | default false }}
 {{ $manuallycheckkey := .Get "manuallycheckkey" | default true }}
 {{ $mode := .Get "mode" | default "http" }}
@@ -44,6 +46,43 @@
                     placeholder="{{ $localport }}" value="{{ $localport }}">
                 <label for="shortcode_localPort_{{ $random }}">{{ $portstring }}</label>
             </div>
+            {{ if eq $mode "http" }}
+            <div class="row">
+                <div class="col col-12 col-lg-6">
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input shortcode_passwordCheck" id="shortcode_passwordCheck_{{ $random }}"
+                            type="checkbox" {{ if $passwordCheck }}checked{{ end }}>
+                        <label class="form-check-label" for="shortcode_passwordCheck_{{ $random }}">Password Protect <i class="bi bi-info-circle"
+                            type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                            title="Enable basic authentication"></i>
+                        </label>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-6">
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input shortcode_qrcheck" type="checkbox"
+                            id="shortcode_qrcheck_{{ $random }}" {{ if $qrcheck }}checked{{ end }}>
+                        <label class="form-check-label" for="shortcode_qrcheck_{{ $random }}">QR Code <i class="bi bi-info-circle"
+                            type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                            title="Show QR Code for the URL"></i></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row shortcode_passwordfields">
+                <div class="col col-12 col-lg-6">
+                    <div class="form-floating mb-3">
+                        <input class="form-control shortcode_basicusername" id="shortcode__basicusername_{{ $random }}" placeholder="Username">
+                        <label for="shortcode_basicusername_{{ $random }}">Username</label>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-6">
+                    <div class="form-floating mb-3">
+                        <input class="form-control shortcode_basicpass" id="shortcode_basicpass_{{ $random }}" placeholder="Password">
+                        <label for="shortcode_basicpass_{{ $random }}">Password</label>
+                    </div>   
+                </div> 
+            </div>
+            {{ end }}
             <div class="row">
                 <div class="col col-12 col-lg-6">
                     <div class="form-check form-switch mb-3">
