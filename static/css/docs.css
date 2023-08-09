@@ -18,6 +18,12 @@ body {
     word-break: break-all;
 }
 
+.doccontent img {
+max-width: 100%;
+padding: 1em 0.8em;
+border-radius: 1%;
+}
+
 
 .blogbody {
     max-width: 42em;
