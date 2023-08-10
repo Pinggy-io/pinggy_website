@@ -88,6 +88,23 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
                         </div>
                     </div>
                     <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPassword">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsePassword" aria-expanded="false"
+                                aria-controls="collapsePassword">
+                                It is asking for password.
+                            </button>
+                        </h2>
+                        <div id="collapsePassword" class="accordion-collapse collapse"
+                            aria-labelledby="headingPassword" data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>
+                                    If the ssh command prompts you for a password you can just press enter (a blank password). Or you can type in something random and press enter.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
                         <h2 class="accordion-header" id="headingServerLocation">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseServerLocation" aria-expanded="false"
@@ -170,6 +187,22 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
                                 <p>Read our guide on long running tunnels <a
                                         href="https://pinggy.io/docs/guides/long_running_tunnels/"
                                         target="_blank">here</a>. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingConnectionReset">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseConnectionReset" aria-expanded="false" aria-controls="collapseConnectionReset">
+                                I am getting &nbsp;<em>Connection closed</em> / <em>Connection reset</em>&nbsp; error.
+                            </button>
+                        </h2>
+                        <div id="collapseConnectionReset" class="accordion-collapse collapse" aria-labelledby="headingConnectionReset"
+                            data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                <p>The most common reason for this is that an existing tunnel with the same token is active.</p>
+                                <p><b>Terminate your existing tunnel with the same token.</b> You can do so from the Active Tunnels option in the dashboard.</p>
+                                <p>You can also use the <b>Force</b> option in the dashbaord.</p>
                             </div>
                         </div>
                     </div>
