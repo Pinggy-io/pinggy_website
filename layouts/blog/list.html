@@ -11,22 +11,25 @@
     <ul>
         <!-- orders content according to the "date" field in front matter -->
         {{ range .Pages.ByDate.Reverse }}
-            <article>
+        <article>
             <!-- this <div> includes the title summary -->
             <div>
-              <h1 class="h4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-              <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time><br>
+                <a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">
+                    <h1 class="h2">{{ .Title }}</h1>
+                </a>
+                <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time><br>
 
-              {{ .Summary }}
+                {{ .Summary }}
             </div>
             {{ if .Truncated }}
             <!-- This <div> includes a read more link, but only if the summary is truncated... -->
             <div>
-              <a href="{{ .RelPermalink }}">Read More…</a>
+                <a href="{{ .RelPermalink }}">Read More…</a>
             </div>
             {{ end }}
 
-            </article><hr>
+        </article>
+        <hr>
         {{ end }}
     </ul>
 </main>
