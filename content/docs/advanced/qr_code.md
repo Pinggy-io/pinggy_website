@@ -41,7 +41,7 @@ This keyword needs to be passed with the username as following
 ```
 ssh -p443 -R0:localhost:8000 qr@a.pinggy.io
 ```
-If one wants to pass other keyword like token add it with a `+` like this
+If one wants to pass other keyword like a token, add it with a `+` like this
 ```
 ssh -p443 -R0:localhost:8000 qr+token@a.pinggy.io
 ```
