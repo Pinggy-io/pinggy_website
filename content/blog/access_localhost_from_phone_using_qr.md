@@ -6,7 +6,7 @@
  tags: ["update", "guide"]
 ---
 
-{{< figure src="../images/qr/qr.gif" alt="Accessing localhost form your phone using Pinggy QR codes" >}}
+{{< figure src="../images/qr/qr2.gif" alt="Accessing localhost form your phone using Pinggy QR codes" >}}
 
 
 #### Pinggy now supports QR codes within the terminal!
@@ -36,7 +36,13 @@ Pinggy can print QR codes for the tunnel URLs in ASCII or Unicode. The instructi
 
 ## ASCII
 
-In a regular Pinggy tunnel terminal, simply press **`c`** to show the QR Code. It will display the QR Code representing the tunnel URL in ASCII form as shown in the screenshot below. 
+Start a regular Pinggy tunnel:
+
+```
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
+```
+
+Press **`c`** to show the QR Code. It will display the QR Code representing the tunnel URL in ASCII form as shown in the screenshot below. 
 
 You have the option to utilize the **arrow keys** to cycle through various URLs and their corresponding QR Codes. To revert to the standard page, press the **`Esc`** key.
 
