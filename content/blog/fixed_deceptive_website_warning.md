@@ -4,6 +4,7 @@
  lastmod: 2023-07-26T14:15:25+05:30
  draft: false 
  og_image: "/blog/images/iot/head.webp"
+ tags: ["update"]
 ---
 
 On July 14, distribution of deceptive and social engineering content was detected through some Pinggy tunnels. Our logs show that it has been done using the free tier through random subdomains ending with `a.pinggy.io`. 

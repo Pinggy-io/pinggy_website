@@ -1,33 +1,48 @@
 {{ define "main" }}
 <main>
-    <article>
-        <header>
-            <h1>{{.Title}}</h1>
-        </header>
-        <hr>
-        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
-        {{.Content}}
-    </article>
-    <ul>
-        <!-- orders content according to the "date" field in front matter -->
-        {{ range .Pages.ByDate.Reverse }}
-            <article>
-            <!-- this <div> includes the title summary -->
-            <div>
-              <h1 class="h4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-              <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time><br>
-
-              {{ .Summary }}
+        
+        <div class="row justify-content-center" style="max-width: 800px; margin: 0 auto">
+            <div class="col-12 col-md-12">
+                <header>
+                    <h1 class="display-4">Blog</h1>
+                </header>
+                <hr>
+                <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+                {{.Content}}
+                <ul>
+                    <!-- orders content according to the "date" field in front matter -->
+                    {{ range .Pages.ByDate.Reverse }}
+                    <article>
+                        <!-- this <div> includes the title summary -->
+                        <div>
+                            <a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">
+                                <h1 class="h2">{{ .Title }}</h1>
+                            </a>
+                            <div class="d-flex flex-row">
+                                <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time><br>
+                                <div class="ms-2">
+                                    {{ range (.GetTerms "tags") }}
+                                    <span class="badge bg-secondary">{{ .LinkTitle }}</span>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            <div class="my-2">
+                                {{ .Summary }}
+                            </div>
+                        </div>
+                        {{ if .Truncated }}
+                        <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+                        <div>
+                            <a href="{{ .RelPermalink }}" class="text-dark">Read More…</a>
+                        </div>
+                        {{ end }}
+            
+                    </article>
+                    <hr>
+                    {{ end }}
+                </ul>
             </div>
-            {{ if .Truncated }}
-            <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-            <div>
-              <a href="{{ .RelPermalink }}">Read More…</a>
-            </div>
-            {{ end }}
-
-            </article><hr>
-        {{ end }}
-    </ul>
+        </div>
+    
 </main>
 {{ end }}

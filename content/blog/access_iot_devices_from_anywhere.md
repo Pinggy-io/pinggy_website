@@ -1,49 +1,51 @@
 ---
  title: "Access IoT Devices from Anywhere" 
- date: 2023-06-09T14:15:25+05:30 
+ date: 2023-06-09T14:15:25+05:30
+ lastmod: 2023-08-10T14:15:25+05:30
  draft: false 
  og_image: "/blog/images/iot/head.webp"
+ tags: ["guide", "tcp"]
 ---
-
-
-In the era of the Internet of Things (IoT), the ability to remotely access and manage our devices from anywhere has become increasingly vital. As developers and devops engineers we need remote access to our IoT fleets to monitor, maintain, push updates, and add features to our IoT applications. The ability to access IoT devices from anywhere through ssh is key in this aspect. Enter {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, an incredibly powerful yet simple tool that provides a TCP tunnel for SSH access, enabling us to connect to our IoT devices from anywhere in the world. This service ensures seamless remote access, simplifying the management of web portals, camera access, and other functionalities, all from virtually anywhere.
 
 {{< figure src="../images/iot/head.webp" alt="Accessing IoT Devices from Anywhere through ssh tunnel using pinggy" >}}
 
 
+You can access your Internet of Things (IoT), devices remotely and manage our devices from anywhere with just one command.
+
 {{% tldr %}}
 
-1. Create a TCP tunnel to your IoT device using the following command:
+1. Run this command on your IoT device such as Raspberry Pi:
     ```
     ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
     ```
-4. This command will output a public URL like `tcp://tljocjkijs.a.pinggy.online:40527`.
+4. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.online:40527`.
 5. Use the SSH command with the URL and port to connect to your IoT device:
     ```
-    ssh -p <port_number> <username>@<random_string>.a.pinggy.online
+    ssh -p <port> <username>@<pinggy_url>
     ```
     Example:
     `ssh -p 40527 pi@tljocjkijs.a.pinggy.online`
-6. Now, you can securely SSH into your IoT device from anywhere in the world. Login to [https://pinggy.io](https://pinggy.io) and use and access token to know your active tunnel address remotely.
+6. Now, you can securely SSH into your IoT device from anywhere in the world.
 
-{{% /tldr %}} 
+7. Sign in to [https://pinggy.io](https://pinggy.io) and use and access token to know your active tunnel address remotely.
 
-<br>
+{{% /tldr %}}
 
-To remotely access your IoT devices, there are several other methods you can utilize. These options vary depending on the device and the manufacturer's implementation. Here are some popular ways to access IoT devices remotely:
+As developers and devops engineers we need remote access to our IoT fleets to monitor, maintain, push updates, and add features to our IoT applications. The ability to access IoT devices from anywhere through ssh is key in this aspect. Using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} you can get a TCP tunnel for SSH access, enabling us to connect to our IoT devices from anywhere in the world. This service ensures seamless remote access, simplifying the management of web portals, camera access, and other functionalities, all from virtually anywhere.
 
-- Remote access through SSH: Remote access to devices via SSH (Secure Shell) has become an essential requirement for efficient device management. Whether you need to control IoT devices, manage servers, or troubleshoot network equipment, SSH provides a secure and reliable method for remote administration.
-- Remote desktop through RDP: Remote Desktop Protocol (RDP) is a protocol developed by Microsoft that allows users to remotely connect to and control a computer over a network. It enables you to access a remote computer's desktop, applications, and files as if you were sitting in front of it.
-- Web Portals: Some manufacturers provide web portals that allow users to access and manage their IoT devices through a web browser. These portals can be accessed from any internet-connected device such as desktop computers, laptops, and tablets, making it easy to control your devices remotely.
-- Mobile Apps: Many IoT devices come with dedicated mobile apps that enable users to control and monitor their devices using their smartphones or tablets. These apps are typically available for both iOS and Android platforms, providing convenient remote access.
-- Smart Assistants: Certain IoT devices can be controlled and monitored using voice commands through popular smart assistants like Amazon's Alexa or Google Assistant. These smart assistants can be accessed through devices such as Amazon Echo or Google Home, as well as smartphones and tablets, providing a hands-free remote control experience.
-- Virtual Private Network (VPN): A VPN allows you to securely connect to your home network from a remote location. By setting up a VPN, you can access your IoT devices as if you were connected to your home Wi-Fi network, even when you're away. This method adds an extra layer of security by encrypting your connection.
+
+To remotely access your IoT devices, various methods are available based on the device and manufacturer's setup. Here are popular ways:
+
+- SSH Remote Access: SSH (Secure Shell) provides a remote terminal to your IoT device. This is a secure and reliable method for remote administration.
+
+- RDP for Remote Desktop: Microsoft's RDP (Remote Desktop Protocol) lets you connect and control your IoT using graphical user interface (GUI) over a network.
+
+- Web Portals: Manufacturers offer web portals for IoT device access and management via a browser. These portals work on internet-connected devices like computers, laptops, and tablets, simplifying remote control.
 
 
 ## Using Pinggy for SSH from anywhere
 
-Do you have an IoT device like a Raspberry Pi that doesn't have a public IP address? No worries! With Pinggy.io you can access IoT devices, including Raspberry Pi, Banana Pi, Orange Pi, NanoPi NEO, Odroid, Rock Pi, NVIDIA Jetson Nano, and others, even if they don't have a public IP address. It enables you to establish an SSH connection to your devices from anywhere in the world. Let's explore the steps: 
-
+With Pinggy.io you can access IoT devices, including Raspberry Pi, Banana Pi, Orange Pi, NanoPi NEO, Odroid, Rock Pi, NVIDIA Jetson Nano, and others, even if they don't have a public IP address. It enables you to establish an SSH connection to your devices from anywhere in the world. 
 
 **Step 1: Create a Tunnel to Your IoT Device**
 
@@ -64,15 +66,18 @@ Customize your command:
 **Step 2: Obtain the Public URL**
 
 After running the tunneling command, you will receive a public URL in the following format:
-```
-tcp://tljocjkijs.a.pinggy.online:40527
-```
+tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span style="background: #e9ecff">40527</span>
 
-Make note of this URL and port number as they will be used to establish an SSH connection to your IoT device.
+
+
+Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>) and port (<span style="background: #e9ecff">40527</span>) as they will be used to establish an SSH connection to your IoT device.
+
+{{< figure src="../images/iot/url.webp" alt="Get the URL and port from the output of the Pinggy command to ssh into your IoT device." >}}
+
 
 **Step 3: SSH into Your IoT Device**
 
-To SSH into your IoT device, use the SSH command along with the public URL and port number obtained in the previous step. Replace `username` with the username of your IoT device, and the URL and the port from the output of the pinggy command:
+To SSH into your IoT device, use the SSH command along with the public URL and port number obtained in the previous step. Replace `username` with the username of your IoT device, and the URL and the port `40527` from the output of the pinggy command:
 ```
 ssh -p 40527 username@tljocjkijs.a.pinggy.online
 ```
@@ -102,10 +107,6 @@ Replace `access_token` with your own access token obtained from pinggy dashboard
 
 ## Conclusion
 
-By leveraging Pinggy.io's TCP tunneling capabilities, you can securely connect to your IoT devices from anywhere. Here's how you can benefit from using Pinggy for remote SSH access:
-- Easy Setup and User-Friendly Interface: Pinggy offers a user-friendly dashboard, making the setup process straightforward for both technical and non-technical users.
-- Secure and Encrypted Communication: All data transmitted through Pinggy.io is encrypted, ensuring the security of your IoT device management activities.
-- Versatility for Various IoT Devices: Pinggy.io supports a wide range of IoT devices, including Raspberry Pi, enabling you to remotely access and manage them effortlessly.
+By leveraging Pinggy.io's TCP tunneling capabilities, you can securely connect to your IoT devices from anywhere.
 
-
-
+If you want remote desktop access for remotely operating the GUI, you can just create a tunnel to your VNC / RDP server's port.

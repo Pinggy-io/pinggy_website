@@ -3,6 +3,8 @@
  date: 2023-05-29T14:15:25+05:30 
  draft: false 
  og_image: "/blog/images/jupyter/image0.png"
+ tags: ["guide", "http"]
+
 ---
 
 
