@@ -31,7 +31,7 @@ To get a compact QR Code, we have option for unicode QR. Press `u` to print QR-C
 
 Unicode QR-Code can easily fit inside a 80x25 terminal. However, the terminal must have support for unicode character-set. Otherwise the result is unpredictable.
 
-# Allways show QR-Code
+# Always show QR-Code
 Pinggy also supports keywords `qr` and `aqr` while creating tunnel to print QR in the TUI like the following.
 
 {{< figure src="../../../doc_img/qrcode/qr-inline-unicode2.webp" alt="Always display QR-Code in TUI" >}}

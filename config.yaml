@@ -24,6 +24,8 @@ markup:
 taxonomies:
   tag: tags
 
+paginate: 5 
+
 menus: 
   main:
   - name: Home

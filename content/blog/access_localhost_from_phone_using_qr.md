@@ -61,7 +61,7 @@ For a more compact QR Code, you can choose the Unicode QR option. Simply press *
 
 The Unicode QR-Code can easily fit within a 80x25 terminal. But, the terminal must have support for the Unicode character-set.
 
-# Allways show QR-Code
+# Always show QR-Code
 Pinggy also supports keywords `qr` and `aqr` while creating a tunnel to always show the QR codes in the terminal.
 
 {{< figure src="../../../doc_img/qrcode/qr-inline-unicode2.webp" alt="Always display QR-Code in TUI" >}}
