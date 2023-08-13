@@ -29,6 +29,6 @@ https://fakqxzqrohxxx.a.pinggy.online
 
 You can access your localhost service using these URLs.
 
-**These URLs will change every time you create a new tunnel.<br> If you want a persistent subdomain** <b><a target="_blank" href="http://pinggy.io/#prices">upgrade to Pinggy Pro</a></b>.
+**These URLs will change every time you create a new tunnel.<br> If you want a persistent subdomain** <b><a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a></b>.
 
 
