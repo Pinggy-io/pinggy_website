@@ -56,7 +56,7 @@ sudo systemctl start xrdp
 To get a public URL to access your Raspberry Pi over the internet bypassing NAT and firewall, you need to start a Pinggy tunnel. Just copy and paste the following command to start a tunnel.
 
 
-{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to the RDP server:" portstring="SSH server Port" localport="3389" webdebugenabled=false keepalive=true >}}
+{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to the RDP server:" portstring="RDP server Port" localport="3389" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
 <br>
