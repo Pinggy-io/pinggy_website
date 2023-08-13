@@ -15,7 +15,7 @@ ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
 
 Ngrok is an excellent tool loved by developers worldwide. If you need to expose your localhost server, Ngrok comes in handy. However, utilizing Ngrok requires downloading a platform-specific program (binary) for your operating system, be it Mac, Windows, or Linux. Subsequently, you must make the binary executable and launch it from the terminal. This process of obtaining Ngrok can often be cumbersome.
 
-**{{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} is an easy to use alternative that you do not need to download.** Without downloading any program, you can just run one command to get a tunnel.  
+**{{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} is an easy-to-use alternative that you do not need to download.** Without downloading any program, you can just run one command to get a tunnel.  
 
 
 ## Tunneling without downloading anything
@@ -33,7 +33,7 @@ You will immediately get an HTTP tunnel to your localhost with the Pinggy comman
 
 ## Logging, Inspecting & Replaying requests without downloading anything
 
-When you start Pinggy with the *Web Debugger* opetion enabled, you can access the inspector by visiting: [http://localhost:4300](http://localhost:4300). You can change this port by modifying the command above.
+When you start Pinggy with the *Web Debugger* option enabled, you can access the inspector by visiting: [http://localhost:4300](http://localhost:4300). You can change this port by modifying the command above.
 
 {{< figure src="/assets/webdebug.png" alt="Logging, Inspecting & Replaying HTTP requests using Pinggy" >}}
 
