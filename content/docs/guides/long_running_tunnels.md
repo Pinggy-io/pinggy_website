@@ -8,7 +8,7 @@
 
 You can use Pinggy to host websites, apps, and files from localhost just like any server. You just need to ensure the following:
 
-1. Get a persistent subdomain or a custom domain from the <a href="http://dashboard.pinggy.io" target="_blank">dashboard</a>.
+1. Get a persistent subdomain or a custom domain from the <a href="https://dashboard.pinggy.io" target="_blank">dashboard</a>.
 2. Use the token to start the tunnel as described next.
 
 The following command ensures that your tunnels stay alive and restart on its own if something goes wrong:

@@ -35,16 +35,16 @@ menus:
     url: /#prices
     weight: 100
   - name: Docs
-    url: /docs
+    url: /docs/
     weight: 120
   - name: Quickstart
-    url: /quickstart
+    url: /quickstart/
     weight: 130
   - name: Blog
-    url: /blog
+    url: /blog/
     weight: 140
   - name: Contact
-    url: /contact_us
+    url: /contact_us/
     weight: 150
 
   # - name: Terms of Service
