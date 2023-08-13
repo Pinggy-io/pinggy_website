@@ -14,6 +14,15 @@ body {
     margin-top: 4.8em;
 }
 
+.youtube-container {
+    display: block;
+    width: 100%;
+  }
+
+.youtube-container > iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
 
 #portcommand {
     background: #ffffff;
@@ -23,6 +32,7 @@ body {
 .page-link {
     color: #393939;
 }
+
 .page-item.active .page-link {
     background-color: #e9e9e9;
     border-color: #393939;
@@ -92,19 +102,25 @@ body {
     box-shadow: 0 0 10px 0px #4783b13b;
     transition: transform 0.6s;
 }
+
 .featureimage:hover {
     transform: scale(1.02);
-  }
+}
 
-  .highlight {
+.highlight {
     animation: AnimationName 10s ease;
     animation-fill-mode: forwards;
-  }
-  
-  @keyframes AnimationName {
-    0% { background-color: #ffffff00; }
-    100% { background-color: #f8ff95; }
-  }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-color: #ffffff00;
+    }
+
+    100% {
+        background-color: #f8ff95;
+    }
+}
 
 /* Sidebar  -------------------------- */
 
@@ -310,7 +326,7 @@ code {
 }
 
 #trynow {
-    margin:0;
+    margin: 0;
     padding: 0;
     width: 100%;
     text-align: right;
@@ -484,7 +500,7 @@ pre {
 
 
 /* TABS ==== */
- .tab-nav-button {
+.tab-nav-button {
     border-width: 1px 1px 1px 1px !important;
     border-color: #ccc !important;
     border-radius: 4px 4px 0 0 !important;
@@ -495,15 +511,17 @@ pre {
     margin-left: 4px;
     bottom: -1px;
 }
- .tab-nav-button:first-child {
+
+.tab-nav-button:first-child {
     margin-left: 0px;
 }
- .tab-nav-button.active {
+
+.tab-nav-button.active {
     background-color: #fff !important;
     border-bottom-color: #fff !important;
 }
 
- .tab-panel {
+.tab-panel {
     margin-top: 32px;
     margin-bottom: 32px;
 }
@@ -511,7 +529,8 @@ pre {
 #advancedSettingsTabContent {
     border: 0;
 }
- .tab-content {
+
+.tab-content {
     display: block;
     clear: both;
     padding: 8px;
@@ -519,16 +538,18 @@ pre {
     border-style: solid;
     border-color: #ccc;
 }
- .tab-content .tab-item{
+
+.tab-content .tab-item {
     display: none;
 }
 
- .tab-content .tab-item.active{
+.tab-content .tab-item.active {
     display: block;
 }
 
- .tab-item pre{
+.tab-item pre {
     margin-bottom: 0;
     margin-top: 0;
 }
+
 /* ----------------- */
