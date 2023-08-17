@@ -681,3 +681,7 @@ components:
           type: string
           description: base64 encoded string
           example: aGVsbG86d29ybGQ=
+        bearerAuth:
+          type: string
+          description: plain string string for key authorization
+          example: aRanDomSTring
