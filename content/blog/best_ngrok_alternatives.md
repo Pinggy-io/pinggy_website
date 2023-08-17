@@ -194,6 +194,8 @@ ssh -R 80:localhost:8080 localhost.run
 
 Tailscale is not exactly an Ngrok alternative, rather it is a VPN service. Instead of using a central VPN server employed by traditional VPN services, Tailscale uses a mesh network. The strategy employed by Tailscale prevents centralization whenever feasible. This leads to increased throughput and decreased latency, as machine-to-machine network traffic can move directly. Moreover, opting for decentralization enhances stability and dependability by minimizing instances of singular failure points.
 
+{{< figure src="../images/best_ngrok_alternatives/tailscale.png" alt="Tailscale - open source Ngrok alternative" >}}
+
 
 The **Tailscale Funnel** represents a functionality enabling the directing of external internet traffic towards one or multiple nodes within your Tailscale network. This can be likened to the act of openly sharing a node, granting accessibility to anyone, irrespective of their possession of Tailscale.
 
