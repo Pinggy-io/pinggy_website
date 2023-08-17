@@ -1,0 +1,683 @@
+openapi: 3.0.0
+info:
+  title: Pinggy Introspec API
+  description:
+    This is API
+  # contact:
+  #   name: Test
+  #   url: https//api.in
+  version: 1.0.0
+servers:
+  - url: http://localhost:4300
+
+paths:
+  /introspec/websocket:
+    description:
+      API to connect to introspec so that notification can be provided in realtime.
+      It primarily provides few commands. Kindly look at the commands.
+    get:
+      description:
+        API to connect to introspec so that notification can be provided in realtime.
+        It primarily provides few commands. Kindly look at the commands.
+      responses:
+        101:
+          description: Successfully upgraded
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/websocket_commands'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/getrawrequestheader:
+    description:
+      API to get raw request header.
+    get:
+      description: API to get raw request header.
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          headers:
+            X-Max-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 1024
+              description:
+                This parameter provide the exact length of the content.
+                It might happen that we truncate some of the data while saving into disc.
+            X-Available-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 512
+              description:
+                This parameter provide indicatation of the actual length of the content we have now.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawRequestHeader'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/getrawresponseheader:
+    description:
+      API to get raw response header.
+    get:
+      description: API to get raw response header.
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          headers:
+            X-Max-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 1024
+              description:
+                This parameter provide the exact length of the content.
+                It might happen that we truncate some of the data while saving into disc.
+            X-Available-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 512
+              description:
+                This parameter provide indicatation of the actual length of the content we have now.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawResponseHeader'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/getrawrequestbody:
+    description:
+      API to get raw request body.
+    get:
+      description: API to get raw request body.
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          headers:
+            X-Max-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 1024
+              description:
+                This parameter provide the exact length of the content.
+                It might happen that we truncate some of the data while saving into disc.
+            X-Available-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 512
+              description:
+                This parameter provide indicatation of the actual length of the content we have now.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/getrawresponsebody:
+    description:
+      API to get raw response body.
+    get:
+      description: API to get raw response body.
+
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          headers:
+            X-Max-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 1024
+              description:
+                This parameter provide the exact length of the content.
+                It might happen that we truncate some of the data while saving into disc.
+            X-Available-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 512
+              description:
+                This parameter provide indicatation of the actual length of the content we have now.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawResponseBody'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/getrawrequest:
+    description:
+      API to get raw request.
+    get:
+      description: API to get raw request.
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          headers:
+            X-Max-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 1024
+              description:
+                This parameter provide the exact length of the content.
+                It might happen that we truncate some of the data while saving into disc.
+            X-Available-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 512
+              description:
+                This parameter provide indicatation of the actual length of the content we have now.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawRequestHeader'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/getrawresponse:
+    description:
+      API to get raw response header.
+    get:
+      description: API to get raw response header.
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          headers:
+            X-Max-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 1024
+              description:
+                This parameter provide the exact length of the content.
+                It might happen that we truncate some of the data while saving into disc.
+            X-Available-Length:
+              schema:
+                type: integer
+                format: uint64
+                example: 512
+              description:
+                This parameter provide indicatation of the actual length of the content we have now.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawResponse'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/replay:
+    description:
+      API to get raw response header.
+    get:
+      description: API to get raw response header.
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawResponse'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+
+  /introspec/editheaderreplay:
+    description:
+      API to perform a completely new request with modified request header.
+    put:
+      description:
+        This API provide an option to perform a request to the server
+        with modified header. The request body should contain only the
+        header ends with `\r\n\r\n`. Not that we do not perform any checks.
+        We simple concatenate the request body and the original body.
+      parameters:
+        - in: header
+          name: X-Introspec-Key
+          required: true
+          schema:
+            type: integer
+            format: uint32
+            example: 1
+      responses:
+        200:
+          description: Success response
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawResponse'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /introspec/newrequest:
+    description:
+      API to perform a completely new request.
+    put:
+      description:
+        API to perform a completely new request.
+        The request body should contain the entire request
+        the request header. The server would forward the entire
+        request body as it is to the server.
+      responses:
+        200:
+          description: Success response
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/rawResponse'
+        404:
+          description: Failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  404 page not found
+  /headerman:
+    description:
+      Header manipulation API. It would load and put the header manipulation.
+      There are two api, GET and POST.
+    get:
+      description:
+        Get current header manipulation
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/headerMan'
+        500:
+          description: Internal error
+    post:
+      description: Post new header manipulation
+      requestBody:
+        description: request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/headerMan'
+      responses:
+        200:
+          description: updated header manipulation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/headerMan'
+        400:
+          description:
+            Bad request as content length is 0 or cannot be parsed
+        500:
+          description:
+            Cannot read the request body
+
+components:
+  schemas:
+    websocket_commands:
+      oneOf:
+        - type: object
+          properties:
+            sessionId:
+              type: string
+              example: 2023-04-04 18:05:59.818982689 +0000 UTC m=+0.001893880
+        - type: object
+          description:
+            This command will inform about the new request comming to the introspec system.
+            It inform both normal request as well as the replay request. The `reqId` will increase monotonically,
+            however, it will repeate after some time. for now the limit it 1024.
+          properties:
+            req:
+              type: object
+              properties:
+                reqId:
+                  type: integer
+                  format: uint32
+                  example: 1
+                chId:
+                  type: integer
+                  format: uint16
+                  example: 0
+                pairId:
+                  type: integer
+                  format: uint16
+                  example: 0
+                id:
+                  type: integer
+                  format: uint16
+                  example: 0
+                  deprecated: true
+                offset:
+                  type: integer
+                  format: uint64
+                  example: 0
+                hlen:
+                  type: integer
+                  format: uint64
+                  example: 455
+                blen:
+                  type: integer
+                  format: uint64
+                  example: 0
+                key:
+                  type: integer
+                  format: uint32
+                  example: 0
+                method:
+                  type: string
+                  example: GET
+                uri:
+                  type: string
+                  example: /
+                time:
+                  type: integer
+                  format: uint32
+                  example: 1680631576
+                rawTruncated:
+                  type: boolean
+                  example: false
+                replay:
+                  description: It represent whether this is an replay or not.
+                  type: boolean
+                  example: false
+                remoteAddr:
+                  description: It provide the visitor address
+                  type: string
+                  example: "122.163.36.229:36422"
+        - type: object
+          description:
+            This command inform about the responses received by the introspec system. The response is matches with the request by the keyId.
+          properties:
+            res:
+              type: object
+              properties:
+                reqId:
+                  type: integer
+                  format: uint32
+                  example: 262148
+                chId:
+                  type: integer
+                  format: uint16
+                  example: 0
+                pairId:
+                  type: integer
+                  format: uint16
+                  example: 0
+                id:
+                  type: integer
+                  format: uint16
+                  example: 0
+                  deprecated: true
+                offset:
+                  type: integer
+                  format: uint64
+                  example: 0
+                hlen:
+                  type: integer
+                  format: uint64
+                  example: 237
+                blen:
+                  type: integer
+                  format: uint64
+                  example: 17022
+                key:
+                  type: integer
+                  format: uint32
+                  example: 262148
+                header:
+                  type: string
+                  example: ''
+                  deprecated: true
+                status:
+                  type: string
+                  example: 404 Not Found
+                time:
+                  type: integer
+                  format: uint32
+                  example: 1680660597
+                rawTruncated:
+                  type: boolean
+                  example: false
+        - type: object
+          description: Some description
+          properties:
+            urls:
+              type: array
+              items:
+                type: string
+                example: http://random.a.pinggy.io
+        - type: object
+          description: Some description
+          properties:
+            msgs:
+              type: array
+              items:
+                type: string
+                example: http://random.a.pinggy.io
+        - type: object
+          description: live status
+          properties:
+            stat:
+              type: object
+              properties:
+                reqBytes:
+                  type: integer
+                  format: int64
+                  example: 23
+                resBytes:
+                  type: integer
+                  format: int64
+                  example: 23
+                numRequests:
+                  type: integer
+                  format: int64
+                  example: 23
+                numResponses:
+                  type: integer
+                  format: int64
+                  example: 23
+                activeConn:
+                  type: integer
+                  format: int64
+                  example: 23
+                totalConn:
+                  type: integer
+                  format: int64
+                  example: 23
+    rawRequestHeader:
+      type: string
+      example: |
+        GET / HTTP/1.1\r\n
+        Host: ranvhcuoexkca.t.pinggy.io\r\n
+        User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/110.0\r\n
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8\r\n
+        Accept-Encoding: gzip, deflate, br\r\n
+        Accept-Language: en-US,en;q=0.5\r\n
+        Connection: keep-alive\r\n
+        Dnt: 1\r\n
+        Sec-Fetch-Dest: document\r\n
+        Sec-Fetch-Mode: navigate\r\n
+        Sec-Fetch-Site: none\r\n
+        Sec-Fetch-User: ?1\r\n
+        Upgrade-Insecure-Requests: 1\r\n
+        \r\n
+    rawResponseHeader:
+      type: string
+      example: |
+        HTTP/1.1 200 OK\r\n
+        Content-Length: 22779\r\n
+        Cache-Control: private, max-age=0, proxy-revalidate, no-store, no-cache, must-revalidate\r\n
+        Connection: Keep-Alive\r\n
+        Content-Type: text/html; charset=utf-8\r\n
+        Date: Tue, 04 Apr 2023 16:53:15 GMT\r\n
+        Etag: 402ed9-58fb-64136245\r\n
+        Last-Modified: Thu, 16 Mar 2023 18:39:01 GMT\r\n
+        Server: WEBrick/1.7.0 (Ruby/3.0.5/2022-11-24)\r\n
+        \r\n
+    rawResponseBody:
+      type: string
+      example: |
+        <!DOCTYPE html>
+        <body lang="en">
+        The body
+        </body>
+    rawResponse:
+      type: string
+      example: |
+        HTTP/1.1 200 OK\r\n
+        Content-Length: 22779\r\n
+        Cache-Control: private, max-age=0, proxy-revalidate, no-store, no-cache, must-revalidate\r\n
+        Connection: Keep-Alive\r\n
+        Content-Type: text/html; charset=utf-8\r\n
+        Date: Tue, 04 Apr 2023 16:53:15 GMT\r\n
+        Etag: 402ed9-58fb-64136245\r\n
+        Last-Modified: Thu, 16 Mar 2023 18:39:01 GMT\r\n
+        Server: WEBrick/1.7.0 (Ruby/3.0.5/2022-11-24)\r\n
+        \r\n
+        <!DOCTYPE html>
+        <body lang="en">
+        The body
+        </body>
+    headerMan:
+      type: object
+      properties:
+        hostName:
+          type: string
+          description: Modifed hostname. empty mean hostname would be ignored.
+          example: pop
+        headers:
+          type: object
+          description: Other headers
+          properties:
+            headername1:
+              type: object
+              description: manupulative header. name is small letter only
+              properties:
+                headerName:
+                  type: string
+                  description: Original name of the header
+                  example: SomeThing
+                remove:
+                  type: boolean
+                  description: whether we want to remove this header from the incoming request
+                  example: false
+                values:
+                  type: array
+                  description: All the values needed to be added
+                  example: ["Odd", "even"]
+        basicAuth:
+          type: string
+          description: base64 encoded string
+          example: aGVsbG86d29ybGQ=
