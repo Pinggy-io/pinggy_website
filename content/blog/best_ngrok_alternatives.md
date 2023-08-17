@@ -1,14 +1,16 @@
 ---
- title: "Best 5 ngrok alternatives in 2023" 
+ title: "Best 5 Ngrok alternatives in 2023" 
  date: 2023-02-01T14:15:25+05:30
- lastmod: 2023-06-05T14:15:25+05:30
+ lastmod: 2023-08-14T14:15:25+05:30
  draft: false 
  tags: ["guide", "comparison"]
  og_image: "/blog/images/best_ngrok_alternatives/img1.webp"
 ---
 
 <a href="https://ngrok.com" target="_blank">Ngrok</a> is an ingress-as-a-service that provides tunnels facilitating instant ingress to your apps in any cloud, private network, or device.
-Although very mature, ngrok has its own limitations of being a complex ingress-as-a-service. In this article, we will explore the top 5 alternatives of ngrok in 2023.
+Although very mature, Ngrok has its own limitations of being a complex ingress-as-a-service. 
+
+In this article, we will explore the top 5 alternatives of Ngrok in 2023. We will cover the features, installation process, ease of use and pricing of the Ngrok alternatives to help you choose the best one.
 
 {{< figure src="../images/best_ngrok_alternatives/img1.webp" alt="Top 5 ngrok alternatives of 2023" >}}
 
@@ -19,32 +21,42 @@ Although very mature, ngrok has its own limitations of being a complex ingress-a
 2. {{< link href="https://theboroer.github.io/localtunnel-www/" >}}Localtunnel{{< /link >}}
 3. {{< link href="https://localxpose.io/" >}}LocalXpose{{< /link >}}
 4. {{< link href="https://zrok.io/" >}}Zrok{{< /link >}}
-4. {{< link href="https://localhost.run/" >}}localhost.run{{< /link >}}
+5. {{< link href="https://localhost.run/" >}}localhost.run{{< /link >}}
 
-## Overview of ngrok
-Before jumping in we will have a brief overview of Ngrok.
+**Bonus:** {{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}}
 
-ngrok provides tunnels for ingress through its programmable network edge. Additionally, it offers observability as well as the ability to change traffic parameters such as headers on the go to your apps with no code changes. In order to use ngrok you must download the ngrok client and sign up to get an account.
 
-#### Pros of ngrok
 
-* Ngrok client is available for Linux, Mac, and Windows.
-* Support for authenticated URLs.
+## Overview of Ngrok
+Before jumping into the alternatives for Ngrok, we will have a brief overview of Ngrok itself.
+
+Ngrok provides tunnels for ingress through its programmable network edge. It offers HTTPS, TCP, and TLS tunnels. It provides observability as well as the ability to change traffic parameters such as headers on the go to your apps with no code changes. In order to use Ngrok you must download the Ngrok client and sign up to get an account. In the paid plans you get features such as webhook verification, OAuth authentication, custom domain, persistent TCP port, etc.
+
+#### Pros of Ngrok
+
+* Ngrok client is available for Linux, Mac, Windows, and Docker.
+* Authenticated URLs using either HTTP Basic Authentication or Oauth 2.0.
 * Request response introspection and replay capability.
 * Supports custom domains.
-* Has plenty of integrations and plugins.
+* Webhook verification on the fly for popular services such as Twilio, Facebook, etc.
+* Manage tunnels remotely.
+* Plenty of integrations and plugins.
 
-#### Cons of ngrok
+#### Cons of Ngrok
 
-* Users visiting an ngrok url are presented with a ngrok page first.
-* Requirement of downloading the ngrok client binary.
-* Need to sign in to the ngrok client to use the service.
+* Requirement of downloading the Ngrok client binary.
+* Need to sign in to the Ngrok client to use the service.
+* 1GB per month bandwidth cap in the starting paid plan.
+* No UDP tunnels.
+* In the free tier, users visiting an Ngrok url are presented with a Ngrok page first.
 
-Now let us find out the best 5 ngrok alternatives which are simpler to set up, yet offers all the interesting features for your productivity.
+#### Ngrok price
+
+Ngrok starts at $8 per month for the “Personal” plan, which provides one persistent domain and TCP port. It has a bandwidth cap of 1GB per month. The “Pro” plan, priced at $20 per month, offers features such as IP whitelisting and unlimited webhook verification. It charges $0.10/GB for bandwidth exceeding 1GB per month.
 
 ## 1. Pinggy.io
 
-[Pinggy.io](https://pinggy.io) is a tunneling tool that gives a public address to access your localhost, even while sitting behind a NAT or a firewall -- all this in a single command. With this ngrok alternative, without downloading anything, a single command gives users access to your website / app hosted in localhost without configuring the cloud, or any port forwarding, or DNS, or VPN.
+[Pinggy.io](https://pinggy.io) is a tunneling tool that gives a public address to access your localhost, even while sitting behind a NAT or a firewall -- all this in a single command. With this Ngrok alternative, without downloading anything, a single command gives users access to your website / app hosted in localhost without configuring the cloud, or any port forwarding, or DNS, or VPN.
 
 To get how simple it is to open a tunnel, here is an example. If you want to share your React app running on `localhost:3000`, you can do so using pinggy with the command:
 ```
@@ -57,28 +69,36 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
                       </video>
 </div>
 
-#### Pros of pinggy
+Pinggy is one of the Ngrok alternatives which you can try out for free without signing up for an account. Over Ngrok, it provides features such as QR codes for tunnel URLs and an HTTP request / response inspection tool within the terminal.
+
+#### Pros of Pinggy
 
 * No need to download anything.
-* Provides a terminal user interface and web debugger to monitor, inspect, modify, and replay HTTP requests.
-* Works on Mac / PC / Linux.
-* Also provides TCP tunnels to access IoT devices and custom protocols.
+* Provides a terminal user interface with QR codes and request inspector.
+* Built-in web-debugger to monitor, inspect, modify, and replay HTTP requests.
+* Works on Mac / PC / Linux / Docker.
+* Provides TCP tunnels to access IoT devices and custom protocols.
 * Single command handles all configuration as well as authentication.
 * Supports custom domains.
+* HTTP basic authentication and Bearer token authentication.
 * No need to sign up to get test tunnels - just visit [https://pinggy.io](https://pinggy.io) to get the command.
+* Cheaper than Ngrok.
 
-#### Cons of pinggy
+#### Cons of Pinggy
 
 * No UDP tunnels
-* No option of password-protected URLs out of the box.
+* No OAuth 2.0 authentication for tunnel visitors.
 
+### Price of Pinggy
+
+Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the paid tier starts at $2.5 per month. It offes all features including custom domains, persistent TCP ports, live header manipulation, in this plan. 
 
 
 ## 2. Localtunnel
 
-[Localtunnel](https://localtunnel.github.io/www/) is a npm package that lets you create http / https tunnels to localhost. It provides a random subdomain when you run it through your terminal. Being a node package, localtunnel can be integrated to your applications as a library and you can use it to test your nodejs apps.
+[Localtunnel](https://localtunnel.github.io/www/) is a Ngrok alternative that comes as an npm package. The package lets you create http / https tunnels to localhost. It provides a random subdomain when you run it through your terminal. Being a node package, localtunnel can be integrated to your applications as a library and you can use it to test your nodejs apps.
 
-<img src="/blog_img/localtunnel.png" alt="localtunnel screenshot">
+<img src="/blog_img/localtunnel.png" alt="localtunnel screenshot - ngrok alternative that is an npm package">
 
 #### Pros of localtunnel
 
@@ -93,11 +113,13 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 * No custom domain or subdomain support.
 * Being a node package it cannot be used without installing nodejs, or in IoT like environments that do not support nodejs
 
+#### Price of localtunnel
 
+Localtunnel is free and it does not have a paid tier. It does not provide custom domain or subdomains or TCP tunnels.
 
 ## 3. LocalXpose
 
-[LocalXpose](https://localxpose.io/) is a reverse proxy tool that provides a public URL to localhost. This is one of the most feature complete alternatives of ngrok. By simply downloading their client you can create HTTP / HTTPS tunnels, and also TCP / TLS as well as UDP tunnels. Among the three it is the only one that supports UDP traffic. LocalXpose also provides a built-in file server to share your files instantly. 
+[LocalXpose](https://localxpose.io/) is a reverse proxy tool that provides a public URL to localhost. This is one of the most feature complete alternatives of Ngrok. By simply downloading their client you can create HTTP / HTTPS tunnels, and also TCP / TLS as well as UDP tunnels. Among the three it is the only one that supports UDP traffic. LocalXpose also provides a built-in file server to share your files instantly. 
 
 <img src="/blog_img/localxpose.png" alt="localxpose screenshot">
 
@@ -112,27 +134,39 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 
 * Need to download the client in order to start a tunnel
 * No support for being used as a library / plugin
+* No OAuth 2.0 authentication for tunnel visitors.
+
+#### Price of LocalXpose
+
+LoxalXpose starts at $6 per month for 10 tunnels.
 
 
 ## 4. Zrok
 
-{{< link href="https://zrok.io/" >}}Zrok{{< /link >}} is an impressive open source ngrok alternative that operates on the principles of zero trust networking. Built on top of OpenZiti, a programmable zero trust network overlay, zrok provides users with a secure and efficient way to share resources both publicly and privately.
+{{< link href="https://zrok.io/" >}}Zrok{{< /link >}} is an impressive open source Ngrok alternative that operates on the principles of zero trust networking. Built on top of OpenZiti, a programmable zero trust network overlay, zrok provides users with a secure and efficient way to share resources both publicly and privately.
 
 
-Users can download zrok from GitHub {{< link href="https://github.com/openziti/zrok/releases/latest" >}}https://github.com/openziti/zrok/releases/latest{{< /link >}}. It is one of the best self-hosted alternatives of ngrok.
+Users can download zrok from GitHub {{< link href="https://github.com/openziti/zrok/releases/latest" >}}https://github.com/openziti/zrok/releases/latest{{< /link >}}. It is one of the best self-hosted alternatives of Ngrok.
 
-#### Pros of zrok
+{{< figure src="../images/best_ngrok_alternatives/zrok.webp" alt="Zrok - open source Ngrok alternative" >}}
+
+
+#### Pros of Zrok
 
 * Open source
 * Self-hosted
 * Private network sharing
 * Built-in file server
+* UDP tunnels
 
-#### Cons of zrok
+#### Cons of Zrok
 
-* UDP tunnels not yet available, will be coming soon in v0.4.
 * Traffic introspection and replay features are not available.
+* Initial setup process is tedious.
 
+#### Price of Zrok
+
+Zrok is open source and you need to host in a server.
 
 ## 5. localhost.run
 
@@ -147,14 +181,34 @@ ssh -R 80:localhost:8080 localhost.run
 #### Pros of localhost.run
 
 * Simplicity: Localhost.run offers a straightforward and simple setup process. You only need to execute a single command in your terminal to start the tunneling process, making it easy for developers to get started quickly.
-* No installation required: Unlike ngrok, which requires installation and configuration, localhost.run doesn't need any software installation. You can use it directly from the command line, which can be convenient, especially for quick testing or prototyping.
+* No installation required: Unlike Ngrok, which requires installation and configuration, localhost.run doesn't need any software installation. You can use it directly from the command line, which can be convenient, especially for quick testing or prototyping.
 * Free to use: As of my knowledge cutoff in September 2021, localhost.run offers a free tier, allowing you to use the service without any cost.
 
 #### Cons of localhost.run
 
-* Limited features: Compared to ngrok and other alternatives such as Pinggy, localhost.run may have a significantly more limited set of features. For example, it may not provide advanced functionalities such as custom domains, request inspection, or TCP tunneling.
+* Limited features: Compared to Ngrok and other alternatives such as Pinggy, localhost.run may have a significantly more limited set of features. For example, it may not provide advanced functionalities such as custom domains, request inspection, or TCP tunneling.
 
+
+
+## 6. Tailscale
+
+Tailscale is not exactly an Ngrok alternative, rather it is a VPN service. Instead of using a central VPN server employed by traditional VPN services, Tailscale uses a mesh network. The strategy employed by Tailscale prevents centralization whenever feasible. This leads to increased throughput and decreased latency, as machine-to-machine network traffic can move directly. Moreover, opting for decentralization enhances stability and dependability by minimizing instances of singular failure points.
+
+
+The **Tailscale Funnel** represents a functionality enabling the directing of external internet traffic towards one or multiple nodes within your Tailscale network. This can be likened to the act of openly sharing a node, granting accessibility to anyone, irrespective of their possession of Tailscale.
+
+Using Tailscale Funnel you can  achive the functionality of Ngrok.
+
+## Top 5 Open Source Ngrok alternatives 
+
+If you are looking for only open source ngrok alternatives, here is a list:
+
+1. {{< link href="https://github.com/fatedier/frp" >}}frp{{< /link >}}
+2. {{< link href="https://theboroer.github.io/localtunnel-www/" >}}Localtunnel{{< /link >}}
+3. {{< link href="https://github.com/sshuttle/sshuttle" >}}sshuttle{{< /link >}}
+4. {{< link href="https://github.com/jpillora/chisel" >}}chisel{{< /link >}}
+5. {{< link href="https://github.com/ekzhang/bore" >}}bore{{< /link >}}
 
 ## Conclusion
 
-In conclusion, we discussed some of the best alternatives of ngrok in 2023, some of which are much easier to use without the need to download anything, such as localhost.run and Pinggy. Some are packed with features such as LocalXpose. We also took a look at Zrok which is an open-source and self-hosted alternative to ngrok. 
+In conclusion, we discussed some of the best alternatives of Ngrok in 2023, some of which are much easier to use without the need to download anything, such as localhost.run and Pinggy. Some are packed with features such as LocalXpose. We also took a look at Zrok which is an open-source and self-hosted alternative to Ngrok. 
