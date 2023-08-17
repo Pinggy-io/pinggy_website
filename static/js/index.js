@@ -364,3 +364,43 @@ $("#textchanger").teletype({
     "share your files!",
   ],
 });
+
+
+function seatChange(e) {
+  var seatVal = $(".seat-spinner > input").val();
+  if(seatVal < 1){
+    $(".seat-spinner > input").val(1);
+    seatVal = $(".seat-spinner > input").val();
+  }
+  $(".seatval").html(seatVal);
+  $(".multipleseat").html(seatVal > 1  ? "s":"");
+
+  seatVal = parseFloat(seatVal);
+  // Update
+  var monthprice = parseFloat($("#monthprice").data("price"));
+  var yearprice = parseFloat($("#yearprice").data("price"));
+  $("#monthprice").html((monthprice * seatVal).toFixed(2));
+  $("#yearprice").html((yearprice * seatVal).toFixed(2));
+}
+
+
+
+$(document).on('click', '.seat-spinner button', function () {
+	var btn = $(this),
+		oldValue = btn.closest('.seat-spinner').find('input').val().trim(),
+		newVal = 0;
+	
+	if (btn.attr('data-dir') == 'up') {
+		newVal = parseInt(oldValue) + 1;
+	} else {
+		if (oldValue > 1) {
+			newVal = parseInt(oldValue) - 1;
+		} else {
+			newVal = 1;
+		}
+	}
+	btn.closest('.seat-spinner').find('input').val(newVal).change();
+});
+
+$(".seat-spinner > input").keyup(seatChange);
+$(".seat-spinner > input").change(seatChange);

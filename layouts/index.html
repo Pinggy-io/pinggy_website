@@ -566,11 +566,11 @@
                     <p class="fs-5 text-muted">Make your developement experience smoother by unlocking the full
                         potential of Pinggy.</p>
                 </div>
-                <div class="text-center">
+                <!-- <div class="text-center">
                     <span class="fs-5 px-4 py-2 badge" style="background: rgba(70, 117, 199, 1) !important">Limited
                         time
                         offer!</span>
-                </div>
+                </div> -->
 
 
                 <main>
@@ -601,6 +601,7 @@
                                     <ul class="list-unstyled mt-3 mb-4 list-group text-left">
                                         <li class="list-group-item p-2">Single command tunneling</li>
                                         <li class="list-group-item p-2">HTTP(S), TCP, TLS tunnels</li>
+                                        <li class="list-group-item p-2">Live header manipulation</li>
                                         <li class="list-group-item p-2">Request-response inspection & replays</li>
                                         <li class="list-group-item p-2"><b>60 minutes tunnel timeout</b></li>
                                         <li class="list-group-item p-2">Random subdomains</li>
@@ -617,27 +618,39 @@
                                     <h4 class="my-0 fw-normal">Pro</h4>
                                 </div>
                                 <div class="card-body d-flex flex-column">
+                                    <div  style="max-width: 140px; margin: 0 auto;">
+                                    <div class="input-group seat-spinner">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-outline-dark" data-dir="dwn">-</button>
+                                        </span>
+                                        <input type="number" class="form-control text-center" value="1">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-outline-dark" data-dir="up">+</button>
+                                        </span>
+                                    </div>
+                                    <span>Seats</span>
+                                </div>
                                     <div class="yearly">
-                                        <h2 class="card-title pricing-card-title"><small
-                                                class="text-muted fw-light"><del>$5.00 /month</del></small></h2>
-                                        <h1 class="card-title pricing-card-title">$2.50<small
+                                        <!-- <h2 class="card-title pricing-card-title"><small
+                                                class="text-muted fw-light"><del>$<span class="yearpriceold">5.00</span> /month</del></small></h2> -->
+                                        <h1 class="card-title pricing-card-title">$<span id="yearprice" data-price="2.50">2.50</span><small
                                                 class="text-muted fw-light">/month</small></h1>
                                         <span class="text-muted fw-light">(billed annually)</span>
                                     </div>
                                     <div class="monthly">
-                                        <h2 class="card-title pricing-card-title"><small
-                                                class="text-muted fw-light"><del>$6.0 /month</del></small></h2>
-                                        <h1 class="card-title pricing-card-title">$3<small
+                                        <!-- <h2 class="card-title pricing-card-title"><small
+                                                class="text-muted fw-light"><del>$<span class="monthpriceold">6.00</span> /month</del></small></h2> -->
+                                        <h1 class="card-title pricing-card-title">$<span id="monthprice" data-price="3.00">3.00</span><small
                                                 class="text-muted fw-light">/month</small></h1>
                                         <span class="text-muted fw-light">(billed monthly)</span>
                                     </div>
                                     <ul class="list-unstyled mt-3 mb-4 text-left list-group">
                                         <li class="list-group-item p-2 bg-light">Everyting in Free plan</li>
-                                        <li class="list-group-item p-2"><b>1 persistent tunnel</b></li>
-                                        <li class="list-group-item p-2"><b>Custom subdomain</b></li>
-                                        <li class="list-group-item p-2"><b>Custom domain</b></li>
-                                        <li class="list-group-item p-2">Priority mail support</li>
-                                        <li class="list-group-item p-2">Live header manipulation</li>
+                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Persistent tunnel<span class="multipleseat"></span></b></li>
+                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Custom subdomain<span class="multipleseat"></span></b></li>
+                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Custom domain<span class="multipleseat"></span></b></li>
+                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Persistent TCP port<span class="multipleseat"></span></b></li>
+                                        <li class="list-group-item p-2">Priority mail / Discord support</li>
                                     </ul>
 
                                     <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button-3"
@@ -687,21 +700,22 @@
                                 </div>
                                 <div class="card-body d-flex flex-column">
                                     <div>
-                                        <a href="mailto:contact@pinggy.io" class="text-decoration-none text-dark"><h1 class="card-title pricing-card-title">Contact Us</h1></a>
+                                        <a href="/contact_us/" class="text-decoration-none text-dark"><h1 class="card-title pricing-card-title">Contact Us</h1></a>
                                         <span class="text-muted fw-light">contact@pinggy.io</span>
                                     </div>
                                     
 
                                     <ul class="list-unstyled mt-3 mb-4 list-group text-left">
-                                        <li class="list-group-item p-2 bg-light">On Premise / Cloud hosting</li>
+                                        <li class="list-group-item p-2 bg-light"><b>On Premise</b> / Cloud hosting</li>
                                         <li class="list-group-item p-2"><b>Unlimited persistent tunnels</b></li>
                                         <li class="list-group-item p-2"><b>Unlimited custom subdomains</b></li>
                                         <li class="list-group-item p-2"><b>Unlimited custom domains</b></li>
+                                        <li class="list-group-item p-2"><b>Unlimited persistent TCP ports</b></li>
                                         <li class="list-group-item p-2">Discord Support</li>
                                         <li class="list-group-item p-2">Priority Call Support</li>
                                     </ul>
                                     <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button-3"
-                                        href="mailto:contact@pinggy.io">Contact Us</a>
+                                        href="/contact_us/">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -864,7 +878,7 @@
                         <h2 class="accordion-header" id="headingConnectionReset">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseConnectionReset" aria-expanded="false" aria-controls="collapseConnectionReset">
-                                I am getting &nbsp;<em>Connection closed</em> / <em>Connection reset</em>&nbsp; error.
+                                I am getting Connection closed / Connection reset error.
                             </button>
                         </h2>
                         <div id="collapseConnectionReset" class="accordion-collapse collapse" aria-labelledby="headingConnectionReset"
