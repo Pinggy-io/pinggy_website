@@ -3,6 +3,7 @@
  date: 2023-08-12T14:15:25+05:30
  draft: false 
  og_image: "/assets/header5.png"
+ description: "Ngrok download not required. Just paste one command to get localhost tunnels. Ngrok requires downloading a platform-specific program (binary) for your operating system, be it Mac, Windows, or Linux. With Pinggy that is replaced by one command."
 ---
 
 Paste this command to get a tunnel to localhost, port 8000:
@@ -19,7 +20,7 @@ Ngrok is an excellent tool loved by developers worldwide. If you need to expose 
 
 
 ## Tunneling without downloading anything
-You remotely access your Raspberry Pi desktop from anywhere using *Remote Desktop Protocol* (RDP). Even if your Pi is outside your local network, you can access it easily over the internet using Pinggy.
+Pinggy, is a hassle-free solution for tunneling without downloads. With just one terminal command, Pinggy creates secure tunnels to your localhost server directly through the terminal. No need for platform-specific downloads and installations – Pinggy HTTP / TCP / TLS tunnels make server exposure effortless and efficient for developers worldwide.
 
 
 #### Paste one command to start tunnel:

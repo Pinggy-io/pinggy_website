@@ -87,7 +87,7 @@ It is recommended not to reduce the TTL of the SOA record as it might cause othe
 
 After all the investigation, the only way of making Pinggy work with Route 53 is to wait for the change sets to propagate to all the edge locations of Route 53. But this takes several seconds, and we do not want users of Pinggy to wait for 10 or 30 seconds to create their tunnel. As a result, at this point, we do not have any practical workarounds to use Route 53 for Pinggy.
 
-Instead, we will be focusing on hosting our own DNS Server with {{< link href="http://powerdns.com" >}}PowerDNS{{< /link >}}.
+Instead, we will be focusing on hosting our own DNS Server with {{< link href="https://powerdns.com" >}}PowerDNS{{< /link >}}.
 
 **The same problem does not appear for our own authoritative name server** since the record can be updated there quickly. The trade-off is obvious. Our authoritative servers will not be present in so many regions like Route 53. As a result, we will be able to update them fast (in less than 2 seconds), and give a tunnel to our users whose domain resolves correctly. Consequently, visitors resolving the domain for the first time might have a higher latency (as our authoritative servers might be located further than compared to Route 53), but nonetheless they will get the correct result.
 

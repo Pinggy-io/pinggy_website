@@ -49,3 +49,6 @@
         }]
     }
     </script>
+{{ with .Params.schemahowto }}
+    {{ . | base64Decode| safeHTML }}
+{{ end }}
