@@ -715,13 +715,13 @@ components:
                   description: All the values needed to be added
                   example: ["Odd", "even"]
         basicAuth:
-          type: string
-          description: base64 encoded string
-          example: aGVsbG86d29ybGQ=
+          type: object
+          description: A map to basic key and boolean
+          example: {"aGVsbG86d29ybGQ=":true}
         bearerAuth:
-          type: string
-          description: plain string string for key authorization
-          example: aRanDomSTring
+          type: object
+          description: A map with plain string for key authorization
+          example: {"aRanDomSTring": true}
     ipWhiteList:
       type: array
       description: all the ipRanges in CIDR format
