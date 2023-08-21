@@ -183,7 +183,7 @@ ssh -R 80:localhost:8080 localhost.run
 
 * Simplicity: Localhost.run offers a straightforward and simple setup process. You only need to execute a single command in your terminal to start the tunneling process, making it easy for developers to get started quickly.
 * No installation required: Unlike Ngrok, which requires installation and configuration, localhost.run doesn't need any software installation. You can use it directly from the command line, which can be convenient, especially for quick testing or prototyping.
-* Free to use: As of my knowledge cutoff in September 2021, localhost.run offers a free tier, allowing you to use the service without any cost.
+* Free to use: localhost.run offers a free tier, allowing you to use the service without any cost.
 
 #### Cons of localhost.run
 
