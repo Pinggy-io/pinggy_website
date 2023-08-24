@@ -189,7 +189,11 @@ ssh -R0:localhost:<localport> <token>+qr@a.pinggy.io
 Pinggy by default tries to start a tunnel without any authentication. However, it may not works always due to the limitation of some ssh client (e.g. dropbear) implementation. Use `auth` keyword to stop this behavior. With this keyword, a client may ask for a password, kindly provide 0000 (or any string).
 
 #### 4. force
-
+Pinggy provides `force` keywords to forcefully disconnect existing tunnel with the same token before creating a new connection Use it as follows:
+```
+ssh -R0:localhost:<localport> <token>@a.pinggy.io
+```
+It is useful only with token based connection.
 
 ## Command line options
 Pinggy has options to configure live HTTP header manipulation, HTTP authentication, and IP whitelisting in the command line only. 
