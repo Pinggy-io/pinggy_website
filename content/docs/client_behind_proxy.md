@@ -54,3 +54,4 @@ ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 19
 
 # Windows
 While latest Windows comes with `OpenSSH` client, it does not contain other commands. One can install OpenSSL or netcat to solve the problem. One can also use `putty` to connect to Pinggy through a HTTP Proxy.
+{{< figure src="/doc_img/putty_proxy.png" alt="Putty Proxy" >}}

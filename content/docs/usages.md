@@ -99,23 +99,51 @@ The `http` tunnel works only with the HTTP server. Pinggy provides links for bot
 More about these functionalities later.
 
 A basic `http` tunnel can be started using
+{{< tabs >}}
+{{% tab name="Without Token" %}}
 ```
 ssh -R0:localhost:<localport> a.pinggy.io
 ```
+{{% /tab %}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:<localport> <token>@a.pinggy.io
+```
+{{% /tab %}}
+{{< /tabs >}}
 ##### b) tcp
 `tcp` tunnel is the simplest form of tunnel. It simply forward incoming data without doing any kind of processing. `tcp` tunnel also provides a server port. All the `tcp` tunnel also comes with *IP White Listing* functionality.
 
 A basic `tcp` tunnel can be started using
+{{< tabs >}}
+{{% tab name="Without Token" %}}
 ```
 ssh -R0:localhost:<localport> tcp@a.pinggy.io
 ```
+{{% /tab %}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:<localport> <token>+tcp@a.pinggy.io
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 ##### c) tls
 `tls` tunnel is equivalent to `tcp` tunnel with only one exception, the server does not allocate any TCP port, instead it forward incoming SSL/TLS traffic based on the `server name indication` or `SNI`. Instead of terminating a TLS/SSL traffic in `tls` tunnel, a Pinggy server forwards the traffic as it is to the client.
 
 Basic `tls` tunnel can be started using
+{{< tabs >}}
+{{% tab name="Without Token" %}}
 ```
 ssh -R0:localhost:<localport> tls@a.pinggy.io
 ```
+{{% /tab %}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:<localport> <token>+tls@a.pinggy.io
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 **In perspective with privacy, a `tls` tunnel is the most private tunnel where Pinggy can't even look at the tunnel content. It also makes it hard for the client, as it has to handle everything about the TLS.**
 
@@ -123,9 +151,18 @@ ssh -R0:localhost:<localport> tls@a.pinggy.io
 `tlstcp` tunnel is a `tcp` tunnel with an option to `tls` wrapper for the visitor. It provides a TCP port where the Pinggy server listens for incoming TCP connections and forwards the content as it is to the client. It also provides a `tls` URL, where it listens at port 443 and terminates the incoming SSL connection and forward the plain text content to the client.
 
 Basic `tlstcp` tunnel can be started using
+{{< tabs >}}
+{{% tab name="Without Token" %}}
 ```
 ssh -R0:localhost:<localport> tlstcp@a.pinggy.io
 ```
+{{% /tab %}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:<localport> <token>+tlstcp@a.pinggy.io
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 **`tlstcp` is similar to `tcp` tunnel with a convenience for visitors to connect to Pinggy server with an SSL connection.**
 
@@ -135,12 +172,23 @@ It will allow a visitor behind a firewall to connect to a TCP-based service host
 
 #### 2. qr/aqr
 Pinggy provides an option to display a QR Code with the URL in the terminal. The `qr` key display a smaller unicode base QR Code on the terminal while `aqr` draws a larger ASCII-only QR code. Start a `http` tunnel with QR Code as follows:
+{{< tabs >}}
+{{% tab name="Without Token" %}}
 ```
 ssh -R0:localhost:<localport> qr@a.pinggy.io
 ```
+{{% /tab %}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:<localport> <token>+qr@a.pinggy.io
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 #### 3. auth
 Pinggy by default tries to start a tunnel without any authentication. However, it may not works always due to the limitation of some ssh client (e.g. dropbear) implementation. Use `auth` keyword to stop this behavior. With this keyword, a client may ask for a password, kindly provide 0000 (or any string).
+
+#### 4. force
 
 
 ## Command line options

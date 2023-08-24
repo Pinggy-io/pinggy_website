@@ -1,31 +1,25 @@
 ---
- title: "HTTP / HTTPS Tunnels" 
+ title: "TLS Tunnels" 
  date: 2023-01-10T14:15:25+05:30 
- draft: true 
+ draft: false 
 ---
 
-# Create TCP Tunnels with Pinggy
-
-
-You need to <a target="_blank" href="https://pinggy.io/#prices">sign in to Pinggy</a> to create TCP tunnels.
-
-Once you sign in, you will be presented a dashboard where you will find your access token.
-
-Example:
-```
-b0b87d56-653f-45fb-98d9-8e43779c9081
-```
+# Create TLS Tunnels with Pinggy
 
 Create a tunnel using a single command.
 
-
-Command to start a tunnel to port `8000` and with token `b0b87d56-653f-45fb-98d9-8e43779c9081`:
-<br>
+{{< tabs >}}
+{{% tab name="Without Token" %}}
 ```
-ssh -p 443 -R0:localhost:8000 b0b87d56-653f-45fb-98d9-8e43779c9081+tcp@a.pinggy.io
+ssh -R0:localhost:<localport> tls@a.pinggy.io
 ```
+{{% /tab %}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:<localport> <token>+tls@a.pinggy.io
+```
+{{% /tab %}}
+{{< /tabs >}}
 
-*Replace `8000` with the port where your service is running*.
-
-*Replace `b0b87d56-653f-45fb-98d9-8e43779c9081` with your own token from the dashboard.*
-
+TLS tunnel does not provide any port. It present with a unique domain and SSL/TLS connection to be made to that domain at TCP port 443.
+In case of TLS tunnel, Pinggy does not terminate the SSL/TLS, instead it forward as it is to the client. The client needs to terminate SSL/TLS.

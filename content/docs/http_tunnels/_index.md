@@ -8,16 +8,24 @@
 
 Pinggy allows you to create HTTP / HTTPS tunnels to your localhost using a single command:
 
-
 First, run the service you want to share in localhost. You need to know the port where the service is running, for example `8000`. Check if the service is accessible from localhost through <a href="http://localhost:8080" target="_blank">http://localhost:8000</a>.
 
 Command to start a tunnel to port `8000`:
-<br>
+{{< tabs >}}
+{{% tab name="Without Token" %}}
 ```
-ssh -p 443 -R0:localhost:8000 a.pinggy.io
+ssh -R0:localhost:8000 a.pinggy.io
 ```
-
 *Replace `8000` with the port where your service is running*.
+{{% /tab %}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:8000 token@a.pinggy.io
+```
+*Replace `8000` with the port where your service is running, and replace `token` with your owntoken*.
+{{% /tab %}}
+{{< /tabs >}}
+
 
 The above command will provide you http and https URLs as follows:
 
