@@ -1,8 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 body {
     font-family: Uncut Sans, sans-serif;
-    background-image: linear-gradient( to bottom, #effaff8c, #ffffff 11em), url(../assets/header_grid2.png);
+    background-image: linear-gradient( to bottom, #ffffffb8, #ffffff 11em), url(../assets/header_grid2.png);
     background-repeat: repeat;
 }
+
+.contentcontainer {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+  
+h1, .h1 {
+    font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+    h1, .h1 {
+    font-size: 2.25rem;
+    }
+}
+
+h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+    h2, .h2 {
+    font-size: 1.85rem;
+    }
+}
+
+h3, .h3 {
+    font-size: calc(1.3rem + 0.4vw);
+}
+@media (min-width: 1200px) {
+    h3, .h3 {
+    font-size: 1.65rem;
+    }
+}
+
+h4, .h4 {
+    font-size: calc(1.275rem + 0.2vw);
+}
+@media (min-width: 1200px) {
+    h4, .h4 {
+    font-size: 1.4rem;
+    }
+}
+
+h5, .h5 {
+    font-size: 1.2rem;
+}
+
+h6, .h6 {
+    font-size: 1rem;
+}
+
+strong {
+    font-weight: 500;
+}
+
 
 .blogcontent {
     max-width: 60em;

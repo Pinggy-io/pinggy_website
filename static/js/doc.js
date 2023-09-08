@@ -6,6 +6,25 @@ var hidesidebar = function(){
     $(".sidebarcol").slideUp();
 }
 
+
+function setCheckedIcon(containerSelector) {
+    var originalIcon = $(containerSelector).find('.bi-clipboard');
+    if (originalIcon.length > 0) {
+        containerSelector.addClass('clicked');
+        containerSelector.html('<i class="bi bi-check" style="color:green"></i>');
+        setTimeout(() => {
+            unsetCheckedIcon(containerSelector);
+        }, 1000);
+    }
+}
+function unsetCheckedIcon(containerSelector) {
+    var originalIcon = $(containerSelector).find('.bi-check');
+    containerSelector.removeClass('clicked');
+    if (originalIcon.length > 0) {
+        containerSelector.html('<i class="bi bi-clipboard"></i>');
+    }
+}
+
 // clipboard
 var clipInit = false;
 $('pre > code').each(function() {
@@ -26,6 +45,7 @@ $('pre > code').each(function() {
                 e.clearSelection();
                 inPre = $(e.trigger).parent().prop('tagName') == 'PRE';
                 $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-' + (inPre ? 'w' : 's'));
+                setCheckedIcon($(e.trigger));
             });
 
             clip.on('error', function(e) {
