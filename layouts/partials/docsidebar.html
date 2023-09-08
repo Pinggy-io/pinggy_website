@@ -1,8 +1,8 @@
 <div class="sidebar">
     <span id="sidebarclosebtn" class="fs-5 text-center text-black border border-dark rounded px-2" onclick="hidesidebar()"><i class="bi bi-x"></i></span>
 
-    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-      <span class="fs-5 fw-semibold">Documentation</span>
+    <a href="/docs/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <span class="fs-5" style="font-weight: 500;">Documentation</span>
     </a>
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
@@ -11,25 +11,31 @@
           </button>
           <div class="collapse show" id="gettingstarted-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="/docs" class="link-dark rounded">Quickstart</a></li>
+              <li><a href="/docs/" class="link-dark rounded">Quickstart</a></li>
               <li><a href="/docs/guides/long_running_tunnels/" class="link-dark rounded">Long-running Tunnels</a></li>
             </ul>
           </div>
       </li>
       <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Pinggy Tunnels
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#http-collapse" aria-expanded="true">
+          HTTP Tunnels
         </button>
-        <div class="collapse show" id="home-collapse">
+        <div class="collapse show" id="http-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="/docs/http_tunnels/" class="link-dark rounded">HTTP/HTTPS Tunnels</a></li>
-            <li><a href="/docs/persistent_subdomain/" class="link-dark rounded">Persistent Subdomain</a></li>
-            <li><a href="/docs/advanced/qr_code/" class="link-dark rounded">QR Code</a></li>
+            <li><a href="/docs/http_tunnels/authentication/" class="link-dark rounded">Authenticated Tunnels</a></li>
             <li><a href="/docs/advanced/live_header/" class="link-dark rounded">Live Header Modification</a></li>
-            <li><a href="/docs/tcp_tunnels/" class="link-dark rounded">TCP Tunnels</a></li>
           </ul>
         </div>
       </li>
+      <li><a href="/docs/tcp_tunnels/" class="btn btn-non-toggle">TCP Tunnels</a></li>
+      <li><a href="/docs/tls_tunnels/" class="btn btn-non-toggle">TLS Tunnels</a></li>
+      <li><a href="/docs/tlstcp_tunnels/" class="btn btn-non-toggle">TLSTCP Tunnels</a></li>
+      <li><a href="/docs/usages/" class="btn btn-non-toggle">Usages</a></li>
+
+      <li><a href="/docs/persistent_subdomain/" class="btn btn-non-toggle">Persistent Subdomain</a></li>
+      <li><a href="/docs/advanced/qr_code/" class="btn btn-non-toggle">QR Code</a></li>
+          
       <li class="border-top my-3"></li>
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">

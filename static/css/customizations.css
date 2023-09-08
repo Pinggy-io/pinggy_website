@@ -153,6 +153,7 @@ input[type=number] {
         bottom: 0;
         left: 0;
         overflow: scroll;
+        z-index: 9999;
     }
 
     #sidebarexpandbtn {
@@ -168,35 +169,36 @@ input[type=number] {
     }
 }
 
-.btn-toggle {
+.btn-toggle, .btn-non-toggle {
     display: inline-flex;
     align-items: center;
     padding: .25rem .5rem;
-    font-weight: 600;
-    color: rgba(0, 0, 0, .65);
+    font-weight: 500;
+    color: rgb(44, 44, 44);
     background-color: transparent;
     border: 0;
 }
 
-.btn-toggle:hover,
+.btn-toggle:hover, .btn-non-toggle:hover, .btn-non-toggle:focus,
 .btn-toggle:focus {
-    color: rgba(0, 0, 0, .85);
+    color: rgb(44, 44, 44);
     background-color: #d2f4ea;
 }
 
-.btn-toggle::before {
+.btn-toggle::after {
     width: 1.25em;
+    margin-left: 6px;
     line-height: 0;
-    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
     transition: transform .35s ease;
     transform-origin: .5em 50%;
 }
 
 .btn-toggle[aria-expanded="true"] {
-    color: rgba(0, 0, 0, .85);
+    color: rgb(44, 44, 44);
 }
 
-.btn-toggle[aria-expanded="true"]::before {
+.btn-toggle[aria-expanded="true"]::after {
     transform: rotate(90deg);
 }
 
