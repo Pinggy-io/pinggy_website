@@ -388,7 +388,7 @@ paths:
   /headerman:
     description:
       Header manipulation API. It would load and put the header manipulation.
-      There are two api, GET and POST.
+      There are two api, GET and PUT.
     get:
       description:
         Get current header manipulation
@@ -401,8 +401,8 @@ paths:
                 $ref: '#/components/schemas/headerMan'
         500:
           description: Internal error
-    post:
-      description: Post new header manipulation
+    put:
+      description: Put new header manipulation
       requestBody:
         description: request body
         required: true
@@ -417,6 +417,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/headerMan'
+        400:
+          description:
+            Bad request as content length is 0 or cannot be parsed
+        500:
+          description:
+            Cannot read the request body
+  /ipwhitelist:
+    description:
+      Api to get or set ipwhitelist. It provides a array of ipRanges.
+    get:
+      description:
+        Get the list of ip ranges that are allowed have the connection
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ipWhiteList'
+        500:
+          description: Internal error
+    put:
+      description: Put new ipWhiteList
+      requestBody:
+        description: request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ipWhiteListInput'
+      responses:
+        200:
+          description: updated ipWhiteList
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ipWhiteList'
         400:
           description:
             Bad request as content length is 0 or cannot be parsed
@@ -678,10 +715,30 @@ components:
                   description: All the values needed to be added
                   example: ["Odd", "even"]
         basicAuth:
-          type: string
-          description: base64 encoded string
-          example: aGVsbG86d29ybGQ=
+          type: object
+          description: A map to basic key and boolean
+          example: {"aGVsbG86d29ybGQ=":true}
         bearerAuth:
-          type: string
-          description: plain string string for key authorization
-          example: aRanDomSTring
+          type: object
+          description: A map with plain string for key authorization
+          example: {"aRanDomSTring": true}
+    ipWhiteList:
+      type: array
+      description: all the ipRanges in CIDR format
+      example: [
+        "11.2.3.4/32",
+        "12.0.0.0/12",
+        "2405:201:9003:a118:1683:9edc:39a7:d0f7/128",
+        "192.0.0.0/4",
+        "0.0.0.0/0"
+      ]
+    ipWhiteListInput:
+      type: array
+      description: all the ipRanges in CIDR format
+      example: [
+        "11.2.3.4/32",
+        "12.2.3.0/12",
+        "2405:201:9003:a118:1683:9edc:39a7:d0f7",
+        "::ffff:192.168.1.10/100",
+        "0.0.0.0/0"
+      ]
