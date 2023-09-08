@@ -6,7 +6,7 @@ body {
     font-family: Uncut Sans, sans-serif;
     background-image: linear-gradient(to bottom,
             #f1f5f980,
-            #fefefe 30%), url('../assets/header_grid2.png');
+            #fefefe 15%), url('../assets/header_grid2.png');
     background-repeat: repeat;
 }
 
@@ -183,6 +183,11 @@ input[type=number] {
 .btn-toggle:focus {
     color: rgb(44, 44, 44);
     background-color: #d2f4ea;
+}
+
+li.doclink.active > a {
+    color: rgb(44, 44, 44);
+    background-color: #e9f1f7;
 }
 
 .btn-toggle::after {
