@@ -57,16 +57,61 @@ Once the tunnel is live, the visitor traffic flows in a much efficient path: `vi
 {{< figure src="../images/scaling_across_multiple_regions/core_edge_map.webp" alt="Splitting into edge and core to deploy edges in multiple regions." >}}
 
 
-From the above image it becomes clear that the *edge* handles all the visitor traffic. As a result the visitor has a much better experience. The high latency from an *edge* to the *core* does not impact the visitor traffic. An *edge* consults the *core* when a tunnel is being created, and then less frequently and asynchronously, without affecting the visitor traffic.
+From the above image it becomes clear that the *edge* handles all the visitor traffic. As a result the visitor has a much better experience. The high latency from an *edge* to the *core* does not impact the visitor traffic. An *edge* consults the *core* first when a tunnel is being created, and then less frequently and asynchronously, without affecting the visitor traffic.
 
-One might ask the question, what if the visitor and the client are in two far away regions. 
+One might ask the question, what if the visitor and the client are in two far away regions. Even if we think about a direct link from the visitor to the client, then also the latency will be high as they are located far away geographically. We cannot make the communication link faster magically. Wehat we try to do is place the Pinggy *edge* as close to the client as possible. Therefore the `edge <-> client` link has very low latency and the overall latency of a visitor is very similar to the `visitor <-> client` latency.
 
 ## Dynamic DNS updates
 
-The most challenging part of this entire process of multi-region scaling is handling the DNS. To understand the problem one must understand what Pinggy offers in terms of domain names first.
+**The most challenging part of this entire process of multi-region scaling is handling the DNS.** To understand the problem one must understand what Pinggy offers in terms of domain names first.
 
-Pinggy offers (i) persistent subdomains (e.g. https://androidblog.a.pinggy.io/)
+Pinggy offers (i) persistent subdomains (e.g. [androidblog.a.pinggy.io](https://androidblog.a.pinggy.io/)) as well as (ii) custom domains (e.g. mydomain.com). A custom domain simply points to a persistent subdomain through a CNAME record.
+
+When a tunnel is created, the persistent subdomain has to point to the server where the tunnel is running. Therefore, ultimately the subdomain must be resolved to `A` or `AAAA` records pointing to the correct Pinggy server.
+
+With a single Pinggy server it was very simple. Every subdomain pointed to the single server (e.g. 1.2.3.4). Therefore a resolution would look like:
+
+`mydomain.com --CNAME--> androidblog.a.pinggy.io --CNAME--> *.a.pinggy.io`
+
+`*.a.pinggy.io --A--> 1.2.3.4`
+
+But with multiple regions we have multiple *edges* with separate IPs. For example:
+
+USA: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`us.a.pinggy.io --A--> 1.2.3.4`
+
+Europe: &nbsp;&nbsp;&nbsp;&nbsp; `eu.a.pinggy.io --A--> 5.6.7.8`
+
+Asia: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`ap.a.pinggy.io --A--> 9.0.1.2`
 
 
+**Depending on where the user is located, i.e. in which edge it is creating the tunnel, the tunnel's domain name records need to change.**
+
+If a user connects to the **USA** edge, then the domain should point to that *edge*:
+
+`mydomain.com --CNAME--> androidblog.a.pinggy.io --CNAME--> `**`us`**`.a.pinggy.io`
+
+But if a user connects to the **Europe** edge:
+
+`mydomain.com --CNAME--> androidblog.a.pinggy.io --CNAME--> `**`eu`**`.a.pinggy.io`
 
 
+We can not limit the user to a single location. A user's client should ideally connect to the nearest *edge* and initiate a tunnel through that. Some users use Pinggy tnunnels on VMs which are often located in different regions. Therefore, a user account cannot be tied to a single region. The DNS has to be handled by us.
+
+### Why Route 53 does not work here?
+
+Our first intuition was to use some hosted DNS provider which also provides APIs to update records dynamically. {{< link href="https://aws.amazon.com/route53/" >}}AWS Route 53{{< /link >}} is one such highly available and scalable Domain Name System (DNS) web service. But Route 53 does not fit our requirements.
+
+The specific reason is that **the edge locations of Route 53 can take up to 60 seconds to be updated after a record set is changed.**
+
+> "There are over 100 edge locations in Route 53 with DNS name servers that answer DNS queries from clients. When you update a record set in your hosted zone, the change propagates to all Route 53 edge locations within 60 seconds." - {{< link href="https://repost.aws/knowledge-center/route-53-propagate-dns-changes" >}}AWS Knowledge Center{{< /link >}}
+
+
+In our use case, the moment a client tries to create a tunnel, first the DNS records have to be updated, then the tunnel starts, and then the URL is given to the user. Since Route 53 edge locations take up to a minute to start, when a user tries to access the tunnel URL immediately after the tunnel is created, the DNS either (i) resolves to an incorrect record, or the (ii) record is simply not found. The later scenario is even more problematic.
+
+**(i) Expired record:** If the tunnel with the same subdomain / custom domain is created in USA first, then disconnected, then again connected through Europe, then the Route 53 records will point to the USA edge instead of the Europe edge for up to a minute. If that incorrect record is resolved by some visitor in the mean time, then not only the tunnel will not be working, but also continue to be disfunctional till the TTL of the record expires. After the TTL expires and the DNS is queried again, the correct name resolution will take place. A low TTL such as 10 seconds make sense, but the Route 53 records will in any case take up to one minute.
+
+**(ii) No record:** Suppose no records exist against the tunnel subdomain / custom domain. After the tunnel is created, if a visitor visits the tunnel URL imediately, then it might happen that the domain fails to resolve since Route 53 records have not been propagated. We faced this issue in our tests very frequently. In this case, low TTL also does not work, and the SOA record needs to have a very low TTL also.
+
+You can read more about these issues {{< link href="https://pinggy.io/blog/fast_changing_dns_and_route53/" >}}this blog post{{< /link >}}.
+
+### Hosting our own DNS server
