@@ -115,3 +115,30 @@ In our use case, the moment a client tries to create a tunnel, first the DNS rec
 You can read more about these issues {{< link href="https://pinggy.io/blog/fast_changing_dns_and_route53/" >}}this blog post{{< /link >}}.
 
 ### Hosting our own DNS server
+
+Fast updation of DNS records is an essential requirement for reliable Pinggy tunnels. Threfore we host our own instanecs of {{< link href="https://powerdns.com" >}}PowerDNS{{< /link >}}. This choice has some obvious disadvantages such as managing an extra piece of infrastructure, not having DNS servers present in as many regions as in case of Route 53, etc.
+
+PowerDNS authoratitive server allows us to manage our DNS zone.  We are able to update records immediately and more importantly synchronously before the tunnel creation process is complete. We also set low TTLs as and when required. As a result, when the tunnel creation process is complete, the authoratitive server already has all the records in place.
+
+Over the past couple of months our PowerDNS instances are working very well. Updates are fast, and we can also keep the SOA record TTL low. Notably PowerDNS is very efficient and consume very low memory and CPU resources.
+
+However, one major problem we faced was no simple or reliable way of latency aware routing. For that we had to again use Route 53 separtely.
+
+## Latency aware routing
+
+Ideally a client trying to initiate a Pinggy tunnel should connect to its nearest **edge**. The client here is usually the ssh client. Unlike HTTP requests, we cannot redirect the ssh client's TCP connection to some place else through application layer logic. Instead, we need to handle this with DNS only. Therefore `a.pinggy.io` should resolve to the nearest among `us.a.pinggy.io`, `eu.a.pinggy.io`, and `ap.a.pinggy.io`.
+
+Route 53's latency-based routing solves this exact problem. Since our infrastructures are hosted on different AWS regions, we create different latency records for them. When a DNS query arrives at Route 53, it computes the nearest region and answers the query with the corresponding latency record.
+
+For a client connecting from New York, the DNS resolution is:
+<br>
+`a.pinggy.io --CNAME--> us.a.pinggy.io`
+
+The same for a client from Japan is:
+<br>
+`a.pinggy.io --CNAME--> ap.a.pinggy.io`
+
+
+## End-to-end flow
+
+The following end-to-end flow will help one to understand how the Pinggy *edge*, *core*, PowerDNS and Route 53 are working together to create the tunnels in this multi-region setup.
