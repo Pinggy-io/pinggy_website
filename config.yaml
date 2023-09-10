@@ -24,7 +24,7 @@ markup:
 taxonomies:
   tag: tags
 
-paginate: 5 
+paginate: 8 
 
 menus: 
   main:
