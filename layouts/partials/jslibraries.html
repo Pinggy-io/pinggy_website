@@ -12,6 +12,24 @@
 <!-- Pinggy Tunnel Shortcode -->
 <script src="/js/pinggytunnelshortcode.js"></script>
 
+
+<!-- FAQ Filter-->
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#faqSearch').on('keyup', function(){
+          var searchTerm = $(this).val().toLowerCase();
+          $('.accordion-item').each(function(){
+              var accordionContent = $(this).find('.accordion-body').text().toLowerCase();
+              if(accordionContent.includes(searchTerm)){
+                  $(this).show();
+              } else {
+                  $(this).hide();
+              }
+          });
+      });
+  });
+  </script>
+
 <!-- Enable tooltip -->
 <script type="text/javascript">
   const tooltipTriggerList = [].slice.call(

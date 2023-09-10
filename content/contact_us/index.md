@@ -46,11 +46,18 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
 </div>
 </div>
 
+
+<!-- FAQ section-->
 <section class="py-5 border-top" id="faq">
     <div class="container my-5">
         <div class="my-3 row justify-content-center">
             <div class="col-lg-12">
                 <h2 class="mb-5 text-center fw-light">Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-lg-8">
+                <input type="text" id="faqSearch" class="form-control" placeholder="Search...">
             </div>
         </div>
         <div class="row justify-content-center">
@@ -101,6 +108,14 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
                                 <p>
                                     If the ssh command prompts you for a password you can just press enter (a blank password). Or you can type in something random and press enter.
                                 </p>
+                                <div class="alert alert-dark bg-light bg-gradient">
+                                    For long running tunnels with auto-reconnect, generate an ssh key.
+                                    <br>
+                                    <b>In your terminal / command prompt run: <code>ssh-keygen</code></b>
+                                    <br>Press Enter key (Return key) till the command finishes.
+                                    <br>
+                                    After this the ssh command will no longer ask for a password.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +131,7 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
                             aria-labelledby="headingServerLocation" data-bs-parent="#accordionFaq">
                             <div class="accordion-body">
                                 <p>
-                                    <code>a.pinggy.io</code> is routed to the Pinggy server nearest to your location. Currently we have our servers in USA, Stockholm, and Singapore.
+                                    <code>a.pinggy.io</code> is routed to the Pinggy server nearest to your location. Currently we have our servers in USA, Sweden, and Singapore.
                                 </p>
                             </div>
                         </div>
@@ -194,7 +209,7 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
                         <h2 class="accordion-header" id="headingConnectionReset">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseConnectionReset" aria-expanded="false" aria-controls="collapseConnectionReset">
-                                I am getting &nbsp;<em>Connection closed</em> / <em>Connection reset</em>&nbsp; error.
+                                I am getting Connection closed / Connection reset error.
                             </button>
                         </h2>
                         <div id="collapseConnectionReset" class="accordion-collapse collapse" aria-labelledby="headingConnectionReset"
@@ -226,8 +241,6 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
         </div>
     </div>
 </section>
-
-
 <script>window.Reform=window.Reform||function(){(Reform.q=Reform.q||[]).push(arguments)};</script>
 <script id="reform-script" async src="https://embed.reform.app/v1/embed.js"></script>
 <script>

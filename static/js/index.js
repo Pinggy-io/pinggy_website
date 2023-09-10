@@ -75,6 +75,7 @@ $("#adv_restart").change(() => {
 $("#adv_passwordCheck").change(() => {
   if ($("#adv_passwordCheck").is(":checked")) {
     $("#adv_passwordfields").slideDown();
+    $( "#adv_keyAuthentication" ).prop( "checked", false ).trigger('change');
   } else {
     $("#adv_passwordfields").slideUp();
   }
@@ -96,6 +97,11 @@ $("#headermodificationcontainer").on(
   ".headername, .headerval",
   generateAdvancedCommand
 );
+
+$("#keyauthinputcontainer").on("change", ".keyauthval", generateAdvancedCommand);
+$("#keyauthinputcontainer").on("input", ".keyauthval", generateAdvancedCommand);
+
+
 $("#advancedModalButton").on("click", generateAdvancedCommand);
 
 $("#adv_webdebugCheck").change(function () {
@@ -106,6 +112,34 @@ $("#adv_webdebugCheck").change(function () {
   }
   generateAdvancedCommand();
 });
+
+$("#keyauthinputcontainer").hide();
+$("#adv_keyAuthentication").change(function () {
+  if (this.checked) {
+    $("#keyauthinputcontainer").slideDown();
+    $( "#adv_passwordCheck" ).prop( "checked", false ).trigger('change');
+  } else {
+    $("#keyauthinputcontainer").slideUp();
+  }
+  generateAdvancedCommand();
+});
+
+
+function addkeyauthinput() {
+  $("#keyauthinputsample").children().hide();
+  $("#keyauthinputcontainer").prepend(
+    $("#keyauthinputsample").children().clone()
+  );
+  $('#keyauthinputcontainer').find(".keyauthgroup:first").slideDown("fast");
+}
+
+$("#keyauthinputcontainer").on(
+  "click",
+  ".removekeyauthinput",
+  function () {
+    $(this).closest(".keyauthgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
+  }
+);
 
 function addheadermodificationrow() {
   $("#headermodificationinputsample").children().hide();
@@ -127,6 +161,7 @@ function generateAdvancedCommand() {
   let localport = $("#adv_localPort").val();
   let debugport = $("#adv_webdebugPort").val();
   let debugenabled = $("#adv_webdebugCheck").is(":checked");
+  let keyauthentication = $("#adv_keyAuthentication").is(":checked");
   let manuelcheck = $("#adv_rsaCheck").is(":checked");
   let keepalive = $("#adv_keepalive").is(":checked");
   let qr = $("#adv_qrCheck").is(":checked");
@@ -175,6 +210,18 @@ function generateAdvancedCommand() {
       headerval ? ":" + headerval : ""
     }\\\"`;
     headercommands += " " + thiscommand;
+  }
+
+
+  if(keyauthentication){
+    let keyauthrows = $("#keyauthinputcontainer").children();
+    for (let i = 0; i < keyauthrows.length; i++) {
+      let keyauthval = $(keyauthrows[i])
+        .children(".keyauthval")
+        .val();
+      let thiscommand = `\\\"k:${keyauthval}\\\"`;
+      headercommands += " " + thiscommand;
+    }
   }
 
   if(passwordenabled && basicusername && basicpass ) {
