@@ -8,11 +8,11 @@
 ---
 
 
-A user from South Korea brought to our notice that Pinggy works great for them, but it is **slow**. The answer to *"why"* was obvious to us. Pinggy was hosting its servers in the USA, specifically in Ohio. One key goal of Pinggy is to not only provide tunnels, but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the nearest region from where the user is creating the tunnel (as the default behavior).
+A user from South Korea brought to our attention that Pinggy works great for them, but it is **slow**. The answer to *"why"* was obvious to us. Pinggy was hosting its servers in the USA, specifically in Ohio. One key goal of Pinggy is to provide not only tunnels but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the region nearest to where the user is creating the tunnel from (as the default behavior).
 
-Today Pinggy is hosted across three regions - US, Europe, and Asia.
+Today, Pinggy is hosted across three regions: US, Europe, and Asia.
 
-To scale across multiple regions we did the follwing:
+To scale across multiple regions, we did the following:
 
 1. Spawn edge nodes in multiple regions.
 2. Host our own DNS server to dynamically point tunnel traffic to the correct edge.
@@ -24,14 +24,14 @@ To scale across multiple regions we did the follwing:
 
 ## The Problem
 
-A Pinggy tunnel has two legs, 
+A Pinggy tunnel has two legs. 
 - One from the tunnel creator (*client*) to the Pinggy servers: <br>`client <-> pinggy` 
 - The other from the Pinggy servers to the tunnel visitors (*visitor*): <br>`pinggy <-> visitor`
 
-A visitor's request accessing a service through a Pinggy tunnel has to travel the entire path: `visitor -> pinggy -> client`.
+A visitor's request to access a service through a Pinggy tunnel has to travel the entire path: `visitor -> pinggy -> client`.
 This is followed by the response travelling the path `client -> pinggy -> visitor`.
 
-Therefore the entire journey is: `visitor -> pinggy -> client -> pinggy -> visitor`.
+Therefore, the entire journey is: `visitor -> pinggy -> client -> pinggy -> visitor`.
 
 One can already imagine the latency if both the *client* and the *visitor* are in South Korea while the Pinggy server is in USA.  The round trip time (RTT) can be as high as 500 ms from the visitor to the client (see the diagram below).
 
@@ -41,11 +41,11 @@ One can already imagine the latency if both the *client* and the *visitor* are i
 
 A Pinggy tunnel works in two phases: (a) Tunnel setup (b) Tunnel live
 
-**(a) Tunnel setup:** The user's ssh client requests for a tunnel with an access token and other configurations such as key-authentication, IP whitelists, header manipulations, etc. The Pinggy server has to (i) authenticate the request, (ii) check if an existing tunnel with same token  (same domain) is active or not (iii) forcefully close existing tunnel if required, and perform several other business logic before the tunnel can be started. For all these steps, **database access** (both reads and writes) are required.
+**(a) Tunnel setup:** The user's ssh client requests a tunnel with an access token and other configurations such as key-authentication, IP whitelists, header manipulations, etc. The Pinggy server has to (i) authenticate the request, (ii) check if an existing tunnel with the same token (same domain) is active or not, (iii) forcefully close any existing tunnel if required, and perform several other business logic before the tunnel can be started. For all these steps, **database access** (both reads and writes) is required.
 
 **(b) Tunnel live:** Once the tunnel setup is complete, an active tunnel handles visitor traffic efficiently without touching the database that often.
 
-Therefore we have split the Pinggy server into **core** and **edge**. The *core* handles the business logics and then offloads the visitor traffic handling responsibility to the *edges*.
+Therefore, we have split the Pinggy server into **core** and **edge**. The *core* handles the business logic and then offloads the visitor traffic handling responsibility to the *edges*.
 
 Multiple instances of the *edges* are then deployed in multiple regions, all connected to a single *core* and hence a single database. By a *single core* and database we mean that the *core* and the database are located in a single region only.
 
@@ -138,7 +138,22 @@ The same for a client from Japan is:
 <br>
 `a.pinggy.io --CNAME--> ap.a.pinggy.io`
 
+{{< figure src="../images/scaling_across_multiple_regions/end_to_end_flow.webp" alt="End-to-end flow of pinggy across multiple regions" >}}
+
 
 ## End-to-end flow
 
 The following end-to-end flow will help one to understand how the Pinggy *edge*, *core*, PowerDNS and Route 53 are working together to create the tunnels in this multi-region setup.
+
+1. A Pinggy *client*, which is some ssh client tries to connect to the nearest *edge*. This is done by resolving the domain name `a.pinggy.io`.
+2. This DNS query is handled by AWS Route 53, and resolves to the nearest *edge* server among USA: `us.a.pinggy.io`, Europe: `eu.a.pinggy.io`, and Asia: `ap.a.pinggy.io`.
+3. *client* requests the edge (say `ap.a.pinggy.io`) for a tunnel with a subdomain  `androidblog.a.pinggy.io`.
+4. The *edge* performs some API requests to the *core* to authenticate the client, validate the subdomain and to ensure that no tunnels with the same subdomain are active.
+5. Once the tunnel is authenticated and ready to be activated, a DNS record is created in the PowerDNS servers: `androidblog.a.pinggy.io -> ap.a.pinggy.io`.
+6. The tunnel becomes live.
+7. A visitor trying to access `androidblog.a.pinggy.io` resolves the domain name from our PowerDNS servers. PowerDNS responds with  `ap.a.pinggy.io`.
+8. The visitor to client tunnel thus works as follows: `visitor <-> edge (Asia) <-> client`.
+
+## Conclusion
+
+We are still in our early stages of scaling Pinggy. Our first priority is always reliability, followed by performance. Therefore we are focusing on improving the availability by having multiple instances and automatic failovers. Failovers for web applications is much simpler since it means routing HTTP requests to a different location. But if a pinggy *edge* stops, the tunnel disconnects. Transferring a live SSH tunnel to a different server is a challenging and open research question. We leave that for future. For now we are focusing on trying to make the edges as resilient as possible.
