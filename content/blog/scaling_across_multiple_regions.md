@@ -3,7 +3,7 @@
  date: 2023-09-08T14:15:25+05:30
  lastmod: 2023-09-08T14:15:25+05:30
  draft: false
- og_image: "/blog/images/scaling_across_multiple_regions/worldmap.webp"
+ og_image: "/blog/images/scaling_across_multiple_regions/end_to_end_flow.webp"
  tags: ["engineering", "update"]
 ---
 
