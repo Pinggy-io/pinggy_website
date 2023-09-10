@@ -46,12 +46,18 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
 </div>
 </div>
 
+
 <!-- FAQ section-->
 <section class="py-5 border-top" id="faq">
     <div class="container my-5">
         <div class="my-3 row justify-content-center">
             <div class="col-lg-12">
                 <h2 class="mb-5 text-center fw-light">Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-lg-8">
+                <input type="text" id="faqSearch" class="form-control" placeholder="Search...">
             </div>
         </div>
         <div class="row justify-content-center">
@@ -235,7 +241,6 @@ Feel free to send us an email or ping us on Discord if you need assistance, want
         </div>
     </div>
 </section>
-
 <script>window.Reform=window.Reform||function(){(Reform.q=Reform.q||[]).push(arguments)};</script>
 <script id="reform-script" async src="https://embed.reform.app/v1/embed.js"></script>
 <script>
