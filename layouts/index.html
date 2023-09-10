@@ -283,7 +283,7 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_keyAuthentication" checked>
+                                        <input class="form-check-input" type="checkbox" id="adv_keyAuthentication">
                                         <label class="form-check-label" for="adv_keyAuthentication">
                                             Key / Token Authentication
                                             <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="right"
@@ -292,30 +292,16 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col col-12 col-lg-6">
-                                    <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_ipWhitelist" checked>
-                                        <label class="form-check-label" for="adv_ipWhitelist">IP Whitelist <i
-                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                                data-bs-placement="right"
-                                                title="Allowed connections from specified IP addresses"></i></label>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
-                                    <div class="input-group keyauthgroup">
-                                        <input type="text" aria-label="key / token" placeholder="Key / token" class="form-control headerval">
-                                        <button class="btn btn-outline-dark addkeyauthinput" type="button"><i
-                                                class="bi bi-plus"></i></a></button>
-                                    </div>
-                                </div>
-                                <div class="col col-12 col-lg-6">
-                                    <div class="input-group ipwhitelistgroup">
-                                        <input type="text" aria-label="IP in CIDR format" placeholder="IP in CIDR format (e.g. 10.2.3.4/16)" class="form-control headerval">
-                                        <button class="btn btn-outline-dark addipwhitelistinput" type="button"><i
-                                                class="bi bi-plus"></i></a></button>
+                                    <div id="keyauthinputcontainer">
+                                        <div class="input-group keyauthgroup">
+                                            <input type="text" aria-label="key / token" placeholder="Key / token" class="form-control keyauthval">
+                                            <button class="btn btn-outline-dark addkeyauthinput" type="button" onclick="addkeyauthinput()"><i
+                                                    class="bi bi-plus"></i></a></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -413,6 +399,13 @@
                 <input type="text" aria-label="header name" placeholder="Header Name" class="form-control headername">
                 <input type="text" aria-label="header value" placeholder="Value" class="form-control headerval">
                 <button class="btn btn-outline-danger removeheadermodificationrow" type="button"><i
+                        class="bi bi-x"></i></a></button>
+            </div>
+        </div>
+        <div style="display: none;" id="keyauthinputsample">
+            <div class="input-group keyauthgroup">
+                <input type="text" aria-label="key / token" placeholder="Key / token" class="form-control keyauthval">
+                <button class="btn btn-outline-danger removekeyauthinput" type="button"><i
                         class="bi bi-x"></i></a></button>
             </div>
         </div>
