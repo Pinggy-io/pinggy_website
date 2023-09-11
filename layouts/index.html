@@ -164,12 +164,23 @@
                     <div class="tab-pane fade show active" id="http-tab-pane" role="tabpanel" aria-labelledby="http-tab"
                         tabindex="0">
                         <form>
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="adv_localPort" placeholder="8000"
-                                    value="8000">
-                                <label for="adv_localPort">Local Port</label>
-                            </div>
 
+                            <div class="row">
+                                <div class="col col-6 col-lg-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="number" class="form-control" id="adv_localPort" placeholder="8000"
+                                            value="8000">
+                                        <label for="adv_localPort">Local Port</label>
+                                    </div>
+                                </div>
+                                <div class="col col-6 col-lg-6">
+                                    <div class="form-floating mb-3" id="adv_webdebuggerportselector">
+                                        <input type="number" class="form-control" id="adv_webdebugPort" placeholder="4300"
+                                            value="4300">
+                                        <label for="adv_webdebugPort">Web Debugger Port</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-floating mb-3" id="adv_platformselect_div" style="display: none;">
                                 <select class="form-select" aria-label="Select platform id" id="adv_platformselect">
                                     <option value="unix" selected>Mac / Linux</option>
@@ -200,13 +211,10 @@
                             <hr>
                             <div class="mb-2"><b>Settings:</b></div>
                             <div class="row">
-                                <div class="col col-6 col-lg-6">
+                                <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_passwordCheck">
-                                        <label class="form-check-label" for="adv_passwordCheck">Password Protect <i
-                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                                data-bs-placement="right" data-bs-html="true"
-                                                title="Enable basic authentication"></i></label>
+                                        <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
+                                        <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
                                     </div>
                                 </div>
                                 <div class="col col-6 col-lg-6">
@@ -216,20 +224,6 @@
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right" data-bs-html="true"
                                                 title="Show QR Code for the URL"></i></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" id="adv_passwordfields" style="display: none;">
-                                <div class="col col-12 col-lg-6">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicusername" placeholder="Username">
-                                        <label for="adv_basicusername">Username</label>
-                                    </div>
-                                </div>
-                                <div class="col col-12 col-lg-6">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicpass" placeholder="Password">
-                                        <label for="adv_basicpass">Password</label>
                                     </div>
                                 </div>
                             </div>
@@ -258,8 +252,12 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
-                                        <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
+                                        <input class="form-check-input" type="checkbox" id="adv_passwordCheck">
+                                        <label class="form-check-label" for="adv_passwordCheck">Password Protect <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right" data-bs-html="true"
+                                                title="Enable basic authentication"></i>
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="col col-12 col-lg-6">
@@ -272,12 +270,19 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div class="form-floating mb-3" id="adv_webdebuggerportselector">
-                                <input type="number" class="form-control" id="adv_webdebugPort" placeholder="4300"
-                                    value="4300">
-                                <label for="adv_webdebugPort">Web Debugger Port</label>
+                            <div class="row" id="adv_passwordfields" style="display: none;">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="adv_basicusername" placeholder="Username">
+                                        <label for="adv_basicusername">Username</label>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="adv_basicpass" placeholder="Password">
+                                        <label for="adv_basicpass">Password</label>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row">
@@ -292,6 +297,17 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_ipWhitelist">
+                                        <label class="form-check-label" for="adv_ipWhitelist">
+                                            IP Whitelist
+                                            <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="right"
+                                            title="Allow specified IPs to access the tunnel">
+                                            </i>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row">
@@ -300,6 +316,15 @@
                                         <div class="input-group keyauthgroup">
                                             <input type="text" aria-label="key / token" placeholder="Key / token" class="form-control keyauthval">
                                             <button class="btn btn-outline-dark addkeyauthinput" type="button" onclick="addkeyauthinput()"><i
+                                                    class="bi bi-plus"></i></a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-6">
+                                    <div id="ipwhitelistinputcontainer">
+                                        <div class="input-group ipwhitelistgroup">
+                                            <input type="text" aria-label="ip to whitelist" placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval">
+                                            <button class="btn btn-outline-dark addipinput" type="button" onclick="addipinput()"><i
                                                     class="bi bi-plus"></i></a></button>
                                         </div>
                                     </div>
@@ -407,6 +432,13 @@
                 <input type="text" aria-label="key / token" placeholder="Key / token" class="form-control keyauthval">
                 <button class="btn btn-outline-danger removekeyauthinput" type="button"><i
                         class="bi bi-x"></i></a></button>
+            </div>
+        </div>
+        <div style="display: none;" id="ipinputsample">
+            <div class="input-group ipwhitelistgroup">
+                <input type="text" aria-label="ip to whitelist" placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval">
+                <button class="btn btn-outline-danger removeipinput" type="button"><i
+                    class="bi bi-x"></i></a></button>
             </div>
         </div>
     </div>

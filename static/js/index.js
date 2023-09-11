@@ -101,6 +101,9 @@ $("#headermodificationcontainer").on(
 $("#keyauthinputcontainer").on("change", ".keyauthval", generateAdvancedCommand);
 $("#keyauthinputcontainer").on("input", ".keyauthval", generateAdvancedCommand);
 
+$("#ipwhitelistinputcontainer").on("change", ".ipval", generateAdvancedCommand);
+$("#ipwhitelistinputcontainer").on("input", ".ipval", generateAdvancedCommand);
+
 
 $("#advancedModalButton").on("click", generateAdvancedCommand);
 
@@ -124,6 +127,16 @@ $("#adv_keyAuthentication").change(function () {
   generateAdvancedCommand();
 });
 
+$("#ipwhitelistinputcontainer").hide();
+$("#adv_ipWhitelist").change(function () {
+  if (this.checked) {
+    $("#ipwhitelistinputcontainer").slideDown();
+  } else {
+    $("#ipwhitelistinputcontainer").slideUp();
+  }
+  generateAdvancedCommand();
+});
+
 
 function addkeyauthinput() {
   $("#keyauthinputsample").children().hide();
@@ -133,11 +146,26 @@ function addkeyauthinput() {
   $('#keyauthinputcontainer').find(".keyauthgroup:first").slideDown("fast");
 }
 
+function addipinput() {
+  $("#ipinputsample").children().hide();
+  $("#ipwhitelistinputcontainer").prepend(
+    $("#ipinputsample").children().clone()
+  );
+  $('#ipwhitelistinputcontainer').find(".ipwhitelistgroup:first").slideDown("fast");
+}
+
 $("#keyauthinputcontainer").on(
   "click",
   ".removekeyauthinput",
   function () {
     $(this).closest(".keyauthgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
+  }
+);
+$("#ipwhitelistinputcontainer").on(
+  "click",
+  ".removeipinput",
+  function () {
+    $(this).closest(".ipwhitelistgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
   }
 );
 
@@ -162,6 +190,7 @@ function generateAdvancedCommand() {
   let debugport = $("#adv_webdebugPort").val();
   let debugenabled = $("#adv_webdebugCheck").is(":checked");
   let keyauthentication = $("#adv_keyAuthentication").is(":checked");
+  let ipwhitelistenabled = $("#adv_ipWhitelist").is(":checked");
   let manuelcheck = $("#adv_rsaCheck").is(":checked");
   let keepalive = $("#adv_keepalive").is(":checked");
   let qr = $("#adv_qrCheck").is(":checked");
@@ -220,6 +249,17 @@ function generateAdvancedCommand() {
         .children(".keyauthval")
         .val();
       let thiscommand = `\\\"k:${keyauthval}\\\"`;
+      headercommands += " " + thiscommand;
+    }
+  }
+
+  if(ipwhitelistenabled){
+    let iprows = $("#ipwhitelistinputcontainer").children();
+    for (let i = 0; i < iprows.length; i++) {
+      let ipval = $(iprows[i])
+        .children(".ipval")
+        .val();
+      let thiscommand = `\\\"w:${ipval}\\\"`;
       headercommands += " " + thiscommand;
     }
   }
