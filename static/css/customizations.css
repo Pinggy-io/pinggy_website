@@ -120,6 +120,19 @@ input[type=number] {
     transform: scale(1.02);
 }
 
+.featurecard {
+    min-height: 18em;
+    border-radius: 1em;
+    margin-bottom: 1.6em;
+}
+.featurecard b {
+    font-weight: 600;
+}
+.featurecard p {
+    margin-bottom: 0;
+    color: rgb(48, 48, 48);
+}
+
 /* Sidebar  -------------------------- */
 
 

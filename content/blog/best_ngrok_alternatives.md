@@ -99,7 +99,7 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
 
 [Localtunnel](https://localtunnel.github.io/www/) is a Ngrok alternative that comes as an npm package. The package lets you create http / https tunnels to localhost. It provides a random subdomain when you run it through your terminal. Being a node package, localtunnel can be integrated to your applications as a library and you can use it to test your nodejs apps.
 
-<img src="/blog_img/localtunnel.png" alt="localtunnel screenshot - ngrok alternative that is an npm package">
+<img src="/blog_img/localtunnel.webp" alt="localtunnel screenshot - ngrok alternative that is an npm package">
 
 #### Pros of localtunnel
 
@@ -122,7 +122,7 @@ Localtunnel is free and it does not have a paid tier. It does not provide custom
 
 [LocalXpose](https://localxpose.io/) is a reverse proxy tool that provides a public URL to localhost. This is one of the most feature complete alternatives of Ngrok. By simply downloading their client you can create HTTP / HTTPS tunnels, and also TCP / TLS as well as UDP tunnels. Among the three it is the only one that supports UDP traffic. LocalXpose also provides a built-in file server to share your files instantly. 
 
-<img src="/blog_img/localxpose.png" alt="localxpose screenshot">
+<img src="/blog_img/localxpose.webp" alt="localxpose screenshot">
 
 #### Pros of LocalXpose
 
