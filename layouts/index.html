@@ -112,9 +112,9 @@
                     <div id="finalcommand" class="border-top mt-3 px-4 py-3">
                         <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                         <div class="input-group mt-2">
-                            <input id="portcommand" class="form-control"
+                            <textarea id="portcommand" class="form-control"
                                 value="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 qr@a.pinggy.io"
-                                readonly="readonly"></input>
+                                readonly="readonly">ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 qr@a.pinggy.io</textarea>
                             <button class="btn btn-dark" type="button" id="copybutton"
                                 onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"><i
                                     class="bi bi-clipboard"></i></button>

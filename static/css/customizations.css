@@ -38,6 +38,7 @@ input[type=number] {
 #portcommand {
     background: #ffffff;
     color: rgb(0, 0, 0) !important;
+    font-size: 1em;
 }
 
 .page-link {
