@@ -75,7 +75,7 @@ $("#adv_restart").change(() => {
 $("#adv_passwordCheck").change(() => {
   if ($("#adv_passwordCheck").is(":checked")) {
     $("#adv_passwordfields").slideDown();
-    $( "#adv_keyAuthentication" ).prop( "checked", false ).trigger('change');
+    $("#adv_keyAuthentication").prop("checked", false).trigger("change");
   } else {
     $("#adv_passwordfields").slideUp();
   }
@@ -98,15 +98,26 @@ $("#headermodificationcontainer").on(
   generateAdvancedCommand
 );
 
-$("#keyauthinputcontainer").on("change", ".keyauthval", generateAdvancedCommand);
+$("#keyauthinputcontainer").on(
+  "change",
+  ".keyauthval",
+  generateAdvancedCommand
+);
 $("#keyauthinputcontainer").on("input", ".keyauthval", generateAdvancedCommand);
 
 $("#ipwhitelistinputcontainer").on("change", ".ipval", generateAdvancedCommand);
 $("#ipwhitelistinputcontainer").on("input", ".ipval", generateAdvancedCommand);
 
-$("#ipwhitelistinputcontainerTCP").on("change", ".ipval", advGenerateAdvancedCommand);
-$("#ipwhitelistinputcontainerTCP").on("input", ".ipval", advGenerateAdvancedCommand);
-
+$("#ipwhitelistinputcontainerTCP").on(
+  "change",
+  ".ipval",
+  advGenerateAdvancedCommand
+);
+$("#ipwhitelistinputcontainerTCP").on(
+  "input",
+  ".ipval",
+  advGenerateAdvancedCommand
+);
 
 $("#advancedModalButton").on("click", generateAdvancedCommand);
 
@@ -123,7 +134,7 @@ $("#keyauthinputcontainer").hide();
 $("#adv_keyAuthentication").change(function () {
   if (this.checked) {
     $("#keyauthinputcontainer").slideDown();
-    $( "#adv_passwordCheck" ).prop( "checked", false ).trigger('change');
+    $("#adv_passwordCheck").prop("checked", false).trigger("change");
   } else {
     $("#keyauthinputcontainer").slideUp();
   }
@@ -155,7 +166,7 @@ function addkeyauthinput() {
   $("#keyauthinputcontainer").prepend(
     $("#keyauthinputsample").children().clone()
   );
-  $('#keyauthinputcontainer').find(".keyauthgroup:first").slideDown("fast");
+  $("#keyauthinputcontainer").find(".keyauthgroup:first").slideDown("fast");
 }
 
 function addipinput() {
@@ -163,7 +174,9 @@ function addipinput() {
   $("#ipwhitelistinputcontainer").prepend(
     $("#ipinputsample").children().clone()
   );
-  $('#ipwhitelistinputcontainer').find(".ipwhitelistgroup:first").slideDown("fast");
+  $("#ipwhitelistinputcontainer")
+    .find(".ipwhitelistgroup:first")
+    .slideDown("fast");
 }
 
 function addipinputTCP() {
@@ -171,44 +184,56 @@ function addipinputTCP() {
   $("#ipwhitelistinputcontainerTCP").prepend(
     $("#ipinputsample").children().clone()
   );
-  $('#ipwhitelistinputcontainerTCP').find(".ipwhitelistgroup:first").slideDown("fast");
+  $("#ipwhitelistinputcontainerTCP")
+    .find(".ipwhitelistgroup:first")
+    .slideDown("fast");
 }
 
-$("#keyauthinputcontainer").on(
-  "click",
-  ".removekeyauthinput",
-  function () {
-    $(this).closest(".keyauthgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
-  }
-);
-$("#ipwhitelistinputcontainer").on(
-  "click",
-  ".removeipinput",
-  function () {
-    $(this).closest(".ipwhitelistgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
-  }
-);
-$("#ipwhitelistinputcontainerTCP").on(
-  "click",
-  ".removeipinput",
-  function () {
-    $(this).closest(".ipwhitelistgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
-  }
-);
+$("#keyauthinputcontainer").on("click", ".removekeyauthinput", function () {
+  $(this)
+    .closest(".keyauthgroup")
+    .slideUp("fast", function () {
+      $(this).remove();
+      generateAdvancedCommand();
+    });
+});
+$("#ipwhitelistinputcontainer").on("click", ".removeipinput", function () {
+  $(this)
+    .closest(".ipwhitelistgroup")
+    .slideUp("fast", function () {
+      $(this).remove();
+      generateAdvancedCommand();
+    });
+});
+$("#ipwhitelistinputcontainerTCP").on("click", ".removeipinput", function () {
+  $(this)
+    .closest(".ipwhitelistgroup")
+    .slideUp("fast", function () {
+      $(this).remove();
+      generateAdvancedCommand();
+    });
+});
 
 function addheadermodificationrow() {
   $("#headermodificationinputsample").children().hide();
   $("#headermodificationcontainer").append(
     $("#headermodificationinputsample").children().clone()
   );
-  $('#headermodificationcontainer').find(".headermodificationgroup:last").slideDown("fast");
+  $("#headermodificationcontainer")
+    .find(".headermodificationgroup:last")
+    .slideDown("fast");
 }
 
 $("#headermodificationcontainer").on(
   "click",
   ".removeheadermodificationrow",
   function () {
-    $(this).closest(".headermodificationgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
+    $(this)
+      .closest(".headermodificationgroup")
+      .slideUp("fast", function () {
+        $(this).remove();
+        generateAdvancedCommand();
+      });
   }
 );
 
@@ -268,41 +293,35 @@ function generateAdvancedCommand() {
     headercommands += " " + thiscommand;
   }
 
-
-  if(keyauthentication){
+  if (keyauthentication) {
     let keyauthrows = $("#keyauthinputcontainer").children();
     for (let i = 0; i < keyauthrows.length; i++) {
-      let keyauthval = $(keyauthrows[i])
-        .children(".keyauthval")
-        .val();
+      let keyauthval = $(keyauthrows[i]).children(".keyauthval").val();
       let thiscommand = `\\\"k:${keyauthval}\\\"`;
       headercommands += " " + thiscommand;
     }
   }
 
-  if(ipwhitelistenabled){
+  if (ipwhitelistenabled) {
     let iprows = $("#ipwhitelistinputcontainer").children();
     for (let i = 0; i < iprows.length; i++) {
-      let ipval = $(iprows[i])
-        .children(".ipval")
-        .val();
+      let ipval = $(iprows[i]).children(".ipval").val();
       let thiscommand = `\\\"w:${ipval}\\\"`;
       headercommands += " " + thiscommand;
     }
   }
 
-  if(passwordenabled && basicusername && basicpass ) {
+  if (passwordenabled && basicusername && basicpass) {
     headercommands += " " + `\\\"b:${basicusername}:${basicpass}\\\"`;
   }
 
-  
   if (headercommands != "") {
     options += " -t";
   }
 
-  sshuser = ""
-  if(qr){
-    sshuser = "qr@"
+  sshuser = "";
+  if (qr) {
+    sshuser = "qr@";
   }
 
   command =
@@ -356,7 +375,7 @@ function advGenerateAdvancedCommand() {
   let restart_tcp = $("#adv_restart_tcp").is(":checked");
   let platform_tcp = $("#adv_platformselect_tcp").val();
   let ipwhitelistenabled = $("#adv_ipWhitelistTCP").is(":checked");
-  
+
   let options_tcp = "";
 
   if (!manuelcheck_tcp) {
@@ -366,22 +385,21 @@ function advGenerateAdvancedCommand() {
     options_tcp += " -o ServerAliveInterval=30";
   }
   let headercommands = "";
-  if(ipwhitelistenabled){
+  if (ipwhitelistenabled) {
     let iprows = $("#ipwhitelistinputcontainerTCP").children();
     for (let i = 0; i < iprows.length; i++) {
-      let ipval = $(iprows[i])
-        .children(".ipval")
-        .val();
+      let ipval = $(iprows[i]).children(".ipval").val();
       let thiscommand = `\\\"w:${ipval}\\\"`;
       headercommands += " " + thiscommand;
     }
   }
-  if(headercommands){
-    options_tcp += " -t"
+  if (headercommands) {
+    options_tcp += " -t";
   }
 
-
-  command = `ssh -p 443 -R0:localhost:${localport_tcp} ${options_tcp} ${mode_tcp}@a.pinggy.io` + headercommands;
+  command =
+    `ssh -p 443 -R0:localhost:${localport_tcp} ${options_tcp} ${mode_tcp}@a.pinggy.io` +
+    headercommands;
 
   // restarting
   if (restart_tcp) {
@@ -495,42 +513,39 @@ $("#textchanger").teletype({
   ],
 });
 
+// function seatChange(e) {
+//   var seatVal = $(".seat-spinner > input").val();
+//   if(seatVal < 1){
+//     $(".seat-spinner > input").val(1);
+//     seatVal = $(".seat-spinner > input").val();
+//   }
+//   $(".seatval").html(seatVal);
+//   $(".multipleseat").html(seatVal > 1  ? "s":"");
 
-function seatChange(e) {
-  var seatVal = $(".seat-spinner > input").val();
-  if(seatVal < 1){
-    $(".seat-spinner > input").val(1);
-    seatVal = $(".seat-spinner > input").val();
-  }
-  $(".seatval").html(seatVal);
-  $(".multipleseat").html(seatVal > 1  ? "s":"");
+//   seatVal = parseFloat(seatVal);
+//   // Update
+//   var monthprice = parseFloat($("#monthprice").data("price"));
+//   var yearprice = parseFloat($("#yearprice").data("price"));
+//   $("#monthprice").html((monthprice * seatVal).toFixed(2));
+//   $("#yearprice").html((yearprice * seatVal).toFixed(2));
+// }
 
-  seatVal = parseFloat(seatVal);
-  // Update
-  var monthprice = parseFloat($("#monthprice").data("price"));
-  var yearprice = parseFloat($("#yearprice").data("price"));
-  $("#monthprice").html((monthprice * seatVal).toFixed(2));
-  $("#yearprice").html((yearprice * seatVal).toFixed(2));
-}
+// $(document).on('click', '.seat-spinner button', function () {
+// 	var btn = $(this),
+// 		oldValue = btn.closest('.seat-spinner').find('input').val().trim(),
+// 		newVal = 0;
 
+// 	if (btn.attr('data-dir') == 'up') {
+// 		newVal = parseInt(oldValue) + 1;
+// 	} else {
+// 		if (oldValue > 1) {
+// 			newVal = parseInt(oldValue) - 1;
+// 		} else {
+// 			newVal = 1;
+// 		}
+// 	}
+// 	btn.closest('.seat-spinner').find('input').val(newVal).change();
+// });
 
-
-$(document).on('click', '.seat-spinner button', function () {
-	var btn = $(this),
-		oldValue = btn.closest('.seat-spinner').find('input').val().trim(),
-		newVal = 0;
-	
-	if (btn.attr('data-dir') == 'up') {
-		newVal = parseInt(oldValue) + 1;
-	} else {
-		if (oldValue > 1) {
-			newVal = parseInt(oldValue) - 1;
-		} else {
-			newVal = 1;
-		}
-	}
-	btn.closest('.seat-spinner').find('input').val(newVal).change();
-});
-
-$(".seat-spinner > input").keyup(seatChange);
-$(".seat-spinner > input").change(seatChange);
+// $(".seat-spinner > input").keyup(seatChange);
+// $(".seat-spinner > input").change(seatChange);

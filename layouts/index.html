@@ -724,7 +724,6 @@
                             <label class="toggler align-middle" id="filt-hourly">Yearly</label><span
                                 class="align-middle" style="color: rgba(70, 117, 199, 1); font-size: 0.8em;"> (Save upto
                                 17%)</span>
-
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-md-4 mb-3 text-center justify-content-center">
@@ -753,7 +752,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col mb-4">
+                        <div x-data="{ seatVal: 1 }" class="col mb-4">
                             <div class="pricecard card rounded-3 shadow-sm">
                                 <div class="card-header py-3">
                                     <h4 class="my-0 fw-normal">Pro</h4>
@@ -762,48 +761,44 @@
                                     <div style="max-width: 140px; margin: 0 auto;">
                                         <div class="input-group seat-spinner">
                                             <span class="input-group-btn">
-                                                <button class="btn btn-outline-dark" data-dir="dwn">-</button>
+                                                <button @click="seatVal = Math.max(1, parseInt(seatVal) - 1)"
+                                                    class="btn btn-outline-dark">-</button>
                                             </span>
-                                            <input type="number" class="form-control text-center" value="1">
+                                            <input 
+                                                type="number" 
+                                                class="form-control text-center" 
+                                                x-model="seatVal" 
+                                                x-on:input="seatVal = isNaN(parseFloat(seatVal)) || seatVal < 1 ? 1 : seatVal"
+                                            >
                                             <span class="input-group-btn">
-                                                <button class="btn btn-outline-dark" data-dir="up">+</button>
+                                                <button @click="seatVal = parseInt(seatVal) + 1"
+                                                    class="btn btn-outline-dark">+</button>
                                             </span>
                                         </div>
                                         <span>Seats</span>
                                     </div>
                                     <div class="yearly">
-                                        <!-- <h2 class="card-title pricing-card-title"><small
-                                                class="text-muted fw-light"><del>$<span class="yearpriceold">5.00</span> /month</del></small></h2> -->
-                                        <h1 class="card-title pricing-card-title">$<span id="yearprice"
-                                                data-price="2.50">2.50</span><small
-                                                class="text-muted fw-light">/month</small></h1>
+                                        <h1 class="card-title pricing-card-title">
+                                            $<span x-text="(2.50 * seatVal).toFixed(2)" id="yearprice"></span><small class="text-muted fw-light">/month</small>
+                                        </h1>
                                         <span class="text-muted fw-light">(billed annually)</span>
                                     </div>
                                     <div class="monthly">
-                                        <!-- <h2 class="card-title pricing-card-title"><small
-                                                class="text-muted fw-light"><del>$<span class="monthpriceold">6.00</span> /month</del></small></h2> -->
-                                        <h1 class="card-title pricing-card-title">$<span id="monthprice"
-                                                data-price="3.00">3.00</span><small
-                                                class="text-muted fw-light">/month</small></h1>
+                                        <h1 class="card-title pricing-card-title">
+                                            $<span x-text="(3.00 * seatVal).toFixed(2)" id="monthprice"></span><small class="text-muted fw-light">/month</small>
+                                        </h1>
                                         <span class="text-muted fw-light">(billed monthly)</span>
                                     </div>
                                     <ul class="list-unstyled mt-3 mb-4 text-left list-group">
-                                        <li class="list-group-item p-2 bg-light">Everyting in Free plan</li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Persistent
-                                                tunnel<span class="multipleseat"></span></b></li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Custom
-                                                subdomain<span class="multipleseat"></span></b></li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Custom
-                                                domain<span class="multipleseat"></span></b></li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Persistent TCP
-                                                port<span class="multipleseat"></span></b></li>
+                                        <li class="list-group-item p-2 bg-light">Everything in Free plan</li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Persistent tunnel<span x-show="seatVal > 1">s</span></b></li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Custom subdomain<span x-show="seatVal > 1">s</span></b></li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Custom domain<span x-show="seatVal > 1">s</span></b></li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Persistent TCP port<span x-show="seatVal > 1">s</span></b></li>
                                         <li class="list-group-item p-2">Priority mail / Discord support</li>
                                     </ul>
-
                                     <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button-3"
                                         href="https://dashboard.pinggy.io">Get Started</a>
-
-
                                 </div>
                             </div>
                         </div>
@@ -853,7 +848,6 @@
                                         <span class="text-muted fw-light">contact@pinggy.io</span>
                                     </div>
 
-
                                     <ul class="list-unstyled mt-3 mb-4 list-group text-left">
                                         <li class="list-group-item p-2 bg-light"><b>On Premise</b> / Cloud hosting</li>
                                         <li class="list-group-item p-2"><b>Unlimited persistent tunnels</b></li>
@@ -869,17 +863,14 @@
                             </div>
                         </div>
                     </div>
-
                 </main>
-
-
             </div>
         </div>
     </div>
 </header>
 
 <!-- FAQ section-->
-<section class="py-5 border-top" id="faq">
+<section class="py-5 border-top" id="faq"  x-data="{ searchTerm: '' }">
     <div class="container my-5">
         <div class="my-3 row justify-content-center">
             <div class="col-lg-12">
@@ -888,13 +879,16 @@
         </div>
         <div class="row justify-content-center mb-3">
             <div class="col-lg-8">
-                <input type="text" id="faqSearch" class="form-control" placeholder="Search...">
+                <input type="text" id="faqSearch" class="form-control" placeholder="Search..." x-model="searchTerm">
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="accordion" id="accordionFaq">
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item" 
+                        x-show="$refs.faq1.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -903,7 +897,7 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq1">
                                 <p>
                                     Pinggy relies on SSH remote port forwarding. The option
                                     <code>-R 0:localhost:8000</code> in the command only implies that connections to
@@ -925,7 +919,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq2.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingPassword">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapsePassword" aria-expanded="false"
@@ -935,7 +932,7 @@
                         </h2>
                         <div id="collapsePassword" class="accordion-collapse collapse" aria-labelledby="headingPassword"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq2">
                                 <p>
                                     If the ssh command prompts you for a password you can just press enter (a blank
                                     password). Or you can type in something random and press enter.
@@ -951,7 +948,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq3.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingServerLocation">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseServerLocation" aria-expanded="false"
@@ -961,7 +961,7 @@
                         </h2>
                         <div id="collapseServerLocation" class="accordion-collapse collapse"
                             aria-labelledby="headingServerLocation" data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq3">
                                 <p>
                                     <code>a.pinggy.io</code> is routed to the Pinggy server nearest to your location.
                                     Currently we have our servers in USA, Sweden, and Singapore.
@@ -969,7 +969,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item" 
+                        x-show="$refs.faq4.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -978,7 +981,7 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq4">
                                 <p>Pinggy's free plan has a tunnel timeout of 60 minutes. If the tunnel is closed by
                                     you
                                     or reaches the time limit, starting a new tunnel will generate a new URL.</p>
@@ -987,7 +990,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq5.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -996,7 +1002,7 @@
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq5">
                                 <p>Yes. Current versions of Windows, Mac, as well as almost all Linux distributions
                                     come
                                     with openssh client pre-installed. Therefore Pinggy will just work out of the
@@ -1008,7 +1014,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq6.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -1017,13 +1026,16 @@
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq6">
                                 <p>You can use TCP and TLS tunnels for free with Pinggy. Click on "Advanced Settings" on
                                     the top of the homepage, and select TCP.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq7.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingFive">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -1032,14 +1044,17 @@
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq7">
                                 <p>Read our guide on long running tunnels <a
                                         href="https://pinggy.io/docs/guides/long_running_tunnels/"
                                         target="_blank">here</a>. </p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq8.innerText.toLowerCase().includes(searchTerm.toLowerCase())" 
+                    >
                         <h2 class="accordion-header" id="headingConnectionReset">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseConnectionReset" aria-expanded="false"
@@ -1049,7 +1064,7 @@
                         </h2>
                         <div id="collapseConnectionReset" class="accordion-collapse collapse"
                             aria-labelledby="headingConnectionReset" data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq8">
                                 <p>The most common reason for this is that an existing tunnel with the same token is
                                     active.</p>
                                 <p><b>Terminate your existing tunnel with the same token.</b> You can do so from the
@@ -1058,7 +1073,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq9.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingSix">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -1067,7 +1085,7 @@
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq9">
                                 <p>Pinggy does read tunnel traffic for providing the Web Debugger feature.</p>
                                 <p><b>Use TLS tunnels for Zero trust mode</b>, where Pinggy cannot read your data. In
                                     this case your traffic is end-to-end encrypted.</p>
@@ -1079,8 +1097,6 @@
         </div>
     </div>
 </section>
-
-
 
 {{ end }}
 
