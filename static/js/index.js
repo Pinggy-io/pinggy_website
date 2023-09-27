@@ -47,6 +47,150 @@ $("#qrinput").change(function () {
   $("#portform").trigger("input");
 });
 
+// Advanced Model
+
+document.addEventListener("alpine:init", () => {
+  Alpine.store("advModal", {
+    httpConfig: {
+      localPort: 8000,
+      webdebugCheck: true,
+      webdebugPort: 4300,
+      keyAuthentication: false,
+      ipWhitelistCheck: false,
+      rsaCheck: true,
+      keepalive: true,
+      qrCheck: false,
+      restart: false,
+      platformselect: "unix",
+      passwordCheck: false,
+      basicusername: "",
+      basicpass: "",
+      keyAuthentications: [""],
+      ipWhitelist: [""],
+      headerModification: [],
+    },
+    tcp_tlsConfig: {
+      mode: "tcp",
+      localPort: 8000,
+      keepalive: true,
+      restart: false,
+      platformselect: "unix",
+      rsaCheck: true,
+      ipWhitelistCheck: false,
+      ipWhitelist: [""],
+    },
+    advancedHttpCommand: function () {
+      let config = this.httpConfig;
+      let options = "";
+      let headercommands = "";
+      let sshuser = "";
+
+      if (config.webdebugCheck) {
+        let webdebugoption = `-L${config.webdebugPort}:localhost:${config.webdebugPort}`;
+        options += " " + webdebugoption;
+      }
+      if (!config.rsaCheck) {
+        options += " -o StrictHostKeyChecking=no";
+      }
+      if (config.keepalive) {
+        options += " -o ServerAliveInterval=30";
+      }
+
+      if (config.headerModification.length > 0) {
+        config.headerModification.forEach((headerMod) => {
+          const { mode, name, value } = headerMod;
+          if (mode === "r") {
+            headercommands += ` \\\"${mode}:${name}\\\"`;
+          } else {
+            headercommands += ` \\\"${mode}:${name}${
+              value ? ":" + value : ""
+            }\\\"`;
+          }
+        });
+      }
+
+      if (config.keyAuthentication) {
+        const filteredAuthentications = config.keyAuthentications.filter(
+          (keyauthval, i) => keyauthval !== "" || i === 0
+        );
+        headercommands = filteredAuthentications
+          .reverse()
+          .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
+          .join("");
+      }
+
+      if (config.ipWhitelistCheck) {
+        const filteredIPs = config.ipWhitelist.filter(
+          (ipval, i) => ipval !== "" || i === 0
+        );
+        headercommands += filteredIPs
+          .reverse()
+          .map((ipval, i) => ` \\\"w:${ipval}\\\"`)
+          .join("");
+      }
+
+      if (config.passwordCheck && config.basicusername && config.basicpass) {
+        headercommands +=
+          " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
+      }
+
+      if (headercommands != "") {
+        options += " -t";
+      }
+
+      sshuser = config.qrCheck ? "qr@" : "";
+
+      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${sshuser}a.pinggy.io${headercommands}`;
+
+      if (config.restart) {
+        command =
+          config.platformselect === "unix"
+            ? `while true; do \n    ${command}; \nsleep 10; done`
+            : `FOR /L %N IN () DO (${command}\ntimeout /t 10)`;
+      }
+
+      return command;
+    },
+    advancedTcpTlsCommand: function () {
+      let config = this.tcp_tlsConfig;
+      let options = "";
+      let headercommands = "";
+
+      if (!config.rsaCheck) {
+        options += " -o StrictHostKeyChecking=no";
+      }
+      if (config.keepalive) {
+        options += " -o ServerAliveInterval=30";
+      }
+
+      if (config.ipWhitelistCheck) {
+        const filteredIPs = config.ipWhitelist.filter(
+          (ipval, i) => ipval !== "" || i === 0
+        );
+        headercommands += filteredIPs
+          .reverse()
+          .map((ipval, i) => ` \\\"w:${ipval}\\\"`)
+          .join("");
+      }
+
+      if (headercommands != "") {
+        options += " -t";
+      }
+
+      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${config.mode}@a.pinggy.io${headercommands}`;
+
+      if (config.restart) {
+        command =
+          config.platformselect === "unix"
+            ? `while true; do \n    ${command}; \nsleep 5; done`
+            : `FOR /L %N IN () DO (${command}\ntimeout /t 5)`;
+      }
+
+      return command;
+    },
+  });
+});
+
 // ---------- ------------
 
 $("#portform").on("input", function () {
