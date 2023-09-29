@@ -123,10 +123,8 @@ document.addEventListener("alpine:init", () => {
         const filteredIPs = config.ipWhitelist.filter(
           (ipval, i) => ipval !== "" || i === 0
         );
-        headercommands += filteredIPs
-          .reverse()
-          .map((ipval, i) => ` \\\"w:${ipval}\\\"`)
-          .join("");
+        filteredIPs.reverse();
+        headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
       }
 
       if (config.passwordCheck && config.basicusername && config.basicpass) {
