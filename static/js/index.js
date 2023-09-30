@@ -96,9 +96,9 @@ document.addEventListener("alpine:init", () => {
         options += " -o ServerAliveInterval=30";
       }
 
-      if (config.headerModification.length > 0) {
-        config.headerModification.forEach((headerMod) => {
-          const { mode, name, value } = headerMod;
+      config.headerModification.forEach((headerMod) => {
+        const { mode, name, value } = headerMod;
+        if (name !== "" || value !== "") {
           if (mode === "r") {
             headercommands += ` \\\"${mode}:${name}\\\"`;
           } else {
@@ -106,14 +106,14 @@ document.addEventListener("alpine:init", () => {
               value ? ":" + value : ""
             }\\\"`;
           }
-        });
-      }
+        }
+      });
 
       if (config.keyAuthentication) {
         const filteredAuthentications = config.keyAuthentications.filter(
           (keyauthval, i) => keyauthval !== "" || i === 0
         );
-        headercommands = filteredAuthentications
+        headercommands += filteredAuthentications
           .reverse()
           .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
           .join("");

@@ -330,6 +330,29 @@
                                             </i>
                                         </label>
                                     </div>
+                                    <div class="col col-12" 
+                                        x-show="data.httpConfig.keyAuthentication"
+                                        x-transition.duration.300ms
+                                    >
+                                        <div id="keyauthinputcontainer">
+                                            <div class="input-group keyauthgroup">
+                                                <input type="text" aria-label="key / token" placeholder="Key / token"
+                                                    class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[0]">
+                                                <button class="btn btn-outline-dark addkeyauthinput" type="button"
+                                                    @click="data.httpConfig.keyAuthentications.push('')">
+                                                    <i class="bi bi-plus"></i>
+                                                </button>
+                                            </div>
+                                            <template x-for="(keyauth, index) in data.httpConfig.keyAuthentications" :key="index">
+                                                <div x-show="index > 0" class="input-group keyauthgroup">
+                                                    <input type="text" aria-label="key / token" placeholder="Key / token"
+                                                        class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[index]">
+                                                    <button class="btn btn-outline-danger removekeyauthinput" type="button"
+                                                        @click="data.httpConfig.keyAuthentications.splice(index, 1)"><i class="bi bi-x"></i></button>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
@@ -343,58 +366,32 @@
                                             </i>
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col col-12 col-lg-6" 
-                                    x-show="data.httpConfig.keyAuthentication"
-                                    x-transition.duration.300ms
-                                >
-                                    <div id="keyauthinputcontainer">
-                                        <div class="input-group keyauthgroup">
-                                            <input type="text" aria-label="key / token" placeholder="Key / token"
-                                                class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[0]">
-                                            <button class="btn btn-outline-dark addkeyauthinput" type="button"
-                                                @click="data.httpConfig.keyAuthentications.push('')">
-                                                <i class="bi bi-plus"></i>
-                                            </button>
-                                        </div>
-                                        <template x-for="(keyauth, index) in data.httpConfig.keyAuthentications" :key="index">
-                                            <div x-show="index > 0" class="input-group keyauthgroup">
-                                                <input type="text" aria-label="key / token" placeholder="Key / token"
-                                                    class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[index]">
-                                                <button class="btn btn-outline-danger removekeyauthinput" type="button"
-                                                    @click="data.httpConfig.keyAuthentications.splice(index, 1)"><i class="bi bi-x"></i></button>
-                                            </div>
-                                        </template>
-                                    </div>
-                                </div>
-                                <div class="col col-12 col-lg-6"
-                                    x-show="data.httpConfig.ipWhitelistCheck"
-                                    x-transition.duration.300ms
-                                >
-                                    <div id="ipwhitelistinputcontainer">
-                                        <div class="input-group ipwhitelistgroup">
-                                            <input type="text" aria-label="ip to whitelist"
-                                                placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                                x-model="data.httpConfig.ipWhitelist[0]">
-                                            <button class="btn btn-outline-dark addipinput" type="button"
-                                                @click="data.httpConfig.ipWhitelist.push('')">
-                                                <i class="bi bi-plus"></i>
-                                            </button>
-                                        </div>
-                                        <template x-for="(ip, index) in data.httpConfig.ipWhitelist" :key="index">
-                                            <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                                    <div class="col col-12"
+                                        x-show="data.httpConfig.ipWhitelistCheck"
+                                        x-transition.duration.300ms
+                                    >
+                                        <div id="ipwhitelistinputcontainer">
+                                            <div class="input-group ipwhitelistgroup">
                                                 <input type="text" aria-label="ip to whitelist"
                                                     placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                                    x-model="data.httpConfig.ipWhitelist[index]">
-                                                <button class="btn btn-outline-danger removeipinput" type="button"
-                                                    @click="data.httpConfig.ipWhitelist.splice(index, 1)">
-                                                    <i class="bi bi-x"></i>
+                                                    x-model="data.httpConfig.ipWhitelist[0]">
+                                                <button class="btn btn-outline-dark addipinput" type="button"
+                                                    @click="data.httpConfig.ipWhitelist.push('')">
+                                                    <i class="bi bi-plus"></i>
                                                 </button>
                                             </div>
-                                        </template>
+                                            <template x-for="(ip, index) in data.httpConfig.ipWhitelist" :key="index">
+                                                <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                                                    <input type="text" aria-label="ip to whitelist"
+                                                        placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
+                                                        x-model="data.httpConfig.ipWhitelist[index]">
+                                                    <button class="btn btn-outline-danger removeipinput" type="button"
+                                                        @click="data.httpConfig.ipWhitelist.splice(index, 1)">
+                                                        <i class="bi bi-x"></i>
+                                                    </button>
+                                                </div>
+                                            </template>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
