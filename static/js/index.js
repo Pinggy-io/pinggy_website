@@ -1,56 +1,13 @@
-// ---------- try it yourself form ------
-
-$("#techselect").on("change", function () {
-  var label = $("option:selected", this).data("label");
-  var command = $("option:selected", this).data("command");
-  var port = $("option:selected", this).data("port");
-
-  if (label) {
-    if (label != $("#tryityourselflabel").text()) {
-      $("#tryityourselflabel").animate({ opacity: 0 }, 400, function () {
-        $(this).text(label).animate({ opacity: 1 }, 400);
-      });
-    }
-    $("#tryityourselflabel").show("slow");
-  } else {
-    $("#tryityourselflabel").hide("slow");
-  }
-
-  if (command) {
-    $("#tryityourselfprecommand").val(command);
-
-    $("#tryityourselfprecommand").css("visibility", "visible");
-    $("#copybutton2").css("visibility", "visible");
-
-    $("#tryityourselfprecommand").animate({ opacity: 1 }, 1200);
-    $("#copybutton2").animate({ opacity: 1 }, 1200);
-  } else {
-    $("#tryityourselfprecommand").animate({ opacity: 0 }, 1200);
-    $("#copybutton2").animate({ opacity: 0 }, 1200);
-    $("#tryityourselfprecommand").css("visibility", "hidden");
-    $("#copybutton2").css("visibility", "hidden");
-  }
-
-  $("#portform").val(port).trigger("input");
-});
-
-$("#webdebuggerinput").change(function () {
-  if ($("#webdebuggerinput").is(":checked")) {
-    $("#webdebugurl").slideDown();
-  } else {
-    $("#webdebugurl").slideUp();
-  }
-  $("#portform").trigger("input");
-});
-
-$("#qrinput").change(function () {
-  $("#portform").trigger("input");
-});
-
-// Advanced Model
-
 document.addEventListener("alpine:init", () => {
   Alpine.store("advModal", {
+    tryItYourself: {
+      selectedOption: "python",
+      label: "You may start a local server using:",
+      command: "python3 -m http.server",
+      port: "8000",
+      webdebugCheck: true,
+      qrCheck: true,
+    },
     httpConfig: {
       localPort: 8000,
       webdebugCheck: true,
@@ -78,6 +35,18 @@ document.addEventListener("alpine:init", () => {
       rsaCheck: true,
       ipWhitelistCheck: false,
       ipWhitelist: [""],
+    },
+    tryItYourselfCommand: function () {
+      let config = this.tryItYourself;
+
+      let command =
+        "ssh -p 443 -R0:localhost:" +
+        config.port +
+        (config.webdebugCheck ? " -L4300:localhost:4300" : "") +
+        (config.qrCheck ? " qr@" : " ") +
+        "a.pinggy.io";
+
+      return command;
     },
     advancedHttpCommand: function () {
       let config = this.httpConfig;
@@ -189,18 +158,6 @@ document.addEventListener("alpine:init", () => {
   });
 });
 
-// ---------- ------------
-
-$("#portform").on("input", function () {
-  $("#portcommand").val(
-    "ssh -p 443 -R0:localhost:" +
-      ($("#portform").val() || "8000") +
-      ($("#webdebuggerinput").is(":checked") ? " -L4300:localhost:4300" : "") +
-      ($("#qrinput").is(":checked") ? " qr@" : " ") +
-      "a.pinggy.io"
-  );
-});
-
 // =======================================================
 function copytoclipboard(element, inputselector, amplitudemsg) {
   var portcommand = $(inputselector)[0];
@@ -272,7 +229,6 @@ $("#toggleswitch").change(function () {
 });
 
 // Download button system auto detect:
-
 os_arch_to_link = {
   windows: {
     amd64: "pinggy_windows_386.exe",
@@ -283,7 +239,6 @@ os_arch_to_link = {
 };
 
 /*** typewriter ***/
-
 $("#textchanger").teletype({
   delay: 70,
   pause: 3000,
