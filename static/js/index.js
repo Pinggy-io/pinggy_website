@@ -36,6 +36,58 @@ document.addEventListener("alpine:init", () => {
       ipWhitelistCheck: false,
       ipWhitelist: [""],
     },
+    updateLabelAndCommand: function () {
+      const option = this.tryItYourself.selectedOption;
+      const optionInfo = {
+        python: {
+          label: "You may start a local server using:",
+          command: "python3 -m http.server",
+          port: "8000",
+        },
+        nodejs: {
+          label: "You may start a local server using:",
+          command: "npx http-server",
+          port: "8080",
+        },
+        reactjs: {
+          label: "You may start a React.js app using:",
+          command: "npx create-react-app app && cd app && npm start",
+          port: "3000",
+        },
+        nextjs: {
+          label: "You may start a Next.js app using:",
+          command: "npx create-next-app app && cd app && npm run dev",
+          port: "3000",
+        },
+        nginx: {
+          label: "Apache / Nginx by default runs at port 80",
+          command: "",
+          port: "80",
+        },
+        rails: {
+          label: "Rails development server runs on port 3000 by default",
+          command: "",
+          port: "3000",
+        },
+        laravel: {
+          label:
+            "Laravel / Symfony development server runs on port 8000 by default",
+          command: "",
+          port: "8000",
+        },
+        hugo: {
+          label: "Hugo development server runs on port 1313 by default",
+          command: "",
+          port: "1313",
+        },
+      };
+
+      if (option in optionInfo) {
+        this.tryItYourself.label = optionInfo[option].label;
+        this.tryItYourself.command = optionInfo[option].command;
+        this.tryItYourself.port = optionInfo[option].port;
+      }
+    },
     tryItYourselfCommand: function () {
       let config = this.tryItYourself;
 

@@ -14,6 +14,10 @@ document.addEventListener("alpine:init", () => {
     platformselect: "unix",
     manuallyCheckKey: true,
     mode: "http",
+    keyAuthentication: false,
+    ipWhitelistCheck: false,
+    keyAuthentications: [""],
+    ipWhitelist: [""],
     headerModifications: [],
 
     advancedCommand(data) {
@@ -45,6 +49,24 @@ document.addEventListener("alpine:init", () => {
         }\\\"`;
         headercommands += " " + thiscommand;
       });
+
+      if (data.keyAuthentication) {
+        const filteredAuthentications = data.keyAuthentications.filter(
+          (keyauthval, i) => keyauthval !== "" || i === 0
+        );
+        headercommands += filteredAuthentications
+          .reverse()
+          .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
+          .join("");
+      }
+
+      if (data.ipWhitelistCheck) {
+        const filteredIPs = data.ipWhitelist.filter(
+          (ipval, i) => ipval !== "" || i === 0
+        );
+        filteredIPs.reverse();
+        headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
+      }
 
       if (headercommands != "") {
         options += " -t";

@@ -45,47 +45,18 @@
 
                         <div class="input-group mb-4 pt-1">
                             <label class="input-group-text" id="tryityourselftext">Try it yourself with:</label>
-                            <select class="form-select" id="techselect" x-model="data.tryItYourself.selectedOption">
-                                <option value="python"
-                                    @click="data.tryItYourself.label = 'You may start a local server using:'; 
-                                        data.tryItYourself.command = 'python3 -m http.server'; 
-                                        data.tryItYourself.port = '8000';"
-                                >Python</option>
-                                 <option value="nodejs"
-                                    @click="data.tryItYourself.label = 'You may start a local server using:'; 
-                                        data.tryItYourself.command = 'npx http-server'; 
-                                        data.tryItYourself.port = '8080';"
-                                >Node.js</option>
-                                <option value="reactjs"
-                                    @click="data.tryItYourself.label = 'You may start a React.js app using:'; 
-                                        data.tryItYourself.command = 'npx create-react-app app && cd app && npm start'; 
-                                        data.tryItYourself.port = '3000';"
-                                >React.js</option>
-                                <option value="nextjs"
-                                    @click="data.tryItYourself.label = 'You may start a Next.js app using:'; 
-                                        data.tryItYourself.command = 'npx create-next-app app && cd app && npm run dev'; 
-                                        data.tryItYourself.port = '3000';"
-                                >Next.js</option>
-                                <option value="nginx"
-                                    @click="data.tryItYourself.label = 'Apache / Nginx by default runs at port 80'; 
-                                        data.tryItYourself.command = ''; 
-                                        data.tryItYourself.port = '80';"
-                                >Apache / Nginx</option>
-                                <option value="rails"
-                                    @click="data.tryItYourself.label = 'Rails developement server runs on port 3000 by default'; 
-                                        data.tryItYourself.command = ''; 
-                                        data.tryItYourself.port = '3000';"
-                                >Ruby on Rails</option>
-                                <option value="laravel"
-                                    @click="data.tryItYourself.label = 'Laravel / Symfony developement server runs on port 8000 by default'; 
-                                        data.tryItYourself.command = ''; 
-                                        data.tryItYourself.port = '8000';"
-                                >Laravel / Symfony</option>
-                                <option value="hugo"
-                                    @click="data.tryItYourself.label = 'Hugo developement server runs on port 1313 by default'; 
-                                        data.tryItYourself.command = ''; 
-                                        data.tryItYourself.port = '1313';"
-                                >Hugo</option>
+                            <select class="form-select" id="techselect" 
+                                x-model="data.tryItYourself.selectedOption" 
+                                x-on:change="data.updateLabelAndCommand()"
+                            >
+                                <option value="python">Python</option>
+                                <option value="nodejs">Node.js</option>
+                                <option value="reactjs">React.js</option>
+                                <option value="nextjs">Next.js</option>
+                                <option value="nginx">Apache / Nginx</option>
+                                <option value="rails">Ruby on Rails</option>
+                                <option value="laravel">Laravel / Symfony</option>
+                                <option value="hugo">Hugo</option>
                             </select>
                         </div>
 
