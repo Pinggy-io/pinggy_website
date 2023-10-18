@@ -1,25 +1,5 @@
 document.addEventListener("alpine:init", () => {
   Alpine.store("pinggyTunnelData", {
-    tunnelString: "Paste this command to star a tunnel:",
-    portString: "Local Port",
-    localPort: 8000,
-    webDebugPort: 4300,
-    webDebugEnabled: false,
-    keepAlive: false,
-    passwordCheck: false,
-    basicusername: "",
-    basicpass: "",
-    qrCheck: false,
-    reconnect: false,
-    platformselect: "unix",
-    manuallyCheckKey: true,
-    mode: "http",
-    keyAuthentication: false,
-    ipWhitelistCheck: false,
-    keyAuthentications: [""],
-    ipWhitelist: [""],
-    headerModifications: [],
-
     advancedCommand(data) {
       let options = "";
       let headercommands = "";

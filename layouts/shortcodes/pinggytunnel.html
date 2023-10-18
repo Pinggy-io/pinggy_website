@@ -13,21 +13,29 @@
 {{ $mode := .Get "mode" | default "http" }}
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 
-<div x-data="{ data: $store.pinggyTunnelData }" 
-    x-init="data.tunnelString = '{{ $tunnelstring }}';
-        data.portString = '{{ $portstring }}';
-        data.localPort = '{{ $localport }}';
-        data.webDebugPort = '{{ $webdebugport }}';
-        data.webDebugEnabled = {{ $webdebugenabled }};
-        data.keepAlive = {{ $keepalive }};
-        data.passwordCheck = {{ $passwordCheck }};
-        data.qrCheck = {{ $qrcheck }};
-        data.reconnect = {{ $reconnect }};
-        data.manuallyCheckKey = {{ $manuallycheckkey }};
-        data.mode = '{{ $mode }}';
-        data.headerModifications = {{ $headermodifications }};
-    ;"
->
+<div x-data="{
+  data: {
+    tunnelString: '{{ $tunnelstring }}',
+    portString: '{{ $portstring }}',
+    localPort: '{{ $localport }}',
+    webDebugPort: '{{ $webdebugport }}',
+    webDebugEnabled: {{ $webdebugenabled }},
+    keepAlive: {{ $keepalive }},
+    passwordCheck: {{ $passwordCheck }},
+    basicusername: '',
+    basicpass: '',
+    qrCheck: {{ $qrcheck }},
+    reconnect: {{ $reconnect }},
+    platformselect: 'unix',
+    manuallyCheckKey: {{ $manuallycheckkey }},
+    mode: '{{ $mode }}',
+    keyAuthentication: false,
+    keyAuthentications: [''],
+    ipWhitelistCheck: false,
+    ipWhitelist: [''],
+    headerModifications: {{ $headermodifications }}
+  }
+}">
     <div class="pinggytunnelshortcode" {{ with .Get "box" }}
         style="padding: 1em; border-radius: 0.4em; 
         box-shadow: 0 0 7px 0px #00000029;" {{ end }}
@@ -291,7 +299,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="--bs-gutter-x: 0;">
+                <div class="row mt-2" style="--bs-gutter-x: 0;">
                     <div class="form-floating mb-3 shortcode_webdebuggerportselector col"
                         id="shortcode_webdebuggerportselector_{{ $random }}"
                         x-show="data.webDebugEnabled" x-transition.duration.300ms>
