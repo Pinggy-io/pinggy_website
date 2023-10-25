@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <!-- Banner -->
-<header class="pt-1 contentcontainer">
+<header class="pt-1 contentcontainer" x-data="{ data : $store.advModal }">
     <a class="text-decoration-none text-dark text-center" href="/blog/scaling_across_multiple_regions/"
         target="_blank">
         <div class="p-1" style="font-size: 1em; background: #daefff;">Pinggy is now in multiple regions: USA 🇺🇸, Europe 🇸🇪, and Asia 🇸🇬 🚀</div>
@@ -44,52 +44,48 @@
                         </button>
 
                         <div class="input-group mb-4 pt-1">
-
                             <label class="input-group-text" id="tryityourselftext">Try it yourself with:</label>
-
-                            <select class="form-select" id="techselect">
-                                <option data-label="You may start a local server using:"
-                                    data-command="python3 -m http.server" data-port="8000" value="python" selected>
-                                    Python</option>
-                                <option data-label="You may start a local server using:" data-command="npx http-server"
-                                    data-port="8080" value="nodejs">Node.js</option>
-                                <option data-label="You may start a React.js app using:"
-                                    data-command="npx create-react-app app && cd app && npm start" data-port="3000"
-                                    value="reactjs">React.js</option>
-                                <option data-label="You may start a Next.js app using:"
-                                    data-command="npx create-next-app app && cd app && npm run dev" data-port="3000"
-                                    value="nextjs">Next.js</option>
-                                <option data-label="Apache / Nginx by default runs at port 80" data-command=""
-                                    data-port="80" value="nginx">Apache / Nginx</option>
-                                <option data-label="Rails developement server runs on port 3000 by default"
-                                    data-command="" data-port="3000" value="rails">Ruby on Rails</option>
-                                <option data-label="Laravel / Symfony developement server runs on port 8000 by default"
-                                    data-command="" data-port="8000" value="laravel">Laravel / Symfony</option>
-                                <option data-label="Hugo developement server runs on port 1313 by default"
-                                    data-command="" data-port="1313" value="hugo">Hugo</option>
+                            <select class="form-select" id="techselect" 
+                                x-model="data.tryItYourself.selectedOption" 
+                                x-on:change="data.updateLabelAndCommand()"
+                            >
+                                <option value="python">Python</option>
+                                <option value="nodejs">Node.js</option>
+                                <option value="reactjs">React.js</option>
+                                <option value="nextjs">Next.js</option>
+                                <option value="nginx">Apache / Nginx</option>
+                                <option value="rails">Ruby on Rails</option>
+                                <option value="laravel">Laravel / Symfony</option>
+                                <option value="hugo">Hugo</option>
                             </select>
-
                         </div>
 
-                        <label class="text-bold" id="tryityourselflabel">You may start a local server using:</label>
-                        <div class="input-group mb-3">
+                        <label class="text-bold" id="tryityourselflabel" x-text="data.tryItYourself.label"></label>
+                        <div class="input-group mb-3" x-show="data.tryItYourself.command">
                             <input id="tryityourselfprecommand" type="text" class="form-control"
-                                value="python3 -m http.server" readonly>
+                                x-model="data.tryItYourself.command" readonly>
                             <button class="btn btn-outline-dark" type="button" id="copybutton2"
                                 onclick="copytoclipboard(this,'#tryityourselfprecommand', 'Pre command copy button clicked')"><i
-                                    class="bi bi-clipboard"></i></button>
+                                    class="bi bi-clipboard"></i>
+                            </button>
                         </div>
-
+                        <div class="input-group mb-3" x-show="!data.tryItYourself.command"></div>
+                        <div class="input-group mb-3" x-show="!data.tryItYourself.command"></div>
+                        <div class="input-group mb-3" x-show="!data.tryItYourself.command"></div>
 
                         <form>
                             <label for="portform" class="text-bold"><strong>Your local port:</strong></label>
-                            <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
+                            <input class="form-control" id="portform"
+                                type="text" 
+                                :placeholder="data.tryItYourself.port"
+                                x-model="data.tryItYourself.port"
+                            >
                         </form>
 
                         <div class="mt-3 row">
                             <div class="col-md-6">
                                 <label class="switch">
-                                    <input type="checkbox" id="webdebuggerinput" checked>
+                                    <input type="checkbox" id="webdebuggerinput" x-model="data.tryItYourself.webdebugCheck">
                                     <span class="slider round"></span>
                                 </label>
                                 <label class="form-check-label align-middle enablewebdebuglabel"
@@ -98,13 +94,14 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="switch">
-                                    <input type="checkbox" id="qrinput" checked>
+                                    <input type="checkbox" id="qrinput" x-model="data.tryItYourself.qrCheck">
                                     <span class="slider round"></span>
                                 </label>
                                 <label class="form-check-label align-middle enablewebdebuglabel" for="qrinput">QR
                                     Code <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                         data-bs-placement="right" data-bs-html="true"
-                                        title="Show QR code for the URL"></i></label>
+                                        title="Show QR code for the URL"></i>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -113,19 +110,18 @@
                         <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                         <div class="input-group mt-2">
                             <textarea id="portcommand" class="form-control"
-                                value="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 qr@a.pinggy.io"
-                                readonly="readonly">ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 qr@a.pinggy.io</textarea>
+                                readonly="readonly" x-text="$store.advModal.tryItYourselfCommand()"></textarea>
                             <button class="btn btn-dark" type="button" id="copybutton"
                                 onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"><i
                                     class="bi bi-clipboard"></i></button>
                         </div>
                         <div class="mt-2" id="instructions">Enter "yes" to continue connecting. Enter blank password if
                             prompted.</div>
-                        <div class="mt-2" id="webdebugurl">Default Web Debugger URL: <a href="http://localhost:4300"
+                        <div class="mt-2" id="webdebugurl" x-show="data.tryItYourself.webdebugCheck">
+                            Default Web Debugger URL: <a href="http://localhost:4300"
                                 target="_blank">http://localhost:4300</a>
                         </div>
                     </div>
-
 
                     <!-- <div>
                         <a href="https://dashboard.pinggy.io" id="signinbutton" class="btn btn-primary mt-3">Sign in for TCP and TLS tunnels</a> <span></span>
@@ -330,6 +326,29 @@
                                             </i>
                                         </label>
                                     </div>
+                                    <div class="col col-12" 
+                                        x-show="data.httpConfig.keyAuthentication"
+                                        x-transition.duration.300ms
+                                    >
+                                        <div id="keyauthinputcontainer">
+                                            <div class="input-group keyauthgroup">
+                                                <input type="text" aria-label="key / token" placeholder="Key / token"
+                                                    class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[0]">
+                                                <button class="btn btn-outline-dark addkeyauthinput" type="button"
+                                                    @click="data.httpConfig.keyAuthentications.push('')">
+                                                    <i class="bi bi-plus"></i>
+                                                </button>
+                                            </div>
+                                            <template x-for="(keyauth, index) in data.httpConfig.keyAuthentications" :key="index">
+                                                <div x-show="index > 0" class="input-group keyauthgroup">
+                                                    <input type="text" aria-label="key / token" placeholder="Key / token"
+                                                        class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[index]">
+                                                    <button class="btn btn-outline-danger removekeyauthinput" type="button"
+                                                        @click="data.httpConfig.keyAuthentications.splice(index, 1)"><i class="bi bi-x"></i></button>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
@@ -343,58 +362,32 @@
                                             </i>
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col col-12 col-lg-6" 
-                                    x-show="data.httpConfig.keyAuthentication"
-                                    x-transition.duration.300ms
-                                >
-                                    <div id="keyauthinputcontainer">
-                                        <div class="input-group keyauthgroup">
-                                            <input type="text" aria-label="key / token" placeholder="Key / token"
-                                                class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[0]">
-                                            <button class="btn btn-outline-dark addkeyauthinput" type="button"
-                                                @click="data.httpConfig.keyAuthentications.push('')">
-                                                <i class="bi bi-plus"></i>
-                                            </button>
-                                        </div>
-                                        <template x-for="(keyauth, index) in data.httpConfig.keyAuthentications" :key="index">
-                                            <div x-show="index > 0" class="input-group keyauthgroup">
-                                                <input type="text" aria-label="key / token" placeholder="Key / token"
-                                                    class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[index]">
-                                                <button class="btn btn-outline-danger removekeyauthinput" type="button"
-                                                    @click="data.httpConfig.keyAuthentications.splice(index, 1)"><i class="bi bi-x"></i></button>
-                                            </div>
-                                        </template>
-                                    </div>
-                                </div>
-                                <div class="col col-12 col-lg-6"
-                                    x-show="data.httpConfig.ipWhitelistCheck"
-                                    x-transition.duration.300ms
-                                >
-                                    <div id="ipwhitelistinputcontainer">
-                                        <div class="input-group ipwhitelistgroup">
-                                            <input type="text" aria-label="ip to whitelist"
-                                                placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                                x-model="data.httpConfig.ipWhitelist[0]">
-                                            <button class="btn btn-outline-dark addipinput" type="button"
-                                                @click="data.httpConfig.ipWhitelist.push('')">
-                                                <i class="bi bi-plus"></i>
-                                            </button>
-                                        </div>
-                                        <template x-for="(ip, index) in data.httpConfig.ipWhitelist" :key="index">
-                                            <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                                    <div class="col col-12"
+                                        x-show="data.httpConfig.ipWhitelistCheck"
+                                        x-transition.duration.300ms
+                                    >
+                                        <div id="ipwhitelistinputcontainer">
+                                            <div class="input-group ipwhitelistgroup">
                                                 <input type="text" aria-label="ip to whitelist"
                                                     placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                                    x-model="data.httpConfig.ipWhitelist[index]">
-                                                <button class="btn btn-outline-danger removeipinput" type="button"
-                                                    @click="data.httpConfig.ipWhitelist.splice(index, 1)">
-                                                    <i class="bi bi-x"></i>
+                                                    x-model="data.httpConfig.ipWhitelist[0]">
+                                                <button class="btn btn-outline-dark addipinput" type="button"
+                                                    @click="data.httpConfig.ipWhitelist.push('')">
+                                                    <i class="bi bi-plus"></i>
                                                 </button>
                                             </div>
-                                        </template>
+                                            <template x-for="(ip, index) in data.httpConfig.ipWhitelist" :key="index">
+                                                <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                                                    <input type="text" aria-label="ip to whitelist"
+                                                        placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
+                                                        x-model="data.httpConfig.ipWhitelist[index]">
+                                                    <button class="btn btn-outline-danger removeipinput" type="button"
+                                                        @click="data.httpConfig.ipWhitelist.splice(index, 1)">
+                                                        <i class="bi bi-x"></i>
+                                                    </button>
+                                                </div>
+                                            </template>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
