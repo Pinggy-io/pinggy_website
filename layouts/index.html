@@ -1,7 +1,20 @@
 {{ define "main" }}
 
 <!-- Banner -->
-<header class="pt-1 contentcontainer" x-data="{ data : $store.advModal }">
+<header class="pt-1 contentcontainer" 
+    x-data="{ data : $store.advModal }"
+    x-init="data.tryItYourself = JSON.parse(localStorage.getItem('tryItYourself')) || {
+        selectedOption: 'python',
+        label: 'You may start a local server using:',
+        command: 'python3 -m http.server',
+        port: '8000',
+        webdebugCheck: true,
+        qrCheck: true
+    };
+    $watch('data.tryItYourself', function(value) {
+        localStorage.setItem('tryItYourself', JSON.stringify(value));
+    })"
+>
     <a class="text-decoration-none text-dark text-center" href="/blog/scaling_across_multiple_regions/"
         target="_blank">
         <div class="p-1" style="font-size: 1em; background: #daefff;">Pinggy is now in multiple regions: USA 🇺🇸, Europe 🇸🇪, and Asia 🇸🇬 🚀</div>
@@ -136,6 +149,41 @@
 <div class="modal fade" id="advancedModal" tabindex="-1" 
     aria-labelledby="advancedModalLabel" aria-hidden="true" 
     x-data="{ data : $store.advModal }"
+    x-init="data.httpConfig = JSON.parse(localStorage.getItem('httpConfig')) || {
+        localPort: 8000,
+        webdebugCheck: true,
+        webdebugPort: 4300,
+        keyAuthentication: false,
+        ipWhitelistCheck: false,
+        rsaCheck: true,
+        keepalive: true,
+        qrCheck: false,
+        restart: false,
+        platformselect: 'unix',
+        passwordCheck: false,
+        basicusername: '',
+        basicpass: '',
+        keyAuthentications: [''],
+        ipWhitelist: [''],
+        headerModification: []
+    };
+    data.tcp_tlsConfig = JSON.parse(localStorage.getItem('tcp_tlsConfig')) || {
+        mode: 'tcp',
+        localPort: 8000,
+        keepalive: true,
+        restart: false,
+        platformselect: 'unix',
+        rsaCheck: true,
+        ipWhitelistCheck: false,
+        ipWhitelist: ['']
+    };
+    $watch('data.httpConfig', function(value) {
+        localStorage.setItem('httpConfig', JSON.stringify(value));
+    }, { deep: true });    
+
+    $watch('data.tcp_tlsConfig', function(value) {
+        localStorage.setItem('tcp_tlsConfig', JSON.stringify(value));
+    }, { deep: true });"
 >
     <div class="modal-dialog modal-lg">
         <div class="modal-content px-2 pb-3">
