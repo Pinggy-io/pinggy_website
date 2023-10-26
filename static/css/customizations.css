@@ -19,7 +19,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-1 * 15vh * 51.2));
+    transform: translateX(calc(-1 * 15vh * 67.8));
   }
 }
 @media (min-width: 768px) {
