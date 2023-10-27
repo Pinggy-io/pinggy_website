@@ -113,8 +113,10 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (config.passwordCheck && config.basicusername && config.basicpass) {
-        headercommands +=
-          " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
+        if (!config.usernameError && !config.basicpassError) {
+          headercommands +=
+            " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
+        }
       }
 
       if (headercommands != "") {
@@ -214,6 +216,7 @@ function trynow() {
     $("#bigcodecolumn").removeClass("shadowhighlight");
   }, 2000);
 }
+
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);

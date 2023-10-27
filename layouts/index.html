@@ -162,7 +162,9 @@
         platformselect: 'unix',
         passwordCheck: false,
         basicusername: '',
+        usernameError: false,
         basicpass: '',
+        basicpassError: false,
         keyAuthentications: [''],
         ipWhitelist: [''],
         headerModification: []
@@ -345,17 +347,35 @@
                                 x-show="data.httpConfig.passwordCheck"
                                 x-transition.duration.300ms
                             >
-                               <div class="col col-12 col-lg-6">
+                                <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicusername" placeholder="Username"
-                                            x-model="data.httpConfig.basicusername">
+                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.usernameError}" 
+                                            id="adv_basicusername" placeholder="Username" 
+                                            x-model="data.httpConfig.basicusername" 
+                                            x-init="$watch('data.httpConfig.basicusername', function(value) {
+                                                data.httpConfig.usernameError = value.includes(':');
+                                            })"
+                                        >                                        
+                                        <div class="invalid-feedback" 
+                                            x-show="data.httpConfig.usernameError">
+                                            Username cannot contain ':'
+                                        </div>
                                         <label for="adv_basicusername">Username</label>
                                     </div>
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicpass" placeholder="Password"
-                                            x-model="data.httpConfig.basicpass">
+                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.basicpassError}" 
+                                            id="adv_basicpass" placeholder="Password"
+                                            x-model="data.httpConfig.basicpass"
+                                            x-init="$watch('data.httpConfig.basicpass', function(value) {
+                                                data.httpConfig.basicpassError = value.includes(':');
+                                            })"
+                                        >
+                                        <div class="invalid-feedback"  
+                                            x-show="data.httpConfig.basicpassError">
+                                            Password cannot contain ':'
+                                        </div>
                                         <label for="adv_basicpass">Password</label>
                                     </div>
                                 </div>
