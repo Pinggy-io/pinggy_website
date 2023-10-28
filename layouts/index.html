@@ -1,7 +1,20 @@
 {{ define "main" }}
 
 <!-- Banner -->
-<header class="pt-1 contentcontainer">
+<header class="pt-1 contentcontainer" 
+    x-data="{ data : $store.advModal }"
+    x-init="data.tryItYourself = JSON.parse(localStorage.getItem('tryItYourself')) || {
+        selectedOption: 'python',
+        label: 'You may start a local server using:',
+        command: 'python3 -m http.server',
+        port: '8000',
+        webdebugCheck: true,
+        qrCheck: true
+    };
+    $watch('data.tryItYourself', function(value) {
+        localStorage.setItem('tryItYourself', JSON.stringify(value));
+    })"
+>
     <a class="text-decoration-none text-dark text-center" href="/blog/scaling_across_multiple_regions/"
         target="_blank">
         <div class="p-1" style="font-size: 1em; background: #daefff;">Pinggy is now in multiple regions: USA 🇺🇸, Europe 🇸🇪, and Asia 🇸🇬 🚀</div>
@@ -44,52 +57,48 @@
                         </button>
 
                         <div class="input-group mb-4 pt-1">
-
                             <label class="input-group-text" id="tryityourselftext">Try it yourself with:</label>
-
-                            <select class="form-select" id="techselect">
-                                <option data-label="You may start a local server using:"
-                                    data-command="python3 -m http.server" data-port="8000" value="python" selected>
-                                    Python</option>
-                                <option data-label="You may start a local server using:" data-command="npx http-server"
-                                    data-port="8080" value="nodejs">Node.js</option>
-                                <option data-label="You may start a React.js app using:"
-                                    data-command="npx create-react-app app && cd app && npm start" data-port="3000"
-                                    value="reactjs">React.js</option>
-                                <option data-label="You may start a Next.js app using:"
-                                    data-command="npx create-next-app app && cd app && npm run dev" data-port="3000"
-                                    value="nextjs">Next.js</option>
-                                <option data-label="Apache / Nginx by default runs at port 80" data-command=""
-                                    data-port="80" value="nginx">Apache / Nginx</option>
-                                <option data-label="Rails developement server runs on port 3000 by default"
-                                    data-command="" data-port="3000" value="rails">Ruby on Rails</option>
-                                <option data-label="Laravel / Symfony developement server runs on port 8000 by default"
-                                    data-command="" data-port="8000" value="laravel">Laravel / Symfony</option>
-                                <option data-label="Hugo developement server runs on port 1313 by default"
-                                    data-command="" data-port="1313" value="hugo">Hugo</option>
+                            <select class="form-select" id="techselect" 
+                                x-model="data.tryItYourself.selectedOption" 
+                                x-on:change="data.updateLabelAndCommand()"
+                            >
+                                <option value="python">Python</option>
+                                <option value="nodejs">Node.js</option>
+                                <option value="reactjs">React.js</option>
+                                <option value="nextjs">Next.js</option>
+                                <option value="nginx">Apache / Nginx</option>
+                                <option value="rails">Ruby on Rails</option>
+                                <option value="laravel">Laravel / Symfony</option>
+                                <option value="hugo">Hugo</option>
                             </select>
-
                         </div>
 
-                        <label class="text-bold" id="tryityourselflabel">You may start a local server using:</label>
-                        <div class="input-group mb-3">
+                        <label class="text-bold" id="tryityourselflabel" x-text="data.tryItYourself.label"></label>
+                        <div class="input-group mb-3" x-show="data.tryItYourself.command">
                             <input id="tryityourselfprecommand" type="text" class="form-control"
-                                value="python3 -m http.server" readonly>
+                                x-model="data.tryItYourself.command" readonly>
                             <button class="btn btn-outline-dark" type="button" id="copybutton2"
                                 onclick="copytoclipboard(this,'#tryityourselfprecommand', 'Pre command copy button clicked')"><i
-                                    class="bi bi-clipboard"></i></button>
+                                    class="bi bi-clipboard"></i>
+                            </button>
                         </div>
-
+                        <div class="input-group mb-3" x-show="!data.tryItYourself.command"></div>
+                        <div class="input-group mb-3" x-show="!data.tryItYourself.command"></div>
+                        <div class="input-group mb-3" x-show="!data.tryItYourself.command"></div>
 
                         <form>
                             <label for="portform" class="text-bold"><strong>Your local port:</strong></label>
-                            <input type="text" class="form-control" id="portform" placeholder="8000" value="8000">
+                            <input class="form-control" id="portform"
+                                type="text" 
+                                :placeholder="data.tryItYourself.port"
+                                x-model="data.tryItYourself.port"
+                            >
                         </form>
 
                         <div class="mt-3 row">
                             <div class="col-md-6">
                                 <label class="switch">
-                                    <input type="checkbox" id="webdebuggerinput" checked>
+                                    <input type="checkbox" id="webdebuggerinput" x-model="data.tryItYourself.webdebugCheck">
                                     <span class="slider round"></span>
                                 </label>
                                 <label class="form-check-label align-middle enablewebdebuglabel"
@@ -98,13 +107,14 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="switch">
-                                    <input type="checkbox" id="qrinput" checked>
+                                    <input type="checkbox" id="qrinput" x-model="data.tryItYourself.qrCheck">
                                     <span class="slider round"></span>
                                 </label>
                                 <label class="form-check-label align-middle enablewebdebuglabel" for="qrinput">QR
                                     Code <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                         data-bs-placement="right" data-bs-html="true"
-                                        title="Show QR code for the URL"></i></label>
+                                        title="Show QR code for the URL"></i>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -113,19 +123,18 @@
                         <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                         <div class="input-group mt-2">
                             <textarea id="portcommand" class="form-control"
-                                value="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 qr@a.pinggy.io"
-                                readonly="readonly">ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 qr@a.pinggy.io</textarea>
+                                readonly="readonly" x-text="$store.advModal.tryItYourselfCommand()"></textarea>
                             <button class="btn btn-dark" type="button" id="copybutton"
                                 onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"><i
                                     class="bi bi-clipboard"></i></button>
                         </div>
                         <div class="mt-2" id="instructions">Enter "yes" to continue connecting. Enter blank password if
                             prompted.</div>
-                        <div class="mt-2" id="webdebugurl">Default Web Debugger URL: <a href="http://localhost:4300"
+                        <div class="mt-2" id="webdebugurl" x-show="data.tryItYourself.webdebugCheck">
+                            Default Web Debugger URL: <a href="http://localhost:4300"
                                 target="_blank">http://localhost:4300</a>
                         </div>
                     </div>
-
 
                     <!-- <div>
                         <a href="https://dashboard.pinggy.io" id="signinbutton" class="btn btn-primary mt-3">Sign in for TCP and TLS tunnels</a> <span></span>
@@ -137,7 +146,47 @@
 </header>
 
 <!-- Modal -->
-<div class="modal fade" id="advancedModal" tabindex="-1" aria-labelledby="advancedModalLabel" aria-hidden="true">
+<div class="modal fade" id="advancedModal" tabindex="-1" 
+    aria-labelledby="advancedModalLabel" aria-hidden="true" 
+    x-data="{ data : $store.advModal }"
+    x-init="data.httpConfig = JSON.parse(localStorage.getItem('httpConfig')) || {
+        localPort: 8000,
+        webdebugCheck: true,
+        webdebugPort: 4300,
+        keyAuthentication: false,
+        ipWhitelistCheck: false,
+        rsaCheck: true,
+        keepalive: true,
+        qrCheck: false,
+        restart: false,
+        platformselect: 'unix',
+        passwordCheck: false,
+        basicusername: '',
+        usernameError: false,
+        basicpass: '',
+        basicpassError: false,
+        keyAuthentications: [''],
+        ipWhitelist: [''],
+        headerModification: []
+    };
+    data.tcp_tlsConfig = JSON.parse(localStorage.getItem('tcp_tlsConfig')) || {
+        mode: 'tcp',
+        localPort: 8000,
+        keepalive: true,
+        restart: false,
+        platformselect: 'unix',
+        rsaCheck: true,
+        ipWhitelistCheck: false,
+        ipWhitelist: ['']
+    };
+    $watch('data.httpConfig', function(value) {
+        localStorage.setItem('httpConfig', JSON.stringify(value));
+    }, { deep: true });    
+
+    $watch('data.tcp_tlsConfig', function(value) {
+        localStorage.setItem('tcp_tlsConfig', JSON.stringify(value));
+    }, { deep: true });"
+>
     <div class="modal-dialog modal-lg">
         <div class="modal-content px-2 pb-3">
             <div class="modal-header">
@@ -153,37 +202,49 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="tcp-tab" data-bs-toggle="tab" data-bs-target="#tcp-tab-pane"
-                            type="button" role="tab" aria-controls="tcp-tab-pane" aria-selected="false">TCP</button>
+                            type="button" role="tab" aria-controls="tcp-tab-pane" aria-selected="false"
+                            @click="data.tcp_tlsConfig.mode = 'tcp'">TCP</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="tls-tab" data-bs-toggle="tab" data-bs-target="#tcp-tab-pane"
-                            type="button" role="tab" aria-controls="tls-tab-pane" aria-selected="false">TLS</button>
+                            type="button" role="tab" aria-controls="tls-tab-pane" aria-selected="false"
+                            @click="data.tcp_tlsConfig.mode = 'tls'">TLS</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="advancedSettingsTabContent">
                     <div class="tab-pane fade show active" id="http-tab-pane" role="tabpanel" aria-labelledby="http-tab"
                         tabindex="0">
                         <form>
-
                             <div class="row">
                                 <div class="col col-6 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" id="adv_localPort" placeholder="8000"
-                                            value="8000">
+                                        <input class="form-control" id="adv_localPort" 
+                                            type="number" 
+                                            placeholder="8000"
+                                            x-model="data.httpConfig.localPort"
+                                        >
                                         <label for="adv_localPort">Local Port</label>
                                     </div>
                                 </div>
                                 <div class="col col-6 col-lg-6">
-                                    <div class="form-floating mb-3" id="adv_webdebuggerportselector">
-                                        <input type="number" class="form-control" id="adv_webdebugPort"
-                                            placeholder="4300" value="4300">
+                                    <div class="form-floating mb-3" id="adv_webdebuggerportselector" 
+                                        x-show="data.httpConfig.webdebugCheck" 
+                                        x-transition.duration.300ms
+                                    >
+                                        <input class="form-control" id="adv_webdebugPort"
+                                            type="number"
+                                            placeholder="4300" 
+                                            x-model="data.httpConfig.webdebugPort"
+                                        >
                                         <label for="adv_webdebugPort">Web Debugger Port</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-floating mb-3" id="adv_platformselect_div" style="display: none;">
-                                <select class="form-select" aria-label="Select platform id" id="adv_platformselect">
-                                    <option value="unix" selected>Mac / Linux</option>
+                            <div class="form-floating mb-3" id="adv_platformselect_div"
+                                x-show="data.httpConfig.restart" x-transition.duration.300ms>
+                                <select class="form-select" aria-label="Select platform id" 
+                                    id="adv_platformselect" x-model="data.httpConfig.platformselect">
+                                    <option value="unix">Mac / Linux</option>
                                     <option value="windows">Windows</option>
                                 </select>
                                 <label for="adv_platformselect">Platform</label>
@@ -195,17 +256,21 @@
                             <div class="input-group mt-1">
                                 <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommand"
                                     class="form-control font-monospace" style="font-size: 0.8rem;"
-                                    readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
+                                    readonly x-text="$store.advModal.advancedHttpCommand()"></textarea>
                                 <button class="btn btn-outline-dark" type="button" id="copybutton"
                                     onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
                                         class="bi bi-clipboard"></i></button>
                             </div>
-                            <div class="mt-3" style="font-size: 0.8rem;" id="adv_webdebugurl">Web Debugger URL: <a
-                                    href="http://localhost:4300" target="_blank">http://localhost:4300</a></div>
-                            <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem; display: none;"
-                                role="alert" id="adv_alert">
-                                When the tunnel reconnects, your public URL will change. Upgrade to <a
-                                    href="/#prices">Pinggy Pro</a> for persistent URLs.
+
+                            <div class="mt-3" style="font-size: 0.8rem;" id="adv_webdebugurl" 
+                                x-show="data.httpConfig.webdebugCheck" x-transition.duration.300ms>
+                                Web Debugger URL: <a x-bind:href="'http://localhost:' + data.httpConfig.webdebugPort" target="_blank">
+                                <span x-text="'http://localhost:' + data.httpConfig.webdebugPort"></span>
+                                </a>
+                            </div>
+                            <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem;" role="alert" id="adv_alert"
+                                x-show="data.httpConfig.restart" x-transition.duration.300ms>
+                                When the tunnel reconnects, your public URL will change. Upgrade to <a href="/#prices">Pinggy Pro</a> for persistent URLs.
                             </div>
 
                             <hr>
@@ -213,13 +278,16 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" checked>
+                                        <input class="form-check-input" type="checkbox" id="adv_webdebugCheck" 
+                                            x-model="data.httpConfig.webdebugCheck">
                                         <label class="form-check-label" for="adv_webdebugCheck">Web Debugger</label>
                                     </div>
                                 </div>
                                 <div class="col col-6 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_qrCheck">
+                                        <input class="form-check-input" type="checkbox" id="adv_qrCheck"
+                                            x-model="data.httpConfig.qrCheck"
+                                        >
                                         <label class="form-check-label" for="adv_qrCheck">QR Code <i
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right" data-bs-html="true"
@@ -231,7 +299,8 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_keepalive" checked>
+                                        <input class="form-check-input" type="checkbox" id="adv_keepalive"
+                                            x-model="data.httpConfig.keepalive">
                                         <label class="form-check-label" for="adv_keepalive">Keep Alive <i
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
@@ -240,7 +309,8 @@
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_restart">
+                                        <input class="form-check-input" type="checkbox" id="adv_restart"
+                                            x-model="data.httpConfig.restart">
                                         <label class="form-check-label" for="adv_restart">Auto Reconnect <i
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
@@ -252,7 +322,9 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_passwordCheck">
+                                        <input class="form-check-input" type="checkbox" id="adv_passwordCheck"
+                                            x-model="data.httpConfig.passwordCheck"
+                                            x-on:click="data.httpConfig.keyAuthentication = false">
                                         <label class="form-check-label" for="adv_passwordCheck">Password Protect <i
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right" data-bs-html="true"
@@ -262,7 +334,8 @@
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_rsaCheck" checked>
+                                        <input class="form-check-input" type="checkbox" id="adv_rsaCheck"
+                                            x-model="data.httpConfig.rsaCheck">
                                         <label class="form-check-label" for="adv_rsaCheck">Manually check host key <i
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
@@ -270,16 +343,39 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" id="adv_passwordfields" style="display: none;">
+                            <div class="row" id="adv_passwordfields" 
+                                x-show="data.httpConfig.passwordCheck"
+                                x-transition.duration.300ms
+                            >
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicusername" placeholder="Username">
+                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.usernameError}" 
+                                            id="adv_basicusername" placeholder="Username" 
+                                            x-model="data.httpConfig.basicusername" 
+                                            x-init="$watch('data.httpConfig.basicusername', function(value) {
+                                                data.httpConfig.usernameError = value.includes(':');
+                                            })"
+                                        >                                        
+                                        <div class="invalid-feedback" 
+                                            x-show="data.httpConfig.usernameError">
+                                            Username cannot contain ':'
+                                        </div>
                                         <label for="adv_basicusername">Username</label>
                                     </div>
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicpass" placeholder="Password">
+                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.basicpassError}" 
+                                            id="adv_basicpass" placeholder="Password"
+                                            x-model="data.httpConfig.basicpass"
+                                            x-init="$watch('data.httpConfig.basicpass', function(value) {
+                                                data.httpConfig.basicpassError = value.includes(':');
+                                            })"
+                                        >
+                                        <div class="invalid-feedback"  
+                                            x-show="data.httpConfig.basicpassError">
+                                            Password cannot contain ':'
+                                        </div>
                                         <label for="adv_basicpass">Password</label>
                                     </div>
                                 </div>
@@ -288,7 +384,9 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_keyAuthentication">
+                                        <input class="form-check-input" type="checkbox" id="adv_keyAuthentication"
+                                            x-model="data.httpConfig.keyAuthentication"
+                                            x-on:click="data.httpConfig.passwordCheck = false">
                                         <label class="form-check-label" for="adv_keyAuthentication">
                                             Key / Token Authentication
                                             <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
@@ -296,10 +394,34 @@
                                             </i>
                                         </label>
                                     </div>
+                                    <div class="col col-12" 
+                                        x-show="data.httpConfig.keyAuthentication"
+                                        x-transition.duration.300ms
+                                    >
+                                        <div id="keyauthinputcontainer">
+                                            <div class="input-group keyauthgroup">
+                                                <input type="text" aria-label="key / token" placeholder="Key / token"
+                                                    class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[0]">
+                                                <button class="btn btn-outline-dark addkeyauthinput" type="button"
+                                                    @click="data.httpConfig.keyAuthentications.push('')">
+                                                    <i class="bi bi-plus"></i>
+                                                </button>
+                                            </div>
+                                            <template x-for="(keyauth, index) in data.httpConfig.keyAuthentications" :key="index">
+                                                <div x-show="index > 0" class="input-group keyauthgroup">
+                                                    <input type="text" aria-label="key / token" placeholder="Key / token"
+                                                        class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[index]">
+                                                    <button class="btn btn-outline-danger removekeyauthinput" type="button"
+                                                        @click="data.httpConfig.keyAuthentications.splice(index, 1)"><i class="bi bi-x"></i></button>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_ipWhitelist">
+                                        <input class="form-check-input" type="checkbox" id="adv_ipWhitelist"
+                                            x-model="data.httpConfig.ipWhitelistCheck">
                                         <label class="form-check-label" for="adv_ipWhitelist">
                                             IP Whitelist
                                             <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
@@ -308,54 +430,90 @@
                                             </i>
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col col-12 col-lg-6">
-                                    <div id="keyauthinputcontainer">
-                                        <div class="input-group keyauthgroup">
-                                            <input type="text" aria-label="key / token" placeholder="Key / token"
-                                                class="form-control keyauthval">
-                                            <button class="btn btn-outline-dark addkeyauthinput" type="button"
-                                                onclick="addkeyauthinput()"><i class="bi bi-plus"></i></a></button>
+                                    <div class="col col-12"
+                                        x-show="data.httpConfig.ipWhitelistCheck"
+                                        x-transition.duration.300ms
+                                    >
+                                        <div id="ipwhitelistinputcontainer">
+                                            <div class="input-group ipwhitelistgroup">
+                                                <input type="text" aria-label="ip to whitelist"
+                                                    placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
+                                                    x-model="data.httpConfig.ipWhitelist[0]">
+                                                <button class="btn btn-outline-dark addipinput" type="button"
+                                                    @click="data.httpConfig.ipWhitelist.push('')">
+                                                    <i class="bi bi-plus"></i>
+                                                </button>
+                                            </div>
+                                            <template x-for="(ip, index) in data.httpConfig.ipWhitelist" :key="index">
+                                                <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                                                    <input type="text" aria-label="ip to whitelist"
+                                                        placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
+                                                        x-model="data.httpConfig.ipWhitelist[index]">
+                                                    <button class="btn btn-outline-danger removeipinput" type="button"
+                                                        @click="data.httpConfig.ipWhitelist.splice(index, 1)">
+                                                        <i class="bi bi-x"></i>
+                                                    </button>
+                                                </div>
+                                            </template>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col col-12 col-lg-6">
-                                    <div id="ipwhitelistinputcontainer">
-                                        <div class="input-group ipwhitelistgroup">
-                                            <input type="text" aria-label="ip to whitelist"
-                                                placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval">
-                                            <button class="btn btn-outline-dark addipinput" type="button"
-                                                onclick="addipinput()"><i class="bi bi-plus"></i></a></button>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
+                                        type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
+                                        title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i>
+                                </label>
                             </div>
 
-                            <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
-                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
-                                    title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i></label>
+                            <div>
+                                <button type="button" class="btn btn-outline-dark mb-3 mt-2"
+                                    @click="data.httpConfig.headerModification.push({ mode: 'a', name: '', value: '' })">
+                                    <i class="bi bi-plus"></i> Add header modification rule
+                                </button>
+                            </div>
+
                             <div id="headermodificationcontainer">
-
+                                <template x-for="(headerMod, index) in data.httpConfig.headerModification" :key="index">
+                                    <div class="input-group headermodificationgroup">
+                                        <select class="form-select headermodificationmode" 
+                                            x-model="data.httpConfig.headerModification[index].mode">
+                                        <option value="a">Add</option>
+                                        <option value="u">Replace</option>
+                                        <option value="r">Remove</option>
+                                        </select>
+                                        <input type="text" aria-label="header name" placeholder="Header Name" class="form-control headername" 
+                                            x-model="data.httpConfig.headerModification[index].name">
+                                        <input type="text" aria-label="header value" placeholder="Value" class="form-control headerval" 
+                                            x-model="data.httpConfig.headerModification[index].value"
+                                            :disabled="data.httpConfig.headerModification[index].mode === 'r'"
+                                            :value="data.httpConfig.headerModification[index].mode === 'r' ? '' : data.httpConfig.headerModification[index].value">
+                                        <button class="btn btn-outline-danger removeheadermodificationrow" type="button"
+                                            @click="data.httpConfig.headerModification.splice(index, 1)">
+                                            <i class="bi bi-x"></i>
+                                        </button>
+                                    </div>
+                                </template>
                             </div>
-                            <button type="button" class="btn btn-outline-dark mb-3 mt-2"
-                                onclick="addheadermodificationrow()">
-                                <i class="bi bi-plus"></i> Add header modification rule</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="tcp-tab-pane" role="tabpanel" aria-labelledby="tcp-tab" tabindex="0">
                         <form class="tcptls_adv_conf_form">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="adv_localPort_tcp" placeholder="8000"
-                                    value="8000">
+                                <input class="form-control" id="adv_localPort_tcp" 
+                                    type="number"
+                                    placeholder="8000"
+                                    x-model="data.tcp_tlsConfig.localPort"
+                                >
                                 <label for="adv_localPort_tcp">Local Port</label>
                             </div>
 
-                            <div class="form-floating mb-3" id="adv_platformselect_tcp_div" style="display: none;">
-                                <select class="form-select" aria-label="Select platform id" id="adv_platformselect_tcp">
-                                    <option value="unix" selected>Mac / Linux</option>
+                            <div class="form-floating mb-3" id="adv_platformselect_tcp_div"
+                                x-show="data.tcp_tlsConfig.restart" x-transition.duration.300ms>
+                                <select class="form-select" aria-label="Select platform id" 
+                                    id="adv_platformselect_tcp" x-model="data.tcp_tlsConfig.platformselect">
+                                    <option value="unix">Mac / Linux</option>
                                     <option value="windows">Windows</option>
                                 </select>
                                 <label for="adv_platformselect_tcp">Platform</label>
@@ -367,13 +525,14 @@
                             <div class="input-group mt-1">
                                 <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommandtcp"
                                     class="form-control font-monospace" style="font-size: 0.8rem;"
-                                    readonly>ssh -p 443 -R 0:localhost:8000 -L 4300:localhost:4300 a.pinggy.io</textarea>
+                                    readonly x-text="$store.advModal.advancedTcpTlsCommand()"></textarea>
                                 <button class="btn btn-outline-dark" type="button" id="copybutton"
                                     onclick="copytoclipboard(this,'#advancedcommandtcp','SSH url copy button clicked')"><i
                                         class="bi bi-clipboard"></i></button>
                             </div>
-                            <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem; display: none;"
-                                role="alert" id="adv_alert">
+                            <div class="alert alert-warning mt-2 p-2" style="font-size: 0.9rem;"
+                                role="alert" id="adv_alert"
+                                x-show="data.tcp_tlsConfig.restart" x-transition.duration.300ms>
                                 When the tunnel reconnects, your public URL will change. Upgrade to <a
                                     href="/#prices">Pinggy Pro</a> for persistent URLs.
                             </div>
@@ -383,7 +542,8 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_keepalive_tcp" checked>
+                                        <input class="form-check-input" type="checkbox" id="adv_keepalive_tcp"
+                                            x-model="data.tcp_tlsConfig.keepalive">
                                         <label class="form-check-label" for="adv_keepalive_tcp">Keep Alive <i
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
@@ -392,7 +552,8 @@
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_restart_tcp">
+                                        <input class="form-check-input" type="checkbox" id="adv_restart_tcp"
+                                            x-model="data.tcp_tlsConfig.restart">
                                         <label class="form-check-label" for="adv_restart_tcp">Auto Reconnect <i
                                                 class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
@@ -403,7 +564,8 @@
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_ipWhitelistTCP">
+                                        <input class="form-check-input" type="checkbox" id="adv_ipWhitelistTCP"
+                                            x-model="data.tcp_tlsConfig.ipWhitelistCheck">
                                         <label class="form-check-label" for="adv_ipWhitelistTCP">
                                             IP Whitelist
                                             <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
@@ -415,7 +577,8 @@
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="adv_rsaCheck_tcp" checked>
+                                        <input class="form-check-input" type="checkbox" id="adv_rsaCheck_tcp"
+                                            x-model="data.tcp_tlsConfig.rsaCheck">
                                         <label class="form-check-label" for="adv_rsaCheck_tcp">Manually check host key
                                             <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
@@ -424,14 +587,31 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col col-12 col-lg-6">
+                                <div class="col col-12 col-lg-6"
+                                    x-show="data.tcp_tlsConfig.ipWhitelistCheck"
+                                    x-transition.duration.300ms
+                                >
                                     <div id="ipwhitelistinputcontainerTCP">
                                         <div class="input-group ipwhitelistgroupTCP">
                                             <input type="text" aria-label="ip to whitelist"
-                                                placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval">
+                                                placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval"
+                                                x-model="data.tcp_tlsConfig.ipWhitelist[0]">
                                             <button class="btn btn-outline-dark addipinput" type="button"
-                                                onclick="addipinputTCP()"><i class="bi bi-plus"></i></a></button>
+                                                @click="data.tcp_tlsConfig.ipWhitelist.push('')">
+                                                <i class="bi bi-plus"></i></a>
+                                            </button>
                                         </div>
+                                        <template x-for="(ip, index) in data.tcp_tlsConfig.ipWhitelist" :key="index">
+                                            <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                                                <input type="text" aria-label="ip to whitelist"
+                                                    placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
+                                                    x-model="data.tcp_tlsConfig.ipWhitelist[index]">
+                                                <button class="btn btn-outline-danger removeipinput" type="button"
+                                                    @click="data.tcp_tlsConfig.ipWhitelist.splice(index, 1)">
+                                                    <i class="bi bi-x"></i>
+                                                </button>
+                                            </div>
+                                        </template>
                                     </div>
                                 </div>
                             </div>
@@ -440,48 +620,232 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <div style="display: none;" id="headermodificationinputsample">
-            <div class="input-group headermodificationgroup">
-                <select class="form-select headermodificationmode">
-                    <option value="a" selected>Add</option>
-                    <option value="u">Replace</option>
-                    <option value="r">Remove</option>
-                </select>
-                <input type="text" aria-label="header name" placeholder="Header Name" class="form-control headername">
-                <input type="text" aria-label="header value" placeholder="Value" class="form-control headerval">
-                <button class="btn btn-outline-danger removeheadermodificationrow" type="button"><i
-                        class="bi bi-x"></i></a></button>
-            </div>
-        </div>
-        <div style="display: none;" id="keyauthinputsample">
-            <div class="input-group keyauthgroup">
-                <input type="text" aria-label="key / token" placeholder="Key / token" class="form-control keyauthval">
-                <button class="btn btn-outline-danger removekeyauthinput" type="button"><i
-                        class="bi bi-x"></i></a></button>
-            </div>
-        </div>
-        <div style="display: none;" id="ipinputsample">
-            <div class="input-group ipwhitelistgroup">
-                <input type="text" aria-label="ip to whitelist" placeholder="IP in CIDR (e.g. 10.2.3.4/16)"
-                    class="form-control ipval">
-                <button class="btn btn-outline-danger removeipinput" type="button"><i class="bi bi-x"></i></a></button>
-            </div>
+<!-- Features -->
+<div class="container">
+    <div class=" pt-5 my-3 row justify-content-center">
+        <div class="col-lg-6">
+            <h2 class="mb-5 text-left fw-light">Quickest way to <span id="textchanger"></span></h2>
         </div>
     </div>
 </div>
 
-
-<!-- Features -->
-
 <!-- Features section-->
+<section id="features">
+    <div class="marquee">
+        <div class="marquee-content">
+            <a href="quickstart/jupyternotebook/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/jupyter.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/django/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/django.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/apachehttpd/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/apache.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/drupal/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/drupal.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/flask/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/flask.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/github/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/github.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/gitlab/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/gitlab.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/joomla/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/joomla.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/laravel/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/laravel.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/mongodb/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mongodb.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/mysql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mysql.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/mssql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mssql.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/nuxt/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/nuxt.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/nginx/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/nginx.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/postgresql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/postgresql.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/redis/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/redis.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/wordpress/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/wordpress.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/xampp/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/xampp.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/ghost/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/ghost.png" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/homeassistant/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/homeassistant.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/shopify/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/shopify.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/razorpay/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/razorpay.png"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/traefik/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/traefik.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/portainer/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/portainer.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/slack/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/slack.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/stripe/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/stripe.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/wamp/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/wamp.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/rails/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/rails.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/react/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/react.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/svelte/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/svelte.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/next/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/next.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/express/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/express.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/springboot/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/springboot.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/nextcloud/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/nextcloud.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/twilio/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/twilio.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/telegram/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/telegram.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/hugo/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/hugo.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/jekyll/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/jekyll.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/netdata/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/netdata.webp"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/strapi/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/strapi.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/jupyternotebook/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/jupyter.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/django/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/django.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/apachehttpd/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/apache.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/drupal/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/drupal.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/flask/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/flask.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/github/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/github.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/gitlab/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/gitlab.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/joomla/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/joomla.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/laravel/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/laravel.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/mongodb/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mongodb.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/mysql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mysql.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+        </div>
+    </div>
+</section>
+
 <section class="pt-5" id="features">
     <div class="container my-5">
-        <div class="my-3 row justify-content-center">
-            <div class="col-lg-6">
-                <h2 class="mb-5 text-left fw-light">Quickest way to <span id="textchanger"></span></h2>
-            </div>
-        </div>
         <div class="row justify-content-evenly">
             <div class="col-lg-6 mb-5 mb-lg-0">
                 <!-- <div class="videocontainer ratio ratio-16x9">
@@ -537,7 +901,6 @@
                 <img src="/assets/webdebug2.webp" class="img-fluid featureimage" alt="Pinggy web debugger screenshot" />
             </div>
         </div>
-
     </div>
 </section>
 
@@ -582,9 +945,7 @@
                     <i class="bi bi-arrow-up-right-square"></i>
                 </a>
             </div>
-
         </div>
-
     </div>
 </section>
 
@@ -605,10 +966,6 @@
 
     </div>
 </section>
-
-
-
-
 
 <!-- Features section-->
 <section class="py-5 border-bottom" id="features">
@@ -694,7 +1051,6 @@
     </div>
 </section>
 
-
 <header class="bg-light py-5" id="prices">
     <div class="container">
         <div class="row justify-content-md-center">
@@ -712,7 +1068,6 @@
                         offer!</span>
                 </div> -->
 
-
                 <main>
                     <div class="row justify-content-center text-left">
                         <div class="mb-3 col-md-9">
@@ -724,7 +1079,6 @@
                             <label class="toggler align-middle" id="filt-hourly">Yearly</label><span
                                 class="align-middle" style="color: rgba(70, 117, 199, 1); font-size: 0.8em;"> (Save upto
                                 17%)</span>
-
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-md-4 mb-3 text-center justify-content-center">
@@ -753,7 +1107,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col mb-4">
+                        <div x-data="{ seatVal: 1 }" class="col mb-4">
                             <div class="pricecard card rounded-3 shadow-sm">
                                 <div class="card-header py-3">
                                     <h4 class="my-0 fw-normal">Pro</h4>
@@ -762,48 +1116,44 @@
                                     <div style="max-width: 140px; margin: 0 auto;">
                                         <div class="input-group seat-spinner">
                                             <span class="input-group-btn">
-                                                <button class="btn btn-outline-dark" data-dir="dwn">-</button>
+                                                <button @click="seatVal = Math.max(1, parseInt(seatVal) - 1)"
+                                                    class="btn btn-outline-dark">-</button>
                                             </span>
-                                            <input type="number" class="form-control text-center" value="1">
+                                            <input 
+                                                type="number" 
+                                                class="form-control text-center" 
+                                                x-model="seatVal" 
+                                                x-on:input="seatVal = isNaN(parseFloat(seatVal)) || seatVal < 1 ? 1 : seatVal"
+                                            >
                                             <span class="input-group-btn">
-                                                <button class="btn btn-outline-dark" data-dir="up">+</button>
+                                                <button @click="seatVal = parseInt(seatVal) + 1"
+                                                    class="btn btn-outline-dark">+</button>
                                             </span>
                                         </div>
                                         <span>Seats</span>
                                     </div>
                                     <div class="yearly">
-                                        <!-- <h2 class="card-title pricing-card-title"><small
-                                                class="text-muted fw-light"><del>$<span class="yearpriceold">5.00</span> /month</del></small></h2> -->
-                                        <h1 class="card-title pricing-card-title">$<span id="yearprice"
-                                                data-price="2.50">2.50</span><small
-                                                class="text-muted fw-light">/month</small></h1>
+                                        <h1 class="card-title pricing-card-title">
+                                            $<span x-text="(2.50 * seatVal).toFixed(2)" id="yearprice"></span><small class="text-muted fw-light">/month</small>
+                                        </h1>
                                         <span class="text-muted fw-light">(billed annually)</span>
                                     </div>
                                     <div class="monthly">
-                                        <!-- <h2 class="card-title pricing-card-title"><small
-                                                class="text-muted fw-light"><del>$<span class="monthpriceold">6.00</span> /month</del></small></h2> -->
-                                        <h1 class="card-title pricing-card-title">$<span id="monthprice"
-                                                data-price="3.00">3.00</span><small
-                                                class="text-muted fw-light">/month</small></h1>
+                                        <h1 class="card-title pricing-card-title">
+                                            $<span x-text="(3.00 * seatVal).toFixed(2)" id="monthprice"></span><small class="text-muted fw-light">/month</small>
+                                        </h1>
                                         <span class="text-muted fw-light">(billed monthly)</span>
                                     </div>
                                     <ul class="list-unstyled mt-3 mb-4 text-left list-group">
-                                        <li class="list-group-item p-2 bg-light">Everyting in Free plan</li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Persistent
-                                                tunnel<span class="multipleseat"></span></b></li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Custom
-                                                subdomain<span class="multipleseat"></span></b></li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Custom
-                                                domain<span class="multipleseat"></span></b></li>
-                                        <li class="list-group-item p-2"><b><span class="seatval">1</span> Persistent TCP
-                                                port<span class="multipleseat"></span></b></li>
+                                        <li class="list-group-item p-2 bg-light">Everything in Free plan</li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Persistent tunnel<span x-show="seatVal > 1">s</span></b></li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Custom subdomain<span x-show="seatVal > 1">s</span></b></li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Custom domain<span x-show="seatVal > 1">s</span></b></li>
+                                        <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Persistent TCP port<span x-show="seatVal > 1">s</span></b></li>
                                         <li class="list-group-item p-2">Priority mail / Discord support</li>
                                     </ul>
-
                                     <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button-3"
                                         href="https://dashboard.pinggy.io">Get Started</a>
-
-
                                 </div>
                             </div>
                         </div>
@@ -853,7 +1203,6 @@
                                         <span class="text-muted fw-light">contact@pinggy.io</span>
                                     </div>
 
-
                                     <ul class="list-unstyled mt-3 mb-4 list-group text-left">
                                         <li class="list-group-item p-2 bg-light"><b>On Premise</b> / Cloud hosting</li>
                                         <li class="list-group-item p-2"><b>Unlimited persistent tunnels</b></li>
@@ -869,17 +1218,14 @@
                             </div>
                         </div>
                     </div>
-
                 </main>
-
-
             </div>
         </div>
     </div>
 </header>
 
 <!-- FAQ section-->
-<section class="py-5 border-top" id="faq">
+<section class="py-5 border-top" id="faq"  x-data="{ searchTerm: '' }">
     <div class="container my-5">
         <div class="my-3 row justify-content-center">
             <div class="col-lg-12">
@@ -888,13 +1234,16 @@
         </div>
         <div class="row justify-content-center mb-3">
             <div class="col-lg-8">
-                <input type="text" id="faqSearch" class="form-control" placeholder="Search...">
+                <input type="text" id="faqSearch" class="form-control" placeholder="Search..." x-model="searchTerm">
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="accordion" id="accordionFaq">
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item" 
+                        x-show="$refs.faq1.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -903,7 +1252,7 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq1">
                                 <p>
                                     Pinggy relies on SSH remote port forwarding. The option
                                     <code>-R 0:localhost:8000</code> in the command only implies that connections to
@@ -925,7 +1274,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq2.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingPassword">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapsePassword" aria-expanded="false"
@@ -935,7 +1287,7 @@
                         </h2>
                         <div id="collapsePassword" class="accordion-collapse collapse" aria-labelledby="headingPassword"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq2">
                                 <p>
                                     If the ssh command prompts you for a password you can just press enter (a blank
                                     password). Or you can type in something random and press enter.
@@ -951,7 +1303,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq3.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingServerLocation">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseServerLocation" aria-expanded="false"
@@ -961,7 +1316,7 @@
                         </h2>
                         <div id="collapseServerLocation" class="accordion-collapse collapse"
                             aria-labelledby="headingServerLocation" data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq3">
                                 <p>
                                     <code>a.pinggy.io</code> is routed to the Pinggy server nearest to your location.
                                     Currently we have our servers in USA, Sweden, and Singapore.
@@ -969,7 +1324,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item" 
+                        x-show="$refs.faq4.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -978,7 +1336,7 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq4">
                                 <p>Pinggy's free plan has a tunnel timeout of 60 minutes. If the tunnel is closed by
                                     you
                                     or reaches the time limit, starting a new tunnel will generate a new URL.</p>
@@ -987,7 +1345,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq5.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -996,7 +1357,7 @@
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq5">
                                 <p>Yes. Current versions of Windows, Mac, as well as almost all Linux distributions
                                     come
                                     with openssh client pre-installed. Therefore Pinggy will just work out of the
@@ -1008,7 +1369,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq6.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -1017,13 +1381,16 @@
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq6">
                                 <p>You can use TCP and TLS tunnels for free with Pinggy. Click on "Advanced Settings" on
                                     the top of the homepage, and select TCP.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq7.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingFive">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -1032,14 +1399,17 @@
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq7">
                                 <p>Read our guide on long running tunnels <a
                                         href="https://pinggy.io/docs/guides/long_running_tunnels/"
                                         target="_blank">here</a>. </p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq8.innerText.toLowerCase().includes(searchTerm.toLowerCase())" 
+                    >
                         <h2 class="accordion-header" id="headingConnectionReset">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseConnectionReset" aria-expanded="false"
@@ -1049,7 +1419,7 @@
                         </h2>
                         <div id="collapseConnectionReset" class="accordion-collapse collapse"
                             aria-labelledby="headingConnectionReset" data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq8">
                                 <p>The most common reason for this is that an existing tunnel with the same token is
                                     active.</p>
                                 <p><b>Terminate your existing tunnel with the same token.</b> You can do so from the
@@ -1058,7 +1428,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div 
+                        class="accordion-item"
+                        x-show="$refs.faq9.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+                    >
                         <h2 class="accordion-header" id="headingSix">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -1067,7 +1440,7 @@
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                             data-bs-parent="#accordionFaq">
-                            <div class="accordion-body">
+                            <div class="accordion-body" x-ref="faq9">
                                 <p>Pinggy does read tunnel traffic for providing the Web Debugger feature.</p>
                                 <p><b>Use TLS tunnels for Zero trust mode</b>, where Pinggy cannot read your data. In
                                     this case your traffic is end-to-end encrypted.</p>
@@ -1079,11 +1452,9 @@
         </div>
     </div>
 </section>
-
-
-
 {{ end }}
 
 {{ define "pagespecificjs" }}
+
 <script src="/js/index.js?v=1"></script>
 {{ end }}

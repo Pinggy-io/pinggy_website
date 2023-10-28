@@ -1,408 +1,182 @@
-// ---------- try it yourself form ------
+document.addEventListener("alpine:init", () => {
+  Alpine.store("advModal", {
+    updateLabelAndCommand: function () {
+      const option = this.tryItYourself.selectedOption;
+      const optionInfo = {
+        python: {
+          label: "You may start a local server using:",
+          command: "python3 -m http.server",
+          port: "8000",
+        },
+        nodejs: {
+          label: "You may start a local server using:",
+          command: "npx http-server",
+          port: "8080",
+        },
+        reactjs: {
+          label: "You may start a React.js app using:",
+          command: "npx create-react-app app && cd app && npm start",
+          port: "3000",
+        },
+        nextjs: {
+          label: "You may start a Next.js app using:",
+          command: "npx create-next-app app && cd app && npm run dev",
+          port: "3000",
+        },
+        nginx: {
+          label: "Apache / Nginx by default runs at port 80",
+          command: "",
+          port: "80",
+        },
+        rails: {
+          label: "Rails development server runs on port 3000 by default",
+          command: "",
+          port: "3000",
+        },
+        laravel: {
+          label:
+            "Laravel / Symfony development server runs on port 8000 by default",
+          command: "",
+          port: "8000",
+        },
+        hugo: {
+          label: "Hugo development server runs on port 1313 by default",
+          command: "",
+          port: "1313",
+        },
+      };
 
-$("#techselect").on("change", function () {
-  var label = $("option:selected", this).data("label");
-  var command = $("option:selected", this).data("command");
-  var port = $("option:selected", this).data("port");
+      if (option in optionInfo) {
+        this.tryItYourself.label = optionInfo[option].label;
+        this.tryItYourself.command = optionInfo[option].command;
+        this.tryItYourself.port = optionInfo[option].port;
+      }
+    },
+    tryItYourselfCommand: function () {
+      let config = this.tryItYourself;
 
-  if (label) {
-    if (label != $("#tryityourselflabel").text()) {
-      $("#tryityourselflabel").animate({ opacity: 0 }, 400, function () {
-        $(this).text(label).animate({ opacity: 1 }, 400);
+      let command =
+        "ssh -p 443 -R0:localhost:" +
+        config.port +
+        (config.webdebugCheck ? " -L4300:localhost:4300" : "") +
+        (config.qrCheck ? " qr@" : " ") +
+        "a.pinggy.io";
+
+      return command;
+    },
+    advancedHttpCommand: function () {
+      let config = this.httpConfig;
+      let options = "";
+      let headercommands = "";
+      let sshuser = "";
+
+      if (config.webdebugCheck) {
+        let webdebugoption = `-L${config.webdebugPort}:localhost:${config.webdebugPort}`;
+        options += " " + webdebugoption;
+      }
+      if (!config.rsaCheck) {
+        options += " -o StrictHostKeyChecking=no";
+      }
+      if (config.keepalive) {
+        options += " -o ServerAliveInterval=30";
+      }
+
+      config.headerModification.forEach((headerMod) => {
+        const { mode, name, value } = headerMod;
+        if (name !== "" || value !== "") {
+          if (mode === "r") {
+            headercommands += ` \\\"${mode}:${name}\\\"`;
+          } else {
+            headercommands += ` \\\"${mode}:${name}${
+              value ? ":" + value : ""
+            }\\\"`;
+          }
+        }
       });
-    }
-    $("#tryityourselflabel").show("slow");
-  } else {
-    $("#tryityourselflabel").hide("slow");
-  }
 
-  if (command) {
-    $("#tryityourselfprecommand").val(command);
+      if (config.keyAuthentication) {
+        const filteredAuthentications = config.keyAuthentications.filter(
+          (keyauthval, i) => keyauthval !== "" || i === 0
+        );
+        headercommands += filteredAuthentications
+          .reverse()
+          .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
+          .join("");
+      }
 
-    $("#tryityourselfprecommand").css("visibility", "visible");
-    $("#copybutton2").css("visibility", "visible");
+      if (config.ipWhitelistCheck) {
+        const filteredIPs = config.ipWhitelist.filter(
+          (ipval, i) => ipval !== "" || i === 0
+        );
+        filteredIPs.reverse();
+        headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
+      }
 
-    $("#tryityourselfprecommand").animate({ opacity: 1 }, 1200);
-    $("#copybutton2").animate({ opacity: 1 }, 1200);
-  } else {
-    $("#tryityourselfprecommand").animate({ opacity: 0 }, 1200);
-    $("#copybutton2").animate({ opacity: 0 }, 1200);
-    $("#tryityourselfprecommand").css("visibility", "hidden");
-    $("#copybutton2").css("visibility", "hidden");
-  }
+      if (config.passwordCheck && config.basicusername && config.basicpass) {
+        if (!config.usernameError && !config.basicpassError) {
+          headercommands +=
+            " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
+        }
+      }
 
-  $("#portform").val(port).trigger("input");
+      if (headercommands != "") {
+        options += " -t";
+      }
+
+      sshuser = config.qrCheck ? "qr@" : "";
+
+      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${sshuser}a.pinggy.io${headercommands}`;
+
+      if (config.restart) {
+        command =
+          config.platformselect === "unix"
+            ? `while true; do \n    ${command}; \nsleep 10; done`
+            : `FOR /L %N IN () DO (${command}\ntimeout /t 10)`;
+      }
+
+      return command;
+    },
+    advancedTcpTlsCommand: function () {
+      let config = this.tcp_tlsConfig;
+      let options = "";
+      let headercommands = "";
+
+      if (!config.rsaCheck) {
+        options += " -o StrictHostKeyChecking=no";
+      }
+      if (config.keepalive) {
+        options += " -o ServerAliveInterval=30";
+      }
+
+      if (config.ipWhitelistCheck) {
+        const filteredIPs = config.ipWhitelist.filter(
+          (ipval, i) => ipval !== "" || i === 0
+        );
+        headercommands += filteredIPs
+          .reverse()
+          .map((ipval, i) => ` \\\"w:${ipval}\\\"`)
+          .join("");
+      }
+
+      if (headercommands != "") {
+        options += " -t";
+      }
+
+      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${config.mode}@a.pinggy.io${headercommands}`;
+
+      if (config.restart) {
+        command =
+          config.platformselect === "unix"
+            ? `while true; do \n    ${command}; \nsleep 5; done`
+            : `FOR /L %N IN () DO (${command}\ntimeout /t 5)`;
+      }
+
+      return command;
+    },
+  });
 });
-
-$("#webdebuggerinput").change(function () {
-  if ($("#webdebuggerinput").is(":checked")) {
-    $("#webdebugurl").slideDown();
-  } else {
-    $("#webdebugurl").slideUp();
-  }
-  $("#portform").trigger("input");
-});
-
-$("#qrinput").change(function () {
-  $("#portform").trigger("input");
-});
-
-// ---------- ------------
-
-$("#portform").on("input", function () {
-  $("#portcommand").val(
-    "ssh -p 443 -R0:localhost:" +
-      ($("#portform").val() || "8000") +
-      ($("#webdebuggerinput").is(":checked") ? " -L4300:localhost:4300" : "") +
-      ($("#qrinput").is(":checked") ? " qr@" : " ") +
-      "a.pinggy.io"
-  );
-});
-
-// Advanced form =========================================
-$("#adv_platformselect").change(generateAdvancedCommand);
-$("#adv_localPort").on("input", generateAdvancedCommand);
-$("#adv_keepalive").change(generateAdvancedCommand);
-$("#adv_restart").change(() => {
-  if ($("#adv_restart").is(":checked")) {
-    $("#adv_platformselect_div").slideDown();
-  } else {
-    $("#adv_platformselect_div").slideUp();
-  }
-  generateAdvancedCommand();
-});
-
-$("#adv_passwordCheck").change(() => {
-  if ($("#adv_passwordCheck").is(":checked")) {
-    $("#adv_passwordfields").slideDown();
-    $( "#adv_keyAuthentication" ).prop( "checked", false ).trigger('change');
-  } else {
-    $("#adv_passwordfields").slideUp();
-  }
-  generateAdvancedCommand();
-});
-$("#adv_qrCheck").on("input", generateAdvancedCommand);
-$("#adv_basicusername").on("input", generateAdvancedCommand);
-$("#adv_basicpass").on("input", generateAdvancedCommand);
-
-$("#adv_webdebugPort").on("input", generateAdvancedCommand);
-$("#adv_rsaCheck").change(generateAdvancedCommand);
-$("#headermodificationcontainer").on(
-  "change",
-  ".headermodificationmode, .headername, .headerval",
-  generateAdvancedCommand
-);
-$("#headermodificationcontainer").on(
-  "input",
-  ".headername, .headerval",
-  generateAdvancedCommand
-);
-
-$("#keyauthinputcontainer").on("change", ".keyauthval", generateAdvancedCommand);
-$("#keyauthinputcontainer").on("input", ".keyauthval", generateAdvancedCommand);
-
-$("#ipwhitelistinputcontainer").on("change", ".ipval", generateAdvancedCommand);
-$("#ipwhitelistinputcontainer").on("input", ".ipval", generateAdvancedCommand);
-
-$("#ipwhitelistinputcontainerTCP").on("change", ".ipval", advGenerateAdvancedCommand);
-$("#ipwhitelistinputcontainerTCP").on("input", ".ipval", advGenerateAdvancedCommand);
-
-
-$("#advancedModalButton").on("click", generateAdvancedCommand);
-
-$("#adv_webdebugCheck").change(function () {
-  if (this.checked) {
-    $("#adv_webdebuggerportselector, #adv_webdebugurl").slideDown();
-  } else {
-    $("#adv_webdebuggerportselector, #adv_webdebugurl").slideUp();
-  }
-  generateAdvancedCommand();
-});
-
-$("#keyauthinputcontainer").hide();
-$("#adv_keyAuthentication").change(function () {
-  if (this.checked) {
-    $("#keyauthinputcontainer").slideDown();
-    $( "#adv_passwordCheck" ).prop( "checked", false ).trigger('change');
-  } else {
-    $("#keyauthinputcontainer").slideUp();
-  }
-  generateAdvancedCommand();
-});
-
-$("#ipwhitelistinputcontainer").hide();
-$("#adv_ipWhitelist").change(function () {
-  if (this.checked) {
-    $("#ipwhitelistinputcontainer").slideDown();
-  } else {
-    $("#ipwhitelistinputcontainer").slideUp();
-  }
-  generateAdvancedCommand();
-});
-
-$("#ipwhitelistinputcontainerTCP").hide();
-$("#adv_ipWhitelistTCP").change(function () {
-  if (this.checked) {
-    $("#ipwhitelistinputcontainerTCP").slideDown();
-  } else {
-    $("#ipwhitelistinputcontainerTCP").slideUp();
-  }
-  advGenerateAdvancedCommand();
-});
-
-function addkeyauthinput() {
-  $("#keyauthinputsample").children().hide();
-  $("#keyauthinputcontainer").prepend(
-    $("#keyauthinputsample").children().clone()
-  );
-  $('#keyauthinputcontainer').find(".keyauthgroup:first").slideDown("fast");
-}
-
-function addipinput() {
-  $("#ipinputsample").children().hide();
-  $("#ipwhitelistinputcontainer").prepend(
-    $("#ipinputsample").children().clone()
-  );
-  $('#ipwhitelistinputcontainer').find(".ipwhitelistgroup:first").slideDown("fast");
-}
-
-function addipinputTCP() {
-  $("#ipinputsample").children().hide();
-  $("#ipwhitelistinputcontainerTCP").prepend(
-    $("#ipinputsample").children().clone()
-  );
-  $('#ipwhitelistinputcontainerTCP').find(".ipwhitelistgroup:first").slideDown("fast");
-}
-
-$("#keyauthinputcontainer").on(
-  "click",
-  ".removekeyauthinput",
-  function () {
-    $(this).closest(".keyauthgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
-  }
-);
-$("#ipwhitelistinputcontainer").on(
-  "click",
-  ".removeipinput",
-  function () {
-    $(this).closest(".ipwhitelistgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
-  }
-);
-$("#ipwhitelistinputcontainerTCP").on(
-  "click",
-  ".removeipinput",
-  function () {
-    $(this).closest(".ipwhitelistgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
-  }
-);
-
-function addheadermodificationrow() {
-  $("#headermodificationinputsample").children().hide();
-  $("#headermodificationcontainer").append(
-    $("#headermodificationinputsample").children().clone()
-  );
-  $('#headermodificationcontainer').find(".headermodificationgroup:last").slideDown("fast");
-}
-
-$("#headermodificationcontainer").on(
-  "click",
-  ".removeheadermodificationrow",
-  function () {
-    $(this).closest(".headermodificationgroup").slideUp("fast", function() { $(this).remove(); generateAdvancedCommand(); } );
-  }
-);
-
-function generateAdvancedCommand() {
-  let localport = $("#adv_localPort").val();
-  let debugport = $("#adv_webdebugPort").val();
-  let debugenabled = $("#adv_webdebugCheck").is(":checked");
-  let keyauthentication = $("#adv_keyAuthentication").is(":checked");
-  let ipwhitelistenabled = $("#adv_ipWhitelist").is(":checked");
-  let manuelcheck = $("#adv_rsaCheck").is(":checked");
-  let keepalive = $("#adv_keepalive").is(":checked");
-  let qr = $("#adv_qrCheck").is(":checked");
-  let restart = $("#adv_restart").is(":checked");
-  let platform = $("#adv_platformselect").val();
-
-  let passwordenabled = $("#adv_passwordCheck").is(":checked");
-  let basicusername = $("#adv_basicusername").val();
-  let basicpass = $("#adv_basicpass").val();
-
-  let options = "";
-  let headercommands = "";
-
-  if (debugenabled) {
-    let webdebugoption = `-L${debugport}:localhost:${debugport}`;
-    options += " " + webdebugoption;
-
-    // update url
-    $("#adv_webdebugurl > a").attr("href", `http://localhost:${debugport}`);
-    $("#adv_webdebugurl > a").text(`http://localhost:${debugport}`);
-  }
-  if (!manuelcheck) {
-    options += " -o StrictHostKeyChecking=no";
-  }
-  if (keepalive) {
-    options += " -o ServerAliveInterval=30";
-  }
-
-  let headermodificationrows = $("#headermodificationcontainer").children();
-  for (let i = 0; i < headermodificationrows.length; i++) {
-    let mode = $(headermodificationrows[i])
-      .children(".headermodificationmode")
-      .val();
-    mode == "r"
-      ? $(headermodificationrows[i])
-          .children(".headerval")
-          .prop("disabled", true)
-          .val("")
-      : $(headermodificationrows[i])
-          .children(".headerval")
-          .prop("disabled", false);
-    let headername = $(headermodificationrows[i]).children(".headername").val();
-    let headerval = $(headermodificationrows[i]).children(".headerval").val();
-
-    let thiscommand = `\\\"${mode}:${headername}${
-      headerval ? ":" + headerval : ""
-    }\\\"`;
-    headercommands += " " + thiscommand;
-  }
-
-
-  if(keyauthentication){
-    let keyauthrows = $("#keyauthinputcontainer").children();
-    for (let i = 0; i < keyauthrows.length; i++) {
-      let keyauthval = $(keyauthrows[i])
-        .children(".keyauthval")
-        .val();
-      let thiscommand = `\\\"k:${keyauthval}\\\"`;
-      headercommands += " " + thiscommand;
-    }
-  }
-
-  if(ipwhitelistenabled){
-    let iprows = $("#ipwhitelistinputcontainer").children();
-    for (let i = 0; i < iprows.length; i++) {
-      let ipval = $(iprows[i])
-        .children(".ipval")
-        .val();
-      let thiscommand = `\\\"w:${ipval}\\\"`;
-      headercommands += " " + thiscommand;
-    }
-  }
-
-  if(passwordenabled && basicusername && basicpass ) {
-    headercommands += " " + `\\\"b:${basicusername}:${basicpass}\\\"`;
-  }
-
-  
-  if (headercommands != "") {
-    options += " -t";
-  }
-
-  sshuser = ""
-  if(qr){
-    sshuser = "qr@"
-  }
-
-  command =
-    `ssh -p 443 -R0:localhost:${localport} ${options} ${sshuser}a.pinggy.io` +
-    headercommands;
-
-  // restarting
-  if (restart) {
-    if (platform == "unix") {
-      command = "while true; do \n    " + command + "; \nsleep 10; done";
-      $("#advancedcommand").attr("rows", 4);
-    } else {
-      command = "FOR /L %N IN () DO (" + command + "\ntimeout /t 10)";
-      $("#advancedcommand").attr("rows", 4);
-    }
-    $("#adv_alert").slideDown();
-  } else {
-    $("#advancedcommand").attr("rows", 2);
-    $("#adv_alert").slideUp();
-  }
-
-  $("#advancedcommand").val(command);
-}
-
-// Advanced form TCP / TLS =========================================
-var mode_tcp = "tcp";
-$("#adv_platformselect_tcp").change(advGenerateAdvancedCommand);
-$("#adv_localPort_tcp").on("input", advGenerateAdvancedCommand);
-$("#adv_keepalive_tcp").change(advGenerateAdvancedCommand);
-$("#adv_restart_tcp").change(() => {
-  if ($("#adv_restart_tcp").is(":checked")) {
-    $("#adv_platformselect_tcp_div").slideDown();
-  } else {
-    $("#adv_platformselect_tcp_div").slideUp();
-  }
-  advGenerateAdvancedCommand();
-});
-$("#adv_rsaCheck_tcp").on("input", advGenerateAdvancedCommand);
-$("#advancedModalButton").on("click", advGenerateAdvancedCommand);
-$("#tcp-tab").on("click", () => {
-  (mode_tcp = "tcp"), advGenerateAdvancedCommand();
-});
-$("#tls-tab").on("click", () => {
-  (mode_tcp = "tls"), advGenerateAdvancedCommand();
-});
-
-function advGenerateAdvancedCommand() {
-  let localport_tcp = $("#adv_localPort_tcp").val();
-  let manuelcheck_tcp = $("#adv_rsaCheck_tcp").is(":checked");
-  let keepalive_tcp = $("#adv_keepalive_tcp").is(":checked");
-  let restart_tcp = $("#adv_restart_tcp").is(":checked");
-  let platform_tcp = $("#adv_platformselect_tcp").val();
-  let ipwhitelistenabled = $("#adv_ipWhitelistTCP").is(":checked");
-  
-  let options_tcp = "";
-
-  if (!manuelcheck_tcp) {
-    options_tcp += " -o StrictHostKeyChecking=no";
-  }
-  if (keepalive_tcp) {
-    options_tcp += " -o ServerAliveInterval=30";
-  }
-  let headercommands = "";
-  if(ipwhitelistenabled){
-    let iprows = $("#ipwhitelistinputcontainerTCP").children();
-    for (let i = 0; i < iprows.length; i++) {
-      let ipval = $(iprows[i])
-        .children(".ipval")
-        .val();
-      let thiscommand = `\\\"w:${ipval}\\\"`;
-      headercommands += " " + thiscommand;
-    }
-  }
-  if(headercommands){
-    options_tcp += " -t"
-  }
-
-
-  command = `ssh -p 443 -R0:localhost:${localport_tcp} ${options_tcp} ${mode_tcp}@a.pinggy.io` + headercommands;
-
-  // restarting
-  if (restart_tcp) {
-    if (platform_tcp == "unix") {
-      command = "while true; do \n    " + command + "; \nsleep 5; done";
-      $("#advancedcommandtcp").attr("rows", 4);
-    } else {
-      command = "FOR /L %N IN () DO (" + command + "\ntimeout /t 5)";
-      $("#advancedcommandtcp").attr("rows", 4);
-    }
-    $("#adv_alert").slideDown();
-  } else {
-    $("#advancedcommandtcp").attr("rows", 2);
-    $("#adv_alert").slideUp();
-  }
-
-  $("#advancedcommandtcp").val(command);
-}
 
 // =======================================================
-
 function copytoclipboard(element, inputselector, amplitudemsg) {
   var portcommand = $(inputselector)[0];
   // Get the text field
@@ -442,6 +216,7 @@ function trynow() {
     $("#bigcodecolumn").removeClass("shadowhighlight");
   }, 2000);
 }
+
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
@@ -473,7 +248,6 @@ $("#toggleswitch").change(function () {
 });
 
 // Download button system auto detect:
-
 os_arch_to_link = {
   windows: {
     amd64: "pinggy_windows_386.exe",
@@ -484,7 +258,6 @@ os_arch_to_link = {
 };
 
 /*** typewriter ***/
-
 $("#textchanger").teletype({
   delay: 70,
   pause: 3000,
@@ -494,43 +267,3 @@ $("#textchanger").teletype({
     "share your files!",
   ],
 });
-
-
-function seatChange(e) {
-  var seatVal = $(".seat-spinner > input").val();
-  if(seatVal < 1){
-    $(".seat-spinner > input").val(1);
-    seatVal = $(".seat-spinner > input").val();
-  }
-  $(".seatval").html(seatVal);
-  $(".multipleseat").html(seatVal > 1  ? "s":"");
-
-  seatVal = parseFloat(seatVal);
-  // Update
-  var monthprice = parseFloat($("#monthprice").data("price"));
-  var yearprice = parseFloat($("#yearprice").data("price"));
-  $("#monthprice").html((monthprice * seatVal).toFixed(2));
-  $("#yearprice").html((yearprice * seatVal).toFixed(2));
-}
-
-
-
-$(document).on('click', '.seat-spinner button', function () {
-	var btn = $(this),
-		oldValue = btn.closest('.seat-spinner').find('input').val().trim(),
-		newVal = 0;
-	
-	if (btn.attr('data-dir') == 'up') {
-		newVal = parseInt(oldValue) + 1;
-	} else {
-		if (oldValue > 1) {
-			newVal = parseInt(oldValue) - 1;
-		} else {
-			newVal = 1;
-		}
-	}
-	btn.closest('.seat-spinner').find('input').val(newVal).change();
-});
-
-$(".seat-spinner > input").keyup(seatChange);
-$(".seat-spinner > input").change(seatChange);
