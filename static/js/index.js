@@ -1,41 +1,5 @@
 document.addEventListener("alpine:init", () => {
   Alpine.store("advModal", {
-    tryItYourself: {
-      selectedOption: "python",
-      label: "You may start a local server using:",
-      command: "python3 -m http.server",
-      port: "8000",
-      webdebugCheck: true,
-      qrCheck: true,
-    },
-    httpConfig: {
-      localPort: 8000,
-      webdebugCheck: true,
-      webdebugPort: 4300,
-      keyAuthentication: false,
-      ipWhitelistCheck: false,
-      rsaCheck: true,
-      keepalive: true,
-      qrCheck: false,
-      restart: false,
-      platformselect: "unix",
-      passwordCheck: false,
-      basicusername: "",
-      basicpass: "",
-      keyAuthentications: [""],
-      ipWhitelist: [""],
-      headerModification: [],
-    },
-    tcp_tlsConfig: {
-      mode: "tcp",
-      localPort: 8000,
-      keepalive: true,
-      restart: false,
-      platformselect: "unix",
-      rsaCheck: true,
-      ipWhitelistCheck: false,
-      ipWhitelist: [""],
-    },
     updateLabelAndCommand: function () {
       const option = this.tryItYourself.selectedOption;
       const optionInfo = {
@@ -149,8 +113,10 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (config.passwordCheck && config.basicusername && config.basicpass) {
-        headercommands +=
-          " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
+        if (!config.usernameError && !config.basicpassError) {
+          headercommands +=
+            " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
+        }
       }
 
       if (headercommands != "") {
@@ -250,6 +216,7 @@ function trynow() {
     $("#bigcodecolumn").removeClass("shadowhighlight");
   }, 2000);
 }
+
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);

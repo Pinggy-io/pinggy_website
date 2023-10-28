@@ -1,7 +1,20 @@
 {{ define "main" }}
 
 <!-- Banner -->
-<header class="pt-1 contentcontainer" x-data="{ data : $store.advModal }">
+<header class="pt-1 contentcontainer" 
+    x-data="{ data : $store.advModal }"
+    x-init="data.tryItYourself = JSON.parse(localStorage.getItem('tryItYourself')) || {
+        selectedOption: 'python',
+        label: 'You may start a local server using:',
+        command: 'python3 -m http.server',
+        port: '8000',
+        webdebugCheck: true,
+        qrCheck: true
+    };
+    $watch('data.tryItYourself', function(value) {
+        localStorage.setItem('tryItYourself', JSON.stringify(value));
+    })"
+>
     <a class="text-decoration-none text-dark text-center" href="/blog/scaling_across_multiple_regions/"
         target="_blank">
         <div class="p-1" style="font-size: 1em; background: #daefff;">Pinggy is now in multiple regions: USA 🇺🇸, Europe 🇸🇪, and Asia 🇸🇬 🚀</div>
@@ -136,6 +149,43 @@
 <div class="modal fade" id="advancedModal" tabindex="-1" 
     aria-labelledby="advancedModalLabel" aria-hidden="true" 
     x-data="{ data : $store.advModal }"
+    x-init="data.httpConfig = JSON.parse(localStorage.getItem('httpConfig')) || {
+        localPort: 8000,
+        webdebugCheck: true,
+        webdebugPort: 4300,
+        keyAuthentication: false,
+        ipWhitelistCheck: false,
+        rsaCheck: true,
+        keepalive: true,
+        qrCheck: false,
+        restart: false,
+        platformselect: 'unix',
+        passwordCheck: false,
+        basicusername: '',
+        usernameError: false,
+        basicpass: '',
+        basicpassError: false,
+        keyAuthentications: [''],
+        ipWhitelist: [''],
+        headerModification: []
+    };
+    data.tcp_tlsConfig = JSON.parse(localStorage.getItem('tcp_tlsConfig')) || {
+        mode: 'tcp',
+        localPort: 8000,
+        keepalive: true,
+        restart: false,
+        platformselect: 'unix',
+        rsaCheck: true,
+        ipWhitelistCheck: false,
+        ipWhitelist: ['']
+    };
+    $watch('data.httpConfig', function(value) {
+        localStorage.setItem('httpConfig', JSON.stringify(value));
+    }, { deep: true });    
+
+    $watch('data.tcp_tlsConfig', function(value) {
+        localStorage.setItem('tcp_tlsConfig', JSON.stringify(value));
+    }, { deep: true });"
 >
     <div class="modal-dialog modal-lg">
         <div class="modal-content px-2 pb-3">
@@ -297,17 +347,35 @@
                                 x-show="data.httpConfig.passwordCheck"
                                 x-transition.duration.300ms
                             >
-                               <div class="col col-12 col-lg-6">
+                                <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicusername" placeholder="Username"
-                                            x-model="data.httpConfig.basicusername">
+                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.usernameError}" 
+                                            id="adv_basicusername" placeholder="Username" 
+                                            x-model="data.httpConfig.basicusername" 
+                                            x-init="$watch('data.httpConfig.basicusername', function(value) {
+                                                data.httpConfig.usernameError = value.includes(':');
+                                            })"
+                                        >                                        
+                                        <div class="invalid-feedback" 
+                                            x-show="data.httpConfig.usernameError">
+                                            Username cannot contain ':'
+                                        </div>
                                         <label for="adv_basicusername">Username</label>
                                     </div>
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="adv_basicpass" placeholder="Password"
-                                            x-model="data.httpConfig.basicpass">
+                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.basicpassError}" 
+                                            id="adv_basicpass" placeholder="Password"
+                                            x-model="data.httpConfig.basicpass"
+                                            x-init="$watch('data.httpConfig.basicpass', function(value) {
+                                                data.httpConfig.basicpassError = value.includes(':');
+                                            })"
+                                        >
+                                        <div class="invalid-feedback"  
+                                            x-show="data.httpConfig.basicpassError">
+                                            Password cannot contain ':'
+                                        </div>
                                         <label for="adv_basicpass">Password</label>
                                     </div>
                                 </div>
@@ -555,17 +623,229 @@
     </div>
 </div>
 
-
 <!-- Features -->
+<div class="container">
+    <div class=" pt-5 my-3 row justify-content-center">
+        <div class="col-lg-6">
+            <h2 class="mb-5 text-left fw-light">Quickest way to <span id="textchanger"></span></h2>
+        </div>
+    </div>
+</div>
 
 <!-- Features section-->
+<section id="features">
+    <div class="marquee">
+        <div class="marquee-content">
+            <a href="quickstart/jupyternotebook/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/jupyter.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/django/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/django.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/apachehttpd/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/apache.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/drupal/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/drupal.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/flask/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/flask.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/github/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/github.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/gitlab/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/gitlab.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/joomla/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/joomla.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/laravel/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/laravel.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/mongodb/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mongodb.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/mysql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mysql.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/mssql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mssql.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/nuxt/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/nuxt.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/nginx/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/nginx.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/postgresql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/postgresql.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/redis/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/redis.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/wordpress/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/wordpress.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/xampp/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/xampp.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/ghost/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/ghost.png" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/homeassistant/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/homeassistant.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/shopify/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/shopify.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/razorpay/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/razorpay.png"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/traefik/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/traefik.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/portainer/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/portainer.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/slack/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/slack.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/stripe/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/stripe.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/wamp/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/wamp.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/rails/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/rails.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/react/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/react.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/svelte/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/svelte.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/next/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/next.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/express/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/express.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/springboot/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/springboot.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/nextcloud/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/nextcloud.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/twilio/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/twilio.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/telegram/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/telegram.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/hugo/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/hugo.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/jekyll/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/jekyll.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/netdata/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/netdata.webp"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/strapi/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/strapi.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/jupyternotebook/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/jupyter.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/django/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/django.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/apachehttpd/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/apache.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/drupal/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/drupal.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/flask/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/flask.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/github/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/github.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/gitlab/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/gitlab.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/joomla/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/joomla.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/laravel/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/laravel.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">  
+            </a>
+            <a href="quickstart/mongodb/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mongodb.svg"  
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+            <a href="quickstart/mysql/" class="text-decoration-none text-reset" target="_blank">
+                <img src="./quickstart/images/mysql.svg" 
+                    alt="" style="width: 15vh; max-width: 15vh">
+            </a>
+        </div>
+    </div>
+</section>
+
 <section class="pt-5" id="features">
     <div class="container my-5">
-        <div class="my-3 row justify-content-center">
-            <div class="col-lg-6">
-                <h2 class="mb-5 text-left fw-light">Quickest way to <span id="textchanger"></span></h2>
-            </div>
-        </div>
         <div class="row justify-content-evenly">
             <div class="col-lg-6 mb-5 mb-lg-0">
                 <!-- <div class="videocontainer ratio ratio-16x9">
@@ -621,7 +901,6 @@
                 <img src="/assets/webdebug2.webp" class="img-fluid featureimage" alt="Pinggy web debugger screenshot" />
             </div>
         </div>
-
     </div>
 </section>
 
@@ -666,9 +945,7 @@
                     <i class="bi bi-arrow-up-right-square"></i>
                 </a>
             </div>
-
         </div>
-
     </div>
 </section>
 
@@ -774,7 +1051,6 @@
     </div>
 </section>
 
-
 <header class="bg-light py-5" id="prices">
     <div class="container">
         <div class="row justify-content-md-center">
@@ -791,7 +1067,6 @@
                         time
                         offer!</span>
                 </div> -->
-
 
                 <main>
                     <div class="row justify-content-center text-left">
@@ -1177,9 +1452,9 @@
         </div>
     </div>
 </section>
-
 {{ end }}
 
 {{ define "pagespecificjs" }}
+
 <script src="/js/index.js?v=1"></script>
 {{ end }}
