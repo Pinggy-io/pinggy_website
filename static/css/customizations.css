@@ -1,4 +1,8 @@
 /* QuickStart Ribbon */
+.ribbon-element img {
+  width: 3em;
+}
+
 .marquee {
   width: 100%;
   overflow: hidden;
@@ -9,7 +13,7 @@
   display: flex;
   align-items: center;
   gap: 5rem;
-  animation: scrolling 20s linear infinite;
+  animation: scrolling 40s linear infinite;
 }
 .marquee-content:hover {
   animation-play-state: paused;
@@ -19,7 +23,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-1 * 15vh * 67.8));
+    transform: translateX(-200em);
   }
 }
 @media (min-width: 768px) {
