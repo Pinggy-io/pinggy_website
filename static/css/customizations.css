@@ -2,7 +2,6 @@
 .ribbon-element img {
   width: 3em;
 }
-
 .marquee {
   width: 100%;
   overflow: hidden;
@@ -23,7 +22,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-200em);
+    transform: translateX(-320em);
   }
 }
 @media (min-width: 768px) {
