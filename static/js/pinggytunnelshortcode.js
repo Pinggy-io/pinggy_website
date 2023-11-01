@@ -18,8 +18,10 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (data.passwordCheck && data.basicusername && data.basicpass) {
-        headercommands +=
-          " " + `\\\"b:${data.basicusername}:${data.basicpass}\\\"`;
+        if (!data.usernameError && !data.basicpassError) {
+          headercommands +=
+            " " + `\\\"b:${data.basicusername}:${data.basicpass}\\\"`;
+        }
       }
 
       data.headerModifications.forEach((headerMod) => {

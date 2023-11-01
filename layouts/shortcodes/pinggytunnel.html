@@ -23,7 +23,9 @@
     keepAlive: {{ $keepalive }},
     passwordCheck: {{ $passwordCheck }},
     basicusername: '',
+    usernameError: false,
     basicpass: '',
+    basicpassError: false,
     qrCheck: {{ $qrcheck }},
     reconnect: {{ $reconnect }},
     platformselect: 'unix',
@@ -50,7 +52,8 @@
                 </div>
                 <div class="input-group mt-1">
                     <textarea style="background: #fafaff; font-size: 0.9rem;"
-                        class="form-control font-monospace pinggytunnelshortcode_advancedcommand" 
+                        class="form-control font-monospace pinggytunnelshortcode_advancedcommand"
+                        :rows="data.reconnect ? 4 : 2" 
                         x-text="$store.pinggyTunnelData.advancedCommand(data)"
                         readonly
                     ></textarea>
@@ -110,18 +113,36 @@
                             <div class="col col-12 col-lg-6">
                                 <div class="form-floating mb-3">
                                     <input class="form-control shortcode_basicusername" 
+                                        :class="{'is-invalid' : data.usernameError}" 
                                         id="shortcode__basicusername_{{ $random }}" 
                                         placeholder="Username" 
-                                        x-model="data.basicusername">
+                                        x-model="data.basicusername"
+                                        x-init="$watch('data.basicusername', function(value) {
+                                            data.usernameError = value.includes(':');
+                                        })"
+                                    >
+                                    <div class="invalid-feedback" 
+                                            x-show="data.usernameError">
+                                            Username cannot contain ':'
+                                        </div>
                                     <label for="shortcode_basicusername_{{ $random }}">Username</label>
                                 </div>
                             </div>
                             <div class="col col-12 col-lg-6">
                                 <div class="form-floating mb-3">
                                     <input class="form-control shortcode_basicpass" 
+                                        :class="{'is-invalid' : data.basicpassError}"
                                         id="shortcode_basicpass_{{ $random }}" 
                                         placeholder="Password" 
-                                        x-model="data.basicpass">
+                                        x-model="data.basicpass"
+                                        x-init="$watch('data.basicpass', function(value) {
+                                            data.basicpassError = value.includes(':');
+                                        })"
+                                    >
+                                    <div class="invalid-feedback"  
+                                        x-show="data.basicpassError">
+                                        Password cannot contain ':'
+                                    </div>
                                     <label for="shortcode_basicpass_{{ $random }}">Password</label>
                                 </div>   
                             </div> 

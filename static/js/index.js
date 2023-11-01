@@ -125,7 +125,7 @@ document.addEventListener("alpine:init", () => {
 
       sshuser = config.qrCheck ? "qr@" : "";
 
-      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${sshuser}a.pinggy.io${headercommands}`;
+      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${sshuser}${config.selectedRegion}${headercommands}`;
 
       if (config.restart) {
         command =
@@ -162,7 +162,7 @@ document.addEventListener("alpine:init", () => {
         options += " -t";
       }
 
-      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${config.mode}@a.pinggy.io${headercommands}`;
+      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${config.mode}@${config.selectedRegion}${headercommands}`;
 
       if (config.restart) {
         command =

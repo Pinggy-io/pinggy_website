@@ -153,6 +153,7 @@
         localPort: 8000,
         webdebugCheck: true,
         webdebugPort: 4300,
+        selectedRegion: 'a.pinggy.io',
         keyAuthentication: false,
         ipWhitelistCheck: false,
         rsaCheck: true,
@@ -171,6 +172,7 @@
     };
     data.tcp_tlsConfig = JSON.parse(localStorage.getItem('tcp_tlsConfig')) || {
         mode: 'tcp',
+        selectedRegion: 'a.pinggy.io',
         localPort: 8000,
         keepalive: true,
         restart: false,
@@ -216,7 +218,9 @@
                         tabindex="0">
                         <form>
                             <div class="row">
-                                <div class="col col-6 col-lg-6">
+                                <div class="col col-12 col-lg-4"
+                                    x-bind:class="{ 'col-lg-6': !data.httpConfig.webdebugCheck }"
+                                >
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="adv_localPort" 
                                             type="number" 
@@ -226,17 +230,32 @@
                                         <label for="adv_localPort">Local Port</label>
                                     </div>
                                 </div>
-                                <div class="col col-6 col-lg-6">
-                                    <div class="form-floating mb-3" id="adv_webdebuggerportselector" 
-                                        x-show="data.httpConfig.webdebugCheck" 
-                                        x-transition.duration.300ms
-                                    >
+                                <div class="col col-12 col-lg-4"
+                                    x-bind:style="data.httpConfig.webdebugCheck ? '' : 'display: none;'"
+                                    x-transition.duration.300ms
+                                >
+                                    <div class="form-floating mb-3" id="adv_webdebuggerportselector">
                                         <input class="form-control" id="adv_webdebugPort"
                                             type="number"
                                             placeholder="4300" 
                                             x-model="data.httpConfig.webdebugPort"
                                         >
                                         <label for="adv_webdebugPort">Web Debugger Port</label>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-4"
+                                    x-bind:class="{ 'col-lg-6': !data.httpConfig.webdebugCheck }"
+                                >
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="adv_regionselect"
+                                            x-model="data.httpConfig.selectedRegion"
+                                        >
+                                            <option value="a.pinggy.io">Auto</option>
+                                            <option value="us.a.pinggy.io">USA</option>
+                                            <option value="eu.a.pinggy.io">Europe</option>
+                                            <option value="ap.a.pinggy.io">Asia</option>
+                                        </select>
+                                        <label for="adv_regionselect" id="adv_regionselector">Region</label>
                                     </div>
                                 </div>
                             </div>
@@ -254,8 +273,11 @@
                                         tunnel:</strong></label>
                             </div>
                             <div class="input-group mt-1">
-                                <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommand"
-                                    class="form-control font-monospace" style="font-size: 0.8rem;"
+                                <textarea 
+                                    style="background: #fafaff; font-size: 0.9rem;" 
+                                    id="advancedcommand"
+                                    class="form-control font-monospace"
+                                    :rows="data.httpConfig.restart ? 4 : 2" 
                                     readonly x-text="$store.advModal.advancedHttpCommand()"></textarea>
                                 <button class="btn btn-outline-dark" type="button" id="copybutton"
                                     onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
@@ -437,7 +459,8 @@
                                         <div id="ipwhitelistinputcontainer">
                                             <div class="input-group ipwhitelistgroup">
                                                 <input type="text" aria-label="ip to whitelist"
-                                                    placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
+                                                    placeholder="IP in CIDR (e.g. 10.2.3.4/16)"
+                                                    class="form-control ipval"
                                                     x-model="data.httpConfig.ipWhitelist[0]">
                                                 <button class="btn btn-outline-dark addipinput" type="button"
                                                     @click="data.httpConfig.ipWhitelist.push('')">
@@ -500,15 +523,31 @@
                     </div>
                     <div class="tab-pane fade" id="tcp-tab-pane" role="tabpanel" aria-labelledby="tcp-tab" tabindex="0">
                         <form class="tcptls_adv_conf_form">
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="adv_localPort_tcp" 
-                                    type="number"
-                                    placeholder="8000"
-                                    x-model="data.tcp_tlsConfig.localPort"
-                                >
-                                <label for="adv_localPort_tcp">Local Port</label>
+                            <div class="row">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="adv_localPort_tcp" 
+                                            type="number"
+                                            placeholder="8000"
+                                            x-model="data.tcp_tlsConfig.localPort"
+                                        >
+                                        <label for="adv_localPort_tcp">Local Port</label>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="adv_regionselect_tcp"
+                                            x-model="data.tcp_tlsConfig.selectedRegion"
+                                        >
+                                            <option value="a.pinggy.io">Auto</option>
+                                            <option value="us.a.pinggy.io">USA</option>
+                                            <option value="eu.a.pinggy.io">Europe</option>
+                                            <option value="ap.a.pinggy.io">Asia</option>
+                                        </select>
+                                        <label for="adv_regionselect" id="adv_regionselector_tcp">Region</label>
+                                    </div>
+                                </div>
                             </div>
-
                             <div class="form-floating mb-3" id="adv_platformselect_tcp_div"
                                 x-show="data.tcp_tlsConfig.restart" x-transition.duration.300ms>
                                 <select class="form-select" aria-label="Select platform id" 
@@ -523,8 +562,10 @@
                                         tunnel:</strong></label>
                             </div>
                             <div class="input-group mt-1">
-                                <textarea style="background: #fafaff; font-size: 0.9rem;" id="advancedcommandtcp"
-                                    class="form-control font-monospace" style="font-size: 0.8rem;"
+                                <textarea style="background: #fafaff; font-size: 0.9rem;" 
+                                    id="advancedcommandtcp"
+                                    class="form-control font-monospace"
+                                    :rows="data.tcp_tlsConfig.restart ? 4 : 2"
                                     readonly x-text="$store.advModal.advancedTcpTlsCommand()"></textarea>
                                 <button class="btn btn-outline-dark" type="button" id="copybutton"
                                     onclick="copytoclipboard(this,'#advancedcommandtcp','SSH url copy button clicked')"><i
@@ -1459,4 +1500,5 @@
 {{ define "pagespecificjs" }}
 
 <script src="/js/index.js?v=1"></script>
+<script src="/js/cidrformatvalidation.js"></script>
 {{ end }}
