@@ -105,9 +105,9 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (config.ipWhitelistCheck) {
-        const filteredIPs = config.ipWhitelist.filter(
-          (ipval, i) => ipval !== "" || i === 0
-        );
+        const filteredIPs = config.ipWhitelist.filter((ipval, i) => {
+          return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
+        });
         filteredIPs.reverse();
         headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
       }
@@ -149,9 +149,9 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (config.ipWhitelistCheck) {
-        const filteredIPs = config.ipWhitelist.filter(
-          (ipval, i) => ipval !== "" || i === 0
-        );
+        const filteredIPs = config.ipWhitelist.filter((ipval, i) => {
+          return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
+        });
         headercommands += filteredIPs
           .reverse()
           .map((ipval, i) => ` \\\"w:${ipval}\\\"`)
