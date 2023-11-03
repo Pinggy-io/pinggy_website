@@ -63,6 +63,26 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.custom-button {
+  background-color: rgba(70, 117, 199, 1);
+  border-color: rgb(71, 117, 198);
+  font-weight: 500;
+}
+
+.custom-button:hover {
+  background-color: rgba(70, 117, 199, 1);
+}
+
+.reset-button {
+  color: #4688eb;
+  border-color: #4688eb;
+}
+
+.reset-button:hover {
+  color: #4688eb;
+  background-color: transparent;
+}
+
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;

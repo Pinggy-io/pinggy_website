@@ -149,39 +149,7 @@
 <div class="modal fade" id="advancedModal" tabindex="-1" 
     aria-labelledby="advancedModalLabel" aria-hidden="true" 
     x-data="{ data : $store.advModal }"
-    x-init="data.httpConfig = JSON.parse(localStorage.getItem('httpConfig')) || {
-        localPort: 8000,
-        webdebugCheck: true,
-        webdebugPort: 4300,
-        selectedRegion: 'a.pinggy.io',
-        keyAuthentication: false,
-        ipWhitelistCheck: false,
-        rsaCheck: true,
-        keepalive: true,
-        qrCheck: false,
-        restart: false,
-        platformselect: 'unix',
-        passwordCheck: false,
-        basicusername: '',
-        usernameError: false,
-        basicpass: '',
-        basicpassError: false,
-        keyAuthentications: [''],
-        ipWhitelist: [''],
-        headerModification: []
-    };
-    data.tcp_tlsConfig = JSON.parse(localStorage.getItem('tcp_tlsConfig')) || {
-        mode: 'tcp',
-        selectedRegion: 'a.pinggy.io',
-        localPort: 8000,
-        keepalive: true,
-        restart: false,
-        platformselect: 'unix',
-        rsaCheck: true,
-        ipWhitelistCheck: false,
-        ipWhitelist: ['']
-    };
-    $watch('data.httpConfig', function(value) {
+    x-init="$watch('data.httpConfig', function(value) {
         localStorage.setItem('httpConfig', JSON.stringify(value));
     }, { deep: true });    
 
@@ -371,15 +339,13 @@
                             >
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.usernameError}" 
+                                        <input class="form-control" 
+                                            :class="{'is-invalid' : data.httpConfig.basicusername.includes(':')}" 
                                             id="adv_basicusername" placeholder="Username" 
                                             x-model="data.httpConfig.basicusername" 
-                                            x-init="$watch('data.httpConfig.basicusername', function(value) {
-                                                data.httpConfig.usernameError = value.includes(':');
-                                            })"
                                         >                                        
                                         <div class="invalid-feedback" 
-                                            x-show="data.httpConfig.usernameError">
+                                            x-show="data.httpConfig.basicusername.includes(':')">
                                             Username cannot contain ':'
                                         </div>
                                         <label for="adv_basicusername">Username</label>
@@ -387,15 +353,13 @@
                                 </div>
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" :class="{'is-invalid' : data.httpConfig.basicpassError}" 
+                                        <input class="form-control" 
+                                            :class="{'is-invalid' : data.httpConfig.basicpass.includes(':')}" 
                                             id="adv_basicpass" placeholder="Password"
                                             x-model="data.httpConfig.basicpass"
-                                            x-init="$watch('data.httpConfig.basicpass', function(value) {
-                                                data.httpConfig.basicpassError = value.includes(':');
-                                            })"
                                         >
                                         <div class="invalid-feedback"  
-                                            x-show="data.httpConfig.basicpassError">
+                                            x-show="data.httpConfig.basicpass.includes(':')">
                                             Password cannot contain ':'
                                         </div>
                                         <label for="adv_basicpass">Password</label>
@@ -421,7 +385,7 @@
                                         x-transition.duration.300ms
                                     >
                                         <div id="keyauthinputcontainer">
-                                            <div class="input-group keyauthgroup">
+                                            <div class="input-group keyauthgroup mb-3">
                                                 <input type="text" aria-label="key / token" placeholder="Key / token"
                                                     class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[0]">
                                                 <button class="btn btn-outline-dark addkeyauthinput" type="button"
@@ -457,7 +421,7 @@
                                         x-transition.duration.300ms
                                     >
                                         <div id="ipwhitelistinputcontainer">
-                                            <div class="input-group ipwhitelistgroup">
+                                            <div class="input-group ipwhitelistgroup mb-3">
                                                 <input type="text" aria-label="ip to whitelist"
                                                     :class="{'is-invalid' : data.httpConfig.ipWhitelist[0] 
                                                         && ipCidrValidator(data.httpConfig.ipWhitelist[0]) === false}"
@@ -499,18 +463,53 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_accesstoken"
+                                            x-model="data.httpConfig.accesstoken">
+                                        <label class="form-check-label" for="adv_accesstoken">Use Token <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Use your Pinggy token"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="accesstokencontainer" class="mb-2">
+                                <div class="col col-12 col-lg-6"
+                                    x-show="data.httpConfig.accesstoken"
+                                    x-transition.duration.300ms
+                                >
+                                    <input type="text" aria-label="token" placeholder="Access Token"
+                                        :class="{'is-invalid': /[^a-zA-Z0-9]/.test(data.httpConfig.accesstokenvalue)}"
+                                        class="form-control accesstokenval"
+                                        x-model="data.httpConfig.accesstokenvalue"
+                                    >
+                                    <div class="invalid-feedback" 
+                                        x-show="/[^a-zA-Z0-9]/.test(data.httpConfig.accesstokenvalue) === true">
+                                        Token can only contain alphanumeric characters
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <div>
+                            <div class="mt-2">
                                 <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
                                         type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
                                         title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i>
                                 </label>
                             </div>
 
-                            <div>
-                                <button type="button" class="btn btn-outline-dark mb-3 mt-2"
+                            <div class="d-flex flex-column mt-2 flex-lg-row gap-3">
+                                <button type="button" class="btn btn-primary mb-0 mb-lg-3 custom-button"
                                     @click="data.httpConfig.headerModification.push({ mode: 'a', name: '', value: '' })">
                                     <i class="bi bi-plus"></i> Add header modification rule
+                                </button>
+                                <button type="button" class="btn btn-outline-primary mb-3 reset-button"
+                                    @click="$store.advModal.resetHttpConfig()"
+                                >
+                                    Reset Settings
                                 </button>
                             </div>
 
@@ -650,7 +649,7 @@
                                     x-transition.duration.300ms
                                 >
                                     <div id="ipwhitelistinputcontainerTCP">
-                                        <div class="input-group ipwhitelistgroupTCP">
+                                        <div class="input-group ipwhitelistgroupTCP mb-3">
                                             <input type="text" aria-label="ip to whitelist"
                                                 :class="{'is-invalid' : data.tcp_tlsConfig.ipWhitelist[0] 
                                                     && ipCidrValidator(data.tcp_tlsConfig.ipWhitelist[0]) === false}"
@@ -689,6 +688,40 @@
                                         </template>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_accesstoken_tcp"
+                                            x-model="data.tcp_tlsConfig.accesstoken">
+                                        <label class="form-check-label" for="adv_keepalive">Use Token <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                title="Use your Pinggy token"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="accesstokencontainerTCP">
+                                <div class="col col-12 col-lg-6 mb-2"
+                                    x-show="data.tcp_tlsConfig.accesstoken"
+                                    x-transition.duration.300ms
+                                >
+                                    <input type="text" aria-label="token" placeholder="Access Token"
+                                        :class="{'is-invalid': /[^a-zA-Z0-9]/.test(data.tcp_tlsConfig.accesstokenvalue)}"
+                                        class="form-control accesstokenvaltcp"
+                                        x-model="data.tcp_tlsConfig.accesstokenvalue"
+                                    >
+                                    <div class="invalid-feedback" 
+                                        x-show="/[^a-zA-Z0-9]/.test(data.tcp_tlsConfig.accesstokenvalue) === true">
+                                        Token can only contain alphanumeric characters
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-outline-primary mt-2 reset-button"
+                                    @click="$store.advModal.resetTcpTlsConfig()">
+                                    Reset Settings</button>
                             </div>
                         </form>
                     </div>
