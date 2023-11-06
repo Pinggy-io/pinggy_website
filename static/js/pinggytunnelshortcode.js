@@ -18,7 +18,10 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (data.passwordCheck && data.basicusername && data.basicpass) {
-        if (!data.usernameError && !data.basicpassError) {
+        if (
+          !data.basicusername.includes(":") &&
+          !data.basicpass.includes(":")
+        ) {
           headercommands +=
             " " + `\\\"b:${data.basicusername}:${data.basicpass}\\\"`;
         }
@@ -54,10 +57,28 @@ document.addEventListener("alpine:init", () => {
         options += " -t";
       }
 
-      let command =
-        `ssh -p 443${options} -R0:localhost:${data.localPort} ${
-          data.mode !== "http" ? data.mode + "@" : ""
-        }${data.qrCheck ? "qr@" : ""}a.pinggy.io` + headercommands;
+      let accessTokenPart =
+        data.accesstoken && /^[a-zA-Z0-9]+$/.test(data.accesstokenvalue)
+          ? `${data.accesstokenvalue}`
+          : "";
+
+      let additionalPart = "";
+
+      if (data.mode === "http") {
+        additionalPart =
+          accessTokenPart !== ""
+            ? data.qrCheck
+              ? "+qr@"
+              : "@"
+            : data.qrCheck
+            ? "qr@"
+            : "";
+      } else {
+        additionalPart =
+          accessTokenPart !== "" ? `+${data.mode}@` : `${data.mode}@`;
+      }
+
+      let command = `ssh -p 443${options} -R0:localhost:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
 
       if (data.reconnect) {
         command =

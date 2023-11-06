@@ -1,5 +1,47 @@
 document.addEventListener("alpine:init", () => {
+  const defaultHttpConfig = {
+    localPort: 8000,
+    webdebugCheck: true,
+    webdebugPort: 4300,
+    selectedRegion: "a.pinggy.io",
+    keyAuthentication: false,
+    ipWhitelistCheck: false,
+    rsaCheck: true,
+    keepalive: true,
+    qrCheck: false,
+    restart: false,
+    platformselect: "unix",
+    passwordCheck: false,
+    basicusername: "",
+    basicpass: "",
+    keyAuthentications: [""],
+    ipWhitelist: [""],
+    headerModification: [],
+    accesstoken: false,
+    accesstokenvalue: "",
+  };
+
+  const defaultTcpTlsConfig = {
+    mode: "tcp",
+    selectedRegion: "a.pinggy.io",
+    localPort: 8000,
+    keepalive: true,
+    restart: false,
+    platformselect: "unix",
+    rsaCheck: true,
+    ipWhitelistCheck: false,
+    ipWhitelist: [""],
+    accesstoken: false,
+    accesstokenvalue: "",
+  };
+
   Alpine.store("advModal", {
+    httpConfig:
+      JSON.parse(localStorage.getItem("httpConfig")) || defaultHttpConfig,
+
+    tcp_tlsConfig:
+      JSON.parse(localStorage.getItem("tcp_tlsConfig")) || defaultTcpTlsConfig,
+
     updateLabelAndCommand: function () {
       const option = this.tryItYourself.selectedOption;
       const optionInfo = {
@@ -105,15 +147,18 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (config.ipWhitelistCheck) {
-        const filteredIPs = config.ipWhitelist.filter(
-          (ipval, i) => ipval !== "" || i === 0
-        );
+        const filteredIPs = config.ipWhitelist.filter((ipval, i) => {
+          return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
+        });
         filteredIPs.reverse();
         headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
       }
 
       if (config.passwordCheck && config.basicusername && config.basicpass) {
-        if (!config.usernameError && !config.basicpassError) {
+        if (
+          !config.basicusername.includes(":") &&
+          !config.basicpass.includes(":")
+        ) {
           headercommands +=
             " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
         }
@@ -123,7 +168,12 @@ document.addEventListener("alpine:init", () => {
         options += " -t";
       }
 
-      sshuser = config.qrCheck ? "qr@" : "";
+      sshuser =
+        config.accesstoken && /^[a-zA-Z0-9]+$/.test(config.accesstokenvalue)
+          ? `${config.accesstokenvalue}${config.qrCheck ? "+qr" : ""}@`
+          : config.qrCheck
+          ? "qr@"
+          : "";
 
       let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${sshuser}${config.selectedRegion}${headercommands}`;
 
@@ -136,6 +186,11 @@ document.addEventListener("alpine:init", () => {
 
       return command;
     },
+    resetHttpConfig: function () {
+      this.httpConfig = JSON.parse(JSON.stringify(defaultHttpConfig));
+      localStorage.setItem("httpConfig", JSON.stringify(this.httpConfig));
+    },
+
     advancedTcpTlsCommand: function () {
       let config = this.tcp_tlsConfig;
       let options = "";
@@ -149,9 +204,9 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (config.ipWhitelistCheck) {
-        const filteredIPs = config.ipWhitelist.filter(
-          (ipval, i) => ipval !== "" || i === 0
-        );
+        const filteredIPs = config.ipWhitelist.filter((ipval, i) => {
+          return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
+        });
         headercommands += filteredIPs
           .reverse()
           .map((ipval, i) => ` \\\"w:${ipval}\\\"`)
@@ -162,7 +217,11 @@ document.addEventListener("alpine:init", () => {
         options += " -t";
       }
 
-      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${config.mode}@${config.selectedRegion}${headercommands}`;
+      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${
+        config.accesstoken && /^[a-zA-Z0-9]+$/.test(config.accesstokenvalue)
+          ? config.accesstokenvalue + "+" + config.mode
+          : config.mode
+      }@${config.selectedRegion}${headercommands}`;
 
       if (config.restart) {
         command =
@@ -172,6 +231,10 @@ document.addEventListener("alpine:init", () => {
       }
 
       return command;
+    },
+    resetTcpTlsConfig: function () {
+      this.tcp_tlsConfig = JSON.parse(JSON.stringify(defaultTcpTlsConfig));
+      localStorage.setItem("tcp_tlsConfig", JSON.stringify(this.tcp_tlsConfig));
     },
   });
 });
