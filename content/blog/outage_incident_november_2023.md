@@ -17,6 +17,8 @@ November 6, 2023
 - 12.10 PM UTC - New domain "pinggy.link" configured. Working on getting pinggy.online back.
 
 
+Some malicious content hosted through our tunnels caused Google to flag the domain yesterday. Although all the tunnels get a subdomain `a.pinggy.online` / `free.pinggy.online` and not the domain `pinggy.online`. There was no prior communication from our domain registrar before the serverHold status code.
+
 ## Steps to access your tunnels
 
 We request our users to follow these steps to temporarily access our tunnels:
