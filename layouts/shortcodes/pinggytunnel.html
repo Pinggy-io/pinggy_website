@@ -14,8 +14,7 @@
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 
 <div x-data="{
-  data: {
-    tunnelString: '{{ $tunnelstring }}',
+  data: { tunnelString: '{{ $tunnelstring }}',
     portString: '{{ $portstring }}',
     localPort: '{{ $localport }}',
     webDebugPort: '{{ $webdebugport }}',
@@ -23,9 +22,7 @@
     keepAlive: {{ $keepalive }},
     passwordCheck: {{ $passwordCheck }},
     basicusername: '',
-    usernameError: false,
     basicpass: '',
-    basicpassError: false,
     qrCheck: {{ $qrcheck }},
     reconnect: {{ $reconnect }},
     platformselect: 'unix',
@@ -35,7 +32,9 @@
     keyAuthentications: [''],
     ipWhitelistCheck: false,
     ipWhitelist: [''],
-    headerModifications: {{ $headermodifications }}
+    headerModifications: {{ $headermodifications }},
+    accesstoken: false,
+    accesstokenvalue: ''
   }
 }">
     <div class="pinggytunnelshortcode" {{ with .Get "box" }}
@@ -113,16 +112,13 @@
                             <div class="col col-12 col-lg-6">
                                 <div class="form-floating mb-3">
                                     <input class="form-control shortcode_basicusername" 
-                                        :class="{'is-invalid' : data.usernameError}" 
+                                        :class="{'is-invalid' : data.basicusername.includes(':')}"
                                         id="shortcode__basicusername_{{ $random }}" 
                                         placeholder="Username" 
                                         x-model="data.basicusername"
-                                        x-init="$watch('data.basicusername', function(value) {
-                                            data.usernameError = value.includes(':');
-                                        })"
                                     >
                                     <div class="invalid-feedback" 
-                                            x-show="data.usernameError">
+                                            x-show="data.basicusername.includes(':')">
                                             Username cannot contain ':'
                                         </div>
                                     <label for="shortcode_basicusername_{{ $random }}">Username</label>
@@ -131,16 +127,12 @@
                             <div class="col col-12 col-lg-6">
                                 <div class="form-floating mb-3">
                                     <input class="form-control shortcode_basicpass" 
-                                        :class="{'is-invalid' : data.basicpassError}"
+                                        :class="{'is-invalid' : data.basicpass.includes(':')}"
                                         id="shortcode_basicpass_{{ $random }}" 
-                                        placeholder="Password" 
-                                        x-model="data.basicpass"
-                                        x-init="$watch('data.basicpass', function(value) {
-                                            data.basicpassError = value.includes(':');
-                                        })"
+                                        placeholder="Password" x-model="data.basicpass"
                                     >
                                     <div class="invalid-feedback"  
-                                        x-show="data.basicpassError">
+                                        x-show="data.basicpass.includes(':')">
                                         Password cannot contain ':'
                                     </div>
                                     <label for="shortcode_basicpass_{{ $random }}">Password</label>
@@ -258,7 +250,7 @@
                             x-transition.duration.300ms
                         >
                             <div id="keyauthinputcontainer">
-                                <div class="input-group keyauthgroup">
+                                <div class="input-group keyauthgroup mb-3">
                                     <input type="text" aria-label="key / token" placeholder="Key / token"
                                         class="form-control keyauthval" x-model="data.keyAuthentications[0]">
                                     <button class="btn btn-outline-dark addkeyauthinput" type="button"
@@ -296,7 +288,7 @@
                             x-transition.duration.300ms
                         >
                             <div id="ipwhitelistinputcontainer">
-                                <div class="input-group ipwhitelistgroup">
+                                <div class="input-group ipwhitelistgroup mb-3">
                                     <input type="text" aria-label="ip to whitelist"
                                         placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
                                         x-model="data.ipWhitelist[0]">
@@ -317,6 +309,35 @@
                                     </div>
                                 </template>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12 col-lg-6">
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input shortcode_accesstoken" type="checkbox" id="adv_accesstoken"
+                                x-model="data.accesstoken">
+                            <label class="form-check-label" for="shortcode_accesstoken_{{ $random }}">Use Token <i
+                                    class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                    data-bs-placement="right"
+                                    title="Use your Pinggy token"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="accesstokencontainer" class="mb-2">
+                    <div class="col col-12 col-lg-6"
+                        x-show="data.accesstoken"
+                        x-transition.duration.300ms
+                    >
+                        <input type="text" aria-label="token" placeholder="Access Token"
+                            :class="{'is-invalid': /[^a-zA-Z0-9]/.test(data.accesstokenvalue)}"
+                            class="form-control accesstokenval"
+                            x-model="data.accesstokenvalue"
+                        >
+                        <div class="invalid-feedback" 
+                            x-show="/[^a-zA-Z0-9]/.test(data.accesstokenvalue) === true">
+                            Alphanumeric characters only
                         </div>
                     </div>
                 </div>
