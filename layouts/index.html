@@ -110,10 +110,12 @@
                                     <input type="checkbox" id="qrinput" x-model="data.tryItYourself.qrCheck">
                                     <span class="slider round"></span>
                                 </label>
-                                <label class="form-check-label align-middle enablewebdebuglabel" for="qrinput">QR
-                                    Code <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="right" data-bs-html="true"
-                                        title="Show QR code for the URL"></i>
+                                <label class="form-check-label align-middle enablewebdebuglabel" for="qrinput" 
+                                    aria-describedby="qrInfo">QR Code 
+                                    <i class="bi bi-info-circle" 
+                                        data-bs-toggle="tooltip" data-bs-placement="right" 
+                                        data-bs-html="true" title="Show QR Code for the URL">
+                                    </i>
                                 </label>
                             </div>
                         </div>
@@ -483,12 +485,12 @@
                                     x-transition.duration.300ms
                                 >
                                     <input type="text" aria-label="token" placeholder="Access Token"
-                                        :class="{'is-invalid': /[^a-zA-Z0-9]/.test(data.httpConfig.accesstokenvalue)}"
+                                        :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.httpConfig.accesstokenvalue)}"
                                         class="form-control accesstokenval"
                                         x-model="data.httpConfig.accesstokenvalue"
                                     >
                                     <div class="invalid-feedback" 
-                                        x-show="/[^a-zA-Z0-9]/.test(data.httpConfig.accesstokenvalue) === true">
+                                        x-show="/[^a-zA-Z0-9-]/.test(data.httpConfig.accesstokenvalue) === true">
                                         Token can only contain alphanumeric characters
                                     </div>
                                 </div>
@@ -708,12 +710,12 @@
                                     x-transition.duration.300ms
                                 >
                                     <input type="text" aria-label="token" placeholder="Access Token"
-                                        :class="{'is-invalid': /[^a-zA-Z0-9]/.test(data.tcp_tlsConfig.accesstokenvalue)}"
+                                        :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.tcp_tlsConfig.accesstokenvalue)}"
                                         class="form-control accesstokenvaltcp"
                                         x-model="data.tcp_tlsConfig.accesstokenvalue"
                                     >
                                     <div class="invalid-feedback" 
-                                        x-show="/[^a-zA-Z0-9]/.test(data.tcp_tlsConfig.accesstokenvalue) === true">
+                                        x-show="/[^a-zA-Z0-9-]/.test(data.tcp_tlsConfig.accesstokenvalue) === true">
                                         Token can only contain alphanumeric characters
                                     </div>
                                 </div>
@@ -818,7 +820,7 @@
                     alt="xampp">
             </a>
             <a href="quickstart/ghost/" class="ribbon-element text-decoration-none text-reset" target="_blank">
-                <img src="./quickstart/images/ghost.png" 
+                <img src="./quickstart/images/ghost.webp" 
                     alt="ghost">
             </a>
             <a href="quickstart/homeassistant/" class="ribbon-element text-decoration-none text-reset" target="_blank">
@@ -830,7 +832,7 @@
                     alt="shopify">  
             </a>
             <a href="quickstart/razorpay/" class="ribbon-element text-decoration-none text-reset" target="_blank">
-                <img src="./quickstart/images/razorpay.png"  
+                <img src="./quickstart/images/razorpay.webp"  
                     alt="razorpay">
             </a>
             <a href="quickstart/traefik/" class="ribbon-element text-decoration-none text-reset" target="_blank">
@@ -958,15 +960,13 @@
     <div class="container my-5">
         <div class="row justify-content-evenly">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <!-- <div class="videocontainer ratio ratio-16x9">
+                <div class="videocontainer ratio ratio-16x9">
                     <video preload="none" onclick="this.paused?this.play():this.pause();" loop
                         poster="/assets/tunnelvideothumb.jpg">
-                        <source src="/assets/tunnelvideo.mp4" type="video/mp4">
+                        <source src="./blog/images/qr/qr.webm" type="video/webm">
                         Your browser does not support HTML video.
                     </video>
-                </div> -->
-                <img src="./blog/images/qr/qr2.gif" class="img-fluid featureimage"
-                    alt="Access localhost using Pinggy tunnel.">
+                </div>
             </div>
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"><i
@@ -1008,7 +1008,7 @@
                 </a>
             </div>
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <img src="/assets/webdebug2.webp" class="img-fluid featureimage" alt="Pinggy web debugger screenshot" />
+                <img src="/assets/webdebug.webp" class="img-fluid featureimage" alt="Pinggy web debugger screenshot" />
             </div>
         </div>
     </div>
@@ -1021,11 +1021,11 @@
                 <div id="carouselTUI" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="2000">
-                            <img src="/assets/tui1.png" class="d-block w-100 img-fluid featureimage"
+                            <img src="/assets/tui1.webp" class="d-block w-100 img-fluid featureimage"
                                 alt="Pinggy terminal user interface (TUI) screenshot showing list of requests">
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="/assets/tui2.png" class="d-block w-100 img-fluid featureimage"
+                            <img src="/assets/tui2.webp" class="d-block w-100 img-fluid featureimage"
                                 alt="Pinggy terminal user interface (TUI) screenshot showing request and response headers of an HTTP request">
                         </div>
                     </div>
@@ -1069,7 +1069,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <img class="img-fluid" src="/assets/header5.png"
+                <img class="img-fluid" src="/assets/header.webp"
                     alt="Pinggy tunnel network diagram showing how the tunnel works" />
             </div>
         </div>
