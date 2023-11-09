@@ -59,6 +59,7 @@
                         <div class="input-group mb-4 pt-1">
                             <label class="input-group-text" id="tryityourselftext">Try it yourself with:</label>
                             <select class="form-select" id="techselect" 
+                                aria-label="Select technology"
                                 x-model="data.tryItYourself.selectedOption" 
                                 x-on:change="data.updateLabelAndCommand()"
                             >
@@ -75,11 +76,13 @@
 
                         <label class="text-bold" id="tryityourselflabel" x-text="data.tryItYourself.label"></label>
                         <div class="input-group mb-3" x-show="data.tryItYourself.command">
-                            <input id="tryityourselfprecommand" type="text" class="form-control"
+                            <input id="tryityourselfprecommand" type="text" 
+                                class="form-control" aria-label="Command to start local server"
                                 x-model="data.tryItYourself.command" readonly>
-                            <button class="btn btn-outline-dark" type="button" id="copybutton2"
-                                onclick="copytoclipboard(this,'#tryityourselfprecommand', 'Pre command copy button clicked')"><i
-                                    class="bi bi-clipboard"></i>
+                            <button class="btn btn-outline-dark" 
+                                type="button" id="copybutton_tryityourself" aria-label="Copy to Clipboard"
+                                onclick="copytoclipboard(this,'#tryityourselfprecommand', 
+                                'Pre command copy button clicked')"><i class="bi bi-clipboard"></i>
                             </button>
                         </div>
                         <div class="input-group mb-3" x-show="!data.tryItYourself.command"></div>
@@ -97,26 +100,25 @@
 
                         <div class="mt-3 row">
                             <div class="col-md-6">
-                                <label class="switch">
+                                <label class="switch" aria-label="Web Debugger">
                                     <input type="checkbox" id="webdebuggerinput" x-model="data.tryItYourself.webdebugCheck">
                                     <span class="slider round"></span>
                                 </label>
-                                <label class="form-check-label align-middle enablewebdebuglabel"
-                                    for="webdebuggerinput">Web
-                                    Debugger</label>
+                                <span class="align-middle enablewebdebuglabel">
+                                    Web Debugger
+                                </span>
                             </div>
                             <div class="col-md-6">
-                                <label class="switch">
+                                <label class="switch" aria-label="QR Code">
                                     <input type="checkbox" id="qrinput" x-model="data.tryItYourself.qrCheck">
                                     <span class="slider round"></span>
                                 </label>
-                                <label class="form-check-label align-middle enablewebdebuglabel" for="qrinput" 
-                                    aria-describedby="qrInfo">QR Code 
+                                <span class="align-middle enablewebdebuglabel">QR Code 
                                     <i class="bi bi-info-circle" 
                                         data-bs-toggle="tooltip" data-bs-placement="right" 
                                         data-bs-html="true" title="Show QR Code for the URL">
                                     </i>
-                                </label>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -124,11 +126,14 @@
                     <div id="finalcommand" class="border-top mt-3 px-4 py-3">
                         <label class="text-bold mt-2"><strong>Paste this command to start tunnel:</strong></label>
                         <div class="input-group mt-2">
-                            <textarea id="portcommand" class="form-control"
+                            <textarea id="portcommand" 
+                                class="form-control" aria-label="Command to start tunnel"
                                 readonly="readonly" x-text="$store.advModal.tryItYourselfCommand()"></textarea>
-                            <button class="btn btn-dark" type="button" id="copybutton"
+                            <button class="btn btn-dark" type="button" id="copybutton_tryityourselfcommand"
+                                aria-label="Copy SSH URL to Clipboard"
                                 onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"><i
-                                    class="bi bi-clipboard"></i></button>
+                                    class="bi bi-clipboard"></i>
+                            </button>
                         </div>
                         <div class="mt-2" id="instructions">Enter "yes" to continue connecting. Enter blank password if
                             prompted.</div>
@@ -249,7 +254,7 @@
                                     class="form-control font-monospace"
                                     :rows="data.httpConfig.restart ? 4 : 2" 
                                     readonly x-text="$store.advModal.advancedHttpCommand()"></textarea>
-                                <button class="btn btn-outline-dark" type="button" id="copybutton"
+                                <button class="btn btn-outline-dark" type="button" id="copybutton_http"
                                     onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
                                         class="bi bi-clipboard"></i></button>
                             </div>
@@ -585,7 +590,7 @@
                                     class="form-control font-monospace"
                                     :rows="data.tcp_tlsConfig.restart ? 4 : 2"
                                     readonly x-text="$store.advModal.advancedTcpTlsCommand()"></textarea>
-                                <button class="btn btn-outline-dark" type="button" id="copybutton"
+                                <button class="btn btn-outline-dark" type="button" id="copybutton_tcp"
                                     onclick="copytoclipboard(this,'#advancedcommandtcp','SSH url copy button clicked')"><i
                                         class="bi bi-clipboard"></i></button>
                             </div>
@@ -1169,7 +1174,7 @@
 
                 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
                     <h1 class="text-bold fw-normal">Subscribe to the easiest localhost tunneling.</h1>
-                    <p class="fs-5 text-muted">Make your developement experience smoother by unlocking the full
+                    <p class="fs-5" style="color: rgb(80, 80, 80);">Make your developement experience smoother by unlocking the full
                         potential of Pinggy.</p>
                 </div>
                 <!-- <div class="text-center">
@@ -1182,12 +1187,12 @@
                     <div class="row justify-content-center text-left">
                         <div class="mb-3 col-md-9">
                             <label class="toggler toggler--is-active align-middle" id="filt-monthly">Monthly</label>
-                            <label class="switch">
+                            <label class="switch" aria-label="Toggle between monthly and yearly plans">
                                 <input id="toggleswitch" type="checkbox" checked="">
                                 <span class="slider round"></span>
                             </label>
                             <label class="toggler align-middle" id="filt-hourly">Yearly</label><span
-                                class="align-middle" style="color: rgba(70, 117, 199, 1); font-size: 0.8em;"> (Save upto
+                                class="align-middle" style="color: rgba(50, 87, 149, 1); font-size: 0.8em;"> (Save upto
                                 17%)</span>
                         </div>
                     </div>
@@ -1229,11 +1234,11 @@
                                                 <button @click="seatVal = Math.max(1, parseInt(seatVal) - 1)"
                                                     class="btn btn-outline-dark">-</button>
                                             </span>
-                                            <input 
-                                                type="number" 
+                                            <input type="number" x-model="seatVal" 
                                                 class="form-control text-center" 
-                                                x-model="seatVal" 
-                                                x-on:input="seatVal = isNaN(parseFloat(seatVal)) || seatVal < 1 ? 1 : seatVal"
+                                                aria-label="Number of seats"
+                                                x-on:input="seatVal = isNaN(parseFloat(seatVal)) 
+                                                    || seatVal < 1 ? 1 : seatVal"
                                             >
                                             <span class="input-group-btn">
                                                 <button @click="seatVal = parseInt(seatVal) + 1"
@@ -1262,7 +1267,7 @@
                                         <li class="list-group-item p-2"><b><span x-text="seatVal"></span> Persistent TCP port<span x-show="seatVal > 1">s</span></b></li>
                                         <li class="list-group-item p-2">Priority mail / Discord support</li>
                                     </ul>
-                                    <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button-3"
+                                    <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button"
                                         href="https://dashboard.pinggy.io">Get Started</a>
                                 </div>
                             </div>
@@ -1322,7 +1327,7 @@
                                         <li class="list-group-item p-2">Discord Support</li>
                                         <li class="list-group-item p-2">Priority Call Support</li>
                                     </ul>
-                                    <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button-3"
+                                    <a class="mt-auto w-100 btn btn-lg btn-pinggy" id="checkout-and-portal-button-1"
                                         href="/contact_us/">Contact Us</a>
                                 </div>
                             </div>
