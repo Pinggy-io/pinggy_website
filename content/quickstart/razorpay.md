@@ -3,7 +3,7 @@
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
- og_image: "/quickstart/images/razorpay.png"
+ og_image: "/quickstart/images/razorpay.webp"
 ---
 
 With [pinggy.io](https://pinggy.io) you can test your Razorpay Webhook from localhost with just a single command. **Replace the port 8080 with the port where your local development server is running and make sure it is ready to receive requests (e.g. http://localhost:8080/payments-webhooks ).**

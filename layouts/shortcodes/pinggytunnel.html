@@ -331,12 +331,12 @@
                         x-transition.duration.300ms
                     >
                         <input type="text" aria-label="token" placeholder="Access Token"
-                            :class="{'is-invalid': /[^a-zA-Z0-9]/.test(data.accesstokenvalue)}"
+                            :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.accesstokenvalue)}"
                             class="form-control accesstokenval"
                             x-model="data.accesstokenvalue"
                         >
                         <div class="invalid-feedback" 
-                            x-show="/[^a-zA-Z0-9]/.test(data.accesstokenvalue) === true">
+                            x-show="/[^a-zA-Z0-9-]/.test(data.accesstokenvalue) === true">
                             Alphanumeric characters only
                         </div>
                     </div>

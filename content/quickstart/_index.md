@@ -1,6 +1,6 @@
 ---
  title: "Pinggy Quickstart - Secure tunnels to localhost" 
- og_image: "/assets/header5.png"
+ og_image: "/assets/header.webp"
  tags: ["guide", "tcp"]
  description: "Get secure localhost tunnel to your favourite app or service including React, Django, Apache, Nginx, Jupyter, Php, Laravel, etc." 
 ---
@@ -52,13 +52,13 @@
 
 {{< quickstartcard  image="./images/xampp.svg" imagealt="XAMPP logo" title="XAMPP" description="XAMPP is a software package that simplifies local web development by providing an Apache server, MySQL database, and PHP." link="./xampp/">}}
 
-{{< quickstartcard  image="./images/ghost.png" imagealt="Ghost logo" title="Ghost" description="Ghost is a powerful app for new-media creators to publish, share, and grow a business around their content." link="./ghost/">}}
+{{< quickstartcard  image="./images/ghost.webp" imagealt="Ghost logo" title="Ghost" description="Ghost is a powerful app for new-media creators to publish, share, and grow a business around their content." link="./ghost/">}}
 
 {{< quickstartcard  image="./images/homeassistant.svg" imagealt="Home Assistant logo" title="Home Assistant" description="Home Assistant is an open-source platform for home automation and smart home management." link="./homeassistant/">}}
 
 {{< quickstartcard  image="./images/shopify.svg" imagealt="Shopify logo" title="Shopify" description="Shopify is a popular e-commerce platform for creating online stores and selling products." link="./shopify/">}}
 
-{{< quickstartcard  image="./images/razorpay.png" imagealt="Razorpay logo" title="Razorpay" description="Razorpay is a payment gateway platform that enables online businesses to accept and manage online payments." link="./razorpay/">}}
+{{< quickstartcard  image="./images/razorpay.webp" imagealt="Razorpay logo" title="Razorpay" description="Razorpay is a payment gateway platform that enables online businesses to accept and manage online payments." link="./razorpay/">}}
 
 {{< quickstartcard  image="./images/traefik.svg" imagealt="Traefik logo" title="Traefik" description="Traefik is a modern, dynamic reverse proxy and load balancer used for routing and managing web traffic." link="./traefik/">}}
 

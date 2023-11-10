@@ -58,7 +58,7 @@ document.addEventListener("alpine:init", () => {
       }
 
       let accessTokenPart =
-        data.accesstoken && /^[a-zA-Z0-9]+$/.test(data.accesstokenvalue)
+        data.accesstoken && /^[a-zA-Z0-9-]+$/.test(data.accesstokenvalue)
           ? `${data.accesstokenvalue}`
           : "";
 
