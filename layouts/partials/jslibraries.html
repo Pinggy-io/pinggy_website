@@ -1,25 +1,24 @@
 <!-- JS LIBRARIES -->
-<!-- JQuery -->
+{{ $jquery := resources.GetRemote "https://code.jquery.com/jquery-3.6.3.min.js" }}
+{{ $alpine := resources.GetRemote "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" }}
+{{ $bootstrap := resources.GetRemote "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" }}
+{{ $typewriter := resources.Get "/js/typewriter.js" }}
+{{ $pinggyshortcode := resources.Get "/js/pinggytunnelshortcode.js" }}
+{{ $cidrvalidation := resources.Get "/js/cidrformatvalidation.js" }}
+{{ $main := resources.Get "/js/index.js" }}
+{{ $clipboard := resources.Get "/js/clipboard.min.js" }}
+{{ $doc := resources.Get "/js/doc.js" }}
+{{ $quickstart := resources.Get "/js/quickstartsearch.js"}}
+
+{{ $js := slice $jquery $alpine $bootstrap
+$typewriter $pinggyshortcode $cidrvalidation $main $clipboard $doc 
+$quickstart | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
+
 <script
-  src="https://code.jquery.com/jquery-3.6.3.min.js"
-  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  src="{{ $js.Permalink }}"
+  integrity="{{ $js.Data.Integrity }}"
   crossorigin="anonymous"
 ></script>
-
-<!-- Alpine -->
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-></script>
-
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Typewriter-->
-<script src="/js/typewriter.js"></script>
-
-<!-- Pinggy Tunnel Shortcode -->
-<script src="/js/pinggytunnelshortcode.js"></script>
 
 <!-- Enable tooltip -->
 <script type="text/javascript">
