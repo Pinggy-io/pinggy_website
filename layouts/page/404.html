@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="text-center">
+    <h1 class="display-1 fw-bold">404</h1>
+    <p class="fs-3"><span class="text-danger">Opps!</span> Page not found.</p>
+    <p class="lead px-4 h3 md:h2 text-muted" style="max-width: 540px">
+      The page you are looking for might have been removed, had its name
+      changed, or is temporarily unavailable
+    </p>
+    <a
+      href="/"
+      style="
+        border-color: rgb(71, 117, 198);
+        background-color: rgba(70, 117, 199, 1);
+        padding: 0.4em 1em;
+        box-shadow: 0 0 4px 0px #a3599b8c;
+        font-weight: 500;
+        margin-top: 1em;
+      "
+      class="btn btn-secondary"
+      type="button"
+      >Take me back to home page</a
+    >
+  </div>
+</div>
+{{ end }}
