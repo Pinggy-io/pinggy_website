@@ -14,13 +14,13 @@ Command to start a tunnel to port `8000`:
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:8000 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
 ```
 *Replace `8000` with the port where your service is running*.
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:8000 token@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 token@a.pinggy.io
 ```
 *Replace `8000` with the port where your service is running, and replace `token` with your owntoken*.
 {{% /tab %}}

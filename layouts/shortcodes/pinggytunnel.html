@@ -245,12 +245,12 @@
                                 </i>
                             </label>
                         </div>
-                        <div class="col col-12" 
+                        <div class="col col-12 mb-3" 
                             x-show="data.keyAuthentication"
                             x-transition.duration.300ms
                         >
                             <div id="keyauthinputcontainer">
-                                <div class="input-group keyauthgroup mb-3">
+                                <div class="input-group keyauthgroup">
                                     <input type="text" aria-label="key / token" placeholder="Key / token"
                                         class="form-control keyauthval" x-model="data.keyAuthentications[0]">
                                     <button class="btn btn-outline-dark addkeyauthinput" type="button"
@@ -283,12 +283,12 @@
                                 </i>
                             </label>
                         </div>
-                        <div class="col col-12"
+                        <div class="col col-12 mb-3"
                             x-show="data.ipWhitelistCheck"
                             x-transition.duration.300ms
                         >
                             <div id="ipwhitelistinputcontainer">
-                                <div class="input-group ipwhitelistgroup mb-3">
+                                <div class="input-group ipwhitelistgroup">
                                     <input type="text" aria-label="ip to whitelist"
                                         placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
                                         x-model="data.ipWhitelist[0]">

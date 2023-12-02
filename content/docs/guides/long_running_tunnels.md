@@ -8,9 +8,16 @@
 
 You can use Pinggy to host websites, apps, and files from localhost just like any server. You just need to ensure the following:
 
-1. Get a persistent subdomain or a custom domain from the <a href="https://dashboard.pinggy.io" target="_blank">dashboard</a>.
-2. Generate an ssh key. Run `ssh keygen` command in the terminal / command prompt. Press Enter / Return key till the command finishes executing.
+1. Get a persistent subdomain or a custom domain from the [dashboard](https://dashboard.pinggy.io).
+2. To generate an SSH key, run the following command in your terminal and press Enter:
+
+    ```bash
+    ssh-keygen
+    ```
+
+    Press Enter to save the key in the default location, optionally add a passphrase by typing it and pressing Enter, and continue pressing Enter for any additional prompts until the command finishes.   
 3. Use the token to start the tunnel as described next.
+
 
 
 The following command ensures that your tunnels stay alive and restart on its own if something goes wrong:
