@@ -391,8 +391,8 @@
                                         x-show="data.httpConfig.keyAuthentication"
                                         x-transition.duration.300ms
                                     >
-                                        <div id="keyauthinputcontainer">
-                                            <div class="input-group keyauthgroup mb-3">
+                                        <div id="keyauthinputcontainer" class="mb-3">
+                                            <div class="input-group keyauthgroup">
                                                 <input type="text" aria-label="key / token" placeholder="Key / token"
                                                     class="form-control keyauthval" x-model="data.httpConfig.keyAuthentications[0]">
                                                 <button class="btn btn-outline-dark addkeyauthinput" type="button"
@@ -427,8 +427,8 @@
                                         x-show="data.httpConfig.ipWhitelistCheck"
                                         x-transition.duration.300ms
                                     >
-                                        <div id="ipwhitelistinputcontainer">
-                                            <div class="input-group ipwhitelistgroup mb-3">
+                                        <div id="ipwhitelistinputcontainer" class="mb-3">
+                                            <div class="input-group ipwhitelistgroup">
                                                 <input type="text" aria-label="ip to whitelist"
                                                     :class="{'is-invalid' : data.httpConfig.ipWhitelist[0] 
                                                         && ipCidrValidator(data.httpConfig.ipWhitelist[0]) === false}"
@@ -655,8 +655,8 @@
                                     x-show="data.tcp_tlsConfig.ipWhitelistCheck"
                                     x-transition.duration.300ms
                                 >
-                                    <div id="ipwhitelistinputcontainerTCP">
-                                        <div class="input-group ipwhitelistgroupTCP mb-3">
+                                    <div id="ipwhitelistinputcontainerTCP" class="mb-3">
+                                        <div class="input-group ipwhitelistgroupTCP">
                                             <input type="text" aria-label="ip to whitelist"
                                                 :class="{'is-invalid' : data.tcp_tlsConfig.ipWhitelist[0] 
                                                     && ipCidrValidator(data.tcp_tlsConfig.ipWhitelist[0]) === false}"

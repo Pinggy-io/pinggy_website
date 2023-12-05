@@ -10,7 +10,7 @@ Pinggy supports live header modification for incoming HTTP(S) requests. It can r
 
 Headers can be modified via command-line arguments with the ssh command itself. Here's an example to add a new header X-Pinggy-Forwarded: true to incoming requests:
 ```
-ssh -p 443 -R0:localhost:8000 a.pinggy.io a:X-Pinggy-Forwarded:true
+ssh -p 443 -R0:localhost:8000 -t a.pinggy.io a:X-Pinggy-Forwarded:true
 ```
 
 ## Documentation
@@ -50,7 +50,7 @@ Kindly note that the `Host` header is very special. It cannot be removed, but on
 ## Example
 * Let's say we want to start a `HTTP` tunnel for the server running at `localhost:8080` while changing `Host` to `example.com`.
 ```
-ssh -p443 -R0:localhost:8080 a.pinggy.io u:Host:example.com
+ssh -p 443 -R0:localhost:8080 a.pinggy.io u:Host:example.com
 ```
 
 <div class="row mb-4">
@@ -61,7 +61,7 @@ ssh -p443 -R0:localhost:8080 a.pinggy.io u:Host:example.com
 
 * So last command does not provide the interactive UI. To get the interactive UI we have to add `-t` switch to the `ssh` command like below.
 ```
-ssh -p443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com
+ssh -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com
 ```
 
 <div class="row mb-4">
@@ -79,7 +79,7 @@ ssh -p443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com
 
 * How to add more manipulation? Just add at the end. For example, if we want to remove `Referer` header along with changing the `Host`, we need following command
 ```
-ssh -p443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com r:Referer
+ssh -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com r:Referer
 ```
 
 <div class="row mb-4">

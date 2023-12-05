@@ -15,7 +15,7 @@ $typewriter $pinggyshortcode $cidrvalidation $main $clipboard $doc
 $quickstart | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
 
 <script
-  src="{{ $js.Permalink }}"
+  src="{{ $js.RelPermalink }}"
   integrity="{{ $js.Data.Integrity }}"
   crossorigin="anonymous"
 ></script>

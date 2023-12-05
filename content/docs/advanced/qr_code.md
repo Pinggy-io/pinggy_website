@@ -39,11 +39,11 @@ Pinggy also supports keywords `qr` and `aqr` while creating tunnel to print QR i
 
 This keyword needs to be passed with the username as following
 ```
-ssh -p443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
 ```
 If one wants to pass other keyword like a token, add it with a `+` like this
 ```
-ssh -p443 -R0:localhost:8000 qr+token@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr+token@a.pinggy.io
 ```
 
 Here `qr` would produce QR code in unicode while `aqr` would produce QR code in ASCII.
