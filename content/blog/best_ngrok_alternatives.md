@@ -64,10 +64,11 @@ To get how simple it is to open a tunnel, here is an example. If you want to sha
 ssh -p 443 -R0:localhost:3000 a.pinggy.io
 ```
 <div class="my-2 videocontainer ratio ratio-16x9">
-                    <video preload="none" onclick="this.paused?this.play():this.pause();" loop poster="/assets/tunnelvideothumb.jpg" >
-                        <source src="/assets/tunnelvideo.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                      </video>
+  <video preload="none" onclick="this.paused?this.play():this.pause();" loop 
+    poster="/assets/tunnelvideothumb.jpg" >
+    <source src="/assets/tunnelvideo.mp4" type="video/mp4">
+      Your browser does not support HTML video.
+  </video>
 </div>
 
 Pinggy is one of the Ngrok alternatives which you can try out for free without signing up for an account. Over Ngrok, it provides features such as QR codes for tunnel URLs and an HTTP request / response inspection tool within the terminal.

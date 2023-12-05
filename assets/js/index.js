@@ -169,7 +169,7 @@ document.addEventListener("alpine:init", () => {
       }
 
       sshuser =
-        config.accesstoken && /^[a-zA-Z0-9]+$/.test(config.accesstokenvalue)
+        config.accesstoken && /^[a-zA-Z0-9-]+$/.test(config.accesstokenvalue)
           ? `${config.accesstokenvalue}${config.qrCheck ? "+qr" : ""}@`
           : config.qrCheck
           ? "qr@"
@@ -218,7 +218,7 @@ document.addEventListener("alpine:init", () => {
       }
 
       let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${
-        config.accesstoken && /^[a-zA-Z0-9]+$/.test(config.accesstokenvalue)
+        config.accesstoken && /^[a-zA-Z0-9-]+$/.test(config.accesstokenvalue)
           ? config.accesstokenvalue + "+" + config.mode
           : config.mode
       }@${config.selectedRegion}${headercommands}`;

@@ -18,12 +18,12 @@ Client can enable basic authentication as follows:
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> -t a.pinggy.io b:username:password
+ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io b:username:password
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> -t <token>@a.pinggy.io b:username:password
+ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io b:username:password
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -32,12 +32,12 @@ One can add multiple username:password combination as follows:
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> -t a.pinggy.io b:username1:password1 b:username2:password2
+ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io b:username1:password1 b:username2:password2
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> -t <token>@a.pinggy.io b:username1:password1 b:username2:password2
+ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io b:username1:password1 b:username2:password2
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -50,12 +50,12 @@ Start tunnel with key authentication as follows
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> -t a.pinggy.io k:key
+ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io k:key
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> -t <token>@a.pinggy.io k:key
+ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io k:key
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -64,12 +64,12 @@ Like basic authentication, one can set multiple keys as well.
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> -t a.pinggy.io k:key1 k:key2
+ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io k:key1 k:key2
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> -t <token>@a.pinggy.io k:key k:key2
+ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io k:key k:key2
 ```
 {{% /tab %}}
 {{< /tabs >}}

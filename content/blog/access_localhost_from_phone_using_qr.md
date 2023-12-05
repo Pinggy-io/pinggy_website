@@ -6,8 +6,13 @@
  tags: ["update", "guide"]
 ---
 
-{{< figure src="../images/qr/qr2.gif" alt="Accessing localhost form your phone using Pinggy QR codes" >}}
-
+<div class="my-4 videocontainer ratio ratio-16x9">
+  <video preload="none" onclick="this.paused?this.play():this.pause();" loop 
+    poster="/assets/tunnelvideothumb.jpg" >
+    <source src="../images/qr/qr.webm" type="video/mp4">
+      Your browser does not support HTML video.
+  </video>
+</div>
 
 #### Pinggy now supports QR codes within the terminal!
 

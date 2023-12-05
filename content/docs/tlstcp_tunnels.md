@@ -11,12 +11,12 @@ Create a tunnel using a single command.
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> tlstcp@a.pinggy.io
+ssh -p 443 -R0:localhost:<localport> tlstcp@a.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> <token>+tlstcp@a.pinggy.io
+ssh -p 443 -R0:localhost:<localport> <token>+tlstcp@a.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
