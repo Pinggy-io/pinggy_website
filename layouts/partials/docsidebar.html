@@ -1,54 +1,203 @@
 <div class="sidebar">
-    <span id="sidebarclosebtn" class="fs-5 text-center text-black border border-dark rounded px-2" onclick="hidesidebar()"><i class="bi bi-x"></i></span>
+  <span
+    id="sidebarclosebtn"
+    class="fs-5 text-center text-black border border-dark rounded px-2"
+    onclick="hidesidebar()"
+    ><i class="bi bi-x"></i
+  ></span>
 
-    <a href="/docs/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-      <span class="fs-5" style="font-weight: 500;">Documentation</span>
-    </a>
-    <ul class="list-unstyled ps-0">
-      <li class="mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#gettingstarted-collapse" aria-expanded="true">
-            Getting Started
-          </button>
-          <div class="collapse show" id="gettingstarted-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li class="doclink"><a href="/docs/" class="link-dark rounded">Quickstart</a></li>
-              <li class="doclink"><a href="/docs/guides/long_running_tunnels/" class="link-dark rounded">Long-running Tunnels</a></li>
-            </ul>
-          </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#http-collapse" aria-expanded="true">
-          HTTP Tunnels
-        </button>
-        <div class="collapse show" id="http-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li class="doclink"><a href="/docs/http_tunnels/" class="link-dark rounded">HTTP/HTTPS Tunnels</a></li>
-            <li class="doclink"><a href="/docs/http_tunnels/authentication/" class="link-dark rounded">Authenticated Tunnels</a></li>
-            <li class="doclink"><a href="/docs/advanced/live_header/" class="link-dark rounded">Live Header Modification</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="doclink"><a href="/docs/tcp_tunnels/" class="btn btn-non-toggle">TCP Tunnels</a></li>
-      <li class="doclink"><a href="/docs/tls_tunnels/" class="btn btn-non-toggle">TLS Tunnels</a></li>
-      <li class="doclink"><a href="/docs/tlstcp_tunnels/" class="btn btn-non-toggle">TLSTCP Tunnels</a></li>
-      <li class="doclink"><a href="/docs/usages/" class="btn btn-non-toggle">Usages</a></li>
+  <a
+    href="/docs/"
+    class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom"
+  >
+    <span class="fs-5" style="font-weight: 500">Documentation</span>
+  </a>
+  <ul class="list-unstyled ps-0">
+    <li class="mb-1">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#gettingstarted-collapse"
+        aria-expanded="true"
+      >
+        Getting Started
+      </button>
+      <div class="collapse show" id="gettingstarted-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/" class="link-dark rounded">Quickstart</a>
+          </li>
+          <li class="doclink">
+            <a
+              href="/docs/guides/long_running_tunnels/"
+              class="link-dark rounded"
+              >Long-running Tunnels</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#http-collapse"
+        aria-expanded="true"
+      >
+        HTTP Tunnels
+      </button>
+      <div class="collapse show" id="http-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/http_tunnels/" class="link-dark rounded"
+              >HTTP/HTTPS Tunnels</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/http_tunnels/basic_auth/" class="link-dark rounded"
+              >Basic Authentication</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/http_tunnels/key_auth/" class="link-dark rounded"
+              >Key Authentication</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/http_tunnels/ip_whitelist/" class="link-dark rounded"
+              >IP Whitelist</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/advanced/live_header/" class="link-dark rounded"
+              >Live Header Modification</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#tcp-collapse"
+        aria-expanded="true"
+      >
+        TCP Tunnels
+      </button>
+      <div class="collapse show" id="tcp-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/tcp_tunnels/" class="link-dark rounded"
+              >TCP Tunnels</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/tcp_tunnels/ip_whitelist/" class="link-dark rounded"
+              >IP Whitelist with TCP Tunnels</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#tls-collapse"
+        aria-expanded="true"
+      >
+        TLS Tunnels
+      </button>
+      <div class="collapse show" id="tls-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/tls_tunnels/" class="link-dark rounded"
+              >TLS Tunnels</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/tls_tunnels/ip_whitelist/" class="link-dark rounded"
+              >IP Whitelist with TLS Tunnels</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#tlstcp-collapse"
+        aria-expanded="true"
+      >
+        TLSTCP Tunnels
+      </button>
+      <div class="collapse show" id="tlstcp-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/tlstcp_tunnels/" class="link-dark rounded"
+              >TLSTCP Tunnels</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/tlstcp_tunnels/ip_whitelist/" class="link-dark rounded"
+              >IP Whitelist with TLSTCP Tunnels</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="doclink">
+      <a href="/docs/usages/" class="btn btn-non-toggle">Usages</a>
+    </li>
 
-      <li class="doclink"><a href="/docs/persistent_subdomain/" class="btn btn-non-toggle">Persistent Subdomain</a></li>
-      <li class="doclink"><a href="/docs/advanced/qr_code/" class="btn btn-non-toggle">QR Code</a></li>
-          
-      <li class="border-top my-3"></li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
-          Use cases
-        </button>
-        <div class="collapse show" id="orders-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li class="doclink"><a href="/docs/guides/nextjs/" class="link-dark rounded">Host Next.js on laptop</a></li>
-            <li class="doclink"><a href="/docs/guides/sharefiles/" class="link-dark rounded">Share files</a></li>
-            <li class="doclink"><a href="/docs/guides/ssh_iot/" class="link-dark rounded">Access IoT devices</a></li>
-            <li class="doclink"><a href="/blog/host_website_on_android/" target="_blank" class="link-dark rounded">Host a server on Android</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </div>
+    <li class="doclink">
+      <a href="/docs/persistent_subdomain/" class="btn btn-non-toggle"
+        >Persistent Subdomain</a
+      >
+    </li>
+    <li class="doclink">
+      <a href="/docs/advanced/qr_code/" class="btn btn-non-toggle">QR Code</a>
+    </li>
+
+    <li class="border-top my-3"></li>
+    <li class="mb-1">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#orders-collapse"
+        aria-expanded="true"
+      >
+        Use cases
+      </button>
+      <div class="collapse show" id="orders-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/guides/nextjs/" class="link-dark rounded"
+              >Host Next.js on laptop</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/sharefiles/" class="link-dark rounded"
+              >Share files</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/ssh_iot/" class="link-dark rounded"
+              >Access IoT devices</a
+            >
+          </li>
+          <li class="doclink">
+            <a
+              href="/blog/host_website_on_android/"
+              target="_blank"
+              class="link-dark rounded"
+              >Host a server on Android</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
