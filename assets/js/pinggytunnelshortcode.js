@@ -26,7 +26,7 @@ document.addEventListener("alpine:init", () => {
         }
       }
 
-      if (!data.ipWhitelist[0]) {
+      if (data.ipWhitelistCheck && !data.ipWhitelist[0]) {
         updateIpWhitelist();
       }
 
