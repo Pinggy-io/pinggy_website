@@ -3,7 +3,6 @@ document.addEventListener("alpine:init", () => {
     advancedCommand(data) {
       let options = "";
       let headercommands = "";
-      let ipWhitelistUpdated = false;
 
       async function fetchIpAddress() {
         try {
@@ -19,12 +18,16 @@ document.addEventListener("alpine:init", () => {
       async function updateIpWhitelist() {
         const ipAddress = await fetchIpAddress();
         if (ipAddress) {
-          const cidrIpAddress = ipAddress + '/24';
-          data.ipWhitelist[0] = cidrIpAddress;
-          ipWhitelistUpdated = true;
+          data.ipWhitelist[0] = `${ipAddress}/${
+            ipAddress.includes(":") ? "128" : "24"
+          }`;
         } else {
           console.error("Unable to fetch IP address.");
         }
+      }
+
+      if (!data.ipWhitelist[0]) {
+        updateIpWhitelist();
       }
 
       if (data.webDebugEnabled) {
@@ -69,7 +72,6 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (data.ipWhitelistCheck) {
-        updateIpWhitelist();
         const filteredIPs = data.ipWhitelist.filter((ipval, i) => {
           return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
         });
