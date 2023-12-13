@@ -7,8 +7,6 @@
 
 ---
 
-
-
 {{% link href="https://jupyter.org/" %}}Jupyter Notebook{{% /link %}} allows users to create and share documents containing live code, equations, visualizations, and explanatory text. However, by default, Jupyter Notebook is limited to local access, requiring users to be on the same machine or network to collaborate effectively. This guide shows how you can share Jupyter Notebook with your teammates, collaborators, and friends.
 
 {{< figure src="../images/jupyter/image0.png" alt="Sharing jupyter notebook through Pinggy public URLs" >}}

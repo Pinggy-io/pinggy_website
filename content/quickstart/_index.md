@@ -96,4 +96,6 @@
 
 {{< quickstartcard  image="./images/strapi.svg" imagealt="Strapi logo" title="Strapi" description="Strapi is a headless CMS (Content Management System) that allows easy creation of customizable APIs." link="./strapi/">}}
 
+{{< quickstartcard  image="./images/minecraft.svg" imagealt="Minecraft logo" title="Minecraft" description="Minecraft is a popular sandbox game known for its blocky worlds, creative building, and adventurous gameplay." link="./minecraft/">}}
+
 </div>
