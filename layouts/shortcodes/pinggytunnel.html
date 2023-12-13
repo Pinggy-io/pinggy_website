@@ -7,10 +7,16 @@
 {{ $webdebugenabled := .Get "webdebugenabled" | default false }}
 {{ $keepalive := .Get "keepalive" | default false }}
 {{ $passwordCheck := .Get "passwordCheck" | default false }}
+{{ $basicusername := .Get "basicusername" | default "" }}
+{{ $basicpass := .Get "basicpass" | default "" }}
 {{ $qrcheck := .Get "qrcheck" | default false }}
 {{ $reconnect := .Get "reconnect" | default false }}
 {{ $manuallycheckkey := .Get "manuallycheckkey" | default true }}
 {{ $mode := .Get "mode" | default "http" }}
+{{ $keyauthentication := .Get "keyauthentication" | default false }}
+{{ $keyauthentications := .Get "keyauthentications" | default "[]" }}
+{{ $ipwhitelistcheck := .Get "ipwhitelistcheck" | default false }}
+{{ $ipwhitelist := .Get "ipwhitelist" | default "[]" }}
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 
 <div x-data="{
@@ -21,17 +27,17 @@
     webDebugEnabled: {{ $webdebugenabled }},
     keepAlive: {{ $keepalive }},
     passwordCheck: {{ $passwordCheck }},
-    basicusername: '',
-    basicpass: '',
+    basicusername: '{{ $basicusername }}',
+    basicpass: '{{ $basicpass }}',
     qrCheck: {{ $qrcheck }},
     reconnect: {{ $reconnect }},
     platformselect: 'unix',
     manuallyCheckKey: {{ $manuallycheckkey }},
     mode: '{{ $mode }}',
-    keyAuthentication: false,
-    keyAuthentications: [''],
-    ipWhitelistCheck: false,
-    ipWhitelist: [''],
+    keyAuthentication: {{ $keyauthentication }},
+    keyAuthentications: {{ $keyauthentications }},
+    ipWhitelistCheck: {{ $ipwhitelistcheck }},
+    ipWhitelist: {{ $ipwhitelist }},
     headerModifications: {{ $headermodifications }},
     accesstoken: false,
     accesstokenvalue: ''
@@ -209,22 +215,38 @@
                             <div id="ipwhitelistinputcontainer">
                                 <div class="input-group ipwhitelistgroup">
                                     <input type="text" aria-label="ip to whitelist"
+                                        :class="{'is-invalid' : data.ipWhitelist[0] 
+                                            && ipCidrValidator(data.ipWhitelist[0]) === false}"
                                         placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                        x-model="data.ipWhitelist[0]">
+                                        x-model.debounce.500ms="data.ipWhitelist[0]">
                                     <button class="btn btn-outline-dark addipinput" type="button"
                                         @click="data.ipWhitelist.push('')">
                                         <i class="bi bi-plus"></i>
                                     </button>
+                                    <div class="invalid-feedback" 
+                                        x-show="data.ipWhitelist[0] 
+                                        && ipCidrValidator(data.ipWhitelist[0]) === false"
+                                    >
+                                        Invalid CIDR Format
+                                    </div>
                                 </div>
                                 <template x-for="(ip, index) in data.ipWhitelist" :key="index">
                                     <div x-show="index > 0" class="input-group ipwhitelistgroup">
                                         <input type="text" aria-label="ip to whitelist"
+                                            :class="{'is-invalid' : data.ipWhitelist[index] 
+                                                && ipCidrValidator(data.ipWhitelist[index]) === false}"
                                             placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                            x-model="data.ipWhitelist[index]">
+                                            x-model.debounce.500ms="data.ipWhitelist[index]">
                                         <button class="btn btn-outline-danger removeipinput" type="button"
                                             @click="data.ipWhitelist.splice(index, 1)">
                                             <i class="bi bi-x"></i>
                                         </button>
+                                        <div class="invalid-feedback" 
+                                            x-show="data.ipWhitelist[index] 
+                                            && ipCidrValidator(data.ipWhitelist[index]) === false"
+                                        >
+                                            Invalid CIDR Format
+                                        </div>
                                     </div>
                                 </template>
                             </div>
@@ -290,22 +312,38 @@
                             <div id="ipwhitelistinputcontainer">
                                 <div class="input-group ipwhitelistgroup">
                                     <input type="text" aria-label="ip to whitelist"
+                                        :class="{'is-invalid' : data.ipWhitelist[0] 
+                                            && ipCidrValidator(data.ipWhitelist[0]) === false}"
                                         placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                        x-model="data.ipWhitelist[0]">
+                                        x-model.debounce.500ms="data.ipWhitelist[0]">
                                     <button class="btn btn-outline-dark addipinput" type="button"
                                         @click="data.ipWhitelist.push('')">
                                         <i class="bi bi-plus"></i>
                                     </button>
+                                    <div class="invalid-feedback" 
+                                        x-show="data.ipWhitelist[0] 
+                                        && ipCidrValidator(data.ipWhitelist[0]) === false"
+                                    >
+                                        Invalid CIDR Format
+                                    </div>
                                 </div>
                                 <template x-for="(ip, index) in data.ipWhitelist" :key="index">
                                     <div x-show="index > 0" class="input-group ipwhitelistgroup">
                                         <input type="text" aria-label="ip to whitelist"
+                                            :class="{'is-invalid' : data.ipWhitelist[index] 
+                                                && ipCidrValidator(data.ipWhitelist[index]) === false}"
                                             placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                            x-model="data.ipWhitelist[index]">
+                                            x-model.debounce.500ms="data.ipWhitelist[index]">
                                         <button class="btn btn-outline-danger removeipinput" type="button"
                                             @click="data.ipWhitelist.splice(index, 1)">
                                             <i class="bi bi-x"></i>
                                         </button>
+                                        <div class="invalid-feedback" 
+                                            x-show="data.ipWhitelist[index] 
+                                            && ipCidrValidator(data.ipWhitelist[index]) === false"
+                                        >
+                                            Invalid CIDR Format
+                                        </div>
                                     </div>
                                 </template>
                             </div>
@@ -370,7 +408,7 @@
                             title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i></label>
 
                     <div>
-                        <button type="button" class="btn btn-outline-dark mb-3 mt-2 shortcode_addheaderbtn"
+                        <button type="button" class="btn btn-primary mb-3 mt-2 custom-button"
                             @click="data.headerModifications.push({ mode: 'a', headername: '', headerval: '' })">
                             <i class="bi bi-plus"></i> Add header modification rule
                         </button>

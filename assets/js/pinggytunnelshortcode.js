@@ -4,6 +4,32 @@ document.addEventListener("alpine:init", () => {
       let options = "";
       let headercommands = "";
 
+      async function fetchIpAddress() {
+        try {
+          const response = await fetch("https://api.ipify.org?format=json");
+          const ipAddressData = await response.json();
+          return ipAddressData.ip;
+        } catch (error) {
+          console.error("Error fetching IP address:", error.message);
+          return null;
+        }
+      }
+
+      async function updateIpWhitelist() {
+        const ipAddress = await fetchIpAddress();
+        if (ipAddress) {
+          data.ipWhitelist[0] = `${ipAddress}/${
+            ipAddress.includes(":") ? "128" : "24"
+          }`;
+        } else {
+          console.error("Unable to fetch IP address.");
+        }
+      }
+
+      if (data.ipWhitelistCheck && !data.ipWhitelist[0]) {
+        updateIpWhitelist();
+      }
+
       if (data.webDebugEnabled) {
         let webdebugoption = `-L${data.webDebugPort}:localhost:${data.webDebugPort}`;
         options += " " + webdebugoption;
@@ -46,9 +72,9 @@ document.addEventListener("alpine:init", () => {
       }
 
       if (data.ipWhitelistCheck) {
-        const filteredIPs = data.ipWhitelist.filter(
-          (ipval, i) => ipval !== "" || i === 0
-        );
+        const filteredIPs = data.ipWhitelist.filter((ipval, i) => {
+          return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
+        });
         filteredIPs.reverse();
         headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
       }

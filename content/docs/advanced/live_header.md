@@ -60,9 +60,9 @@ ssh -p 443 -R0:localhost:8080 a.pinggy.io u:Host:example.com
 </div>
 
 * So last command does not provide the interactive UI. To get the interactive UI we have to add `-t` switch to the `ssh` command like below.
-```
-ssh -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com
-```
+
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel:" portstring="Local Port" localport="8080" webdebugenabled=false keepalive=true headermodifications=`[{"mode":"u", "headername":"Host", "headerval": "example.com"}]` >}}
+{{< /pinggytunnel >}}
 
 <div class="row mb-4">
 <div class="col">
