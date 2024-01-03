@@ -4,22 +4,20 @@
  lastmod: 2023-08-22T14:15:25+05:30
  draft: false 
  tags: ["guide", "tls"]
- og_image: "/blog/images/tls_tunnel/tls.webp"
+ og_image: "images/tls_tunnel/tls.webp"
  description: "A TLS tunnel is a secure, end-to-end encrypted channel that enables clients to communicate with servers while preventing malicious eavesdropping. You can easily create a TLS tunnel using Pinggy and connect to your localhost servers securely. You do not need to download anything to create a TLS tunnel."
+ outputs:
+  - HTML
+  - AMP
 ---
 
+A TLS tunnel, also known as an SSL tunnel, is a secure channel that allows data to travel between two endpoints while being encrypted and protected from eavesdropping and tampering. This form of tunneling relies on the TLS protocol to establish an encrypted connection between a client and a server, ensuring that the data exchanged between them remains confidential and secure.
 
-
-A TLS tunnel, also known as an SSL tunnel, is a secure channel that allows data to travel between two endpoints while being encrypted and protected from eavesdropping and tampering. This form of tunneling relies on the TLS protocol to establish an encrypted connection between a client and a server, ensuring that the data exchanged between them remains confidential and secure. 
-
-<img src="../images/tls_tunnel/tls.webp" alt="Tls tunnel" title="Tls tunnel" >
-
+{{< image "tls_tunnel/tls.webp" >}}
 
 TLS tunneling provides end-to-end encryption which is essential for maintaining the confidentiality and integrity of data transmitted over the internet. This ensures that sensitive information remains shielded from prying eyes and malicious eavesdroppers including internet service providers, and allowing users to communicate and exchange data with a high level of trust.
 
 In this blog, we'll learn how TLS tunnels work and explore how to utilize {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, a popular developer tool, to create secure and seamless TLS tunnel to localhost.
-
-
 
 ## What is TLS
 
@@ -27,23 +25,21 @@ Transport Layer Security (TLS) and its precursor, Secure Sockets Layer (SSL), co
 
 ### TLS handshake
 
+{{< image "tls_tunnel/tls_handshake.webp" >}}
 
-<img src="../images/tls_tunnel/tls_handshake.webp" alt="Tls handshake diagram" title="Tls handshake diagram" >
-
-At a very high level overview, the TLS handshake process involves a series of carefully orchestrated steps that establish a secure and encrypted channel between the client and server. This ensures the confidentiality, integrity, and authenticity of the data exchanged during the communication. 
-
+At a very high level overview, the TLS handshake process involves a series of carefully orchestrated steps that establish a secure and encrypted channel between the client and server. This ensures the confidentiality, integrity, and authenticity of the data exchanged during the communication.
 
 Here are key phases in this process. Each message is carried through the transport layer protocols such as TCP.
 
-* **ClientHello**: The ClientHello message is sent by the client to initiate the TLS handshake, indicating supported encryption methods and preferences.
+- **ClientHello**: The ClientHello message is sent by the client to initiate the TLS handshake, indicating supported encryption methods and preferences.
 
-* **Certificate**: In response, the server sends its digital certificate to the client, verifying its identity and enabling the client to establish a secure connection.
+- **Certificate**: In response, the server sends its digital certificate to the client, verifying its identity and enabling the client to establish a secure connection.
 
-* **ClientKeyExchange**: The client generates a pre-master secret and encrypts it using the server's public key, facilitating the exchange of secret keys required for encryption.
+- **ClientKeyExchange**: The client generates a pre-master secret and encrypts it using the server's public key, facilitating the exchange of secret keys required for encryption.
 
-* **ChangeCipherSpec**: Both parties exchange ChangeCipherSpec messages to signal the transition to encrypted communication, making the negotiated encryption algorithms active.
+- **ChangeCipherSpec**: Both parties exchange ChangeCipherSpec messages to signal the transition to encrypted communication, making the negotiated encryption algorithms active.
 
-* **ApplicationData**: After the handshake is completed, encrypted ApplicationData messages are exchanged, containing the actual data being transmitted securely between the client and server.
+- **ApplicationData**: After the handshake is completed, encrypted ApplicationData messages are exchanged, containing the actual data being transmitted securely between the client and server.
 
 To learn about TLS in more detail, please consult the {{< link href="https://datatracker.ietf.org/doc/html/rfc5246" >}}RFC{{< /link >}}.
 
@@ -59,10 +55,9 @@ In tunnel service providers such as Pinggy or Ngrok, the TLS tunnel traffic is t
 
 **Prerequisite for TLS tunnels**: The end server, such as an HTTPS server, must possess the required TLS key and certificate to handle traffic termination for the specific domain or subdomain used to establish the tunnel. For instance, if the tunnel is accessed via the domain `tls.tunnel.com`, the server to which the tunnel is directed must be equipped with the relevant domain certificate to effectively terminate the TLS connections.
 
-<img src="../images/tls_tunnel/tls_tunnel.webp" alt="Tls tunnel" title="Tls tunnel flow diagram" >
+{{< image "tls_tunnel/tls_tunnel.webp" >}}
 
 **How TLS tunnels work?**: TLS tunnels depend on the Server Name Indication (SNI). SNI is an extension in the TLS protocol that contains the hostname or domain name requested by the client. This information is sent as part of the initial TLS handshake to the server, allowing the tunnel server to determine which tunnel to forward the traffic to. SNI is contained in the ClientHello message. Apart from this ClientHello message, none of the encrypted messages that follow can be decrypted by the tunnel provider.
-
 
 ## How to create a TLS Tunnel for free
 
@@ -72,12 +67,8 @@ To create a TLS tunnel that forwards traffic to a local HTTPS server running on 
 ssh -p 443 -R0:localhost:443 tls@a.pinggy.io
 ```
 
-You can customize the command here:
-
-{{< pinggytunnel box="true" mode="tls"  tunnelstring="Paste this command to start a TLS tunnel to an HTTPS server:" portstring="HTTPS Server Port" localport="443" keepalive=true  >}}
+{{< pinggytunnel box="true" mode="tls"  tunnelstring="Paste this command to start a TLS tunnel to an HTTPS server:" portstring="HTTPS Server Port" localport="443" keepalive=true tryYourselfText="You can customize the command here:"  >}}
 {{< /pinggytunnel >}}
-
-<br>
 
 Note that your HTTPS server must have the certificates to terminate the TLS tunnel. To associate your custom domain with the tunnel, just Sign in to [Pinggy](https://pinggy.io) and get a custom domain.
 

@@ -4,6 +4,9 @@
  draft: false 
  tags: ["guide", "android"]
  og_image: "/blog_img/androidhost/tunnel.jpg"
+ outputs:
+  - HTML
+  - AMP
 ---
 
 Hosting your website or blog from your pocket sounds fun? This blog post will describe how you can turn your Android device into a web server which can be accessed from a public URL or your own domain.
@@ -24,14 +27,15 @@ To give you a glimpse of a blog running on a $180 Android phone, here are some s
 Follow these simple steps to serve your own webpage from your Android phone.
 
 ## Step 1. Install Termux
+
 <a href="https://termux.dev/en/" target="_blank">`Termux`</a> is an application for Android that emulates a terminal and Linux environment. Unlike other similar apps, it does not require rooting or any additional setup. It comes with a basic system, and you can install more packages using the APT package manager.
 
 You can get the Termux app on F-Droid through this <a href="https://f-droid.org/en/packages/com.termux/" target="_blank">F-Droid link</a>.
 
-You can *directly download the Termux APK from the website*.
+You can _directly download the Termux APK from the website_.
 Simply click on the "Download APK" link located at the bottom of each version section. Read more in this <a href="https://github.com/termux/termux-app#f-droid" target="_blank">GitHub link</a>.
 
-*Note that it is NOT necessary to download the F-Droid app* (from the "Download F-Droid" link) to install Termux. 
+_Note that it is NOT necessary to download the F-Droid app_ (from the "Download F-Droid" link) to install Termux.
 
 ## Step 2. Install Packages
 
@@ -45,6 +49,7 @@ pkg upgrade
 ```
 
 Install openssh client and Node.js:
+
 ```bash
 pkg install openssh
 pkg install nodejs-lts
@@ -53,7 +58,6 @@ pkg install nodejs-lts
 Once these are installed correctly, you will be able to check the versions of `node` and `npm` using `node --version` and `npm --version`
 
 <img class="my-4" style="width: 20em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalnode.png" alt="Android phone showing node and npm version on termux">
-
 
 ## Step 3. Start server and Pinggy tunnel
 
@@ -66,14 +70,14 @@ echo "<h1>Hello World!</h1>" > index.html
 You can use the `nano` editor to edit the webpage from the terminal: `nano index.html`. If you prefer vim then you can also install that.
 
 **Now start the http-server:**
+
 ```bash
 npx http-server &
 ```
 
-*Note:* we add a `&` at the end of the command. This will allow the http server to run in background. Use the `fg` command to bring it to foreground and press *Ctrl + C* to stop it.
+_Note:_ we add a `&` at the end of the command. This will allow the http server to run in background. Use the `fg` command to bring it to foreground and press _Ctrl + C_ to stop it.
 
 This will start the server on port `8080` by default. Check the output to confirm.
-
 
 **Start Pinggy to get a public URL:**
 
@@ -83,11 +87,9 @@ ssh -p 443 -R0:localhost:8080 a.pinggy.io
 
 You will get a public URL such as https://ranxyzxxxx.a.pinggy.online, which you can use to access your server running on your phone! Next we will discuss how to use a domain or subdomain of your choice.
 
-In case you get a different port than `8080` on the above command, change it in the Pinggy command also. You can use *Ctrl + C* to stop the tunnel.
+In case you get a different port than `8080` on the above command, change it in the Pinggy command also. You can use _Ctrl + C_ to stop the tunnel.
 
 Now share your URL with your friends and watch live stats of visitors on the Pinggy terminal user interface. You can also hit the return key to see details about the the request and response headers including user agent, etc.
-
-
 
 <div class="row mb-4">
 <div class="col col-md-4">
@@ -101,14 +103,13 @@ Now share your URL with your friends and watch live stats of visitors on the Pin
 </div>
 </div>
 
-
 The first image above shows the Node.js http-server running and listening on port 8080. The second screenshot shows the Pinggy tunnel starting and providing a public URL. It is also showing the live visitor requests to the server. The third screenshot shows more details about a particular request.
 
 ## Connect it to your own domain
 
 You can also use your own domain or choose a subdomain for accessing this server. Or you can also choose a suitable subdomain such as https://myandroidblog.a.pinggy.online .
 
-First you need to sign-up for <a href="https://pinggy.io" target="_blank">**`Pinggy`**</a> and subscribe to Pinggy Pro. Then go to the dashboard and click on *Custom Domains* on the nav bar.
+First you need to sign-up for <a href="https://pinggy.io" target="_blank">**`Pinggy`**</a> and subscribe to Pinggy Pro. Then go to the dashboard and click on _Custom Domains_ on the nav bar.
 
 Put your own custom domain that you want to use and Pinggy will provide a CNAME record that you need to configure in your DNS settings of the domain.
 

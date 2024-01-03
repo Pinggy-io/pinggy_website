@@ -1,33 +1,39 @@
- {{/* Footer Section */}}
 <!-- Footer-->
 <footer class="py-5 bg-dark">
-    <div class="container">
-        <div class="row text-white justify-content-center">
-            <div class="col-md-8">
-                <a class="link-light text-decoration-none" href="/contact_us/">Contact Us</a>
-                <span class="mx-2 text-secondary">•</span>
-                <a class="link-light text-decoration-none" href="/terms_of_service/">Terms of Service</a>
-                <span class="mx-2 text-secondary">•</span>
-                <a class="link-light text-decoration-none" href="/privacy_policy/">Privacy Policy</a>
-                <span class="mx-2 text-secondary">•</span>
-                <a class="link-light text-decoration-none" href="/about/">About Us</a>
-            </div>
-            <div class="col-md-4">
-                <p class="m-0 text-end text-white" id="copyrighttext">Copyright &copy; Pinggy 2023</p></div>
-            </div>
-        </div>
-
+  <div class="container">
+    <div class="row text-white justify-content-center">
+      <div class="col-md-8">
+        <a class="link-light text-decoration-none" href="/contact_us/"
+          >Contact Us</a
+        >
+        <span class="mx-2 text-secondary">•</span>
+        <a class="link-light text-decoration-none" href="/terms_of_service/"
+          >Terms of Service</a
+        >
+        <span class="mx-2 text-secondary">•</span>
+        <a class="link-light text-decoration-none" href="/privacy_policy/"
+          >Privacy Policy</a
+        >
+        <span class="mx-2 text-secondary">•</span>
+        <a class="link-light text-decoration-none" href="/about/">About Us</a>
+      </div>
+      <div class="col-md-4">
+        <p class="m-0 text-end text-white" id="copyrighttext">
+          Copyright &copy; Pinggy 2023
+        </p>
+      </div>
     </div>
-
+  </div>
 </footer>
 
-
 <!-- Bootstrap icons-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
 
-
-{{/* Function For Automatically generating Year */}}
 <script>
-    var date = new Date();
-    document.getElementById("copyrighttext").innerHTML = "Copyright&copy;&nbsp;&nbsp; Pinggy &nbsp;&nbsp;" + date.getFullYear();
+  var date = new Date();
+  document.getElementById("copyrighttext").innerHTML =
+    "Copyright&copy;&nbsp;&nbsp; Pinggy &nbsp;&nbsp;" + date.getFullYear();
 </script>

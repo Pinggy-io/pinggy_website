@@ -1,0 +1,26 @@
+{{ define "main" }}
+<h1 class="blogtitle">{{.Title}}</h1>
+
+<div class="blogbody">
+  {{ if ne .Lastmod .Date }}
+  <span class="info">
+    <br />
+    Updated on {{ .Lastmod.Format "Jan 2, 2006" }}</span
+  >
+  {{ else }}
+  <span class="info">{{ .Date.Format "Jan 2, 2006" }}</span>
+  {{ end }}
+  <span class="info">
+    <span>·</span> {{ .ReadingTime }} min{{ if (ne .ReadingTime 1) }}s{{ end }}
+    read</span
+  >
+
+  <div class="badge-container">
+    {{ range (.GetTerms "tags") }}
+    <span class="badge">{{ .LinkTitle }}</span>
+    {{ end }}
+  </div>
+</div>
+
+<div class="blogbody">{{ .Content }}</div>
+{{ end }}

@@ -2,13 +2,18 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light">
     <div class="container py-2">
         <div class="logo navbar-brand">
-            <a href="/">
-                <img height="50" src="/assets/pinggy_logo.webp" alt="Pinggy brand logo" />
-            </a>
+          <a href="/">
+            <img
+              height="50"
+              src="/assets/pinggy_logo.webp"
+              alt="Pinggy brand logo"
+            />
+          </a>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mb-2 mb-lg-0">
                 {{ range .Site.Menus.main }}
@@ -16,7 +21,8 @@
                     <a class="nav-link{{ if $.IsMenuCurrent " main " . }} active" aria-current="page{{ end }}"
                         href="{{ .URL }}">{{ .Pre
                         }}
-                        <span style="display:block" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">{{ .Name }}</span></a>
+                        <span style="display:block" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">{{
+                            .Name }}</span></a>
                 </li>
                 {{ end }}
                 <li class="nav-item mx-2">

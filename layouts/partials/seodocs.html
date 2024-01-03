@@ -1,17 +1,28 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="article" />
-<meta property="og:title"
-    content="{{ if .IsHome }}Pinggy Documentation - Simple Localhost Tunnels{{ else }}{{ if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}} Documentation{{ end }}{{ end }}" />
+<meta
+  property="og:title"
+  content="{{ if .IsHome }}Pinggy Documentation - Simple Localhost Tunnels{{ else }}{{ if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}} Documentation{{ end }}{{ end }}"
+/>
 <meta name="description" content="{{ .Summary }}" />
 <meta property="og:description" content="{{ .Summary }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="Pinggy Documentation" />
-<meta property="article:published_time" content='{{.Date.Format "2006-01-02"}}T14:07:59+00:00' />
-<meta property="article:modified_time" content='{{.Date.Format "2006-01-02"}}T14:07:59+00:00' />
+<meta
+  property="article:published_time"
+  content='{{.Date.Format "2006-01-02"}}T14:07:59+00:00'
+/>
+<meta
+  property="article:modified_time"
+  content='{{.Date.Format "2006-01-02"}}T14:07:59+00:00'
+/>
 {{ if .Params.og_image }}
 <meta property="og:image" content="{{ .Params.og_image | absURL }}" />
-<meta property="og:image:secure_url" content="{{ .Params.og_image | absURL }}" />
+<meta
+  property="og:image:secure_url"
+  content="{{ .Params.og_image | absURL }}"
+/>
 {{ else }}
 <meta property="og:image" content="https://pinggy.io/assets/pinggy_logo.png" />
 {{ end }}
@@ -20,26 +31,29 @@
 <meta name="twitter:label1" content="Written by" />
 <meta name="twitter:data1" content="Pinggy" />
 <meta name="twitter:label2" content="Est. reading time" />
-<meta name="twitter:data2" content="{{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}" />
+<meta
+  name="twitter:data2"
+  content="{{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}"
+/>
 
 <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "{{.Title}}",
-      "image": [
-      {{ if .Params.og_image }}
-      "{{ .Params.og_image | absURL }}"
-      {{ else }}
-      "https://pinggy.io/assets/pinggy_logo.png"
-      {{ end }}
-       ],
-      "datePublished": "{{.Date.Format "2006-01-02"}}T14:07:59+00:00",
-      "dateModified": "{{.Date.Format "2006-01-02"}}T14:07:59+00:00",
-      "author": [{
-          "@type": "Organization",
-          "name": "Pinggy",
-          "url": "https://pinggy.io"
-        }]
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{.Title}}",
+    "image": [
+    {{ if .Params.og_image }}
+    "{{ .Params.og_image | absURL }}"
+    {{ else }}
+    "https://pinggy.io/assets/pinggy_logo.png"
+    {{ end }}
+     ],
+    "datePublished": "{{.Date.Format "2006-01-02"}}T14:07:59+00:00",
+    "dateModified": "{{.Date.Format "2006-01-02"}}T14:07:59+00:00",
+    "author": [{
+        "@type": "Organization",
+        "name": "Pinggy",
+        "url": "https://pinggy.io"
+      }]
+  }
 </script>

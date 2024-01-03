@@ -1,0 +1,13 @@
+{{ $poster := .Get "poster" }} {{ $src := .Get "src" }}
+
+<div class="my-4 videocontainer ratio ratio-16x9">
+  <video
+    preload="none"
+    onclick="this.paused?this.play():this.pause();"
+    loop
+    poster="{{ $poster }}"
+  >
+    <source src="{{ $src }}" type="video/mp4" />
+    Your browser does not support HTML video.
+  </video>
+</div>
