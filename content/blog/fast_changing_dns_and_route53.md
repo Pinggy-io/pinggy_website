@@ -2,29 +2,30 @@
  title: "Fast changing DNS records and AWS Route 53" 
  date: 2023-06-22T14:15:25+05:30 
  draft: false 
- og_image: "/blog/images/iot/head.webp"
+ og_image: "images/iot/head.webp"
+ outputs:
+  - HTML
+  - AMP
 ---
 
-A user from South Korea brought to our notice that Pinggy works great for them, but it is slow. The answer to *"why"* was obvious to us. Pinggy hosts its servers in the USA, specifically in Ohio. One key goal of Pinggy is to not only provide tunnels, but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the nearest region from where the user is creating the tunnel (as the default behavior).
+A user from South Korea brought to our notice that Pinggy works great for them, but it is slow. The answer to _"why"_ was obvious to us. Pinggy hosts its servers in the USA, specifically in Ohio. One key goal of Pinggy is to not only provide tunnels, but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the nearest region from where the user is creating the tunnel (as the default behavior).
 
-Assuming the tunnel has a persistent URL from Pinggy, the URL needs to point to the correct zone where the tunnel is created. As a result, the domain need to be pointed to the correct location dynamically when the tunnel is created. This implies a DNS update when each tunnel is spawned. 
+Assuming the tunnel has a persistent URL from Pinggy, the URL needs to point to the correct zone where the tunnel is created. As a result, the domain need to be pointed to the correct location dynamically when the tunnel is created. This implies a DNS update when each tunnel is spawned.
 
 While trying to manage DNS updates on the fly and trying to do it fast we had the following observations:
 
-* Can we change DNS records fast - on the fly while generating new URLs? - **Yes**.
-* Is {{< link href="https://aws.amazon.com/route53/" >}}AWS Route 53{{< /link >}} suitable for the purpose? - **It might be.**
-* Why the reasons for the perceived problem of *"DNS propagation delay"* are not well discussed on the internet.
-* What is the TTL when a record is not found in an authoritative server? - TTL of SOA record.
-* What we think is a better alternative for Pinggy? - **Host your own DNS server.**
-* Route 53 is not bad, we just encountered a unique problem which will probably never be the case for others.
-
+- Can we change DNS records fast - on the fly while generating new URLs? - **Yes**.
+- Is {{< link href="https://aws.amazon.com/route53/" >}}AWS Route 53{{< /link >}} suitable for the purpose? - **It might be.**
+- Why the reasons for the perceived problem of _"DNS propagation delay"_ are not well discussed on the internet.
+- What is the TTL when a record is not found in an authoritative server? - TTL of SOA record.
+- What we think is a better alternative for Pinggy? - **Host your own DNS server.**
+- Route 53 is not bad, we just encountered a unique problem which will probably never be the case for others.
 
 ## Why is it difficult?
 
 **Our objective** is simple. When a user creates a new tunnel, take the persistent domain set by the user (e.g. `example.a.pinggy.online`), and add a DNS record to point to the VM hosting the tunnel.
 
 When visitors open the domain in their browser, they should be able to reach the present tunnel.
-
 
 **The problem** occurs if the DNS record update is not in time. After a user creates a tunnel and the first visitor visits the domain, if the DNS record is not resolved by the DNS server which the visitor is using, then in practice the Pinggy tunnel simply does not work.
 
@@ -33,7 +34,6 @@ When visitors open the domain in their browser, they should be able to reach the
 1. The authoritative server (e.g. for `a.pinggy.io`) **does not yet** have a record for the domain (e.g. `example.a.pinggy.online`).
 2. The authoritative server has an outdated record for the domain which points to a wrong VM.
 3. The authoritative server is updated, but the DNS the visitor is using (e.g. `8.8.8.8`) has an outdated record.
-
 
 **Inferences** from the above are as follows:
 
@@ -53,22 +53,21 @@ We implemented the entire process of dynamically updating DNS records with each 
 
 At the onset, we had some concerns regarding the rate-limiting of {{< link href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-requests-route-53" >}}five requests per second{{< /link >}}. But that could be avoided by batching the resource record sets and sending consolidated change requests.
 
-We were instead bitten by the trade-off of the *high availability* of Route 53. **The edge locations of Route 53 can take up to 60 seconds to be updated after a record set is changed.**
+We were instead bitten by the trade-off of the _high availability_ of Route 53. **The edge locations of Route 53 can take up to 60 seconds to be updated after a record set is changed.**
 
 > "There are over 100 edge locations in Route 53 with DNS name servers that answer DNS queries from clients. When you update a record set in your hosted zone, the change propagates to all Route 53 edge locations within 60 seconds." - {{< link href="https://repost.aws/knowledge-center/route-53-propagate-dns-changes" >}}AWS Knowledge Center{{< /link >}}
 
 Each such edge location is essentially a copy of the authoritative name server for the hosted zone (e.g. `a.pinggy.io`).
 
-**Example scenario:** 
+**Example scenario:**
 
-* Suppose a user creates a tunnel with a domain, say `example.a.pinggy.online`, 
-* Pinggy updates the record for the domain, say `example.a.pinggy.online. 600 CNAME pinggyvm1.com`, in Route 53. 
-* Immediately after this, a visitor visits the domain `example.a.pinggy.online`.
-* The visitor connects to an edge of Route 53 which does not have the record for `example.a.pinggy.online.`
-* Visitor fails to connect to the tunnel.
+- Suppose a user creates a tunnel with a domain, say `example.a.pinggy.online`,
+- Pinggy updates the record for the domain, say `example.a.pinggy.online. 600 CNAME pinggyvm1.com`, in Route 53.
+- Immediately after this, a visitor visits the domain `example.a.pinggy.online`.
+- The visitor connects to an edge of Route 53 which does not have the record for `example.a.pinggy.online.`
+- Visitor fails to connect to the tunnel.
 
 At this point, the reader is possibly shouting "reduce the TTL". We will discuss the caveats of that next.
-
 
 ## Understanding TTL
 
@@ -81,7 +80,7 @@ In this case, the record for `example.a.pinggy.online` does not exist in the fir
 
 Therefore, in our example scenario, even if the TTL of the record is set to be as low as 1, the visitor will not be able to resolve the name as by then the fact of absense of the record in the authoratitive server would have been cached till the SOA TTL expires.
 
-It is recommended not to reduce the TTL of the SOA record as it might cause other name servers to refetch the entire zone frequently from the authoratitive server unnecessarily ({{< link href="https://serverfault.com/questions/69183/recommended-dns-soa-record-ttl-default" >}}read more {{< /link >}}). 
+It is recommended not to reduce the TTL of the SOA record as it might cause other name servers to refetch the entire zone frequently from the authoratitive server unnecessarily ({{< link href="https://serverfault.com/questions/69183/recommended-dns-soa-record-ttl-default" >}}read more {{< /link >}}).
 
 ## Workarounds
 

@@ -1,22 +1,22 @@
-baseURL : 'https://pinggy.io'
-languageCode : 'en-us'
-title : 'Pinggy' 
+baseURL: "https://pinggy.io"
+languageCode: "en-us"
+title: "Pinggy"
 
 markup:
   highlight:
-      anchorLineNos: false
-      codeFences: true
-      guessSyntax: false
-      hl_Lines: ""
-      hl_inline: false
-      lineAnchors: ""
-      lineNoStart: 1
-      lineNos: false
-      lineNumbersInTable: true
-      noClasses: false
-      noHl: false
-      style: manni
-      tabWidth: 4
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: false
+    noHl: false
+    style: manni
+    tabWidth: 4
   goldmark:
     renderer:
       unsafe: true
@@ -24,28 +24,44 @@ markup:
 taxonomies:
   tag: tags
 
-paginate: 8 
+paginate: 8
 
-menus: 
+outputs:
+  home: ["HTML", "AMP"]
+  page: ["HTML", "AMP"]
+
+outputFormats:
+  HTML:
+    mediaType: "text/html"
+    baseName: "index"
+    isPlainText: false
+
+  AMP:
+    isPlainText: false
+    mediaType: "text/html"
+    path: "amp"
+    permalinkable: true
+
+menus:
   main:
-  - name: Home
-    url: "/"
-    weight: 90
-  - name: Pricing
-    url: /#prices
-    weight: 100
-  - name: Docs
-    url: /docs/
-    weight: 120
-  - name: Quickstart
-    url: /quickstart/
-    weight: 130
-  - name: Blog
-    url: /blog/
-    weight: 140
-  - name: Contact
-    url: /contact_us/
-    weight: 150
+    - name: Home
+      url: "/"
+      weight: 90
+    - name: Pricing
+      url: /#prices
+      weight: 100
+    - name: Docs
+      url: /docs/
+      weight: 120
+    - name: Quickstart
+      url: /quickstart/
+      weight: 130
+    - name: Blog
+      url: /blog/
+      weight: 140
+    - name: Contact
+      url: /contact_us/
+      weight: 150
 
   # - name: Terms of Service
   #   url: /Terms_of_Service

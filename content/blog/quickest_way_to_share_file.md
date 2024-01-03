@@ -21,17 +21,23 @@ On can share the urls to friend, and they would get to see the shared directory.
 
 {{< tabs >}}
 {{% tab name="webfs+bash" %}}
+
 ```
 webfs -F -p8080 & ssh -p443 -R0:localhost:8080 a.pinggy.io
 ```
+
 {{% /tab %}}
 {{% tab name="python+bash" %}}
+
 ```
 python -mhttp.server 8080 & ssh -p443 -R0:localhost:8080 a.pinggy.io
 ```
+
 {{% /tab %}}
 {{% tab name="GO" %}}
+
 1. Prepare the files
+
 ```
 mkdir shareFile
 cd shareFile
@@ -39,7 +45,9 @@ go mod init shareFile
 go get github.com/abhimp/pinggy
 touch main.go
 ```
+
 2. Edit the main file to following
+
 ```golang
 package main
 
@@ -54,6 +62,7 @@ func main() {
 
 3. Save and close the file
 4. Lauch
+
 ```
 go run main.go
 ```

@@ -4,6 +4,9 @@
  draft: false 
  og_image: "/assets/header.webp"
  description: "Ngrok download not required. Just paste one command to get localhost tunnels. Ngrok requires downloading a platform-specific program (binary) for your operating system, be it Mac, Windows, or Linux. With Pinggy that is replaced by one command."
+ outputs:
+  - HTML
+  - AMP
 ---
 
 Paste this command to get a tunnel to localhost, port 8000:
@@ -12,13 +15,7 @@ Paste this command to get a tunnel to localhost, port 8000:
 ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
 ```
 
-<div class="my-4 videocontainer ratio ratio-16x9">
-  <video preload="none" onclick="this.paused?this.play():this.pause();" loop 
-    poster="/assets/tunnelvideothumb.jpg" >
-    <source src="../images/qr/qr.webm" type="video/mp4">
-      Your browser does not support HTML video.
-  </video>
-</div>
+{{< video poster="/assets/tunnelvideothumb.jpg" src="/assets/qr.webm" >}}
 
 Ngrok is an excellent tool loved by developers worldwide. If you need to expose your localhost server, Ngrok comes in handy. However, utilizing Ngrok requires downloading a platform-specific program (binary) for your operating system, be it Mac, Windows, or Linux. Subsequently, you must make the binary executable and launch it from the terminal. This process of obtaining Ngrok can often be cumbersome.
 
@@ -28,12 +25,8 @@ Ngrok is an excellent tool loved by developers worldwide. If you need to expose 
 
 Pinggy, is a hassle-free solution for tunneling without downloads. With just one terminal command, Pinggy creates secure tunnels to your localhost server directly through the terminal. No need for platform-specific downloads and installations – Pinggy HTTP / TCP / TLS tunnels make server exposure effortless and efficient for developers worldwide.
 
-#### Paste one command to start tunnel:
-
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel:" portstring="Localhost port" localport="8080" webdebugenabled=true keepalive=true >}}
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel:" portstring="Localhost port" localport="8080" webdebugenabled=true keepalive=true tryYourselfText="Paste one command to start tunnel:" >}}
 {{< /pinggytunnel >}}
-
-<br>
 
 You will immediately get an HTTP tunnel to your localhost with the Pinggy command. No need to download any tool like ngrok!
 

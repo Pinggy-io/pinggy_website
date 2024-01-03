@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}} {{- $title := .Get "title" -}}
+
+<amp-iframe
+  width="200"
+  height="100"
+  sandbox="allow-scripts allow-same-origin"
+  layout="responsive"
+  frameborder="0"
+  src="{{ $src }}"
+>
+</amp-iframe>
