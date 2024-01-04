@@ -18,31 +18,35 @@
 {{ $ipwhitelistcheck := .Get "ipwhitelistcheck" | default false }}
 {{ $ipwhitelist := .Get "ipwhitelist" | default "[]" }}
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
+{{ $tryYourselfText := .Get "tryYourselfText" | default "" }}
 
-<div x-data="{
-  data: { tunnelString: '{{ $tunnelstring }}',
-    portString: '{{ $portstring }}',
-    localPort: '{{ $localport }}',
-    webDebugPort: '{{ $webdebugport }}',
-    webDebugEnabled: {{ $webdebugenabled }},
-    keepAlive: {{ $keepalive }},
-    passwordCheck: {{ $passwordCheck }},
-    basicusername: '{{ $basicusername }}',
-    basicpass: '{{ $basicpass }}',
-    qrCheck: {{ $qrcheck }},
-    reconnect: {{ $reconnect }},
-    platformselect: 'unix',
-    manuallyCheckKey: {{ $manuallycheckkey }},
-    mode: '{{ $mode }}',
-    keyAuthentication: {{ $keyauthentication }},
-    keyAuthentications: {{ $keyauthentications }},
-    ipWhitelistCheck: {{ $ipwhitelistcheck }},
-    ipWhitelist: {{ $ipwhitelist }},
-    headerModifications: {{ $headermodifications }},
-    accesstoken: false,
-    accesstokenvalue: ''
-  }
+<div class="mb-3" x-data="{
+    data: { tunnelString: '{{ $tunnelstring }}',
+        portString: '{{ $portstring }}',
+        localPort: '{{ $localport }}',
+        webDebugPort: '{{ $webdebugport }}',
+        webDebugEnabled: {{ $webdebugenabled }},
+        keepAlive: {{ $keepalive }},
+        passwordCheck: {{ $passwordCheck }},
+        basicusername: '{{ $basicusername }}',
+        basicpass: '{{ $basicpass }}',
+        qrCheck: {{ $qrcheck }},
+        reconnect: {{ $reconnect }},
+        platformselect: 'unix',
+        manuallyCheckKey: {{ $manuallycheckkey }},
+        mode: '{{ $mode }}',
+        keyAuthentication: {{ $keyauthentication }},
+        keyAuthentications: {{ $keyauthentications }},
+        ipWhitelistCheck: {{ $ipwhitelistcheck }},
+        ipWhitelist: {{ $ipwhitelist }},
+        headerModifications: {{ $headermodifications }},
+        accesstoken: false,
+        accesstokenvalue: ''
+    }
 }">
+    {{ if ne $tryYourselfText "" }}
+    <p class="font-weight-bold fs-5">{{ $tryYourselfText }}</p>
+    {{ end }}
     <div class="pinggytunnelshortcode" {{ with .Get "box" }}
         style="padding: 1em; border-radius: 0.4em; 
         box-shadow: 0 0 7px 0px #00000029;" {{ end }}
