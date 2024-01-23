@@ -1,5 +1,6 @@
 ---
- title: "Test Shopify webhooks locally" 
+ title: "Test Shopify webhooks locally"
+ description: "Shopify is a popular e-commerce platform for creating online stores and selling products." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

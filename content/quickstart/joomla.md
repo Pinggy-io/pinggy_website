@@ -1,5 +1,6 @@
 ---
  title: "Sharing Joomla from localhost" 
+ description: "Joomla is a free and open-source CMS for publishing web content on websites."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

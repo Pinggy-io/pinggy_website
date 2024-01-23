@@ -1,5 +1,6 @@
 ---
- title: "Test Razorpay webhooks locally" 
+ title: "Test Razorpay webhooks locally"
+ description: "Razorpay is a payment gateway platform that enables online businesses to accept and manage online payments." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

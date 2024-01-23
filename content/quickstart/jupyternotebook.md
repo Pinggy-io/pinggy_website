@@ -1,5 +1,6 @@
 ---
- title: "Sharing Jupyter Notebook from localhost" 
+ title: "Sharing Jupyter Notebook from localhost"
+ description: "Jupyter Notebook is a web-based interactive coding environment." 
  date: 2023-05-25T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

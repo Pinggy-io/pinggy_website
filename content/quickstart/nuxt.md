@@ -1,9 +1,10 @@
 ---
  title: "Sharing Nuxt from localhost" 
+ description: "Nuxt is a Vue.js framework that makes building server-rendered, SEO-friendly, and performance-optimized web applications easy."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
- og_image: "/quickstart/images/mysql.svg"
+ og_image: "/quickstart/images/nuxt.svg"
 ---
 
 With [pinggy.io](https://pinggy.io) you can share your Nuxt server from localhost with just a single command. **Replace the port 3000 with the port where your server is running.**

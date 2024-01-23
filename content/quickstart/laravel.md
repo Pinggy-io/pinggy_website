@@ -1,5 +1,6 @@
 ---
  title: "Sharing Laravel from localhost" 
+ description: "Laravel is a popular PHP framework that provides a comprehensive set of tools for web development."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

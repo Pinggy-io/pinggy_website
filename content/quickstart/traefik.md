@@ -1,9 +1,10 @@
 ---
  title: "Sharing Traefik from localhost" 
+ description: "Traefik is a modern, dynamic reverse proxy and load balancer used for routing and managing web traffic."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
- og_image: "/quickstart/images/traefik.png"
+ og_image: "/quickstart/images/traefik.svg"
 ---
 
 With [pinggy.io](https://pinggy.io) you can share your Traefik server from localhost with just a single command. **Replace the port 9090 with the port where your server is running.**

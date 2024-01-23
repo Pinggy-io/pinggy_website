@@ -1,5 +1,6 @@
 ---
- title: "Sharing Rails from localhost" 
+ title: "Sharing Rails from localhost"
+ description: "Rails is a server-side web application framework written in Ruby." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

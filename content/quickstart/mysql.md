@@ -1,5 +1,6 @@
 ---
- title: "Sharing MySQL from localhost" 
+ title: "Sharing MySQL from localhost"
+ description: "MySQL is a popular relational database management system." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

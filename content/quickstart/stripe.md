@@ -1,8 +1,9 @@
 ---
- title: "Test Stripe webhooks locally" 
+ title: "Test Stripe webhooks locally"
+ description: "Stripe is a payment processing platform that enables online businesses to accept payments securely and easily." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
- tags: ["guide"]
+ tags: ["guide", "webhook"]
  og_image: "/quickstart/images/stripe.svg"
 ---
 

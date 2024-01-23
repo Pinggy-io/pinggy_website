@@ -1,5 +1,6 @@
 ---
  title: "Sharing Portainer from localhost" 
+ description: "Portainer is a web-based Docker management tool with a graphical user interface."
  date: 2023-05-26T01:18:25+05:30 
  draft: false 
  tags: ["guide"]

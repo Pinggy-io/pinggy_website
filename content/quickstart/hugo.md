@@ -1,5 +1,6 @@
 ---
  title: "Sharing Hugo from localhost" 
+ description: "Hugo is a static site generator written in Go."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

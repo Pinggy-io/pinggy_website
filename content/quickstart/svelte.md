@@ -1,5 +1,6 @@
 ---
  title: "Sharing Svelte from localhost" 
+ description: "Svelte is a component-based JavaScript framework for building fast and efficient web applications."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

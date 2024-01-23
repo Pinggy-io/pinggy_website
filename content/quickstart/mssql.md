@@ -1,5 +1,6 @@
 ---
- title: "Sharing MsSQL from localhost" 
+ title: "Sharing MsSQL from localhost"
+ description: "MS SQL Server is a relational database management system developed by Microsoft." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

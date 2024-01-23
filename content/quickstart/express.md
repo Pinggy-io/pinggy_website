@@ -1,5 +1,6 @@
 ---
  title: "Sharing Express from localhost" 
+ description: "Express.js is a back end web application framework for building RESTful APIs with Node.js."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

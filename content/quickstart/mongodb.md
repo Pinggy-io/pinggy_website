@@ -1,5 +1,6 @@
 ---
  title: "Sharing MongoDB from localhost" 
+ description: "MongoDB is a document-oriented NoSQL database that is easy to use and scale."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
