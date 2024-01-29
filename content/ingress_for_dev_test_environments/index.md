@@ -229,12 +229,12 @@
       </div>
     </div>
     <div class="row justify-content-center mb-3">
-      <div class="col-lg-8">
+      <div class="col-lg-12">
         <input type="text" class="form-control" id="quickstart-search-input" placeholder="Search..." />
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-lg-8">
+      <div class="col-lg-12">
         {{< quickstartlist >}}
       </div>
     </div>

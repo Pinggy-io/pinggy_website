@@ -1,6 +1,6 @@
 ---
  title: "Sharing Netdata from localhost" 
- description: "Netdata is an open source tool designed to collect real-time metrics, such as CPU usage, disk activity, bandwidth usage, website visits, etc."
+ description: "Netdata is an open source tool designed to collect real-time metrics, such as CPU usage, disk activity, bandwidth usage etc."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

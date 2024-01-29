@@ -1,6 +1,6 @@
 ---
  title: "Sharing MySQL from localhost"
- description: "MySQL is a popular relational database management system." 
+ description: "MySQL, a powerful relational database management system, is widely acclaimed for its robustness and flexibility." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

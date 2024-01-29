@@ -1,6 +1,6 @@
 ---
  title: "Test Stripe webhooks locally"
- description: "Stripe is a payment processing platform that enables online businesses to accept payments securely and easily." 
+ description: "Easily test your Stripe Webhooks from localhost using pinggy, ensuring a smooth integration with just a single command." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide", "webhook"]

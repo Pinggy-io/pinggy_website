@@ -3,7 +3,7 @@
  description: "Shopify is a popular e-commerce platform for creating online stores and selling products." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
- tags: ["guide"]
+ tags: ["guide", "webhook"]
  og_image: "/quickstart/images/shopify.svg"
 ---
 

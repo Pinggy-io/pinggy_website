@@ -1,7 +1,7 @@
 <div class="row quickstartcard-container">
   {{ range where .Site.Pages ".RelPermalink" "like" "/quickstart" }}
     {{ if in .Params.tags "webhook" }}
-      <div class="col-12 col-sm-6 col-lg-6 quickstartcard my-3" data-title="{{ .Title }}" data-description="{{ .Description }}">
+      <div class="col-12 col-sm-6 col-lg-4 quickstartcard my-3" data-title="{{ .Title }}" data-description="{{ .Description }}">
         <a href="{{ .RelPermalink }}" class="text-decoration-none text-reset">
           <div class="card mb-3 h-100">
             <div class="row g-0 h-100">

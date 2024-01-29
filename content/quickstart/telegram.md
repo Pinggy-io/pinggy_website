@@ -1,6 +1,6 @@
 ---
  title: "Test Telegram webhooks locally" 
- description: "Cloud-based messaging app providing secure and fast communication through features like messaging, groups, and channels."
+ description: "Effortlessly test your Telegram Webhooks from localhost using pinggy with a single command and without any configuration."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide", "webhook"]
