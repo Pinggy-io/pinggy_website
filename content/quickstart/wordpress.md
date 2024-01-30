@@ -1,5 +1,6 @@
 ---
  title: "Sharing Wordpress from localhost" 
+ description: "WordPress is a popular web content management system written in PHP."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

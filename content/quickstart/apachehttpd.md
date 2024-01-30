@@ -1,9 +1,10 @@
 ---
  title: "Sharing Apache HTTP from localhost" 
+ description: "Apache HTTP Server is a free and open-source cross-platform web server software."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
- og_image: "/quickstart/images/apachehttpd.svg"
+ og_image: "/quickstart/images/apache.svg"
 ---
 
 With [pinggy.io](https://pinggy.io) you can share your Apache HTTP server from localhost with just a single command. **Replace the port 80 with the port where your server is running.**

@@ -1,5 +1,6 @@
 ---
  title: "Sharing PostgreSQL from localhost" 
+ description: "PostgreSQL is a powerful open-source relational database management system."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

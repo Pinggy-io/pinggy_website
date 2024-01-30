@@ -1,8 +1,10 @@
 ---
  title: "Test Github webhooks locally" 
+ description: "GitHub is a code hosting platform for software development and version 
+ control."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
- tags: ["guide"]
+ tags: ["guide", "webhook"]
  og_image: "/quickstart/images/github.svg"
 ---
 

@@ -1,5 +1,6 @@
 ---
  title: "Sharing React from localhost" 
+ description: "React is a open-source front-end JavaScript library for building user interfaces based on components."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

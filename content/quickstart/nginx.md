@@ -1,9 +1,10 @@
 ---
  title: "Sharing Nginx from localhost" 
+ description: "Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
- og_image: "/quickstart/images/mysql.svg"
+ og_image: "/quickstart/images/nginx.svg"
 ---
 
 With [pinggy.io](https://pinggy.io) you can share your Nginx server from localhost with just a single command. **Replace the port 80 with the port where your server is running.**

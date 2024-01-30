@@ -1,5 +1,6 @@
 ---
  title: "Sharing Spring Boot from localhost" 
+ description: "Java framework for efficient web app development, leveraging Spring ecosystem with simplified configuration."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

@@ -1,5 +1,6 @@
 ---
  title: "Sharing Strapi from localhost" 
+ description: "Strapi is a headless CMS (Content Management System) that allows easy creation of customizable APIs."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
