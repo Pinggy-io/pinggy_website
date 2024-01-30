@@ -1,5 +1,6 @@
 ---
  title: "Sharing Ghost from localhost" 
+ description: "Ghost is a powerful app for new-media creators to publish, share, and grow a business around their content."
  date: 2023-05-27T16:15:25+05:30 
  draft: false 
  tags: ["guide"]

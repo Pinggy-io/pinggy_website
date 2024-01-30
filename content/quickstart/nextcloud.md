@@ -1,5 +1,6 @@
 ---
  title: "Sharing Nextcloud from localhost" 
+ description: "Nextcloud is a suite of client-server software for creating and using file hosting services."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

@@ -1,5 +1,6 @@
 ---
  title: "Sharing Django from localhost" 
+ description: "Django is a Python-based web framework that simplifies and accelerates the process of building web applications."
  date: 2023-05-25T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

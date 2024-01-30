@@ -1,5 +1,6 @@
 ---
  title: "Sharing Next from localhost" 
+ description: "Next.js is a React framework that enables server-side rendering and simplifies building scalable web applications."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

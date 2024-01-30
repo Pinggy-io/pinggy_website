@@ -1,8 +1,9 @@
 ---
  title: "Test Telegram webhooks locally" 
+ description: "Effortlessly test your Telegram Webhooks from localhost using pinggy with a single command and without any configuration."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
- tags: ["guide"]
+ tags: ["guide", "webhook"]
  og_image: "/quickstart/images/telegram.svg"
 ---
 

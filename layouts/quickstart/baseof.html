@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     {{- partial "header.html" . -}}
     <link href="/css/blog.css?v=2" rel="stylesheet" />
     {{- partial "seoblogs.html" . -}}
+  </head>
 
-</head>
+  <body>
+    {{- partial "navbar.html" .}} {{- block "main" . }}{{- end }} {{- partial
+    "footer.html" . -}}
+  </body>
 
-<body>
-    {{- partial "navbar.html" .}}
-    
-    {{- block "main" . }}{{- end }} 
-    
-    {{- partial "footer.html" . -}}
-</body>
+  {{- partial "jslibraries.html" . -}}
 
-{{- partial "jslibraries.html" . -}}
-
-
-
-<!-- PAGE SPECIFIC JS -->
-{{- block "pagespecificjs" . }}{{- end }}
-
+  <!-- PAGE SPECIFIC JS -->
+  {{- block "pagespecificjs" . }}{{- end }}
 </html>

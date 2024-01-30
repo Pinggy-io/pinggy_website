@@ -1,5 +1,6 @@
 ---
  title: "Sharing Flask from localhost" 
+ description: "Flask is a lightweight micro web framework written in Python." 
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

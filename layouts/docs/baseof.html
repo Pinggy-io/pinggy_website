@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     {{- partial "header.html" . -}}
     <link href="/css/docs.css?v=2" rel="stylesheet" />
     {{- partial "seodocs.html" . -}}
-</head>
+  </head>
 
-<body>
+  <body>
     {{- partial "navbar.html" .}}
 
     <div class="container py-3 contentcontainer">
-        <span id="sidebarexpandbtn" class="fs-5 text-center text-black border border-dark rounded px-2" onclick="showsidebar()"><i class="bi bi-layout-text-sidebar-reverse"></i></span>
+      <span
+        id="sidebarexpandbtn"
+        class="fs-5 text-center text-black border border-dark rounded px-2"
+        onclick="showsidebar()"
+        ><i class="bi bi-layout-text-sidebar-reverse"></i
+      ></span>
 
-        <div class="row  flex-nowrap">
-            <div class="col col-md-4 col-xl-3 px-sm-3 px-0 sidebarcol">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    {{- partial "docsidebar.html" .}}
-                </div>
-            </div>
-            <div class="col doccontent">
-                {{- block "main" . }}{{- end }} 
-            </div>
+      <div class="row flex-nowrap">
+        <div class="col col-md-4 col-xl-3 px-sm-3 px-0 sidebarcol">
+          <div
+            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+          >
+            {{- partial "docsidebar.html" .}}
+          </div>
         </div>
+        <div class="col doccontent">{{- block "main" . }}{{- end }}</div>
+      </div>
     </div>
 
-    
-    
     {{- partial "footer.html" . -}}
-</body>
+  </body>
 
-{{- partial "jslibraries.html" . -}}
+  {{- partial "jslibraries.html" . -}}
 
-<!-- PAGE SPECIFIC JS -->
-{{- block "pagespecificjs" . }}{{- end }}
-
+  <!-- PAGE SPECIFIC JS -->
+  {{- block "pagespecificjs" . }}{{- end }}
 </html>

@@ -1,7 +1,8 @@
 ---
  title: "Sharing Home Assistant from localhost" 
+ description: "Home Assistant is an open-source platform for home automation and smart home management." 
  date: 2023-05-26T01:17:02+05:30 
- draft: false 
+ draft: false
  tags: ["guide"]
  og_image: "/quickstart/images/homeassistant.svg"
 ---

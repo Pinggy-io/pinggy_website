@@ -1,5 +1,6 @@
 ---
  title: "Sharing XAMPP from localhost" 
+ description: "XAMPP is a software package that simplifies local web development by providing an Apache server, MySQL database, and PHP."
  date: 2023-05-26T01:17:02+05:30 
  draft: false 
  tags: ["guide"]

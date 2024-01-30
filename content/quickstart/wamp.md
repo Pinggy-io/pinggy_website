@@ -1,5 +1,6 @@
 ---
  title: "Sharing WAMP from localhost" 
+ description: "WAMP (Windows, Apache, MySQL, PHP) is a software stack used for web development on Windows operating systems."
  date: 2023-05-26T01:17:02+05:30 
  draft: false 
  tags: ["guide"]

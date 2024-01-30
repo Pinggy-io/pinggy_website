@@ -1,5 +1,6 @@
 ---
  title: "Sharing GitLab from localhost" 
+ description: "GitLab is a web-based DevOps platform for code review, project management, and CI/CD."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

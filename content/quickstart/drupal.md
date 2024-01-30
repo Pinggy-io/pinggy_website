@@ -1,5 +1,6 @@
 ---
  title: "Sharing Drupal from localhost" 
+ description: "Drupal is a free and open-source content management system (CMS) used to create dynamic websites and web applications."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

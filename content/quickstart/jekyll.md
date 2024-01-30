@@ -1,5 +1,6 @@
 ---
  title: "Sharing Jekyll from localhost" 
+ description: "Jekyll is a static site generator written in Ruby used for creating websites and blogs."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]

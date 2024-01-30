@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    {{- partial "header.html" . -}} {{- partial "seoindex.html" . -}}
+  </head>
 
-<head>
-    {{- partial "header.html" . -}}
-    {{- partial "seoindex.html" . -}}
-</head>
+  <body>
+    {{- partial "navbar.html" .}} {{- block "main" . }}{{- end }} {{- partial
+    "footer.html" . -}}
+  </body>
 
-<body>
-    {{- partial "navbar.html" .}}
-    
-    {{- block "main" . }}{{- end }} 
-    
-    {{- partial "footer.html" . -}}
-</body>
+  {{- partial "jslibraries.html" . -}}
 
-{{- partial "jslibraries.html" . -}}
-
-
-
-<!-- PAGE SPECIFIC JS -->
-{{- block "pagespecificjs" . }}{{- end }}
-
+  <!-- PAGE SPECIFIC JS -->
+  {{- block "pagespecificjs" . }}{{- end }}
 </html>

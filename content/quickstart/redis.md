@@ -1,5 +1,6 @@
 ---
  title: "Sharing Redis from localhost" 
+ description: "Redis is a fast and flexible open-source in-memory data structure store."
  date: 2023-05-26T01:15:25+05:30 
  draft: false 
  tags: ["guide"]
