@@ -1,9 +1,9 @@
 ---
  title: "Ngrok - But without downloading anything" 
+ description: "Ngrok download not required. Just paste one command to get localhost tunnels. Ngrok requires downloading a platform-specific program (binary) for your operating system, be it Mac, Windows, or Linux. With Pinggy that is replaced by one command."
  date: 2023-08-12T14:15:25+05:30
  draft: false 
  og_image: "/assets/header.webp"
- description: "Ngrok download not required. Just paste one command to get localhost tunnels. Ngrok requires downloading a platform-specific program (binary) for your operating system, be it Mac, Windows, or Linux. With Pinggy that is replaced by one command."
  outputs:
   - HTML
   - AMP
@@ -34,7 +34,7 @@ You will immediately get an HTTP tunnel to your localhost with the Pinggy comman
 
 When you start Pinggy with the _Web Debugger_ option enabled, you can access the inspector by visiting: [http://localhost:4300](http://localhost:4300). You can change this port by modifying the command above.
 
-{{< figure src="/assets/webdebug.png" alt="Logging, Inspecting & Replaying HTTP requests using Pinggy" >}}
+{{< figure src="/assets/webdebug.webp" alt="Logging, Inspecting & Replaying HTTP requests using Pinggy" >}}
 
 The Pinggy web debugger enables you to:
 

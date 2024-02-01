@@ -1,5 +1,6 @@
 ---
  title: "Scaling across Multiple Regions" 
+ description: "Explore how Pinggy scales across multiple regions to provide faster and more reliable tunnels. Learn about the challenges of DNS management, the integration of PowerDNS and Route 53, and the end-to-end flow of creating tunnels in this multi-region setup."
  date: 2023-09-08T14:15:25+05:30
  lastmod: 2023-09-08T14:15:25+05:30
  draft: false
@@ -21,7 +22,7 @@ To scale across multiple regions, we did the following:
 3. Use AWS Route 53 for latency-based routing.
 4. Implement a central coordinator to handle authentication, sessions, etc.
 
-{{< image "scaling_across_multiple_regions/worldmap.webp" >}}
+{{< image "scaling_across_multiple_regions/worldmap.webp" "Pinggy servers across the world" >}}
 
 ## The Problem
 
@@ -37,7 +38,7 @@ Therefore, the entire journey is: `visitor -> pinggy -> client -> pinggy -> visi
 
 One can already imagine the latency if both the _client_ and the _visitor_ are in South Korea while the Pinggy server is in USA. The round trip time (RTT) can be as high as 500 ms from the visitor to the client (see the diagram below).
 
-{{< image "scaling_across_multiple_regions/latency_map.webp" >}}
+{{< image "scaling_across_multiple_regions/latency_map.webp" "Latency map" >}}
 
 ## Refactor into core and edges
 
@@ -55,7 +56,7 @@ As a result, the latency for creating a tunnel stays more or less the same, sinc
 
 Once the tunnel is live, the visitor traffic flows in a much more efficient path: `visitor -> edge -> client -> edge -> visitor`.
 
-{{< image "scaling_across_multiple_regions/core_edge_map.webp" >}}
+{{< image "scaling_across_multiple_regions/core_edge_map.webp" "Core and edge map" >}}
 
 From the above image, it becomes clear that the _edge_ handles all the visitor traffic. As a result, the visitor has a much better experience. The high latency from an _edge_ to the _core_ does not impact the visitor traffic. An _edge_ consults the _core_ first when a tunnel is being created, and then less frequently and asynchronously, without affecting the visitor traffic.
 
@@ -135,7 +136,7 @@ The same for a client from Japan is:
 <br>
 `a.pinggy.io --CNAME--> ap.a.pinggy.io`
 
-{{< image "scaling_across_multiple_regions/end_to_end_flow.webp" >}}
+{{< image "scaling_across_multiple_regions/end_to_end_flow.webp" "End-to-end flow" >}}
 
 ## End-to-end flow
 

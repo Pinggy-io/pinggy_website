@@ -1,9 +1,10 @@
 ---
  title: "You can host your website on Android! Here's how." 
+ description: "Learn how to turn your Android into a web server with Termux and Pinggy. This quick guide walks you through the steps, from installing Termux to getting a public URL. Share your content seamlessly from your pocket to the world!"
  date: 2023-05-01T01:15:25+05:30 
  draft: false 
  tags: ["guide", "android"]
- og_image: "/blog_img/androidhost/tunnel.jpg"
+ og_image: "/blog_img/androidhost/tunnel.webp"
  outputs:
   - HTML
   - AMP
@@ -17,10 +18,10 @@ To give you a glimpse of a blog running on a $180 Android phone, here are some s
 
 <div class="row mb-4">
 <div class="col">
-<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/server.jpg" alt="Android phone with node http server on termux">
+<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/server.webp" alt="Android phone with node http server on termux">
 </div>
 <div class="col">
-<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/tunnel.jpg" alt="Android phone with pinggy running on termux">
+<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/tunnel.webp" alt="Android phone with pinggy running on termux">
 </div>
 </div>
 
@@ -57,7 +58,7 @@ pkg install nodejs-lts
 
 Once these are installed correctly, you will be able to check the versions of `node` and `npm` using `node --version` and `npm --version`
 
-<img class="my-4" style="width: 20em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalnode.png" alt="Android phone showing node and npm version on termux">
+<img class="my-4" style="width: 20em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalnode.webp" alt="Android phone showing node and npm version on termux">
 
 ## Step 3. Start server and Pinggy tunnel
 
@@ -93,13 +94,13 @@ Now share your URL with your friends and watch live stats of visitors on the Pin
 
 <div class="row mb-4">
 <div class="col col-md-4">
-<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalserver.jpg" alt="Android phone with node http server on termux">
+<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalserver.webp" alt="Android phone with node http server on termux">
 </div>
 <div class="col col-md-4">
-<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalpinggy.jpg" alt="Android phone with pinggy tunnel">
+<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalpinggy.webp" alt="Android phone with pinggy tunnel">
 </div>
 <div class="col col-md-4">
-<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalpinggy2.jpg" alt="Android phone with pinggy tunnel showing request details">
+<img style="width: 30em; margin: 0 auto; display: block;" src="/blog_img/androidhost/terminalpinggy2.webp" alt="Android phone with pinggy tunnel showing request details">
 </div>
 </div>
 
@@ -115,7 +116,7 @@ Put your own custom domain that you want to use and Pinggy will provide a CNAME 
 
 After the CNAME record is set, just click Validate followed by Issue Certificate button to finish configuring the custom domain.
 
-<img class="my-4" style="max-width:100%, width: 60em; margin: 0 auto; display: block;" src="/blog_img/androidhost/customdomain.jpg" alt="Pinggy custom domain configuration page">
+<img class="my-4" style="max-width:100%, width: 60em; margin: 0 auto; display: block;" src="/blog_img/androidhost/customdomain.webp" alt="Pinggy custom domain configuration page">
 
 Once the custom domain is configured, just use the token from Pinggy dashboard in the pinggy tunnel command:
 

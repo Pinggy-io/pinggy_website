@@ -1,5 +1,6 @@
 ---
- title: "Access IoT Devices from Anywhere" 
+ title: "Access IoT Devices from Anywhere"
+ description: "Seamlessly manage and access your IoT devices, including Raspberry Pi, from anywhere with Pinggy. Utilize a single command to establish a secure TCP tunnel, enabling remote SSH connections." 
  date: 2023-06-09T14:15:25+05:30
  lastmod: 2023-08-10T14:15:25+05:30
  draft: false 
@@ -10,7 +11,7 @@
   - AMP
 ---
 
-{{< image "iot/head.webp" >}}
+{{< image "iot/head.webp" "Access IoT Devices from Anywhere" >}}
 
 You can access your Internet of Things (IoT), devices remotely and manage our devices from anywhere with just one command.
 
@@ -66,7 +67,7 @@ tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span 
 
 Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>) and port (<span style="background: #e9ecff">40527</span>) as they will be used to establish an SSH connection to your IoT device.
 
-{{< image "iot/url.webp" >}}
+{{< image "iot/url.webp" "Public URL" >}}
 
 **Step 3: SSH into Your IoT Device**
 

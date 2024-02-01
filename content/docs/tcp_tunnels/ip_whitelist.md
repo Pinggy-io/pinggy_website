@@ -1,5 +1,6 @@
 ---
  title: "IP Whitelist with TCP Tunnel"
+ description: "Configure IP Whitelisting with Pinggy TCP tunnels. Learn how to start tunnels with restricted access based on specified IP addresses."
  date: 2023-12-07T01:15:25+05:30
  draft: false 
 ---
@@ -11,33 +12,41 @@ Pinggy provides the capability of IP whitelisting, allowing access restrictions 
 Start tunnel with IP Whitelisting as follows
 {{< tabs >}}
 {{% tab name="Without Token" %}}
+
 ```
 ssh -p 443 -R0:localhost:<localport> -t tcp@a.pinggy.io w:IP1
 ```
+
 {{% /tab %}}
 {{% tab name="With Token" %}}
+
 ```
 ssh -p 443 -R0:localhost:<localport> -t <token>+tcp@a.pinggy.io w:IP1
 ```
+
 {{% /tab %}}
 {{< /tabs >}}
 
 Like basic authentication, one can set multiple ip addresses as well.
 {{< tabs >}}
 {{% tab name="Without Token" %}}
+
 ```
 ssh -p 443 -R0:localhost:<localport> -t tcp@a.pinggy.io w:[IP1[,IP2[,IP3..]]]
 ```
+
 {{% /tab %}}
 {{% tab name="With Token" %}}
+
 ```
 ssh -p 443 -R0:localhost:<localport> -t <token>+tcp@a.pinggy.io w:[IP1[,IP2[,IP3..]]]
 ```
+
 {{% /tab %}}
 {{< /tabs >}}
 
 You can customize the command here:
 
-{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start tunnel:" portstring="Local Port" localport="8000" webdebugenabled=false 
+{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start tunnel:" portstring="Local Port" localport="8000" webdebugenabled=false
 keepalive=true ipwhitelistcheck=true >}}
 {{< /pinggytunnel >}}

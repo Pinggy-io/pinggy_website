@@ -10,6 +10,10 @@
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="/css/style.css" rel="stylesheet" />
-<link rel="stylesheet" href="/css/syntax.css" />
-<link href="/css/customizations.css?v=1" rel="stylesheet" />
+{{ $styles := resources.Get "/css/style.css" | resources.Minify }} {{ $syntax :=
+resources.Get "/css/syntax.css" | resources.Minify }} {{ $customization :=
+resources.Get "/css/customization.css" | resources.Minify }}
+
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+<link rel="stylesheet" href="{{ $syntax.RelPermalink }}" />
+<link rel="stylesheet" href="{{ $customization.RelPermalink }}" />

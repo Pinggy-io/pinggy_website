@@ -1,5 +1,6 @@
 ---
  title: "Outage Incident Report Nov 6, 2023" 
+ description: "Explore the incident report of the November 6, 2023 outage. Learn about the steps taken to address the issue, temporary access via 'pinggy.link,' and preventive measures implemented. Discover how we ensure the security and reliability of our services."
  date: 2023-11-06T00:15:25+05:30
  lastmod: 2023-11-06T01:15:25+05:30
  draft: false

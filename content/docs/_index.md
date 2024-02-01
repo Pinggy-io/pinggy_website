@@ -1,5 +1,6 @@
 ---
  title: "Documentation - Getting Started" 
+ description: "Start using Pinggy in three simple steps. Host websites, receive webhooks, share files, and connect to your localhost remotely with ease. Explore the quickstart guide now."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---
@@ -17,16 +18,13 @@ First you need to run the service you want to share in localhost. For example yo
 You can quickly launch such a server for testing purposes using Python: `python3 -m http.server` .
 This will start a server at <a href="http://localhost:8000" target="_blank">http://localhost:8000</a>.
 
-
 #### Step 2: Create a tunnel using a single command
-
 
 ```bash
 ssh -p 443 -R0:localhost:8000 a.pinggy.io
 ```
 
 Replace the port `8000` with the localhost port where your service is running.
-
 
 #### Step 3: Access through public URL
 
@@ -39,4 +37,3 @@ https://fakqxzqrohxxx.a.pinggy.online
 ```
 
 You can access your localhost service using these URLs.
-

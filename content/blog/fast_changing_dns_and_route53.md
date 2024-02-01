@@ -1,11 +1,12 @@
 ---
- title: "Fast changing DNS records and AWS Route 53" 
- date: 2023-06-22T14:15:25+05:30 
- draft: false 
- og_image: "images/iot/head.webp"
- outputs:
+title: "Fast DNS Records with AWS Route 53"
+date: 2023-06-22T14:15:25+05:30
+draft: false
+og_image: "images/iot/head.webp"
+outputs:
   - HTML
   - AMP
+description: "Explore challenges and solutions for rapid DNS updates using AWS Route 53. Learn why hosting your DNS server with PowerDNS may provide a faster alternative. Dive into the nuances of ensuring quick and reliable tunnels for your application."
 ---
 
 A user from South Korea brought to our notice that Pinggy works great for them, but it is slow. The answer to _"why"_ was obvious to us. Pinggy hosts its servers in the USA, specifically in Ohio. One key goal of Pinggy is to not only provide tunnels, but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the nearest region from where the user is creating the tunnel (as the default behavior).
