@@ -16,17 +16,17 @@ Before we dive into the integration with Pinggy, make sure your local applicatio
 Here's a simple express app to get you started:
 
 ```javascript
-var express = require('express');
+var express = require("express");
 var app = express();
 app.use(express.json());
 const port = 3000;
 
-app.post('/*', function (req, res) {
+app.post("/*", function (req, res) {
   console.log("-------------- New Request POST --------------");
-  console.log("Headers:"+ JSON.stringify(req.headers, null, 3));
-  console.log("Body:"+ JSON.stringify(req.body, null, 3));
+  console.log("Headers:" + JSON.stringify(req.headers, null, 3));
+  console.log("Body:" + JSON.stringify(req.body, null, 3));
   res.json({ message: "Thank you for the message" });
-})
+});
 
 // Add support for GET requests to Facebook webhook
 app.get("/*", (req, res) => {
@@ -36,8 +36,8 @@ app.get("/*", (req, res) => {
   var challenge = req.query["hub.challenge"];
 
   console.log("-------------- New Request GET --------------");
-  console.log("Headers:"+ JSON.stringify(req.headers, null, 3));
-  console.log("Body:"+ JSON.stringify(req.body, null, 3));
+  console.log("Headers:" + JSON.stringify(req.headers, null, 3));
+  console.log("Body:" + JSON.stringify(req.body, null, 3));
 
   // Check if a token and mode is in the query string of the request
   if (mode && token) {
@@ -58,8 +58,8 @@ app.get("/*", (req, res) => {
 });
 
 app.listen(port, function () {
-   console.log(`Example Facebook app listening at ${port}`)
-})
+  console.log(`Example Facebook app listening at ${port}`);
+});
 ```
 
 Save the above code in a file named `app.js` and run the following command to start the application:
@@ -79,7 +79,7 @@ Pinggy simplifies the process of creating a secure tunnel. Use the following com
 
 If you run the command with your specified port where your service is running, you will get an output similar to the following:
 
-{{< figure src="/quickstart_img/whatsapp/pinggy_tunnel.png" alt="Key Authentication With HTTP Tunnel">}}
+{{< figure src="/quickstart_img/whatsapp/pinggy_tunnel.webp" alt="Pinggy Tunnel" >}}
 
 ## Step 3: Integrate WhatsApp
 
@@ -89,19 +89,19 @@ To register a webhook on your WhatsApp account follow the instructions below:
 
 Connect your Facebook page with your WhatsApp account by following the instructions below:
 
-1. Access the [Meta for Developers](https://developers.facebook.com/) page and Log in using your Facebook account. 
+1. Access the [Meta for Developers](https://developers.facebook.com/) page and Log in using your Facebook account.
 
 2. On the Developers page, click **My Apps** and then click your app.
 
 3. On the app dashboard, click **Add Product** on the left menu, and then click **Set up** inside the **WhatsApp** tile.
 
-{{< figure src="/quickstart_img/whatsapp/add_whatsapp.png" alt="">}}
+{{< figure src="/quickstart_img/whatsapp/add_whatsapp.webp" alt="Add WhatsApp" >}}
 
 4. On the left menu, click **Configuration** under **WhatsApp** and then click **Edit**.
 
 5. In the **Edit webhook's callback URL** popup, enter the URL provided by the ngrok agent to expose your application to the internet in the **Callback URL** field, with `/webhooks` at the end.
 
-{{< figure src="/quickstart_img/whatsapp/callback_url.png" alt="">}}
+{{< figure src="/quickstart_img/whatsapp/callback_url.webp" alt="Callback URL" >}}
 
 6. Enter `12345` in the **Verify Token** field and then click **Verify and Save**.
 
@@ -109,7 +109,7 @@ Connect your Facebook page with your WhatsApp account by following the instructi
 
 8. Back to the **Configuration** page, click **Manage**.
 
-9. On the **Webhook fields** popup, click **Subscribe** to the **messages**s field. 
+9. On the **Webhook fields** popup, click **Subscribe** to the **messages**s field.
 
 10. Click **Test** for the **messages** field and confirm your localhost app receives a post request.
 
@@ -127,8 +127,8 @@ Use the phone number associated to your WhatsApp product or use the test number 
 
 Confirm your localhost app receives a message and logs both headers and body in the terminal.
 
-{{< figure src="/quickstart_img/whatsapp/request.png" alt="">}}
+{{< figure src="/quickstart_img/whatsapp/pinggy_tunnel_request.webp" alt="Pinggy Tunnel Request" >}}
 
 To debug and inspect the requests made to your localhost app, you can leverage **Pinggy's Web Debugger**. Keep the Web Debugger open, and when you receive the URL after starting the tunnel, visit the selected web debugger port on your local machine. This allows you to monitor and troubleshoot incoming requests, ensuring a smooth integration with WhatsApp.
 
-{{< figure src="/quickstart_img/whatsapp/web_debugger_with_whatsapp.png" alt="">}}
+{{< figure src="/quickstart_img/whatsapp/pinggy_web_debugger_with_whatsapp.webp" alt="Pinggy Web Debugger" >}}

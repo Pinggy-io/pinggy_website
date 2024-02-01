@@ -1,8 +1,9 @@
 ---
  title: "Simplifying Traffic Inspection with Pinggy" 
+ description: "Discover how Pinggy advanced traffic inspection and web debugger streamline debugging, offering real-time insights into network traffic. Optimize your workflow and enhance application performance effortlessly."
  date: 2023-05-31T14:15:25+05:30 
  draft: false 
- og_image: "images/jupyter/image0.png"
+ og_image: "images/jupyter/image0.webp"
  outputs:
   - HTML
   - AMP
@@ -22,12 +23,12 @@ ssh -p 443 -R0:localhost:8888  -L4300:localhost:4300 -o StrictHostKeyChecking=no
 
 Once the tunnel is established, you can access the web debugger through the default URL: {{< link href="http://localhost:4300" >}}localhost:4300{{< /link >}}. Make sure the Web Debugger toggle is switched ON.
 
-{{< image "traffic_inspection/image1.png" >}}
+{{< image "traffic_inspection/image1.webp" "Pinggy Advanced Tunnel" >}}
 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel with web debugger:" portstring="Local Port" localport="8888" webdebugenabled=true keepalive=false tryYourselfText="Try it yourself now" >}}
 {{< /pinggytunnel >}}
 
-{{< image "traffic_inspection/image2.png" >}}
+{{< image "traffic_inspection/image2.webp" "Pinggy Web Debugger" >}}
 
 ### Streamlined Debugging with Pinggy.io
 

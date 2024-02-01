@@ -1,5 +1,6 @@
 ---
  title: "HTTP / HTTPS Tunnels" 
+ description: "Create HTTP/HTTPS tunnels to your localhost effortlessly with Pinggy. Use a single command to share your service, and access it through dynamic URLs. For a persistent subdomain, upgrade to Pinggy Pro."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---
@@ -13,19 +14,22 @@ First, run the service you want to share in localhost. You need to know the port
 Command to start a tunnel to port `8000`:
 {{< tabs >}}
 {{% tab name="Without Token" %}}
+
 ```
 ssh -p 443 -R0:localhost:8000 a.pinggy.io
 ```
-*Replace `8000` with the port where your service is running*.
+
+_Replace `8000` with the port where your service is running_.
 {{% /tab %}}
 {{% tab name="With Token" %}}
+
 ```
 ssh -p 443 -R0:localhost:8000 token@a.pinggy.io
 ```
-*Replace `8000` with the port where your service is running, and replace `token` with your owntoken*.
+
+_Replace `8000` with the port where your service is running, and replace `token` with your owntoken_.
 {{% /tab %}}
 {{< /tabs >}}
-
 
 The above command will provide you http and https URLs as follows:
 
@@ -38,5 +42,3 @@ https://fakqxzqrohxxx.a.pinggy.online
 You can access your localhost service using these URLs.
 
 **These URLs will change every time you create a new tunnel.<br> If you want a persistent subdomain** <b><a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a></b>.
-
-

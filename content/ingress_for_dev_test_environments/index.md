@@ -18,11 +18,10 @@
       </div>
     </div>
     <div class="col-lg-5 mt-3">
-      <!-- Placeholder Image (Sample URL) -->
       <img
-        src="/assets/heroImage.png"
+        src="/assets/heroImage.webp"
         class="img-fluid"
-        alt=""
+        alt="Pinggy Dev/Test Environment Gateway"
       />
     </div>
   </div>

@@ -5,8 +5,11 @@
   property="og:title"
   content="{{ if .IsHome }}Pinggy Documentation - Simple Localhost Tunnels{{ else }}{{ if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}} Documentation{{ end }}{{ end }}"
 />
-<meta name="description" content="{{ .Summary }}" />
-<meta property="og:description" content="{{ .Summary }}" />
+
+{{ $metaDescription := .Params.description }} {{ if not $metaDescription }} {{
+$metaDescription = .Summary }} {{ end }}
+<meta name="description" content="{{ $metaDescription }}" />
+<meta property="og:description" content="{{ $metaDescription }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="Pinggy Documentation" />
 <meta

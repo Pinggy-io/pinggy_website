@@ -1,5 +1,6 @@
 ---
  title: "Receive and test webhooks on localhost" 
+ description: "Learn how Pinggy.io makes it easy to receive and test webhooks on your localhost. Streamline your development workflow, debug integrations efficiently, and enhance your web development process with Pinggy's seamless tunneling solution."
  date: 2023-02-25T14:15:25+05:30 
  draft: false 
  outputs:

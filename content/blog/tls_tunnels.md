@@ -1,11 +1,11 @@
 ---
  title: "TLS Tunnel" 
+ description: "Explore TLS tunnels – secure, encrypted channels for client-server communication. Create one easily with Pinggy for secure connections to localhost servers without any downloads."
  date: 2023-08-22T14:15:25+05:30
  lastmod: 2023-08-22T14:15:25+05:30
  draft: false 
  tags: ["guide", "tls"]
  og_image: "images/tls_tunnel/tls.webp"
- description: "A TLS tunnel is a secure, end-to-end encrypted channel that enables clients to communicate with servers while preventing malicious eavesdropping. You can easily create a TLS tunnel using Pinggy and connect to your localhost servers securely. You do not need to download anything to create a TLS tunnel."
  outputs:
   - HTML
   - AMP
@@ -13,7 +13,7 @@
 
 A TLS tunnel, also known as an SSL tunnel, is a secure channel that allows data to travel between two endpoints while being encrypted and protected from eavesdropping and tampering. This form of tunneling relies on the TLS protocol to establish an encrypted connection between a client and a server, ensuring that the data exchanged between them remains confidential and secure.
 
-{{< image "tls_tunnel/tls.webp" >}}
+{{< image "tls_tunnel/tls.webp" "TLS Tunnel - Pinggy" >}}
 
 TLS tunneling provides end-to-end encryption which is essential for maintaining the confidentiality and integrity of data transmitted over the internet. This ensures that sensitive information remains shielded from prying eyes and malicious eavesdroppers including internet service providers, and allowing users to communicate and exchange data with a high level of trust.
 
@@ -25,7 +25,7 @@ Transport Layer Security (TLS) and its precursor, Secure Sockets Layer (SSL), co
 
 ### TLS handshake
 
-{{< image "tls_tunnel/tls_handshake.webp" >}}
+{{< image "tls_tunnel/tls_handshake.webp" "TLS Handshake" >}}
 
 At a very high level overview, the TLS handshake process involves a series of carefully orchestrated steps that establish a secure and encrypted channel between the client and server. This ensures the confidentiality, integrity, and authenticity of the data exchanged during the communication.
 
@@ -55,7 +55,7 @@ In tunnel service providers such as Pinggy or Ngrok, the TLS tunnel traffic is t
 
 **Prerequisite for TLS tunnels**: The end server, such as an HTTPS server, must possess the required TLS key and certificate to handle traffic termination for the specific domain or subdomain used to establish the tunnel. For instance, if the tunnel is accessed via the domain `tls.tunnel.com`, the server to which the tunnel is directed must be equipped with the relevant domain certificate to effectively terminate the TLS connections.
 
-{{< image "tls_tunnel/tls_tunnel.webp" >}}
+{{< image "tls_tunnel/tls_tunnel.webp" "TLS Tunnel" >}}
 
 **How TLS tunnels work?**: TLS tunnels depend on the Server Name Indication (SNI). SNI is an extension in the TLS protocol that contains the hostname or domain name requested by the client. This information is sent as part of the initial TLS handshake to the server, allowing the tunnel server to determine which tunnel to forward the traffic to. SNI is contained in the ClientHello message. Apart from this ClientHello message, none of the encrypted messages that follow can be decrypted by the tunnel provider.
 

@@ -1,8 +1,9 @@
 ---
  title: "Sharing Jupyter Notebooks from localhost" 
+ description: "Effortlessly share Jupyter Notebooks globally with Pinggy. Securely collaborate, access, and obtain a public URL for your locally running Jupyter Notebook. No complex setups, just seamless sharing."
  date: 2023-05-29T14:15:25+05:30 
  draft: false 
- og_image: "images/jupyter/image0.png"
+ og_image: "images/jupyter/image0.webp"
  tags: ["guide", "http"]
  outputs:
   - HTML
@@ -11,7 +12,7 @@
 
 {{% link href="https://jupyter.org/" %}}Jupyter Notebook{{% /link %}} allows users to create and share documents containing live code, equations, visualizations, and explanatory text. However, by default, Jupyter Notebook is limited to local access, requiring users to be on the same machine or network to collaborate effectively. This guide shows how you can share Jupyter Notebook with your teammates, collaborators, and friends.
 
-{{< image "jupyter/image0.png" >}}
+{{< image "jupyter/image0.webp" "Sharing Jupyter Notebooks from localhost" >}}
 
 Through this guide you will be able to:
 
@@ -56,7 +57,7 @@ Or `python -m notebook`
 
 After starting the notebook we get an output like this:
 
-{{< image "jupyter/image4.png" >}}
+{{< image "jupyter/image4.webp" "Jupyter Notebook Output" >}}
 
 **Get the token:** The output will contain the URL to access it:
 [http://localhost:8888/?token=4a0b8fdd640d8d3d14dbf5819ca865a8d4b4272aaf124xxx](#)
@@ -80,7 +81,7 @@ Pinggy simplifies the process of sharing your Jupyter Notebooks by providing a s
     {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jupyter Notebook:" portstring="Jupyter Notebook Port" localport="8888" webdebugenabled=false keepalive=true headermodifications=`[{"mode":"a", "headername":"Host", "headerval": "localhost:8888"}]` >}}{{< /pinggytunnel >}}
 
 3.  After executing the command, you will receive a Pinggy URL that can be used to access your shared Jupyter Notebook. The URL will look similar to the following: https://ranlkfsbjkxry.a.pinggy.online
-    {{< image "jupyter/image2.png" >}}
+    {{< image "jupyter/image2.webp" "Pinggy URL" >}}
 
 4.  To access your Jupyter Notebook through the Pinggy URL, just open the url and input the **token** to access it.
 
