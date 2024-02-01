@@ -26,7 +26,7 @@ Pinggy simplifies the process of creating a secure tunnel. Use the following com
 
 If you run the command with your specified port where your service is running, you will get an output similar to the following:
 
-{{< figure src="/quickstart_img/twilio/pinggy_tunnel.png" alt="Key Authentication With HTTP Tunnel">}}
+{{< figure src="/quickstart_img/twilio/pinggy_tunnel.webp" alt="Pinggy Tunnel" >}}
 
 ## Step 3: Integrate Twilio
 
@@ -38,7 +38,7 @@ Now that you have your local environment on the internet, let's configure Twilio
 
 3. At the bottom of the page, under Messaging, (1) add your pinggy url (don't forget to append /sms) under Webhook and (2) change the type to HTTP Post.
 
-{{< figure src="/quickstart_img/twilio/twilio_webhook.png" alt="" >}}
+{{< figure src="/quickstart_img/twilio/add_twilio_webhook.webp" alt="Add Twilio Webhook" >}}
 
 4. Save the phone number configuration.
 
@@ -54,4 +54,4 @@ Congratulations! You got an end-to-end example working but there's even more you
 
 To debug and inspect the requests made to your localhost app, you can leverage **Pinggy's Web Debugger**. Keep the Web Debugger open, and when you receive the URL after starting the tunnel, visit the selected web debugger port on your local machine. This allows you to monitor and troubleshoot incoming requests, ensuring a smooth integration with Twilio.
 
-{{< figure src="/quickstart_img/twilio/web_debugger_with_twilio.png" alt="">}}
+{{< figure src="/quickstart_img/twilio/pinggy_web_debugger_with_twilio.webp" alt="Pinggy Web Debugger with Twilio" >}}

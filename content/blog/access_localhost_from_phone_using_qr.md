@@ -1,5 +1,6 @@
 ---
  title: "Access localhost from your phone!" 
+ description: "Access localhost on your phone with Pinggy's QR code support. Start a tunnel, press 'u' or 'c' for QR, or use 'qr'/'aqr' as usernames for persistent QR. Add your token with '+'. Enjoy easy connectivity!"
  date: 2023-08-10T14:15:25+05:30
  draft: false 
  og_image: "images/qr/pinggyqr.webp"

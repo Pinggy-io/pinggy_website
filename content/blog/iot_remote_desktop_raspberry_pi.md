@@ -1,5 +1,6 @@
 ---
  title: "Remote Desktop for Raspberry Pi and other IoT devices" 
+ description: "Discover a quick guide to remotely access your Raspberry Pi desktop using Remote Desktop Protocol (RDP). Learn how to set up an RDP server, create a Pinggy TCP tunnel for internet access, and connect seamlessly to your IoT devices from anywhere!"
  date: 2023-08-11T14:15:25+05:30
  draft: false 
  og_image: "images/pirdp/pirdp.webp"
@@ -9,7 +10,7 @@
   - AMP
 ---
 
-{{< image "pirdp/pirdp.webp" >}}
+{{< image "pirdp/pirdp.webp" "Remote Desktop for Raspberry Pi and other IoT devices" >}}
 
 You remotely access your Raspberry Pi desktop from anywhere using _Remote Desktop Protocol_ (RDP). Even if your Pi is outside your local network, you can access it easily over the internet using Pinggy.
 
@@ -75,13 +76,13 @@ Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.onl
 
 To avoid copying the URL, you can sign in to https://dashboard.pinggy.io to get an access token. When you start a tunnel using your access token, you can find ongoing tunnel URLs from the dashboard.
 
-{{< image "iot/url.webp"  >}}
+{{< image "iot/url.webp"  "Ongoing tunnel URLs" >}}
 
 ## Step 4. Connect to remote desktop
 
 Open _Remote Desktop Connection_ application on your Windows / _Microsoft Remote Desktop_ on Mac. Enter the URL:Port to connect.
 
-{{< image "pirdp/rdp.webp" >}}
+{{< image "pirdp/rdp.webp" "Remote Desktop Connection" >}}
 
 ## Tips
 

@@ -1,5 +1,6 @@
 ---
  title: "Updates to counter deceptive content distribution" 
+ description: "Discover the latest steps Pinggy has taken to combat deceptive content distribution. Changes include domain updates and enhanced security measures. Learn how these updates impact your Pinggy tunnels and ensure a secure online experience."
  date: 2023-07-16T14:15:25+05:30 
  lastmod: 2023-07-26T14:15:25+05:30
  draft: false 
@@ -23,7 +24,7 @@ We have taken some preventive actions to mitigate the problem. These are as foll
 - Moving all tunnels to the domain `pinggy.online`
 - Limiting the unregistered free tunnels to 60 minutes
 
-{{< image "fix_deceptive_website_warning/alert.png" >}}
+{{< image "fix_deceptive_website_warning/alert.webp" "deceptive website warning" >}}
 
 ### What users need to do
 

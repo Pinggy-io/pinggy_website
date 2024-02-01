@@ -1,5 +1,6 @@
 ---
 title: "Run Tunnel on Startup for Windows"
+description: "Run your Pinggy tunnel on Windows startup with ease. Create a batch file with your Pinggy command, save it in the startup folder, and enjoy automatic tunnel execution upon logging in."
 date: 2023-12-13T14:15:25+05:30
 draft: false
 ---
@@ -31,7 +32,7 @@ To run a tunnel on Windows startup, follow these steps:
 
    - Click 'Save' to confirm the creation of your batch file.
 
-   {{< figure src="/doc_img/windows_saveas.webp" alt="Windows Startup">}}
+   {{< figure src="/doc_img/windows_saveas.webp" alt="Windows Save As Option">}}
 
 3. **Access the Startup Folder**:
 
@@ -44,7 +45,7 @@ To run a tunnel on Windows startup, follow these steps:
 
    - Copy or move the `pinggy_tunnel.bat` file you created into this Startup folder.
 
-   {{< figure src="/doc_img/windows_startup_folder.webp" alt="Windows Startup">}}
+   {{< figure src="/doc_img/windows_startup_folder.webp" alt="Windows Startup Folder">}}
 
 5. **Run Tunnel on Startup**:
    - The `pinggy_tunnel.bat` file in the Startup folder will execute automatically each time you log in to your Windows account.

@@ -1,4 +1,7 @@
-{{ $imageName := .Get 0 }} {{ $image := resources.GetMatch (printf "images/%s"
-$imageName) }} {{ with $image }}
-<img src="{{ .RelPermalink }}" />
+{{ $imageName := .Get 0 }} {{ $altText := .Get 1 }} {{ $image :=
+resources.GetMatch (printf "images/%s" $imageName) }} {{ with $image }}
+<img
+  src="{{ .RelPermalink }}"
+  alt="{{ with $altText }}{{ $altText }}{{ else }}{{ $imageName }}{{ end }}"
+/>
 {{ end }}
