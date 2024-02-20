@@ -1,5 +1,6 @@
 ---
  title: "Ingress for Dev/Test Environments"
+ description: "Pinggy provides a secure gateway for dev/test environments, allowing developers to effortlessly test and preview applications and APIs. Simplify secure connectivity to dev/test environments with Pinggy's one-command solution."
  date: 2024-01-05T01:15:25+05:30
  draft: false 
 ---
