@@ -1,6 +1,11 @@
 ---
 title: "Access raspberry pi remotely to control iot devices"
 description: "Learn how to securely connect to your Raspberry Pi or IoT device remotely over the internet without the need for port forwarding. Explore methods such as SSH, VNC, and RDP, and discover how to use Pinggy.io to create secure tunnels for seamless remote management. Enhance your IoT device control and management from anywhere in the world."
+og_image: "images/iot/remote_access_raspberry_pi.webp"
+tags: ["iot", "guide", "raspberrypi"]
+outputs:
+- HTML
+- AMP
 date: 2024-02-13T03:57:29+05:30
 draft: false
 ---
@@ -29,11 +34,11 @@ Here, we’ll discuss how to configure and setup Raspberry Pi for remote access 
 
 ## Remotely connect to Raspberry Pi behind NAT router or firwall over the Internet using SSH
 
-SSH follows a client server model — the SSH server runs on the raspberry pi and the SSH client runs on the user laptop or PC. SSH server listens on TCP port 22 by default.
+SSH follows a client server model — the SSH server runs on the Raspberry pi and the SSH client runs on the user laptop or PC. SSH server listens on TCP port 22 by default. But without port forwarding, if your Raspberry pi is behind NAT or firewall or CGNAT, you will not be able to access your defive. In the following guide we explain how you can remotely access raspberry pi and other iot devices for free without port forwarding.
 
-#### Using Pinggy for remote access
+#### Using Pinggy for remote SSH access
 
-Pinggy provides a secure and reliable method to remotely access your IoT devices, including Raspberry Pi, Banana Pi, Orange Pi, NanoPi NEO, Odroid, Rock Pi, NVIDIA Jetson Nano, and others, even if they don't have a public IP address. It enables you to establish an SSH connection to your devices from anywhere in the world.
+Pinggy provides a secure and reliable method to remotely access your IoT devices, including Raspberry Pi, Banana Pi, Orange Pi, NanoPi NEO, Odroid, Rock Pi, NVIDIA Jetson Nano, and others, even if they don't have a public IP address. It enables you to establish an SSH connection to your devices from anywhere in the world. It has a free tier that will allow you to remotely access your devices from anywhere.
 
 1. On your Raspberry Pi, open a terminal and run the following command:
 
@@ -56,6 +61,8 @@ Pinggy provides a secure and reliable method to remotely access your IoT devices
    ```
 
 By executing this command, you establish an SSH connection to the Pinggy server, which redirects the traffic to your Raspberry Pi through the previously created tunnel. You can now access and control your Raspberry Pi as if it were directly connected to your local network.
+
+You should however create a free account in [Pinggy](https://dashboard.pinggy.io/) so that you can get the remote URL just by logging in to the dashboard. It is recommended that you go through the [guide](https://pinggy.io/docs/run_tunnel_on_startup/linux/) to learn how to run the tunnel automatically whenever the raspberry pi is switched on.  
 
 ## Connect to Raspberry Pi remotely over the Internet using VNC
 
@@ -90,7 +97,7 @@ On running the command for the first time, you will be asked to set new VNC pass
 
 This message indicates that the VNC server is running on the Raspberry Pi and is listening on port 5901.
 
-#### Using Pinggy for remote access
+#### Using Pinggy for remote VNC access
 
 1. On your Raspberry Pi, open a terminal and run the following command:
 
@@ -130,7 +137,7 @@ RDP follows the client-server model, where an RDP client is installed on a local
    sudo systemctl start xrdp
    ```
 
-#### Using Pinggy for remote access
+#### Using Pinggy for remote desktop (RDP) access
 
 1. On your Raspberry Pi, open a terminal and run the following command:
 
@@ -199,11 +206,11 @@ Right now the web application can be accessed only from a local network because 
 
 3. Now, you can use the public URL to access your web app from anywhere in the world. Open a web browser on your laptop or PC and enter the public URL in the address bar.
 
-## Monitor Raspberry Pi Health with HTOP
+## Monitor Raspberry Pi Health with htop
 
-Ensuring the optimal performance and health of your Raspberry Pi is crucial for seamless remote management. One effective way to monitor its system resources is by using HTOP, a powerful terminal-based system monitoring tool.
+Ensuring the optimal performance and health of your Raspberry Pi is crucial for seamless remote management. One effective way to monitor its system resources is by using `htop`, a powerful terminal-based system monitoring tool.
 
-#### Installing HTOP on Raspberry Pi
+#### Installing htop on Raspberry Pi
 
 To begin the installation process, open a terminal on your Raspberry Pi and execute the following commands:
 
@@ -214,7 +221,7 @@ sudo apt-get install htop
 
 These commands ensure that your package list is updated, and HTOP is installed on your Raspberry Pi.
 
-#### Using Pinggy for remote access
+#### Using Pinggy for remotely monitoring iot using htop
 
 Before using HTOP, you need to create a tunnel to your Raspberry Pi using Pinggy. Follow the steps mentioned in the previous sections to create a tunnel to your Raspberry Pi.
 
