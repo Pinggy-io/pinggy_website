@@ -1,5 +1,5 @@
 ---
- title: "Hosting a Localhost Minecraft Server Online with Pinggy"
+ title: "Sharing a Minecraft Server running on Localhost with Your Friends Online"
  description: "Learn how to easily expose your localhost Minecraft server to the internet using Pinggy. This step-by-step guide covers everything from installing the Minecraft Launcher to configuring and sharing your server online, enabling you to play with friends worldwide."
  og_image: "images/minecraft/minecraft_launcher.webp"
  date: 2024-03-01T23:33:55+05:30
@@ -10,7 +10,20 @@
   - AMP
 ---
 
-In this guide, we'll walk through the process of exposing your localhost Minecraft server to the internet using [Pinggy](https://pinggy.io).By following these steps, you can seamlessly play with friends from around the world.
+In this guide, we'll walk through the process of exposing your localhost Minecraft server to the internet using [Pinggy](https://pinggy.io). By following these steps, you can seamlessly play with friends from around the world.
+
+{{% tldr %}}
+
+1. In Minecraft, launch a map and initiate the server setup. Click on **Open to LAN**.
+2. Note the port number. Example: **25565**.
+3. Open a terminal / cmd, and run the following command (replace 25565 with your port):
+   ```bash
+   ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io
+   ```
+4. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.online:40527`.
+5. Your friends can use the endpoint provided by Pinggy `tljocjkijs.a.pinggy.online:42289` to connect to your Local game server.
+
+{{% /tldr %}}
 
 ## Installing Minecraft Launcher
 
@@ -83,8 +96,8 @@ Ensure your Minecraft server and the Pinggy tunnel are running; otherwise, playe
 
 ## Tips
 
-Use [Pinggy Dashboard](https://pinggy.io/dashboard) to manage your tunnels, monitor traffic, and access logs.
+Use [Pinggy Dashboard](https://pinggy.io/dashboard) to manage your tunnels, and advanced controls.
 
 {{< image "iot/pinggy_dashboard.webp" "Pinggy Dashboard" >}}
 
-You can explore Pinggy's pricing details [here](https://pinggy.io/#prices) to find the most suitable plan for your needs and budget.
+Pinggy gives you free tunnels for 60 minutes. For longer sessions, explore Pinggy's pricing details [here](https://pinggy.io/#prices) to find the most suitable plan for your needs and budget.
