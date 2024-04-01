@@ -24,7 +24,7 @@ For the purposes of this Privacy Policy:
 - __Account__ means a unique account created for You to access Pinggy Service or parts of Pinggy Service.
 
 
-- __Company__ (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Alstonia (https://alstonia.io).
+- __Company__ (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to PINGGY TECHNOLOGY PRIVATE LIMITED, INDIA.
 
 
 
