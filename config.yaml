@@ -53,6 +53,9 @@ menus:
     - name: Docs
       url: /docs/
       weight: 120
+    - name: CLI
+      url: /cli/
+      weight: 125
     - name: Quickstart
       url: /quickstart/
       weight: 130
