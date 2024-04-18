@@ -20,7 +20,9 @@
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 {{ $tryYourselfText := .Get "tryYourselfText" | default "" }}
 
-<div class="mb-3" x-data="{
+<div
+  class="mb-3"
+  x-data="{
     data: { tunnelString: '{{ $tunnelstring }}',
         portString: '{{ $portstring }}',
         localPort: '{{ $localport }}',
@@ -32,6 +34,7 @@
         basicpass: '{{ $basicpass }}',
         qrCheck: {{ $qrcheck }},
         reconnect: {{ $reconnect }},
+        connectiontype: 'ssh',
         platformselect: 'unix',
         manuallyCheckKey: {{ $manuallycheckkey }},
         mode: '{{ $mode }}',
@@ -43,407 +46,705 @@
         accesstoken: false,
         accesstokenvalue: ''
     }
-}">
-    {{ if ne $tryYourselfText "" }}
-    <p class="font-weight-bold fs-5">{{ $tryYourselfText }}</p>
+}"
+>
+  {{ if ne $tryYourselfText "" }}
+  <p class="font-weight-bold fs-5">{{ $tryYourselfText }}</p>
+  {{ end }}
+  <div
+    class="pinggytunnelshortcode"
+    {{ with .Get "box" }}
+    style="
+      padding: 1em;
+      border-radius: 0.4em;
+      box-shadow: 0 0 7px 0px #00000029;
+    "
     {{ end }}
-    <div class="pinggytunnelshortcode" {{ with .Get "box" }}
-        style="padding: 1em; border-radius: 0.4em; 
-        box-shadow: 0 0 7px 0px #00000029;" {{ end }}
-        data-headermodifications='{{ $headermodifications }}' data-mode="{{ $mode }}">
-        {{ .Inner }}
-        <div class="pinggytunnelshortcode_formwrapper">
-            <form>
-                <div>
-                    <label class="text-bold mt-2">
-                        <strong x-text="data.tunnelString"></strong>
-                    </label>
-                </div>
-                <div class="input-group mt-1">
-                    <textarea style="background: #fafaff; font-size: 0.9rem;"
-                        class="form-control font-monospace pinggytunnelshortcode_advancedcommand"
-                        :rows="data.reconnect ? 4 : 2" 
-                        x-text="$store.pinggyTunnelData.advancedCommand(data)"
-                        readonly
-                    ></textarea>
-                    <button class="btn btn-outline-dark pinggytunnelshortcode_copybutton" type="button"><i
-                            class="bi bi-clipboard"></i></button>
-                </div>
-                <template x-if="data.mode === 'http'">
-                    <div class="mt-3 shortcode_webdebugurl" 
-                        x-show="data.webDebugEnabled"
-                        x-transition.duration.300ms
-                        style="font-size: 0.8rem;" x-html="'Web Debugger URL: <a href=http://localhost:' + data.webDebugPort + ' target=_blank>http://localhost:' + data.webDebugPort + '</a>'"></div>
-                </template>
-                <div class="alert alert-warning mt-2 p-2 shortcode_alert" style="font-size: 0.9rem;"
-                    role="alert" id="shortcode_alert_{{ $random }}" 
-                    x-show="data.reconnect" x-transition.duration.300ms>
-                    When the tunnel reconnects, your public URL will change. Upgrade to <a href="/#prices">Pinggy Pro</a> for
-                    persistent URLs.
-                </div>
-                <hr>
-                <label class="text-bold"><strong>Settings:</strong></label>
-                <div class="form-floating mb-3 mt-1">
-                    <input type="number" class="form-control shortcode_localPort" 
-                        id="shortcode_localPort_{{ $random }}" 
-                        x-model="data.localPort" 
-                        :placeholder="data.portString">
-                    <label for="shortcode_localPort_{{ $random }}" x-text="data.portString"></label>
-                </div>
-                <div x-show="data.mode === 'http'">
-                    <div class="row">
-                        <div class="col col-12 col-lg-6">
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input shortcode_passwordCheck" 
-                                    id="shortcode_passwordCheck_{{ $random }}"
-                                    type="checkbox" 
-                                    x-on:click="data.keyAuthentication = false"
-                                    x-model="data.passwordCheck">
-                                <label class="form-check-label" for="shortcode_passwordCheck_{{ $random }}">Password Protect <i class="bi bi-info-circle"
-                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
-                                    title="Enable basic authentication"></i>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col col-12 col-lg-6">
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input shortcode_qrcheck" 
-                                    type="checkbox"
-                                    id="shortcode_qrcheck_{{ $random }}" 
-                                    x-model="data.qrCheck">
-                                <label class="form-check-label" for="shortcode_qrcheck_{{ $random }}">QR Code <i class="bi bi-info-circle"
-                                    type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
-                                    title="Show QR Code for the URL"></i></label>
-                            </div>
-                        </div>
-                    </div>
-                    <template x-if="data.passwordCheck">
-                        <div class="row shortcode_passwordfields">
-                            <div class="col col-12 col-lg-6">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control shortcode_basicusername" 
-                                        :class="{'is-invalid' : data.basicusername.includes(':')}"
-                                        id="shortcode__basicusername_{{ $random }}" 
-                                        placeholder="Username" 
-                                        x-model="data.basicusername"
-                                    >
-                                    <div class="invalid-feedback" 
-                                            x-show="data.basicusername.includes(':')">
-                                            Username cannot contain ':'
-                                        </div>
-                                    <label for="shortcode_basicusername_{{ $random }}">Username</label>
-                                </div>
-                            </div>
-                            <div class="col col-12 col-lg-6">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control shortcode_basicpass" 
-                                        :class="{'is-invalid' : data.basicpass.includes(':')}"
-                                        id="shortcode_basicpass_{{ $random }}" 
-                                        placeholder="Password" x-model="data.basicpass"
-                                    >
-                                    <div class="invalid-feedback"  
-                                        x-show="data.basicpass.includes(':')">
-                                        Password cannot contain ':'
-                                    </div>
-                                    <label for="shortcode_basicpass_{{ $random }}">Password</label>
-                                </div>   
-                            </div> 
-                        </div>
-                    </template>
-                </div>
-                <div class="row">
-                    <div class="col col-12 col-lg-6">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_keepalive" 
-                                id="shortcode_keepalive_{{ $random }}"
-                                type="checkbox" 
-                                x-model="data.keepAlive">
-                            <label class="form-check-label" for="shortcode_keepalive_{{ $random }}">
-                                Keep Alive <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="Send keep alive packets for a stable tunnel"></i>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col col-12 col-lg-6">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_restart" 
-                                type="checkbox"
-                                id="shortcode_restart_{{ $random }}" 
-                                x-model="data.reconnect">
-                            <label class="form-check-label" for="shortcode_restart_{{ $random }}">Auto Reconnect <i
-                                    class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                    data-bs-placement="right"
-                                    title="Automatically reconnect tunnel on failure."></i></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_webdebugCheck" 
-                                type="checkbox"
-                                id="shortcode_webdebugCheck_{{ $random }}" 
-                                x-model="data.webDebugEnabled">
-                            <label class="form-check-label" for="shortcode_webdebugCheck_{{ $random }}">Web Debugger</label>
-                        </div>
-                    </div>
-                    <div class="col col-12 col-lg-6">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_rsaCheck" 
-                                type="checkbox"
-                                id="shortcode_rsaCheck_{{ $random }}" 
-                                x-model="data.manuallyCheckKey">
-                            <label class="form-check-label" for="shortcode_rsaCheck_{{ $random }}">Manually check host key
-                                <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="Type 'yes' to manually validate host key"></i></label>
-                        </div>
-                    </div>
-                    <div class="col col-12 col-lg-6" x-show="data.mode !== 'http'">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_ipWhitelistCheck"
-                                type="checkbox" id="adv_ipWhitelist"
-                                x-model="data.ipWhitelistCheck"
-                            >
-                            <label class="form-check-label" for="shortcode_ipWhitelistCheck_{{ $random }}">
-                                IP Whitelist
-                                <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                    data-bs-placement="right"
-                                    title="Allow specified IPs to access the tunnel">
-                                </i>
-                            </label>
-                        </div>
-                        <div class="col col-12"
-                            x-show="data.ipWhitelistCheck"
-                            x-transition.duration.300ms
-                        >
-                            <div id="ipwhitelistinputcontainer">
-                                <div class="input-group ipwhitelistgroup">
-                                    <input type="text" aria-label="ip to whitelist"
-                                        :class="{'is-invalid' : data.ipWhitelist[0] 
-                                            && ipCidrValidator(data.ipWhitelist[0]) === false}"
-                                        placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                        x-model.debounce.500ms="data.ipWhitelist[0]">
-                                    <button class="btn btn-outline-dark addipinput" type="button"
-                                        @click="data.ipWhitelist.push('')">
-                                        <i class="bi bi-plus"></i>
-                                    </button>
-                                    <div class="invalid-feedback" 
-                                        x-show="data.ipWhitelist[0] 
-                                        && ipCidrValidator(data.ipWhitelist[0]) === false"
-                                    >
-                                        Invalid CIDR Format
-                                    </div>
-                                </div>
-                                <template x-for="(ip, index) in data.ipWhitelist" :key="index">
-                                    <div x-show="index > 0" class="input-group ipwhitelistgroup">
-                                        <input type="text" aria-label="ip to whitelist"
-                                            :class="{'is-invalid' : data.ipWhitelist[index] 
-                                                && ipCidrValidator(data.ipWhitelist[index]) === false}"
-                                            placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                            x-model.debounce.500ms="data.ipWhitelist[index]">
-                                        <button class="btn btn-outline-danger removeipinput" type="button"
-                                            @click="data.ipWhitelist.splice(index, 1)">
-                                            <i class="bi bi-x"></i>
-                                        </button>
-                                        <div class="invalid-feedback" 
-                                            x-show="data.ipWhitelist[index] 
-                                            && ipCidrValidator(data.ipWhitelist[index]) === false"
-                                        >
-                                            Invalid CIDR Format
-                                        </div>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" x-show="data.mode === 'http'">
-                    <div class="col col-12 col-lg-6">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_keyAuthentication" 
-                                type="checkbox" id="adv_keyAuthentication"
-                                x-model="data.keyAuthentication"
-                                x-on:click="data.passwordCheck = false">
-                            <label class="form-check-label" for="shortcode_keyAuthentication_{{ $random }}">
-                                Key / Token Authentication
-                                <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="Bearer token authentication">
-                                </i>
-                            </label>
-                        </div>
-                        <div class="col col-12 mb-3" 
-                            x-show="data.keyAuthentication"
-                            x-transition.duration.300ms
-                        >
-                            <div id="keyauthinputcontainer">
-                                <div class="input-group keyauthgroup">
-                                    <input type="text" aria-label="key / token" placeholder="Key / token"
-                                        class="form-control keyauthval" x-model="data.keyAuthentications[0]">
-                                    <button class="btn btn-outline-dark addkeyauthinput" type="button"
-                                        @click="data.keyAuthentications.push('')">
-                                        <i class="bi bi-plus"></i>
-                                    </button>
-                                </div>
-                                <template x-for="(keyauth, index) in data.keyAuthentications" :key="index">
-                                    <div x-show="index > 0" class="input-group keyauthgroup">
-                                        <input type="text" aria-label="key / token" placeholder="Key / token"
-                                            class="form-control keyauthval" x-model="data.keyAuthentications[index]">
-                                        <button class="btn btn-outline-danger removekeyauthinput" type="button"
-                                            @click="data.keyAuthentications.splice(index, 1)"><i class="bi bi-x"></i></button>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-12 col-lg-6">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_ipWhitelistCheck"
-                                type="checkbox" id="adv_ipWhitelist"
-                                x-model="data.ipWhitelistCheck"
-                            >
-                            <label class="form-check-label" for="shortcode_ipWhitelistCheck_{{ $random }}">
-                                IP Whitelist
-                                <i class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                    data-bs-placement="right"
-                                    title="Allow specified IPs to access the tunnel">
-                                </i>
-                            </label>
-                        </div>
-                        <div class="col col-12 mb-3"
-                            x-show="data.ipWhitelistCheck"
-                            x-transition.duration.300ms
-                        >
-                            <div id="ipwhitelistinputcontainer">
-                                <div class="input-group ipwhitelistgroup">
-                                    <input type="text" aria-label="ip to whitelist"
-                                        :class="{'is-invalid' : data.ipWhitelist[0] 
-                                            && ipCidrValidator(data.ipWhitelist[0]) === false}"
-                                        placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                        x-model.debounce.500ms="data.ipWhitelist[0]">
-                                    <button class="btn btn-outline-dark addipinput" type="button"
-                                        @click="data.ipWhitelist.push('')">
-                                        <i class="bi bi-plus"></i>
-                                    </button>
-                                    <div class="invalid-feedback" 
-                                        x-show="data.ipWhitelist[0] 
-                                        && ipCidrValidator(data.ipWhitelist[0]) === false"
-                                    >
-                                        Invalid CIDR Format
-                                    </div>
-                                </div>
-                                <template x-for="(ip, index) in data.ipWhitelist" :key="index">
-                                    <div x-show="index > 0" class="input-group ipwhitelistgroup">
-                                        <input type="text" aria-label="ip to whitelist"
-                                            :class="{'is-invalid' : data.ipWhitelist[index] 
-                                                && ipCidrValidator(data.ipWhitelist[index]) === false}"
-                                            placeholder="IP in CIDR (e.g. 10.2.3.4/16)" class="form-control ipval" 
-                                            x-model.debounce.500ms="data.ipWhitelist[index]">
-                                        <button class="btn btn-outline-danger removeipinput" type="button"
-                                            @click="data.ipWhitelist.splice(index, 1)">
-                                            <i class="bi bi-x"></i>
-                                        </button>
-                                        <div class="invalid-feedback" 
-                                            x-show="data.ipWhitelist[index] 
-                                            && ipCidrValidator(data.ipWhitelist[index]) === false"
-                                        >
-                                            Invalid CIDR Format
-                                        </div>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-12 col-lg-6">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input shortcode_accesstoken" type="checkbox" id="adv_accesstoken"
-                                x-model="data.accesstoken">
-                            <label class="form-check-label" for="shortcode_accesstoken_{{ $random }}">Use Token <i
-                                    class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
-                                    data-bs-placement="right"
-                                    title="Use your Pinggy token"></i>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div id="accesstokencontainer" class="mb-2">
-                    <div class="col col-12 col-lg-6"
-                        x-show="data.accesstoken"
-                        x-transition.duration.300ms
-                    >
-                        <input type="text" aria-label="token" placeholder="Access Token"
-                            :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.accesstokenvalue)}"
-                            class="form-control accesstokenval"
-                            x-model="data.accesstokenvalue"
-                        >
-                        <div class="invalid-feedback" 
-                            x-show="/[^a-zA-Z0-9-]/.test(data.accesstokenvalue) === true">
-                            Alphanumeric characters only
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-2" style="--bs-gutter-x: 0;">
-                    <div class="form-floating mb-3 shortcode_webdebuggerportselector col"
-                        id="shortcode_webdebuggerportselector_{{ $random }}"
-                        x-show="data.webDebugEnabled" x-transition.duration.300ms>
-                        <input type="number" class="form-control shortcode_webdebugPort"
-                            id="shortcode_webdebugPort_{{ $random }}" 
-                            :placeholder="data.webDebugPort"
-                            x-model="data.webDebugPort">
-                        <label for="shortcode_webdebugPort_{{ $random }}">Web Debugger Port</label>
-                    </div>
-                    <div class="form-floating mb-3 shortcode_platformselect_div col"
-                        id="shortcode_platformselect_div_{{ $random }}"
-                        x-show="data.reconnect" x-transition.duration.300ms>
-                        <select class="form-select shortcode_platformselect" 
-                            aria-label="Select platform id"
-                            id="shortcode_platformselect_{{ $random }}"
-                            x-model="data.platformselect">
-                            <option value="unix">Mac / Linux</option>
-                            <option value="windows">Windows</option>
-                        </select>
-                        <label for="shortcode_platformselect_{{ $random }}">Platform</label>
-                    </div>
-                </div>
-                <div x-show="data.mode === 'http'">
-                    <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle" type="button"
-                            data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"
-                            title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i></label>
-
-                    <div>
-                        <button type="button" class="btn btn-primary mb-3 mt-2 custom-button"
-                            @click="data.headerModifications.push({ mode: 'a', headername: '', headerval: '' })">
-                            <i class="bi bi-plus"></i> Add header modification rule
-                        </button>
-                    </div>
-
-                    <div class="headermodificationcontainer">
-                        <template x-for="(headerMod, index) in data.headerModifications" :key="index">
-                            <div class="input-group shortcode_headermodificationgroup">
-                                <select class="form-select shortcode_headermodificationmode"
-                                    x-model="data.headerModifications[index].mode">
-                                <option value="a">Add</option>
-                                <option value="u">Replace</option>
-                                <option value="r">Remove</option>
-                                </select>
-                                <input type="text" aria-label="header name" placeholder="Header Name" 
-                                    class="form-control shortcode_headername" 
-                                    x-model="data.headerModifications[index].headername">
-                                <input type="text" aria-label="header value" placeholder="Value" 
-                                    class="form-control shortcode_headerval" 
-                                    x-model="data.headerModifications[index].headerval"
-                                    :disabled="data.headerModifications[index].mode === 'r'"
-                                    :value="data.headerModifications[index].mode === 'r' ? '' : data.headerModifications[index].headerval">
-                                <button class="btn btn-outline-danger shortcode_removeheadermodificationrow" 
-                                    type="button" @click="data.headerModifications.splice(index, 1)">
-                                    <i class="bi bi-x"></i>
-                                </button>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </form>
+    data-headermodifications="{{ $headermodifications }}"
+    data-mode="{{ $mode }}"
+  >
+    {{ .Inner }}
+    <div class="pinggytunnelshortcode_formwrapper">
+      <form>
+        <div
+          class="d-flex justify-content-sm-start justify-content-md-end gap-2"
+          style="width: 100%"
+        >
+          <div class="dropdown">
+            <div
+              class="btn btn-sm dropdown-toggle"
+              style="
+                background-color: #2b3039;
+                border-radius: 4px;
+                color: white;
+                font-size: 0.75rem;
+              "
+              type="button"
+              id="dropdownMenuButtonConnectionType"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              x-text="data.connectiontype === 'ssh' ? 'SSH' : 'CLI'"
+            ></div>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuButtonConnectionType"
+            >
+              <span
+                class="dropdown-item"
+                x-on:click="data.connectiontype = 'ssh'"
+                style="cursor: pointer"
+                >SSH</span
+              >
+              <span
+                class="dropdown-item"
+                x-on:click="data.connectiontype = 'cli'"
+                style="cursor: pointer"
+                >CLI</span
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button
+              class="btn btn-sm dropdown-toggle"
+              style="
+                background-color: #2b3039;
+                border-radius: 4px;
+                color: white;
+                font-size: 0.75rem;
+              "
+              type="button"
+              id="dropdownMenuButtonPlatform"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              x-text="data.platformselect === 'unix' ? 'Mac / Linux' : data.platformselect === 
+                'windows_powershell' ? 'Windows Powershell' : 'Windows CMD'"
+            ></button>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuButtonPlatform"
+            >
+              <span
+                class="dropdown-item"
+                x-on:click="data.platformselect = 'unix'"
+                style="cursor: pointer"
+                >Mac / Linux</span
+              >
+              <span
+                class="dropdown-item"
+                x-on:click="data.platformselect = 'windows_powershell'"
+                style="cursor: pointer"
+                >Windows Powershell</span
+              >
+              <span
+                class="dropdown-item"
+                x-on:click="data.platformselect = 'windows_cmd'"
+                style="cursor: pointer"
+                >Windows CMD</span
+              >
+            </div>
+          </div>
         </div>
+
+        <label class="text-bold">
+          <strong x-text="data.tunnelString"></strong>
+        </label>
+        <div class="input-group mt-1">
+          <textarea
+            style="background: #fafaff; font-size: 0.9rem"
+            class="form-control font-monospace pinggytunnelshortcode_advancedcommand"
+            :rows="data.reconnect ? 3 : 2"
+            x-text="$store.pinggyTunnelData.advancedCommand(data)"
+            readonly
+          ></textarea>
+          <button
+            class="btn btn-outline-dark pinggytunnelshortcode_copybutton"
+            type="button"
+          >
+            <i class="bi bi-clipboard"></i>
+          </button>
+        </div>
+        <template x-if="data.mode === 'http'">
+          <div
+            class="mt-3 shortcode_webdebugurl"
+            x-show="data.webDebugEnabled"
+            x-transition.duration.300ms
+            style="font-size: 0.8rem"
+            x-html="'Web Debugger URL: <a href=http://localhost:' + data.webDebugPort + ' target=_blank>http://localhost:' + data.webDebugPort + '</a>'"
+          ></div>
+        </template>
+        <div
+          class="alert alert-warning mt-2 p-2 shortcode_alert"
+          style="font-size: 0.9rem"
+          role="alert"
+          id="shortcode_alert_{{ $random }}"
+          x-show="data.reconnect"
+          x-transition.duration.300ms
+        >
+          When the tunnel reconnects, your public URL will change. Upgrade to
+          <a href="/#prices">Pinggy Pro</a> for persistent URLs.
+        </div>
+        <hr />
+        <label class="text-bold"><strong>Settings:</strong></label>
+        <div class="form-floating mb-3 mt-1">
+          <input
+            type="number"
+            class="form-control shortcode_localPort"
+            id="shortcode_localPort_{{ $random }}"
+            x-model="data.localPort"
+            :placeholder="data.portString"
+          />
+          <label
+            for="shortcode_localPort_{{ $random }}"
+            x-text="data.portString"
+          ></label>
+        </div>
+        <div x-show="data.mode === 'http'">
+          <div class="row">
+            <div class="col col-12 col-lg-6">
+              <div class="form-check form-switch mb-3">
+                <input
+                  class="form-check-input shortcode_passwordCheck"
+                  id="shortcode_passwordCheck_{{ $random }}"
+                  type="checkbox"
+                  x-on:click="data.keyAuthentication = false"
+                  x-model="data.passwordCheck"
+                />
+                <label
+                  class="form-check-label"
+                  for="shortcode_passwordCheck_{{ $random }}"
+                  >Password Protect
+                  <i
+                    class="bi bi-info-circle"
+                    type="button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="right"
+                    data-bs-html="true"
+                    title="Enable basic authentication"
+                  ></i>
+                </label>
+              </div>
+            </div>
+            <div class="col col-12 col-lg-6">
+              <div class="form-check form-switch mb-3">
+                <input
+                  class="form-check-input shortcode_qrcheck"
+                  type="checkbox"
+                  id="shortcode_qrcheck_{{ $random }}"
+                  x-model="data.qrCheck"
+                />
+                <label
+                  class="form-check-label"
+                  for="shortcode_qrcheck_{{ $random }}"
+                  >QR Code
+                  <i
+                    class="bi bi-info-circle"
+                    type="button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="right"
+                    data-bs-html="true"
+                    title="Show QR Code for the URL"
+                  ></i
+                ></label>
+              </div>
+            </div>
+          </div>
+          <template x-if="data.passwordCheck">
+            <div class="row shortcode_passwordfields">
+              <div class="col col-12 col-lg-6">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control shortcode_basicusername"
+                    :class="{'is-invalid' : data.basicusername.includes(':')}"
+                    id="shortcode__basicusername_{{ $random }}"
+                    placeholder="Username"
+                    x-model="data.basicusername"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    x-show="data.basicusername.includes(':')"
+                  >
+                    Username cannot contain ':'
+                  </div>
+                  <label for="shortcode_basicusername_{{ $random }}"
+                    >Username</label
+                  >
+                </div>
+              </div>
+              <div class="col col-12 col-lg-6">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control shortcode_basicpass"
+                    :class="{'is-invalid' : data.basicpass.includes(':')}"
+                    id="shortcode_basicpass_{{ $random }}"
+                    placeholder="Password"
+                    x-model="data.basicpass"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    x-show="data.basicpass.includes(':')"
+                  >
+                    Password cannot contain ':'
+                  </div>
+                  <label for="shortcode_basicpass_{{ $random }}"
+                    >Password</label
+                  >
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+        <div class="row">
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_keepalive"
+                id="shortcode_keepalive_{{ $random }}"
+                type="checkbox"
+                x-model="data.keepAlive"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_keepalive_{{ $random }}"
+              >
+                Keep Alive
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Send keep alive packets for a stable tunnel"
+                ></i>
+              </label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_restart"
+                type="checkbox"
+                id="shortcode_restart_{{ $random }}"
+                x-model="data.reconnect"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_restart_{{ $random }}"
+                >Auto Reconnect
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Automatically reconnect tunnel on failure."
+                ></i
+              ></label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_webdebugCheck"
+                type="checkbox"
+                id="shortcode_webdebugCheck_{{ $random }}"
+                x-model="data.webDebugEnabled"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_webdebugCheck_{{ $random }}"
+                >Web Debugger</label
+              >
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_rsaCheck"
+                type="checkbox"
+                id="shortcode_rsaCheck_{{ $random }}"
+                x-model="data.manuallyCheckKey"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_rsaCheck_{{ $random }}"
+                >Manually check host key
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Type 'yes' to manually validate host key"
+                ></i
+              ></label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6" x-show="data.mode !== 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_ipWhitelistCheck"
+                type="checkbox"
+                id="adv_ipWhitelist"
+                x-model="data.ipWhitelistCheck"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_ipWhitelistCheck_{{ $random }}"
+              >
+                IP Whitelist
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Allow specified IPs to access the tunnel"
+                >
+                </i>
+              </label>
+            </div>
+            <div
+              class="col col-12"
+              x-show="data.ipWhitelistCheck"
+              x-transition.duration.300ms
+            >
+              <div id="ipwhitelistinputcontainer">
+                <div class="input-group ipwhitelistgroup">
+                  <input
+                    type="text"
+                    aria-label="ip to whitelist"
+                    :class="{'is-invalid' : data.ipWhitelist[0] 
+                        && ipCidrValidator(data.ipWhitelist[0]) === false}"
+                    placeholder="IP in CIDR (e.g. 10.2.3.4/16)"
+                    class="form-control ipval"
+                    x-model.debounce.500ms="data.ipWhitelist[0]"
+                  />
+                  <button
+                    class="btn btn-outline-dark addipinput"
+                    type="button"
+                    @click="data.ipWhitelist.push('')"
+                  >
+                    <i class="bi bi-plus"></i>
+                  </button>
+                  <div
+                    class="invalid-feedback"
+                    x-show="data.ipWhitelist[0] && ipCidrValidator(data.ipWhitelist[0]) === false"
+                  >
+                    Invalid CIDR Format
+                  </div>
+                </div>
+                <template x-for="(ip, index) in data.ipWhitelist" :key="index">
+                  <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                    <input
+                      type="text"
+                      aria-label="ip to whitelist"
+                      :class="{'is-invalid' : data.ipWhitelist[index] 
+                            && ipCidrValidator(data.ipWhitelist[index]) === false}"
+                      placeholder="IP in CIDR (e.g. 10.2.3.4/16)"
+                      class="form-control ipval"
+                      x-model.debounce.500ms="data.ipWhitelist[index]"
+                    />
+                    <button
+                      class="btn btn-outline-danger removeipinput"
+                      type="button"
+                      @click="data.ipWhitelist.splice(index, 1)"
+                    >
+                      <i class="bi bi-x"></i>
+                    </button>
+                    <div
+                      class="invalid-feedback"
+                      x-show="data.ipWhitelist[index] && ipCidrValidator(data.ipWhitelist[index]) === false"
+                    >
+                      Invalid CIDR Format
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" x-show="data.mode === 'http'">
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_keyAuthentication"
+                type="checkbox"
+                id="adv_keyAuthentication"
+                x-model="data.keyAuthentication"
+                x-on:click="data.passwordCheck = false"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_keyAuthentication_{{ $random }}"
+              >
+                Key / Token Authentication
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Bearer token authentication"
+                >
+                </i>
+              </label>
+            </div>
+            <div
+              class="col col-12 mb-3"
+              x-show="data.keyAuthentication"
+              x-transition.duration.300ms
+            >
+              <div id="keyauthinputcontainer">
+                <div class="input-group keyauthgroup">
+                  <input
+                    type="text"
+                    aria-label="key / token"
+                    placeholder="Key / token"
+                    class="form-control keyauthval"
+                    x-model="data.keyAuthentications[0]"
+                  />
+                  <button
+                    class="btn btn-outline-dark addkeyauthinput"
+                    type="button"
+                    @click="data.keyAuthentications.push('')"
+                  >
+                    <i class="bi bi-plus"></i>
+                  </button>
+                </div>
+                <template
+                  x-for="(keyauth, index) in data.keyAuthentications"
+                  :key="index"
+                >
+                  <div x-show="index > 0" class="input-group keyauthgroup">
+                    <input
+                      type="text"
+                      aria-label="key / token"
+                      placeholder="Key / token"
+                      class="form-control keyauthval"
+                      x-model="data.keyAuthentications[index]"
+                    />
+                    <button
+                      class="btn btn-outline-danger removekeyauthinput"
+                      type="button"
+                      @click="data.keyAuthentications.splice(index, 1)"
+                    >
+                      <i class="bi bi-x"></i>
+                    </button>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_ipWhitelistCheck"
+                type="checkbox"
+                id="adv_ipWhitelist"
+                x-model="data.ipWhitelistCheck"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_ipWhitelistCheck_{{ $random }}"
+              >
+                IP Whitelist
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Allow specified IPs to access the tunnel"
+                >
+                </i>
+              </label>
+            </div>
+            <div
+              class="col col-12 mb-3"
+              x-show="data.ipWhitelistCheck"
+              x-transition.duration.300ms
+            >
+              <div id="ipwhitelistinputcontainer">
+                <div class="input-group ipwhitelistgroup">
+                  <input
+                    type="text"
+                    aria-label="ip to whitelist"
+                    :class="{'is-invalid' : data.ipWhitelist[0] 
+                        && ipCidrValidator(data.ipWhitelist[0]) === false}"
+                    placeholder="IP in CIDR (e.g. 10.2.3.4/16)"
+                    class="form-control ipval"
+                    x-model.debounce.500ms="data.ipWhitelist[0]"
+                  />
+                  <button
+                    class="btn btn-outline-dark addipinput"
+                    type="button"
+                    @click="data.ipWhitelist.push('')"
+                  >
+                    <i class="bi bi-plus"></i>
+                  </button>
+                  <div
+                    class="invalid-feedback"
+                    x-show="data.ipWhitelist[0] && ipCidrValidator(data.ipWhitelist[0]) === false"
+                  >
+                    Invalid CIDR Format
+                  </div>
+                </div>
+                <template x-for="(ip, index) in data.ipWhitelist" :key="index">
+                  <div x-show="index > 0" class="input-group ipwhitelistgroup">
+                    <input
+                      type="text"
+                      aria-label="ip to whitelist"
+                      :class="{'is-invalid' : data.ipWhitelist[index] 
+                            && ipCidrValidator(data.ipWhitelist[index]) === false}"
+                      placeholder="IP in CIDR (e.g. 10.2.3.4/16)"
+                      class="form-control ipval"
+                      x-model.debounce.500ms="data.ipWhitelist[index]"
+                    />
+                    <button
+                      class="btn btn-outline-danger removeipinput"
+                      type="button"
+                      @click="data.ipWhitelist.splice(index, 1)"
+                    >
+                      <i class="bi bi-x"></i>
+                    </button>
+                    <div
+                      class="invalid-feedback"
+                      x-show="data.ipWhitelist[index] && ipCidrValidator(data.ipWhitelist[index]) === false"
+                    >
+                      Invalid CIDR Format
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_accesstoken"
+                type="checkbox"
+                id="adv_accesstoken"
+                x-model="data.accesstoken"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_accesstoken_{{ $random }}"
+                >Use Token
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Use your Pinggy token"
+                ></i>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="accesstokencontainer" class="mb-2">
+          <div
+            class="col col-12 col-lg-6"
+            x-show="data.accesstoken"
+            x-transition.duration.300ms
+          >
+            <input
+              type="text"
+              aria-label="token"
+              placeholder="Access Token"
+              :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.accesstokenvalue)}"
+              class="form-control accesstokenval"
+              x-model="data.accesstokenvalue"
+            />
+            <div
+              class="invalid-feedback"
+              x-show="/[^a-zA-Z0-9-]/.test(data.accesstokenvalue) === true"
+            >
+              Alphanumeric characters only
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2" style="--bs-gutter-x: 0">
+          <div
+            class="form-floating mb-3 shortcode_webdebuggerportselector col"
+            id="shortcode_webdebuggerportselector_{{ $random }}"
+            x-show="data.webDebugEnabled"
+            x-transition.duration.300ms
+          >
+            <input
+              type="number"
+              class="form-control shortcode_webdebugPort"
+              id="shortcode_webdebugPort_{{ $random }}"
+              :placeholder="data.webDebugPort"
+              x-model="data.webDebugPort"
+            />
+            <label for="shortcode_webdebugPort_{{ $random }}"
+              >Web Debugger Port</label
+            >
+          </div>
+        </div>
+        <div x-show="data.mode === 'http'">
+          <label class="form-check-label"
+            >Live Header Modifications
+            <i
+              class="bi bi-info-circle"
+              type="button"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-html="true"
+              title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"
+            ></i
+          ></label>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary mb-3 mt-2 custom-button"
+              @click="data.headerModifications.push({ mode: 'a', headername: '', headerval: '' })"
+            >
+              <i class="bi bi-plus"></i> Add header modification rule
+            </button>
+          </div>
+
+          <div class="headermodificationcontainer">
+            <template
+              x-for="(headerMod, index) in data.headerModifications"
+              :key="index"
+            >
+              <div class="input-group shortcode_headermodificationgroup">
+                <select
+                  class="form-select shortcode_headermodificationmode"
+                  x-model="data.headerModifications[index].mode"
+                >
+                  <option value="a">Add</option>
+                  <option value="u">Replace</option>
+                  <option value="r">Remove</option>
+                </select>
+                <input
+                  type="text"
+                  aria-label="header name"
+                  placeholder="Header Name"
+                  class="form-control shortcode_headername"
+                  x-model="data.headerModifications[index].headername"
+                />
+                <input
+                  type="text"
+                  aria-label="header value"
+                  placeholder="Value"
+                  class="form-control shortcode_headerval"
+                  x-model="data.headerModifications[index].headerval"
+                  :disabled="data.headerModifications[index].mode === 'r'"
+                  :value="data.headerModifications[index].mode === 'r' ? '' : data.headerModifications[index].headerval"
+                />
+                <button
+                  class="btn btn-outline-danger shortcode_removeheadermodificationrow"
+                  type="button"
+                  @click="data.headerModifications.splice(index, 1)"
+                >
+                  <i class="bi bi-x"></i>
+                </button>
+              </div>
+            </template>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
