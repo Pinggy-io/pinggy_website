@@ -260,7 +260,7 @@ x:xff[:<Header Name>]
 `X-Forwarded-For` is the default header name. However one can add any header name as they want.
 
 #### 7. Original request url
-As pinggy mangle header, it is difficult for the client to understand the real url from the request. Pinggy can provide them if user provide the following argument.
+As pinggy mangles header, it is difficult for the client to understand the real url from the request. Pinggy can provide them if user provide the following argument.
 ```
 X:fullurl
 ```
