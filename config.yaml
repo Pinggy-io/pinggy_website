@@ -55,6 +55,8 @@ menus:
       weight: 120
     - name: CLI
       url: /cli/
+    - name: App
+      url: /app/
       weight: 125
     - name: Quickstart
       url: /quickstart/
