@@ -2,7 +2,7 @@
  title: "Domain Outage Incident Report April 26, 2024" 
  description: "Explore the incident report of the April 26, 2024 outage. Learn about the steps taken to address the issue."
  date: 2024-04-26T20:15:25+05:30
- lastmod: 2024-04-26T20:15:25+05:30
+ lastmod: 2024-04-29T20:07:45+05:30
  draft: false
  tags: ["outage", "incident"]
  outputs:
@@ -15,6 +15,8 @@
 Issue with DNS detected. The domain pinggy.online went to "serverHold". No prior notice or response from the domain registrar.
 
 All "pinggy.link" URLs are operational.
+
+Update: April 29, 2024, 07.45 UTC - pinggy.online domain is back online. All services are operational.
 
 ## What can you do to access your tunnel?
 
@@ -33,3 +35,4 @@ Log in to your DNS provider. Change the CNAME record for your custom domain from
 - April 26, 2024, 14.17 UTC - Submitted first unsuspension request to Radix, the registrar (https://radix.website/). Reached out at twitter also later this day.
 - April 27, 2024, 15.00 UTC - Submitted second unsuspension request to Radix.
 - April 27, 2024, 16.00 UTC - Emailed to general contacts of Radix.
+- April 29, 2024, 07.45 UTC - pinggy.online domain is back online. All services are operational.
