@@ -13,9 +13,9 @@ Once you sign in, you will be presented a dashboard where you will find your acc
 
 Example:
 
-```
-b0b87d56-653f-45fb-98d9-8e43779c9081
-```
+{{< ssh_command text="b0b87d56-653f-45fb-98d9-8e43779c9081" >}}
+"{}"
+{{</ ssh_command >}}
 
 You will also find your persistent subdomain in the dashboard.
 
@@ -24,9 +24,9 @@ You will also find your persistent subdomain in the dashboard.
 Command to start a tunnel to port `8000` and with token `b0b87d56-653f-45fb-98d9-8e43779c9081`:
 <br>
 
-```
-ssh -p 443 -R0:localhost:8000 b0b87d56-653f-45fb-98d9-8e43779c9081@a.pinggy.io
-```
+{{< ssh_command text="ssh -p 443 -R0:localhost:8000 b0b87d56-653f-45fb-98d9-8e43779c9081@a.pinggy.io" >}}
+"{}"
+{{</ ssh_command >}}
 
 _Replace `8000` with the port where your service is running_.
 

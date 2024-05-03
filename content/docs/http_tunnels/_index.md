@@ -12,24 +12,10 @@ Pinggy allows you to create HTTP / HTTPS tunnels to your localhost using a singl
 First, run the service you want to share in localhost. You need to know the port where the service is running, for example `8000`. Check if the service is accessible from localhost through <a href="http://localhost:8080" target="_blank">http://localhost:8000</a>.
 
 Command to start a tunnel to port `8000`:
-{{< tabs >}}
-{{% tab name="Without Token" %}}
 
-```
-ssh -p 443 -R0:localhost:8000 a.pinggy.io
-```
-
-_Replace `8000` with the port where your service is running_.
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:8000 token@a.pinggy.io
-```
-
-_Replace `8000` with the port where your service is running, and replace `token` with your owntoken_.
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\"}}}"
+{{</ ssh_command >}}
 
 The above command will provide you http and https URLs as follows:
 

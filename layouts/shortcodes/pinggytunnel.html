@@ -79,7 +79,7 @@
                 color: white;
                 font-size: 0.75rem;
               "
-              type="button"
+              role="button"
               id="dropdownMenuButtonConnectionType"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -104,7 +104,7 @@
             </div>
           </div>
           <div class="dropdown">
-            <button
+            <div
               class="btn btn-sm dropdown-toggle"
               style="
                 background-color: #2b3039;
@@ -112,13 +112,13 @@
                 color: white;
                 font-size: 0.75rem;
               "
-              type="button"
+              role="button"
               id="dropdownMenuButtonPlatform"
               data-bs-toggle="dropdown"
               aria-expanded="false"
               x-text="data.platformselect === 'unix' ? 'Mac / Linux' : data.platformselect === 
                 'windows_powershell' ? 'Windows Powershell' : 'Windows CMD'"
-            ></button>
+            ></div>
             <div
               class="dropdown-menu"
               aria-labelledby="dropdownMenuButtonPlatform"

@@ -9,21 +9,8 @@
 
 Create a tunnel using a single command.
 
-{{< tabs >}}
-{{% tab name="Without Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> tcp@a.pinggy.io
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> <token>+tcp@a.pinggy.io
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tcp@a.pinggy.io\"}}}"
+{{</ ssh_command >}}
 
 This command present user with a URL and a TCP port. Port allocation changes per connection. However, one can reserve a port on <https://dashboard.pinggy.io>

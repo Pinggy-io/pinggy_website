@@ -9,41 +9,17 @@
 
 Pinggy provides the capability of IP whitelisting, allowing access restrictions based on specified IP addresses or ranges. This feature permits connections solely from designated IP addresses while disregarding requests from other addresses without any response.
 
-Start tunnel with IP Whitelisting as follows
-{{< tabs >}}
-{{% tab name="Without Token" %}}
+Start tunnel with IP Whitelisting as follows:
 
-```
-ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io w:IP1
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io w:IP1
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:IP1\"}}}"
+{{</ ssh_command >}}
 
 Like basic authentication, one can set multiple ip addresses as well.
-{{< tabs >}}
-{{% tab name="Without Token" %}}
 
-```
-ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io w:[IP1[,IP2[,IP3..]]]
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io w:[IP1[,IP2[,IP3..]]]\"}}}"
+{{</ ssh_command >}}
 
 You can modify the command below to suit your needs, including adding more IP addresses. **Additionally, your IP address has been included, but feel free to add more if necessary.**
 

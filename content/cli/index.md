@@ -10,10 +10,11 @@
     <div class="col-lg-5">
       <div class="text-left my-lg-5">
         <h1 class="display-5 fw-bolder d-inline">
-          Pinggy Command Line Tool <span style="color: #7460ff;">(Beta)</span>
+          Pinggy Command Line Tool <span style="color: #7460ff">(Beta)</span>
         </h1>
         <span class="d-block" id="lead2">
-          Pinggy Command Line Tool provides more robust tunnels with quicker reconnections when your tunnels are interrupted.
+          Pinggy Command Line Tool provides more robust tunnels with quicker
+          reconnections when your tunnels are interrupted.
         </span>
       </div>
     </div>
@@ -41,49 +42,104 @@
         >
           <div class="card-body">
             <h2 class="fw-medium">Download</h2>
-                  <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows" type="button" role="tab" aria-controls="windows" aria-selected="true"><i class="bi bi-windows"></i> Windows</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="linux-tab" data-bs-toggle="tab" data-bs-target="#linux" type="button" role="tab" aria-controls="linux" aria-selected="false"><i class="bi bi-ubuntu"></i> Linux</button>
-                    </li>
-                  </ul>
-                  <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="windows" role="tabpanel" aria-labelledby="windows-tab">
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/windows/amd64/pinggy.exe" target="_blank" class="btn btn-primary" style="background-color: rgba(70, 117, 199, 1)">Windows 64 bit</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/windows/arm64/pinggy.exe" target="_blank" class="btn btn-primary" style="background-color: rgba(70, 117, 199, 1)">Windows ARM64</a>
-                      </li>
-                    </ul>
-                    </div>
-                    <div class="tab-pane fade" id="linux" role="tabpanel" aria-labelledby="linux-tab">
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/linux/amd64/pinggy" target="_blank" class="btn btn-primary" style="background-color: rgba(70, 117, 199, 1)">Linux 64 bit</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/linux/arm64/pinggy" target="_blank" class="btn btn-primary" style="background-color: rgba(70, 117, 199, 1)">Linux ARM64</a>
-                      </li>
-                    </ul>
-                    </div>
-                  </div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="windows-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#windows"
+                  type="button"
+                  role="tab"
+                  aria-controls="windows"
+                  aria-selected="true"
+                >
+                  <i class="bi bi-windows"></i> Windows
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="linux-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#linux"
+                  type="button"
+                  role="tab"
+                  aria-controls="linux"
+                  aria-selected="false"
+                >
+                  <i class="bi bi-ubuntu"></i> Linux
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="windows"
+                role="tabpanel"
+                aria-labelledby="windows-tab"
+              >
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/windows/amd64/pinggy.exe"
+                      target="_blank"
+                      class="btn btn-primary"
+                      style="background-color: rgba(70, 117, 199, 1)"
+                      >Windows 64 bit</a
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <a
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/windows/arm64/pinggy.exe"
+                      target="_blank"
+                      class="btn btn-primary"
+                      style="background-color: rgba(70, 117, 199, 1)"
+                      >Windows ARM64</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="linux"
+                role="tabpanel"
+                aria-labelledby="linux-tab"
+              >
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/linux/amd64/pinggy"
+                      target="_blank"
+                      class="btn btn-primary"
+                      style="background-color: rgba(70, 117, 199, 1)"
+                      >Linux 64 bit</a
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <a
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/linux/arm64/pinggy"
+                      target="_blank"
+                      class="btn btn-primary"
+                      style="background-color: rgba(70, 117, 199, 1)"
+                      >Linux ARM64</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="py-5" id="features">
   <div class="container">
     <div class="my-3 row justify-content-center">
       <div class="col-lg-12">
-        <h2 class="mb-4 text-center display-6 fw-bolder">
-          Example Usage
-        </h2>
+        <h2 class="mb-4 text-center display-6 fw-bolder">Example Usage</h2>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -98,10 +154,11 @@
           <b>Suppose we want to use CLI for the following SSH url:</b>
           <pre>ssh -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre>
           <b>Just replace <kbd>ssh</kbd> with the CLI binary:</b>
-          <pre>./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre>
+          <pre>
+./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre
+          >
         </div>
       </div>
     </div>
   </div>
 </section>
-
