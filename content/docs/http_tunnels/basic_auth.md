@@ -15,40 +15,15 @@ authentication. With basic authentication, browser would prompt visitor to inser
 **Note: Both the username and password provided for basic authentication cannot contain the ':' (colon) character.**
 
 Client can enable basic authentication as follows:
-{{< tabs >}}
-{{% tab name="Without Token" %}}
 
-```
-ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io b:username:password
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io b:username:password
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"}}}"
+{{</ ssh_command >}}
 
 One can add multiple username:password combination as follows:
-{{< tabs >}}
-{{% tab name="Without Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io b:username1:password1 b:username2:password2
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io b:username1:password1 b:username2:password2
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username1:password1 b:username2:password2\"}}}"
+{{< /ssh_command >}}
 
 You can customize the command here:
 

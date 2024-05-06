@@ -4,6 +4,7 @@
 {{ $bootstrap := resources.GetRemote "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" }}
 {{ $typewriter := resources.Get "/js/typewriter.js" }}
 {{ $pinggyshortcode := resources.Get "/js/pinggytunnelshortcode.js" }}
+{{ $pinggycommand := resources.Get "/js/pinggycommand.js" }}
 {{ $cidrvalidation := resources.Get "/js/cidrformatvalidation.js" }}
 {{ $main := resources.Get "/js/index.js" }}
 {{ $clipboard := resources.Get "/js/clipboard.min.js" }}
@@ -11,7 +12,7 @@
 {{ $quickstart := resources.Get "/js/quickstartsearch.js"}}
 
 {{ $js := slice $jquery $alpine $bootstrap
-$typewriter $pinggyshortcode $cidrvalidation $main $clipboard $doc 
+$typewriter $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc 
 $quickstart | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
 
 <script

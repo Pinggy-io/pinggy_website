@@ -9,21 +9,8 @@
 
 Create a tunnel using a single command.
 
-{{< tabs >}}
-{{% tab name="Without Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> tlstcp@a.pinggy.io
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> <token>+tlstcp@a.pinggy.io
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tlstcp@a.pinggy.io\"}}}"
+{{</ ssh_command >}}
 
 TLSTCP is the wrapper on top TCP. It provides an option to connection to a TCP based service via TLS.

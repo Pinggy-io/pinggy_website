@@ -13,9 +13,9 @@ To run a tunnel on Windows startup, follow these steps:
 
    - Open Notepad or any text editor.
    - Paste your Pinggy command into the text editor. For example:
-     ```batch
-     ssh -p 443 -R0:localhost:8000 -o ServerAliveInterval=30 a.pinggy.io
-     ```
+     {{< ssh_command text="ssh -p 443 -R0:localhost:8000 -o ServerAliveInterval=30 a.pinggy.io" >}}
+     "{}"
+     {{</ ssh_command >}}
 
    You can customize the command here:
 

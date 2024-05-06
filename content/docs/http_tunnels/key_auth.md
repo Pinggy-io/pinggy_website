@@ -11,41 +11,17 @@ Pinggy offers a mechanism for authenticating visitor connections using key-based
 
 Key-based authentication involves visitors providing an 'Authorization' header with the value `Bearer <key>` with each request made. Pinggy provides the option to set a collection of keys during tunnel creation.
 
-Start tunnel with key authentication as follows
-{{< tabs >}}
-{{% tab name="Without Token" %}}
+Start tunnel with key authentication as follows:
 
-```
-ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io k:key
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io k:key
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"}}}"
+{{</ ssh_command >}}
 
 Like basic authentication, one can set multiple keys as well.
-{{< tabs >}}
-{{% tab name="Without Token" %}}
 
-```
-ssh -p 443 -R0:localhost:<localport> -t a.pinggy.io k:key1 k:key2
-```
-
-{{% /tab %}}
-{{% tab name="With Token" %}}
-
-```
-ssh -p 443 -R0:localhost:<localport> -t <token>@a.pinggy.io k:key1 k:key2
-```
-
-{{% /tab %}}
-{{< /tabs >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"}}}"
+{{</ ssh_command >}}
 
 You can customize the command here:
 
