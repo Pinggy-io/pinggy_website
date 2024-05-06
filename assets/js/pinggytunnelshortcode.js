@@ -104,9 +104,16 @@ document.addEventListener("alpine:init", () => {
           accessTokenPart !== "" ? `+${data.mode}@` : `${data.mode}@`;
       }
 
-      let command = `ssh -p 443${options} -R0:localhost:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
+      let command = "";
+      if (data.connectiontype === "ssh") {
+        command = `ssh -p 443${options} -R0:localhost:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
+      } else if (data.connectiontype === "cli") {
+        const pinggyExecutable =
+          data.platformselect === "unix" ? "./pinggy" : "./pinggy.exe";
+        command = `${pinggyExecutable} -p 443${options} -R0:localhost:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
+      }
 
-      if (data.reconnect) {
+      if (data.reconnect && data.connectiontype === "ssh") {
         command =
           data.platformselect === "unix"
             ? `while true; do \n    ${command}; \nsleep 10; done`

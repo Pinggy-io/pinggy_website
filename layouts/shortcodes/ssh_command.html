@@ -1,0 +1,146 @@
+{{ $json := .Inner | default "{}" }} {{ $text := .Get "text" | default "" }}
+
+<div
+  x-data="{
+    data: $store.pinggyCommand,
+    cmd: JSON.parse({{ $json | safeJS }}),
+    text: '{{ $text }}',
+    copied: false,
+    codeText: '',
+  }"
+  x-init="
+    $watch('data.commandConfig', newValue => {
+      localStorage.setItem('commandConfig', JSON.stringify(newValue));
+      codeText = $store.pinggyCommand.retrieveCommand({cmd: cmd});
+    }, { deep: true });
+    codeText = $store.pinggyCommand.retrieveCommand({cmd: cmd});
+  "
+  class="my-3"
+  style="background-color: #f7fafc"
+>
+  <div class="border rounded">
+    <div class="border-bottom">
+      <div class="d-flex justify-content-between align-items-center px-2 py-1">
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-sm-start align-items-sm-center gap-2"
+          style="width: 100%"
+        >
+          <div class="d-flex gap-2">
+            <div class="dropdown" x-show="text === ''">
+              <div
+                class="btn btn-sm dropdown-toggle"
+                style="
+                  background-color: #2b3039;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 0.75rem;
+                "
+                role="button"
+                id="dropdownMenuButtonConnectionType"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                x-text="data.commandConfig.connectiontype === 'ssh' ? 'SSH' : 'CLI'"
+              ></div>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButtonConnectionType"
+              >
+                <span
+                  class="dropdown-item"
+                  x-on:click="data.commandConfig.connectiontype = 'ssh'"
+                  style="cursor: pointer"
+                  >SSH</span
+                >
+                <span
+                  class="dropdown-item"
+                  x-on:click="data.commandConfig.connectiontype = 'cli'"
+                  style="cursor: pointer"
+                  >CLI</span
+                >
+              </div>
+            </div>
+            <div class="dropdown" x-show="text === ''">
+              <div
+                class="btn btn-sm dropdown-toggle"
+                style="
+                  background-color: #2b3039;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 0.75rem;
+                "
+                role="button"
+                id="dropdownMenuButtonPlatform"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                x-text="data.commandConfig.platformselect === 'unix' ? 'Mac / Linux' : data.commandConfig.platformselect === 
+                'windows_powershell' ? 'Windows Powershell' : 'Windows CMD'"
+              ></div>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButtonPlatform"
+              >
+                <span
+                  class="dropdown-item"
+                  x-on:click="data.commandConfig.platformselect = 'unix'"
+                  style="cursor: pointer"
+                  >Mac / Linux</span
+                >
+                <span
+                  class="dropdown-item"
+                  x-on:click="data.commandConfig.platformselect = 'windows_powershell'"
+                  style="cursor: pointer"
+                  >Windows Powershell</span
+                >
+                <span
+                  class="dropdown-item"
+                  x-on:click="data.commandConfig.platformselect = 'windows_cmd'"
+                  style="cursor: pointer"
+                  >Windows CMD</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <input
+            x-show="text === ''"
+            type="text"
+            class="form-control"
+            placeholder="Enter your token"
+            x-model="data.commandConfig.token"
+            :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.commandConfig.token)}"
+            style="max-width: 200px; max-height: 30px; font-size: 0.8rem"
+          />
+        </div>
+        <span
+          x-on:click="
+            navigator.clipboard.writeText(text !== '' ? text : codeText); 
+            copied = true; 
+            setTimeout(() => copied = false, 1000);
+          "
+          style="cursor: pointer"
+          tabindex="0"
+          role="button"
+        >
+          <template x-if="copied">
+            <i class="bi bi-check-lg" style="font-size: 1rem"></i>
+          </template>
+          <template x-if="!copied">
+            <i
+              class="bi bi-clipboard"
+              style="color: black; font-size: 1rem"
+              onmouseover="this.style.color='blue';"
+              onmouseout="this.style.color='black';"
+            ></i>
+          </template>
+        </span>
+      </div>
+    </div>
+
+    <div class="p-3" style="overflow-x: auto">
+      <code
+        style="white-space: pre"
+        x-text="text !== '' ? text : codeText"
+      ></code>
+    </div>
+  </div>
+</div>
