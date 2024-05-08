@@ -273,7 +273,7 @@ x:localServerTls[:serverName]
 ```
 This option assumes that the local server expects a `TLS` connection. So, Pinggy will create a `TLS` connection to the client server instead. serverName is the SNI for the `TLS` connection. This is optional. By default, the Pinggy server provides SNI as `localhost`.
 
-**Currently this is supported only for `http` tunnel.**
+* Currently this is supported only for `http` tunnel. Will be supported for tlstcp in future.
 
 
 **Kindly note that a Pinggy server does not run any command in the remote server. It uses command line options to configure the tunnel.**
