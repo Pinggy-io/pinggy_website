@@ -60,6 +60,20 @@
               <li class="nav-item" role="presentation">
                 <button
                   class="nav-link"
+                  id="mac-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#mac"
+                  type="button"
+                  role="tab"
+                  aria-controls="mac"
+                  aria-selected="false"
+                >
+                  <i class="bi bi-ubuntu"></i> Mac OS
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
                   id="linux-tab"
                   data-bs-toggle="tab"
                   data-bs-target="#linux"
@@ -86,7 +100,7 @@
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
-                      >Windows 64 bit</a
+                      >Download for Windows x86-64</a
                     >
                   </li>
                   <li class="list-group-item">
@@ -95,10 +109,30 @@
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
-                      >Windows ARM64</a
+                      >Download for Windows ARM64</a
                     >
                   </li>
                 </ul>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="mac"
+                role="tabpanel"
+                aria-labelledby="mac-tab"
+              >
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/mac/pinggy"
+                      target="_blank"
+                      class="btn btn-primary"
+                      style="background-color: rgba(70, 117, 199, 1)"
+                      >Download for Mac OS</a
+                    >
+                  </li>
+                  </li>
+                </ul>
+                <div class="mt-2">After downloading the binary, use the command <kbd>chmod +x pinggy</kbd> to make the binary executable.<br>Use the command <kbd>./pinggy -h</kbd> to see the usage.</div>
               </div>
               <div
                 class="tab-pane fade"
@@ -113,7 +147,7 @@
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
-                      >Linux 64 bit</a
+                      >Download for Linux x86-64</a
                     >
                   </li>
                   <li class="list-group-item">
@@ -122,9 +156,10 @@
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
-                      >Linux ARM64</a
+                      >Download for Linux ARM64</a
                     >
                   </li>
+                  <div class="mt-2">After downloading the binary, use the command <kbd>chmod +x pinggy</kbd> to make the binary executable.<br>Use the command <kbd>./pinggy -h</kbd> to see the usage.</div>
                 </ul>
               </div>
             </div>

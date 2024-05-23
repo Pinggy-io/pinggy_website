@@ -62,8 +62,8 @@ menus:
     - name: Blog
       url: /blog/
       weight: 140
-    - name: Contact
-      url: /contact_us/
+    - name: Help
+      url: /help/
       weight: 150
 
   # - name: Terms of Service
