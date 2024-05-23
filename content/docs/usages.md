@@ -262,8 +262,18 @@ x:xff[:<Header Name>]
 #### 7. Original request url
 As pinggy mangles header, it is difficult for the client to understand the real url from the request. Pinggy can provide them if user provide the following argument.
 ```
-X:fullurl
+x:fullurl
 ```
 If this option is provided in the command line option, Pinggy would add a extra header `X-Pinggy-Url` which contains the original url for that request.
+
+#### 8. Run tls locally
+By default, we assume that the local server is a TCP server (except for **TLS** tunnels). However, just in case a user wants to run the local server as a `TLS` (for example, `HTTPS`) server, Pinggy can set up a `TLS` connection from the server. You can use the following option:
+```
+x:localServerTls[:serverName]
+```
+This option assumes that the local server expects a `TLS` connection. So, Pinggy will create a `TLS` connection to the client server instead. serverName is the SNI for the `TLS` connection. This is optional. By default, the Pinggy server provides SNI as `localhost`.
+
+* Currently this is supported only for `http` tunnel. Will be supported for tlstcp in future.
+
 
 **Kindly note that a Pinggy server does not run any command in the remote server. It uses command line options to configure the tunnel.**
