@@ -123,7 +123,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.2/mac/pinggy"
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.2/mac/univ/pinggy"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
