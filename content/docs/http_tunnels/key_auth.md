@@ -38,3 +38,15 @@ If you run the command with your specified port where your service is running, y
 Here, you can see that the tunnel is authenticated with the key `samplekey`.
 
 {{< figure src="/doc_img/key_auth.webp" alt="Key Authentication With HTTP Tunnel">}}
+
+
+## Allow CORS
+
+By default, adding key authentication will stop all requests without a proper `Authorization` header. But this also interfares with the preflight requests for CORS. In order to allow the preflight requests without auth token, use the `x:passpreflight` option.
+
+Just pass the optional `x:passpreflight` argument at the end of the command the command. In addition, add the `-t` option right after the ssh command.
+
+
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"}}}"
+{{</ ssh_command >}}

@@ -116,6 +116,39 @@
           </div>
           <div
             class="accordion-item"
+            x-show="$refs.faq2.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+          >
+            <h2 class="accordion-header" id="windowslocalhost">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsewindowslocalhost"
+                aria-expanded="false"
+                aria-controls="collapsewindowslocalhost"
+              >
+                On Windows tunnel cannot reach localhost
+              </button>
+            </h2>
+            <div
+              id="collapsewindowslocalhost"
+              class="accordion-collapse collapse"
+              aria-labelledby="windowslocalhost"
+              data-bs-parent="#accordionFaq"
+            >
+              <div class="accordion-body" x-ref="faq2">
+                <p>
+                  In windows, sometimes, the ssh tunnel cannot reach localhost because of some bug in the ssh client. <b>Replace <code>localhost</code> with <code>127.0.0.1</code> in your Pinggy command.</b>
+                </p>
+                <p>Example:</p>
+                <div class="alert alert-dark bg-light bg-gradient">
+                  ssh -p 443 -R0:127.0.0.1:8000 -L4300:127.0.0.1:4300 qr@a.pinggy.io
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="accordion-item"
             x-show="$refs.faq1.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
           >
             <h2 class="accordion-header" id="headingOne">
