@@ -30,15 +30,34 @@ You can access your localhost service using these URLs.
 **These URLs will change every time you create a new tunnel.<br> If you want a persistent subdomain** <b><a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a></b>.
 
 
-# Force HTTPS redirect
+## Force HTTPS redirect
 
-If you want browsers visiting your Pinggy tunnel URL to only use HTTPS, you can enable the `HTTPS only` option. This will redirect browsers visiting any HTTP address to HTTPS.
+If you want browsers visiting your Pinggy tunnel URL to only use HTTPS, you can enable the `x:https` option. This will redirect browsers visiting any HTTP address to HTTPS.
 
 
 Just pass the optional `x:https` argument at the end of the command the command. In addition, add the `-t` option right after the ssh command.
 
 {{< ssh_command >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:https\"}}}"
+{{</ ssh_command >}}
+
+
+
+## Connect to local HTTPS server
+
+If your localhost server is an HTTPS server that only accepts TLS connections, then use the `x:localServerTls` option. This will make Pinggy tunnel connect to your local server using the HTTPS (TLS) protocol only.
+
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\"}}}"
+{{</ ssh_command >}}
+
+
+
+
+You can also set the server name (SNI) used to connect to your local server as by passing adding the argument: `x:localServerTls:example.com`
+
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls:example.com\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls:example.com\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls:example.com\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls:example.com\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls:example.com\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls:example.com\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls:example.com\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:localServerTls\"}}}"
 {{</ ssh_command >}}
 
 
