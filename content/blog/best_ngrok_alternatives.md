@@ -1,6 +1,6 @@
 ---
- title: "Best 8 Ngrok alternatives in 2024" 
- description: "Discover the top 8 Ngrok alternatives in 2024. Explore Pinggy.io, LocalXpose, Localtunnel, and more. Compare features, ease of use, and prices in this comprehensive guide."
+ title: "Top 10 Ngrok alternatives in 2024" 
+ description: "Discover the top 10 Ngrok alternatives in 2024. Explore Pinggy.io, LocalXpose, Localtunnel, and more. Compare features, ease of use, and prices in this comprehensive guide."
  date: 2023-02-01T14:15:25+05:30
  lastmod: 2024-04-10T14:15:25+05:30
  draft: false 
@@ -14,11 +14,11 @@
 <a href="https://ngrok.com" target="_blank">Ngrok</a> is an ingress-as-a-service that provides tunnels facilitating instant ingress to your apps in any cloud, private network, or device. Using Ngrok tunnels you can share your website / app from your localhost. It has many other use cases, such as connecting to IoT devices behind NAT and firewall, receiving webhooks, debugging HTTP requests, and more. Recently, ngrok has expanded its offerings to API gateway, firewall, and load balancing to host on-premise apps and services.
 Although very mature, Ngrok has its own limitations of being a complex ingress-as-a-service.
 
-In this article, we will explore the **top 8 alternatives of Ngrok in 2024**. We will cover the features, installation process, ease of use and pricing of the Ngrok alternatives to help you choose the best one.
+In this article, we will explore the **best 10 alternatives of Ngrok in 2024**. We will cover the features, installation process, ease of use and pricing of the Ngrok alternatives to help you choose the best one.
 
 {{< image "best_ngrok_alternatives/img1.webp" "best ngrok alternatives" >}}
 
-## List of top 8 Ngrok alternatives in 2024
+## List of top 10 Ngrok alternatives in 2024
 
 1. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}
 2. {{< link href="https://localxpose.io/" >}}LocalXpose{{< /link >}}
@@ -28,6 +28,9 @@ In this article, we will explore the **top 8 alternatives of Ngrok in 2024**. We
 6. {{< link href="https://serveo.net/" >}}serveo{{< /link >}}
 7. {{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}}
 8. {{< link href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/" >}}Cloudflare Tunnel{{< /link >}}
+9. {{< link href="https://pagekite.net/" >}}Pagekite{{< /link >}}
+10. {{< link href="https://playit.gg/" >}}Playit.gg{{< /link >}}
+
 
 ## Overview of Ngrok
 
@@ -229,6 +232,20 @@ In the broad scheme of Cloudflare offerings, using Cloudflare Tunnels, organizat
 
 {{< image "best_ngrok_alternatives/cloudflaretunnel.webp" "cloudflare tunnels" >}}
 
+## 9. Playit.gg
+
+{{< link href="https://playit.gg/" >}}Playit.gg{{< /link >}} is specifically targeted towards gamers. It offers TCP as well as UDP tunnels to enable playing games such as Minecraft. It supports custom domains as well as subdomains.
+
+You need to download the playit.gg tool, and install it to start the tunnels. It is available for all platforms - Windows, Mac, and Linux. The client application is open source, which adds to its trustworthiness.
+
+The free version offers up to 4 TCP tunnels and 4 UDP tunnels. The paid version starts from 3 USD per month and offers custom domains and dedicated IP addresses.
+
+
+## 10. Pagekite
+
+{{< link href="https://pagekite.net/" >}}Pagekite{{< /link >}} has been around for more than 14 years now. It offers HTTP(S) and TCP tunnels. It has built-in IP whitelisting, password auth, and other advanced features. The free tier includes 2 GB of transfer quota per month, as well as custom domains.
+
+Although the Pagekite program has to be downloaded and installed to access the service, the tool is entirely open-source and written in Python. So, if you are a developer, feel free to hack away!
 
 
 ## Top 5 Open Source Ngrok alternatives
