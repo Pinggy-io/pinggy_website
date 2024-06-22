@@ -70,7 +70,7 @@ To get how simple it is to open a tunnel, here is an example. If you want to sha
 ssh -p 443 -R0:localhost:3000 a.pinggy.io
 ```
 
-{{< video poster="/assets/tunnelvideothumb.jpg" src="/assets/pinggy_demo.webm" >}}
+{{< video poster="/assets/tunnelvideothumb.webp" src="/assets/pinggy_demo.webm" >}}
 
 
 Pinggy is one of the Ngrok alternatives which you can try out for free without signing up for an account. Over Ngrok, it provides features such as QR codes for tunnel URLs and an HTTP request / response inspection tool within the terminal.
