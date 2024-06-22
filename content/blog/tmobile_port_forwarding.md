@@ -1,7 +1,7 @@
 ---
  title: "T-Mobile Port Forwarding" 
  description: "T-Mobile home internet employs CG-NAT, which makes port forwarding difficult. To enable port forwarding, paste a single command in the terminal to create a Pinggy TCP tunnel. Using the Pinggy tunnel, you can forward any port through T-Mobile's CG-NAT."
- date: 2023-08-13T14:15:25+05:30
+ date: 2024-06-20T14:15:25+05:30
  draft: false 
  og_image: "/assets/header.webp"
  tags: ["guide", "tcp"]
@@ -36,7 +36,7 @@ If you're a T-Mobile home internet user, you might have encountered a roadblock 
 
 ## What is port forwarding?
 
-Port forwarding is like opening a gateway to allow users from outside the network communicate with services like web applications, personal cloud storage (NAS), and more on your home network. For example, if you want to host a website from your computer at home then port forwarding would allow people from the internet to visit your website by passing through your router's security.
+Usually random users from the internet cannot reach your local computer because of NAT and Firewall of your router. But often we need to allow this access to play games, host websites, share files, remote access, etc. Port forwarding is like opening a gateway to allow users from outside the network communicate with services like web applications, personal cloud storage (NAS), and more on your home network. For example, if you want to host a website from your computer at home then port forwarding would allow people from the internet to visit your website by passing through your router's security.
 
 It's also helpful for receiving webhooks, which are like real-time messages from other services. For instance, if you're using a smart security camera that sends alerts to your phone, port forwarding lets those alerts reach you even when you're away. Additionally, if you have a Network Attached Storage (NAS) device that holds all your important files, port forwarding allows you to access those files remotely, as if you were right at home.
 
@@ -94,6 +94,17 @@ Using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} you can easily fo
    You can use this address and port to connect to your local port from outside the local network.
 
    {{< image "iot/url.webp" "Pinggy tunnel for T-Mobile home internet port forwarding" >}}
+
+## Why is port forwarding required?
+
+Usually, if you are not on the same WiFi (same local network), you cannot access one computer from the other. You cannot use your mobile data (5G, 4G) to directly access your home computer. Port forwarding configures your home internet router to allow external access from the internet, to your internal network devices. This can be used for remote access to devices, web hosting, online gaming, etc.
+Port forwarding allows direct connections between devices on different networks, bypasses the limitations of [Network Address Translation (NAT)](https://en.wikipedia.org/wiki/Network_address_translation), and improves network performance.
+
+In network service providers such as T-Mobile, port forwarding is not possible trivially, instead you need a localhost tunnel service such as https://pinggy.io .
+
+## How is port forwarding better than disabling firewall?
+
+Port forwarding enhances security by controlling access to only single ports of specific devices. It is much secure than opening the floodgate to the internet and exposing all ports of all devices in your local network.
 
 ## Conclusion
 
