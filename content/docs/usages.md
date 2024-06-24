@@ -273,6 +273,12 @@ x:localServerTls[:serverName]
 ```
 This option assumes that the local server expects a `TLS` connection. So, Pinggy will create a `TLS` connection to the client server instead. serverName is the SNI for the `TLS` connection. This is optional. By default, the Pinggy server provides SNI as `localhost`.
 
+#### 9. Pass preflight requests
+In several cases, browser send preflight request before sending actually. The website never have any control over the prefight request and if it fails, original request won't be made by the browser. Pinggy by default process request and response headers. However, it might be problem for preflight requests. Pinggy can detect preflight request and pass them without modification with following option:
+```
+x:passpreflight
+```
+
 * Currently this is supported only for `http` tunnel. Will be supported for tlstcp in future.
 
 
