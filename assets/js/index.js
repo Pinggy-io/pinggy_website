@@ -299,6 +299,20 @@ function starttrial() {
   }
 }
 
+function starttrial2() {
+  $("#emailinvalidtooltip2").hide();
+  var amplitudeEvent = "Trial button 2 clicked";
+  var eventProperties = {};
+  amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
+  var emailinput = $("#trialemail2").val();
+  if (isEmail(emailinput)) {
+    var encoded = encodeURIComponent(emailinput);
+    window.location = "https://dashboard.pinggy.io/starttrial?email=" + encoded;
+  } else {
+    $("#emailinvalidtooltip2").show();
+  }
+}
+
 // ---------------- price monthly yearly toggle -------------
 $("#toggleswitch").change(function () {
   if (this.checked) {

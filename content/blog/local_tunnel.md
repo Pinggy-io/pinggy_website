@@ -1,5 +1,5 @@
 ---
- title: "Local Tunnel - Easiest way to create a local tunnel" 
+ title: "Localtunnel - Easiest way to create a local tunnel" 
  description: "Open a local tunnel to localhost with a single command using Pinggy. No downloads required. Just paste one command to get local tunnels."
  date: 2024-06-22T00:15:25+05:30
  draft: false 
