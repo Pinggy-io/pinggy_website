@@ -99,7 +99,7 @@
         <i class="bi bi-pin-map"></i>
       </div>
       <div class="px-2 bd-highlight">
-        <div class="feature-name">Alstonia</div>
+        <div class="feature-name">Pinggy Technology Private Limited</div>
         <div class="feature-description">
           Bolpur <br />
           India - 731204
