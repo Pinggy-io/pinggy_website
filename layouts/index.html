@@ -411,7 +411,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
@@ -566,9 +565,26 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="adv_localServerTLS"
+                                            x-model="data.httpConfig.localServerTLS">
+                                        <label class="form-check-label" for="adv_localServerTLS">Connect to HTTPS Server <i
+                                                class="bi bi-info-circle" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="right" data-bs-html="true"
+                                                title="Connect to an HTTPS (TLS) server running locally"></i>
+                                        </label>
+                                    </div>
+                                    <div id="sni" class="mb-2" x-show="data.httpConfig.localServerTLS" x-transition.duration.300ms>
+                                      <input type="text" aria-label="token" placeholder="Local Server Name (SNI)"
+                                          class="form-control localServerTLS"
+                                          x-model="data.httpConfig.localServerTLSSNI"
+                                      >
+                                  </div>
+                                </div>
+                                <div class="col col-12 col-lg-6">
+                                  <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
                                         <input class="form-check-input" type="checkbox" id="adv_accesstoken"
                                             x-model="data.httpConfig.accesstoken">
@@ -578,25 +594,20 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                                 title="Use your Pinggy token"></i>
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-                            <div id="accesstokencontainer" class="mb-2">
-                                <div class="col col-12 col-lg-6"
-                                    x-show="data.httpConfig.accesstoken"
-                                    x-transition.duration.300ms
-                                >
-                                    <input type="text" aria-label="token" placeholder="Access Token"
-                                        :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.httpConfig.accesstokenvalue)}"
-                                        class="form-control accesstokenval"
-                                        x-model="data.httpConfig.accesstokenvalue"
-                                    >
-                                    <div class="invalid-feedback" 
-                                        x-show="/[^a-zA-Z0-9-]/.test(data.httpConfig.accesstokenvalue) === true">
-                                        Token can only contain alphanumeric characters
+                                    <div id="accesstokencontainer" class="mb-2" x-show="data.httpConfig.accesstoken" x-transition.duration.300ms>
+                                          <input type="text" aria-label="token" placeholder="Access Token"
+                                              :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.httpConfig.accesstokenvalue)}"
+                                              class="form-control accesstokenval"
+                                              x-model="data.httpConfig.accesstokenvalue"
+                                          >
+                                          <div class="invalid-feedback" 
+                                              x-show="/[^a-zA-Z0-9-]/.test(data.httpConfig.accesstokenvalue) === true">
+                                              Token can only contain alphanumeric characters
+                                          </div>
                                     </div>
+                                  </div>
                                 </div>
-                            </div>
-                            
+                            </div>                            
                             <div class="mt-2">
                                 <label class="form-check-label">Live Header Modifications <i class="bi bi-info-circle"
                                         type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true"

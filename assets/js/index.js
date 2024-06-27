@@ -19,6 +19,8 @@ document.addEventListener("alpine:init", () => {
     headerModification: [],
     accesstoken: false,
     accesstokenvalue: "",
+    localServerTLS: false,
+    localServerTLSSNI: "",
   };
 
   const defaultTcpTlsConfig = {
@@ -161,6 +163,17 @@ document.addEventListener("alpine:init", () => {
         ) {
           headercommands +=
             " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
+        }
+      }
+
+      if (config.localServerTLS) {
+        if (config.localServerTLSSNI) {
+          headercommands +=
+            " " + `\\\"x:localServerTls:${config.localServerTLSSNI}\\\"`;
+        }
+        else {
+          headercommands +=
+            " " + `\\\"x:localServerTls\\\"`;
         }
       }
 
