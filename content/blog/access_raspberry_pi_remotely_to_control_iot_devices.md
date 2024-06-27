@@ -6,7 +6,7 @@ tags: ["iot", "guide", "raspberrypi"]
 outputs:
 - HTML
 - AMP
-date: 2024-02-13T03:57:29+05:30
+date: 2024-06-25T03:57:29+05:30
 draft: false
 ---
 
@@ -23,6 +23,37 @@ There are three main ways to access your Raspberry Pi remotely over the internet
 3. **RDP** - Remote Desktop Protocol, a proprietary protocol developed by Microsoft that provides a user with a graphical interface to connect to another computer over a network connection.
 
 However, all of these methods usually require port forwarding, which can pose security risks.
+
+
+{{% tldr %}}
+
+
+1. **Step 1.** Run these commands on your Raspberry Pi:
+   ```
+   sudo apt update
+   sudo apt install xrdp
+   sudo systemctl start xrdp
+   ```
+2. **Step 2.** Run this command to get a public URL to your Raspberry Pi:
+
+   ```
+   ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
+   ```
+
+   You will get a URL and port in the output such as:<br>
+   tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span style="background: #e9ecff">40527</span>
+
+3. **Step 3.** Open _Remote Desktop Connection_ application on your Windows / _Microsoft Remote Desktop_ on Mac. Enter the URL:Port to connect.<br>
+   Example: `tljocjkijs.a.pinggy.online:40527`
+
+4. Sign in to https://dashboard.pinggy.io to get your ongoing tunnel URLs from the dashboard.
+
+{{% /tldr %}}
+
+<br/>
+
+{{< iframe src="https://www.youtube.com/embed/HvI7FJngFDw" title="YouTube video player" >}}
+
 
 #### The Challenge with Port Forwarding
 
