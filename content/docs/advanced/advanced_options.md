@@ -33,3 +33,17 @@ Pinggy allows users to manipulate headers via the command line. The syntax is as
 {{< ssh_command >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"}}}"
 {{</ ssh_command >}}
+
+
+## Forcefully disconnect existing tunnel and create a new tunnel
+
+By default, trying to connect to establish a tunnel with a token which is already in use by another active tunnel will produce the error "Login is not allowed: A tunnel with the same token (xxYYzzZ) is already active."  
+
+In such cases, in order to terminate the tunnel, you can use the "Terminate" option in "Active Tunnels" page in https://dashboard.pinggy.io/
+
+If you want to programatically disconnect an existing tunnel to forcefully create a new one, you may use the `force` option as follows.
+
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 force@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 force@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
