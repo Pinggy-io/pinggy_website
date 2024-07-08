@@ -22,7 +22,7 @@ document.addEventListener("alpine:init", () => {
 
       // Inject the token into the command where applicable
       return commandTemplate.replace(
-        /(tlstcp|tcp|tls|qr)?@?a.pinggy.io/g,
+        /(tlstcp|tcp|tls|qr|force|udp)?@?a.pinggy.io/g,
         (match, protocol) => {
           if (protocol) {
             return `${token}+${protocol}@a.pinggy.io`;
