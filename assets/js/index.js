@@ -320,7 +320,7 @@ function starttrial2() {
   var emailinput = $("#trialemail2").val();
   if (isEmail(emailinput)) {
     var encoded = encodeURIComponent(emailinput);
-    window.location = "https://dashboard.pinggy.io/starttrial?email=" + encoded + "&yearly=" + $("#toggleswitch").is(':checked');
+    window.location = "https://dashboard.pinggy.io/starttrial?email=" + encoded + "&monthly=" + (!$("#toggleswitch").is(':checked'));
   } else {
     $("#emailinvalidtooltip2").show();
   }
