@@ -96,7 +96,7 @@ Ensure your Minecraft server and the Pinggy tunnel are running; otherwise, playe
 
 ## Tips
 
-Use [Pinggy Dashboard](https://pinggy.io/dashboard) to manage your tunnels, and advanced controls.
+Use [Pinggy Dashboard](https://dashboard.pinggy.io/) to manage your tunnels, and advanced controls.
 
 {{< image "iot/pinggy_dashboard.webp" "Pinggy Dashboard" >}}
 

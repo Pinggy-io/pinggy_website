@@ -272,7 +272,7 @@ By incorporating HTOP into your remote management toolkit, you can proactively a
 
 ## Tips
 
-Use [Pinggy Dashboard](https://pinggy.io/dashboard) to manage your tunnels, monitor traffic, and access logs.
+Use [Pinggy Dashboard](https://dashboard.pinggy.io/) to manage your tunnels, monitor traffic, and access logs.
 
 {{< image "iot/pinggy_dashboard.webp" "Pinggy Dashboard" >}}
 
