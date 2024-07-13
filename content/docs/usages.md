@@ -279,6 +279,13 @@ In several cases, browser send preflight request before sending actually. The we
 x:passpreflight
 ```
 
+#### 10. Reverse Proxy Mode
+Pinggy now support reverse proxy which it puts X-Forwarded-For, X-Forwarded-Proto and X-Forwarded-Host headers in the http requests. It also the set the SNI to propervalue incase of `localServerTls`. The option is as follows
+```
+x:reverseproxy:HostName
+```
+We recommend users to this option as the last parameters. Putting it before other parameter might cause undesired output.
+
 * Currently this is supported only for `http` tunnel. Will be supported for tlstcp in future.
 
 
