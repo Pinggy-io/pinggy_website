@@ -1,4 +1,4 @@
-{{ $json := .Inner | default "{}" }} {{ $text := .Get "text" | default "" }}
+{{ $json := .Inner | default "{}" }} {{ $text := .Get "text" | default "" }} {{ $clionly := .Get "clionly" | default "false" }}
 
 <div
   x-data="{
@@ -6,9 +6,11 @@
     cmd: JSON.parse({{ $json | safeJS }}),
     text: '{{ $text }}',
     copied: false,
+    clionly: {{$clionly}},
     codeText: '',
   }"
   x-init="
+    data.commandConfig.clionly = clionly;
     $watch('data.commandConfig', newValue => {
       localStorage.setItem('commandConfig', JSON.stringify(newValue));
       codeText = $store.pinggyCommand.retrieveCommand({cmd: cmd});
@@ -39,7 +41,7 @@
                 id="dropdownMenuButtonConnectionType"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                x-text="data.commandConfig.connectiontype === 'ssh' ? 'SSH' : 'CLI'"
+                x-text="$store.pinggyCommand.cliOrSSH() === 'ssh' ? 'SSH' : 'CLI'"
               ></div>
               <div
                 class="dropdown-menu"
@@ -49,6 +51,7 @@
                   class="dropdown-item"
                   x-on:click="data.commandConfig.connectiontype = 'ssh'"
                   style="cursor: pointer"
+                  x-show="clionly != true"
                   >SSH</span
                 >
                 <span
