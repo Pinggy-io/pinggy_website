@@ -8,10 +8,15 @@ document.addEventListener("alpine:init", () => {
   Alpine.store("pinggyCommand", {
     commandConfig:
       JSON.parse(localStorage.getItem("commandConfig")) || defaultStore,
+    
+    cliOrSSH() {
+      const { connectiontype, clionly } = this.commandConfig;
+      return connectiontype === "ssh" && clionly != true ? "ssh" : "cli";
+    },
 
     retrieveCommand({ cmd }) {
-      const { connectiontype, platformselect, token } = this.commandConfig;
-      const connectionType = connectiontype === "ssh" ? "ssh" : "cli";
+      const { platformselect, token } = this.commandConfig;
+      const connectionType = this.cliOrSSH();
       const platformType = platformselect === "unix" ? "linux" : "windows";
       const commandTemplate = cmd?.[connectionType]?.[platformType]?.ps || "";
 
