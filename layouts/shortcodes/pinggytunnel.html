@@ -48,6 +48,39 @@
     }
 }"
 >
+  {{ with .Get "showTabs" }}
+  
+  <div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="http-tab" data-bs-toggle="tab"
+              data-bs-target="#http-tab-pane" type="button" role="tab" aria-controls="http-tab-pane"
+              aria-selected="true" @click="data.mode = 'http'">HTTP(S)</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tcp-tab" data-bs-toggle="tab" data-bs-target="#http-tab-pane"
+              type="button" role="tab" aria-controls="tcp-tab-pane" aria-selected="false"
+              @click="data.mode = 'tcp'">TCP</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tls-tab" data-bs-toggle="tab" data-bs-target="#http-tab-pane"
+              type="button" role="tab" aria-controls="tls-tab-pane" aria-selected="false"
+              @click="data.mode = 'tls'">TLS</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" id="udp-tab" data-bs-toggle="tab" data-bs-target="#http-tab-pane"
+              type="button" role="tab" aria-controls="udp-tab-pane" aria-selected="false"
+              @click="data.mode = 'udp'">UDP</button>
+      </li>
+  </ul>
+
+  <div class="tab-content" id="advancedSettingsTabContent">
+    <div class="tab-pane fade show active" id="http-tab-pane" role="tabpanel" aria-labelledby="http-tab"
+                        tabindex="0">
+  {{ end }}
+    
+    
+  
   {{ if ne $tryYourselfText "" }}
   <p class="font-weight-bold fs-5">{{ $tryYourselfText }}</p>
   {{ end }}
@@ -68,7 +101,9 @@
       <form>
         <div
           class="d-flex justify-content-sm-start justify-content-md-end gap-2"
-          style="width: 100%"
+          style="width: 100%;
+                margin-top: 8px;
+          "
         >
           <div class="dropdown">
             <div
@@ -747,4 +782,9 @@
       </form>
     </div>
   </div>
+  {{ with .Get "showTabs" }}
+  </div>
+</div>
+  </div>
+  {{ end }}
 </div>
