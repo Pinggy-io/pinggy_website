@@ -238,6 +238,7 @@ input[type="number"] {
 
   #sidebarexpandbtn {
     display: block;
+    z-index: 100;
   }
 
   .doccontent {
