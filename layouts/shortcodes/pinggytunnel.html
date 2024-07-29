@@ -67,22 +67,22 @@
   {{ with .Get "showTabs" }}
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="http-tab" data-bs-toggle="tab"
+          <button class="nav-link {{ if eq $mode "http" }} active {{ end }}" id="http-tab" data-bs-toggle="tab"
               data-bs-target="#tab-pane" type="button" role="tab" aria-controls="http-tab-pane"
               aria-selected="true" @click="data.mode = 'http'">HTTP(S)</button>
       </li>
       <li class="nav-item" role="presentation">
-          <button class="nav-link" id="tcp-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
+          <button class="nav-link {{ if eq $mode "tcp" }} active {{ end }}" id="tcp-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
               type="button" role="tab" aria-controls="tcp-tab-pane" aria-selected="false"
               @click="data.mode = 'tcp'">TCP</button>
       </li>
       <li class="nav-item" role="presentation">
-          <button class="nav-link" id="tls-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
+          <button class="nav-link {{ if eq $mode "tls" }} active {{ end }}" id="tls-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
               type="button" role="tab" aria-controls="tls-tab-pane" aria-selected="false"
               @click="data.mode = 'tls'">TLS</button>
       </li>
       <li class="nav-item" role="presentation">
-          <button class="nav-link" id="udp-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
+          <button class="nav-link {{ if eq $mode "udp" }} active {{ end }}" id="udp-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
               type="button" role="tab" aria-controls="udp-tab-pane" aria-selected="false"
               @click="data.mode = 'udp'">UDP</button>
       </li>
