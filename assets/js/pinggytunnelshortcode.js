@@ -79,6 +79,17 @@ document.addEventListener("alpine:init", () => {
         headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
       }
 
+      if (data.localServerTLS) {
+        if (data.localServerTLSSNI) {
+          headercommands +=
+            " " + `\\\"x:localServerTls:${data.localServerTLSSNI}\\\"`;
+        }
+        else {
+          headercommands +=
+            " " + `\\\"x:localServerTls\\\"`;
+        }
+      }
+
       if (headercommands != "") {
         options += " -t";
       }

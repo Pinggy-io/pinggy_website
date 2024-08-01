@@ -19,6 +19,8 @@
 {{ $ipwhitelist := .Get "ipwhitelist" | default "[]" }}
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 {{ $tryYourselfText := .Get "tryYourselfText" | default "" }}
+{{ $localServerTLS := .Get "localServerTLS" | default false }}
+{{ $localServerTLSSNI := .Get "localServerTLSSNI" | default "" }}
 
 <div
   class="mb-3"
@@ -43,6 +45,8 @@
         ipWhitelistCheck: {{ $ipwhitelistcheck }},
         ipWhitelist: {{ $ipwhitelist }},
         headerModifications: {{ $headermodifications }},
+        localServerTLS: {{ $localServerTLS }},
+        localServerTLSSNI: '{{ $localServerTLSSNI }}',
         accesstoken: false,
         accesstokenvalue: ''
     }
@@ -667,10 +671,9 @@
             </div>
           </div>
         </div>
-        <div id="accesstokencontainer" class="mb-2">
+        <div id="accesstokencontainer" class="mb-2" x-show="data.accesstoken">
           <div
             class="col col-12 col-lg-6"
-            x-show="data.accesstoken"
             x-transition.duration.300ms
           >
             <input
@@ -687,6 +690,45 @@
             >
               Alphanumeric characters only
             </div>
+          </div>
+        </div>
+        <div class="row" x-show="data.mode === 'http'">
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_localServerTLS"
+                type="checkbox"
+                id="adv_localServerTLS"
+                x-model="data.localServerTLS"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_accesstoken_{{ $random }}"
+                >Connect to HTTPS Server
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Connect to an HTTPS(TLS) server running locally"
+                ></i>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="localServerTLScontainer" class="mb-2">
+          <div
+            class="col col-12 col-lg-6"
+            x-show="data.localServerTLS"
+            x-transition.duration.300ms
+          >
+            <input
+              type="text"
+              aria-label="localServerTLS"
+              placeholder="Local Server Name (SNI)"
+              class="form-control localServerTLSval"
+              x-model="data.localServerTLSSNI"
+            />
           </div>
         </div>
         <div class="row mt-2" style="--bs-gutter-x: 0">
