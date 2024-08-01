@@ -23,6 +23,6 @@ Like basic authentication, one can set multiple ip addresses as well.
 
 You can customize the command here:
 
-{{< pinggytunnel showTabs="true" box="true" mode="tcp" tunnelstring="Paste this command to start tunnel:" portstring="Local Port" localport="8000" webdebugenabled=false
+{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start tunnel:" portstring="Local Port" localport="8000" webdebugenabled=false
 keepalive=true ipwhitelistcheck=true >}}
 {{< /pinggytunnel >}}
