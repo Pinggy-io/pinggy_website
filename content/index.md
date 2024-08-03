@@ -1,8 +1,10 @@
-{{ define "main" }}
+---
+title: "Pinggy - Simple Localhost Tunnels"
+---
 
 <!-- Banner -->
 <header
-  class="pt-1 contentcontainer"
+  class="pt-1"
   x-data="{ data : $store.advModal }"
   x-init="data.tryItYourself = JSON.parse(localStorage.getItem('tryItYourself')) || {
         selectedOption: 'python',
@@ -16,13 +18,6 @@
         localStorage.setItem('tryItYourself', JSON.stringify(value));
     })"
 >
-<!-- <a href="/blog/domain_outage_incident_april_2024/" target="_blank" style="text-decoration: none; color: black;">
-<div class="" style="background: #ffafaf8c;">
-<center>
-We are experiencing an outage with ".online" domains. Click here to learn more.
-</center>
-</div>
-</a> -->
   <div class="container">
     <div class="row justify-content-evenly">
       <div class="col-lg-5">
@@ -93,7 +88,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
               <i class="bi bi-gear"></i> Advanced Settings
               <i class="bi bi-chevron-right" style="font-size: 0.8rem"></i>
             </button>
-
             <div class="input-group mb-4 pt-1">
               <label class="input-group-text" id="tryityourselftext"
                 >Try it yourself with:</label
@@ -115,7 +109,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                 <option value="hugo">Hugo</option>
               </select>
             </div>
-
             <label
               class="text-bold"
               id="tryityourselflabel"
@@ -153,7 +146,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
               class="input-group mb-3"
               x-show="!data.tryItYourself.command"
             ></div>
-
             <form>
               <label for="portform" class="text-bold"
                 ><strong>Your local port:</strong></label
@@ -166,7 +158,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                 x-model="data.tryItYourself.port"
               />
             </form>
-
             <div class="mt-3 row">
               <div class="col-md-6">
                 <label class="switch" aria-label="Web Debugger">
@@ -204,7 +195,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
               </div>
             </div>
           </div>
-
           <div id="finalcommand" class="border-top mt-3 px-4 py-3">
             <label class="text-bold mt-2"
               ><strong>Paste this command to start tunnel:</strong></label
@@ -247,7 +237,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
     </div>
   </div>
 </header>
-
 <!-- Modal -->
 <div class="modal fade" id="advancedModal" tabindex="-1" 
     aria-labelledby="advancedModalLabel" aria-hidden="true" 
@@ -255,7 +244,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
     x-init="$watch('data.httpConfig', function(value) {
         localStorage.setItem('httpConfig', JSON.stringify(value));
     }, { deep: true });    
-
     $watch('data.tcp_tlsConfig', function(value) {
         localStorage.setItem('tcp_tlsConfig', JSON.stringify(value));
     }, { deep: true });"
@@ -354,7 +342,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                     onclick="copytoclipboard(this,'#advancedcommand','SSH url copy button clicked')"><i
                                         class="bi bi-clipboard"></i></button>
                             </div>
-
                             <div class="mt-3" style="font-size: 0.8rem;" id="adv_webdebugurl" 
                                 x-show="data.httpConfig.webdebugCheck" x-transition.duration.300ms>
                                 Web Debugger URL: <a x-bind:href="'http://localhost:' + data.httpConfig.webdebugPort" target="_blank">
@@ -365,7 +352,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                 x-show="data.httpConfig.restart" x-transition.duration.300ms>
                                 When the tunnel reconnects, your public URL will change. Upgrade to <a href="/#prices">Pinggy Pro</a> for persistent URLs.
                             </div>
-
                             <hr>
                             <div class="mb-2"><b>Settings:</b></div>
                             <div class="row">
@@ -388,7 +374,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
@@ -468,7 +453,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col col-12 col-lg-6">
                                     <div class="form-check form-switch mb-3">
@@ -614,7 +598,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                         title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"></i>
                                 </label>
                             </div>
-
                             <div class="d-flex flex-column mt-2 flex-lg-row gap-3">
                                 <button type="button" class="btn btn-primary mb-0 mb-lg-3 custom-button"
                                     @click="data.httpConfig.headerModification.push({ mode: 'a', name: '', value: '' })">
@@ -626,7 +609,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                     Reset Settings
                                 </button>
                             </div>
-
                             <div id="headermodificationcontainer">
                                 <template x-for="(headerMod, index) in data.httpConfig.headerModification" :key="index">
                                     <div class="input-group headermodificationgroup">
@@ -707,7 +689,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                                 When the tunnel reconnects, your public URL will change. Upgrade to <a
                                     href="/#prices">Pinggy Pro</a> for persistent URLs.
                             </div>
-
                             <hr>
                             <div class="mb-2"><b>Settings:</b></div>
                             <div class="row">
@@ -1552,7 +1533,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
             potential of Pinggy.
           </p>
         </div>
-
         <main>
           <div class="row justify-content-center text-left">
             <div class="mb-3 col-md-9">
@@ -1754,7 +1734,6 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
                     </a>
                     <span class="text-muted fw-light">contact@pinggy.io</span>
                   </div>
-
                   <ul class="list-unstyled mt-3 mb-4 list-group text-left">
                     <li class="list-group-item p-2 bg-light">
                       <b>On Premise</b> / Cloud hosting
@@ -2202,8 +2181,3 @@ We are experiencing an outage with ".online" domains. Click here to learn more.
       </div>
   </div>
 </div>
-
-{{ end }}
-
-{{ define "pagespecificjs" }}
-{{ end }}
