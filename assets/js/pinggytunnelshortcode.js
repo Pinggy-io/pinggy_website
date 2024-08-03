@@ -3,6 +3,7 @@ document.addEventListener("alpine:init", () => {
     advancedCommand(data) {
       let options = "";
       let headercommands = "";
+      let host = "localhost";
 
       async function fetchIpAddress() {
         try {
@@ -79,6 +80,53 @@ document.addEventListener("alpine:init", () => {
         headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
       }
 
+      if (data.localServerTLS) {
+        if (data.localServerTLSSNI) {
+          headercommands +=
+            " " + `\\\"x:localServerTls:${data.localServerTLSSNI}\\\"`;
+        }
+        else if(!data.localServerTLSSNI && data.forwardHost && data.forwardHostAddress){
+          headercommands +=
+            " " + `\\\"x:localServerTls:${data.forwardHostAddress}\\\"`;
+        } else if(!data.localServerTLSSNI && (!data.forwardHost || !data.forwardHostAddress)){
+          headercommands +=
+            " " + `\\\"x:localServerTls:localhost\\\"`;
+        } else {
+          headercommands +=
+            " " + `\\\"x:localServerTls\\\"`;
+        }
+      }
+
+      if (data.reverseProxy) {
+        if (data.reverseProxyAddress) {
+          headercommands +=
+            " " + `\\\"x:reverseproxy:${data.reverseProxyAddress}\\\"`;
+        } else if(!data.reverseProxyAddress && data.forwardHost && data.forwardHostAddress) {
+          headercommands +=
+            " " + `\\\"x:reverseproxy:${data.forwardHostAddress}\\\"`;
+        } else if(!data.reverseProxyAddress && (!data.forwardHost || !data.forwardHostAddress)) {
+          headercommands +=
+            " " + `\\\"x:reverseproxy:localhost\\\"`;
+        } else {
+          headercommands +=
+            " " + `\\\"x:reverseproxy\\\"`;
+        }
+      }
+
+      if (data.httpsonly){
+        headercommands += 
+            " " + `\\\"x:https\\\"`;;
+      }
+
+      if(data.forwardHost){
+        if (data.forwardHostAddress) {
+          host = data.forwardHostAddress;
+        }
+        else {
+          host = "localhost";
+        }
+      }
+
       if (headercommands != "") {
         options += " -t";
       }
@@ -106,11 +154,11 @@ document.addEventListener("alpine:init", () => {
 
       let command = "";
       if (data.connectiontype === "ssh") {
-        command = `ssh -p 443${options} -R0:localhost:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
+        command = `ssh -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
       } else if (data.connectiontype === "cli") {
         const pinggyExecutable =
           data.platformselect === "unix" ? "./pinggy" : "./pinggy.exe";
-        command = `${pinggyExecutable} -p 443${options} -R0:localhost:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
+        command = `${pinggyExecutable} -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
       }
 
       if (data.reconnect && data.connectiontype === "ssh") {

@@ -19,6 +19,13 @@
 {{ $ipwhitelist := .Get "ipwhitelist" | default "[]" }}
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 {{ $tryYourselfText := .Get "tryYourselfText" | default "" }}
+{{ $localServerTLS := .Get "localServerTLS" | default false }}
+{{ $localServerTLSSNI := .Get "localServerTLSSNI" | default "" }}
+{{ $reverseProxy := .Get "reverseProxy" | default false }}
+{{ $reverseProxyAddress := .Get "reverseProxyAddress" | default "" }}
+{{ $httpsonly := .Get "httpsonly" | default false }}
+{{ $forwardHost := .Get "forwardHost" | default false }}
+{{ $forwardHostAddress := .Get "forwardHostAddress" | default "localhost" }}
 
 <div
   class="mb-3"
@@ -43,6 +50,13 @@
         ipWhitelistCheck: {{ $ipwhitelistcheck }},
         ipWhitelist: {{ $ipwhitelist }},
         headerModifications: {{ $headermodifications }},
+        localServerTLS: {{ $localServerTLS }},
+        localServerTLSSNI: '{{ $localServerTLSSNI }}',
+        reverseProxy: {{ $reverseProxy }},
+        reverseProxyAddress: '{{ $reverseProxyAddress }}',
+        httpsonly: {{ $httpsonly }},
+        forwardHost: {{ $forwardHost }},
+        forwardHostAddress: '{{ $forwardHostAddress }}',
         accesstoken: false,
         accesstokenvalue: ''
     }
@@ -514,8 +528,7 @@
                 </i>
               </label>
             </div>
-            <div
-              class="col col-12 mb-3"
+            <div class="col col-12 mb-3"
               x-show="data.keyAuthentication"
               x-transition.duration.300ms
             >
@@ -583,8 +596,7 @@
                 </i>
               </label>
             </div>
-            <div
-              class="col col-12 mb-3"
+            <div class="col col-12 mb-3"
               x-show="data.ipWhitelistCheck"
               x-transition.duration.300ms
             >
@@ -644,6 +656,131 @@
           </div>
         </div>
         <div class="row">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_httpsonly"
+                type="checkbox"
+                id="adv_httpsonly_{{ $random }}"
+                x-model="data.httpsonly"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_httpsonly_{{ $random }}"
+                >HTTPS only
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Only allow HTTPS requests"
+                ></i>
+              </label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_forwardhost"
+                type="checkbox"
+                id="adv_forwardhost_{{ $random }}"
+                x-model="data.forwardHost"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_forwardhost_{{ $random }}"
+                >Forward to other hosts
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Forwarding to addresses other than localhost"
+                ></i>
+              </label>
+            </div>
+            <div class="col col-12 mb-3" x-show="data.forwardHost" x-transition.duration.300ms>
+              <input
+                type="text"
+                aria-label="forward to other hosts"
+                placeholder="Address"
+                class="form-control forwardhostval"
+                x-model="data.forwardHostAddress"
+            />
+            </div>
+          </div>
+        </div>
+        <div class="row" x-show="data.mode === 'http'">
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_localServerTLS"
+                type="checkbox"
+                id="adv_localServerTLS"
+                x-model="data.localServerTLS"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_accesstoken_{{ $random }}"
+                >Connect to HTTPS Server
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Connect to an HTTPS(TLS) server running locally"
+                ></i>
+              </label>
+            </div>
+            <div class="col col-12 mb-3" 
+              x-show="data.localServerTLS"
+              x-transition.duration.300ms
+            >
+              <input
+              type="text"
+              aria-label="localServerTLS"
+              placeholder="Local Server Name (SNI)"
+              class="form-control localServerTLSval"
+              x-model="data.localServerTLSSNI"
+            />
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_reverseProxy"
+                type="checkbox"
+                id="adv_reverseProxy_{{ $random }}"
+                x-model="data.reverseProxy"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_reverseProxy_{{ $random }}"
+                >Reverse Proxy
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Set required headers for reverse proxy mode"
+                ></i>
+              </label>
+            </div>
+            <div class="col col-12 mb-3" 
+              x-show="data.reverseProxy"
+              x-transition.duration.300ms
+            >
+              <input
+                type="text"
+                aria-label="reverse proxy address"
+                placeholder="Host name"
+                class="form-control localServerTLSval"
+                x-model="data.reverseProxyAddress"
+            />
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col col-12 col-lg-6">
             <div class="form-check form-switch mb-3">
               <input
@@ -667,11 +804,14 @@
             </div>
           </div>
         </div>
-        <div id="accesstokencontainer" class="mb-2">
+        <div 
+          id="accesstokencontainer" 
+          class="mb-2" 
+          x-show="data.accesstoken"
+          x-transition.duration.300ms
+        >
           <div
             class="col col-12 col-lg-6"
-            x-show="data.accesstoken"
-            x-transition.duration.300ms
           >
             <input
               type="text"
