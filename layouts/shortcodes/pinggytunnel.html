@@ -20,12 +20,12 @@
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 {{ $tryYourselfText := .Get "tryYourselfText" | default "" }}
 {{ $localServerTLS := .Get "localServerTLS" | default false }}
-{{ $localServerTLSSNI := .Get "localServerTLSSNI" | default "localhost" }}
+{{ $localServerTLSSNI := .Get "localServerTLSSNI" | default "" }}
 {{ $reverseProxy := .Get "reverseProxy" | default false }}
-{{ $reverseProxyAddress := .Get "reverseProxyAddress" | default "localhost" }}
+{{ $reverseProxyAddress := .Get "reverseProxyAddress" | default "" }}
 {{ $httpsonly := .Get "httpsonly" | default false }}
 {{ $forwardHost := .Get "forwardHost" | default false }}
-{{ $forwardHostAddress := .Get "forwardHostAddress" | default "myserver" }}
+{{ $forwardHostAddress := .Get "forwardHostAddress" | default "localhost" }}
 
 <div
   class="mb-3"
