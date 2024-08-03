@@ -85,7 +85,13 @@ document.addEventListener("alpine:init", () => {
           headercommands +=
             " " + `\\\"x:localServerTls:${data.localServerTLSSNI}\\\"`;
         }
-        else {
+        else if(!data.localServerTLSSNI && data.forwardHost && data.forwardHostAddress){
+          headercommands +=
+            " " + `\\\"x:localServerTls:${data.forwardHostAddress}\\\"`;
+        } else if(!data.localServerTLSSNI && (!data.forwardHost || !data.forwardHostAddress)){
+          headercommands +=
+            " " + `\\\"x:localServerTls:localhost\\\"`;
+        } else {
           headercommands +=
             " " + `\\\"x:localServerTls\\\"`;
         }
@@ -95,8 +101,13 @@ document.addEventListener("alpine:init", () => {
         if (data.reverseProxyAddress) {
           headercommands +=
             " " + `\\\"x:reverseproxy:${data.reverseProxyAddress}\\\"`;
-        }
-        else {
+        } else if(!data.reverseProxyAddress && data.forwardHost && data.forwardHostAddress) {
+          headercommands +=
+            " " + `\\\"x:reverseproxy:${data.forwardHostAddress}\\\"`;
+        } else if(!data.reverseProxyAddress && (!data.forwardHost || !data.forwardHostAddress)) {
+          headercommands +=
+            " " + `\\\"x:reverseproxy:localhost\\\"`;
+        } else {
           headercommands +=
             " " + `\\\"x:reverseproxy\\\"`;
         }

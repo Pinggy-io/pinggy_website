@@ -20,9 +20,9 @@
 {{ $headermodifications := .Get "headermodifications" | default "[]" }}
 {{ $tryYourselfText := .Get "tryYourselfText" | default "" }}
 {{ $localServerTLS := .Get "localServerTLS" | default false }}
-{{ $localServerTLSSNI := .Get "localServerTLSSNI" | default "" }}
+{{ $localServerTLSSNI := .Get "localServerTLSSNI" | default "localhost" }}
 {{ $reverseProxy := .Get "reverseProxy" | default false }}
-{{ $reverseProxyAddress := .Get "reverseProxyAddress" | default "" }}
+{{ $reverseProxyAddress := .Get "reverseProxyAddress" | default "localhost" }}
 {{ $httpsonly := .Get "httpsonly" | default false }}
 {{ $forwardHost := .Get "forwardHost" | default false }}
 {{ $forwardHostAddress := .Get "forwardHostAddress" | default "myserver" }}
@@ -655,6 +655,61 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_httpsonly"
+                type="checkbox"
+                id="adv_httpsonly_{{ $random }}"
+                x-model="data.httpsonly"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_httpsonly_{{ $random }}"
+                >HTTPS only
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Only allow HTTPS requests"
+                ></i>
+              </label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_forwardhost"
+                type="checkbox"
+                id="adv_forwardhost_{{ $random }}"
+                x-model="data.forwardHost"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_forwardhost_{{ $random }}"
+                >Forward to other hosts
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Forwarding to addresses other than localhost"
+                ></i>
+              </label>
+            </div>
+            <div class="col col-12 mb-3" x-show="data.forwardHost" x-transition.duration.300ms>
+              <input
+                type="text"
+                aria-label="forward to other hosts"
+                placeholder="Address"
+                class="form-control forwardhostval"
+                x-model="data.forwardHostAddress"
+            />
+            </div>
+          </div>
+        </div>
         <div class="row" x-show="data.mode === 'http'">
           <div class="col col-12 col-lg-6">
             <div class="form-check form-switch mb-3">
@@ -718,64 +773,9 @@
               <input
                 type="text"
                 aria-label="reverse proxy address"
-                placeholder="Reverse Proxy Address"
+                placeholder="Host name"
                 class="form-control localServerTLSval"
                 x-model="data.reverseProxyAddress"
-            />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
-            <div class="form-check form-switch mb-3">
-              <input
-                class="form-check-input shortcode_httpsonly"
-                type="checkbox"
-                id="adv_httpsonly_{{ $random }}"
-                x-model="data.httpsonly"
-              />
-              <label
-                class="form-check-label"
-                for="shortcode_httpsonly_{{ $random }}"
-                >HTTPS only
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  title="Only allow HTTPS requests"
-                ></i>
-              </label>
-            </div>
-          </div>
-          <div class="col col-12 col-lg-6">
-            <div class="form-check form-switch mb-3">
-              <input
-                class="form-check-input shortcode_forwardhost"
-                type="checkbox"
-                id="adv_forwardhost_{{ $random }}"
-                x-model="data.forwardHost"
-              />
-              <label
-                class="form-check-label"
-                for="shortcode_forwardhost_{{ $random }}"
-                >Forward to other hosts
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  title="Forwarding to addresses other than localhost"
-                ></i>
-              </label>
-            </div>
-            <div class="col col-12 mb-3" x-show="data.forwardHost" x-transition.duration.300ms>
-              <input
-                type="text"
-                aria-label="forward to other hosts"
-                placeholder="Address"
-                class="form-control forwardhostval"
-                x-model="data.forwardHostAddress"
             />
             </div>
           </div>
