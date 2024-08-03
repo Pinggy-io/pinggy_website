@@ -152,13 +152,18 @@ document.addEventListener("alpine:init", () => {
           accessTokenPart !== "" ? `+${data.mode}@` : `${data.mode}@`;
       }
 
+      let selectedRegion = "a.pinggy.io";
+      if (data.selectedRegion) {
+        selectedRegion = data.selectedRegion;
+      }
+
       let command = "";
       if (data.connectiontype === "ssh") {
-        command = `ssh -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
+        command = `ssh -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}${selectedRegion}${headercommands}`;
       } else if (data.connectiontype === "cli") {
         const pinggyExecutable =
           data.platformselect === "unix" ? "./pinggy" : "./pinggy.exe";
-        command = `${pinggyExecutable} -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}a.pinggy.io${headercommands}`;
+        command = `${pinggyExecutable} -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}${selectedRegion}${headercommands}`;
       }
 
       if (data.reconnect && data.connectiontype === "ssh") {
