@@ -11,7 +11,7 @@
 {{ $basicpass := .Get "basicpass" | default "" }}
 {{ $qrcheck := .Get "qrcheck" | default false }}
 {{ $reconnect := .Get "reconnect" | default false }}
-{{ $manuallycheckkey := .Get "manuallycheckkey" | default true }}
+{{ $manuallycheckkey := .Get "manuallycheckkey" | default false }}
 {{ $mode := .Get "mode" | default "http" }}
 {{ $keyauthentication := .Get "keyauthentication" | default false }}
 {{ $keyauthentications := .Get "keyauthentications" | default "[]" }}
@@ -26,6 +26,7 @@
 {{ $httpsonly := .Get "httpsonly" | default false }}
 {{ $forwardHost := .Get "forwardHost" | default false }}
 {{ $forwardHostAddress := .Get "forwardHostAddress" | default "localhost" }}
+{{ $selectedRegion := .Get "selectedRegion" | default "a.pinggy.io" }}
 
 <div
   class="mb-3"
@@ -125,9 +126,10 @@
               id="dropdownMenuButtonConnectionType"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              x-text="data.connectiontype === 'ssh' ? 'SSH' : 'CLI'"
+              x-text="data.mode === 'udp' ? 'CLI' : (data.connectiontype === 'ssh' ? 'SSH' : 'CLI')"
             ></div>
             <div
+              x-show="data.mode !== 'udp'"
               class="dropdown-menu"
               aria-labelledby="dropdownMenuButtonConnectionType"
             >
@@ -227,19 +229,37 @@
         </div>
         <hr />
         <label class="text-bold"><strong>Settings:</strong></label>
-        <div class="form-floating mb-3 mt-1">
-          <input
-            type="number"
-            class="form-control shortcode_localPort"
-            id="shortcode_localPort_{{ $random }}"
-            x-model="data.localPort"
-            :placeholder="data.portString"
-          />
-          <label
-            for="shortcode_localPort_{{ $random }}"
-            x-text="data.portString"
-          ></label>
+        <div class="row mt-2">
+          <div class="col col-12 col-lg-6">
+            <div class="form-floating mb-3">
+              <input
+                type="number"
+                class="form-control shortcode_localPort"
+                id="shortcode_localPort_{{ $random }}"
+                x-model="data.localPort"
+                :placeholder="data.portString"
+              />
+              <label
+                for="shortcode_localPort_{{ $random }}"
+                x-text="data.portString"
+              ></label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-floating mb-3">
+                <select class="form-select" id="shortcode_regionselect"
+                    x-model="data.selectedRegion"
+                >
+                    <option value="a.pinggy.io">Auto</option>
+                    <option value="us.a.pinggy.io">USA</option>
+                    <option value="eu.a.pinggy.io">Europe</option>
+                    <option value="ap.a.pinggy.io">Asia</option>
+                </select>
+                <label for="shortcode_regionselect" id="shortcode_regionselector">Region</label>
+            </div>
+          </div>
         </div>
+        
         <div x-show="data.mode === 'http'">
           <div class="row">
             <div class="col col-12 col-lg-6">
@@ -829,7 +849,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-2" style="--bs-gutter-x: 0">
+        <div class="row mt-2" style="--bs-gutter-x: 0"  x-show="data.mode === 'http'">
           <div
             class="form-floating mb-3 shortcode_webdebuggerportselector col"
             id="shortcode_webdebuggerportselector_{{ $random }}"
