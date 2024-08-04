@@ -221,7 +221,7 @@
           style="font-size: 0.9rem"
           role="alert"
           id="shortcode_alert_{{ $random }}"
-          x-show="data.reconnect"
+          x-show="data.reconnect && (data.connectiontype === 'ssh')"
           x-transition.duration.300ms
         >
           When the tunnel reconnects, your public URL will change. Upgrade to
@@ -355,7 +355,7 @@
             </div>
           </template>
         </div>
-        <div class="row">
+        <div class="row" x-show="data.connectiontype != 'cli'" x-transition.duration.150ms>
           <div class="col col-12 col-lg-6">
             <div class="form-check form-switch mb-3">
               <input
@@ -418,7 +418,7 @@
               >
             </div>
           </div>
-          <div class="col col-12 col-lg-6">
+          <div class="col col-12 col-lg-6" x-show="data.connectiontype != 'cli'" x-transition.duration.150ms>
             <div class="form-check form-switch mb-3">
               <input
                 class="form-check-input shortcode_rsaCheck"

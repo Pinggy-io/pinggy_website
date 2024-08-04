@@ -116,11 +116,11 @@ document.addEventListener("alpine:init", () => {
       }
 
 
-      if (!data.manuallyCheckKey) {
+      if (!data.manuallyCheckKey && data.connectiontype === "ssh") {
         options += " -o StrictHostKeyChecking=no";
       }
 
-      if (data.keepAlive) {
+      if (data.keepAlive && data.connectiontype === "ssh") {
         options += " -o ServerAliveInterval=30";
       }
 
