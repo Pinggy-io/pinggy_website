@@ -4,7 +4,7 @@ title: "Pinggy - Simple Localhost Tunnels"
 
 <!-- Banner -->
 <header
-  class="pt-1"
+  class="pt-1 contentcontainer"
   x-data="{ data : $store.advModal }"
   x-init="data.tryItYourself = JSON.parse(localStorage.getItem('tryItYourself')) || {
         selectedOption: 'python',
@@ -255,7 +255,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body pt-4">
-                {{< pinggytunnel showTabs="true" mode="http" tunnelstring="Paste this command to start tunnel:" portstring="Local Port" localport="8000" webdebugenabled=false keepalive=true ipwhitelistcheck=true >}}
+                {{< pinggytunnel showTabs="true" mode="http" tunnelstring="Paste this command to start tunnel:" portstring="Local Port" localport="8000" webdebugenabled=true keepalive=true >}}
                 {{< /pinggytunnel >}}
             </div>
         </div>

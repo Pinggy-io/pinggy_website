@@ -31,46 +31,81 @@ document.addEventListener("alpine:init", () => {
         updateIpWhitelist();
       }
 
-      if (data.webDebugEnabled) {
-        let webdebugoption = `-L${data.webDebugPort}:localhost:${data.webDebugPort}`;
-        options += " " + webdebugoption;
-      }
-
-      if (!data.manuallyCheckKey) {
-        options += " -o StrictHostKeyChecking=no";
-      }
-
-      if (data.keepAlive) {
-        options += " -o ServerAliveInterval=30";
-      }
-
-      if (data.passwordCheck && data.basicusername && data.basicpass) {
-        if (
-          !data.basicusername.includes(":") &&
-          !data.basicpass.includes(":")
-        ) {
-          headercommands +=
-            " " + `\\\"b:${data.basicusername}:${data.basicpass}\\\"`;
+      // Http only options
+      if(data.mode === "http") {
+        if (data.webDebugEnabled) {
+          let webdebugoption = `-L${data.webDebugPort}:localhost:${data.webDebugPort}`;
+          options += " " + webdebugoption;
         }
+
+        if (data.passwordCheck && data.basicusername && data.basicpass) {
+          if (
+            !data.basicusername.includes(":") &&
+            !data.basicpass.includes(":")
+          ) {
+            headercommands +=
+              " " + `\\\"b:${data.basicusername}:${data.basicpass}\\\"`;
+          }
+        }
+  
+        data.headerModifications.forEach((headerMod) => {
+          const { mode, headername, headerval } = headerMod;
+          const thiscommand = `\\\"${mode}:${headername}${
+            headerval ? ":" + headerval : ""
+          }\\\"`;
+          headercommands += " " + thiscommand;
+        });
+  
+        if (data.keyAuthentication) {
+          const filteredAuthentications = data.keyAuthentications.filter(
+            (keyauthval, i) => keyauthval !== "" || i === 0
+          );
+          headercommands += filteredAuthentications
+            .reverse()
+            .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
+            .join("");
+        }
+  
+        if (data.localServerTLS) {
+          if (data.localServerTLSSNI) {
+            headercommands +=
+              " " + `\\\"x:localServerTls:${data.localServerTLSSNI}\\\"`;
+          }
+          else if(!data.localServerTLSSNI && data.forwardHost && data.forwardHostAddress){
+            headercommands +=
+              " " + `\\\"x:localServerTls:${data.forwardHostAddress}\\\"`;
+          } else if(!data.localServerTLSSNI && (!data.forwardHost || !data.forwardHostAddress)){
+            headercommands +=
+              " " + `\\\"x:localServerTls:localhost\\\"`;
+          } else {
+            headercommands +=
+              " " + `\\\"x:localServerTls\\\"`;
+          }
+        }
+  
+        if (data.reverseProxy) {
+          if (data.reverseProxyAddress) {
+            headercommands +=
+              " " + `\\\"x:reverseproxy:${data.reverseProxyAddress}\\\"`;
+          } else if(!data.reverseProxyAddress && data.forwardHost && data.forwardHostAddress) {
+            headercommands +=
+              " " + `\\\"x:reverseproxy:${data.forwardHostAddress}\\\"`;
+          } else if(!data.reverseProxyAddress && (!data.forwardHost || !data.forwardHostAddress)) {
+            headercommands +=
+              " " + `\\\"x:reverseproxy:localhost\\\"`;
+          } else {
+            headercommands +=
+              " " + `\\\"x:reverseproxy\\\"`;
+          }
+        }
+  
+        if (data.httpsonly){
+          headercommands += 
+              " " + `\\\"x:https\\\"`;;
+        }
+  
       }
 
-      data.headerModifications.forEach((headerMod) => {
-        const { mode, headername, headerval } = headerMod;
-        const thiscommand = `\\\"${mode}:${headername}${
-          headerval ? ":" + headerval : ""
-        }\\\"`;
-        headercommands += " " + thiscommand;
-      });
-
-      if (data.keyAuthentication) {
-        const filteredAuthentications = data.keyAuthentications.filter(
-          (keyauthval, i) => keyauthval !== "" || i === 0
-        );
-        headercommands += filteredAuthentications
-          .reverse()
-          .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
-          .join("");
-      }
 
       if (data.ipWhitelistCheck) {
         const filteredIPs = data.ipWhitelist.filter((ipval, i) => {
@@ -80,43 +115,16 @@ document.addEventListener("alpine:init", () => {
         headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
       }
 
-      if (data.localServerTLS) {
-        if (data.localServerTLSSNI) {
-          headercommands +=
-            " " + `\\\"x:localServerTls:${data.localServerTLSSNI}\\\"`;
-        }
-        else if(!data.localServerTLSSNI && data.forwardHost && data.forwardHostAddress){
-          headercommands +=
-            " " + `\\\"x:localServerTls:${data.forwardHostAddress}\\\"`;
-        } else if(!data.localServerTLSSNI && (!data.forwardHost || !data.forwardHostAddress)){
-          headercommands +=
-            " " + `\\\"x:localServerTls:localhost\\\"`;
-        } else {
-          headercommands +=
-            " " + `\\\"x:localServerTls\\\"`;
-        }
+
+      if (!data.manuallyCheckKey) {
+        options += " -o StrictHostKeyChecking=no";
       }
 
-      if (data.reverseProxy) {
-        if (data.reverseProxyAddress) {
-          headercommands +=
-            " " + `\\\"x:reverseproxy:${data.reverseProxyAddress}\\\"`;
-        } else if(!data.reverseProxyAddress && data.forwardHost && data.forwardHostAddress) {
-          headercommands +=
-            " " + `\\\"x:reverseproxy:${data.forwardHostAddress}\\\"`;
-        } else if(!data.reverseProxyAddress && (!data.forwardHost || !data.forwardHostAddress)) {
-          headercommands +=
-            " " + `\\\"x:reverseproxy:localhost\\\"`;
-        } else {
-          headercommands +=
-            " " + `\\\"x:reverseproxy\\\"`;
-        }
+      if (data.keepAlive) {
+        options += " -o ServerAliveInterval=30";
       }
 
-      if (data.httpsonly){
-        headercommands += 
-            " " + `\\\"x:https\\\"`;;
-      }
+      
 
       if(data.forwardHost){
         if (data.forwardHostAddress) {
@@ -158,9 +166,9 @@ document.addEventListener("alpine:init", () => {
       }
 
       let command = "";
-      if (data.connectiontype === "ssh") {
+      if (data.connectiontype === "ssh" && data.mode !== "udp") {
         command = `ssh -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}${selectedRegion}${headercommands}`;
-      } else if (data.connectiontype === "cli") {
+      } else {
         const pinggyExecutable =
           data.platformselect === "unix" ? "./pinggy" : "./pinggy.exe";
         command = `${pinggyExecutable} -p 443${options} -R0:${host}:${data.localPort} ${accessTokenPart}${additionalPart}${selectedRegion}${headercommands}`;
@@ -170,7 +178,7 @@ document.addEventListener("alpine:init", () => {
         command =
           data.platformselect === "unix"
             ? `while true; do \n    ${command}; \nsleep 10; done`
-            : `FOR /L %N IN () DO (${command}\ntimeout /t 10)`;
+            : `FOR /L %N IN () DO (\n${command}\ntimeout /t 10)`;
       }
 
       return command;

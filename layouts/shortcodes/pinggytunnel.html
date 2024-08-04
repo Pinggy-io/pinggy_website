@@ -11,7 +11,7 @@
 {{ $basicpass := .Get "basicpass" | default "" }}
 {{ $qrcheck := .Get "qrcheck" | default false }}
 {{ $reconnect := .Get "reconnect" | default false }}
-{{ $manuallycheckkey := .Get "manuallycheckkey" | default true }}
+{{ $manuallycheckkey := .Get "manuallycheckkey" | default false }}
 {{ $mode := .Get "mode" | default "http" }}
 {{ $keyauthentication := .Get "keyauthentication" | default false }}
 {{ $keyauthentications := .Get "keyauthentications" | default "[]" }}
@@ -126,9 +126,10 @@
               id="dropdownMenuButtonConnectionType"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              x-text="data.connectiontype === 'ssh' ? 'SSH' : 'CLI'"
+              x-text="data.mode === 'udp' ? 'CLI' : (data.connectiontype === 'ssh' ? 'SSH' : 'CLI')"
             ></div>
             <div
+              x-show="data.mode !== 'udp'"
               class="dropdown-menu"
               aria-labelledby="dropdownMenuButtonConnectionType"
             >
@@ -848,7 +849,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-2" style="--bs-gutter-x: 0">
+        <div class="row mt-2" style="--bs-gutter-x: 0"  x-show="data.mode === 'http'">
           <div
             class="form-floating mb-3 shortcode_webdebuggerportselector col"
             id="shortcode_webdebuggerportselector_{{ $random }}"
