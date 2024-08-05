@@ -260,54 +260,52 @@
           </div>
         </div>
         
-        <div x-show="data.mode === 'http'">
-          <div class="row">
-            <div class="col col-12 col-lg-6">
-              <div class="form-check form-switch mb-3">
-                <input
-                  class="form-check-input shortcode_passwordCheck"
-                  id="shortcode_passwordCheck_{{ $random }}"
-                  type="checkbox"
-                  x-on:click="data.keyAuthentication = false"
-                  x-model="data.passwordCheck"
-                />
-                <label
-                  class="form-check-label"
-                  for="shortcode_passwordCheck_{{ $random }}"
-                  >Password Protect
-                  <i
-                    class="bi bi-info-circle"
-                    type="button"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="right"
-                    data-bs-html="true"
-                    title="Enable basic authentication"
-                  ></i>
-                </label>
-              </div>
+        <div class="row">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_passwordCheck"
+                id="shortcode_passwordCheck_{{ $random }}"
+                type="checkbox"
+                x-on:click="data.keyAuthentication = false"
+                x-model="data.passwordCheck"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_passwordCheck_{{ $random }}"
+                >Password Protect
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-html="true"
+                  title="Enable basic authentication"
+                ></i>
+              </label>
             </div>
-            <div class="col col-12 col-lg-6">
-              <div class="form-check form-switch mb-3">
-                <input
-                  class="form-check-input shortcode_qrcheck"
-                  type="checkbox"
-                  id="shortcode_qrcheck_{{ $random }}"
-                  x-model="data.qrCheck"
-                />
-                <label
-                  class="form-check-label"
-                  for="shortcode_qrcheck_{{ $random }}"
-                  >QR Code
-                  <i
-                    class="bi bi-info-circle"
-                    type="button"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="right"
-                    data-bs-html="true"
-                    title="Show QR Code for the URL"
-                  ></i
-                ></label>
-              </div>
+          </div>
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_qrcheck"
+                type="checkbox"
+                id="shortcode_qrcheck_{{ $random }}"
+                x-model="data.qrCheck"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_qrcheck_{{ $random }}"
+                >QR Code
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-html="true"
+                  title="Show QR Code for the URL"
+                ></i
+              ></label>
             </div>
           </div>
           <template x-if="data.passwordCheck">
@@ -354,9 +352,7 @@
               </div>
             </div>
           </template>
-        </div>
-        <div class="row" x-show="data.connectiontype != 'cli'" x-transition.duration.150ms>
-          <div class="col col-12 col-lg-6">
+          <div class="col col-12 col-lg-6" x-show="data.connectiontype != 'cli'">
             <div class="form-check form-switch mb-3">
               <input
                 class="form-check-input shortcode_keepalive"
@@ -379,7 +375,7 @@
               </label>
             </div>
           </div>
-          <div class="col col-12 col-lg-6">
+          <div class="col col-12 col-lg-6" x-show="data.connectiontype != 'cli'">
             <div class="form-check form-switch mb-3">
               <input
                 class="form-check-input shortcode_restart"
@@ -401,8 +397,6 @@
               ></label>
             </div>
           </div>
-        </div>
-        <div class="row">
           <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
             <div class="form-check form-switch mb-3">
               <input
@@ -522,9 +516,7 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="row" x-show="data.mode === 'http'">
-          <div class="col col-12 col-lg-6">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
             <div class="form-check form-switch mb-3">
               <input
                 class="form-check-input shortcode_keyAuthentication"
@@ -593,7 +585,7 @@
               </div>
             </div>
           </div>
-          <div class="col col-12 col-lg-6">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
             <div class="form-check form-switch mb-3">
               <input
                 class="form-check-input shortcode_ipWhitelistCheck"
@@ -674,8 +666,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
           <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
             <div class="form-check form-switch mb-3">
               <input
@@ -729,9 +719,7 @@
             />
             </div>
           </div>
-        </div>
-        <div class="row" x-show="data.mode === 'http'">
-          <div class="col col-12 col-lg-6">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
             <div class="form-check form-switch mb-3">
               <input
                 class="form-check-input shortcode_localServerTLS"
@@ -765,7 +753,7 @@
             />
             </div>
           </div>
-          <div class="col col-12 col-lg-6">
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
             <div class="form-check form-switch mb-3">
               <input
                 class="form-check-input shortcode_reverseProxy"
@@ -799,8 +787,6 @@
             />
             </div>
           </div>
-        </div>
-        <div class="row">
           <div class="col col-12 col-lg-6">
             <div class="form-check form-switch mb-3">
               <input
@@ -822,30 +808,21 @@
                 ></i>
               </label>
             </div>
-          </div>
-        </div>
-        <div 
-          id="accesstokencontainer" 
-          class="mb-2" 
-          x-show="data.accesstoken"
-          x-transition.duration.300ms
-        >
-          <div
-            class="col col-12 col-lg-6"
-          >
-            <input
-              type="text"
-              aria-label="token"
-              placeholder="Access Token"
-              :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.accesstokenvalue)}"
-              class="form-control accesstokenval"
-              x-model="data.accesstokenvalue"
-            />
-            <div
-              class="invalid-feedback"
-              x-show="/[^a-zA-Z0-9-]/.test(data.accesstokenvalue) === true"
-            >
-              Alphanumeric characters only
+            <div class="col col-12 mb-2" x-show="data.accesstoken" x-transition.duration.300ms>
+              <input
+                type="text"
+                aria-label="token"
+                placeholder="Access Token"
+                :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.accesstokenvalue)}"
+                class="form-control accesstokenval"
+                x-model="data.accesstokenvalue"
+              />
+              <div
+                class="invalid-feedback"
+                x-show="/[^a-zA-Z0-9-]/.test(data.accesstokenvalue) === true"
+              >
+                Alphanumeric characters only
+              </div>
             </div>
           </div>
         </div>
