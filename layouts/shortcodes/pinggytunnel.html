@@ -308,7 +308,7 @@
               ></label>
             </div>
           </div>
-          <template x-if="data.passwordCheck">
+          <template x-if="data.passwordCheck && (data.mode === 'http')">
             <div class="row shortcode_passwordfields">
               <div class="col col-12 col-lg-6">
                 <div class="form-floating mb-3">

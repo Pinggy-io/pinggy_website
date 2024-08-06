@@ -5,25 +5,48 @@ document.addEventListener("alpine:init", () => {
       let headercommands = "";
       let host = "localhost";
 
-      async function fetchIpAddress() {
+      async function fetchIpAddresses() {
+        let ipv4Address = null;
+        let ipv6Address = null;
+      
         try {
-          const response = await fetch("https://api.ipify.org?format=json");
-          const ipAddressData = await response.json();
-          return ipAddressData.ip;
+          const ipv4Response = await fetch("https://api.ipify.org?format=json");
+          if (!ipv4Response.ok) {
+            throw new Error(`IPv4 fetch failed`);
+          }
+          const ipv4Data = await ipv4Response.json();
+          ipv4Address = ipv4Data.ip;
         } catch (error) {
-          console.error("Error fetching IP address:", error.message);
-          return null;
+          console.error("Error fetching IPv4 address:", error.message);
         }
+      
+        try {
+          const ipv6Response = await fetch("https://api6.ipify.org?format=json");
+          if (!ipv6Response.ok) {
+            throw new Error(`IPv6 fetch failed`);
+          }
+          const ipv6Data = await ipv6Response.json();
+          ipv6Address = ipv6Data.ip;
+        } catch (error) {
+          console.error("Error fetching IPv6 address:", error.message);
+        }
+      
+        return [ipv4Address, ipv6Address];
       }
-
+      
       async function updateIpWhitelist() {
-        const ipAddress = await fetchIpAddress();
-        if (ipAddress) {
-          data.ipWhitelist[0] = `${ipAddress}/${
-            ipAddress.includes(":") ? "128" : "24"
-          }`;
+        const [ipv4Address, ipv6Address] = await fetchIpAddresses();
+      
+        if (ipv4Address) {
+          data.ipWhitelist[0] = `${ipv4Address}/24`;
         } else {
-          console.error("Unable to fetch IP address.");
+          console.error("Unable to update IPv4 address in whitelist.");
+        }
+      
+        if (ipv6Address) {
+          data.ipWhitelist[1] = `${ipv6Address}/128`;
+        } else {
+          console.error("Unable to update IPv6 address in whitelist.");
         }
       }
 
