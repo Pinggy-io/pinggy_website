@@ -17,33 +17,61 @@ title: "Pinggy App"
           is sitting behind firewalls and NATs.
         </div>
       </div>
-      <div class="download border">
-      <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="http-tab" data-bs-toggle="tab"
-              data-bs-target="#tab-pane" type="button" role="tab"
-              aria-selected="true">Mac</button>
-      </li>
-      <li class="nav-item" role="presentation">
-          <button class="nav-link" id="tcp-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
-              type="button">Windows</button>
-      </li>
-      <li class="nav-item" role="presentation">
-          <button class="nav-link" id="udp-tab" data-bs-toggle="tab" data-bs-target="#tab-pane"
-              type="button" role="tab" aria-controls="udp-tab-pane" aria-selected="false"
-              @click="data.mode = 'udp'">Linux</button>
-      </li>
-    </ul>
-    <div class="pinggytunnelshortcode_formwrapper tab-pane fade show active" id="tab-pane">
-    <div class="text-center py-2 rounded border-top-0" style="">
-      Download for intel / Apple Silicon
-    </div>
-    </div>
-    </div>
+      <div class="download border rounded">
+        <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="mac-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-pane"
+              type="button"
+              role="tab"
+              aria-selected="true"
+            >
+              Mac
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="windows-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-pane"
+              type="button"
+              role="tab"
+              aria-selected="false"
+            >
+              Windows
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="linux-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-pane"
+              type="button"
+              role="tab"
+              aria-selected="false"
+            >
+              Linux
+            </button>
+          </li>
+        </ul>
+        <div
+          class="pinggytunnelshortcode_formwrapper tab-pane fade show active"
+          id="tab-pane"
+        >
+          <div class="text-center py-2 rounded border-top-0" style="">
+            Download for intel / Apple Silicon
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-lg-5 mt-3">
       <img
-        src="/assets/app5.png"
+        src="/assets/app5.webp"
         class="img-fluid"
         alt="Pinggy Dev/Test Environment Gateway"
       />
@@ -56,7 +84,7 @@ title: "Pinggy App"
     <div class="row justify-content-evenly">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <img
-          src="/assets/app4.png"
+          src="/assets/app4.webp"
           class="img-fluid"
           alt="Pinggy web debugger screenshot"
         />
@@ -70,13 +98,16 @@ title: "Pinggy App"
         <h2 class="h3 fw-bolder">Share your websites and apps in seconds!</h2>
         <ul class="list-unstyled text-muted">
           <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i>Pre-configured tunnels for popular apps such as Next.js, Express.js, Apache, Minecraft, etc.
+            <i class="bi bi-check2-circle me-2"></i>Pre-configured tunnels for
+            popular apps such as Next.js, Express.js, Apache, Minecraft, etc.
           </li>
           <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Save tunnel configurations for future.
+            <i class="bi bi-check2-circle me-2"></i> Save tunnel configurations
+            for future.
           </li>
           <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Customize the presets according to your needs.
+            <i class="bi bi-check2-circle me-2"></i> Customize the presets
+            according to your needs.
           </li>
         </ul>
       </div>
@@ -96,10 +127,12 @@ title: "Pinggy App"
         <h2 class="h3 fw-bolder">Monitor Tunnel Traffic</h2>
         <ul class="list-unstyled text-muted">
           <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Observe number or requests, <br/>and bandwidth usage
+            <i class="bi bi-check2-circle me-2"></i> Observe number or requests,
+            <br />and bandwidth usage
           </li>
           <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Debug HTTP / HTTPS requests live
+            <i class="bi bi-check2-circle me-2"></i> Debug HTTP / HTTPS requests
+            live
           </li>
           <li class="my-3">
             <i class="bi bi-check2-circle me-2"></i> Replay requests
@@ -112,7 +145,7 @@ title: "Pinggy App"
       </div>
       <div class="col-lg-6 mb-5 mb-lg-0">
         <img
-          src="/assets/app3.png"
+          src="/assets/app3.webp"
           class="img-fluid"
           alt="Pinggy web debugger screenshot"
         />
