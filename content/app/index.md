@@ -24,7 +24,7 @@ title: "Pinggy App"
               class="nav-link active"
               id="mac-tab"
               data-bs-toggle="tab"
-              data-bs-target="#tab-pane"
+              data-bs-target="#tab-mac"
               type="button"
               role="tab"
               aria-selected="true"
@@ -37,7 +37,7 @@ title: "Pinggy App"
               class="nav-link"
               id="windows-tab"
               data-bs-toggle="tab"
-              data-bs-target="#tab-pane"
+              data-bs-target="#tab-windows"
               type="button"
               role="tab"
               aria-selected="false"
@@ -50,7 +50,7 @@ title: "Pinggy App"
               class="nav-link"
               id="linux-tab"
               data-bs-toggle="tab"
-              data-bs-target="#tab-pane"
+              data-bs-target="#tab-linux"
               type="button"
               role="tab"
               aria-selected="false"
@@ -59,17 +59,71 @@ title: "Pinggy App"
             </button>
           </li>
         </ul>
-        <div
-          class="pinggytunnelshortcode_formwrapper tab-pane fade show active"
-          id="tab-pane"
-        >
-          <div class="text-center py-2 rounded border-top-0" style="">
-            Download for intel / Apple Silicon
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="tab-mac" role="tabpanel" aria-labelledby="tab-mac-tab">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Intel 64 bit</span>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/mac/amd64/Pinggy-1.0.1-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Apple Silicon</span>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/mac/arm64/Pinggy-1.0.1-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="tab-windows" role="tabpanel" aria-labelledby="tab-windows-tab">
+          <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>x86 64 bit</span>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/windows/amd64/Pinggy-1.0.1-arm64-Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Arm 64 bit</span>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/windows/arm64/Pinggy-1.0.1-x64-Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="tab-linux" role="tabpanel" aria-labelledby="tab-linux-tab">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>Ubuntu (deb) x86 64 bit</span>
+                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/linux/deb/amd64/pinggy-app_1.0.1_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>Ubuntu (deb) arm 64 bit</span>
+                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/linux/deb/arm64/pinggy-app_1.0.1_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>zip x86 64 bit</span>
+                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/linux/zip/amd64/Pinggy-linux-x64-1.0.1.zip" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>zip arm 64 bit</span>
+                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/linux/zip/arm64/Pinggy-linux-arm64-1.0.1.zip" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+              </div>
+            </li>
+          </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-5 mt-3">
+    <div class="col-lg-6 mt-3">
       <img
         src="/assets/app5.webp"
         class="img-fluid"

@@ -53,6 +53,9 @@ menus:
     - name: Docs
       url: /docs/
       weight: 120
+    - name: App
+      url: /app/
+      weight: 126
     - name: CLI
       url: /cli/
       weight: 125
