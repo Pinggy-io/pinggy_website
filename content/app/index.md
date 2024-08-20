@@ -81,13 +81,13 @@ title: "Pinggy App"
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>x86 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/windows/amd64/Pinggy-1.0.1-arm64-Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/windows/amd64/Pinggy-1.0.1-x64-Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Arm 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/windows/arm64/Pinggy-1.0.1-x64-Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.1/windows/arm64/Pinggy-1.0.1-arm64-Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
