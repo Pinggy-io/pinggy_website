@@ -129,6 +129,18 @@ input[type="number"] {
   border-color: black;
 }
 
+.btn-pinggy-blue {
+  background-color: rgba(70, 117, 199, 1);
+  color: white;
+  border-color: rgb(60, 102, 173);
+}
+
+.btn-pinggy-blue:hover {
+  background-color: rgb(60, 102, 173);
+  color: white;
+  border-color: rgb(60, 102, 173);
+}
+
 .btn-pinggy:hover {
   background-color: rgb(0, 0, 0);
   color: white;
