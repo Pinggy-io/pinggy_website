@@ -828,6 +828,61 @@ title: "Pinggy - Simple Localhost Tunnels"
   </div>
 </section>
 
+<!-- App / CLI section-->
+<section class="border-bottom" id="appcli">
+  <div class="container my-5">
+    <div class="my-3 row justify-content-center">
+      <div class="col-lg-12">
+        <h2 class="text-center">
+          Easy to use apps
+        </h2>
+      </div>
+    </div>
+    <div class="row justify-content-evenly">
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <h2 class="h3 fw-bolder mt-3">Desktop App</h2>
+        <ul class="list-unstyled text-muted">
+          <li class="my-3">
+            <i class="bi bi-check2-circle me-2"></i> Available for Windows, Mac, and Linux
+          </li>
+          <li class="my-3">
+            <i class="bi bi-check2-circle me-2"></i> Easy to use GUI to manage your tunnels
+          </li>
+          <li class="my-3">
+            <i class="bi bi-check2-circle me-2"></i> Auto start tunnels on boot
+          </li>
+        </ul>
+        <a class="text-decoration-none pinggy-link" href="/app/">
+          Learn more
+          <i class="bi bi-arrow-up-right-square"></i>
+        </a>
+        <h2 class="h3 fw-bolder mt-5">Command Line App</h2>
+        <ul class="list-unstyled text-muted">
+          <li class="my-3">
+            <i class="bi bi-check2-circle me-2"></i> Robust auto reconnection
+          </li>
+          <li class="my-3">
+            <i class="bi bi-check2-circle me-2"></i> JSON configuration
+          </li>
+        </ul>
+        <a class="text-decoration-none pinggy-link" href="/cli/">
+          Learn more
+          <i class="bi bi-arrow-up-right-square"></i>
+        </a>
+      </div>
+      <div class="col-lg-6 mb-5 mb-lg-0">
+      <a href="./app/">
+        <img
+          src="/assets/app5.webp"
+          class="img-fluid featureimage my-4"
+          alt="Pinggy desktop app screenshot"
+        />
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Features section-->
 <section class="py-5 border-bottom" id="features">
   <div class="container my-5">
