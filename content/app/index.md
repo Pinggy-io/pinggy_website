@@ -5,7 +5,7 @@ title: "Pinggy App"
 <div class="container">
   <div class="row justify-content-evenly">
     <div class="col-lg-5">
-      <div class="text-left my-5">
+      <div class="text-left mb-5 mt-2">
         <h1 class="display-5 fw-bolder biggestheader d-inline">
           Pinggy App <span style="color: #4589df">(Beta)</span>
         </h1>
@@ -126,7 +126,7 @@ title: "Pinggy App"
     <div class="col-lg-6 mt-3">
       <img
         src="/assets/app5.webp"
-        class="img-fluid"
+        class="img-fluid featureimage"
         alt="Pinggy Dev/Test Environment Gateway"
       />
     </div>

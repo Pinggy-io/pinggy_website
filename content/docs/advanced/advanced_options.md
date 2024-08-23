@@ -9,6 +9,19 @@
 
 Some advanced options to allow CORS preflight requests bypass authentication, add X-Forwarded headers, etc.
 
+
+## Reverse proxy mode
+
+For some servers, it is important to have `X-Forwarded-For`, `X-Forwarded-Host`, and `X-Forwarded-Proto` headers to be set. For setting all of them together, you can use the reverse proxy mode. It also sets the SNI to a proper value in case you are connecting to a [local HTTPS server](../../http_tunnels/#connect-to-local-https-server).
+
+You can enable reverse proxy mode with the `x:reverseproxy:HostName` command line argument. Change the `HostName` to the hostname required to connect to your local server, for example `localhost`.
+
+
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:reverseproxy:localhost\"}}}"
+{{</ ssh_command >}}
+
+
 ## Add X-Forwarded-For header to every request
 
 `X-Forwarded-For` is a mechanism to finding out the source (IP and Port) of the connection. Pinggy HTTP(S) tunnel does not implicitly add the this flag. However, user can enable `X-Forwarded-For` header with `x:xff` command line argument.
