@@ -46,6 +46,6 @@ Example:
 
 ```
 You can access local server via following URL(s):
-http://fakqxzqrohxxx.a.pinggy.online
-https://fakqxzqrohxxx.a.pinggy.online
+http://fakqxzqrohxxx.a.pinggy.link
+https://fakqxzqrohxxx.a.pinggy.link
 ```

@@ -31,7 +31,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 This will give you a public url such as:
 
 ```
-https://ranxxxxydxmwb.a.pinggy.online
+https://ranxxxxydxmwb.a.pinggy.link
 ```
 
 Now that you have pinggy running, you can use it to receive webhooks from other services to localhost:3000. To do this, you will need to configure the external service to send webhooks to your pinggy URL. You can change the port from 3000 to any port of your choice.

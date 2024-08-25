@@ -997,13 +997,23 @@ title: "Pinggy - Simple Localhost Tunnels"
           </div>
           <h2 class="h3 fw-bolder">Multiple Regions</h2>
           <h2 class="h4 fw-light">Fast Tunnels</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>USA</b> <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>Europe</b> <br /><i class="bi bi-check2-circle me-2"></i
-            ><b>Asia</b>
-          </p>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <p id="loc1">
+                  <i class="bi bi-check2-circle me-2"></i><b>USA</b> <br />
+                  <i class="bi bi-check2-circle me-2"></i><b>Europe</b> <br />
+                  <i class="bi bi-check2-circle me-2"></i><b>Asia</b>
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p id="loc2">
+                  <i class="bi bi-check2-circle me-2"></i><b>Brazil</b> <br />
+                  <i class="bi bi-check2-circle me-2"></i><b>Australia</b>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1398,7 +1408,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 <p>
                   <code>a.pinggy.io</code> is routed to the Pinggy server
                   nearest to your location. Currently we have our servers in
-                  USA, Sweden, and Singapore.
+                  USA, Europe, UK, Singapore, Brazil, and Australia.
                 </p>
               </div>
             </div>
@@ -1566,7 +1576,10 @@ title: "Pinggy - Simple Localhost Tunnels"
             >
               <div class="accordion-body" x-ref="faq8">
                 <p>
-                  The most common reason for this is that an existing tunnel
+                  Make sure you do not add any arbitrary argument after the SSH command.
+                </p>
+                <p>
+                  One common reason for this is that an existing tunnel
                   with the same token is active.
                 </p>
                 <p>

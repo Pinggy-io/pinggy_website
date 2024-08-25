@@ -21,8 +21,8 @@ The above command will provide you http and https URLs as follows:
 
 ```
 You can access local server via following URL(s):
-http://fakqxzqrohxxx.a.pinggy.online
-https://fakqxzqrohxxx.a.pinggy.online
+http://fakqxzqrohxxx.a.pinggy.link
+https://fakqxzqrohxxx.a.pinggy.link
 ```
 
 You can access your localhost service using these URLs.

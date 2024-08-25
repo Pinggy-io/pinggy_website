@@ -109,7 +109,7 @@ Paste the command into the terminal and press Enter. If prompted, enter a blank 
 
 ### Step 3 - Using the tunnel
 
-By following these steps, you'll create a TLS tunnel, and the command will output a public URL like `ran-atX986aa.a.pinggy.online`. Access your localhost HTTPS server using this public URL.
+By following these steps, you'll create a TLS tunnel, and the command will output a public URL like `ran-atX986aa.a.pinggy.link`. Access your localhost HTTPS server using this public URL.
 
 ### Step 4 - Configuring domain and certificates
 
