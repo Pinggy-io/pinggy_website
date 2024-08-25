@@ -41,10 +41,10 @@ However, all of these methods usually require port forwarding, which can pose se
    ```
 
    You will get a URL and port in the output such as:<br>
-   tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span style="background: #e9ecff">40527</span>
+   tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
 3. **Step 3.** Open _Remote Desktop Connection_ application on your Windows / _Microsoft Remote Desktop_ on Mac. Enter the URL:Port to connect.<br>
-   Example: `tljocjkijs.a.pinggy.online:40527`
+   Example: `tljocjkijs.a.pinggy.link:40527`
 
 4. Sign in to https://dashboard.pinggy.io to get your ongoing tunnel URLs from the dashboard.
 
@@ -81,14 +81,14 @@ Pinggy provides a secure and reliable method to remotely access your IoT devices
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to SSH server:" portstring="SSH server Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
 
-2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnrwn-14-139-241-214.a.free.pinggy.online:43141`
+2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnrwn-14-139-241-214.a.free.pinggy.link:43141`
 
 {{< image "iot/public_url.webp" "Public URL" >}}
 
 3. Now, you can use the public URL to connect to your Raspberry Pi from anywhere in the world. Open a terminal on your laptop or PC and run the following command:
 
    ```bash
-   ssh -p 43141 username@rnrwn-14-139-241-214.a.free.pinggy.online
+   ssh -p 43141 username@rnrwn-14-139-241-214.a.free.pinggy.link
    ```
 
 By executing this command, you establish an SSH connection to the Pinggy server, which redirects the traffic to your Raspberry Pi through the previously created tunnel. You can now access and control your Raspberry Pi as if it were directly connected to your local network.
@@ -140,7 +140,7 @@ This message indicates that the VNC server is running on the Raspberry Pi and is
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to VNC server:" portstring="VNC server Port" localport="5901" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
 
-2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnrwn-14-139-241-214.a.free.pinggy.online:43141`
+2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnrwn-14-139-241-214.a.free.pinggy.link:43141`
 
 3. Now, you can use the public URL to connect to your Raspberry Pi from anywhere in the world. Open a VNC client on your laptop or PC and enter the public URL in the address bar.
 
@@ -180,7 +180,7 @@ RDP follows the client-server model, where an RDP client is installed on a local
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to RDP server:" portstring="RDP server Port" localport="3389" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
 
-2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnrwn-14-139-241-214.a.free.pinggy.online:43141`
+2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnrwn-14-139-241-214.a.free.pinggy.link:43141`
 
 3. Now, you can use the public URL to connect to your Raspberry Pi from anywhere in the world. Open an RDP client on your laptop or PC and enter the public URL in the address bar.
 
@@ -232,7 +232,7 @@ Right now the web application can be accessed only from a local network because 
 2. After running the tunneling command, you will receive a public URL in the following format:
 
    ```bash
-   https://rnbsm-14-139-241-214.a.free.pinggy.online
+   https://rnbsm-14-139-241-214.a.free.pinggy.link
    ```
 
 3. Now, you can use the public URL to access your web app from anywhere in the world. Open a web browser on your laptop or PC and enter the public URL in the address bar.

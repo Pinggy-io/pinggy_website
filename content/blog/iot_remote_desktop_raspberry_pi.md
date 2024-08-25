@@ -29,10 +29,10 @@ You remotely access your Raspberry Pi desktop from anywhere using _Remote Deskto
    ```
 
    You will get a URL and port in the output such as:<br>
-   tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span style="background: #e9ecff">40527</span>
+   tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
 3. **Step 3.** Open _Remote Desktop Connection_ application on your Windows / _Microsoft Remote Desktop_ on Mac. Enter the URL:Port to connect.<br>
-   Example: `tljocjkijs.a.pinggy.online:40527`
+   Example: `tljocjkijs.a.pinggy.link:40527`
 
 4. Sign in to https://dashboard.pinggy.io to get your ongoing tunnel URLs from the dashboard.
 
@@ -70,9 +70,9 @@ ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
 ## Step 3. Obtain the Public URL
 
 After running the tunneling command, you will receive a public URL in the following format:
-tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span style="background: #e9ecff">40527</span>
+tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
-Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>) and port (<span style="background: #e9ecff">40527</span>) as they will be used to establish an RDP connection to your Raspberry Pi or other IoT device.
+Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>) and port (<span style="background: #e9ecff">40527</span>) as they will be used to establish an RDP connection to your Raspberry Pi or other IoT device.
 
 To avoid copying the URL, you can sign in to https://dashboard.pinggy.io to get an access token. When you start a tunnel using your access token, you can find ongoing tunnel URLs from the dashboard.
 

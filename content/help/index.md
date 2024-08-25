@@ -220,7 +220,7 @@
                 <p>
                   <code>a.pinggy.io</code> is routed to the Pinggy server
                   nearest to your location. Currently we have our servers in
-                  USA, Sweden, and Singapore.
+                  USA, Europe, UK, Singapore, Brazil, and Australia.
                 </p>
               </div>
             </div>
@@ -388,7 +388,10 @@
             >
               <div class="accordion-body" x-ref="faq8">
                 <p>
-                  The most common reason for this is that an existing tunnel
+                  Make sure you do not add any arbitrary argument after the SSH command.
+                </p>
+                <p>
+                  One common reason for this is that an existing tunnel
                   with the same token is active.
                 </p>
                 <p>

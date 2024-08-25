@@ -72,7 +72,7 @@ Using [Pinggy](https://pinggy.io/) is fastest way to setup a local tunnel. With 
    {{< /pinggytunnel >}}
 
 2. After running the tunneling command, you will receive a public URL in the following format:
-   tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span style="background: #e9ecff">40527</span>
+   tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
    You can use this address and port to connect to your local port from outside the local network.
 

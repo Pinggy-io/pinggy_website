@@ -20,8 +20,8 @@ In this guide, we'll walk through the process of exposing your localhost Minecra
    ```bash
    ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io
    ```
-4. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.online:40527`.
-5. Your friends can use the endpoint provided by Pinggy `tljocjkijs.a.pinggy.online:42289` to connect to your Local game server.
+4. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.link:40527`.
+5. Your friends can use the endpoint provided by Pinggy `tljocjkijs.a.pinggy.link:42289` to connect to your Local game server.
 
 {{% /tldr %}}
 
@@ -82,13 +82,13 @@ Now, let's use Pinggy to expose the server to the internet.
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start the tunnel" portstring="Server Port" localport="37624" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
 
-2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnsej-14-139-241-214.a.free.pinggy.online:42289`. This URL can be used to connect to your Minecraft server from anywhere.
+2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnsej-14-139-241-214.a.free.pinggy.link:42289`. This URL can be used to connect to your Minecraft server from anywhere.
 
    {{< image "minecraft/public_url.webp" "Public URL" >}}
 
 ## Joining the Server
 
-Your friends can use the endpoint provided by Pinggy `rnsej-14-139-241-214.a.free.pinggy.online:42289` to connect to your Local game server.
+Your friends can use the endpoint provided by Pinggy `rnsej-14-139-241-214.a.free.pinggy.link:42289` to connect to your Local game server.
 
 {{< image "minecraft/minecraft_join_server.webp" "Join Server" >}}
 

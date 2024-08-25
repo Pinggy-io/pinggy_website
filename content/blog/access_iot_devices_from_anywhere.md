@@ -21,13 +21,13 @@ You can access your Internet of Things (IoT), devices remotely and manage our de
    ```
    ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
    ```
-2. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.online:40527`.
+2. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.link:40527`.
 3. Use the SSH command with the URL and port to connect to your IoT device:
    ```
    ssh -p <port> <username>@<pinggy_url>
    ```
    Example:
-   `ssh -p 40527 pi@tljocjkijs.a.pinggy.online`
+   `ssh -p 40527 pi@tljocjkijs.a.pinggy.link`
 4. Now, you can securely SSH into your IoT device from anywhere in the world.
 
 5. Sign in to [https://pinggy.io](https://pinggy.io) and use and access token to know your active tunnel address remotely.
@@ -63,9 +63,9 @@ This command establishes a secure connection to the Pinggy.io server, creating a
 **Step 2: Obtain the Public URL**
 
 After running the tunneling command, you will receive a public URL in the following format:
-tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>:<span style="background: #e9ecff">40527</span>
+tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
-Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.online</span>) and port (<span style="background: #e9ecff">40527</span>) as they will be used to establish an SSH connection to your IoT device.
+Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>) and port (<span style="background: #e9ecff">40527</span>) as they will be used to establish an SSH connection to your IoT device.
 
 {{< image "iot/url.webp" "Public URL" >}}
 
@@ -74,7 +74,7 @@ Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.onl
 To SSH into your IoT device, use the SSH command along with the public URL and port number obtained in the previous step. Replace `username` with the username of your IoT device, and the URL and the port `40527` from the output of the pinggy command:
 
 ```
-ssh -p 40527 username@tljocjkijs.a.pinggy.online
+ssh -p 40527 username@tljocjkijs.a.pinggy.link
 ```
 
 By executing this command, you establish an SSH connection to the Pinggy.io server, which redirects the traffic to your IoT device through the previously created tunnel. You can now access and control your IoT device as if it were directly connected to your local network.
