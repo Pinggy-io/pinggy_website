@@ -5,6 +5,73 @@ document.addEventListener("alpine:init", () => {
       let headercommands = "";
       let host = "localhost";
 
+      // -------------
+      function escapeForBash(code) {
+        let bashCode = code.replaceAll("\\", "\\\\\\\\");
+        bashCode = bashCode.replaceAll('"', '\\\\\\"');
+      
+        bashCode = bashCode.replaceAll(/['&();<>`_|]/g, function (match) {
+          return "\\" + match;
+        });
+      
+        bashCode = bashCode.replaceAll(/[$/! #%\[\]^*@\-+=~.,?]/g, function (match) {
+          return "\\\\" + match;
+        });
+      
+        return bashCode;
+      }
+      
+      function escapeForCmd(code) {
+        let cmdCode = code.replaceAll("\\", "\\\\");
+      
+        cmdCode = cmdCode.replaceAll(/[$ ]/g, function (match) {
+          return "\\" + match;
+        });
+      
+        cmdCode = cmdCode.replaceAll('"', '\\\\\\"');
+      
+        cmdCode = cmdCode.replaceAll("&", '\\\\"&');
+        return cmdCode;
+      }
+      
+      function escapeForPowershell(code) {
+        let powershellCode = code.replaceAll("\\", "\\\\");
+      
+        powershellCode = powershellCode.replaceAll('"', '\\\\\\"');
+        powershellCode = powershellCode.replaceAll("'", '\\"');
+        powershellCode = powershellCode.replaceAll(" ", "\\ ");
+      
+        return powershellCode;
+      }
+      
+      function escapeForZsh(code) {
+        let zshCode = code.replaceAll("\\", "\\\\\\\\");
+        zshCode = zshCode.replaceAll('"', '\\\\\\"');
+      
+        zshCode = zshCode.replaceAll(
+          /['&();<>`_|! #%\[\]^*@\-+=~.,?]/g,
+          function (match) {
+            return "\\" + match;
+          }
+        );
+        return zshCode;
+      }
+      
+      function escapeForPlatform(code, platform) {
+        switch (platform) {
+          case "bash":
+            return escapeForBash(code);
+          case "windows_cmd":
+            return escapeForCmd(code);
+          case "windows_powershell":
+            return escapeForPowershell(code);
+          case "unix":
+            return escapeForZsh(code);
+          default:
+            return code;
+        }
+      }
+      // -------------
       async function fetchIpAddresses() {
         let ipv4Address = null;
         let ipv6Address = null;
@@ -66,16 +133,31 @@ document.addEventListener("alpine:init", () => {
             !data.basicusername.includes(":") &&
             !data.basicpass.includes(":")
           ) {
-            headercommands +=
-              " " + `\\\"b:${data.basicusername}:${data.basicpass}\\\"`;
+            let passwordProtectString = `\\"b:${escapeForPlatform(data.basicusername, data.platformselect)}:${escapeForPlatform(data.basicpass, data.platformselect)}\\"`;
+            
+            if (data.platformselect === "windows_powershell") {
+              // if (IpString) {
+              //   IpString = "'" + IpString + "'";
+              // }
+              if (passwordProtectString) {
+                headercommands += " " + "'" + passwordProtectString + "'";
+              }
+            } else {
+              headercommands += " " + passwordProtectString;
+            }
           }
         }
   
         data.headerModifications.forEach((headerMod) => {
           const { mode, headername, headerval } = headerMod;
-          const thiscommand = `\\\"${mode}:${headername}${
-            headerval ? ":" + headerval : ""
+          let thiscommand = `\\\"${mode}:${escapeForPlatform(headername, data.platformselect)}${
+            headerval ? ":" + escapeForPlatform(headerval, data.platformselect) : ""
           }\\\"`;
+          
+          if (data.platformselect === "windows_powershell") {
+            thiscommand = "'" + thiscommand + "'";
+          }
+          
           headercommands += " " + thiscommand;
         });
   
@@ -85,46 +167,46 @@ document.addEventListener("alpine:init", () => {
           );
           headercommands += filteredAuthentications
             .reverse()
-            .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
+            .map((keyauthval, i) => ` \\\"k:${escapeForPlatform(keyauthval, data.platformselect)}\\\"`)
             .join("");
         }
   
         if (data.localServerTLS) {
           if (data.localServerTLSSNI) {
             headercommands +=
-              " " + `\\\"x:localServerTls:${data.localServerTLSSNI}\\\"`;
+              " " + `x:localServerTls:${data.localServerTLSSNI}`;
           }
           else if(!data.localServerTLSSNI && data.forwardHost && data.forwardHostAddress){
             headercommands +=
-              " " + `\\\"x:localServerTls:${data.forwardHostAddress}\\\"`;
+              " " + `x:localServerTls:${data.forwardHostAddress}`;
           } else if(!data.localServerTLSSNI && (!data.forwardHost || !data.forwardHostAddress)){
             headercommands +=
-              " " + `\\\"x:localServerTls:localhost\\\"`;
+              " " + `x:localServerTls:localhost`;
           } else {
             headercommands +=
-              " " + `\\\"x:localServerTls\\\"`;
+              " " + `x:localServerTls`;
           }
         }
   
         if (data.reverseProxy) {
           if (data.reverseProxyAddress) {
             headercommands +=
-              " " + `\\\"x:reverseproxy:${data.reverseProxyAddress}\\\"`;
+              " " + `x:reverseproxy:${data.reverseProxyAddress}`;
           } else if(!data.reverseProxyAddress && data.forwardHost && data.forwardHostAddress) {
             headercommands +=
-              " " + `\\\"x:reverseproxy:${data.forwardHostAddress}\\\"`;
+              " " + `x:reverseproxy:${data.forwardHostAddress}`;
           } else if(!data.reverseProxyAddress && (!data.forwardHost || !data.forwardHostAddress)) {
             headercommands +=
-              " " + `\\\"x:reverseproxy:localhost\\\"`;
+              " " + `x:reverseproxy:localhost`;
           } else {
             headercommands +=
-              " " + `\\\"x:reverseproxy\\\"`;
+              " " + `x:reverseproxy`;
           }
         }
   
         if (data.httpsonly){
           headercommands += 
-              " " + `\\\"x:https\\\"`;;
+              " " + `x:https`;
         }
   
       }
@@ -135,7 +217,12 @@ document.addEventListener("alpine:init", () => {
           return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
         });
         filteredIPs.reverse();
-        headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
+
+        if(data.platformselect === "windows_powershell"){
+          headercommands += " " + `'\\\"w:${filteredIPs.join(",")}\\\"'`;
+        } else {
+          headercommands += " " + `\\\"w:${filteredIPs.join(",")}\\\"`;
+        }
       }
 
 
