@@ -16,6 +16,7 @@ $(document).ready(function () {
       var hrefValue = $childATag.attr("href");
       if (currentUrl.endsWith(hrefValue)) {
         $(this).addClass("active");
+        $(this).closest('.collapse').first().collapse('show');
       }
     }
   });
