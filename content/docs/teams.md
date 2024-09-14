@@ -9,6 +9,8 @@
 
 The **Teams** feature in Pinggy allows you to securely share your subscriptions, and more specifically, Pinggy tokens, without the need to share your account password. By creating a team, you can add others to access specific Pinggy tokens associated with your subscription while maintaining complete control over your account.
 
+Note: The Teams feature is only available for the Pinggy Pro subscription holders. You can <a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a>  to use teams.
+
 ## Benefits of Using Teams
 - **No need to share passwords**: Keep your account secure by sharing access to tokens instead of sharing your credentials.
 - **Flexible access management**: Add or remove team members and share selected tokens with specific teams.
@@ -24,16 +26,23 @@ To create a team and start sharing Pinggy tokens, follow these steps:
 2. **Create a Team**:
    - Click on the "Create New Team" button.
    - Give your team a name and a description that represents the group you are sharing tokens with.
+    ![create a team](/doc_img/teams/create_team.png)
+
 
 3. **Add Tokens to the team**:
    - Once the team is created, you can assign one or more Pinggy tokens to the team.
    - Click on the team and navigate to the "Tokens" tab. Then click the "Add Token" button to select and add tokens to this team.
    - These tokens will be shared with all the team members. If you make the token "editable," then the team members will be able to manage settings, including the subdomain and custom domain associated with the token. 
 
-4. **Invite Team Members**:
+    ![add a token to your team](/doc_img/teams/add_token.png)
+
+
+4. **Add Team Members**:
    - Open the team and navigate to the "Members" tab. Then click on the "Add Member" button.
    - Input the email addresses of the people you want to add to your team.
    - The added members will have access to the shared tokens.
+
+    ![add members to your team](/doc_img/teams/add_member.png)
 
 ## Managing Your Team
 - **Add or Remove Tokens**: You can add additional tokens or remove tokens from the team at any time, giving you full control over what is shared.
