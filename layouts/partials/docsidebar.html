@@ -13,7 +13,7 @@
     <span class="fs-5" style="font-weight: 500">Documentation</span>
   </a>
   <ul class="list-unstyled ps-0">
-    <li class="mb-1">
+    <li class="mb-1 collapsabledoclink">
       <button
         class="btn btn-toggle align-items-center rounded collapsed"
         data-bs-toggle="collapse"
@@ -37,16 +37,16 @@
         </ul>
       </div>
     </li>
-    <li class="mb-1">
+    <li class="mb-1 collapsabledoclink">
       <button
         class="btn btn-toggle align-items-center rounded collapsed"
         data-bs-toggle="collapse"
         data-bs-target="#http-collapse"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         HTTP Tunnels
       </button>
-      <div class="collapse show" id="http-collapse">
+      <div class="collapse" id="http-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li class="doclink">
             <a href="/docs/http_tunnels/" class="link-dark rounded"
@@ -81,16 +81,16 @@
         </ul>
       </div>
     </li>
-    <li class="mb-1">
+    <li class="mb-1 collapsabledoclink">
       <button
         class="btn btn-toggle align-items-center rounded collapsed"
         data-bs-toggle="collapse"
         data-bs-target="#tcp-collapse"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         TCP Tunnels
       </button>
-      <div class="collapse show" id="tcp-collapse">
+      <div class="collapse" id="tcp-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li class="doclink">
             <a href="/docs/tcp_tunnels/" class="link-dark rounded"
@@ -108,16 +108,16 @@
     <li class="doclink">
       <a href="/docs/udp_tunnels/" class="btn btn-non-toggle">UDP Tunnels</a>
     </li>
-    <li class="mb-1">
+    <li class="mb-1 collapsabledoclink">
       <button
         class="btn btn-toggle align-items-center rounded collapsed"
         data-bs-toggle="collapse"
         data-bs-target="#tls-collapse"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         TLS Tunnels
       </button>
-      <div class="collapse show" id="tls-collapse">
+      <div class="collapse" id="tls-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li class="doclink">
             <a href="/docs/tls_tunnels/" class="link-dark rounded"
@@ -132,16 +132,16 @@
         </ul>
       </div>
     </li>
-    <li class="mb-1">
+    <li class="mb-1 collapsabledoclink">
       <button
         class="btn btn-toggle align-items-center rounded collapsed"
         data-bs-toggle="collapse"
         data-bs-target="#tlstcp-collapse"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         TLSTCP Tunnels
       </button>
-      <div class="collapse show" id="tlstcp-collapse">
+      <div class="collapse" id="tlstcp-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li class="doclink">
             <a href="/docs/tlstcp_tunnels/" class="link-dark rounded"
@@ -161,16 +161,16 @@
     <li class="doclink">
       <a href="/docs/advanced/qr_code/" class="btn btn-non-toggle">QR Code</a>
     </li>
-    <li class="mb-1">
+    <li class="mb-1 collapsabledoclink">
       <button
         class="btn btn-toggle align-items-center rounded collapsed"
         data-bs-toggle="collapse"
         data-bs-target="#tunnel-startup-collapse"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Run Tunnel on Startup
       </button>
-      <div class="collapse show" id="tunnel-startup-collapse">
+      <div class="collapse" id="tunnel-startup-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li class="doclink">
             <a href="/docs/run_tunnel_on_startup/" class="link-dark rounded"
@@ -193,6 +193,11 @@
       >
     </li>
     <li class="doclink">
+      <a href="/docs/teams/" class="btn btn-non-toggle"
+        >Teams</a
+      >
+    </li>
+    <li class="doclink">
       <a href="/docs/client_behind_proxy/" class="btn btn-non-toggle">Client Behind Proxy</a>
     </li>
     <li class="doclink">
@@ -200,16 +205,16 @@
     </li>
 
     <li class="border-top my-3"></li>
-    <li class="mb-1">
+    <li class="mb-1 collapsabledoclink">
       <button
         class="btn btn-toggle align-items-center rounded collapsed"
         data-bs-toggle="collapse"
         data-bs-target="#orders-collapse"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Use cases
       </button>
-      <div class="collapse show" id="orders-collapse">
+      <div class="collapse" id="orders-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li class="doclink">
             <a href="/docs/guides/nextjs/" class="link-dark rounded"

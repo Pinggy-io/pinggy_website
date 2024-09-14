@@ -1197,6 +1197,16 @@ title: "Pinggy - Simple Localhost Tunnels"
                       >
                     </li>
                     <li class="list-group-item p-2">
+                      <b
+                        ><span x-text="seatVal"></span> Team<span
+                          x-show="seatVal > 1"
+                          >s</span
+                        ></b
+                      > <a href="/docs/teams/" target="_blank" class="link-dark">
+                          <i class="bi bi-info-circle"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item p-2">
                       Priority mail / Discord support
                     </li>
                   </ul>
@@ -1251,8 +1261,16 @@ title: "Pinggy - Simple Localhost Tunnels"
                     <li class="list-group-item p-2">
                       <b>Unlimited persistent TCP/UDP ports</b>
                     </li>
-                    <li class="list-group-item p-2">Discord Support</li>
-                    <li class="list-group-item p-2">Priority Call Support</li>
+                    <li class="list-group-item p-2">
+                      <b>Unlimited Teams</b>
+                        <a href="/docs/teams/" target="_blank" class="link-dark">
+                          <i class="bi bi-info-circle"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item p-2">
+                      <b>API to monitor and manage tunnels</b>
+                    </li>
+                    <li class="list-group-item p-2">Priority Discord & Call Support</li>
                   </ul>
                   <a
                     class="mt-auto w-100 btn btn-lg btn-pinggy"
