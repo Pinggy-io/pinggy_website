@@ -14,7 +14,6 @@ $(document).ready(function () {
     var $childATag = $(this).find("a");
     if ($childATag.length === 1) {
       var hrefValue = $childATag.attr("href");
-      console.log(currentUrl, hrefValue);
       if (currentUrl.endsWith(hrefValue)) {
         $(this).addClass("active");
         $(this).closest('.collapse').first().collapse('show');
