@@ -4,45 +4,16 @@ document.addEventListener("alpine:init", () => {
     webdebugCheck: true,
     webdebugPort: 4300,
     selectedRegion: "a.pinggy.io",
-    keyAuthentication: false,
-    ipWhitelistCheck: false,
     rsaCheck: true,
     keepalive: true,
     qrCheck: false,
-    restart: false,
-    platformselect: "unix",
-    passwordCheck: false,
-    basicusername: "",
-    basicpass: "",
-    keyAuthentications: [""],
-    ipWhitelist: [""],
-    headerModification: [],
-    accesstoken: false,
-    accesstokenvalue: "",
-    localServerTLS: false,
-    localServerTLSSNI: "",
+    platformselect: "unix"
   };
 
-  const defaultTcpTlsConfig = {
-    mode: "tcp",
-    selectedRegion: "a.pinggy.io",
-    localPort: 8000,
-    keepalive: true,
-    restart: false,
-    platformselect: "unix",
-    rsaCheck: true,
-    ipWhitelistCheck: false,
-    ipWhitelist: [""],
-    accesstoken: false,
-    accesstokenvalue: "",
-  };
 
   Alpine.store("advModal", {
     httpConfig:
       JSON.parse(localStorage.getItem("httpConfig")) || defaultHttpConfig,
-
-    tcp_tlsConfig:
-      JSON.parse(localStorage.getItem("tcp_tlsConfig")) || defaultTcpTlsConfig,
 
     updateLabelAndCommand: function () {
       const option = this.tryItYourself.selectedOption;
@@ -108,146 +79,10 @@ document.addEventListener("alpine:init", () => {
 
       return command;
     },
-    advancedHttpCommand: function () {
-      let config = this.httpConfig;
-      let options = "";
-      let headercommands = "";
-      let sshuser = "";
 
-      if (config.webdebugCheck) {
-        let webdebugoption = `-L${config.webdebugPort}:localhost:${config.webdebugPort}`;
-        options += " " + webdebugoption;
-      }
-      if (!config.rsaCheck) {
-        options += " -o StrictHostKeyChecking=no";
-      }
-      if (config.keepalive) {
-        options += " -o ServerAliveInterval=30";
-      }
-
-      config.headerModification.forEach((headerMod) => {
-        const { mode, name, value } = headerMod;
-        if (name !== "" || value !== "") {
-          if (mode === "r") {
-            headercommands += ` \\\"${mode}:${name}\\\"`;
-          } else {
-            headercommands += ` \\\"${mode}:${name}${
-              value ? ":" + value : ""
-            }\\\"`;
-          }
-        }
-      });
-
-      if (config.keyAuthentication) {
-        const filteredAuthentications = config.keyAuthentications.filter(
-          (keyauthval, i) => keyauthval !== "" || i === 0
-        );
-        headercommands += filteredAuthentications
-          .reverse()
-          .map((keyauthval, i) => ` \\\"k:${keyauthval}\\\"`)
-          .join("");
-      }
-
-      if (config.ipWhitelistCheck) {
-        const filteredIPs = config.ipWhitelist.filter((ipval, i) => {
-          return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
-        });
-        filteredIPs.reverse();
-        headercommands += ` \\\"w:${filteredIPs.join(",")}\\\"`;
-      }
-
-      if (config.passwordCheck && config.basicusername && config.basicpass) {
-        if (
-          !config.basicusername.includes(":") &&
-          !config.basicpass.includes(":")
-        ) {
-          headercommands +=
-            " " + `\\\"b:${config.basicusername}:${config.basicpass}\\\"`;
-        }
-      }
-
-      if (config.localServerTLS) {
-        if (config.localServerTLSSNI) {
-          headercommands +=
-            " " + `\\\"x:localServerTls:${config.localServerTLSSNI}\\\"`;
-        }
-        else {
-          headercommands +=
-            " " + `\\\"x:localServerTls\\\"`;
-        }
-      }
-
-      if (headercommands != "") {
-        options += " -t";
-      }
-
-      sshuser =
-        config.accesstoken && /^[a-zA-Z0-9-]+$/.test(config.accesstokenvalue)
-          ? `${config.accesstokenvalue}${config.qrCheck ? "+qr" : ""}@`
-          : config.qrCheck
-          ? "qr@"
-          : "";
-
-      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${sshuser}${config.selectedRegion}${headercommands}`;
-
-      if (config.restart) {
-        command =
-          config.platformselect === "unix"
-            ? `while true; do \n    ${command}; \nsleep 10; done`
-            : `FOR /L %N IN () DO (${command}\ntimeout /t 10)`;
-      }
-
-      return command;
-    },
     resetHttpConfig: function () {
       this.httpConfig = JSON.parse(JSON.stringify(defaultHttpConfig));
       localStorage.setItem("httpConfig", JSON.stringify(this.httpConfig));
-    },
-
-    advancedTcpTlsCommand: function () {
-      let config = this.tcp_tlsConfig;
-      let options = "";
-      let headercommands = "";
-
-      if (!config.rsaCheck) {
-        options += " -o StrictHostKeyChecking=no";
-      }
-      if (config.keepalive) {
-        options += " -o ServerAliveInterval=30";
-      }
-
-      if (config.ipWhitelistCheck) {
-        const filteredIPs = config.ipWhitelist.filter((ipval, i) => {
-          return (ipval !== "" || i === 0) && ipCidrValidator(ipval);
-        });
-        headercommands += filteredIPs
-          .reverse()
-          .map((ipval, i) => ` \\\"w:${ipval}\\\"`)
-          .join("");
-      }
-
-      if (headercommands != "") {
-        options += " -t";
-      }
-
-      let command = `ssh -p 443 -R0:localhost:${config.localPort} ${options} ${
-        config.accesstoken && /^[a-zA-Z0-9-]+$/.test(config.accesstokenvalue)
-          ? config.accesstokenvalue + "+" + config.mode
-          : config.mode
-      }@${config.selectedRegion}${headercommands}`;
-
-      if (config.restart) {
-        command =
-          config.platformselect === "unix"
-            ? `while true; do \n    ${command}; \nsleep 5; done`
-            : `FOR /L %N IN () DO (${command}\ntimeout /t 5)`;
-      }
-
-      return command;
-    },
-    resetTcpTlsConfig: function () {
-      this.tcp_tlsConfig = JSON.parse(JSON.stringify(defaultTcpTlsConfig));
-      localStorage.setItem("tcp_tlsConfig", JSON.stringify(this.tcp_tlsConfig));
     },
   });
 });
