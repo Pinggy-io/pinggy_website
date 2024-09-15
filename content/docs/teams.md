@@ -9,7 +9,7 @@
 
 The **Teams** feature in Pinggy allows you to securely share your subscriptions, and more specifically, Pinggy tokens, without the need to share your account password. By creating a team, you can add others to access specific Pinggy tokens associated with your subscription while maintaining complete control over your account.
 
-Note: The Teams feature is only available for the Pinggy Pro subscription holders. You can <a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a>  to use teams.
+Note: The Teams feature is only available for the Pinggy Pro subscription holders. You can <a target="_blank" href="/#prices">upgrade to Pinggy Pro</a>  to use teams.
 
 ## Benefits of Using Teams
 - **No need to share passwords**: Keep your account secure by sharing access to tokens instead of sharing your credentials.
