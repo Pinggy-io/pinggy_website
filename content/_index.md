@@ -1020,7 +1020,7 @@ title: "Pinggy - Simple Localhost Tunnels"
   </div>
 </section>
 
-<header class="bg-light py-5" id="prices">
+<header class="bg-light py-5" id="prices" x-init="$store.location.detectCountry()">
   <div class="container">
     <div class="row justify-content-md-center">
       <!-- Begin Page Content -->
@@ -1069,7 +1069,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 <div class="card-body d-flex flex-column">
                   <div>
                     <h1 class="card-title pricing-card-title">
-                      $0<small class="text-muted fw-light">/month</small>
+                      <span x-text="$store.location.currency"></span> 0<small class="text-muted fw-light">/month</small>
                     </h1>
                     <span class="text-muted fw-light">Free for life</span>
                   </div>
@@ -1142,8 +1142,8 @@ title: "Pinggy - Simple Localhost Tunnels"
                   </div>
                   <div class="yearly">
                     <h1 class="card-title pricing-card-title">
-                      $<span
-                        x-text="(2.50 * seatVal).toFixed(2)"
+                      <span x-text="$store.location.currency"></span> <span
+                        x-text="$store.location.currency === 'INR' ? (204.89 * seatVal).toFixed(2) : (2.50 * seatVal).toFixed(2)"
                         id="yearprice"
                       ></span
                       ><small class="text-muted fw-light">/month</small>
@@ -1152,8 +1152,8 @@ title: "Pinggy - Simple Localhost Tunnels"
                   </div>
                   <div class="monthly">
                     <h1 class="card-title pricing-card-title">
-                      $<span
-                        x-text="(3.00 * seatVal).toFixed(2)"
+                      <span x-text="$store.location.currency"></span> <span
+                        x-text="$store.location.currency === 'INR' ? (245.87 * seatVal).toFixed(2) : (3.00 * seatVal).toFixed(2)"
                         id="monthprice"
                       ></span
                       ><small class="text-muted fw-light">/month</small>

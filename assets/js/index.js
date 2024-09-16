@@ -85,7 +85,30 @@ document.addEventListener("alpine:init", () => {
       localStorage.setItem("httpConfig", JSON.stringify(this.httpConfig));
     },
   });
+
+  Alpine.store('location', {
+    country: 'Unknown',
+    currency: '$',
+    detectCountry() {
+      console.log("detecting currency");
+      fetch('https://ipapi.co/json/') // Public IP Geolocation API
+        .then(response => response.json())
+        .then(data => {
+          this.country = data.country_name;
+          if (this.country === 'India') {
+            this.currency = 'INR';
+          } else {
+            this.currency = '$';
+          }
+        })
+        .catch(error => {
+          console.error('Error detecting country:', error);
+        });
+    }
+  });
+
 });
+
 
 // =======================================================
 function copytoclipboard(element, inputselector, amplitudemsg) {
