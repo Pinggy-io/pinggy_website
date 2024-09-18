@@ -164,7 +164,7 @@ document.addEventListener("alpine:init", () => {
           headercommands += filteredAuthentications
             .reverse()
             .map((keyauthval, i) => data.platformselect === "windows_powershell" ?
-              ` '\\\"k:${escapeForPlatform(keyauthval, data.platformselect)}\\\'"` :
+              ` '\\\"k:${escapeForPlatform(keyauthval, data.platformselect)}\\\"'` :
               ` \\\"k:${escapeForPlatform(keyauthval, data.platformselect)}\\\"`)
             .join("");
         }
