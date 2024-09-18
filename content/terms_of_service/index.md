@@ -46,6 +46,8 @@ You are granted a limited, non-sublicensable license to access and use the Pingg
 ## Refund Policy
 To apply for a refund, you need to get in touch with us and request the refund within the first 7 days of your original sign up and provide us with a reason citing how we are violating our terms of service. Refunds under any other circumstances will not be available.
 
+Once a refund is approved, the refund will be sent to you within 15 days of the refund initiation.
+
 ## Cancellation Policy
 Pinggy, operated by PINGGY TECHNOLOGY PRIVATE LIMITED reserves the right to modify, suspend or discontinue the use of Pinggy for any reason without previous notice. Pinggy reserves the right to change fees without any prior notice. Cancellation and Termination: You are responsible for the cancellation of your account. You may cancel your Pinggy subscribtion at any time by clicking on the “Manage Subscription” link in the Pinggy Dashboard, and you will not be charged for a renewal after the end of the current subscription period. There is no cancellation fee. Cancellation is immediate. Pinggy may terminate your account for any reason at any time. No refunds are applicable for the current subscription period. Calcellation only means suspending renewal at the end of the current subscription.
 
