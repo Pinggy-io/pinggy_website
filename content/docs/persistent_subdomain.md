@@ -1,15 +1,19 @@
 ---
  title: "Persistent Subdomain" 
- description: "Enjoy a stable, persistent subdomain with Pinggy Pro. Simplify URL management for seamless and secure access. Upgrade now for a hassle-free experience."
- date: 2023-01-10T14:15:25+05:30 
+ description: "Get a stable, persistent subdomain with Pinggy Pro. Simplify URL management for seamless and secure access. Upgrade now for a hassle-free experience."
+ date: 2023-01-10T14:15:25+05:30
+ lastmod: 2024-09-20T14:15:25+05:30
  draft: false 
 ---
 
 # Persistent Subdomain
 
-If you want a URL that does not change every time you create a new tunnel, you just need to <a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro.</a>.
+Pinggy assigns random URLs for **free** tunnels, such as `rnskg-21-24-129-38.a.free.pinggy.link`.
 
-Once you sign in, you will be presented a dashboard where you will find your access token.
+If you want a URL that does not change every time you create a new tunnel, you need to <a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a>.
+
+Once you have upgraded to Pinggy Pro, log in to <a target="_blank" href="http://dashboard.pinggy.io/">http://dashboard.pinggy.io/</a>. In the dashboard, you will find your access token.
+
 
 Example:
 
@@ -17,17 +21,27 @@ Example:
 "{}"
 {{</ ssh_command >}}
 
-You will also find your persistent subdomain in the dashboard.
 
-![Pinggy dashboard](/doc_img/pinggy_dashboard.jpg)
+The dashboard will also contain commands to start a tunnel using your token. A simple example Pinggy command using your token is as follows:
 
-Command to start a tunnel to port `8000` and with token `xGBTh6cy58q`:
-<br>
+```bash
+ssh -p 443 -R0:localhost:8000 xGBTh6cy58q@a.pinggy.io
+```
 
-{{< ssh_command text="ssh -p 443 -R0:localhost:8000 xGBTh6cy58q@a.pinggy.io" >}}
-"{}"
-{{</ ssh_command >}}
+# Configure Persistent Subdomain
 
-_Replace `8000` with the port where your service is running_.
 
-_Replace `xGBTh6cy58q` with your own token from the dashboard._
+In order to configure your persistent subdomain, first visit  <a target="_blank" href="https://dashboard.pinggy.io/subdomains">https://dashboard.pinggy.io/subdomains</a>.
+
+There, you will find a list of access tokens and their subdomains. Click on the **Edit** button to edit your persistent subdomain.
+
+
+
+
+![List of subdomains for Pinggy](/doc_img/subdomain/subdomain1.png)
+
+![Edit persistent subdomain for Pinggy](/doc_img/subdomain/subdomain2.png)
+
+After the subdomain is configured, start or restart your tunnel with the token to get the new persistent URL.
+
+Note that if you have already configured a custom domain for your token, you will need to delete the custom domain configuration first in order to change the subdomain.
