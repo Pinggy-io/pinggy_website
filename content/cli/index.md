@@ -45,7 +45,7 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button
-                  class="nav-link active"
+                  class="nav-link"
                   id="windows-tab"
                   data-bs-toggle="tab"
                   data-bs-target="#windows"
@@ -88,7 +88,7 @@
             </ul>
             <div class="tab-content" id="myTabContent">
               <div
-                class="tab-pane fade show active"
+                class="tab-pane fade"
                 id="windows"
                 role="tabpanel"
                 aria-labelledby="windows-tab"
