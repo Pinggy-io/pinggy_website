@@ -48,7 +48,7 @@
                   class="nav-link"
                   id="windows-tab"
                   data-bs-toggle="tab"
-                  data-bs-target="#windows"
+                  data-bs-target="#tab-windows"
                   type="button"
                   role="tab"
                   aria-controls="windows"
@@ -62,7 +62,7 @@
                   class="nav-link"
                   id="mac-tab"
                   data-bs-toggle="tab"
-                  data-bs-target="#mac"
+                  data-bs-target="#tab-mac"
                   type="button"
                   role="tab"
                   aria-controls="mac"
@@ -76,7 +76,7 @@
                   class="nav-link"
                   id="linux-tab"
                   data-bs-toggle="tab"
-                  data-bs-target="#linux"
+                  data-bs-target="#tab-linux"
                   type="button"
                   role="tab"
                   aria-controls="linux"
@@ -89,7 +89,7 @@
             <div class="tab-content" id="myTabContent">
               <div
                 class="tab-pane fade"
-                id="windows"
+                id="tab-windows"
                 role="tabpanel"
                 aria-labelledby="windows-tab"
               >
@@ -116,7 +116,7 @@
               </div>
               <div
                 class="tab-pane fade"
-                id="mac"
+                id="tab-mac"
                 role="tabpanel"
                 aria-labelledby="mac-tab"
               >
@@ -136,7 +136,7 @@
               </div>
               <div
                 class="tab-pane fade"
-                id="linux"
+                id="tab-linux"
                 role="tabpanel"
                 aria-labelledby="linux-tab"
               >
