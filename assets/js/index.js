@@ -215,3 +215,40 @@ $("#textchanger").teletype({
     "share your files!",
   ],
 });
+
+// OS detection script
+  document.addEventListener('DOMContentLoaded', function() {
+  function getOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+
+    if (macosPlatforms.indexOf(platform) !== -1 || iosPlatforms.indexOf(platform) !== -1) {
+      return 'mac';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      return 'windows';
+    } else if (/Linux/.test(platform)) {
+      return 'linux';
+    } else {
+      return 'windows'; // Default to Windows if unknown
+    }
+  }
+
+  var userOS = getOS();
+  var tabId = userOS + '-tab';
+  var tabElement = document.getElementById(tabId);
+
+  if (tabElement) {
+    var tab = new bootstrap.Tab(tabElement);
+    tab.show();
+  } else {
+    // Fallback to Windows tab if the detected OS tab doesn't exist
+    var windowsTab = document.getElementById('windows-tab');
+    if (windowsTab) {
+      var tab = new bootstrap.Tab(windowsTab);
+      tab.show();
+    }
+  }
+});
