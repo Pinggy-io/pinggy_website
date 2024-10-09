@@ -26,6 +26,10 @@
 {{ $httpsonly := .Get "httpsonly" | default false }}
 {{ $forwardHost := .Get "forwardHost" | default false }}
 {{ $forwardHostAddress := .Get "forwardHostAddress" | default "localhost" }}
+{{ $force := .Get "force" | default false }}
+{{ $corsPreflight := .Get "corsPreflight" | default false }}
+{{ $xForwardedFor := .Get "xForwardedFor" | default false }}
+{{ $fullUrl := .Get "fullUrl" | default false }}
 {{ $selectedRegion := .Get "selectedRegion" | default "a.pinggy.io" }}
 
 <div
@@ -58,6 +62,10 @@
         httpsonly: {{ $httpsonly }},
         forwardHost: {{ $forwardHost }},
         forwardHostAddress: '{{ $forwardHostAddress }}',
+        force: {{ $force }},
+        corsPreflight: {{ $corsPreflight }},
+        xForwardedFor: {{ $xForwardedFor }},
+        fullUrl: {{ $fullUrl }},
         accesstoken: false,
         accesstokenvalue: ''
     }
@@ -785,6 +793,100 @@
                 class="form-control localServerTLSval"
                 x-model="data.reverseProxyAddress"
             />
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_force"
+                type="checkbox"
+                id="shortcode_force_{{ $random }}"
+                x-model="data.force"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_force_{{ $random }}"
+                >Force
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-html="true"
+                  title="Forcefully close existing tunnels and establish a new tunnel"
+                ></i
+              ></label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_corsPreflight"
+                type="checkbox"
+                id="shortcode_corsPreflight_{{ $random }}"
+                x-model="data.corsPreflight"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_corsPreflight_{{ $random }}"
+                >Allow CORS preflight
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-html="true"
+                  title="Key authentication / password authentication will block
+                  all unauthenticated requests to Pinggy URLs. To allow
+                  CORS preflight requests, enable this option."
+                ></i
+              ></label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_xForwardedFor"
+                type="checkbox"
+                id="shortcode_xForwardedFor_{{ $random }}"
+                x-model="data.xForwardedFor"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_xForwardedFor_{{ $random }}"
+                >X-Forwarded-For header
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-html="true"
+                  title="Add X-Forwarded-For header to every request"
+                ></i
+              ></label>
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
+            <div class="form-check form-switch mb-3">
+              <input
+                class="form-check-input shortcode_fullUrl"
+                type="checkbox"
+                id="shortcode_fullUrl_{{ $random }}"
+                x-model="data.fullUrl"
+              />
+              <label
+                class="form-check-label"
+                for="shortcode_fullUrl_{{ $random }}"
+                >Original request url header
+                <i
+                  class="bi bi-info-circle"
+                  type="button"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-html="true"
+                  title="Original uri for every request in X-Pinggy-Url header"
+                ></i
+              ></label>
             </div>
           </div>
           <div class="col col-12 col-lg-6">
