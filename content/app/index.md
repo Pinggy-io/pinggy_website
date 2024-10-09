@@ -21,7 +21,7 @@ title: "Pinggy App"
         <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link active"
+              class="nav-link"
               id="mac-tab"
               data-bs-toggle="tab"
               data-bs-target="#tab-mac"
@@ -60,7 +60,7 @@ title: "Pinggy App"
           </li>
         </ul>
         <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="tab-mac" role="tabpanel" aria-labelledby="tab-mac-tab">
+          <div class="tab-pane fade" id="tab-mac" role="tabpanel" aria-labelledby="tab-mac-tab">
             <ul class="list-group">
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">

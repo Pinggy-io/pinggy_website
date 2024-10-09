@@ -207,6 +207,18 @@ document.addEventListener("alpine:init", () => {
             " " + `x:https`;
         }
 
+        if (data.corsPreflight) {
+          headercommands += " " + `x:passpreflight`;
+        }
+
+        if (data.xForwardedFor) {
+          headercommands += " " + `x:xff`;
+        }
+
+        if (data.fullUrl) {
+          headercommands += " " + `x:fullurl`;
+        }
+
       }
 
 
@@ -255,17 +267,26 @@ document.addEventListener("alpine:init", () => {
       let additionalPart = "";
 
       if (data.mode === "http") {
-        additionalPart =
+        let qrPart = data.qrCheck ? "qr" : "";
+        let forcePart = data.force ? "force" : "";
+        
+        let combinedPart = "";
+        if (qrPart && forcePart) {
+          combinedPart = `${qrPart}+${forcePart}`;
+        } else {
+          combinedPart = qrPart + forcePart;
+        }
+        
+        additionalPart = 
           accessTokenPart !== ""
-            ? data.qrCheck
-              ? "+qr@"
-              : "@"
-            : data.qrCheck
-              ? "qr@"
-              : "";
+            ? (combinedPart ? `+${combinedPart}@` : "@")
+            : (combinedPart ? `${combinedPart}@` : "");
       } else {
+        let forcePart = data.force ? "+force" : "";
         additionalPart =
-          accessTokenPart !== "" ? `+${data.mode}@` : `${data.mode}@`;
+          accessTokenPart !== "" 
+            ? `+${data.mode}${forcePart}@` 
+            : `${data.mode}${forcePart}@`;
       }
 
       let selectedRegion = "a.pinggy.io";
