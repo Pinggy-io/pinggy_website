@@ -12,7 +12,7 @@ Pinggy assigns random URLs for **free** tunnels, such as `rnskg-21-24-129-38.a.f
 
 If you want a URL that does not change every time you create a new tunnel, you need to <a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a>.
 
-Once you have upgraded to Pinggy Pro, log in to <a target="_blank" href="http://dashboard.pinggy.io/">http://dashboard.pinggy.io/</a>. In the dashboard, you will find your access token.
+Once you have upgraded to Pinggy Pro, log in to <a target="_blank" href="https://dashboard.pinggy.io/">https://dashboard.pinggy.io/</a>. In the dashboard, you will find your access token.
 
 
 Example:

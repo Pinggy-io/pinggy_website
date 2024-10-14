@@ -1,5 +1,5 @@
 ---
-title: "Privacy Policy"
+title: "Privacy Policy - Pinggy"
 date: 2022-12-02T09:35:04+05:30
 draft: false
 ---
