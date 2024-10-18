@@ -248,9 +248,11 @@ To begin, we need to generate an SSH key pair and set this up securely so that w
 - **Create a TCP Tunnel:** Once registered, run the following command to create a tunnel:
 
 
-```bash
-ssh -p 443 -R0:localhost:22 <your_pinggy_token>+tcp@a.pinggy.io
-```
+
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
 The command above simply sets up a tunnel from your system SSH Port (22) out to public internet through Pinggy.
 
 {{< image "ssh_into_docker_container/secure_tunneling_using_pinggy.webp" "Secure Tunneling Using Pinggy" >}}
