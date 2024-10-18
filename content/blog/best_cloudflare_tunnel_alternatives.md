@@ -267,7 +267,7 @@ npm install -g localtunnel
 lt --port 3000
 ```
 
-#### PPricing of Localtunnel:
+#### Pricing of Localtunnel:
 
 Free to use.
 
