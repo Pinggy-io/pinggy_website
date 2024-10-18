@@ -1,5 +1,5 @@
 ---
- title: "Contact Us" 
+ title: "Support - Pinggy" 
  date: 2022-12-02T14:15:25+05:30 
  draft: false 
 ---

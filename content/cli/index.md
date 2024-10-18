@@ -96,7 +96,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.3/windows/amd64/pinggy.exe"
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.1.4/windows/amd64/pinggy.exe"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -105,7 +105,7 @@
                   </li>
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.3/windows/arm64/pinggy.exe"
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.1.4/windows/arm64/pinggy.exe"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -123,7 +123,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.3/mac/univ/pinggy"
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.1.4/mac/univ/pinggy"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -143,7 +143,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.3/linux/amd64/pinggy"
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.1.4/linux/amd64/pinggy"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -152,7 +152,7 @@
                   </li>
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.3/linux/arm64/pinggy"
+                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.1.4/linux/arm64/pinggy"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -193,6 +193,7 @@
 ./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre
           >
         </div>
+        <h2 class="h3">Visit <a href="/docs/cli">Pinggy CLI documentation</a> to learn more.</h2>
       </div>
     </div>
   </div>
