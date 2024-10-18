@@ -9,6 +9,13 @@
 
 Pinggy Command Line Tool provides more robust tunnels with quicker reconnections when your tunnels are interrupted.
 
+<div>
+    <img
+    src="/assets/cli_tui.png" style="box-shadow: none;"
+    class="mt-2 py-2 img-fluid featureimage"
+    alt="Pinggy Dev/Test Environment Gateway"
+    />
+</div> 
 
 ## Download
 
@@ -43,6 +50,7 @@ This will start the tunnel that forwards connections to local port 3000. It also
 ```
 
 This will start the tunnel that forwards connections to a local **HTTPS** server running on `localhost:443`.
+
 
 #### HTTP(S) Tunnel
 
