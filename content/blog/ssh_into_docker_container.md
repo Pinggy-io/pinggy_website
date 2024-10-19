@@ -511,20 +511,6 @@ The problem with debugging using SSH access is that, the actions you may want to
 
 - Use tools like Datadog, New Relic, or Prometheus to monitor container metrics and performance remotely.
 
-
-## Summary
-
-This Blog provided two methods for SSH access into Docker containers:
-
-- **Method 1: SSH in to Host and SSH in to Docker**
-  - In this strategy, you log into the host machine running Docker using SSH either by the public ip that Docker will first get or give in the end if it does not have pingable ip or through using a tunnel service such as Pinggy. After this, you can use the docker exec command to then communicate with the shell of the container.
-
-- **Method 2: SSH Directly into Docker Container**
-  - Instead, you run the SSH server inside the Docker container, and specify the port 22 for connection. Where Pinggy is used, an SSH can be set up to be run directly within the container by its public URL and port number, through the host itself.
-
-This Blog also gives critical Docker Best Practices for Managing SSH, these are, limiting the utilization of SSH, making sure that the container is immutable, applying logging and Monitoring as a centralized factor, key authentication for SSH, and using CI/CD for the management of containers.
-Although SSH serves a useful purpose in some of the described operations, it is important to stick to the principles of Docker in the long term – automation, immutability, and security.
-
 ## Conclusion
 
 While, SSH is powerful tool for running Docker containers, but it has to be used carefully, in agreement with the Docker practices. Users can obtain access to the containers in production environment by techniques such as SSH into the host and run Docker proxied commands, or SSH into a container directly. However, you shouldn’t rely over much on manual intervention, for it’s against the core principles of Docker (immutability and automation). To make a more secure, scalable, and manageable Docker infrastructure one uses Docker exec to manage the containers combined with the security measure and centralized logging.
