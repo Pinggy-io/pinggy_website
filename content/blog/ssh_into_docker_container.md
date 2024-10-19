@@ -16,40 +16,114 @@ In this article, we will explore two methods to SSH into Docker containers and d
 
 {{< image "ssh_into_docker_container/img1.webp" "SSH into Docker Container" >}}
 
+{{% tldr %}}
 
-## Table of Contents
+1. **Method 1: SSH into Host and Exec into Docker**
 
-1. [Introduction](#introduction)
-   - [What is SSH?](#what-is-ssh)
-   - [How Does SSH Work?](#how-does-ssh-work)
-2. [Why is SSH Important for Docker Containers?](#why-is-ssh-important-for-docker-containers)
-3. [Method 1: SSH into Host and Exec into Docker](#method-1-ssh-into-host-and-exec-into-docker)
-   - [Diagram Overview](#diagram-overview)
-     - [Step 1: Install Docker](#step-1-install-docker)
-     - [Step 2: Run Your Docker Container](#step-2-run-your-docker-container)
-     - [Step 3: Secure Access with SSH Keys](#step-3-secure-access-with-ssh-keys)
-     - [Step 4: Enable SSH on Your System](#step-4-enable-ssh-on-your-system)
-       - [For macOS](#for-macos)
-       - [For Linux](#for-linux)
-       - [For Windows](#for-windows)
-     - [Step 5: Secure Tunneling Using Pinggy](#step-5-secure-tunneling-using-pinggy)
-     - [Step 6: Connect to SSH via Public URL](#step-6-connect-to-ssh-via-public-url)
-     - [Step 7: Access Docker Container](#step-7-access-docker-container)
-4. [Method 2: SSH Directly into Docker Using Pinggy](#method-2-ssh-directly-into-docker-using-pinggy)
-   - [Diagram Overview](#diagram-overview-1)
-     - [1. Set Up Ubuntu Docker Container](#1-set-up-ubuntu-docker-container)
-     - [2. Create a Tunnel Using Pinggy](#2-create-a-tunnel-using-pinggy)
-     - [3. SSH into the Container](#3-ssh-into-the-container)
-5. [Docker Best Practices for Managing SSH](#docker-best-practices-for-managing-ssh)
-   - [1. Ephemeral Nature of Containers](#1-ephemeral-nature-of-containers)
-   - [2. Container Immutability](#2-container-immutability)
-   - [3. Minimizing Security Risks](#3-minimizing-security-risks)
-   - [4. Limiting the Need for SSH](#4-limiting-the-need-for-ssh)
-   - [5. Centralized Logging and Monitoring](#5-centralized-logging-and-monitoring)
-6. [Summary](#summary)
-7. [Conclusion](#conclusion)
+   **Steps:**
 
-## Introduction
+   - **Install Docker on your system:**
+
+     Verify Docker installation:
+
+     ```bash
+     docker --version
+     ```
+
+   - **Run your Docker container:**
+
+     ```bash
+     docker run -d --name my-ubuntu-container ubuntu:latest tail -f /dev/null
+     ```
+
+   - **Generate SSH keys:**
+
+     ```bash
+     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+     ```
+
+   - **Enable SSH on your system:**
+
+     - **For macOS:**
+
+       ```bash
+       sudo systemsetup -setremotelogin on
+       ```
+
+     - **For Linux:**
+
+       ```bash
+       sudo apt update
+       sudo apt install openssh-server
+       sudo systemctl enable ssh
+       sudo systemctl start ssh
+       ```
+
+     - **For Windows:**
+
+       - Install OpenSSH Server through **Settings > Apps > Optional features**.
+
+   - **Create a secure tunnel using Pinggy:**
+
+     ```bash
+     ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+     ```
+
+   - **Connect to SSH via public URL provided by Pinggy:**
+
+     ```bash
+     ssh -p <port> -i ~/.ssh/id_rsa your_username@your-unique-url.a.free.pinggy.link
+     ```
+
+   - **Access Docker container:**
+
+     ```bash
+     docker exec -it my-ubuntu-container bash
+     ```
+
+   **Continue reading [Method 1](#method-1-ssh-into-host-and-exec-into-docker)**
+
+2. **Method 2: SSH Directly into Docker Using Pinggy**
+
+   **Steps:**
+
+   - **Set up Ubuntu Docker container:**
+
+     ```bash
+     docker run -it --name ssh-container ubuntu
+     ```
+
+   - **Install OpenSSH server inside the container:**
+
+     ```bash
+     apt-get update
+     apt-get install -y openssh-server
+     mkdir /var/run/sshd
+     ```
+
+   - **Configure SSH server and set root password:**
+
+     ```bash
+     echo 'root:password' | chpasswd
+     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+     service ssh start
+     ```
+
+   - **Create a tunnel using Pinggy:**
+
+     ```bash
+     ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+     ```
+
+   - **SSH into the container via the public URL provided by Pinggy:**
+
+     ```bash
+     ssh root@your-unique-url.a.free.pinggy.link -p <port>
+     ```
+
+   **Continue reading [Method 2](#method-2-ssh-directly-into-docker-using-pinggy)**
+
+{{% /tldr %}}
 
 ### What is SSH?
 
@@ -108,7 +182,7 @@ In this method, you will initially connect a terminal to the host machine, where
 
 ### Step-by-Step Guide
 
-#### **Step 1: Install Docker**
+#### Step 1: Install Docker
 
 Ensure Docker is installed on your system. If not, download it from the [official Docker website](https://www.docker.com/get-started).
 
@@ -120,7 +194,7 @@ docker --version
 
 {{< image "ssh_into_docker_container/docker_version.webp" "Docker Version" >}}
 
-#### **Step 2: Run Your Docker Container**
+#### Step 2: Run Your Docker Container
 
 Run an Ubuntu container:
 
@@ -132,7 +206,7 @@ This creates a container named `my-ubuntu-container` running in the background.
 
 {{< image "ssh_into_docker_container/docker_container_id.webp" "Docker Container Id" >}}
 
-#### **Step 3: Secure Access with SSH Keys**
+#### Step 3: Secure Access with SSH Keys
 
 To begin, we need to generate an SSH key pair and set this up securely so that we can SSH into our system. In this step, we create the private (`~/.ssh/id_rsa`) and public keys, which are required.
 
@@ -150,7 +224,7 @@ To begin, we need to generate an SSH key pair and set this up securely so that w
 - Optional: Add a passphrase for extra security.
 
 
-#### **Step 4: Enable SSH on Your System**
+#### Step 4: Enable SSH on Your System
 
 ##### *For macOS:*
 
@@ -238,7 +312,7 @@ To begin, we need to generate an SSH key pair and set this up securely so that w
 
 *Note:* After enabling SSH, you might need to refresh your system settings or restart your machine for the changes to take effect.
 
-#### **Step 5: Secure Tunneling Using Pinggy**
+#### Step 5: Secure Tunneling Using Pinggy
 
 [Pinggy](https://pinggy.io) can be used to create a TCP Tunnel to your SSH server so that you can access it from the public internet.
 
@@ -246,8 +320,6 @@ To begin, we need to generate an SSH key pair and set this up securely so that w
 - **Sign up for Pinggy:** If you don’t have a Pinggy account, register at the [Pinggy dashboard](https://dashboard.pinggy.io/).
 
 - **Create a TCP Tunnel:** Once registered, run the following command to create a tunnel:
-
-
 
 {{< ssh_command >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}}}"
@@ -257,7 +329,7 @@ The command above simply sets up a tunnel from your system SSH Port (22) out to 
 
 {{< image "ssh_into_docker_container/secure_tunneling_using_pinggy.webp" "Secure Tunneling Using Pinggy" >}}
 
-#### **Step 6: Connect to SSH via Public URL**
+#### Step 6: Connect to SSH via Public URL
 
 After creating the tunnel, Pinggy will provide a public URL like this:
 
@@ -282,7 +354,7 @@ tcp://your-unique-url.a.free.pinggy.link:port
 
 {{< image "ssh_into_docker_container/connect-to-ssh-via-public-url.webp" "Connect to SSH via Public URL" >}}
 
-#### **Step 7: Access Docker Container**
+#### Step 7: Access Docker Container
 
 Once connected to your system over SSH, run:
 
@@ -309,7 +381,7 @@ In this method, where you need direct SSH access to a Docker container, you can 
 
 ### Step-by-Step Guide
 
-#### **1. Set Up Ubuntu Docker Container**
+#### 1. Set Up Ubuntu Docker Container
 
 **Run an Ubuntu Container:**
 
@@ -350,14 +422,14 @@ service ssh start
 
 {{< image "ssh_into_docker_container/start_ssh_service.webp" "Start SSH Service" >}}
 
-#### **2. Create a Tunnel Using Pinggy**
+#### 2. Create a Tunnel Using Pinggy
 
 **Run the Pinggy Tunnel Command:**
 Exposes port 22 (SSH port on the container) using Pinggy. The command will forward the connection to the host machine's SSH server:
 
-```bash
-ssh -p 443 -R0:localhost:22 <your_access_token>+tcp@a.pinggy.io
-```
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}}}"
+{{</ ssh_command >}}
 
 {{< image "ssh_into_docker_container/create_a_tunnel_using_pinggy.webp" "Start SSH Service" >}}
 
@@ -368,7 +440,7 @@ After executing the command, Pinggy will give us a public URL which external use
 tcp://your-unique-url.a.free.pinggy.link:port
 ```
 
-#### **3. SSH into the Container**
+#### 3. SSH into the Container
 
 You connect to the Ubuntu container's SSH server on the public Pinggy link from your user machine. Run this command (replace rnhoq-27-59-124-165.a.free.pinggy.link) with the URL and port you received
 
