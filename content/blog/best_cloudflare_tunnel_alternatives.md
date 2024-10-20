@@ -86,7 +86,7 @@ To get how simple it is to open a tunnel, here is an example. If you want to sha
 ssh -p 443 -R0:localhost:3000 a.pinggy.io
 ```
 
-### Price of Pinggy
+#### Pricing of Pinggy
 
 Pinggy offers a **free tier** with basic functionalities, while paid plans start at **$2.50 per month**. The premium plan includes enhanced features like more extensive logging and additional custom domain support.
 
@@ -116,7 +116,7 @@ Ngrok is perfect for developers who need a secure, quick, and feature-rich tunne
 
 #### Installation Process:
 
-1. Download Ngrok from the official website.
+1. Download Ngrok from the [Download Link](https://ngrok.com/download).
 2. Extract and run the command:
 
 ```
@@ -153,7 +153,7 @@ Tailscale is perfect for securely connecting multiple devices in a private netwo
 
 #### Installation Process:
 
-1. Install Tailscale on your device using the package manager.
+1. Install Tailscale on your device from the [Download Link](https://tailscale.com/download).
 2. Run the following command:
 
 ```
@@ -190,7 +190,7 @@ Great for sharing web applications or files with others without complicated setu
 
 #### Installation Process:
 
-Download and install the LocalXpose client, then run:
+Download and install the LocalXpose client from the [Download Link](https://localxpose.io/download), then run:
 
 ```
 ./localxpose http 3000
@@ -230,7 +230,7 @@ Since it's open-source, users need to clone the repo and follow the setup guide:
 ```
 git clone https://github.com/openziti/zrok
 ```
-
+[Download Link](https://docs.zrok.io/docs/guides/install/)
 #### Pricing of Zrok:
 
 Free to use; requires self-hosting.
@@ -365,7 +365,7 @@ Ideal for developers who want to securely expose private services, including mic
 
 #### Installation Process:
 
-Run this command after installation:
+Run this command after installation ([Installation Link](https://docs.inlets.dev/reference/inletsctl/)):
 
 ```
 inlets http client --url https://your-server-url
