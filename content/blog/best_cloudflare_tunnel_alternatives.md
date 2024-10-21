@@ -92,7 +92,7 @@ Pinggy offers a **free tier** where tunnels last for 60 minutes. Paid plans star
 
 ## 2. Ngrok
 
-[Ngrok](https://ngrok.com/) is one of the most well-known and feature-rich tunneling services that allows you to expose local web servers securely to the internet. It’s packed with advanced features like request inspection, URL rewriting, and webhook verification, making it popular among developers and large organizations alike. Ngrok offers a smooth and secure way to access your localhost over HTTPS and provides dashboards for real time monitoring and analyzing traffic. The tool is extremely user-friendly with support for OAuth, JWT, and IP whitelisting, giving developers control over who can access their tunnels. Its customizable domain options and the ability to handle multiple simultaneous tunnels make it ideal for large-scale or team projects. However, its free tier has limited bandwidth and features, which may require users to upgrade for extended usage.
+{{< link href="https://ngrok.com/" >}}Ngrok{{</ link >}} is one of the most well-known and feature-rich tunneling services that allows you to expose local web servers securely to the internet. It’s packed with advanced features like request inspection, URL rewriting, and webhook verification, making it popular among developers and large organizations alike. Ngrok offers a smooth and secure way to access your localhost over HTTPS and provides dashboards for real time monitoring and analyzing traffic. The tool is extremely user-friendly with support for OAuth, JWT, and IP whitelisting, giving developers control over who can access their tunnels. Its customizable domain options and the ability to handle multiple simultaneous tunnels make it ideal for large-scale or team projects. However, its free tier has limited bandwidth and features, which may require users to upgrade for extended usage.
 
 {{< image "best_cloudflare_tunnel_alternatives/ngrok.webp" "ngrok screenshot" >}}
 
@@ -154,7 +154,7 @@ Tailscale is perfect for securely connecting multiple devices in a private netwo
 
 #### Installation Process:
 
-1. Install Tailscale on your device from the [Download Link](https://tailscale.com/download).
+1. Install Tailscale on your device from the {{< link href="https://tailscale.com/download" >}}Download Link{{< /link >}}.
 2. Run the following command:
 
 ```
@@ -191,7 +191,7 @@ Great for sharing web applications or files with others without complicated setu
 
 #### Installation Process:
 
-Download and install the LocalXpose client from the [Download Link](https://localxpose.io/download), then run:
+Download and install the LocalXpose client from the {{< link href="https://localxpose.io/download" >}}Download Link{{< /link >}}, then run:
 
 ```
 ./localxpose http 3000
@@ -231,7 +231,10 @@ Since it's open-source, users need to clone the repo and follow the setup guide:
 ```
 git clone https://github.com/openziti/zrok
 ```
-[Download Link](https://docs.zrok.io/docs/guides/install/)
+
+{{< link href="https://docs.zrok.io/docs/guides/install/" >}}Download Link{{< /link >}}
+
+
 #### Pricing of Zrok:
 
 Free to use; requires self-hosting.
@@ -366,7 +369,7 @@ Ideal for developers who want to securely expose private services, including mic
 
 #### Installation Process:
 
-Run this command after installation ([Installation Link](https://docs.inlets.dev/reference/inletsctl/)):
+Run this command after installation ({{< link href="https://docs.inlets.dev/reference/inletsctl/" >}}Installation Link{{< /link >}}):
 
 ```
 inlets http client --url https://your-server-url
@@ -408,16 +411,6 @@ Download and set up Frp on your server, then configure it to start your tunnel:
 #### Pricing of Frp:
 
 Free and open-source.
-
-<!-- ## Top 5 Open Source Cloudflare Tunnel alternatives
-
-If you are looking for only open source ngrok alternatives, here is a list:
-
-1. {{< link href="https://github.com/fatedier/frp" >}}frp{{< /link >}}
-2. {{< link href="https://theboroer.github.io/localtunnel-www/" >}}Localtunnel{{< /link >}}
-3. {{< link href="https://github.com/sshuttle/sshuttle" >}}sshuttle{{< /link >}}
-4. {{< link href="https://github.com/jpillora/chisel" >}}chisel{{< /link >}}
-5. {{< link href="https://github.com/ekzhang/bore" >}}bore{{< /link >}} -->
 
 ## Conclusion
 
