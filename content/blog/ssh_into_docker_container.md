@@ -22,46 +22,13 @@ In this article, we will explore two methods to SSH into Docker containers and d
 
    **Steps:**
 
-   - **Install Docker on your system:**
+   - **Run your Docker container.**
 
-     Verify Docker installation:
-
-     ```bash
-     docker --version
-     ```
-
-   - **Run your Docker container:**
-
-     ```bash
-     docker run -d --name my-ubuntu-container ubuntu:latest tail -f /dev/null
-     ```
-
-   - **Generate SSH keys:**
+   - **Generate SSH keys on your host:**
 
      ```bash
      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
      ```
-
-   - **Enable SSH on your system:**
-
-     - **For macOS:**
-
-       ```bash
-       sudo systemsetup -setremotelogin on
-       ```
-
-     - **For Linux:**
-
-       ```bash
-       sudo apt update
-       sudo apt install openssh-server
-       sudo systemctl enable ssh
-       sudo systemctl start ssh
-       ```
-
-     - **For Windows:**
-
-       - Install OpenSSH Server through **Settings > Apps > Optional features**.
 
    - **Create a secure tunnel using Pinggy:**
 
@@ -87,7 +54,7 @@ In this article, we will explore two methods to SSH into Docker containers and d
 
    **Steps:**
 
-   - **Set up Ubuntu Docker container:**
+   - **Set up your container. Example with Ubuntu container:**
 
      ```bash
      docker run -it --name ssh-container ubuntu
@@ -118,7 +85,7 @@ In this article, we will explore two methods to SSH into Docker containers and d
    - **SSH into the container via the public URL provided by Pinggy:**
 
      ```bash
-     ssh root@your-unique-url.a.free.pinggy.link -p <port>
+     ssh -p <port> root@your-unique-url.a.free.pinggy.link
      ```
 
    **Continue reading [Method 2](#method-2-ssh-directly-into-docker-using-pinggy)**
@@ -127,7 +94,7 @@ In this article, we will explore two methods to SSH into Docker containers and d
 
 ### What is SSH?
 
-SSH is a widely supported protocol that is used for remotely making administrative connections to another computer on the network. It enables individuals to access a different computer and run commands through a terminal at least as if they were physically with the system. Commonly, SSH is used to accomplish an encrypted and secure communication channel between a client and a server, so such a tool is invaluable for system administrators, developers, and network engineers.
+SSH is a widely supported protocol that is used for remotely making administrative connections to another computer over the network. It enables individuals to access a different computer and run commands through a terminal as if they were physically with the system. Commonly, SSH is used to accomplish an encrypted and secure communication channel between a client and a server, so such a tool is invaluable for system administrators, developers, and network engineers.
 SSH is often used in handling cloud-based servers, managing distant services or even Docker instances as we will explain in this guide.
 
 
@@ -139,7 +106,7 @@ SSH uses a client-server model of operation, in that the client initiates connec
 **Requirements to Set Up an SSH Session:**
 
 - **An SSH client:** A tool run locally on your machine. Most Linux distributions and macOS come with the OpenSSH client pre-installed.
-- **An SSH server:** Originally, the bash commands in this document assumed that SSH was already installed and running on the remote machine or container. This is what waits for connection requests over an SSH server on a specific port, most preferably port number 22.
+- **An SSH server:** An SSH server has to be installed and running on the remote machine or container. This is what waits for connection requests over an SSH server on a specific port, most preferably port number 22.
 
 
 **Basic SSH Command Syntax:**
@@ -168,7 +135,7 @@ SSH can be effective in container management irrespective of the working environ
 SSH also enables tunneling, port forwarding, and other features that may be helpful when dealing with containers remotely. or in a specific network topological structure.
 
 ## Method 1: SSH into Host and Exec into Docker
-In this method, you will initially connect a terminal to the host machine, where the Docker container is launched from by using SSH. After getting on the host, it is possible to use a built-in Docker exec command to work in the container. This is a quite simple and safe process if you deal with the containers in a production mode.
+In this method, you will initially connect a terminal to the host machine, where the Docker container is launched from by using SSH. After getting on the host, it is possible to use a built-in `docker exec` command to work in the container. This is a quite simple and safe process if you deal with the containers in a production mode.
 
 
 ### Diagram Overview
@@ -176,7 +143,7 @@ In this method, you will initially connect a terminal to the host machine, where
 {{< image "ssh_into_docker_container/ssh_into host_and_exec_into_docker.webp" "SSH into Host and Exec into Docker" >}}
 
 **Diagram flow Summary**
-  - Pinggy tunnel allows the user to access the host (Mac).
+  - Pinggy tunnel allows the user to access the host.
   - Authentication is handled by the SSH server on the host, granting user access.
   - Once authenticated, Docker commands (like `docker exec`) can be used to open a terminal session in the running Docker container.
 
@@ -184,7 +151,7 @@ In this method, you will initially connect a terminal to the host machine, where
 
 #### Step 1: Install Docker
 
-Ensure Docker is installed on your system. If not, download it from the [official Docker website](https://www.docker.com/get-started).
+Ensure Docker is installed on your system. If not, download it from the {{< link href="https://www.docker.com/get-started" >}}official Docker website{{< /link >}}.
 
 **Verify Docker Installation:**
 
@@ -314,10 +281,10 @@ To begin, we need to generate an SSH key pair and set this up securely so that w
 
 #### Step 5: Secure Tunneling Using Pinggy
 
-[Pinggy](https://pinggy.io) can be used to create a TCP Tunnel to your SSH server so that you can access it from the public internet.
+If the client you are connecting from and the host where the container is running are within the same network, then you can use the IP address of the host to establish an ssh connection. However, often the client and the host are on different networks, and the host might not have a public IP address to make it accessible. In such cases, [Pinggy](https://pinggy.io) can be used to create a TCP Tunnel to your SSH server so that you can access it from the public internet.
 
 
-- **Sign up for Pinggy:** If you don’t have a Pinggy account, register at the [Pinggy dashboard](https://dashboard.pinggy.io/).
+- **Sign up for Pinggy:** If you don’t have a Pinggy account, register at the {{< link href="https://dashboard.pinggy.io/" >}}Pinggy dashboard{{< /link >}}.
 
 - **Create a TCP Tunnel:** Once registered, run the following command to create a tunnel:
 
@@ -374,7 +341,7 @@ In this method, where you need direct SSH access to a Docker container, you can 
 {{< image "ssh_into_docker_container/ssh_directly_into_docker_using_pinggy.webp" "SSH Directly into Docker Using Pinggy" >}}
 
 **Diagram flow Summary**
-- The container runs Ubuntu and is accessible publicly by Pingry’s URL.
+- The container runs Ubuntu and is accessible publicly by Pinggy’s URL.
 - The connection is forwarded to port 22 of the container from the public endpoint through pinggy.
 - The SSH server simply listens to port 22 in the container and takes care of this connection.
 
@@ -383,7 +350,11 @@ In this method, where you need direct SSH access to a Docker container, you can 
 
 #### 1. Set Up Ubuntu Docker Container
 
+
 **Run an Ubuntu Container:**
+
+We are using an ubuntu container image for demonstrating this method. You can install ssh server in your own existing containers.
+
 
 ```bash
 docker run -it --name ssh-container ubuntu
@@ -442,11 +413,11 @@ tcp://your-unique-url.a.free.pinggy.link:port
 
 #### 3. SSH into the Container
 
-You connect to the Ubuntu container's SSH server on the public Pinggy link from your user machine. Run this command (replace rnhoq-27-59-124-165.a.free.pinggy.link) with the URL and port you received
+Connect to the Ubuntu container's SSH server on the public Pinggy link from your user machine. Run this command (replace rnhoq-27-59-124-165.a.free.pinggy.link) with the URL and port you received
 
 
 ```bash
-ssh root@your-unique-url.a.free.pinggy.link -p <port>
+ssh -p <port> root@your-unique-url.a.free.pinggy.link
 ```
 
 **Authenticate:**
@@ -457,7 +428,7 @@ Enter the password you set earlier (`password` in this example).
 
 
 ## Docker Best Practices for Managing SSH
-For Docker containers there is a notion of them being “disposable”. They are designed to be as long as the task or the process in which it is applied, and can be reused in cases of errors. Any changes I make manually when I am SSH’ed into a container are not permanent. If they are not added to the image, all changes will be gone once the container stops or restarts.
+For Docker containers there is a notion of them being “disposable”. They are designed to be as long as the task or the process in which it is applied, and can be reused in cases of errors. Any changes we make manually after SSHing into a container are not permanent. If they are not added to the image, all changes will be gone once the container stops or restarts.
 
 ### 1. Ephemeral Nature of Containers
 Never input or place something into a container by hand. Still, make changes in such manners in Dockerfiles or deploy changes using configuration management tools such as Ansible or Chef if changes are made through SSH.
@@ -487,7 +458,7 @@ It is worth to note that containers as being isolated and thus secure units them
 
 - Instead of carrying out password-based authentication, use SSH key-based authentication to reduce brute force attacks. The first is to ensure that Root login is disabled, as well as the default privileges for users be restricted.
 
-- In slower networks the use of iptables or the setup of firewall rules for non allowance of port 22 will help. This should be done only from clients with trusted IP addresses or from within trusted networks.
+- You should use the {{< link href="https://pinggy.io/docs/tcp_tunnels/ip_whitelist/" >}}IP Whitelist{{< /link >}} feature of Pinggy to only allow connections from trusted IP addresses.
 
 - You should update and patch your existing SSH server and your Docker images as often as possible to minimize on security exploits.
 
@@ -515,4 +486,3 @@ The problem with debugging using SSH access is that, the actions you may want to
 
 While, SSH is powerful tool for running Docker containers, but it has to be used carefully, in agreement with the Docker practices. Users can obtain access to the containers in production environment by techniques such as SSH into the host and run Docker proxied commands, or SSH into a container directly. However, you shouldn’t rely over much on manual intervention, for it’s against the core principles of Docker (immutability and automation). To make a more secure, scalable, and manageable Docker infrastructure one uses Docker exec to manage the containers combined with the security measure and centralized logging.
 
----
