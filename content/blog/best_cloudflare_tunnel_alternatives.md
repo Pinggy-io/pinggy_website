@@ -15,7 +15,7 @@
 
 {{< image "best_cloudflare_tunnel_alternatives/New-img1.webp" "best cloudflare tunnel alternatives" >}}
 
-## List of Top 10 Cloudflare Tunnel alternatives in 2024
+## List of best Cloudflare Tunnel alternatives
 
 1. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}
 2. {{< link href="https://ngrok.com/" >}}ngrok{{< /link >}}
@@ -88,7 +88,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 
 #### Pricing of Pinggy
 
-Pinggy offers a **free tier** with basic functionalities, while paid plans start at **$2.50 per month**. The premium plan includes enhanced features like more extensive logging and additional custom domain support.
+Pinggy offers a **free tier** where tunnels last for 60 minutes. Paid plans start at **$2.50 per month**, which includes enhanced features like custom domain support, teams, etc.
 
 ## 2. Ngrok
 
@@ -111,12 +111,13 @@ Ngrok is perfect for developers who need a secure, quick, and feature-rich tunne
 
 #### Cons of Ngrok:
 
+- No UDP tunnels.
 - Requires account sign-up for use.
 - Limited bandwidth in the free tier, which might not suffice for high-traffic applications.
 
 #### Installation Process:
 
-1. Download Ngrok from the [Download Link](https://ngrok.com/download).
+1. Download Ngrok from the {{< link href="https://ngrok.com/download" >}}Download Link{{</ link >}}.
 2. Extract and run the command:
 
 ```
@@ -129,7 +130,7 @@ Plans start at $8 per month, with various tiers depending on features such as co
 
 ## 3. Tailscale
 
-[Tailscale](https://tailscale.com/) is a peer-to-peer VPN tool built on WireGuard technology. It emphasizes security and ease of use, allowing you to create private mesh networks between devices with minimal configuration. Tailscale bypasses the need for public-facing IP addresses by creating direct connections between devices, regardless of firewalls or NATs. Although Tailscale is primarily a VPN solution, it can serve as an excellent tunneling alternative, providing encrypted access to services on your private network without exposing them to the public internet. It is particularly useful for developers working on sensitive projects that need to remain private and for teams looking to securely collaborate across distributed environments. With automatic NAT traversal and integration with identity providers like Google and Microsoft, Tailscale ensures that only authorized devices can access your network.
+{{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}} is a peer-to-peer VPN tool built on WireGuard technology. It emphasizes security and ease of use, allowing you to create private mesh networks between devices with minimal configuration. Tailscale bypasses the need for public-facing IP addresses by creating direct connections between devices, regardless of firewalls or NATs. Although Tailscale is primarily a VPN solution, it can serve as an excellent tunneling alternative, providing encrypted access to services on your private network without exposing them to the public internet. It is particularly useful for developers working on sensitive projects that need to remain private and for teams looking to securely collaborate across distributed environments. With automatic NAT traversal and integration with identity providers like Google and Microsoft, Tailscale ensures that only authorized devices can access your network.
 
 {{< image "best_cloudflare_tunnel_alternatives/Tailscale.webp" "Tailscale screenshot" >}}
 
