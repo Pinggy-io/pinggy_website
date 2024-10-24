@@ -42,9 +42,9 @@ The basic principle of reverse SSH tunneling is to create a connection from a re
 
 For example:
 
-    ```
-    ssh -R 8080:localhost:3000 user@remote-server.com
-    ```
+```
+ssh -R 8080:localhost:3000 user@remote-server.com
+```
 
 In this example, any traffic to `remote-server.com:8080` will be forwarded to port `3000` on your local machine, allowing a user on the remote server to access your locally hosted service.
 
@@ -62,10 +62,10 @@ Most Linux distributions come with SSH pre-installed. If it’s not installed, y
 
 For Ubuntu/Debian:
 
-    ```bash
-    sudo apt update
-    sudo apt install openssh-client
-    ```
+```bash
+sudo apt update
+sudo apt install openssh-client
+```
 #### Step 2: Set Up SSH on the Remote Server
 
 Ensure that SSH is installed and configured to allow reverse tunneling on the remote server. You'll need to edit the SSH configuration file to allow this feature:
@@ -89,18 +89,18 @@ Ensure that SSH is installed and configured to allow reverse tunneling on the re
 #### Step 3: Run the SSH Reverse Tunnel Command:
 To create a reverse tunnel, use the following command:
 
-    ```bash
-    ssh -R [remote-port]:localhost:[local-port] [user]@[remote-host]
-    ```
+```bash
+ssh -R [remote-port]:localhost:[local-port] [user]@[remote-host]
+```
 
 - `[remote-port]`: The port on the remote server you want to forward.
 - `[local-port]`: The port on your local machine that receives the forwarded traffic.
 - `[user]@[remote-host]`: Your SSH credentials.
 
 Example:
-    ```bash
-    ssh -R 8080:localhost:3000 user@remote-server.com
-    ```
+```bash
+ssh -R 8080:localhost:3000 user@remote-server.com
+```
 
 This will forward traffic from `8080` on the remote server to port `3000` on your local machine.
 
@@ -112,33 +112,33 @@ This will forward traffic from `8080` on the remote server to port `3000` on you
 #### Step 1: Ensure SSH is Installed
 macOS typically comes with SSH pre-installed. However, if it's missing, you can install it using **Homebrew**:
 
-    ```bash
-    brew install openssh
-    ```
+```bash
+brew install openssh
+```
 
 #### Step 2: Set Up SSH on the Remote Server
 Follow the same steps as in the Linux section to configure SSH on the remote server:
 
 1. Edit `/etc/ssh/sshd_config` to allow reverse tunneling:
-    ```bash
-    sudo nano /etc/ssh/sshd_config
-    ```
+```bash
+sudo nano /etc/ssh/sshd_config
+```
 2. Set `GatewayPorts` to `yes` and restart the SSH service:
-    ```bash
-    sudo systemctl restart sshd
-    ```
+```bash
+sudo systemctl restart sshd
+```
 
 #### Step 3: Run the SSH Reverse Tunnel Command
 The same SSH reverse tunneling command applies to macOS:
 
-    ```bash
-    ssh -R [remote-port]:localhost:[local-port] [user]@[remote-host]
-    ```
+```bash
+ssh -R [remote-port]:localhost:[local-port] [user]@[remote-host]
+```
 For example, if you want to forward port 8080 on the remote server to port 3000 on your local machine:
 
-    ```bash
-    ssh -R 8080:localhost:3000 user@remote-server.com
-    ```
+```bash
+ssh -R 8080:localhost:3000 user@remote-server.com
+```
 
 ---
 
@@ -151,9 +151,9 @@ You can set up SSH reverse tunneling on Windows using either OpenSSH (included i
 #### Step 1: Install OpenSSH (if not already installed)
 To check if OpenSSH is installed, open PowerShell and run:
 
-    ```bash
-    ssh
-    ```
+```bash
+ssh
+```
 
 If OpenSSH is missing, install it from **Settings > Apps > Optional Features > Add a Feature**, then search for **OpenSSH Client**.
 
@@ -163,15 +163,15 @@ Configure SSH on the remote server by editing the `/etc/ssh/sshd_config` file as
 #### Step 3: Run the SSH Reverse Tunnel Command
 Once OpenSSH is ready, you can use the same SSH command as on Linux and macOS:
 
-    ```bash
-    ssh -R [remote-port]:localhost:[local-port] [user]@[remote-host]
-    ```
+```bash
+ssh -R [remote-port]:localhost:[local-port] [user]@[remote-host]
+```
 
 Example:
 
-    ```bash
-    ssh -R 8080:localhost:3000 user@remote-server.com
-    ```
+```bash
+ssh -R 8080:localhost:3000 user@remote-server.com
+```
 
 ### Option 2: Using PuTTY
 If you prefer a graphical interface, use PuTTY for setting up the reverse tunnel.
@@ -207,7 +207,7 @@ If you want the reverse tunnel to persist across SSH session drops or server reb
 
 Imagine you have a Raspberry Pi running at home that controls various IoT devices (e.g., sensors, cameras).
 
-{{< image "ssh_reverse_tunnelling/Managing-IOT devices-using-ssh reverse-tunnelling.webp" "Managing-IOT devices-using-ssh reverse-tunnelling" >}}
+{{< image "ssh_reverse_tunnelling/Manage-IOT_devices.webp" "Managing-IOT devices-using-ssh reverse-tunnelling" >}}
 
 SSH reverse tunneling enables you to control and access the Raspberry Pi securely from your office or anywhere else:
 
