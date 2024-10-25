@@ -207,10 +207,31 @@
         </ul>
       </div>
     </li>
-    <li class="doclink">
-      <a href="/docs/api/" class="btn btn-non-toggle"
-        >API Access</a
+    <li class="mb-1 collapsabledoclink">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#api-access-collapse"
+        aria-expanded="false"
       >
+        API Access
+      </button>
+      <div class="collapse" id="api-access-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/api/web_debugger_api/" class="link-dark rounded"
+              >Basic APIs</a
+            >
+          </li>
+          <li class="doclink">
+            <a
+              href="/docs/api/api/"
+              class="link-dark rounded"
+              >Enterprise APIs</a
+            >
+          </li>
+        </ul>
+      </div>
     </li>
     <li class="doclink">
       <a href="/docs/client_behind_proxy/" class="btn btn-non-toggle">Client Behind Proxy</a>
