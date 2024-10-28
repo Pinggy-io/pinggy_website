@@ -238,7 +238,6 @@ Ensure that the response from your server is correctly formatted. Slack expects 
               .digest('hex')}`;
           return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
       }
-      ```
   ````
 
 4. **Restrict IP Addresses (If Possible)**
