@@ -21,11 +21,11 @@ Slack webhooks fall into two primary categories:
 
 - **Incoming webhooks:** These allow external services to post messages directly into a specified Slack channel, providing real-time updates or notifications.
 
-{{< image "slack_webhooks/incoming webhooks new.webp" "Incoming Slack webhooks" >}}
+{{< image "slack_webhooks/Incoming webhook img.webp" "Incoming Slack webhooks" >}}
 
 - **Outgoing webhooks:** These are used to trigger actions from Slack. When a specified keyword or phrase is mentioned in a Slack channel, Slack sends an HTTP request to an external URL, allowing that server to handle the message and respond accordingly. (Note: Outgoing webhooks are now considered legacy, with the Slack Events API offering expanded functionality.)
 
-{{< image "slack_webhooks/outgoing webhooks new.webp" "Outgoing Slack webhooks" >}}
+{{< image "slack_webhooks/outgoing webhook img.webp" "Outgoing Slack webhooks" >}}
 
 Later, We will discuss how to create both types of Slack webhooks.
 
@@ -33,15 +33,14 @@ Later, We will discuss how to create both types of Slack webhooks.
 
 While both **webhooks** and **APIs** enable communication between different services, they operate in distinct ways:
 
-| **Feature**            | **webhooks**                                                                                                              | **APIs**                                                                                            |
-|:--------------------|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|
-| **Communication Type**   |   <div style="text-align: left; vertical-align: top;">**Event-driven**: webhooks send data automatically when a specific event occurs.</div>                                           |   <div style="text-align: left; vertical-align: top;">**Request-driven**: APIs require a request to retrieve or send data.</div>                                |
-| **Data Transfer**        |   <div style="text-align: left; vertical-align: top;">Data is pushed from one service to</div> another.                                                                            |   <div style="text-align: left; vertical-align: top;">Data is pulled by a service requesting it from another.</div>                                         |
-| **Efficiency**           |   <div style="text-align: left; vertical-align: top;">More efficient, as they only send data when an event triggers it.</div>                                                      |   <div style="text-align: left; vertical-align: top;">Can be less efficient, especially when polling for updates.</div>                                     |
-| **Usage Scenario**       |   <div style="text-align: left; vertical-align: top;">Best for real-time notifications (e.g., sending alerts or updates automatically).</div>                                      |   <div style="text-align: left; vertical-align: top;">Best for on-demand data retrieval or for performing specific actions (e.g., fetching user data, updating records).</div> |
-| **Control**              |   <div style="text-align: left; vertical-align: top;">Once set up, the data is sent without further input from the receiving service.</div>                                        |   <div style="text-align: left; vertical-align: top;">The requesting service has full control over when and how often it makes requests.</div>              |
-| **Complexity**           |   <div style="text-align: left; vertical-align: top;">Simpler setup for specific events but limited in scope.</div>                                                                |   <div style="text-align: left; vertical-align: top;">More versatile and can handle a wider variety of operations.</div>                                    |
-
+| **Feature**            | **webhooks**                                                                                                                                | **APIs**                                                                                                                                                                     |
+| :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Communication Type** | <div style="text-align: left; vertical-align: top;">**Event-driven**: webhooks send data automatically when a specific event occurs.</div>  | <div style="text-align: left; vertical-align: top;">**Request-driven**: APIs require a request to retrieve or send data.</div>                                               |
+| **Data Transfer**      | <div style="text-align: left; vertical-align: top;">Data is pushed from one service to</div> another.                                       | <div style="text-align: left; vertical-align: top;">Data is pulled by a service requesting it from another.</div>                                                            |
+| **Efficiency**         | <div style="text-align: left; vertical-align: top;">More efficient, as they only send data when an event triggers it.</div>                 | <div style="text-align: left; vertical-align: top;">Can be less efficient, especially when polling for updates.</div>                                                        |
+| **Usage Scenario**     | <div style="text-align: left; vertical-align: top;">Best for real-time notifications (e.g., sending alerts or updates automatically).</div> | <div style="text-align: left; vertical-align: top;">Best for on-demand data retrieval or for performing specific actions (e.g., fetching user data, updating records).</div> |
+| **Control**            | <div style="text-align: left; vertical-align: top;">Once set up, the data is sent without further input from the receiving service.</div>   | <div style="text-align: left; vertical-align: top;">The requesting service has full control over when and how often it makes requests.</div>                                 |
+| **Complexity**         | <div style="text-align: left; vertical-align: top;">Simpler setup for specific events but limited in scope.</div>                           | <div style="text-align: left; vertical-align: top;">More versatile and can handle a wider variety of operations.</div>                                                       |
 
 In summary, **webhooks** are ideal for real-time, automated updates based on specific events, while **APIs** offer more control and flexibility for retrieving or sending data as needed.
 
@@ -73,7 +72,6 @@ Incoming webhooks push messages from an external application directly to a Slack
 1. After selecting the channel, Slack will generate a unique webhook URL.
 2. Copy this URL to use in external applications to send messages to Slack.
 
-
 ## Steps to Create an Outgoing Slack Webhook
 
 {{< link href="https://api.slack.com/legacy/custom-integrations/outgoing-webhooks" >}}Outgoing webhooks{{</ link >}} allow Slack to send an HTTP POST request to an external URL when specific keywords are mentioned in a channel, providing a way to trigger actions in external services based on Slack activity.
@@ -96,7 +94,6 @@ Incoming webhooks push messages from an external application directly to a Slack
 #### Step 4: Save the Configuration
 
 1. Click **Save Settings** to activate the webhook.
-
 
 ## How to Handle Errors
 
@@ -135,7 +132,6 @@ For **outgoing webhooks**, Slack itself will retry requests for a limited number
 
 By following these error-handling steps for both **incoming** and **outgoing** webhooks, you can ensure reliable, uninterrupted communication between Slack and your external services.
 
-
 ## How to Test Outgoing Slack Webhook using Pinggy
 
 Testing outgoing webhooks from Slack can help you ensure that your integration responds correctly to specific keywords or phrases mentioned in your Slack channels. Pinggy provides a convenient way to expose your local server to the internet, allowing you to receive and handle requests from Slack. Here’s how to set it up:
@@ -144,37 +140,36 @@ Testing outgoing webhooks from Slack can help you ensure that your integration r
 
 [Pinggy](https://pinggy.io) simplifies the process of creating a secure tunnel. Use the following command to set up a tunnel to your local development server:
 
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Slack Port" localport="3000" webdebugenabled=false keepalive=true >}}
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Slack Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
-**Note:** Replace the port 3000 in the command with the port where your local development server is running.
+**Note:** Replace the port 8000 in the command with the port where your local development server is running.
 
 If you run the command with your specified port where your service is running, you will get an output similar to the following:
 
-{{< figure src="/quickstart_img/slack/pinggy_tunnel.webp" alt="Pinggy Tunnel" >}}
+{{< figure src="./images/slack_webhooks/webhook test img.webp" alt="Pinggy Tunnel" >}}
 
 #### Step 2: Set Up a Local Web Server
 
 Create a simple local server to receive the webhook data from {{< link href="https://slack.com/intl/en-in" >}}Slack{{</ link >}}. If you’re using Node.js, you can set it up as follows:
 
 ```javascript
-const express = require('express');
+const express = require("express");
 const app = express();
 app.use(express.json());
 
-app.post('/slack-outgoing-webhook', (req, res) => {
-    console.log('Outgoing webhook received:', req.body);
-    
-    // Here, you can process the incoming data and respond accordingly
-    const responseMessage = {
-        text: `You triggered the webhook with the text: "${req.body.text}"`,
-    };
+app.post("/slack-outgoing-webhook", (req, res) => {
+  console.log("Outgoing webhook received:", req.body);
 
-    res.status(200).json(responseMessage); // Respond back to Slack
+  // Here, you can process the incoming data and respond accordingly
+  const responseMessage = {
+    text: `You triggered the webhook with the text: "${req.body.text}"`,
+  };
+
+  res.status(200).json(responseMessage); // Respond back to Slack
 });
 
-app.listen(8080, () => console.log('Server is running on port 8080'));
-
+app.listen(8080, () => console.log("Server is running on port 8080"));
 ```
 
 #### Step 3: Configure Your Outgoing Webhook in Slack
@@ -188,55 +183,65 @@ app.listen(8080, () => console.log('Server is running on port 8080'));
 
 1. In your Slack channel, type one of the trigger words that you specified in the webhook configuration.
 2. Slack will send a POST request to your public Pinggy URL whenever the trigger word is mentioned.
-Check the terminal where your local server is running. You should see the incoming request logged:
-`Outgoing webhook received: { text: 'your trigger word' }`
-3. 3. If you have configured a response in your local server code, you should see a            message from Slack in the channel indicating that your webhook responded successfully.
+   Check the terminal where your local server is running. You should see the incoming request logged:
+   `Outgoing webhook received: { text: 'your trigger word' }`
+3. 3. If you have configured a response in your local server code, you should see a message from Slack in the channel indicating that your webhook responded successfully.
 
 #### Step 5: Validate the Response
 
 Ensure that the response from your server is correctly formatted. Slack expects a specific format for responses, which you can modify in the server code. The basic structure of the response should be a JSON object that includes the text you want to send back to the channel.
 
-
 ## Security Best Practices for Slack webhooks
 
 1. **Keep Webhook URLs Private**
--  Webhook URLs act as a direct access point to post or retrieve information from Slack. Treat these URLs as sensitive information, similar to API keys.
+
+- Webhook URLs act as a direct access point to post or retrieve information from Slack. Treat these URLs as sensitive information, similar to API keys.
 - Avoid embedding webhook URLs directly in source code, especially if your code is publicly accessible. Instead, use environment variables or secure vaults to store them securely.
+
 2. **Limit Channel Permissions and Scope**
+
 - Only grant permissions necessary for the webhook’s purpose. For instance, when setting up an incoming webhook, restrict it to only the channels where it’s essential.
 - Use Slack’s granular app permissions to minimize access and prevent unintended access across the workspace.
+
 3. **Verify Outgoing Webhook Requests**
+
 - For outgoing webhooks, Slack includes a verification signature (found in the `X-Slack-Signature` header). Validate this signature to ensure the request is genuinely from Slack.
 - Slack provides a signing secret, which can be used to hash the request and compare it to the signature. This validation helps guard against unauthorized requests.
-Example in Node.js:
-    ```javascript
-    const crypto = require('crypto');
+  Example in Node.js:
+  ```javascript
+  const crypto = require('crypto');
 
-    function verifySlackRequest(req, signingSecret) {
-        const timestamp = req.headers['x-slack-request-timestamp'];
-        const signature = req.headers['x-slack-signature'];
-        const baseString = `v0:${timestamp}:${req.rawBody}`;
-        const hash = `v0=${crypto
-            .createHmac('sha256', signingSecret)
-            .update(baseString)
-            .digest('hex')}`;
-        return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
-    }
-    ```
+      function verifySlackRequest(req, signingSecret) {
+          const timestamp = req.headers['x-slack-request-timestamp'];
+          const signature = req.headers['x-slack-signature'];
+          const baseString = `v0:${timestamp}:${req.rawBody}`;
+          const hash = `v0=${crypto
+              .createHmac('sha256', signingSecret)
+              .update(baseString)
+              .digest('hex')}`;
+          return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
+      }
+      ```
 
 4. **Restrict IP Addresses (If Possible)**
+
 - Use IP whitelisting for servers that Slack sends outgoing webhooks to, limiting access only to specific IPs. Slack occasionally publishes a list of IPs, but check if they support whitelisting in the future or use a trusted proxy.
+
 5. **Monitor Webhook Activity**
+
 - Log all webhook activity, including request timestamps, sender IPs, and payloads. Monitoring these logs can help identify unusual activity or unauthorized access attempts.
 - Set up automated alerts to notify your team if unexpected or excessive requests are received, signalling potential abuse or misconfiguration.
+
 6. **Implement Rate Limiting**
+
 - Limit the number of requests accepted by your server for each webhook endpoint to prevent abuse. Use rate limiting tools or middlewares in your backend to detect and block IPs or requests that exceed reasonable thresholds.
+
 7. **Set Up Error Handling for Unauthorized Access**
+
 - When an unauthorized request is detected (such as an invalid signature or excessive request rate), respond with an appropriate HTTP status code (e.g., `403 Forbidden`) and log the incident.
 - Optionally, consider temporarily blocking IPs with frequent unauthorized attempts to access the webhook.
 
 By applying these security practices, you can help ensure that your Slack webhooks are protected from unauthorized access and misuse, allowing them to reliably and safely enhance your team’s workflows.
-
 
 ## Alternatives to Slack Webhooks
 
@@ -246,8 +251,6 @@ While Slack webhooks offer a straightforward way to integrate with external appl
 2. **Slack Events API**: The {{< link href="https://api.slack.com/apis/events-api" >}}Events API{{</ link >}} is an upgrade from outgoing webhooks, allowing you to receive a broader range of events and notifications, such as message edits, user presence changes, and more. It’s a better choice for applications that require a richer interaction with Slack.
 3. **Integration Platforms**: Tools like {{< link href="https://zapier.com/" >}}Zapier{{</ link >}}, {{< link href="https://www.make.com/en" >}}Integromat{{</ link >}}, and {{< link href="https://tray.ai/" >}}Tray.io{{</ link >}} offer no-code solutions to connect Slack with other applications. These platforms allow you to create automation workflows without writing any code, making it easier to integrate Slack with various services.
 4. **Custom Bots**: Building a Slack bot using the Slack API provides even more control over how your integration interacts with users. Bots can respond to messages, initiate conversations, and perform actions based on user input, making them suitable for interactive applications.
-
-
 
 ## Conclusion
 
