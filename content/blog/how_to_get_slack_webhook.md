@@ -154,22 +154,32 @@ If you run the command with your specified port where your service is running, y
 Create a simple local server to receive the webhook data from {{< link href="https://slack.com/intl/en-in" >}}Slack{{</ link >}}. If you’re using Node.js, you can set it up as follows:
 
 ```javascript
-const express = require("express");
-const app = express();
+var express = require("express");
+var app = express();
 app.use(express.json());
+const port = 3000;
 
-app.post("/slack-outgoing-webhook", (req, res) => {
-  console.log("Outgoing webhook received:", req.body);
+app.all("/*", function (req, res) {
+  console.log("Headers:" + JSON.stringify(req.headers, null, 3));
+  console.log("Body:" + JSON.stringify(req.body, null, 3));
 
-  // Here, you can process the incoming data and respond accordingly
-  const responseMessage = {
-    text: `You triggered the webhook with the text: "${req.body.text}"`,
-  };
-
-  res.status(200).json(responseMessage); // Respond back to Slack
+  if (req.body.challenge != null) {
+    //When you enable Event Subscriptions in Slack,
+    //Slack makes a one-time post call to the app
+    //sending a challenge field value and
+    //expects the app to respond with this value.
+    res.type("txt");
+    res.send(req.body.challenge);
+  } else {
+    //For all the rest of the requests
+    //the app responds the same message.
+    res.json({ message: "Thank you for the message" });
+  }
 });
 
-app.listen(8080, () => console.log("Server is running on port 8080"));
+app.listen(port, function () {
+  console.log(`Example Slack app listening at ${port}`);
+});
 ```
 
 #### Step 3: Configure Your Outgoing Webhook in Slack
