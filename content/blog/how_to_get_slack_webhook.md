@@ -182,11 +182,16 @@ app.listen(port, function () {
 });
 ```
 
+Save the above code in a file named `app.js` and run the following command to start the application:
+
+```bash
+node app.js
+```
 #### Step 3: Configure Your Outgoing Webhook in Slack
 
 1. Go to your Slack workspace and navigate to the app settings.
-2. Locate the outgoing webhook configuration.
-3. Set the public URL from Pinggy (e.g., `https://123456.a.pinggy.link/slack-outgoing-webhook`) as the endpoint for your outgoing webhook.
+2. Locate the outgoing webhook configuration and add outgoing webhook.
+3. Set the public URL from Pinggy (e.g., `https://rnige-2405-201-800b-489d-7c75-fb2e-2214-bcc7.a.free.pinggy.link`) as the endpoint for your outgoing webhook.
 4. Specify the trigger words that will activate the webhook.
 
 #### Step 4: Test the Outgoing Webhook
