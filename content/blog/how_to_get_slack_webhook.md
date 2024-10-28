@@ -21,11 +21,11 @@ Slack webhooks fall into two primary categories:
 
 - **Incoming webhooks:** These allow external services to post messages directly into a specified Slack channel, providing real-time updates or notifications.
 
-{{< image "slack_webhooks/Incoming webhook.webp" "Incoming Slack webhooks" >}}
+{{< image "slack_webhooks/incoming webhooks new.webp" "Incoming Slack webhooks" >}}
 
 - **Outgoing webhooks:** These are used to trigger actions from Slack. When a specified keyword or phrase is mentioned in a Slack channel, Slack sends an HTTP request to an external URL, allowing that server to handle the message and respond accordingly. (Note: Outgoing webhooks are now considered legacy, with the Slack Events API offering expanded functionality.)
 
-{{< image "slack_webhooks/outgoing webhook.webp" "Outgoing Slack webhooks" >}}
+{{< image "slack_webhooks/outgoing webhooks new.webp" "Outgoing Slack webhooks" >}}
 
 Later, We will discuss how to create both types of Slack webhooks.
 
