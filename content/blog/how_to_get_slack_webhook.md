@@ -187,6 +187,7 @@ Save the above code in a file named `app.js` and run the following command to st
 ```bash
 node app.js
 ```
+
 #### Step 3: Configure Your Outgoing Webhook in Slack
 
 1. Go to your Slack workspace and navigate to the app settings.
@@ -200,7 +201,7 @@ node app.js
 2. Slack will send a POST request to your public Pinggy URL whenever the trigger word is mentioned.
    Check the terminal where your local server is running. You should see the incoming request logged:
    `Outgoing webhook received: { text: 'your trigger word' }`
-3. 3. If you have configured a response in your local server code, you should see a message from Slack in the channel indicating that your webhook responded successfully.
+3. If you have configured a response in your local server code, you should see a message from Slack in the channel indicating that your webhook responded successfully.
 
 #### Step 5: Validate the Response
 
@@ -223,7 +224,8 @@ Ensure that the response from your server is correctly formatted. Slack expects 
 - For outgoing webhooks, Slack includes a verification signature (found in the `X-Slack-Signature` header). Validate this signature to ensure the request is genuinely from Slack.
 - Slack provides a signing secret, which can be used to hash the request and compare it to the signature. This validation helps guard against unauthorized requests.
   Example in Node.js:
-  ```javascript
+
+  ````javascript
   const crypto = require('crypto');
 
       function verifySlackRequest(req, signingSecret) {
@@ -237,6 +239,7 @@ Ensure that the response from your server is correctly formatted. Slack expects 
           return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
       }
       ```
+  ````
 
 4. **Restrict IP Addresses (If Possible)**
 
