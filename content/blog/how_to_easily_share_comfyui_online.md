@@ -90,20 +90,20 @@ https://fakqxzqrohxxx.a.pinggy.link
 ```
 
 ## Step 3: Customize Your Pinggy Tunnel
-Pinggy offers options for added privacy and customization:
+Pinggy provides additional options to enhance privacy and control over your tunnel, perfect for securely sharing ComfyUI:
 
-- **Custom Domains**: Use a branded URL for professional access.
-- **Password Protection**: Secure your tunnel with a password.
+- **Custom Domains**: Use a personalized or branded domain name instead of the Pinggy default link. This can improve on professionalism and also can make the access links easier to remember.
+- **Password Protection**: Enhance the security of your tunnel and set password to your connection. You will be the only people who can access your ComfyUI instance with the password.
 
 For more, refer to Pinggy's [documentation](https://pinggy.io/docs).
 
 ## Troubleshooting Tips
-If you encounter issues:
+If you run into issues with the Pinggy tunnel or ComfyUI setup, try these solutions:
 
-- **Port Conflicts**: Ensure the port in the SSH command matches ComfyUI's port.
-- **Firewall Restrictions**: Verify that SSH connections are allowed.
-- **Command Not Found**: Ensure SSH is installed on your machine.
+- **Port Conflicts**: Make sure the port provided with the SSH command corresponds to the port used by ComfyUI, by default it is 8188. Mismatched ports will prevent a successful tunnel connection.
+- **Firewall Restrictions**:  Some of the network firewalls prevent tunneling connections. Make certain that SSH connection is authorised and if there are any firewalls active, then get them removed for some time.
+- **Command Not Found**: Make sure SSH is installed on your machine. On macOS and Linux, SSH is pre-installed, but on Windows, you may need to install it or use tools like Git Bash.
 
 ## Conclusion
-Pinggy allows you to securely share your ComfyUI instance online, enabling seamless collaboration regardless of location. It’s a powerful yet simple tool for remote teamwork on AI projects.
+Pinggy helps share your ComfyUI instance online instantly, and securely to perform AI projects in cooperation with other users without complicated configurations. In this manner, utilizing Pinggy’s tunneling options, you could grant dependable, restricted connectivity on your ComfyUI to your coworkers and customers, wherever they’re placing.
 
