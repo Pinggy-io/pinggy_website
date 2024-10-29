@@ -147,7 +147,7 @@ Testing outgoing webhooks from Slack can help you ensure that your integration r
 
 If you run the command with your specified port where your service is running, you will get an output similar to the following:
 
-{{< figure src="./images/slack_webhooks/webhook test img.webp" alt="Pinggy Tunnel" >}}
+{{< figure src="images/slack_webhooks/webhook test img.webp" alt="Pinggy Tunnel" >}}
 
 #### Step 2: Set Up a Local Web Server
 
