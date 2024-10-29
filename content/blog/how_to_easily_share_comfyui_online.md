@@ -9,8 +9,10 @@ outputs:
   - HTML
   - AMP
 ---
+{{< image "how_to_easily_share_comfy_ui_online/thumbnail.webp" "How to Easily Share ComfyUI Online" >}}
 
 ComfyUI is a portable, locally run interface commonly used for AI-simulated art generation with models like Stable Diffusion. When collaborating with remote clients or teammates, you might want to make this locally hosted UI accessible via the internet. This is where Pinggy, a fast and effective tunneling service, helps by allowing you to share your local setup using a public link.
+
 
 {{% tldr %}}
 1. **Run ComfyUI**
@@ -63,9 +65,11 @@ If ComfyUI is not already running, follow these steps:
 
 3. Start ComfyUI:
    ```bash
-   python launch.py
+   python3 main.py
    ```
    By default, ComfyUI will start at `http://localhost:8188`.
+
+{{< image "how_to_easily_share_comfy_ui_online/start_confyui.webp" "ComfyUI Start" >}}
 
 ## Step 2: Create a Tunnel with Pinggy
 To expose your locally hosted ComfyUI instance, use Pinggy's SSH tunneling command:
@@ -78,6 +82,8 @@ Open a terminal and enter:
 
 Replace `22` if ComfyUI is running on a different port.
 
+{{< image "how_to_easily_share_comfy_ui_online/pinggy_tunnel_command.webp" "Pinggy Tunnel Command" >}}
+
 ### Command Breakdown:
 - `ssh -p 443`: Establishes a secure connection to Pinggy’s server over port 443.
 - `-R0:localhost:8188`: Connects your localhost to Pinggy’s server, forwarding the ComfyUI server.
@@ -88,6 +94,10 @@ After executing, Pinggy will generate a public URL for your ComfyUI instance, wh
 http://fakqxzqrohxxx.a.pinggy.link
 https://fakqxzqrohxxx.a.pinggy.link
 ```
+{{< image "how_to_easily_share_comfy_ui_online/pinggy_tunnel_start.webp" "Pinggy Tunnel Start" >}}
+
+{{< image "how_to_easily_share_comfy_ui_online/pinggy_url_host_ss.webp" "ComfyUi Host SS" >}}
+
 
 ## Step 3: Customize Your Pinggy Tunnel
 Pinggy provides additional options to enhance privacy and control over your tunnel, perfect for securely sharing ComfyUI:
