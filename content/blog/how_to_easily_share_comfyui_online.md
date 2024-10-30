@@ -38,6 +38,11 @@ ComfyUI is a portable, locally run interface commonly used for AI-simulated art 
 
 In this guide, we'll walk through how to use Pinggy to make your ComfyUI instance accessible online.
 
+## What is ComfyUI?
+ComfyUI is an open source web interface primarily developed for AI generated image creation usually utilizing some models such as Stable Diffusion. They are easy to use with the ability to host locally, thus making them suitable for developing as well as perfecting pieces of art. This interface is commonly employed by artists, researchers, and developers working with generative AI.
+
+{{< image "how_to_easily_share_comfy_ui_online/comfyui_zoomed_view.webp" "Zoomed-in view of ComfyUI" >}}
+
 ## What is Pinggy?
 Pinggy is a tunneling solution similar to Ngrok, which lets you expose your local network to the internet securely. It’s easy to use, and you don’t need extensive configuration—perfect for accessing local applications, web UIs, or APIs from remote locations.
 
