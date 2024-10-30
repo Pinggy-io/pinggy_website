@@ -22,14 +22,14 @@ ComfyUI is a portable, locally run interface commonly used for AI-simulated art 
      git clone https://github.com/ComfyUI/ComfyUI.git
      cd ComfyUI
      pip install -r requirements.txt
-     python launch.py
+     python main.py
      ```
 
 2. **Create a Tunnel with Pinggy**
 
    - Start SSH tunnel:
      ```bash
-     ssh -p 443 -R0:localhost:8188 pinggy@a.pinggy.io
+     ssh -p 443 -R0:localhost:8188 a.pinggy.io
      ```
    - Access your ComfyUI via the provided URL.
 
@@ -82,10 +82,10 @@ To expose your locally hosted ComfyUI instance, use Pinggy's SSH tunneling comma
 Open a terminal and enter:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8188 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8188 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
-Replace `22` if ComfyUI is running on a different port.
+Replace `8188` if ComfyUI is running on a different port.
 
 {{< image "how_to_easily_share_comfy_ui_online/pinggy_tunnel_command.webp" "Pinggy Tunnel Command" >}}
 
