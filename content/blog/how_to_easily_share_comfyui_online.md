@@ -11,7 +11,7 @@ outputs:
 ---
 {{< image "how_to_easily_share_comfy_ui_online/thumbnail.webp" "How to Easily Share ComfyUI Online" >}}
 
-ComfyUI is a portable, locally run interface commonly used for AI-simulated art generation with models like Stable Diffusion. When collaborating with remote clients or teammates, you might want to make this locally hosted UI accessible via the internet. This is where Pinggy, a fast and effective tunneling service, helps by allowing you to share your local setup using a public link.
+{{< link href="https://github.com/comfyanonymous/ComfyUI" >}}ComfyUI{{< /link >}} is a portable, locally run interface commonly used for AI-simulated art generation with models like Stable Diffusion. When collaborating with remote clients or teammates, you might want to make this locally hosted UI accessible via the internet. This is where Pinggy, a fast and effective tunneling service, helps by allowing you to share your local setup using a public link.
 
 
 {{% tldr %}}
@@ -22,7 +22,7 @@ ComfyUI is a portable, locally run interface commonly used for AI-simulated art 
      git clone https://github.com/ComfyUI/ComfyUI.git
      cd ComfyUI
      pip install -r requirements.txt
-     python main.py
+     python3 main.py
      ```
 
 2. **Create a Tunnel with Pinggy**
@@ -39,7 +39,8 @@ ComfyUI is a portable, locally run interface commonly used for AI-simulated art 
 In this guide, we'll walk through how to use Pinggy to make your ComfyUI instance accessible online.
 
 ## What is ComfyUI?
-ComfyUI is an open source web interface primarily developed for AI generated image creation usually utilizing some models such as Stable Diffusion. They are easy to use with the ability to host locally, thus making them suitable for developing as well as perfecting pieces of art. This interface is commonly employed by artists, researchers, and developers working with generative AI.
+
+{{< link href="https://github.com/comfyanonymous/ComfyUI" >}}ComfyUI{{< /link >}} is an open source web interface primarily developed for AI generated image creation usually utilizing some models such as Stable Diffusion. They are easy to use with the ability to host locally, thus making them suitable for developing as well as perfecting pieces of art. This interface is commonly employed by artists, researchers, and developers working with generative AI.
 
 {{< image "how_to_easily_share_comfy_ui_online/comfyui_zoomed_view.webp" "Zoomed-in view of ComfyUI" >}}
 
@@ -92,7 +93,7 @@ Replace `8188` if ComfyUI is running on a different port.
 ### Command Breakdown:
 - `ssh -p 443`: Establishes a secure connection to Pinggy’s server over port 443.
 - `-R0:localhost:8188`: Connects your localhost to Pinggy’s server, forwarding the ComfyUI server.
-- `pinggy@a.pinggy.io`: Directs the command to Pinggy’s server.
+- `a.pinggy.io`: Directs the command to Pinggy’s server.
 
 After executing, Pinggy will generate a public URL for your ComfyUI instance, which might look like:
 ```
