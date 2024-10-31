@@ -111,18 +111,13 @@ document.addEventListener("alpine:init", () => {
 
 
 // =======================================================
-function copytoclipboard(element, inputselector, amplitudemsg) {
+function copytoclipboard(element, inputselector) {
   var portcommand = $(inputselector)[0];
   // Get the text field
   portcommand.select();
   portcommand.setSelectionRange(0, 99999); // For mobile devices
   // Copy the text inside the text field
   navigator.clipboard.writeText(portcommand.value);
-  var amplitudeEvent = "SSH url copy button clicked";
-  var eventProperties = {
-    url: portcommand.value,
-  };
-  amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
   $(element).children("i").removeClass("bi-clipboard");
   $(element).children("i").addClass("bi-check");
   setTimeout(
@@ -136,9 +131,6 @@ function copytoclipboard(element, inputselector, amplitudemsg) {
 }
 
 function trynow() {
-  var amplitudeEvent = "Try now button clicked";
-  var eventProperties = {};
-  amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
   $("html, body").animate(
     {
       scrollTop: $("#bigcodecolumn").offset().top - 100,
@@ -158,9 +150,6 @@ function isEmail(email) {
 
 function starttrial() {
   $("#emailinvalidtooltip").hide();
-  var amplitudeEvent = "Trial button clicked";
-  var eventProperties = {};
-  amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
   var emailinput = $("#trialemail").val();
   if (isEmail(emailinput)) {
     var encoded = encodeURIComponent(emailinput);
@@ -172,9 +161,6 @@ function starttrial() {
 
 function starttrial2() {
   $("#emailinvalidtooltip2").hide();
-  var amplitudeEvent = "Trial button 2 clicked";
-  var eventProperties = {};
-  amplitude.getInstance().logEvent(amplitudeEvent, eventProperties);
   var emailinput = $("#trialemail2").val();
   if (isEmail(emailinput)) {
     var encoded = encodeURIComponent(emailinput);

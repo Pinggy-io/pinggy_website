@@ -128,8 +128,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 type="button"
                 id="copybutton_tryityourself"
                 aria-label="Copy to Clipboard"
-                onclick="copytoclipboard(this,'#tryityourselfprecommand', 
-                                'Pre command copy button clicked')"
+                onclick="copytoclipboard(this,'#tryityourselfprecommand')"
               >
                 <i class="bi bi-clipboard"></i>
               </button>
@@ -212,7 +211,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 type="button"
                 id="copybutton_tryityourselfcommand"
                 aria-label="Copy SSH URL to Clipboard"
-                onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"
+                onclick="copytoclipboard(this,'#portcommand')"
               >
                 <i class="bi bi-clipboard"></i>
               </button>
