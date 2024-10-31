@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {{- partial "analytics.html" . -}}
     {{- partial "header.html" . -}} {{- with .OutputFormats.Get "AMP" }}
     <link rel="amphtml" href="{{ .RelPermalink | absURL }}" />
     {{- end }}

@@ -200,9 +200,25 @@
     {{- with .OutputFormats.Get "HTML" }}
     <link rel="canonical" href="{{ .RelPermalink | absURL }}" />
     {{- end }}
+
+    <script async custom-element="amp-analytics"
+    src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js">
+    </script>
   </head>
 
   <body>
+    <amp-analytics type="gtag" data-credentials="include">
+      <script type="application/json">
+      {
+        "vars" : {
+          "gtag_id": "G-VT0H7T1DE6",
+          "config" : {
+            "G-VT0H7T1DE6": { "groups": "default" }
+          }
+        }
+      }
+      </script>
+    </amp-analytics>
     <header>
       <nav class="navbar">
         <div class="logo">
