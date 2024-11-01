@@ -1268,7 +1268,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                     </li>
                     <li class="list-group-item p-2">
                       <b>API to monitor and manage tunnels</b>
-                        <a href="/docs/api/" target="_blank" class="link-dark">
+                        <a href="/docs/api/api/" target="_blank" class="link-dark">
                           <i class="bi bi-info-circle"></i>
                         </a>
                     </li>
