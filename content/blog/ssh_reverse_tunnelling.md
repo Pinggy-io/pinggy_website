@@ -297,7 +297,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 
 2. **Public URL Generation**: After running the command, Pinggy provides a public URL (e.g., `https://yourapp.a.pinggy.link`). You can share this URL with others, and any requests to this URL will be forwarded to your local machine’s service.
 
-**Proxy and Firewall Compatibility**: If your network blocks traditional SSH traffic, Pinggy offers an {{< link href="https://pinggy.io/app" >}}App{{< /link >}} that can create a tunnel over SSL. Additional tools like ncat and openssl to tunnel traffic through HTTPS or SSL, ensuring the tunnel remains operational even in restrictive environments. For example:
+**Proxy and Firewall Compatibility**: If your network blocks traditional SSH traffic, Pinggy offers an {{< link href="/app/" >}}App{{< /link >}} that can create a tunnel over SSL. Additional tools like ncat and openssl to tunnel traffic through HTTPS or SSL, ensuring the tunnel remains operational even in restrictive environments. For example:
 
 ```
 ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" a.pinggy.io

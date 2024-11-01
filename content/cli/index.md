@@ -193,7 +193,7 @@
 ./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre
           >
         </div>
-        <h2 class="h3">Visit <a href="/docs/cli">Pinggy CLI documentation</a> to learn more.</h2>
+        <h2 class="h3">Visit <a href="/docs/cli/">Pinggy CLI documentation</a> to learn more.</h2>
       </div>
     </div>
   </div>

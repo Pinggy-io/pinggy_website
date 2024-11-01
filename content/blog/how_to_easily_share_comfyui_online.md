@@ -111,7 +111,7 @@ Pinggy provides additional options to enhance privacy and control over your tunn
 - **Custom Domains**: Use a personalized or branded domain name instead of the Pinggy default link. This can improve on professionalism and also can make the access links easier to remember.
 - **Password Protection**: Enhance the security of your tunnel and set password to your connection. You will be the only people who can access your ComfyUI instance with the password.
 
-For more, refer to Pinggy's [documentation](https://pinggy.io/docs).
+For more, refer to Pinggy's [documentation](https://pinggy.io/docs/).
 
 ## Troubleshooting Tips
 If you run into issues with the Pinggy tunnel or ComfyUI setup, try these solutions:

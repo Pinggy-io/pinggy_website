@@ -1206,6 +1206,9 @@ title: "Pinggy - Simple Localhost Tunnels"
                         </a>
                     </li>
                     <li class="list-group-item p-2">
+                      <b>Unlimited Data Transfer</b>
+                    </li>
+                    <li class="list-group-item p-2">
                       Priority mail / Discord support
                     </li>
                   </ul>
@@ -1246,7 +1249,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                   </div>
                   <ul class="list-unstyled mt-3 mb-4 list-group text-left">
                     <li class="list-group-item p-2 bg-light">
-                      <b>On Premise</b> / Cloud hosting
+                      <b>Dedicated Servers</b> / On Premise
                     </li>
                     <li class="list-group-item p-2">
                       <b>Unlimited persistent tunnels</b>
@@ -1268,7 +1271,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                     </li>
                     <li class="list-group-item p-2">
                       <b>API to monitor and manage tunnels</b>
-                        <a href="/docs/api/" target="_blank" class="link-dark">
+                        <a href="/docs/api/api/" target="_blank" class="link-dark">
                           <i class="bi bi-info-circle"></i>
                         </a>
                     </li>
