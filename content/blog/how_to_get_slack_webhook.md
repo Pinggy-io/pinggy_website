@@ -5,7 +5,7 @@
  lastmod: 2024-10-27T15:15:25+05:30
  draft: false 
  tags: ["guide","Slack Webhook"]
- og_image: "images/slack_webhooks/slack webhook.webp"
+ og_image: "images/slack_webhooks/outgoing_webhook_img.webp"
  outputs:
   - HTML
   - AMP
@@ -21,11 +21,11 @@ Slack webhooks fall into two primary categories:
 
 - **Incoming webhooks:** These allow external services to post messages directly into a specified Slack channel, providing real-time updates or notifications.
 
-{{< image "slack_webhooks/Incoming webhook img.webp" "Incoming Slack webhooks" >}}
+{{< image "slack_webhooks/incoming_webhook_img.webp" "Incoming Slack webhooks" >}}
 
 - **Outgoing webhooks:** These are used to trigger actions from Slack. When a specified keyword or phrase is mentioned in a Slack channel, Slack sends an HTTP request to an external URL, allowing that server to handle the message and respond accordingly. (Note: Outgoing webhooks are now considered legacy, with the Slack Events API offering expanded functionality.)
 
-{{< image "slack_webhooks/outgoing webhook img.webp" "Outgoing Slack webhooks" >}}
+{{< image "slack_webhooks/outgoing_webhook_img.webp" "Outgoing Slack webhooks" >}}
 
 Later, We will discuss how to create both types of Slack webhooks.
 
@@ -147,7 +147,7 @@ Testing outgoing webhooks from Slack can help you ensure that your integration r
 
 If you run the command with your specified port where your service is running, you will get an output similar to the following:
 
-{{< figure src="/images/slack_webhooks/webhook test img.webp" alt="Pinggy Tunnel" >}}
+{{< image "slack_webhooks/webhook_test_img.webp" "Pinggy Tunnel" >}}
 
 #### Step 2: Set Up a Local Web Server
 

@@ -128,8 +128,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 type="button"
                 id="copybutton_tryityourself"
                 aria-label="Copy to Clipboard"
-                onclick="copytoclipboard(this,'#tryityourselfprecommand', 
-                                'Pre command copy button clicked')"
+                onclick="copytoclipboard(this,'#tryityourselfprecommand')"
               >
                 <i class="bi bi-clipboard"></i>
               </button>
@@ -212,7 +211,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 type="button"
                 id="copybutton_tryityourselfcommand"
                 aria-label="Copy SSH URL to Clipboard"
-                onclick="copytoclipboard(this,'#portcommand','SSH url copy button clicked')"
+                onclick="copytoclipboard(this,'#portcommand')"
               >
                 <i class="bi bi-clipboard"></i>
               </button>
@@ -1207,6 +1206,9 @@ title: "Pinggy - Simple Localhost Tunnels"
                         </a>
                     </li>
                     <li class="list-group-item p-2">
+                      <b>Unlimited Data Transfer</b>
+                    </li>
+                    <li class="list-group-item p-2">
                       Priority mail / Discord support
                     </li>
                   </ul>
@@ -1247,7 +1249,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                   </div>
                   <ul class="list-unstyled mt-3 mb-4 list-group text-left">
                     <li class="list-group-item p-2 bg-light">
-                      <b>On Premise</b> / Cloud hosting
+                      <b>Dedicated Servers</b> / On Premise
                     </li>
                     <li class="list-group-item p-2">
                       <b>Unlimited persistent tunnels</b>
@@ -1269,7 +1271,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                     </li>
                     <li class="list-group-item p-2">
                       <b>API to monitor and manage tunnels</b>
-                        <a href="/docs/api/" target="_blank" class="link-dark">
+                        <a href="/docs/api/api/" target="_blank" class="link-dark">
                           <i class="bi bi-info-circle"></i>
                         </a>
                     </li>
@@ -1290,5 +1292,58 @@ title: "Pinggy - Simple Localhost Tunnels"
     </div>
   </div>
 </header>
+<!-- Trial Modal -->
+<div class="modal fade" id="trialModal" tabindex="-1"
+    aria-labelledby="trialModalLabel" aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content px-2 pb-3">
+          <div class="modal-header">
+              <span class="modal-title" id="trialModalLabel">Start 7 Days Free Trial</span>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pt-4">
+            <div style="margin-top: 4em; max-width: 28em; margin: 0 auto">
+              <div style="font-weight: 500">
+                <span class="highlight">Free Pinggy Pro for
+                7 days:
+              </div>
+              <div class="input-group mt-1">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  aria-label="Email"
+                  aria-describedby="button-addon2"
+                  id="trialemail2"
+                />
+                <div
+                  style="border-radius: 0.2em"
+                  class="invalid-tooltip"
+                  id="emailinvalidtooltip2"
+                >
+                  Please enter a valid email
+                </div>
+                <button
+                  style="
+                    border-color: rgb(71, 117, 198);
+                    background-color: rgba(70, 117, 199, 1);
+                    padding: 0.6em 1em;
+                    box-shadow: 0 0 4px 0px #a3599b8c;
+                    font-weight: 500;
+                  "
+                  class="btn btn-secondary"
+                  type="button"
+                  id="button-addon2"
+                  onclick="starttrial2()"
+                >
+                  Start Trial
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
 
 {{< faq >}}
