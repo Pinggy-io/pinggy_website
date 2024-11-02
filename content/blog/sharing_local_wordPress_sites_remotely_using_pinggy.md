@@ -12,40 +12,52 @@ outputs:
 
 {{< image "sharing_local_wordPress_sites_remotely_using_pinggy/thumbnail.webp" "How to Easily Share ComfyUI Online" >}}
 
-Developing a local WordPress site is a standard workflow for many web developers, but sharing a live preview with clients or collaborating in real-time can be challenging without complex network configurations or open ports. That's where **Pinggy**, a simple and lightweight tool for sharing local WordPress sites, steps in. Pinggy, which works seamlessly with **LocalWP by Flywheel**, allows you to tunnel your site so it can be accessed remotely without hassle. In this tutorial, you’ll learn how to use Pinggy to maximize your local WordPress setup.
+Creating a local WordPress site is a routine for most developers, though sharing a live preview with clients or multiperson collaboration in real-time without having to waste time on complicated networks and open ports is always a big problem. That’s where Pinggy comes into play – a simple and lightweight tool for sharing local WordPress sites, that works in harmony with LocalWP by Flywheel tool, helps to tunnel your site in order not to trouble yourself with its remote accessibility. This tutorial will help you to find out how you can make the most of Pinggy if you have a local WordPress environment set up..
+
+{{< iframe src="https://www.youtube.com/embed/DwMt-Ts-1Vk?si=8CRKOBp7xoCKaHnI" title="YouTube video player" >}}
 
 ## Why Use Pinggy for Local WordPress Site Sharing?
+Pinggy allows you to connect to Local sites from outside your network without the need for a VPN, or even to change firewalls. It’s especially useful for developers working with **LocalWP by Flywheel**, what helps to solve usual issues like reverse proxying, secure connections or mixed content. Pinggy in one way or another provides its users with the means to remotely access local WordPress setups, and as such, is an essential tool for developers to create and test their sites.
 
-Pinggy provides secure, encrypted tunnels to access local sites from outside your network without needing VPNs or firewall changes. It’s especially useful for developers working with **LocalWP by Flywheel**, as it addresses common challenges like reverse proxying, secure connections, and mixed content handling. Pinggy simplifies remote access to local WordPress setups, making it an invaluable tool for developers building and testing sites.
 
 ## Prerequisites
 
 To get started with Pinggy for local WordPress site sharing, you’ll need the following:
 
-1. **LocalWP by Flywheel**: This tool installs a local WordPress environment on your computer, allowing you to develop and test websites even when offline.
-2. **Pinggy Account**: Sign up with Pinggy to access the tunneling service.
-3. **Pinggy Client**: Install the Pinggy client on your local machine to create a secure tunnel.
+1. **LocalWP by Flywheel**: This tool downloads an environment to develop and test wordpress sites on your own computer whether you have internet connection or not.
+2. **Pinggy Pro Account**: This comes at a fee where one needs to buy a [Pinggy Pro account](https://pinggy.io/#prices) for subscription to enable features like sub-domain setup and custom token facility.
 
-With these tools, you’re ready to leverage Pinggy’s powerful tunneling capabilities to enhance your local WordPress development workflow.
-
+With these tools you can easily get started, and with the power of tunneling in Pinggy, you can improve your local WordPress development setup.
 
 # Setting Up Pinggy for LocalWP
 
-Pinggy enables users to securely publish their LocalWP setup, providing remote access and control over their WordPress site from any location. Follow the steps below to configure Pinggy for LocalWP, with screenshots provided for added clarity.
+Pinggy allows the user to securely share out the LocalWP setup allowing them to access and manage their WordPress site from any location. Below is the procedure on configuring Pinggy for LocalWP with screen shots being included for clarity.
 
-## Step 1: Launch Your LocalWP Site
+## Step 1: Purchase and Configure Your Pinggy Pro Account
 
-Open **LocalWP by Flywheel** and select your WordPress site. Click the **"Start Site"** button to launch the site. Once the site is running, note down the internal address (e.g., `testping.local`), as this will be necessary for configuring Pinggy.
+if you have recently purchased a **Pinggy Pro subscription**, please enter the [Pinggy dashboard](https://dashboard.pinggy.io/). Go to [Subdomain](https://dashboard.pinggy.io/subdomains) settings – it is located at the bottom of the left menu – then click **Edit** under the ‘Subdomain’ heading and enter the subdomain you wish to use.
 
-📸 **Screenshot Suggestion**: Display the LocalWP dashboard with the local WordPress site running, highlighting the site URL.
+{{< image "sharing_local_wordPress_sites_remotely_using_pinggy/subdomain_page.webp" "Subdomain Page" >}}
 
-## Step 2: Open Command Prompt and Enter the Pinggy Command
+Secondly, using LocalWP go to the **Site Domain** section and paste the subdomain obtained from Pinggy.
 
-Next, open your terminal to create a Pinggy tunnel, mapping your LocalWP site to a remote address accessible over the Internet. Replace `testping.local` with the actual local site address in LocalWP.
+{{< image "sharing_local_wordPress_sites_remotely_using_pinggy/change_subdomain.webp" "How to Easily Share ComfyUI Online" >}}
+
+## Step 2: Launch Your LocalWP Site
+
+Open **LocalWP by Flywheel** and select your WordPress site. Click the **"open Site"** button to launch the site Locally.
+
+{{< image "sharing_local_wordPress_sites_remotely_using_pinggy/opensite_page.webp" "How to Easily Share ComfyUI Online" >}}
+
+## Step 3: Open Command Prompt and Enter the Updated Pinggy Command
+
+In the terminal, use the updated Pinggy command, which now includes a token from your [Subdomain](https://dashboard.pinggy.io/subdomains) setup. Replace `moksh.a.pinggy.link` with your chosen subdomain.
 
 ```bash
-ssh -p 443 -L4300:localhost:4300 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -t -R0:testping.local:80 a.pinggy.io u:Host:testping.local x:reverseproxy:testping.local
+ssh -p 443 -L4300:localhost:4300 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -t -R0:moksh.a.pinggy.link:80 jYEfZnpL3zR@a.pinggy.io u:Host:moksh.a.pinggy.link x:reverseproxy:moksh.a.pinggy.link
 ```
+
+{{< pinggytunnel box="true" mode="http" tunnelstring="Paste this command to start a tunnel to RDP server:" portstring="RDP server Port" localport="80" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
 
 This command establishes a secure SSL connection from your local server to Pinggy's server, making the site available for remote access.
 
@@ -56,32 +68,28 @@ This command establishes a secure SSL connection from your local server to Pingg
 - **-o StrictHostKeyChecking=no**: Disables strict host key checking, simplifying setup.
 - **-o ServerAliveInterval=30**: Sends pings every 30 seconds to keep the connection alive and prevent timeouts.
 - **-t**: Forces a pseudo-terminal, allowing for interactive command execution if required.
-- **-R0:testping.local:80**: Configures reverse tunneling from `testping.local` on port 80, crucial for LocalWP.
-- **a.pinggy.io**: Pinggy's remote server, which hosts the tunnel.
-- **u:Host:testping.local**: Sets the host header on the remote server to match your local address.
-- **x:reverseproxy:testping.local**: Enables reverse proxy mode, which helps handle site headers and hostnames for local WordPress installations.
+- **-R0:moksh.a.pinggy.link:80**: Configures reverse tunneling from your subdomain on port 80, crucial for LocalWP.
+- **jYEfZnpL3zR&#64;a.pinggy.io**: Your unique Pinggy token, retrieved when setting up the subdomain.
+- **u:Host:moksh.a.pinggy.link**: Sets the host header on the remote server to match your local address.
+- **x:reverseproxy:moksh.a.pinggy.link**: Enables reverse proxy mode, which helps handle site headers and hostnames for local WordPress installations.
 
 With Pinggy, accessing your LocalWP WordPress site remotely becomes seamless, allowing you to showcase your work or collaborate with ease.
 
+---
 
-
-# Setting Up Remote Access for LocalWP Using Pinggy
-
-Pinggy allows users to remotely access their LocalWP site as if it were hosted on an actual server. Below, you'll find the steps to access your LocalWP site via Pinggy, along with troubleshooting tips for common issues.
-
-## 📸 Screenshot Suggestion
-
-A screenshot here would show the terminal with the Pinggy command initiated, along with the output confirming that the tunnel is live.
-
-## Step 3: Remotely Access Your LocalWP Site
+# Finalizing Your Remote Access
 
 Once the Pinggy tunnel is live, you can access your LocalWP site from anywhere using the URL generated by Pinggy.
 
 1. Open a web browser.
-2. Enter the Pinggy URL provided in the terminal output (e.g., `https://a.pinggy.io/unique-tunnel-id`).
+2. Enter the Pinggy URL provided in the terminal output (e.g., `https://moksh..pinggy.link`).
 3. Your locally developed WordPress site should now appear as though it’s hosted on a live server.
 
-📸 **Screenshot Suggestion**: Show the browser with the Pinggy URL, displaying the local WordPress site accessed through Pinggy’s URL.
+{{< image "sharing_local_wordPress_sites_remotely_using_pinggy/pinggy_url.webp" "How to Easily Share ComfyUI Online" >}}
+{{< image "sharing_local_wordPress_sites_remotely_using_pinggy/site_preview.webp" "How to Easily Share ComfyUI Online" >}}
+---
+
+By following these steps, you can efficiently set up and manage remote access for your LocalWP WordPress site using Pinggy.
 
 ## Troubleshooting Common Issues
 
@@ -89,40 +97,42 @@ As with any tool, there may be occasional issues when using Pinggy with LocalWP.
 
 ### 1. Mixed Content Issues
 
-When your site loads over HTTPS but some resources (such as images or scripts) load over HTTP, you might see mixed content warnings. This can disrupt asset loading and impact the appearance of the site.
+If your site is hosted over HTTPS, but some of the resources that are being called, for instance images or scripts are in HTTP, then you may get mixed content messages. This can distort order of loading of assets and affects the look and feel of the site.
 
-- **Solution**: Use the HTTPS version of your Pinggy URL, or ensure all links on your WordPress site use HTTPS. You can update this in WordPress by adjusting the **WordPress URL** and **Site URL** settings to use HTTPS.
+- **Solution**:  You should use the HTTPS version of your Pinggy URL, or all links on your WordPress site should use HTTPS. This can be done in WordPress by changing the settings of WordPress URL and Site URL to HTTPS.
 
 ### 2. Site Not Loading Assets
 
-This issue often stems from misconfigured headers or incorrect site addresses.
+It is mainly attributed to improper headers or wrong site locations.
 
-- **Solution**: Check the host header setting in your Pinggy command (e.g., `u:Host:testping.local`) and confirm it matches the local site address.
+- **Solution**:  Again, if you are using Pinggy command check the HOST header value specified in your Pinggy command (for example `u:Host:testping.local`) and verify that this value is the same as your local site address.
 
 ### 3. LocalWP Port Conflicts
 
-LocalWP commonly defaults to port 80, which can occasionally lead to conflicts.
+LocalWP usually sets the site to run on port 80 and sometimes this may result to conflicts.
 
-- **Solution**: In LocalWP, specify a unique port for the site. Update the Pinggy command to use the new port.
+- **Solution**: In the configuration file of LocalWP, set a different port for the site. Set the Pinggy command to be based on the new port.
 
-By following these steps and troubleshooting tips, you can efficiently set up and manage remote access for your LocalWP WordPress site using Pinggy.
+Following these instructions as well as tips on troubleshooting you can successfully configure and use Pinggy for providing remote access to your LocalWP WordPress site.
 
 # Additional Tips for Smooth Functioning
 
 Here are some additional recommendations to prevent issues when working with Pinggy and LocalWP:
 
-- **Use HTTPS Server Setting**: If your local server is running via HTTPS, enable the **Connect to HTTPS Server** option in Pinggy to prevent certificate errors.
-- **Enable Reverse Proxy Mode**: This setting is particularly useful for LocalWP, as it adjusts the hostname and routes requests correctly to the local server.
-- **Adjust Headers**: If the site requires a specific hostname in the request, update the headers accordingly to include the correct hostname.
+- **Use HTTPS Server Setting**:  If your server is hosted locally on the HTTPS, enable the option **Connect to HTTPS Server** in Pinggy in order to avoid errors in certificates.
+- **Enable Reverse Proxy Mode**:  This setting is particularly useful for the LocalWP project as it rewrites the hostname and passes requests to the correct server.
+- **Adjust Headers**: If the site expects a hostname in the request then we need to change it as per the site requirements in the headers.
+
 
 ## Advantages of Using Pinggy with LocalWP
 
-- **Remote Access**: Pinggy enables you to navigate your local sites from any location, eliminating the need for complex network configurations.
-- **Client Collaboration**: With Pinggy, you can showcase your development progress to clients or teammates without deploying to a live site.
-- **Enhanced Security**: Pinggy provides secure tunneling that protects your local server from unauthorized access.
+- **Remote Access**:  Pinggy will allow you to access your local sites regardless of the geographic location – no need to fine-tune your networks.
+- **Client Collaboration**:  Pinggy allows you displaying the improvements to clients or colleagues without having to post to a live site.
+- **Enhanced Security**:  Pinggy has tunnelling that keeps your local server safe from access by unauthorized persons.
 
 ## Quick Hack
 
-If you encounter connectivity issues, add the `ServerAliveInterval=10` option to your Pinggy command. This sends a "heartbeat" every 10 seconds to keep the session active and helps avoid timeouts, which is especially useful during extended development sessions.
+Note that you may experience connectivity problems In that cas you append `ServerAliveInterval=10’ at the Pinggy command-Function:. It sends a “heartbeat” every 10 seconds to keep the session alive and useful for avoiding timeout issues while working through long sessions during development.
 
-Pinggy simplifies the sharing of LocalWP sites, allowing developers to receive real-time feedback, collaborate, and test efficiently.
+Pinggy makes LocalWP site share as easy as possible and gives developers the chance to get real feedback, discuss and test.
+
