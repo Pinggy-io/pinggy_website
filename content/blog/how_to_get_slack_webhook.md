@@ -147,7 +147,7 @@ Testing outgoing webhooks from Slack can help you ensure that your integration r
 
 If you run the command with your specified port where your service is running, you will get an output similar to the following:
 
-{{< figure src="images/slack_webhooks/webhook test img.webp" alt="Pinggy Tunnel" >}}
+{{< figure src="/images/slack_webhooks/webhook test img.webp" alt="Pinggy Tunnel" >}}
 
 #### Step 2: Set Up a Local Web Server
 
@@ -225,20 +225,20 @@ Ensure that the response from your server is correctly formatted. Slack expects 
 - Slack provides a signing secret, which can be used to hash the request and compare it to the signature. This validation helps guard against unauthorized requests.
   Example in Node.js:
 
-  ````javascript
-  const crypto = require('crypto');
+  ```javascript
+  const crypto = require("crypto");
 
-      function verifySlackRequest(req, signingSecret) {
-          const timestamp = req.headers['x-slack-request-timestamp'];
-          const signature = req.headers['x-slack-signature'];
-          const baseString = `v0:${timestamp}:${req.rawBody}`;
-          const hash = `v0=${crypto
-              .createHmac('sha256', signingSecret)
-              .update(baseString)
-              .digest('hex')}`;
-          return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
-      }
-  ````
+  function verifySlackRequest(req, signingSecret) {
+    const timestamp = req.headers["x-slack-request-timestamp"];
+    const signature = req.headers["x-slack-signature"];
+    const baseString = `v0:${timestamp}:${req.rawBody}`;
+    const hash = `v0=${crypto
+      .createHmac("sha256", signingSecret)
+      .update(baseString)
+      .digest("hex")}`;
+    return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
+  }
+  ```
 
 4. **Restrict IP Addresses (If Possible)**
 
