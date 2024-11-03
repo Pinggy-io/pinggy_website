@@ -140,7 +140,11 @@ Testing outgoing webhooks from Slack can help you ensure that your integration r
 
 [Pinggy](https://pinggy.io) simplifies the process of creating a secure tunnel. Use the following command to set up a tunnel to your local development server:
 
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Slack Port" localport="8000" webdebugenabled=false keepalive=true >}}
+```bash
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
+```
+
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Local Slack App Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
 **Note:** Replace the port 8000 in the command with the port where your local development server is running.
@@ -225,20 +229,20 @@ Ensure that the response from your server is correctly formatted. Slack expects 
 - Slack provides a signing secret, which can be used to hash the request and compare it to the signature. This validation helps guard against unauthorized requests.
   Example in Node.js:
 
-  ````javascript
-  const crypto = require('crypto');
+  ```javascript
+  const crypto = require("crypto");
 
-      function verifySlackRequest(req, signingSecret) {
-          const timestamp = req.headers['x-slack-request-timestamp'];
-          const signature = req.headers['x-slack-signature'];
-          const baseString = `v0:${timestamp}:${req.rawBody}`;
-          const hash = `v0=${crypto
-              .createHmac('sha256', signingSecret)
-              .update(baseString)
-              .digest('hex')}`;
-          return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
-      }
-  ````
+  function verifySlackRequest(req, signingSecret) {
+    const timestamp = req.headers["x-slack-request-timestamp"];
+    const signature = req.headers["x-slack-signature"];
+    const baseString = `v0:${timestamp}:${req.rawBody}`;
+    const hash = `v0=${crypto
+      .createHmac("sha256", signingSecret)
+      .update(baseString)
+      .digest("hex")}`;
+    return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
+  }
+  ```
 
 4. **Restrict IP Addresses (If Possible)**
 

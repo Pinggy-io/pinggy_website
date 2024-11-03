@@ -82,7 +82,7 @@ To expose your locally hosted ComfyUI instance, use Pinggy's SSH tunneling comma
 
 Open a terminal and enter:
 
-{{< ssh_command >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8188 a.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8188 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8188 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
