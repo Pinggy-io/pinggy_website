@@ -1,4 +1,4 @@
-{{ $json := .Inner | default "{}" }} {{ $text := .Get "text" | default "" }} {{ $clionly := .Get "clionly" | default "false" }}
+{{ $json := .Inner | default "{}" }} {{ $text := .Get "text" | default "" }} {{ $clionly := .Get "clionly" | default "false" }}  {{ $defaultcommand := .Get "defaultcommand" | default "" }}
 
 <div
   x-data="{

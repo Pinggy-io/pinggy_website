@@ -140,7 +140,11 @@ Testing outgoing webhooks from Slack can help you ensure that your integration r
 
 [Pinggy](https://pinggy.io) simplifies the process of creating a secure tunnel. Use the following command to set up a tunnel to your local development server:
 
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Slack Port" localport="8000" webdebugenabled=false keepalive=true >}}
+```bash
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
+```
+
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Local Slack App Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
 **Note:** Replace the port 8000 in the command with the port where your local development server is running.

@@ -1,0 +1,4 @@
+{{ $json := .Inner | default "{}" }} {{ $text := .Get "text" | default "" }} {{ $clionly := .Get "clionly" | default "false" }} {{ $defaultcommand := .Get "defaultcommand" | default "" }}
+<pre>
+{{ $defaultcommand }}
+</pre>
