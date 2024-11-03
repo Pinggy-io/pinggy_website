@@ -5,18 +5,18 @@
  lastmod: 2024-11-02T15:15:25+05:30
  draft: false 
  tags: ["guide","FastAPI", "Pinggy"]
- og_image: "images/host_fastapi_app/host fastapi.webp"
+ og_image: "images/host_fastapi_app/host_fastapi.webp"
  outputs:
   - HTML
   - AMP
 ---
 
-{{< image "host_fastapi_app/host fastapi.webp" "Host a FastAPI Application Without a Server" >}}
+{{< image "host_fastapi_app/host_fastapi.webp" "Host a FastAPI Application Without a Server" >}}
 
-#### Introduction to FastAPI
+## Introduction to FastAPI
 {{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} is a modern, high-performance web framework for building APIs with Python, based on standard Python type hints. It’s known for its speed, ease of use, and automatic documentation generation with OpenAPI. Built on ASGI (Asynchronous Server Gateway Interface), FastAPI is especially suited for handling concurrent requests and is often used to create RESTful APIs for web applications, mobile backends, and even IoT solutions.
 
-##### Key Features of FastAPI
+#### Key Features of FastAPI
 
 - FastAPI is comparable in speed to Node.js and Go, making it ideal for building high-performance applications.
 - It offers an excellent developer experience, with features such as input validation and detailed error handling to simplify development.
@@ -43,19 +43,19 @@ That command creates a new virtual environment in a directory called `.venv`.
 
 Activate the new virtual environment so that any Python command you run or package you install uses it.
 
-###### For Linux,macOS
+#### For Linux, macOS
 
 ```bash
 source .venv/bin/activate
 ```
 
-###### For Windows Powershell
+#### For Windows Powershell
 
-```bash
+```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-###### For Windows Bash
+#### For Windows Bash
 
 ```bash
 source .venv/Scripts/activate
@@ -69,7 +69,7 @@ To upgrade `pip`, use:
 python -m pip install --upgrade pip
 ```
 
-###### Step 3: Building a Simple FastAPI Application
+#### Step 3: Building a Simple FastAPI Application
 
 The simplest FastAPI file could look like this:
 ```javascript
@@ -84,7 +84,7 @@ async def root():
 
 ```
 
-###### Step 4: Install FastAPI
+#### Step 4: Install FastAPI
 
 To get started with FastAPI, you need to install it.
 
@@ -94,7 +94,7 @@ To install FastAPI along with some optional dependencies, Use the command:
 pip install "fastapi[standard]"
 ```
 
-###### Step 5: Run the FastAPI Application
+#### Step 5: Run the FastAPI Application
 
 Now, you can run the application with:
 
@@ -102,9 +102,9 @@ Now, you can run the application with:
 fastapi dev main.py
 ```
 
-{{< image "host_fastapi_app/fastapi dev app.webp" "Run fastapi dev command" >}}
+{{< image "host_fastapi_app/fastapi_dev_app.webp" "Run fastapi dev command" >}}
 
-###### Step 6: Check the output
+#### Step 6: Check the output
 
 Open your browser at `http://127.0.0.1:8000`
 
@@ -113,7 +113,7 @@ You will see the JSON response as:
 ```javascript
 {"message": "Hello World"}
 ```
-{{< image "host_fastapi_app/json output.webp" "JSON output" >}}
+{{< image "host_fastapi_app/json_output.webp" "JSON output" >}}
 
 ## Hosting FastAPI through Pinggy
 
@@ -131,7 +131,7 @@ After running the command, Pinggy will generate a public URL which might looks l
 http://rnssh-103-171-246-33.a.free.pinggy.link
 ```
 
-{{< image "host_fastapi_app/pinggy command.webp" "Pinggy command" >}}
+{{< image "host_fastapi_app/pinggy_command.webp" "Pinggy command" >}}
 
 When you paste the modified URL into your browser, your FastAPI application will process the request and return the output in JSON format, which will be displayed directly in the browser.
 
