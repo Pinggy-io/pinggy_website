@@ -121,7 +121,7 @@ You will see the JSON response as:
 
 Use the following command to set up a tunnel to your local development server:
 
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Slack Port" localport="8000" webdebugenabled=false keepalive=true >}}
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI application:" portstring="Slack Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
 Note: Replace the port 8000 in the command with the port where your local development server is running.
@@ -216,7 +216,7 @@ Let's break down the command:
 
 Use the following command to set up a tunnel to your local development server:
 
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Slack Webhook:" portstring="Slack Port" localport="8000" webdebugenabled=false keepalive=true >}}
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI application:" portstring="Slack Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
 Note: Replace the port 8000 in the command with the port where your local development server is running.
