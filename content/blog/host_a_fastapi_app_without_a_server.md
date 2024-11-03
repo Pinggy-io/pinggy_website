@@ -229,6 +229,6 @@ When you paste the modified URL into your browser, your FastAPI application will
 
 ## Conclusion
 
-In this article, we explored how to host a FastAPI application without a traditional server using [Pinggy](https://pinggy.io). FastAPI is an efficient framework for creating high-performance APIs, known for its ease of use and automatic documentation. We demonstrated the installation process, built a simple CPU temperature application, and discussed how to make it publicly accessible via Pinggy. Additionally, we highlighted various ASGI servers, such as Uvicorn, Hypercorn, and Daphne, which are essential for running FastAPI applications efficiently, particularly in handling asynchronous communication.
+In this article, we explored how to host a FastAPI application without a traditional server using [Pinggy](https://pinggy.io). FastAPI is an efficient framework for creating high-performance APIs, known for its ease of use and automatic documentation. We demonstrated the installation process, built a simple FastAPI application, and discussed how to make it publicly accessible via Pinggy. Additionally, we highlighted various ASGI servers, such as Uvicorn, Hypercorn, and Daphne, which are essential for running FastAPI applications efficiently, particularly in handling asynchronous communication.
 
-Overall, combining FastAPI with Pinggy and the right ASGI server provides a quick and effective solution for deploying APIs seamlessly.
+Overall, combining FastAPI with Pinggy and the right ASGI server provides a quick and effective solution for deploying APIs seamlessly, allowing developers to focus more on application logic and less on server configuration.
