@@ -225,20 +225,20 @@ Ensure that the response from your server is correctly formatted. Slack expects 
 - Slack provides a signing secret, which can be used to hash the request and compare it to the signature. This validation helps guard against unauthorized requests.
   Example in Node.js:
 
-  ````javascript
-  const crypto = require('crypto');
+  ```javascript
+  const crypto = require("crypto");
 
-      function verifySlackRequest(req, signingSecret) {
-          const timestamp = req.headers['x-slack-request-timestamp'];
-          const signature = req.headers['x-slack-signature'];
-          const baseString = `v0:${timestamp}:${req.rawBody}`;
-          const hash = `v0=${crypto
-              .createHmac('sha256', signingSecret)
-              .update(baseString)
-              .digest('hex')}`;
-          return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
-      }
-  ````
+  function verifySlackRequest(req, signingSecret) {
+    const timestamp = req.headers["x-slack-request-timestamp"];
+    const signature = req.headers["x-slack-signature"];
+    const baseString = `v0:${timestamp}:${req.rawBody}`;
+    const hash = `v0=${crypto
+      .createHmac("sha256", signingSecret)
+      .update(baseString)
+      .digest("hex")}`;
+    return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(signature));
+  }
+  ```
 
 4. **Restrict IP Addresses (If Possible)**
 
