@@ -14,6 +14,18 @@ outputs:
 
 Creating a local WordPress site is a routine for most developers, though sharing a live preview with clients or multiperson collaboration in real-time without having to waste time on complicated networks and open ports is always a big problem. That’s where Pinggy comes into play – a simple and lightweight tool for sharing local WordPress sites, that works in harmony with LocalWP by Flywheel tool, helps to tunnel your site in order not to trouble yourself with its remote accessibility. This tutorial will help you to find out how you can make the most of Pinggy if you have a local WordPress environment set up..
 
+{{% tldr %}}
+
+1. **Configure Pinggy Pro**: Set up a subdomain in Pinggy and link it to your LocalWP site.
+2. **Run Command**: Open terminal and run:
+   ```bash
+   ssh -p 443 -L4300:localhost:4300 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -t -R0:your-subdomain.a.pinggy.link:80 <your-token>@a.pinggy.io
+   ```
+3. **Access Site**: Use the generated Pinggy URL to access your local WordPress site remotely.
+
+{{% /tldr %}}
+
+
 {{< iframe src="https://www.youtube.com/embed/DwMt-Ts-1Vk?si=8CRKOBp7xoCKaHnI" title="YouTube video player" >}}
 
 ## Why Use Pinggy for Local WordPress Site Sharing?
