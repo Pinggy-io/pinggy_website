@@ -2,7 +2,7 @@
  title: "Top 10 Ngrok alternatives in 2024" 
  description: "Discover the top 10 Ngrok alternatives in 2024. Explore Pinggy.io, LocalXpose, Localtunnel, and more. Compare features, ease of use, and prices in this comprehensive guide."
  date: 2023-02-01T14:15:25+05:30
- lastmod: 2024-08-21T14:15:25+05:30
+ lastmod: 2024-11-04T14:15:25+05:30
  draft: false 
  tags: ["guide", "comparison"]
  og_image: "images/best_ngrok_alternatives/img1.webp"
@@ -78,6 +78,8 @@ Pinggy is one of the Ngrok alternatives which you can try out for free without s
 #### Pros of Pinggy
 
 - No need to download anything.
+- Unlimited bandwidth
+- Supprots UDP tunnels
 - Provides a terminal user interface with QR codes and request inspector.
 - Built-in web-debugger to monitor, inspect, modify, and replay HTTP requests.
 - Works on Mac / PC / Linux / Docker.
