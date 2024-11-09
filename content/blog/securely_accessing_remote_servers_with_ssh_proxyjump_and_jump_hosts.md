@@ -13,7 +13,9 @@ outputs:
 
 ## Introduction
 
-In the field of network management and security, authentication to distant platforms is a basic requirement. Most of the time, it becomes impossible to establish a direct SSH connection with a remote server because of different network segmentation policies, firewall limitations, or extremely strict security measures at the organization’s end. This is where Jump Hosts, commonly referred to as bastion hosts, fill the gap by providing means to connect two or more network segments. Together with SSH’s ProxyJump feature, they offer a secure way to connect to servers that otherwise cannot be reached. This guide dives into SSH ProxyJump and Jump Hosts, providing practical tips and configurations to maximize their effectiveness.
+In the field of network management and security, authentication to distant platforms is a basic requirement. Most of the time, it becomes impossible to establish a direct SSH connection with a remote server because of different network segmentation policies, firewall limitations, or extremely strict security measures at the organisation’s end. This is where Jump Hosts, commonly referred to as bastion hosts, fill the gap by providing means to connect two or more network segments. Together with SSH’s ProxyJump feature, they offer a secure way to connect to servers that otherwise cannot be reached. This guide dives into SSH ProxyJump and Jump Hosts, providing practical tips and configurations to maximise their effectiveness.
+
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/thumbnail.webp" "thumbnail" >}}
 
 ## Understanding SSH and Its Importance
 
@@ -30,7 +32,9 @@ SSH is crucial for securely replacing outdated, insecure protocols like Telnet, 
 
 ## What is a Jump Host?
 
-A Jump Host is an agnostic intermediate system in by which network traffic is switch to access the target servers from a different security domain or logical network layer. This is a controlled gateway through which the external networks can access some servers that are otherwise not directly recognizable from the external network by other users such as the administrators and other accredited users.
+A Jump Host is an agnostic intermediate system in which network traffic is switched to access the target servers from a different security domain or logical network layer. This is a controlled gateway through which the external networks can access some servers that are otherwise not directly recognisable from the external network by other users, such as the administrators and other accredited users.
+
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/jumphost.webp" "JumpHosts" >}}
 
 ## Why Use a Jump Host?
 
@@ -41,7 +45,9 @@ A Jump Host is an agnostic intermediate system in by which network traffic is sw
 
 ## What is SSH ProxyJump
 
-In the past, in order to use a Jump Host it was necessary to open an SSH connection to the Jump Host then start another SSH connection to the target server. The above process was tire Some people even experience some pains and stresse This was cumbersome and inefficient. Originally, there was no easy way to include one or more Jump Hosts in the SSH handling, except for rather complicated configurations involving the use of local port forwarding and more; but the ProxyJump option was added in OpenSSH 7.3 and allows for simple direct input of the desired one or more Jump Hosts through the SSH command or into the SSH configuration file.{{< link href="https://www.openssh.com/txt/release-7.3" >}} Learn more about ProxyJump in the OpenSSH release notes for version 7.3 {{</ link>}}.
+In the past, Previously, when using a Jump Host, it was necessary to first establish an SSH connection to the Jump Host and then initiate another SSH connection to the target server. This process was often tedious and inefficient, causing frustration for many users. Prior to the introduction of ProxyJump, there was no simple way to specify one or more Jump Hosts in the SSH connection process, requiring complex configurations such as local port forwarding. However, with the release of OpenSSH 7.3, the ProxyJump option was introduced, allowing users to easily specify Jump Hosts directly in the SSH command or configuration file, streamlining the connection process. {{< link href="https://www.openssh.com/txt/release-7.3" >}} Learn more about ProxyJump in the OpenSSH release notes for version 7.3 {{</ link>}}.
+
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ ssh_proxyjump.webp" "SSH ProxyJump" >}}
 
 **Basic Syntax**:
 
@@ -64,6 +70,7 @@ To access `server.internal.com` through `jump.example.com`, use the following co
 ```bash
 ssh -J user@jump.example.com user@server.internal.com
 ```
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/single_jump_host_access.webp" "Single Jump Host Access Terminal Pic" >}}
 
 This command tells SSH to first connect to jump.example.com as user and then connect to server.internal.com as user.
 
@@ -85,25 +92,29 @@ Host jump-host
     HostName jump.example.com
     User user
 
-Host internal-server
-    HostName server.internal.com
+Host host_destination 
+    HostName server.destination.com
     User user
     ProxyJump jump-host
 ```
-With this configuration, you can connect to the internal server using:
+
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ssh_config.webp" "SSH Config Terminal Pic" >}}
+
+With this configuration, you can connect to the destination server using:
 
 ```bash
-ssh internal-server
+ssh host_destination 
 ```
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ssh host_destination_output.webp" "SSH Host destination Command Terminal Pic" >}}
 
 ### 4. SSH Tunnel Using Jump Host
 As mentioned earlier when connecting through the Jump Host you can use SSH port forwarding if you try to connect directly to the port number of the target server you will not be granted access due to the TCP port forwarding.
 
 ```bash
-ssh -J user@jump.example.com -L 8080:remote_service:80: user: server.internal.com
+ssh -J user@jump.example.com -L 8080:remote_service:80: user: destination_server.hostname
 ```
 
-This command forwards your local port 8080 to remote_service:80 on server.internal.com, allowing access to the remote service through localhost:8080 on your machine.
+This command forwards your local port 8080 to remote_service:80 on server.destination.com, allowing access to the remote service through localhost:8080 on your machine.
 
 ## Using SSH Keys to Avoid Entering Passwords Every Time 
 Among the benefits of the SSH, there is a possibility to use the key-based authentication. By utilizing ssh keys, you have the ability to log into your servers without entering a password every time, which not only enhances convenience but also security.
