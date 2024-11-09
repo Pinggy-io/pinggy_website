@@ -105,7 +105,7 @@ To install `psutil` run the below command:
 pip install psutil
 ```
 
-## Building a FastAPI Application to Monitor System Performance Metrics
+## Build a FastAPI Application to Monitor System Performance Metrics
 
 In this section, we will create routes for monitoring various system performance metrics, such as CPU usage, memory, and disk space. Each route will be explained separately to demonstrate how we can collect and display real-time system data using FastAPI.
 
