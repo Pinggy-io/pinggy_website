@@ -23,7 +23,7 @@ making it a popular choice for developers.
 
 {{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} is a cutting-edge, high-performance framework in Python designed for creating APIs swiftly and efficiently. With native support for Python type hints, it offers remarkable speed, ease of use, and automatically generated OpenAPI documentation. Built on the ASGI (Asynchronous Server Gateway Interface) standard, FastAPI is highly adept at handling concurrent requests, making it an ideal choice for APIs that monitor system metrics such as CPU, RAM, memory, and disk usage.
 
-Now that we’ve covered the basics of FastAPI, let’s go over the prerequisite steps for setting up our FastAPI application to monitor system performance metrics.
+Now that we’ve covered the basics of FastAPI, let’s go over the steps for setting up and running our FastAPI application to monitor system performance metrics.
 
 ## Prerequisite Steps to Setup Your FastAPI application
 
@@ -105,7 +105,7 @@ To install `psutil` run the below command:
 pip install psutil
 ```
 
-### Step 5: Building a FastAPI Application to Monitor System Performance Metrics
+## Building a FastAPI Application to Monitor System Performance Metrics
 
 In this section, we will create routes for monitoring various system performance metrics, such as CPU usage, memory, and disk space. Each route will be explained separately to demonstrate how we can collect and display real-time system data using FastAPI.
 
@@ -113,7 +113,7 @@ In this section, we will create routes for monitoring various system performance
 
 Now, let's discuss each component of the system individually.
 
-#### Monitor CPU Usage Metrics
+### Monitor CPU Usage Metrics
 
 In this section, we will configure routes within our FastAPI application to monitor CPU usage on the system.
 We'll expose three routes to monitor various aspects of the CPU:
@@ -181,7 +181,7 @@ The **outputs** of different endpoints will be as follows:
 {{< image "system_monitoring_fastapi/cpu_usage3.webp" "FastAPI application to monitor CPU metrices" >}}
 
 
-#### Track Memory and Swap Usage
+### Track Memory and Swap Usage
 
 In this section, we will create routes for monitoring memory usage, which is crucial for tracking how much memory is being used by the system and how much is available. We will monitor both virtual memory and swap memory. Virtual memory represents the system's total memory, while swap memory refers to the disk-based memory used when physical memory is full.
 We'll expose two routes:
@@ -253,7 +253,7 @@ The **outputs** of different endpoints will be as follows:
 {{< image "system_monitoring_fastapi/memory2.webp" "FastAPI application to monitor Memory metrices" >}}
 
 
-#### Monitor RAM Utilization
+### Monitor RAM Utilization
 
 In this section, we will monitor the RAM usage in percentage. Monitoring RAM usage helps in understanding the health of the system and whether it's using memory efficiently.
 We will expose one route:
@@ -288,7 +288,7 @@ The **outputs** of different endpoints will be as follows:
 {{< image "system_monitoring_fastapi/ram1.webp" "FastAPI application to monitor RAM metrices" >}}
 
 
-#### Disk Usage and I/O Statistics
+### Disk Usage and I/O Statistics
 
 Monitoring disk usage is important for tracking how much space is being utilized on the system's storage. This includes monitoring the overall disk usage, checking the partitions, and displaying disk I/O statistics (read/write operations).
 We'll expose three routes:
@@ -391,7 +391,7 @@ The **outputs** of different endpoints will be as follows:
 
 {{< image "system_monitoring_fastapi/disk3.webp" "FastAPI application to monitor Disk metrices" >}}
 
-### Step 6: Run the FastAPI Application locally
+### Run the FastAPI Application locally
 
 Now, you can run the application with:
 
@@ -401,7 +401,7 @@ fastapi dev main.py
 
 {{< image "host_fastapi_app/fastapi_dev_app.webp" "Run fastapi dev command" >}}
 
-### Step 7: Check the output
+### Check the output
 
 Open your browser at `http://127.0.0.1:8000/<required-endpoint>` and check the output which is a JSON response.
 
