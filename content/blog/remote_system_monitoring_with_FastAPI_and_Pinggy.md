@@ -25,7 +25,7 @@ making it a popular choice for developers.
 
 Now that we’ve covered the basics of FastAPI, let’s go over the prerequisite steps for setting up our FastAPI application to monitor system performance metrics.
 
-## Prerequisite Steps to Setup our FastAPI application
+## Prerequisite Steps to Setup Your FastAPI application
 
 ### Step 1: Create a Virtual Environment
 
