@@ -11,21 +11,25 @@
   - AMP
 ---
 
-{{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}}, known for its speed and efficiency, is an excellent framework for building APIs, making it a popular choice for developers. In this article, we’ll show you how to easily monitor your system’s performance—specifically CPU, RAM, memory, and disk usage—using FastAPI. Additionally, we’ll demonstrate how to remotely access these system metrics with Pinggy, bypassing the need for complex cloud setups and instantly sharing your FastAPI server from localhost with just a single command.
+In this article, we will see how to remotely monitor your system's performance—specifically CPU, RAM, memory, and disk usage—using FastAPI and Pinggy.
+{{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}}, known for its speed and efficiency,
+is an excellent framework for building APIs, 
+making it a popular choice for developers.
+[Pinggy](https://pinggy.io) is an excellent tool for effortlessly and securely sharing your FastAPI server directly from localhost with just a single command, ensuring seamless remote access even if your server is located behind a firewall.
 
 {{< image "system_monitoring_fastapi/main_img.webp" "Remote System Monitoring with FastAPI and Pinggy" >}}
 
 ## Introduction to FastAPI
 
-{{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} is a modern, high-performance web framework for building APIs with Python, based on standard Python type hints. It’s known for its speed, ease of use, and automatic documentation generation with OpenAPI. Built on ASGI (Asynchronous Server Gateway Interface), FastAPI is particularly well-suited for handling concurrent requests and is an ideal choice for building APIs that monitor system performance, such as CPU, RAM, memory, and disk usage.
+{{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} is a cutting-edge, high-performance framework in Python designed for creating APIs swiftly and efficiently. With native support for Python type hints, it offers remarkable speed, ease of use, and automatically generated OpenAPI documentation. Built on the ASGI (Asynchronous Server Gateway Interface) standard, FastAPI is highly adept at handling concurrent requests, making it an ideal choice for APIs that monitor system metrics such as CPU, RAM, memory, and disk usage.
 
-Now that we know the basics of FastAPI, let’s look at how to install it and test it without needing a traditional server.
+Now that we’ve covered the basics of FastAPI, let’s go over the prerequisite steps for setting up our FastAPI application to monitor system performance metrics.
 
-## Running a FastAPI server on localhost
+## Prerequisite Steps to Setup our FastAPI application
 
 ### Step 1: Create a Virtual Environment
 
-When you work in Python projects you should use a virtual environment (or a similar mechanism) to isolate the packages you install for each project.
+When working on Python projects, it's recommended to use a virtual environment to keep the packages for each project separate and isolated.
 
 To create a virtual environment, you can use the `venv` module that comes with Python.
 
@@ -39,7 +43,7 @@ That command creates a new virtual environment in a directory called `.venv`.
 
 ### Step 2: Activate the Virtual Environment
 
-Activate the new virtual environment so that any Python command you run or package you install uses it.
+Activate the new virtual environment to ensure that any Python commands you execute or packages you install are applied within it.
 
 #### For Linux, MacOS
 
@@ -59,15 +63,14 @@ source .venv/bin/activate
 source .venv/Scripts/activate
 ```
 
-Upgrading `pip` before installing packages like FastAPI is generally a good practice, especially if you're working in a new environment or haven't updated `pip` in a while.
+Upgrading `pip` before installing packages like FastAPI is recommended, particularly when working in a fresh environment or if it's been a while since `pip` was last updated.
 
 To upgrade `pip`, use:
 
 ```bash
 python -m pip install --upgrade pip
 ```
-
-### Step 3: Building a Simple FastAPI Application
+<!-- ### Step 3: Building a Simple FastAPI Application
 
 The simplest FastAPI file could look like this:
 
@@ -81,9 +84,9 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-```
+``` -->
 
-### Step 4: Install FastAPI
+### Step 3: Install FastAPI
 
 To get started with FastAPI, you need to install it.
 
@@ -93,44 +96,26 @@ To install FastAPI along with some optional dependencies, Use the command:
 pip install "fastapi[standard]"
 ```
 
-### Step 5: Run the FastAPI Application
+### Step 4: Install psutil
+{{< link href="https://pypi.org/project/psutil/" >}}psutil{{< /link >}} is a Python library used to retrieve information on system utilization, including CPU, memory, disk, and network usage. It is required for this FastAPI application to gather real-time performance metrics of the system, enabling efficient monitoring and reporting of key resources necessary for performance analysis.
 
-Now, you can run the application with:
-
-```bash
-fastapi dev main.py
-```
-
-{{< image "host_fastapi_app/fastapi_dev_app.webp" "Run fastapi dev command" >}}
-
-### Step 6: Check the output
-
-Open your browser at `http://127.0.0.1:8000`
-
-You will see the JSON response as:
-
-```javascript
-{"message": "Hello World"}
-```
-
-{{< image "host_fastapi_app/json_output.webp" "JSON output" >}}
-
-Now let’s explore different FastAPI applications.
-Use the same above commands to run these applications.
-
-We will be using the `psutil` library, which is a cross-platform library used to retrieve information on system utilisation (such as CPU, memory, disks, and network) in Python.
-
-To install psutil run the below command:
+To install `psutil` run the below command:
 
 ```bash
 pip install psutil
 ```
 
-> **Visit this Github Repository to get access to the codebases** ({{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}Github Link{{< /link >}})
+### Step 5: Building a FastAPI Application to Monitor System Performance Metrics
 
-## FastAPI Application for Monitoring CPU Usage
+In this section, we will create routes for monitoring various system performance metrics, such as CPU usage, memory, and disk space. Each route will be explained separately to demonstrate how we can collect and display real-time system data using FastAPI.
 
-In this section, we will set up a FastAPI application to monitor CPU usage on a system.
+> **Visit this GitHub Repository to access the codebase.** ({{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub Link{{< /link >}})
+
+Now, let's discuss each component of the system individually.
+
+#### Monitor CPU Usage Metrics
+
+In this section, we will configure routes within our FastAPI application to monitor CPU usage on the system.
 We'll expose three routes to monitor various aspects of the CPU:
 
 1. `/cpu`: Get the overall CPU usage percentage.
@@ -195,7 +180,8 @@ The **outputs** of different endpoints will be as follows:
 
 {{< image "system_monitoring_fastapi/cpu_usage3.webp" "FastAPI application to monitor CPU metrices" >}}
 
-## FastAPI Application for Monitoring Memory Usage
+
+#### Track Memory and Swap Usage
 
 In this section, we will create routes for monitoring memory usage, which is crucial for tracking how much memory is being used by the system and how much is available. We will monitor both virtual memory and swap memory. Virtual memory represents the system's total memory, while swap memory refers to the disk-based memory used when physical memory is full.
 We'll expose two routes:
@@ -266,7 +252,8 @@ The **outputs** of different endpoints will be as follows:
 
 {{< image "system_monitoring_fastapi/memory2.webp" "FastAPI application to monitor Memory metrices" >}}
 
-## FastAPI Application for Monitoring RAM Usage
+
+#### Monitor RAM Utilization
 
 In this section, we will monitor the RAM usage in percentage. Monitoring RAM usage helps in understanding the health of the system and whether it's using memory efficiently.
 We will expose one route:
@@ -300,7 +287,8 @@ The **outputs** of different endpoints will be as follows:
 
 {{< image "system_monitoring_fastapi/ram1.webp" "FastAPI application to monitor RAM metrices" >}}
 
-## FastAPI Application for Monitoring Disk Usage
+
+#### Disk Usage and I/O Statistics
 
 Monitoring disk usage is important for tracking how much space is being utilized on the system's storage. This includes monitoring the overall disk usage, checking the partitions, and displaying disk I/O statistics (read/write operations).
 We'll expose three routes:
@@ -403,6 +391,21 @@ The **outputs** of different endpoints will be as follows:
 
 {{< image "system_monitoring_fastapi/disk3.webp" "FastAPI application to monitor Disk metrices" >}}
 
+### Step 6: Run the FastAPI Application locally
+
+Now, you can run the application with:
+
+```bash
+fastapi dev main.py
+```
+
+{{< image "host_fastapi_app/fastapi_dev_app.webp" "Run fastapi dev command" >}}
+
+### Step 7: Check the output
+
+Open your browser at `http://127.0.0.1:8000/<required-endpoint>` and check the output which is a JSON response.
+
+
 ## Remotely Monitoring your FastAPI app through Pinggy
 
 [Pinggy](https://pinggy.io) offers an easy and secure way to expose a local FastAPI application to the internet without needing complex server setups or cloud deployments.
@@ -451,8 +454,8 @@ Pinggy provides several unique benefits for developers:
 
 ## Conclusion
 
-In this article, we've explored how to efficiently monitor system performance, such as CPU, RAM, memory, and disk usage, using FastAPI. By leveraging FastAPI’s ease of use, speed, and simplicity, we’ve created a set of powerful APIs to track various system metrics. We also demonstrated how to extend FastAPI’s capabilities to monitor hardware usage, providing insights into how your system is performing in real-time.
+In this article, we've explored how to remotely monitor system performance, such as CPU, RAM, memory, and disk usage, using FastAPI and [Pinggy](https://pinggy.io). By leveraging FastAPI’s ease of use, speed, and simplicity, we’ve created a set of powerful APIs to track various system metrics. We also demonstrated how to extend FastAPI’s capabilities to monitor hardware usage, providing insights into how your system is performing in real-time.
 
-We also explored [Pinggy](https://pinggy.io) as a tool that enables developers to easily expose their local FastAPI applications to the internet without the need for complex server setups. Pinggy provides a simple and secure way to share FastAPI apps with a public URL, making it ideal for testing, live demonstrations, and quick deployments during development.
+[Pinggy](https://pinggy.io) as a tool enables developers to easily expose their local FastAPI applications to the internet without the need for complex server setups. Pinggy provides a simple and secure way to share FastAPI apps with a public URL, making it ideal for testing, live demonstrations, and quick deployments during development.
 
 By combining FastAPI with tools like [Pinggy](https://pinggy.io), developers can streamline the development and sharing process, ensuring that they can monitor system performance while maintaining accessibility and security. Whether you are building system monitoring tools, developing demos, or working on API-based solutions, this simple yet effective approach will improve your workflow and enhance productivity.
