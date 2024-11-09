@@ -406,7 +406,7 @@ fastapi dev main.py
 Open your browser at `http://127.0.0.1:8000/<required-endpoint>` and check the output which is a JSON response.
 
 
-## Remotely Monitoring your FastAPI app through Pinggy
+## Remotely Monitor your FastAPI app through Pinggy
 
 [Pinggy](https://pinggy.io) offers an easy and secure way to expose a local FastAPI application to the internet without needing complex server setups or cloud deployments.
 
