@@ -391,7 +391,7 @@ The **outputs** of different endpoints will be as follows:
 
 {{< image "system_monitoring_fastapi/disk3.webp" "FastAPI application to monitor Disk metrices" >}}
 
-### Run the FastAPI Application locally
+## Run the FastAPI Application locally
 
 Now, you can run the application with:
 
@@ -401,7 +401,7 @@ fastapi dev main.py
 
 {{< image "host_fastapi_app/fastapi_dev_app.webp" "Run fastapi dev command" >}}
 
-### Check the output
+## Check the output
 
 Open your browser at `http://127.0.0.1:8000/<required-endpoint>` and check the output which is a JSON response.
 
