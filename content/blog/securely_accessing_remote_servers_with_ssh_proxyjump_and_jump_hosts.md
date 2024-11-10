@@ -47,15 +47,15 @@ A Jump Host is an agnostic intermediate system in which network traffic is switc
 
 In the past, Previously, when using a Jump Host, it was necessary to first establish an SSH connection to the Jump Host and then initiate another SSH connection to the target server. This process was often tedious and inefficient, causing frustration for many users. Prior to the introduction of ProxyJump, there was no simple way to specify one or more Jump Hosts in the SSH connection process, requiring complex configurations such as local port forwarding. However, with the release of OpenSSH 7.3, the ProxyJump option was introduced, allowing users to easily specify Jump Hosts directly in the SSH command or configuration file, streamlining the connection process. {{< link href="https://www.openssh.com/txt/release-7.3" >}} Learn more about ProxyJump in the OpenSSH release notes for version 7.3 {{</ link>}}.
 
-{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ ssh_proxyjump.webp" "SSH ProxyJump" >}}
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ssh_proxyjump.webp" "SSH ProxyJump" >}}
 
 **Basic Syntax**:
 
 ```bash
 ssh -J [user@]jump_host[:port] target_host
-Advantages of Using ProxyJump:
 ```
 
+### Advantages of Using ProxyJump:
 - **Simplicity**: Saves time as compared to having to type more than one command about SSH or has to make specific configurations when the port forwarding is getting used.
 - **Efficiency**: Connects to a single system and creates an end-to-end encrypted channel over a single TCP port thus saving latency and resources.
 - **Flexibility**: Allows for cascading multiple Jump Hosts suitable for complex network structures.
@@ -65,21 +65,21 @@ Advantages of Using ProxyJump:
 
 ### 1. Single Jump Host Access
 
-To access `server.internal.com` through `jump.example.com`, use the following command:
+To access `server.destination.com` through `jump.example.com`, use the following command:
 
 ```bash
-ssh -J user@jump.example.com user@server.internal.com
+ssh -J user@jump.example.com user@server.destination.com
 ```
 {{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/single_jump_host_access.webp" "Single Jump Host Access Terminal Pic" >}}
 
-This command tells SSH to first connect to jump.example.com as user and then connect to server.internal.com as user.
+This command tells SSH to first connect to jump.example.com as user and then connect to server.destination.com as user.
 
 ### 2. Multiple Jump Hosts (Chained Access)
 
 In complex environments, you may need to hop through multiple Jump Hosts to reach your target server. For example:
 
 ```bash
-ssh -J user@jump1.example.com,user@jump2.example.com user@server.internal.com
+ssh -J user@jump1.example.com,user@jump2.example.com user@server.destination.com
 ```
 This command chains two Jump Hosts, jump1.example.com and jump2.example.com, before accessing the target server.
 
@@ -129,7 +129,7 @@ As the next steps, hit enter to save the key pair under the default paths (~/.ss
 ### Copying Your Public Key to the Server
 Use the ssh-copy-id command to copy your public key to the remote server:
 ```bash 
-ssh-copy-id user@server.internal.com
+ssh-copy-id user@server.destination.com
 ```
 This adds your public key to the ~/.ssh/authorized_keys file on the server and allowing you to authenticate without a password.
 
@@ -145,12 +145,12 @@ Then, from the Jump Host, copy your key to the target server:
 
 ```bash 
 ssh user@jump.example.com
-ssh-copy-id user@server.internal.com
+ssh-copy-id user@server.destination.com
 ```
 Alternatively, you can copy your public key directly to the target server using:
 
 ```bash 
-ssh -J user@jump.example.com user@server.internal.com 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+ssh -J user@jump.example.com user@server.destination .com 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
 ```
 ### SSH Agent Forwarding
 If you cannot copy your SSH key to the target server, you can use SSH agent forwarding. This allows you to authenticate to the target server using your local SSH keys.
@@ -169,8 +169,8 @@ Although ProxyJump simplifies the process of connecting through a Jump Host, the
 ### Using ProxyCommand in SSH Config
 You can set up ProxyCommand in your ~/.ssh/config file:
 ```bash 
-Host internal-server
-    HostName server.internal.com
+Host host_destination 
+    HostName server.destination.com
     User user
     ProxyCommand ssh -W %h:%p user@jump.example.com
 ```
@@ -260,8 +260,8 @@ Although ProxyJump makes Proxy configuration easier, ProxyCommand is more flexib
 
 **Example Using ProxyCommand:**
 ```bash 
-Host internal-server
-    HostName server.internal.com
+Host host_destination
+    HostName server.destination.com
     User user
     ProxyCommand ssh -W %h:%p user@jump.example.com
 ```
@@ -285,7 +285,7 @@ For large scale server environments and each Linux server with unique and intric
 When copying files use tools like scp or rsync with switches like -J for transfer through the jump host securely.
 
 ```bash 
-scp -J user@jump.example.com file.txt user@server.internal.com:/path/to/destination/
+scp -J user@jump.example.com file.txt user@server.destination.com:/path/to/destination/
 ```
 
 ## Conclusion
