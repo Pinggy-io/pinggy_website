@@ -18,12 +18,12 @@ To expose this data, we first need to start a server and FastAPI is an ideal cho
 {{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} is a modern, high-performance web framework for building APIs with Python, known for its speed and ease of setup. 
 Once the FastAPI server is set up, it will run locally on your machine. 
 However, since many systems are behind NAT (Network Address Translation) or CGNAT (Carrier-Grade NAT), remote access can be challenging. 
-To overcome this, we’ll use Pinggy to securely expose the server to the internet.
-[Pinggy](https://pinggy.io) lets you securely expose your local FastAPI server to the internet with just a single command, even if your machine is behind a firewall, making it accessible remotely with minimal setup.
+To overcome this, we’ll use Pinggy to easily share the server to the internet.
+[Pinggy](https://pinggy.io) lets you expose your local FastAPI server to the internet with just a single command, even if your machine is behind a firewall, making it accessible remotely with minimal setup.
 
 {{< image "system_monitoring_fastapi/main_img.webp" "Remote System Monitoring with FastAPI and Pinggy" >}}
 
-Now that we’ve covered the basics of this article, let’s move on to setting up a virtual environment and installing the necessary dependencies, including FastAPI and psutil, to start monitoring system performance metrics. 
+Now that we’ve covered the basics of this article, let’s move on to setting up a virtual environment and installing the necessary dependencies, including `FastAPI` and `psutil`, to start monitoring system performance metrics. 
 These steps will ensure that our development environment is ready for the project.
 
 
@@ -77,7 +77,7 @@ python -m pip install --upgrade pip
 
 ### Step 3: Install FastAPI
 
-Now that you've created and activated your virtual environment, it’s time to install FastAPI so we can start building the system monitoring application.
+Now that you've created and activated your virtual environment, it’s time to install `FastAPI` so we can start building the system monitoring application.
 
 To install FastAPI, along with some optional dependencies that will be helpful, use the following command:
 
@@ -85,7 +85,7 @@ To install FastAPI, along with some optional dependencies that will be helpful, 
 pip install "fastapi[standard]"
 ```
 
-This will install FastAPI along with additional dependencies such as uvicorn, which is needed to run the FastAPI server.
+This will install FastAPI along with additional dependencies such as `uvicorn`, which is needed to run the FastAPI server.
 
 ### Step 4: Install psutil
 <!-- {{< link href="https://pypi.org/project/psutil/" >}}psutil{{< /link >}} is a Python library used to retrieve information on system utilization, including CPU, memory, disk, and network usage. It is required for this FastAPI application to gather real-time performance metrics of the system, enabling efficient monitoring and reporting of key resources necessary for performance analysis.
@@ -106,7 +106,7 @@ With the dependencies installed, it’s time to build the FastAPI application th
 
 In this section, we will create routes for monitoring various system performance metrics, such as CPU usage, memory, and disk space. Each route will be explained separately to demonstrate how we can collect and display real-time system data using FastAPI.
 
-> **Visit this GitHub Repository to access the codebase.** ({{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub Link{{< /link >}})
+> **Visit this GitHub Repository to access the codebase.** ({{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub Link{{< /link >}} )
 
 Now, let's discuss each component of the system individually.
 
