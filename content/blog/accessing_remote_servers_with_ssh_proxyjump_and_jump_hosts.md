@@ -1,5 +1,5 @@
 ---
-title: "Securely Accessing Remote Servers with SSH ProxyJump and Jump Hosts"
+title: "Accessing Remote Servers with SSH ProxyJump and Jump Hosts"
 description: "Learn how to securely navigate network segments with SSH ProxyJump and Jump Hosts. This guide covers the basics of SSH, the role of Jump Hosts, and how ProxyJump simplifies secure connections. Discover practical configurations, security best practices, and troubleshooting tips for accessing remote servers across complex networks."
 date: 2024-11-06T10:30:00+05:30
 lastmod: 2024-11-06T10:30:00+05:30
@@ -13,9 +13,21 @@ outputs:
 
 ## Introduction
 
-In the field of network management and security, authentication to distant platforms is a basic requirement. Most of the time, it becomes impossible to establish a direct SSH connection with a remote server because of different network segmentation policies, firewall limitations, or extremely strict security measures at the organisation’s end. This is where Jump Hosts, commonly referred to as bastion hosts, fill the gap by providing means to connect two or more network segments. Together with SSH’s ProxyJump feature, they offer a secure way to connect to servers that otherwise cannot be reached. This guide dives into SSH ProxyJump and Jump Hosts, providing practical tips and configurations to maximise their effectiveness.
+In practice, it is often impossible to establish a direct SSH connection with a remote server because of different network segmentation policies, firewall limitations, or extremely strict security measures at the organisation’s end. This is where Jump Hosts, commonly referred to as bastion hosts, fill the gap by providing means to connect two or more network segments. Together with SSH’s ProxyJump feature, they offer a secure way to connect to servers that otherwise cannot be reached. This guide dives into SSH ProxyJump and Jump Hosts, providing practical tips and configurations to maximise their effectiveness.
 
 {{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/thumbnail.webp" "thumbnail" >}}
+
+{{% tldr %}}
+
+ - If you have a server `jump_host` where you can SSH directly, and another server `target_host` where you can SSH from `jump_host`, then you can directly access `target_host` using the command:
+
+    ```
+    ssh -J username@jump_host username@target_host
+    ```
+    Replace `jump_host` and `target_host` with their IP addresses or domain names. Also set the `username` appropriately.
+
+
+{{% /tldr %}}
 
 ## Understanding SSH and Its Importance
 
