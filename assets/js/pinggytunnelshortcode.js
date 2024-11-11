@@ -3,7 +3,7 @@ document.addEventListener("alpine:init", () => {
     advancedCommand(data) {
       let options = "";
       let headercommands = "";
-      let host = "localhost";
+      let host = data.platformselect === "unix" ? "localhost" : "127.0.0.1";
 
       // -------------
       function escapeForBash(code) {
@@ -124,7 +124,7 @@ document.addEventListener("alpine:init", () => {
       // Http only options
       if (data.mode === "http") {
         if (data.webDebugEnabled) {
-          let webdebugoption = `-L${data.webDebugPort}:localhost:${data.webDebugPort}`;
+          let webdebugoption = `-L${data.webDebugPort}:${host}:${data.webDebugPort}`;
           options += " " + webdebugoption;
         }
 
@@ -179,7 +179,7 @@ document.addEventListener("alpine:init", () => {
               " " + `x:localServerTls:${data.forwardHostAddress}`;
           } else if (!data.localServerTLSSNI && (!data.forwardHost || !data.forwardHostAddress)) {
             headercommands +=
-              " " + `x:localServerTls:localhost`;
+              " " + `x:localServerTls:${host}`;
           } else {
             headercommands +=
               " " + `x:localServerTls`;
@@ -195,7 +195,7 @@ document.addEventListener("alpine:init", () => {
               " " + `x:reverseproxy:${data.forwardHostAddress}`;
           } else if (!data.reverseProxyAddress && (!data.forwardHost || !data.forwardHostAddress)) {
             headercommands +=
-              " " + `x:reverseproxy:localhost`;
+              " " + `x:reverseproxy:${host}`;
           } else {
             headercommands +=
               " " + `x:reverseproxy`;
@@ -251,7 +251,7 @@ document.addEventListener("alpine:init", () => {
           host = data.forwardHostAddress;
         }
         else {
-          host = "localhost";
+          host = data.platformselect === "unix" ? "localhost" : "127.0.0.1";
         }
       }
 

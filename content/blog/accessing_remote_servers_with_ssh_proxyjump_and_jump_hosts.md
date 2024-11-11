@@ -4,7 +4,7 @@ description: "Learn how to securely navigate network segments with SSH ProxyJump
 date: 2024-11-06T10:30:00+05:30
 lastmod: 2024-11-06T10:30:00+05:30
 draft: false
-og_image: "images/ssh_proxyjump_and_jump_hosts/ssh_jump_host_setup.webp"
+og_image: "images/securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ssh_proxyjump.webp"
 tags: ["networking", "security", "ssh", "engineering"]
 outputs:
   - HTML

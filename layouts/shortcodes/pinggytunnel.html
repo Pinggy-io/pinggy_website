@@ -25,7 +25,7 @@
 {{ $reverseProxyAddress := .Get "reverseProxyAddress" | default "" }}
 {{ $httpsonly := .Get "httpsonly" | default false }}
 {{ $forwardHost := .Get "forwardHost" | default false }}
-{{ $forwardHostAddress := .Get "forwardHostAddress" | default "localhost" }}
+{{ $forwardHostAddress := .Get "forwardHostAddress" | default "127.0.0.1" }}
 {{ $force := .Get "force" | default false }}
 {{ $corsPreflight := .Get "corsPreflight" | default false }}
 {{ $xForwardedFor := .Get "xForwardedFor" | default false }}
@@ -69,7 +69,8 @@
         accesstoken: false,
         accesstokenvalue: ''
     }
-}"
+  }"
+  x-init="data.platformselect = getOS() == 'windows' ? 'windows_powershell' : 'unix'"
 >
     
   {{ if ne $tryYourselfText "" }}

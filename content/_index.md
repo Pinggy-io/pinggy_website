@@ -11,7 +11,7 @@ title: "Pinggy - Simple Localhost Tunnels"
         label: 'You may start a local server using:',
         command: 'python3 -m http.server',
         port: '8000',
-        webdebugCheck: true,
+        webdebugCheck: false,
         qrCheck: true
     };
     $watch('data.tryItYourself', function(value) {

@@ -1,7 +1,7 @@
 document.addEventListener("alpine:init", () => {
   const defaultHttpConfig = {
     localPort: 8000,
-    webdebugCheck: true,
+    webdebugCheck: false,
     webdebugPort: 4300,
     selectedRegion: "a.pinggy.io",
     rsaCheck: true,
@@ -70,10 +70,12 @@ document.addEventListener("alpine:init", () => {
     tryItYourselfCommand: function () {
       let config = this.tryItYourself;
 
+      let localhostStr = getOS() === "windows" ? "127.0.0.1" : "localhost";
+
       let command =
-        "ssh -p 443 -R0:localhost:" +
+        "ssh -p 443 -R0:" + localhostStr + ":" +
         config.port +
-        (config.webdebugCheck ? " -L4300:localhost:4300" : "") +
+        (config.webdebugCheck ? " -L4300:" + localhostStr + ":4300" : "") +
         (config.qrCheck ? " qr@" : " ") +
         "a.pinggy.io";
 
@@ -203,25 +205,7 @@ $("#textchanger").teletype({
 });
 
 // OS detection script
-  document.addEventListener('DOMContentLoaded', function() {
-  function getOS() {
-    var userAgent = window.navigator.userAgent,
-        platform = window.navigator.platform,
-        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-        iosPlatforms = ['iPhone', 'iPad', 'iPod'];
-
-    if (macosPlatforms.indexOf(platform) !== -1 || iosPlatforms.indexOf(platform) !== -1) {
-      return 'mac';
-    } else if (windowsPlatforms.indexOf(platform) !== -1) {
-      return 'windows';
-    } else if (/Linux/.test(platform)) {
-      return 'linux';
-    } else {
-      return 'windows'; // Default to Windows if unknown
-    }
-  }
-
+document.addEventListener('DOMContentLoaded', function() {
   var userOS = getOS();
   var tabId = userOS + '-tab';
   var tabElement = document.getElementById(tabId);

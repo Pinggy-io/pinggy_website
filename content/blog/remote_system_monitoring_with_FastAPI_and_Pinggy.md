@@ -5,7 +5,7 @@
  lastmod: 2024-11-02T15:15:25+05:30
  draft: false 
  tags: ["guide","FastAPI", "Pinggy", "System Monitoring"]
- og_image: "system_monitoring_fastapi/main_img.webp"
+ og_image: "images/system_monitoring_fastapi/main_img.webp"
  outputs:
   - HTML
   - AMP
