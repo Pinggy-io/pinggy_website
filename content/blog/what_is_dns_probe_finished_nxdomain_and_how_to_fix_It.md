@@ -1,5 +1,5 @@
 ---
-title: "DNS_PROBE_FINISHED_NXDOMAIN: what it is and How to Fix It?"
+title: "DNS_PROBE_FINISHED_NXDOMAIN: What it is and How to fix it"
 description: "Encountering the dns_probe_finished_nxdomain error? Learn what it means, why it happens, and how to resolve it with step-by-step solutions. Understand DNS, its role, and prevent future occurrences."
 date: 2024-11-11T10:00:00+00:00
 draft: false
@@ -16,20 +16,24 @@ If you've faced the **"dns_probe_finished_nxdomain"** error while browsing, you'
 
 {{% tldr %}}
 
-1. **What is dns_probe_finished_nxdomain?**
-   - A DNS resolution error where the browser fails to find the domain's IP address, often caused by misconfigured DNS settings, cache issues, or network problems.
+1. **What is `dns_probe_finished_nxdomain`?**  
+   This error occurs when a domain's DNS (Domain Name System) fails to resolve, preventing your browser from locating the domain’s IP address.  
+   - **For Normal Users**: It’s often caused by browser cache issues, DNS misconfigurations, or network problems.  
+   - **For Domain Owners**: It indicates issues like missing or incorrect DNS records, expired domains, or registrar misconfigurations.  
 
-2. **How to Fix It?**
-   - Clear browser and DNS cache:
-     - **Windows**: `ipconfig /flushdns`
-     - **macOS**: `sudo killall -HUP mDNSResponder`
-   - Change DNS to Google (`8.8.8.8`) or Cloudflare (`1.1.1.1`).
-   - Restart your router and ensure your network is stable.
-
-3. **Additional Tips**
-   - Disable VPN/proxy if used.
-   - Verify domain configuration for owners.
-   - Use Google’s DIG tool for DNS debugging.
+2. **How to Fix It?**  
+   - **For Normal Users**:  
+     - Clear browser and DNS cache:  
+       - **Windows**: `ipconfig /flushdns`  
+       - **macOS**: `sudo killall -HUP mDNSResponder`  
+     - Change DNS to Google (`8.8.8.8`) or Cloudflare (`1.1.1.1`).  
+     - Restart your router and check your internet connection.  
+     - Detailed steps [here](#for-normal-users).  
+   - **For Domain Owners**:  
+     - Verify DNS records (A, AAAA) using tools like Google Dig Tool.
+     - Check domain registration status and ensure it hasn’t expired.  
+     - Resolve custom nameserver issues.  
+     - Full troubleshooting guide [here](#for-domain-owners).  
 
 {{% /tldr %}}
 
@@ -62,9 +66,10 @@ DNS requests may be blocked by proxies or VPNs or they may simply be operated th
 If you’re a domain owner, something is wrong with your DNS records or your domain is about to expire, you can get this error.
 
 ## How to Fix "dns_probe_finished_nxdomain"
-Here are the most effective ways to resolve this error:
+This error happens most often because your DNS (Domain Name System) cannot resolve the domain name into an IP address. For **normal users** and **domain owners**, I provide some solutions.
 
-### 1. Clear Browser Cache and Cookies
+### For Normal Users
+#### 1. Clear Browser Cache and Cookies
 The cached data can sometimes conflict with DNS resolution. Clear your browser cache and cookies:
 
 - **For Chrome:**  
@@ -73,125 +78,164 @@ The cached data can sometimes conflict with DNS resolution. Clear your browser c
     - Click "Clear Data."
 - **For Other Browsers:** Follow similar steps in the privacy settings.
 
-### 2. Restart Your Router or Modem
+#### 2. Restart Your Router or Modem
 A problem with your network hardware may be temporary. Unplug your router modem for a few minutes and plug it back in again.
 
-### 3. Change DNS Server Settings
+#### 3. Change DNS Server Settings
 Usually, switching a DNS server to something like Google Public DNS, Cloudflare, or OpenDNS, solves the problem.
 
-#### Steps to Change DNS on Windows:
+##### Steps to Change DNS on Windows:
 1. Open **Control Panel** → **Network and Sharing Center**.
 2. Click on your active network → **Properties**.
 3. Select **Internet Protocol Version 4 (TCP/IPv4)** → **Properties**.
 4. Use the following DNS server addresses:
    - Google Public DNS: `8.8.8.8` and `8.8.4.4`.
 
-#### Steps to Change DNS on macOS:
+##### Steps to Change DNS on macOS:
 1. Go to **System Preferences** → **Network**.
 2. Select your active network → **Advanced**.
 3. Navigate to the **DNS** tab and add:
    - `8.8.8.8`
    - `8.8.4.4`
 
-### 4. Flush DNS Cache
-Clearing the DNS cache can help remove outdated or corrupted entries.
+#### 4. Flush DNS Cache
+Remove outdated or incorrect DNS entries.
 
-#### Flush DNS Cache on Windows:
+##### Flush DNS Cache on Windows:
 1. Open Command Prompt as Administrator.
 2. Type: `ipconfig /flushdns` and press Enter.
 
-#### Flush DNS Cache on macOS:
+##### Flush DNS Cache on macOS:
 1. Open Terminal.
 2. Type: `sudo killall -HUP mDNSResponder` and press Enter.
 
-### 5. Disable VPN or Proxy
+#### 5. Disable VPN or Proxy
 DNS setting can be interfered by VPNs or proxies. To see if the error clears up temporarily disable them.
 
-### 6. Verify Domain Configuration (For Domain Owners)
-If you’re the domain owner:
+You’re absolutely right; there was redundancy in the previous sections regarding the use of DNS verification tools, particularly the Google DIG Tool. I've consolidated the information to make it more cohesive and readable.
 
-- You need to check whether your domain has relevant DNS records.
-- Check if your domain registration never expired.
+### For Domain Owners
 
+If you’re a domain owner that’s getting the `dns_probe_finished_nxdomain` error, that’s likely because of errors in your domain’s DNS settings. Here's how you can troubleshoot and resolve the issue:
 
-## Using Google’s DIG Tool for DNS Debugging
-### 1. Access the DIG Tool
-Visit the {{< link href="https://toolbox.googleapps.com/apps/dig/" >}}Google DIG Tool{{< /link >}} in your web browser. The interface is simple, with input fields and options for DNS record queries.
+#### 1. Verify Your DNS Records
 
-- **How to Access**:  
-    - Go to the Google DIG Tool in your web browser. It is simple: input fields, and options for DNS record queries.
+One fastest way to ensure your domain resolves correctly is to ensure your DNS records are correct.
 
-### 2. Input Domain Name
-This is where you specify the domain you’re troubleshooting.
+- **Use DNS Verification Tools**:
+  - {{< link href="https://toolbox.googleapps.com/apps/dig/" >}}Google Dig Tool{{< /link >}}: Provides detailed DNS record information.
+  - {{< link href="https://mxtoolbox.com/" >}}MXToolbox{{< /link >}}: Offers a suite of DNS lookup tools.
 
-- **Steps**:
-    - In the text input field, type the domain name (e.g., example.com).
-    - Ensure there are no typos, as even a small error can lead to incorrect results.
-- **Why It’s Important**:
-    - This step focuses the query on the specific domain experiencing issues, enabling accurate debugging.
+- **Steps to Use the Google Dig Tool**:
 
-### 3. Select Query Type
-The ability to query different kinds of DNS record using the DIG tool from Google gives you the chance to debug what you are trying to.
+  1. **Access the Tool**: Visit the {{< link href="https://toolbox.googleapps.com/apps/dig/" >}}Google Dig Tool{{< /link >}} in your web browser.
+  {{< image "dns_probe_finished_nxdomain/homepage.webp" "Google Dig Homepage" >}}
+  2. **Enter Your Domain Name**: In the "Hostnames or IP addresses" field, type your domain name (e.g., `pinggy.io`). Double-check for typos to ensure accuracy.
+  3. **Select DNS Record Type**:
+     - From the dropdown menu, choose the DNS record type you want to query:
+       - **A Record**: Checks IPv4 address mapping.
+       - **AAAA Record**: Checks IPv6 address mapping (if applicable).
+       - **CNAME Record**: Verifies domain aliases.
+       - **MX Record**: Checks mail server configurations.
+  4. **Analyze the Results**:
+     - **Successful Resolution**:
+       - The correct DNS records are displayed with expected values.
+       - Ensure the IP addresses match those provided by your hosting provider.
+       {{< image "dns_probe_finished_nxdomain/search_pinggy_io.webp" "Search Pinggy.io" >}}
+     - **Error - NXDOMAIN**:
+       - Indicates the domain does not exist in DNS.
+       - Suggests missing or incorrect DNS records.
+       {{< image "dns_probe_finished_nxdomain/error_page.webp" "Google Dig tool Error Page" >}}
 
-- **Common DNS Record Types**:  
-  - **A Record**: Maps a domain name to an IPv4 address.  
-  - **CNAME Record**: Provides aliasing for domain names.  
-  - **MX Record**: Used for mail server routing.  
-- **Steps**:  
-    - Choose from the dropdown menu to select which record type to query. YourA Record is a must for basic troubleshooting and anyone else you need too.
+- **What to Look For**:
 
-### 4. Analyze Results
-The DIG tool displays the query results, which you can analyze to understand the issue.
+  - **Accuracy**: Confirm that all IP addresses and domain names are correct.
+  - **Existence**: Missing records (like A or AAAA) can cause resolution failures.
+  - **Response Codes**: An `NXDOMAIN` response points to potential misconfigurations.
 
-- **How to Read the Results**:  
-    - The results point to valid DNS records if the domain’s DNS are correctly configured.
-    - Then if results show "NXDOMAIN" or no records found, that means the DNS records are probably incorrect or are missing.
-- **Why It’s Helpful**:  
-    - The result of this step is the signaling of whether it’s messed up in the DNS of the domain or not.
+- **Action Steps**:
 
-### 5. Fix Issues
-If a problem is found, afterwards you will need to fix it according on the result.
+  - **If Issues Are Found**:
+    - Log in to your domain registrar or DNS hosting provider's dashboard.
+    - Update or add the necessary DNS records:
+      - **A Record**: Should point to your server's correct IPv4 address.
+      - **AAAA Record**: If using IPv6, ensure it points to the correct IPv6 address.
+    - Save changes. Remember, DNS propagation can take up to 24-48 hours.
 
-- **Steps for Domain Owners**:  
-    - Enter you’s domain registrar or DNS hosting provider and log in.
-    - Update or change DNS records as appropriate.
-    - Make sure your DNS records (A, CNAME, etc.) reference the correct IPs or services.
-- **Why It’s Useful**:  
-    - That makes sure your domain is available and configured correctly.
+#### 2. Check Domain Registration Status
+
+An expired domain won't resolve, leading to DNS errors.
+
+- **How to Check**:
+  - Perform a {{< link href="https://whois.domaintools.com/" >}}WHOIS Lookup{{< /link >}} to view your domain's expiration date and registration status.
+  - Ensure your domain is active and not suspended or expired.
+
+- **Next Steps**:
+    - Regardless, renew your domain registration right away through your registrar.
+    - Change contact and billing information in case there’s a lapse in the future.
+
+#### 3. Allow Time for DNS Propagation
+
+Changes to DNS settings aren't instantaneous.
+
+- **Understanding Propagation**:
+  - DNS can take anywhere from a few mins, a few hours, up to 48 hours to spread globally.
+  - During this period of time, some users will continue to face the error.
+
+- **Monitoring Tools**:
+  - Use {{< link href="https://dnschecker.org/" >}} DNS Checker {{< /link >}} to track propagation status across different regions.
+  - This helps you see where the updated DNS records have taken effect.
+
+#### 4. Investigate Issues with Your Registrar
+
+Sometimes, the problem isn't with your DNS settings but with the registrar.
+
+- **Steps to Take**:
+  - Contact your domain registrar's support team.
+  - Confirm that your domain is properly configured on their end.
+  - Ensure there are no holds, suspensions, or restrictions on your domain.
+
+#### 5. Verify Custom Nameserver Configurations
+
+If you’re using custom nameservers, they must be properly setup.
+- **Action Items**:
+  - **Check Nameserver Settings**:
+    - Check your custom nameservers are correct tied to your domain in your Registrar Dashboard.
+  - **Validate Nameserver Functionality**:
+    - Confirm that your nameservers are operational and responding to DNS queries.
+  - **Verify DNS Records on Nameservers**:
+    - Go to your nameserver’s control panel and log in.
+    - Make sure you’ve created all DNS records needed (A, AAAA, CNAME, MX).
+
+#### Tools for Verification:
+
+- {{< link href="https://toolbox.googleapps.com/apps/dig/" >}}Google Dig Tool{{< /link >}}: For detailed DNS record lookup.
+- {{< link href="https://dnschecker.org/" >}} DNS Checker{{< /link >}}: To verify global DNS propagation.
+- {{< link href="https://whois.domaintools.com/" >}}WHOIS Lookup{{< /link >}}: To check domain registration and expiration status.
 
 ## How to Fix "dns_probe_finished_nxdomain" in Pinggy Tunnels
 
 ### 1. Check Tunnel Status
-- Ensure that the pinggy tunnel is running and active:
-    - Run the command:
-    {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 a.pinggy.io" >}}
-    "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"}}}"
-    {{</ ssh_command >}}
-    **Change 8080 with the port which your local server is using**.
+- Verify that your [Pinggy](https://pinggy.io/) tunnel is active and running.view all active tunnels on the [Pinggy Dashboard](https://dashboard.pinggy.io/activetunnels)..
 
-- If the tunnel has been stopped or became disabled due to pinggy tunnel, the URL will become invalid which you will encounter the DNS error.
+- If the tunnel stops or becomes disabled, the public URL will no longer be accessible, resulting in a DNS error.
 
-**Fix**: Restart the Pinggy tunnel using the same or updated command.
+**Solution**: Restart the Pinggy tunnel with the same command if needed.
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 a.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"}}}"
+{{</ ssh_command >}}
 
 ### 2. Verify Public URL
-- pinggy generates a unique public URL (e.g. https://rnuma-14-139-241-203.a.free.pinggy.link
- ) each time you start a tunnel.
-- Double check that the URL you’re using is the right one.
-**Fix**: When you run the tunnel using the pinggy CLI, copy the public URL that’s shown, paste it somewhere and retry accessing it in your browser.
+- Each time you start a tunnel, Pinggy generates a unique public URL (e.g., `https://rnuma-14-139-241-203.a.free.pinggy.link`).
+- Ensure you’re using the correct, current URL.
+
+**Solution**: When you start the tunnel with Pinggy, copy the public URL displayed, save it, and use it to access your server. You can also use the QR code of the URL if provided for quick access.
 
 ### 3. Check Network Connectivity
-- If Internet connection is weak or unstable, pinggy might not be able to maintain the tunnel and gets DNS errors.
-- Check if your internet is working and stable.
-**Fix**: If you aren’t sure it’s being caused by your network, restart your modem/router, or try a different network to test.
+- Pinggy may lose connection if your internet is weak or unstable, leading to DNS errors.
+- Confirm your internet connection is working and stable.
 
-## Advanced Troubleshooting
-If the above methods don’t work, you can try advanced solutions:
-
-### 1. Use Command-Line Tools
-- **Ping** the domain to check connectivity.
-- Use `nslookup` to test DNS resolution.
-### 2. Inspect Firewall and Antivirus Settings
-Sometimes, overly aggressive firewalls or antivirus programs block DNS requests. Temporarily disable them and test.
+**Solution**: If you suspect network issues, restart your modem/router or try connecting via a different network for troubleshooting.
 
 ## How to Prevent "dns_probe_finished_nxdomain" Errors
 
@@ -201,7 +245,6 @@ Sometimes, overly aggressive firewalls or antivirus programs block DNS requests.
 
 ## Conclusion
 The “dns_probe_finished_nxdomain” error is annoying, but it’s usually something that’s simple to fix. If you follow this guide’s steps, you will get back online rather quickly and quickly get rid of this problem. Some of these solutions will get you the error order, whatever may be the reason, clearing your cache, changing your DNS servers or even troubleshooting your network.
-
 Have you seen this error? The comments, people, share your experience and how you fixed it!
 
 
