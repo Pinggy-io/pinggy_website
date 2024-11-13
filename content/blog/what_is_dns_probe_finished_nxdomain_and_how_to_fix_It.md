@@ -3,7 +3,7 @@ title: "DNS_PROBE_FINISHED_NXDOMAIN: What it is and How to fix it"
 description: "Encountering the dns_probe_finished_nxdomain error? Learn what it means, why it happens, and how to resolve it with step-by-step solutions. Understand DNS, its role, and prevent future occurrences."
 date: 2024-11-11T10:00:00+00:00
 draft: false
-og_image: "image/dns_probe_finished_nxdomain"
+og_image: "images/dns_probe_finished_nxdomain/thumbnail.webp"
 tags: ["dns_probe_finished_nxdomain", "Network troubleshooting", "DNS troubleshooting"]
 outputs:
   - HTML
@@ -17,20 +17,19 @@ If you've faced the **"dns_probe_finished_nxdomain"** error while browsing, you'
 {{% tldr %}}
 
 1. **What is `dns_probe_finished_nxdomain`?**  
-   This error occurs when a domain's DNS (Domain Name System) fails to resolve, preventing your browser from locating the domain’s IP address.  
-   - **For Normal Users**: It’s often caused by browser cache issues, DNS misconfigurations, or network problems.  
+   This error occurs when the browser fails to resolve the domain's `A` (or `AAAA`) DNS records, preventing your browser from locating the domain’s IP address.  
+   - **For Website Visitors**: It’s often caused by browser cache issues, network problems, or DNS misconfigurations.  
    - **For Domain Owners**: It indicates issues like missing or incorrect DNS records, expired domains, or registrar misconfigurations.  
-
 2. **How to Fix It?**  
-   - **For Normal Users**:  
+   - **For Website Visitors**:  
      - Clear browser and DNS cache:  
-       - **Windows**: `ipconfig /flushdns`  
+       - **Windows**: `ipconfig / flushdns`  
        - **macOS**: `sudo killall -HUP mDNSResponder`  
      - Change DNS to Google (`8.8.8.8`) or Cloudflare (`1.1.1.1`).  
-     - Restart your router and check your internet connection.  
-     - Detailed steps [here](#for-normal-users).  
+     - Check your internet connection and restart your router and .  
+     - Detailed steps [here](#for-website-visitors).  
    - **For Domain Owners**:  
-     - Verify DNS records (A, AAAA) using tools like Google Dig Tool.
+     - Verify DNS records (A, AAAA) using tools like <a href="https://toolbox.googleapps.com/apps/dig/" target="_blank">Google Dig Tool</a>.
      - Check domain registration status and ensure it hasn’t expired.  
      - Resolve custom nameserver issues.  
      - Full troubleshooting guide [here](#for-domain-owners).  
@@ -66,9 +65,9 @@ DNS requests may be blocked by proxies or VPNs or they may simply be operated th
 If you’re a domain owner, something is wrong with your DNS records or your domain is about to expire, you can get this error.
 
 ## How to Fix "dns_probe_finished_nxdomain"
-This error happens most often because your DNS (Domain Name System) cannot resolve the domain name into an IP address. For **normal users** and **domain owners**, I provide some solutions.
+This error happens most often because your DNS (Domain Name System) cannot resolve the domain name into an IP address. For normal users who are **website visitors** and **domain owners**, we provide some solutions.
 
-### For Normal Users
+### For Website Visitors
 #### 1. Clear Browser Cache and Cookies
 The cached data can sometimes conflict with DNS resolution. Clear your browser cache and cookies:
 
@@ -120,7 +119,7 @@ If you’re a domain owner that’s getting the `dns_probe_finished_nxdomain` er
 
 #### 1. Verify Your DNS Records
 
-One fastest way to ensure your domain resolves correctly is to ensure your DNS records are correct.
+One fastest way to ensure your domain resolves correctly is to ensure your DNS records are correct. In order for the browser to open the page successfully, the domain has to resolve to an IP address, that is, either an `A` record for IPv4, or an `AAAA` record for IPv6.
 
 - **Use DNS Verification Tools**:
   - {{< link href="https://toolbox.googleapps.com/apps/dig/" >}}Google Dig Tool{{< /link >}}: Provides detailed DNS record information.
@@ -137,6 +136,7 @@ One fastest way to ensure your domain resolves correctly is to ensure your DNS r
        - **AAAA Record**: Checks IPv6 address mapping (if applicable).
        - **CNAME Record**: Verifies domain aliases.
        - **MX Record**: Checks mail server configurations.
+       > Note: `A` records and `AAAA` records are necessary for the browser to reach the website.
   4. **Analyze the Results**:
      - **Successful Resolution**:
        - The correct DNS records are displayed with expected values.
@@ -165,11 +165,9 @@ One fastest way to ensure your domain resolves correctly is to ensure your DNS r
 #### 2. Check Domain Registration Status
 
 An expired domain won't resolve, leading to DNS errors.
-
 - **How to Check**:
   - Perform a {{< link href="https://whois.domaintools.com/" >}}WHOIS Lookup{{< /link >}} to view your domain's expiration date and registration status.
   - Ensure your domain is active and not suspended or expired.
-
 - **Next Steps**:
     - Regardless, renew your domain registration right away through your registrar.
     - Change contact and billing information in case there’s a lapse in the future.
@@ -177,11 +175,9 @@ An expired domain won't resolve, leading to DNS errors.
 #### 3. Allow Time for DNS Propagation
 
 Changes to DNS settings aren't instantaneous.
-
 - **Understanding Propagation**:
   - DNS can take anywhere from a few mins, a few hours, up to 48 hours to spread globally.
   - During this period of time, some users will continue to face the error.
-
 - **Monitoring Tools**:
   - Use {{< link href="https://dnschecker.org/" >}} DNS Checker {{< /link >}} to track propagation status across different regions.
   - This helps you see where the updated DNS records have taken effect.
@@ -216,7 +212,7 @@ If you’re using custom nameservers, they must be properly setup.
 ## How to Fix "dns_probe_finished_nxdomain" in Pinggy Tunnels
 
 ### 1. Check Tunnel Status
-- Verify that your [Pinggy](https://pinggy.io/) tunnel is active and running.view all active tunnels on the [Pinggy Dashboard](https://dashboard.pinggy.io/activetunnels)..
+- Verify that your [Pinggy](https://pinggy.io/) tunnel is active and running.view all active tunnels on the [Pinggy Dashboard](https://dashboard.pinggy.io/activetunnels).
 
 - If the tunnel stops or becomes disabled, the public URL will no longer be accessible, resulting in a DNS error.
 
