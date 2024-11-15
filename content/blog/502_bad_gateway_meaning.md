@@ -15,6 +15,37 @@ Encountering a 502 Bad Gateway error can be frustrating for both website users a
 
 This error often arises when there is a miscommunication between servers and understanding the underlying causes can help in pinpointing the exact issue. In this article, we’ll delve into what the 502 Bad Gateway error truly means, explore its common causes, and provide effective steps to troubleshoot and fix this issue.
 
+
+{{% tldr %}}
+
+1. **What is `502 Bad Gateway` error?**  
+   This error occurs when the reverse proxy server fails to receive a valid response from the upstream server (typically the main web server).
+2. [**What Causes the 502 Bad Gateway Error?**](#what-causes-the-502-bad-gateway-error)
+    - Server Overload or Misconfiguration
+    - Server Downtime or Failure
+    - DNS Issues
+    - Network and Security Issues
+    - Misconfigured Server Software
+    - CDN (Content Delivery Network) Issues
+2. [**How to Fix It?**](#how-to-fix-a-502-bad-gateway-error)  
+   - **For Website Visitors**:
+     - Refresh the Page  
+     - Clear browser cache and cookies
+     - Try a Different Browser or Device
+     - Restart Your Network Device
+     - Check the Site on Downdetector  
+   - **For Website Administrators or Developers**:  
+     - Check Server Logs
+     - Check Server Health and Resources
+     - Restart Your Server
+     - Review Firewall and Security Settings 
+     - Examine Upstream Server Status
+     - Adjust Timeout Settings
+     - Check for DNS Changes
+     - Check CDN Status
+
+{{% /tldr %}}
+
 <!-- This error often occurs when a reverse proxy server, responsible for routing client requests to backend servers, cannot connect properly or receives an unexpected response. -->
 ## What does "502 Bad Gateway" error mean?
 
