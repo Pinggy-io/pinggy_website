@@ -13,6 +13,19 @@ outputs:
 
 In today’s interconnected world, efficient network management is a key component of delivering smooth user experiences and optimized bandwidth usage. IGMP Snooping is a network feature that helps manage multicast traffic effectively by reducing unnecessary flooding of multicast packets. This article provides an in-depth understanding of IGMP Snooping, its benefits, functionality, and how to implement it efficiently. Additionally, we will cover advanced concepts and configurations for specialized use cases like VLANs and IGMP queriers.
 
+{{% tldr %}}
+
+1. **What is IGMP Snooping?**
+   - IGMP Snooping identifies devices in multicast groups to optimize traffic delivery.
+   - It minimizes unnecessary multicast packet flooding by directing data to relevant devices.
+
+2. **How IGMP Snooping Works**:
+   - **Step 1**: The switch monitors IGMP messages between hosts and routers.
+   - **Step 2**: A multicast forwarding table is created, mapping ports to multicast group memberships.
+   - **Step 3**: Multicast traffic is sent only to the necessary ports, preventing VLAN-wide flooding.
+
+{{% /tldr %}}
+
 ### What is IGMP Snooping?
 
 IGMP snooping (Internet Group Management Protocol Snooping) is this process used by switches to identify specific multicast groups that are a set of devices that receive the same network traffic. By doing so, switches are able to forward packets to the right devices within a network in the most effective means possible.
