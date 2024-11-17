@@ -10,6 +10,14 @@ body {
   text-align: justify;
 }
 
+.blogcontent h1,
+.blogcontent h2,
+.blogcontent h3,
+.blogcontent h4,
+.blogcontent h5,
+.blogcontent h6 {
+  text-align: left;
+}
 .blogcontent p {
   hyphens: auto;
 }
