@@ -22,29 +22,21 @@ This error often arises when there is a miscommunication between servers and und
 1. **What is `502 Bad Gateway` error?**  
    This error occurs when the reverse proxy server fails to receive a valid response from the upstream server (typically the main web server).
 2. [**What Causes the 502 Bad Gateway Error?**](#what-causes-the-502-bad-gateway-error)
-    - Server Downtime or Failure
-    - Server Misconfiguration
-    - Server Overload
-    - DNS Issues
-    - Network and Security Issues
-    - Misconfigured Server Software
-    - CDN (Content Delivery Network) Issues
+    - Upstream server downtime or failure
+    - Reverse proxy misconfiguration
+    - Upstream server overload
+    - DNS issues - reverse proxy is unable to resolve correct IP address of upstream server
 2. [**How to Fix It?**](#how-to-fix-a-502-bad-gateway-error)  
    - **For Website Visitors**:
-     - Refresh the Page  
+     - Refresh the page  
      - Clear browser cache and cookies
-     - Try a Different Browser or Device
-     - Restart Your Network Device
-     - Check the Site on Downdetector  
+     - Try a different browser or device
    - **For Website Administrators or Developers**:  
-     - Check Server Logs
-     - Check Server Health and Resources
-     - Restart Your Server
-     - Review Firewall and Security Settings 
-     - Examine Upstream Server Status
-     - Adjust Timeout Settings
-     - Check for DNS Changes
-     - Check CDN Status
+     - Check reverse proxy logs
+     - Check upstream server health and resources
+     - Restart your server and reverse proxy
+     - Check for DNS changes
+     - Check CDN status
 
 {{% /tldr %}}
 
