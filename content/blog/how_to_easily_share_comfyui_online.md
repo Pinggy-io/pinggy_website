@@ -4,7 +4,7 @@ description: "Learn how to share your ComfyUI setup online with Pinggy. This eas
 date: 2024-10-28T01:15:25+05:30
 draft: false
 tags: ["ComfyUI","Pinggy","guide","tunneling","remote access"]
-og_image: "/blog_img/comfyui_pinggy/share_comfyui_online.webp"
+og_image: "images/how_to_easily_share_comfy_ui_online/thumbnail.webp"
 outputs:
   - HTML
   - AMP
