@@ -307,7 +307,7 @@ document.addEventListener("alpine:init", () => {
         command =
           data.platformselect === "unix"
             ? `while true; do \n    ${command}; \nsleep 10; done`
-            : `FOR /L %N IN () DO (\n${command}\ntimeout /t 10)`;
+            : (data.platformselect === "windows_powershell" ? `while ($true) {\n${command}\nStart-Sleep -Seconds 10\n}` : `FOR /L %N IN () DO (\n${command}\ntimeout /t 10)`);
       }
 
       return command;
