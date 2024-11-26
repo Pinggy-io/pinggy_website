@@ -5,7 +5,7 @@ date: 2024-11-21T14:15:25+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
 tags: ["gaming", "dns", "internet", "guide"]
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwgCiAgIkB0eXBlIjogIkhvd1RvIiwgCiAgIm5hbWUiOiAiSG93IHRvIGNob29zZSB0aGUgYmVzdCBETlMgZm9yIGdhbWluZyIsCiAgImRlc2NyaXB0aW9uIjogIkxvdyBsYXRlbmN5LCByZWxpYWJpbGl0eSwgYW5kIHByaXZhY3kgYXJlIGVzc2VudGlhbCB3aGVuIGNoYW5naW5nIHRoZSBETlMgZm9yIGdhbWluZy4gVGhpcyBndWlkZSBjb3ZlcnMgdGhlIGJlc3QgRE5TIG9wdGlvbnMsIGZlYXR1cmVzLCBhbmQgaG93IHRvIGNvbmZpZ3VyZSB0aGVtLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9iZXN0X2Ruc19mb3JfZ2FtaW5nL2Ruc19mb3JfZ2FtaW5nLndlYnAiLAogICJ0b3RhbFRpbWUiOiAiUEgzTSIsCiAgImVzdGltYXRlZENvc3QiOiB7CiAgICAiQHR5cGUiOiAiTW9uZXRhcnlBbW91bnQiLAogICAgImN1cnJlbmN5IjogIlVTRCIsCiAgICAidmFsdWUiOiAiMjAiCn0KfTwvc2NyaXB0Pg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkJlc3QgRE5TIGZvciBHYW1pbmciLAogICJkZXNjcmlwdGlvbiI6ICJEaXNjb3ZlciB0aGUgYmVzdCBETlMgZm9yIGdhbWluZyB0byByZWR1Y2UgbGF0ZW5jeSwgaW1wcm92ZSBjb25uZWN0aW9uIHJlbGlhYmlsaXR5LCBhbmQgZW5oYW5jZSB5b3VyIG92ZXJhbGwgZ2FtaW5nIHBlcmZvcm1hbmNlLiBFeHBsb3JlIHRvcCBvcHRpb25zIGxpa2UgQ2xvdWRmbGFyZSwgR29vZ2xlIEROUywgYW5kIE9wZW5ETlMsIGFuZCBsZWFybiBob3cgdG8gY29uZmlndXJlIHRoZW0gZm9yIGFuIG9wdGltaXplZCBnYW1pbmcgZXhwZXJpZW5jZS4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvYmVzdF9kbnNfZm9yX2dhbWluZy9kbnNfZm9yX2dhbWluZy53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlRlc3QgTGF0ZW5jeSBvZiBQb3B1bGFyIEROUyBTZXJ2ZXJzOlxuIDEuIFBpbmcgOC44LjguOFxuIDIuIFBpbmcgMS4xLjEuMVxuIDMuIFNlbGVjdCB0aGUgRE5TIFNlcnZlciB3aXRoIGxvd2VzdCBsYXRlbmN5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDb25maWd1cmUgeW91ciBuZXR3b3JrIHRvIHVzZSB0aGUgYmVzdCBkZXRlY3RlZCBETlMgZm9yIGdhbWluZyB1c2luZyB0aGUgZW5zdWluZyBzdGVwcy4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
@@ -128,7 +128,7 @@ When it comes to a DNS service for advanced gamers, they often seek out DNS serv
 #### 5. Global Server Coverage
 The location of DNS servers can impact their speed and reliability. Opt for a DNS provider with a wide distribution of servers to ensure optimal performance, regardless of your location.
 
-Global coverage is often achieved through a technique called anycasting, where multiple servers share the same IP address, routing users to the nearest or best-performing server automatically. This minimizes latency and improves reliability.
+Global coverage is often achieved through a technique called {{< link href="https://en.wikipedia.org/wiki/Anycast" >}}anycasting{{< /link >}}, where multiple servers share the same IP address, routing users to the nearest or best-performing server automatically. This minimizes latency and improves reliability.
 
 - **Why It Matters**: Global server coverage reduces the chance of routing delays, especially when gaming on international servers.
 - **Supported Providers**: Cloudflare DNS, Google Public DNS, and Quad9 all utilize anycasting for efficient and fast DNS resolution.
