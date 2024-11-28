@@ -5,7 +5,7 @@ date: 2024-11-24T15:30:00+05:30
 draft: false
 og_image: ""
 tags: ["SSL errors", "certificate", "security", "networking", "troubleshooting"]
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIk5FVDo6RVJSX0NFUlRfQVVUSE9SSVRZX0lOVkFMSUQgRXJyb3IiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gdHJvdWJsZXNob290IGFuZCByZXNvbHZlIHRoZSBORVQ6OkVSUl9DRVJUX0FVVEhPUklUWV9JTlZBTElEIGVycm9yLCBhIGNvbW1vbiBTU0wvVExTIGNlcnRpZmljYXRlIGlzc3VlLiBUaGlzIGd1aWRlIGNvdmVycyBzb2x1dGlvbnMgZm9yIHdlYnNpdGUgdmlzaXRvcnMgYW5kIG93bmVycywgZW5zdXJpbmcgc2VjdXJlIGFuZCBzZWFtbGVzcyBicm93c2luZy4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvZXJyX2NlcnRfYXV0aG9yaXR5X2ludmFsaWQgZXJyb3IvdGh1bWJuYWlsLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVmVyaWZ5IHRoZSBTU0wgY2VydGlmaWNhdGUuIEZvciB3ZWJzaXRlIHZpc2l0b3JzLCBjb250YWN0IHRoZSBzaXRlIGFkbWluaXN0cmF0b3IgaWYgeW91IHRydXN0IHRoZSBzaXRlLiBGb3Igd2Vic2l0ZSBvd25lcnMsIGVuc3VyZSB0aGUgY2VydGlmaWNhdGUgaXMgdmFsaWQsIG5vdCBleHBpcmVkLCBhbmQgaXNzdWVkIGJ5IGEgdHJ1c3RlZCBDQS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ2xlYXIgdGhlIFNTTCBzdGF0ZS4gT24gV2luZG93cywgdXNlIEludGVybmV0IE9wdGlvbnMuIE9uIG1hY09TLCB1c2UgS2V5Y2hhaW4gQWNjZXNzLiBGb3IgVWJ1bnR1LCBjbGVhciBjZXJ0aWZpY2F0ZXMgdmlhIHRlcm1pbmFsIG9yIGJyb3dzZXIgc2V0dGluZ3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlVwZGF0ZSB5b3VyIGJyb3dzZXIgYW5kIG9wZXJhdGluZyBzeXN0ZW0gdG8gZW5zdXJlIHRoZXkgaGF2ZSB0aGUgbGF0ZXN0IHJvb3QgY2VydGlmaWNhdGVzIGFuZCBzZWN1cml0eSB1cGRhdGVzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJEaXNhYmxlIFNTTCBzY2FubmluZyB0ZW1wb3JhcmlseSBpbiBhbnRpdmlydXMgc29mdHdhcmUgaWYgaXQgaW50ZXJmZXJlcyB3aXRoIGNlcnRpZmljYXRlIHZhbGlkYXRpb24uIFJlbWVtYmVyIHRvIHJlLWVuYWJsZSBpdCBhZnRlcndhcmQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkFsaWduIHlvdXIgc3lzdGVtIGNsb2NrLiBFbnN1cmUgeW91ciBkZXZpY2UncyB0aW1lIGFuZCBkYXRlIHNldHRpbmdzIGFyZSBjb3JyZWN0IGFuZCBzeW5jaHJvbml6ZWQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlVzZSBpbmNvZ25pdG8gb3IgcHJpdmF0ZSBicm93c2luZyBtb2RlIHRvIGJ5cGFzcyBwb3RlbnRpYWwgaXNzdWVzIGNhdXNlZCBieSBicm93c2VyIGV4dGVuc2lvbnMgb3IgY2FjaGVkIGRhdGEuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkZvciB3ZWJzaXRlIG93bmVycywgZW5zdXJlIHByb3BlciBTU0wgY29uZmlndXJhdGlvbi4gQXZvaWQgc2VsZi1zaWduZWQgY2VydGlmaWNhdGVzIGZvciBwcm9kdWN0aW9uLCByZW5ldyBleHBpcmVkIGNlcnRpZmljYXRlcywgYW5kIGNoZWNrIGZvciBkb21haW4gbWlzbWF0Y2hlcy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVGVzdCB5b3VyIFNTTCBzZXR1cCB1c2luZyB0b29scyBsaWtlIFNTTCBMYWJzIHRvIGlkZW50aWZ5IGFuZCByZXNvbHZlIGlzc3VlcyBwcm9hY3RpdmVseS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIk5FVDo6RVJSX0NFUlRfQVVUSE9SSVRZX0lOVkFMSUQgRXJyb3IiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gdHJvdWJsZXNob290IGFuZCByZXNvbHZlIHRoZSBORVQ6OkVSUl9DRVJUX0FVVEhPUklUWV9JTlZBTElEIGVycm9yLCBhIGNvbW1vbiBTU0wvVExTIGNlcnRpZmljYXRlIGlzc3VlLiBUaGlzIGd1aWRlIGNvdmVycyBzb2x1dGlvbnMgZm9yIHdlYnNpdGUgdmlzaXRvcnMgYW5kIG93bmVycywgZW5zdXJpbmcgc2VjdXJlIGFuZCBzZWFtbGVzcyBicm93c2luZy4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvZXJyX2NlcnRfYXV0aG9yaXR5X2ludmFsaWRfZXJyb3IvdGh1bWJuYWlsLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQWxpZ24geW91ciBzeXN0ZW0gY2xvY2suIEVuc3VyZSB5b3VyIGRldmljZSdzIHRpbWUgYW5kIGRhdGUgc2V0dGluZ3MgYXJlIGNvcnJlY3QgYW5kIHN5bmNocm9uaXplZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVXBkYXRlIHlvdXIgYnJvd3NlciBhbmQgb3BlcmF0aW5nIHN5c3RlbSB0byBlbnN1cmUgdGhleSBoYXZlIHRoZSBsYXRlc3Qgcm9vdCBjZXJ0aWZpY2F0ZXMgYW5kIHNlY3VyaXR5IHVwZGF0ZXMuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlVzZSBpbmNvZ25pdG8gb3IgcHJpdmF0ZSBicm93c2luZyBtb2RlIHRvIGJ5cGFzcyBwb3RlbnRpYWwgaXNzdWVzIGNhdXNlZCBieSBicm93c2VyIGV4dGVuc2lvbnMgb3IgY2FjaGVkIGRhdGEuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNsZWFyIHRoZSBTU0wgc3RhdGUuIE9uIFdpbmRvd3MsIHVzZSBJbnRlcm5ldCBPcHRpb25zLiBPbiBtYWNPUywgdXNlIEtleWNoYWluIEFjY2Vzcy4gRm9yIFVidW50dSwgY2xlYXIgY2VydGlmaWNhdGVzIHZpYSB0ZXJtaW5hbCBvciBicm93c2VyIHNldHRpbmdzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJEaXNhYmxlIFNTTCBzY2FubmluZyB0ZW1wb3JhcmlseSBpbiBhbnRpdmlydXMgc29mdHdhcmUgaWYgaXQgaW50ZXJmZXJlcyB3aXRoIGNlcnRpZmljYXRlIHZhbGlkYXRpb24uIFJlbWVtYmVyIHRvIHJlLWVuYWJsZSBpdCBhZnRlcndhcmQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkZvciB3ZWJzaXRlIG93bmVycywgZW5zdXJlIHByb3BlciBTU0wgY29uZmlndXJhdGlvbi4gQXZvaWQgc2VsZi1zaWduZWQgY2VydGlmaWNhdGVzIGZvciBwcm9kdWN0aW9uLCByZW5ldyBleHBpcmVkIGNlcnRpZmljYXRlcywgYW5kIGNoZWNrIGZvciBkb21haW4gbWlzbWF0Y2hlcy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVGVzdCB5b3VyIFNTTCBzZXR1cCB1c2luZyB0b29scyBsaWtlIFNTTCBMYWJzIHRvIGlkZW50aWZ5IGFuZCByZXNvbHZlIGlzc3VlcyBwcm9hY3RpdmVseS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
@@ -16,24 +16,24 @@ The **NET::ERR_CERT_AUTHORITY_INVALID** error can be a frustrating roadblock for
 {{% tldr %}}
 1. **What is `NET::ERR_CERT_AUTHORITY_INVALID`?**  
    This error indicates the browser cannot verify the authenticity of a website's SSL/TLS certificate.  
-   - **For Website Visitors**: It can result from an expired certificate, an untrusted Certificate Authority (CA), or outdated browser settings.  
-   - **For Website Owners**: It signals issues such as self-signed certificates, expired certificates, domain mismatches, or missing intermediate certificates.  
+   - **For Website Visitors**: It can result from an untrusted Certificate Authority (CA), an expired certificate, outdated browser settings, or incorrect date/time settings on the system.
+   - **For Website Owners**: It signals issues such as expired certificates, self-signed certificates, domain mismatches, or missing intermediate certificates. 
 
 2. **How to Fix It?**  
    - **For Website Visitors**:  
-     - Check the URL for typos or phishing attempts.  
+     - Check the URL for typos or phishing attempts.
+     - Check system date / time settings
+     - Update your browser and try a different device or network.  
      - Clear SSL state:  
        - **Windows**: Use "Clear SSL State" in Internet Options.  
        - **macOS**: Remove certificates from Keychain Access.  
        - **Ubuntu**: Remove cached certificates via terminal or browser certificate manager.  
-     - Update your browser and try a different device or network.  
-     - Full troubleshooting steps [here](#How-to-Resolve-the-NET::ERR_CERT_AUTHORITY_INVALID-Issue-as-a-Visitor).  
-   - **For Website Owners**:  
-     - Obtain a valid SSL certificate from a trusted CA (e.g., Let’s Encrypt).  
+     - Full troubleshooting steps [here](#how-to-resolve-the-neterr_cert_authority_invalid-issue-as-a-visitor).
+     - Obtain a valid SSL certificate from a trusted CA (e.g., <a href=" https://letsencrypt.org/" target="_blank">Let’s Encrypt</a>).  
      - Renew expired certificates and set automatic reminders.  
      - Correct domain mismatches and install intermediate certificates.  
      - Test your SSL setup with tools like <a href="https://www.ssllabs.com/ssltest/" target="_blank">SSL Labs</a> .  
-     - Full guide [here](#for-website-owners).  
+     - Full guide [here](#how-to-resolve-the-neterr_cert_authority_invalid-issue-as-a-website-owner).  
 {{% /tldr %}}
 
 ## What is the NET::ERR_CERT_AUTHORITY_INVALID Error?
@@ -48,10 +48,10 @@ The **NET::ERR_CERT_AUTHORITY_INVALID** error is more than just a technical inco
 The organisation in charge of providing SSL/TLS certificates is known as the certificate authority (CA). A certificate must be issued by a reputable CA in order to be accepted as legitimate. Your browser will mark a website as possibly unsafe if it utilises a certificate that is self-signed or comes from an unreliable source. This is a typical problem with internal company systems or tiny websites.
 
 #### 2. Expired or Revoked Certificate
-Like most certificates, SSL/TLS certificates have an expiration date. If the website’s owner does not pay for the renewal of the certificate on time then browser will not accept it anymore. Likewise, if the certificate is compromised or misused, the CA revokes it, and this will cause this error.
+Like most certificates, SSL/TLS certificates have an expiration date. If the website’s owner does not renew the certificate on time, the browser will not accept it anymore. Similarly, if the certificate is compromised or misused, the Certificate Authority (CA) revokes it, causing this error. Additionally, an incorrect system date or time on your device can lead the browser to believe the certificate has expired. Ensure the date and time are accurate in such cases
 
 #### 3. Mismatched Certificate Details
-It holds certain information; one of which is the domain name that the SSL certificate is issued to. If for instance the URL of the site is , but the certificate is issued for , then the browser will show the error message to inform the user of the mismatch.
+An SSL/TLS certificate holds certain information, one of which is the domain name it is issued to. For example, if the URL of the site is `www.moksh.com`, but the certificate is issued for `moksh.com` (or vice versa), the browser will display an error message to inform the user of the mismatch. This is a security measure to ensure that the certificate corresponds exactly to the domain being
 
 #### 4. Outdated Browser
 Browsers depend on the presence of the latest libraries for identity of trusted CA and encryption algorithms. This error can also occur if your browser is out of date: it could be that the browser is not equipped to validate newer forms of certificates.
@@ -59,10 +59,19 @@ Browsers depend on the presence of the latest libraries for identity of trusted 
 ### How to Resolve the NET::ERR_CERT_AUTHORITY_INVALID Issue as a Visitor
 To address this error, consider the following steps:
 
-#### 1. Verify the SSL Certificate
-- **For Website Owners**: Ensure your SSL certificate is valid, not expired, and issued by a trusted CA. You can use tools like {{< link href="https://www.ssllabs.com/ssltest/" >}}SSL Labs' SSL Test{{< /link >}} to analyze your certificate's status.
-- **For Users**: If you encounter this error on a trusted website, contact the site administrator to inform them of the issue.
-#### 2. Add the Certificate to Your Browser
+#### 1. Keep Your Operating System and Browser Updated
+Outdated systems may lack the necessary root certificates to validate SSL connections.
+- **Update Your Operating System**:
+  - Regularly check for and install system updates to maintain security and compatibility.
+- **Update Your Browser**:
+  - Ensure you're using the latest version of your browser to benefit from security patches and updates.
+#### 2. Use Incognito or Private Mode
+Browser extensions or cached data can interfere with SSL connections.
+- **Steps**:
+  1. Open a new incognito or private browsing window.
+  2. Attempt to access the website.
+  3. If successful, consider disabling extensions or clearing your cache in the regular browsing mode.
+#### 3. Add the Certificate to Your Browser
 If you trust the website but continue to receive the error, you can manually add the certificate to your browser's trusted list:
 - **Google Chrome**:
   1. Click on the padlock icon in the address bar.
@@ -74,7 +83,7 @@ If you trust the website but continue to receive the error, you can manually add
   2. Go to "View Certificate" and export it.
   3. Import the certificate into Firefox's certificate manager.
 **Note**: Only perform this action for websites you trust, as adding untrusted certificates can compromise your security.
-#### 3. Turn Off SSL Scanning in Antivirus Software
+#### 4. Turn Off SSL Scanning in Antivirus Software
 Some antivirus programs scan SSL connections, which can interfere with certificate validation.
 - **Steps**:
   1. Open your antivirus software settings.
@@ -82,12 +91,6 @@ Some antivirus programs scan SSL connections, which can interfere with certifica
   3. Disable this feature temporarily.
   4. Restart your browser and check if the issue persists.
 **Caution**: Disabling SSL scanning can reduce your security. Ensure you re-enable it after troubleshooting.
-#### 4. Keep Your Operating System and Browser Updated
-Outdated systems may lack the necessary root certificates to validate SSL connections.
-- **Update Your Operating System**:
-  - Regularly check for and install system updates to maintain security and compatibility.
-- **Update Your Browser**:
-  - Ensure you're using the latest version of your browser to benefit from security patches and updates.
 #### 5. Reset Your SSL State
 Clearing the SSL state can resolve issues related to cached certificates.
 - **For Windows**:
@@ -115,13 +118,7 @@ An incorrect system clock can cause SSL validation errors.
   1. Access your device's date and time settings.
   2. Enable automatic date and time synchronization.
   3. Ensure the time zone is correct.
-#### 7. Use Incognito or Private Mode
-Browser extensions or cached data can interfere with SSL connections.
-- **Steps**:
-  1. Open a new incognito or private browsing window.
-  2. Attempt to access the website.
-  3. If successful, consider disabling extensions or clearing your cache in the regular browsing mode.
-#### 8. Contact the Website Owner for Help
+#### 7. Contact the Website Owner for Help
 If the issue persists, reach out to the website administrator to inform them of the SSL certificate problem. They may need to renew or reconfigure their certificate.
 
 ## For Website Owners: Understanding the Problem
@@ -131,11 +128,13 @@ The **NET::ERR_CERT_AUTHORITY_INVALID** error isn’t just a technical issue; it
 ### Why Your Website Shows the Error
 The error occurs due to problems with your SSL/TLS certificate, which ensures encrypted communication between your website and its visitors. Here are the common causes:
 
-#### 1. Self-Signed Certificates
-Certificates that are self signed are produced by the owner of the website and not through the normal CA. Although compared to other types of links they are simpler to create and free of charge, browsers don’t trust them because they don’t have sign of external approval. This is normal if the site is in development environment or internal network but should not be seen on public websites.
-
-#### 2. Expired Certificates
+#### 1. Expired Certificates
 They have a limited lifetime that is usually ranges from 90 days up to several years. If this certificate is not renewed before it gets to its expiry date then the browser will recognize it as a non-existent one. Certificates that are expired give the perception that the issuer is lazy and this is not the kind of perception you would want to give to your potential visitors.
+
+#### 2. Self-Signed Certificates
+Self-signed certificates are produced by the owner of the website rather than a trusted Certificate Authority (CA). While they are simple to create and free of charge, browsers don’t trust them because they lack external approval. These certificates are suitable for development environments or internal networks but should not be used on public websites.
+
+For public websites, consider obtaining a free SSL certificate from  {{< link href=" https://letsencrypt.org/">}} Let’s Encrypt {{</link>}}.{{< link href=" https://letsencrypt.org/">}} Let’s Encrypt {{</link>}} provides certificates trusted by all major browsers, ensuring your site is secure and user-friendly.
 
 #### 3. Misconfiguration
 Incorrectly installing or configuring your certificate can result in mismatches between the certificate and your domain. Common issues include:
@@ -151,8 +150,8 @@ By using SSL/TLS certificates, users have to stay connected by creating a chain 
 Resolving this error requires addressing the root cause. Here’s a detailed step-by-step guide:
 
 #### 1. Use a Trusted Certificate Authority
-- Purchase your SSL/TLS certificate from a reputable CA such as DigiCert, GlobalSign, or Sectigo.
-- For free and widely trusted options, consider using Let’s Encrypt, which provides automated certificate issuance.
+- Purchase your SSL/TLS certificate from a reputable CA such as {{< link href="https://www.digicert.com/">}} DigiCert {{</link>}}, {{< link href="https://www.globalsign.com/en">}} GlobalSign {{</link>}}, or {{< link href="https://www.sectigo.com/">}} Sectigo {{</link>}}.
+- For free and widely trusted options, consider using {{< link href=" https://letsencrypt.org/">}} Let’s Encrypt {{</link>}}, which provides automated certificate issuance.
 - Avoid self-signed certificates unless for local development or internal use.
 **Pro Tip:** Some hosting providers (e.g., Bluehost, SiteGround) include free SSL certificates in their plans. Check with your provider before purchasing separately.
 #### 2. Renew Expired Certificates
