@@ -28,8 +28,7 @@ The **NET::ERR_CERT_AUTHORITY_INVALID** error can be a frustrating roadblock for
        - **Windows**: Use "Clear SSL State" in Internet Options.  
        - **macOS**: Remove certificates from Keychain Access.  
        - **Ubuntu**: Remove cached certificates via terminal or browser certificate manager.  
-    - Update your browser and try a different device or network.  
-    - Full troubleshooting steps [here](#How-to-Resolve-the-NET::ERR_CERT_AUTHORITY_INVALID-Issue-as-a-Visitor).  
+      - Full troubleshooting steps [here](#how-to-resolve-the-neterr_cert_authority_invalid-issue-as-a-visitor).  
    - **For Website Owners**:  
      - Full troubleshooting steps [here](#how-to-resolve-the-neterr_cert_authority_invalid-issue-as-a-visitor).
      - Obtain a valid SSL certificate from a trusted CA (e.g., <a href=" https://letsencrypt.org/" target="_blank">Let’s Encrypt</a>).  
