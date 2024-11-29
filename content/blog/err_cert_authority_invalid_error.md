@@ -28,6 +28,9 @@ The **NET::ERR_CERT_AUTHORITY_INVALID** error can be a frustrating roadblock for
        - **Windows**: Use "Clear SSL State" in Internet Options.  
        - **macOS**: Remove certificates from Keychain Access.  
        - **Ubuntu**: Remove cached certificates via terminal or browser certificate manager.  
+    - Update your browser and try a different device or network.  
+    - Full troubleshooting steps [here](#How-to-Resolve-the-NET::ERR_CERT_AUTHORITY_INVALID-Issue-as-a-Visitor).  
+   - **For Website Owners**:  
      - Full troubleshooting steps [here](#how-to-resolve-the-neterr_cert_authority_invalid-issue-as-a-visitor).
      - Obtain a valid SSL certificate from a trusted CA (e.g., <a href=" https://letsencrypt.org/" target="_blank">Let’s Encrypt</a>).  
      - Renew expired certificates and set automatic reminders.  
@@ -36,7 +39,7 @@ The **NET::ERR_CERT_AUTHORITY_INVALID** error can be a frustrating roadblock for
      - Full guide [here](#how-to-resolve-the-neterr_cert_authority_invalid-issue-as-a-website-owner).  
 {{% /tldr %}}
 
-{{< image "err_cert_authority_invalid_error/thumbnail.webp" "Thumbnail" >}}
+{{< image "err_cert_authority_invalid_error/thumbnail.webp" "NET::ERR_CERT_AUTHORITY_INVALID Error" >}}
 
 ## What is the NET::ERR_CERT_AUTHORITY_INVALID Error?
 The **NET::ERR_CERT_AUTHORITY_INVALID** error indicates that your browser cannot verify the authenticity of a website’s SSL/TLS certificate. SSL (Secure Sockets Layer) and TLS (Transport Layer Security) certificates guarantee that an establishment of communication between browsers and a particular site is safe and encrypted. This status usually suggests that the certificate used in the website is self-generated, has run out, is set up incorrectly, or is created by an unauthorized authority.
@@ -67,13 +70,19 @@ Outdated systems may lack the necessary root certificates to validate SSL connec
   - Regularly check for and install system updates to maintain security and compatibility.
 - **Update Your Browser**:
   - Ensure you're using the latest version of your browser to benefit from security patches and updates.
-#### 2. Use Incognito or Private Mode
+#### 2. Align Your Device's Clock
+An incorrect system clock can cause SSL validation errors.
+- **Steps**:
+  1. Access your device's date and time settings.
+  2. Enable automatic date and time synchronization.
+  3. Ensure the time zone is correct.
+#### 3. Use Incognito or Private Mode
 Browser extensions or cached data can interfere with SSL connections.
 - **Steps**:
   1. Open a new incognito or private browsing window.
   2. Attempt to access the website.
   3. If successful, consider disabling extensions or clearing your cache in the regular browsing mode.
-#### 3. Add the Certificate to Your Browser
+#### 4. Add the Certificate to Your Browser
 If you trust the website but continue to receive the error, you can manually add the certificate to your browser's trusted list:
 - **Google Chrome**:
   1. Click on the padlock icon in the address bar.
@@ -85,7 +94,7 @@ If you trust the website but continue to receive the error, you can manually add
   2. Go to "View Certificate" and export it.
   3. Import the certificate into Firefox's certificate manager.
 **Note**: Only perform this action for websites you trust, as adding untrusted certificates can compromise your security.
-#### 4. Turn Off SSL Scanning in Antivirus Software
+#### 5. Turn Off SSL Scanning in Antivirus Software
 Some antivirus programs scan SSL connections, which can interfere with certificate validation.
 - **Steps**:
   1. Open your antivirus software settings.
@@ -93,7 +102,7 @@ Some antivirus programs scan SSL connections, which can interfere with certifica
   3. Disable this feature temporarily.
   4. Restart your browser and check if the issue persists.
 **Caution**: Disabling SSL scanning can reduce your security. Ensure you re-enable it after troubleshooting.
-#### 5. Reset Your SSL State
+#### 6. Reset Your SSL State
 Clearing the SSL state can resolve issues related to cached certificates.
 - **For Windows**:
   1. Open the "Internet Options" control panel.
@@ -114,12 +123,6 @@ Clearing the SSL state can resolve issues related to cached certificates.
         3. Find and remove the certificate associated with the problematic website.
   3. Clear your browser's cache and restart it.
   4. Check if the issue persists by reloading the website.
-#### 6. Align Your Device's Clock
-An incorrect system clock can cause SSL validation errors.
-- **Steps**:
-  1. Access your device's date and time settings.
-  2. Enable automatic date and time synchronization.
-  3. Ensure the time zone is correct.
 #### 7. Contact the Website Owner for Help
 If the issue persists, reach out to the website administrator to inform them of the SSL certificate problem. They may need to renew or reconfigure their certificate.
 
