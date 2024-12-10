@@ -1,12 +1,12 @@
 ---
 title: "Using Remote Desktop Sharing on Windows with Pinggy"
 description: "Learn how to securely access your Windows machine remotely using Remote Desktop Protocol (RDP) without the hassle of port forwarding. This step-by-step guide demonstrates how Pinggy simplifies remote desktop sharing by bypassing NAT, CGNAT, and firewall restrictions. Explore how to set up a secure connection, use the Remote Desktop Connection app, and overcome common network challenges for seamless remote access to your desktop from anywhere in the world."
-og_image: "images/iot/remote_access_raspberry_pi.webp"
-tags: ["RDP", "Tunneling", "Remote"]
+og_image: "images/rdp/Using_Remote_Desktop_Sharing_on_Windows_with_Pinggy.webp"
+tags: ["RDP", "Tunneling", "Remote","Guide","Tutorial","Windows"]
 outputs:
 - HTML
 - AMP
-date: 2024-12-08T03:57:29+05:30
+date: 2024-12-10T03:57:29+05:30
 draft: false
 ---
 
@@ -20,11 +20,13 @@ In this blog, we’ll explore how to **securely connect to a Windows machine rem
 {{% tldr %}}
 
 
-1. **Step 1.** Setup remote desktop connection using Pinggy.
+1. **Step 1.** Run this command to obtain a public address for your Windows PC.
    ```
-   ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
+   ssh -p 443 -R0:127.0.0.1:3389 donpPGOyOY0+tcp@a.pinggy.io
    ```
-2. **Step 2.** Use the Remote Desktop Connection application to access your machine.
+After running this command, it outputs a public address that you can use to access your Windows PC's RDP service. For example: `tcp://kduyqzdhwu.a.pinggy.link:3389`
+
+2. **Step 2.** Connect using the Remote Desktop Connection application by opening it and entering the address and port given by the Pinggy command in Step 1.
 
    
 
@@ -34,7 +36,8 @@ In this blog, we’ll explore how to **securely connect to a Windows machine rem
 
 <br/>
 
-{{< iframe src="https://www.youtube.com/embed/HvI7FJngFDw" title="YouTube video player" >}}
+{{< iframe src="https://www.youtube.com/embed/2knagnw16P8" title="YouTube video player" >}}
+
 
 
 ## Remote Desktop in Windows
@@ -51,19 +54,19 @@ Network Address Translation (NAT) and Carrier-Grade NAT (CGNAT) assign private I
 
 Pinggy enables a secure RDP connection to your machine, even behind a firewall or NAT router. Follow these steps:
 ### Step 1: Setup remote desktop connection using Pinggy.
-1. Open your terminal or command prompt on the Windows machine you want to access. Use the following command to set up a tunnel to your local development server:
+1. Open your terminal or command prompt on the Windows machine you want to access. Use the following command to set up a tunnel:
 
    ```bash
-   ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
+   ssh -p 443 -R0:127.0.0.1:3389 donpPGOyOY0+tcp@a.pinggy.io
    ```
 
    
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to SSH server:" portstring="SSH server Port" localport="3389" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
 
-2. Once executed, it will ask for permission to connect. Grant the permission, and if prompted for a password, enter it or press Enter. Pinggy will then provide a public URL and port, such as:: `tcp://kduyqzdhwu.a.pinggy.link:22348`
+2. Once executed, it will ask for permission to connect. Grant the permission, and if prompted for a password, enter it or press Enter. Pinggy will then provide a public URL and port, such as:: `tcp://kduyqzdhwu.a.pinggy.link:3389`
 
-This command creates a tunnel that forwards traffic from Pinggy’s server to your local machine’s RDP port (22348).
+This command creates a tunnel that forwards traffic from Pinggy’s server to your local machine’s RDP port (3389).
 ### Step 2: Access Your Machine Using Remote Desktop Connection
 Open the Remote Desktop Connection app on another computer. Enter the public URL provided by Pinggy. For example, in our case, it was:
 
