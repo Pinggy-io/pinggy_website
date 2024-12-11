@@ -2,7 +2,7 @@
 title: "Using Remote Desktop Sharing on Windows with Pinggy"
 description: "Learn how to securely access your Windows machine remotely using Remote Desktop Protocol (RDP) without the hassle of port forwarding. This step-by-step guide demonstrates how Pinggy simplifies remote desktop sharing by bypassing NAT, CGNAT, and firewall restrictions. Explore how to set up a secure connection, use the Remote Desktop Connection app, and overcome common network challenges for seamless remote access to your desktop from anywhere in the world."
 og_image: "images/rdp/Using_Remote_Desktop_Sharing_on_Windows_with_Pinggy.webp"
-tags: ["RDP", "Tunneling", "Remote","Guide","Tutorial","Windows"]
+tags: ["RDP", "tunneling", "remote","guide","tutorial","windows"]
 outputs:
 - HTML
 - AMP
