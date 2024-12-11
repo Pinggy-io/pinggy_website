@@ -1,7 +1,7 @@
 ---
- title: "Creating tunnel behind proxy and firewall" 
- date: 2023-08-21T09:15:25+05:30 
- draft: false 
+ title: "Creating tunnel behind proxy and firewall"
+ date: 2023-08-21T09:15:25+05:30
+ draft: false
 ---
 
 # Start a tunnel from a network behind an HTTP proxy
@@ -37,7 +37,7 @@ It might happen that `nc` command does not work for you. Many other tools exist 
 The tools `ncat` and `corkscrew` are similar. However, `ncat` has more useful functions. Here goes the same example with `ncat`.
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" t.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" a.pinggy.io
 ```
 
 ## Start a tunnel behind a firewall that does not allow anything but SSL.
@@ -53,7 +53,7 @@ ssh -p443 -R0:localhost:4000 -o ProxyCommand="openssl s_client -quiet -connect %
 ```
 
 ```
-ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --ssl %h %p" t.pinggy.io
+ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --ssl %h %p" a.pinggy.io
 ```
 
 ## Start a tunnel from a network behind an HTTP proxy that does not allow not SSL connection
@@ -67,7 +67,7 @@ ssh -p443 -R0:localhost:4000 -o ProxyCommand="openssl s_client -quiet -proxy 192
 ```
 
 ```
-ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 --ssl %h %p" t.pinggy.io
+ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 --ssl %h %p" a.pinggy.io
 ```
 
 ## Windows
