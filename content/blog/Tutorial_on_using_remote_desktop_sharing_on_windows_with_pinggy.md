@@ -22,7 +22,7 @@ In this blog, we’ll explore how to **securely connect to a Windows machine rem
 
 1. **Step 1.** Run this command to obtain a public address for your Windows PC.
    ```
-   ssh -p 443 -R0:127.0.0.1:3389 donpPGOyOY0+tcp@a.pinggy.io
+   ssh -p 443 -R0:127.0.0.1:3389 tcp@a.pinggy.io
    ```
 After running this command, it outputs a public address that you can use to access your Windows PC's RDP service. For example: `tcp://kduyqzdhwu.a.pinggy.link:3389`
 
@@ -57,14 +57,14 @@ Pinggy enables a secure RDP connection to your machine, even behind a firewall o
 1. Open your terminal or command prompt on the Windows machine you want to access. Use the following command to set up a tunnel:
 
    ```bash
-   ssh -p 443 -R0:127.0.0.1:3389 donpPGOyOY0+tcp@a.pinggy.io
+   ssh -p 443 -R0:127.0.0.1:3389 tcp@a.pinggy.io
    ```
 
    
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to SSH server:" portstring="SSH server Port" localport="3389" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
 
-2. Once executed, it will ask for permission to connect. Grant the permission, and if prompted for a password, enter it or press Enter. Pinggy will then provide a public URL and port, such as:: `tcp://kduyqzdhwu.a.pinggy.link:3389`
+2. Once executed, it will ask for permission to connect. Grant the permission, and if prompted for a password, enter it or press Enter. Pinggy will then provide a public URL and port, such as: `tcp://kduyqzdhwu.a.pinggy.link:22348`
 
 This command creates a tunnel that forwards traffic from Pinggy’s server to your local machine’s RDP port (3389).
 ### Step 2: Access Your Machine Using Remote Desktop Connection
