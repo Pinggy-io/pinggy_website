@@ -1,16 +1,16 @@
 ---
 title: "What problems does DNS solve?"
 description: "The Domain Name System (DNS) simplifies internet access by translating IP addresses into user-friendly domain names, ensuring seamless connectivity, optimizing performance, and enhancing security. It enables efficient traffic management, geographic routing, and service organization, making the internet accessible, reliable, and resilient."
-date: 2024-12-18T14:15:25+05:30
+date: 2024-12-19T14:15:25+05:30
 draft: false
-og_image: "images/dns/first.webp"
+og_image: "images/dns/Domain_Name_System.webp"
 tags: ["DNS", "IP Addressing", "Load Balancing", "Web Technology", "DNS Security", "SEO"]
 
 outputs:
   - HTML
   - AMP
 ---
-{{< image "dns/first.webp" "first thumbnail" >}}
+{{< image "dns/Domain_Name_System.webp" "DNS (Domain Name System) is a hierarchical system that translates human-readable domain names into IP addresses, enabling devices to locate and communicate with each other on the internet." >}}
 
 The Domain Name System (DNS) is essential for improving the usability, scalability, accessibility, and efficiency of the internet. DNS serves as a mechanism for more than merely converting domain names into IP addresses; it resolves the challenge of mapping human-readable domain names to machine-readable IP addresses, making it easier for users to access websites without remembering complex numerical addresses. DNS supports the scalability of the internet by distributing domain record management across multiple servers, ensuring that it can handle the growing number of connected devices. It enhances accessibility by routing users to the nearest or most efficient server, improving load times and reducing latency. DNS also allows for dynamic updates, enabling businesses to modify server configurations without disrupting user experience, while providing redundancy and fault tolerance through multiple server copies. It underpins modern services like content delivery networks (CDNs), email routing, and secure communication, and it supports security through DNS Security Extensions (DNSSEC) to protect against attacks like cache poisoning. Additionally, DNS enables efficient resource allocation by managing subdomains and different record types, helping organizations optimize infrastructure and introduce new services seamlessly. In summary, DNS simplifies internet navigation, supports continuous growth, and ensures the reliability and security of the services we depend on.
 
@@ -62,7 +62,7 @@ DNS provides a crucial layer of abstraction between users and a website's underl
 
 Popular websites and applications frequently face high traffic volumes, which can overwhelm a single server, causing slower response times or even crashes. To manage this, load balancing is employed to distribute incoming traffic across multiple servers, improving performance and reliability. While hardware load balancers are effective in directing traffic, they have their limitations, particularly when relying on a single server's IP address. A single IP address can only point to one server at a time, creating a bottleneck when traffic spikes. This limitation makes it difficult to scale effectively, as a single server cannot handle massive volumes of requests on its own.
 
-{{< image "dns/dns_loadbalancing.webp" "load balancing" >}}
+{{< image "dns/dns_loadbalancing.webp" "Load balancing is the process of distributing network or application traffic across multiple servers to ensure optimal resource utilization, improve performance, and prevent overload." >}}
 
 #### How DNS Solves It:
 
@@ -74,7 +74,7 @@ Global applications often struggle with delivering content efficiently to users 
 
 Geographic latency is a significant challenge for applications that require low-latency responses, such as video streaming, online gaming, and real-time communication platforms. The longer the data has to travel, the slower the application performs. This can result in slow-loading pages, buffering, or lag, which can lead to frustrated users and reduced satisfaction.
 
-{{< image "dns/Geographic_and_Latency-Aware_Routing.webp" "Geographic_and_Latency-Aware_Routing" >}}
+{{< image "dns/Geographic_and_Latency-Aware_Routing.webp" "Geographic and Latency-Aware Routing optimizes network traffic by selecting paths based on physical proximity and latency to improve performance and user experience." >}}
 
 #### How DNS Solves It:
 
