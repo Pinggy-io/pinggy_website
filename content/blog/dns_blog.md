@@ -34,10 +34,13 @@ The Domain Name System (DNS) is essential for improving the usability, scalabili
 6. **Email Routing:**
    - DNS plays a crucial role in email delivery by mapping domain names to mail servers via MX (Mail Exchange) records, ensuring emails reach the right destination.
 
-7. **Search Engine Optimization (SEO):**
+7. **Email Authentication:**
+   - Email authentication ensures secure and reliable email communication by using SPF, DKIM, and DMARC protocols to prevent unauthorized domain impersonation and improve deliverability.
+
+8. **Search Engine Optimization (SEO):**
    - DNS helps improve SEO by ensuring proper and efficient routing of traffic to websites, contributing to faster load times, which in turn helps in search rankings.
 
-8. **Security and Redundancy:**
+9. **Security and Redundancy:**
    - DNS guarantees constant service availability, offers failover procedures, and guards against cyberattacks.
 {{% /tldr %}}
 
@@ -71,6 +74,8 @@ Global applications often struggle with delivering content efficiently to users 
 
 Geographic latency is a significant challenge for applications that require low-latency responses, such as video streaming, online gaming, and real-time communication platforms. The longer the data has to travel, the slower the application performs. This can result in slow-loading pages, buffering, or lag, which can lead to frustrated users and reduced satisfaction.
 
+{{< image "dns/Geographic_and_Latency-Aware_Routing.webp" "Geographic_and_Latency-Aware_Routing" >}}
+
 #### How DNS Solves It:
 
 DNS helps mitigate geographic and latency-related issues by enabling geographically aware routing. Through techniques like Anycast routing, DNS servers can direct users to the nearest or fastest server, reducing the physical distance the data needs to travel. When a user requests a website, the DNS system identifies the user’s location and returns the IP address of a server in a region closer to them. This reduces latency, ensures faster load times, and improves the overall user experience by optimizing the route based on geography and network conditions.
@@ -103,13 +108,29 @@ The DNS query starts when the sending email server looks up the recipient's doma
 
 DNS enables reliable email delivery by ensuring emails are directed to the correct mail servers. When a user sends an email, the DNS system checks the domain's MX records and routes the message to the appropriate mail server, ensuring that it reaches the recipient’s inbox. This process is seamless and happens automatically behind the scenes, making it essential for the functionality of email systems. By handling routing, DNS enables consistent, efficient, and accurate email communication.
 
-### 7. Search Engine Optimization (SEO):
+### 7. Email Authentication
+
+Email authentication is a critical component of secure email communication, designed to prevent unauthorized entities from impersonating legitimate domains. By using protocols like SPF, DKIM, and DMARC, domain owners can ensure that their emails are trusted by recipients and mail servers alike.
+
+**SPF (Sender Policy Framework)** acts like an employee directory, listing the IP addresses authorized to send emails for a domain. When a mail server receives an email, it verifies whether the sending server’s IP matches the domain’s SPF record. If there is a match, the email passes the SPF check.
+
+**DKIM (DomainKeys Identified Mail)** provides a digital signature for emails, similar to a handwritten signature on a letter. It uses cryptographic keys to verify the email’s integrity and confirm its origin. The private key is used to sign outgoing emails, while the public key is stored in the domain’s DNS for verification by receiving mail servers.
+
+**DMARC (Domain-based Message Authentication Reporting and Conformance)** ties SPF and DKIM together, defining how to handle emails that fail these checks. It allows domain owners to specify policies for rejecting, quarantining, or accepting suspicious emails and provides reporting features to monitor email authentication performance.
+
+#### How DNS Solves It:
+
+All three protocols—SPF, DKIM, and DMARC—are implemented using DNS TXT records. These records are publicly accessible, allowing mail servers to authenticate emails based on the information stored in the domain’s DNS. Properly configured DNS records ensure that legitimate emails are delivered successfully and protect the domain from being misused by spammers and phishers.
+
+By leveraging DNS for email authentication, domains can enhance security, improve email deliverability, and maintain their reputation. This seamless process happens behind the scenes, making email communication both reliable and secure.
+
+### 8. Search Engine Optimization (SEO)
 
 Search Engine Optimization (SEO) is a critical factor for improving a website’s visibility and ranking in search engine results. Faster load times and better user experience are essential components of a strong SEO strategy. DNS plays an important role in SEO by ensuring the efficient routing of traffic to a website, which contributes to faster website load times and overall site performance.
 
 When a user requests a website, DNS is responsible for translating the domain name into an IP address, directing the traffic to the appropriate server. The speed and efficiency of this process can directly impact a website’s performance. If the DNS server is slow or inefficient, it can cause delays in connecting to the website, leading to longer loading times. Websites with slower loading times are penalized by search engines like Google, which prioritize fast-loading websites in search results.
 
-{{< image "dns/seo.webp" "seo image" >}}
+
 
 #### How DNS Solves It:
 
@@ -117,7 +138,7 @@ DNS helps improve SEO by optimizing the speed and efficiency of routing. By util
 
 Faster load times result in a better user experience, which is a significant ranking factor for search engines. As DNS ensures that websites load quickly and efficiently, it indirectly boosts SEO by contributing to improved website performance, faster response times, and a better overall user experience.
 
-### 8. Security and Redundancy
+### 9. Security and Redundancy
 
 Websites are vulnerable to various cyberattacks, such as Distributed Denial of Service (DDoS) attacks, where a large volume of traffic is directed at a server to overwhelm it, causing disruptions or making the site unavailable. These attacks exploit server vulnerabilities, leading to slower response times, service downtime, or even complete site outages. Additionally, websites without redundancy, meaning backup systems or servers, face the risk of complete unavailability in the event of a server failure. In a typical setup, if a server hosting a website experiences an outage, users may not be able to access the site until the issue is resolved, which could result in significant loss of business or reputation.
 
