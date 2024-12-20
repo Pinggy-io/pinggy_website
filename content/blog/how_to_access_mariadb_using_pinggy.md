@@ -16,21 +16,17 @@ outputs:
 {{< image "access_mariadb_using_pinggy/mariadb_pinggy.webp" "MariaDB Pinggy" >}}
 
 {{% tldr %}}
-1. <a href="https://mariadb.org/" >MariaDB</a> is a popular open-source database management system known for its reliability, performance, and compatibility with MySQL.
-2. Accessing a local MariaDB instance remotely is often hindered by NAT, CGNAT, and firewall restrictions.
-3. [Pinggy](https://pinggy.io/) is a simple tunneling solution that helps bypass these limitations by creating a secure public endpoint for your local services.
-4. To set up:
-   - Start a MariaDB instance locally (Docker is an example here but optional):
+1. <a href="https://mariadb.org/" target="_blank" >MariaDB</a> is a popular open-source database management system. Accessing a local MariaDB instance remotely is often hindered by NAT, CGNAT, and firewall restrictions.
+2. If you do not have MariaDB running,  you may start it using Docker:
      ```bash
      docker run --name mariadb-test -e MYSQL_ROOT_PASSWORD=yourpassword -p 3306:3306 -d mariadb
      ```
-   - Start a Pinggy TCP tunnel on port 3306:
+3. Start a Pinggy TCP tunnel on port `3306`:
      ```bash
      ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io
      ```
-   - [Pinggy](https://pinggy.io/) generates a public URL like `tcp://example.pinggy.io:XXXXX`.
-5. Use the Pinggy-provided hostname and port to connect to MariaDB with tools like MariaDB CLI or DBeaver.
-6. Pinggy simplifies remote access without modifying your network configuration, allowing you to securely connect from anywhere.
+   - [Pinggy](https://pinggy.io/) generates a public URL like `tcp://example.pinggy.io:48780`.
+5. Use the Pinggy-provided hostname and port to connect to MariaDB with tools like `mariadb` command, or <a href="https://dbeaver.io/" target="_blank" >DBeaver</a>.
 {{% /tldr %}}
 
 ## What Is MariaDB?
