@@ -150,7 +150,7 @@ This message indicates that the VNC server is running on the Raspberry Pi and is
 
 #### Install VNC Viewer on your laptop or PC
 
-Since the raspberry pi acts as a TightVNC server, we need software which acts as a TightVNC client. Download the zip file from the [official website](https://www.tightvnc.com/download.php) and install it on your laptop or PC.
+Since the raspberry pi acts as a TightVNC server, we need software which acts as a TightVNC client. Download the zip file from the {{< link href="https://www.tightvnc.com/download.php" >}}official website{{< /link >}} and install it on your laptop or PC.
 
 After installing the VNC Viewer, open the application and enter the public URL in the address bar. Click on the connect button to establish a connection to your Raspberry Pi.
 
@@ -274,13 +274,22 @@ This command launches the HTOP interface, providing you with real-time insights 
 
 By incorporating HTOP into your remote management toolkit, you can proactively address performance concerns, ensuring a smooth and reliable experience for your Raspberry Pi and IoT devices.
 
-### Monitoring Raspberry Pi's System Metrics
+## Monitoring Raspberry Pi System Metrics
 
-To ensure optimal performance and prevent bottlenecks on your Raspberry Pi, monitoring its CPU, memory, and disk usage is crucial. Tools like `htop` and `psutil` provide real-time insights into resource utilization, helping you optimize resource allocation and diagnose potential issues. By remotely tracking these metrics, you can maintain better control over your Raspberry Pi, even if it is located far away.
+Tools like htop let you check CPU, memory, and process usage in real time via SSH. However, if you want quick or programmatic access to these metrics without manually logging in, you can run an API (e.g., FastAPI + psutil) to serve system stats (CPU, RAM, disk usage) over HTTP. By tunneling this local API through Pinggy, you can securely reach it from anywhere—no NAT configurations required.
 
-For a detailed guide on how to set up system monitoring using FastAPI and Pinggy, check out this article: [Remote System Monitoring with FastAPI and Pinggy](https://pinggy.io/blog/remote_system_monitoring_with_fastapi_and_pinggy/). The guide walks you through creating a FastAPI application to expose system metrics like CPU usage, memory utilization, and disk statistics, and it shows how to use Pinggy to make these metrics accessible over the internet. 
+See our *[Remote System Monitoring with FastAPI and Pinggy article](https://pinggy.io/blog/remote_system_monitoring_with_fastapi_and_pinggy/)* for a ready-to-use example. The corresponding source code is available on {{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub{{< /link >}}. Once your app is running (typically on port 8000), create a tunnel:
 
-To dive into the technical details and access the complete codebase for setting up your own monitoring solution, visit the [GitHub Repository](https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy). This repository provides all the necessary scripts and configurations, ensuring you can implement the solution seamlessly.
+```bash
+ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+```
+
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI:" portstring="FastAPI Port" localport="8000" webdebugenabled=false keepalive=true >}}
+{{< /pinggytunnel >}}
+
+[Pinggy](https://pinggy.io) provides a public URL—anyone with that URL (and any auth you set up) can view metrics remotely. For interactive CLI monitoring, stick to htop via SSH; for automated or on-the-fly checks, use the FastAPI endpoints.
+
+
 
 ## Tips
 
