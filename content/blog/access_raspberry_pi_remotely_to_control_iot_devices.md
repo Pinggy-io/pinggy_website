@@ -7,6 +7,8 @@ outputs:
 - HTML
 - AMP
 date: 2024-06-25T03:57:29+05:30
+lastmod: 2024-12-28T14:15:25+05:30
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkFjY2VzcyBSYXNwYmVycnkgUGkgUmVtb3RlbHkgdG8gQ29udHJvbCBJb1QgRGV2aWNlcyIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWN1cmVseSBjb25uZWN0IHRvIHlvdXIgUmFzcGJlcnJ5IFBpIG9yIElvVCBkZXZpY2UgcmVtb3RlbHkgb3ZlciB0aGUgaW50ZXJuZXQgd2l0aG91dCB0aGUgbmVlZCBmb3IgcG9ydCBmb3J3YXJkaW5nLiBFeHBsb3JlIG1ldGhvZHMgc3VjaCBhcyBTU0gsIFZOQywgYW5kIFJEUCwgYW5kIGRpc2NvdmVyIGhvdyB0byB1c2UgUGluZ2d5LmlvIHRvIGNyZWF0ZSBzZWN1cmUgdHVubmVscyBmb3Igc2VhbWxlc3MgcmVtb3RlIG1hbmFnZW1lbnQuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2lvdC9yZW1vdGVfYWNjZXNzX3Jhc3BiZXJyeV9waS53ZWJwIiwKICAidG90YWxUaW1lIjogIlBUMzBNIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNldCBVcCBSZW1vdGUgQWNjZXNzIFVzaW5nIFNTSCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgU1NIIG9uIHlvdXIgUmFzcGJlcnJ5IFBpIGFuZCB1c2UgdGhlIGNvbW1hbmQgJ3NzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoyMiB0Y3BAYS5waW5nZ3kuaW8nIHRvIGVzdGFibGlzaCBhIHNlY3VyZSB0dW5uZWwgZm9yIHJlbW90ZSBhY2Nlc3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNldCBVcCBSZW1vdGUgQWNjZXNzIFVzaW5nIFZOQyIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgVGlnaHRWTkMgc2VydmVyIG9uIHlvdXIgUmFzcGJlcnJ5IFBpIGFuZCB1c2UgUGluZ2d5IHRvIHR1bm5lbCB0aGUgVk5DIHNlcnZlciBwb3J0IGZvciByZW1vdGUgR1VJIGFjY2Vzcy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiU2V0IFVwIFJlbW90ZSBEZXNrdG9wIEFjY2VzcyBVc2luZyBSRFAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIFhSRFAgb24geW91ciBSYXNwYmVycnkgUGkgYW5kIHVzZSB0aGUgY29tbWFuZCAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMzODkgdGNwQGEucGluZ2d5LmlvJyB0byBlbmFibGUgcmVtb3RlIGRlc2t0b3AgYWNjZXNzIHZpYSBSRFAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIk1vbml0b3IgU3lzdGVtIE1ldHJpY3MiLAogICAgICAidGV4dCI6ICJUcmFjayBDUFUsIG1lbW9yeSwgYW5kIGRpc2sgdXNhZ2Ugb24geW91ciBSYXNwYmVycnkgUGkgdXNpbmcgdG9vbHMgbGlrZSBodG9wIG9yIHBzdXRpbC4gTGVhcm4gbW9yZSBhYm91dCBzeXN0ZW0gbW9uaXRvcmluZyBhdCAnaHR0cHM6Ly9waW5nZ3kuaW8vYmxvZy9yZW1vdGVfc3lzdGVtX21vbml0b3Jpbmdfd2l0aF9mYXN0YXBpX2FuZF9waW5nZ3kvJy4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
 draft: false
 ---
 
@@ -21,6 +23,8 @@ There are three main ways to access your Raspberry Pi remotely over the internet
 2. **VNC** - Virtual Network Computing, a protocol for safely accessing the Raspberry Pi GUI or desktop.
 
 3. **RDP** - Remote Desktop Protocol, a proprietary protocol developed by Microsoft that provides a user with a graphical interface to connect to another computer over a network connection.
+
+4. **System Monitoring** - Tools like htop and psutil allow you to track real-time CPU, memory, and disk usage metrics remotely, ensuring your Raspberry Pi operates efficiently and bottlenecks are minimized. This is essential for maintaining the health of IoT devices, especially in resource-constrained environments.
 
 However, all of these methods usually require port forwarding, which can pose security risks.
 
@@ -269,6 +273,14 @@ This command launches the HTOP interface, providing you with real-time insights 
 {{< image "iot/htop.webp" "HTOP" >}}
 
 By incorporating HTOP into your remote management toolkit, you can proactively address performance concerns, ensuring a smooth and reliable experience for your Raspberry Pi and IoT devices.
+
+### Monitoring Raspberry Pi's System Metrics
+
+To ensure optimal performance and prevent bottlenecks on your Raspberry Pi, monitoring its CPU, memory, and disk usage is crucial. Tools like `htop` and `psutil` provide real-time insights into resource utilization, helping you optimize resource allocation and diagnose potential issues. By remotely tracking these metrics, you can maintain better control over your Raspberry Pi, even if it is located far away.
+
+For a detailed guide on how to set up system monitoring using FastAPI and Pinggy, check out this article: [Remote System Monitoring with FastAPI and Pinggy](https://pinggy.io/blog/remote_system_monitoring_with_fastapi_and_pinggy/). The guide walks you through creating a FastAPI application to expose system metrics like CPU usage, memory utilization, and disk statistics, and it shows how to use Pinggy to make these metrics accessible over the internet. 
+
+To dive into the technical details and access the complete codebase for setting up your own monitoring solution, visit the [GitHub Repository](https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy). This repository provides all the necessary scripts and configurations, ensuring you can implement the solution seamlessly.
 
 ## Tips
 
