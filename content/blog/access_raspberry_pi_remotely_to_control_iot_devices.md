@@ -7,6 +7,8 @@ outputs:
 - HTML
 - AMP
 date: 2024-06-25T03:57:29+05:30
+lastmod: 2024-12-28T14:15:25+05:30
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkFjY2VzcyBSYXNwYmVycnkgUGkgUmVtb3RlbHkgdG8gQ29udHJvbCBJb1QgRGV2aWNlcyIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWN1cmVseSBjb25uZWN0IHRvIHlvdXIgUmFzcGJlcnJ5IFBpIG9yIElvVCBkZXZpY2UgcmVtb3RlbHkgb3ZlciB0aGUgaW50ZXJuZXQgd2l0aG91dCB0aGUgbmVlZCBmb3IgcG9ydCBmb3J3YXJkaW5nLiBFeHBsb3JlIG1ldGhvZHMgc3VjaCBhcyBTU0gsIFZOQywgYW5kIFJEUCwgYW5kIGRpc2NvdmVyIGhvdyB0byB1c2UgUGluZ2d5LmlvIHRvIGNyZWF0ZSBzZWN1cmUgdHVubmVscyBmb3Igc2VhbWxlc3MgcmVtb3RlIG1hbmFnZW1lbnQuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2lvdC9yZW1vdGVfYWNjZXNzX3Jhc3BiZXJyeV9waS53ZWJwIiwKICAidG90YWxUaW1lIjogIlBUMzBNIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNldCBVcCBSZW1vdGUgQWNjZXNzIFVzaW5nIFNTSCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgU1NIIG9uIHlvdXIgUmFzcGJlcnJ5IFBpIGFuZCB1c2UgdGhlIGNvbW1hbmQgJ3NzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoyMiB0Y3BAYS5waW5nZ3kuaW8nIHRvIGVzdGFibGlzaCBhIHNlY3VyZSB0dW5uZWwgZm9yIHJlbW90ZSBhY2Nlc3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNldCBVcCBSZW1vdGUgQWNjZXNzIFVzaW5nIFZOQyIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgVGlnaHRWTkMgc2VydmVyIG9uIHlvdXIgUmFzcGJlcnJ5IFBpIGFuZCB1c2UgUGluZ2d5IHRvIHR1bm5lbCB0aGUgVk5DIHNlcnZlciBwb3J0IGZvciByZW1vdGUgR1VJIGFjY2Vzcy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiU2V0IFVwIFJlbW90ZSBEZXNrdG9wIEFjY2VzcyBVc2luZyBSRFAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIFhSRFAgb24geW91ciBSYXNwYmVycnkgUGkgYW5kIHVzZSB0aGUgY29tbWFuZCAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMzODkgdGNwQGEucGluZ2d5LmlvJyB0byBlbmFibGUgcmVtb3RlIGRlc2t0b3AgYWNjZXNzIHZpYSBSRFAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIk1vbml0b3IgU3lzdGVtIE1ldHJpY3MiLAogICAgICAidGV4dCI6ICJUcmFjayBDUFUsIG1lbW9yeSwgYW5kIGRpc2sgdXNhZ2Ugb24geW91ciBSYXNwYmVycnkgUGkgdXNpbmcgdG9vbHMgbGlrZSBodG9wIG9yIHBzdXRpbC4gTGVhcm4gbW9yZSBhYm91dCBzeXN0ZW0gbW9uaXRvcmluZyBhdCAnaHR0cHM6Ly9waW5nZ3kuaW8vYmxvZy9yZW1vdGVfc3lzdGVtX21vbml0b3Jpbmdfd2l0aF9mYXN0YXBpX2FuZF9waW5nZ3kvJy4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
 draft: false
 ---
 
@@ -21,6 +23,8 @@ There are three main ways to access your Raspberry Pi remotely over the internet
 2. **VNC** - Virtual Network Computing, a protocol for safely accessing the Raspberry Pi GUI or desktop.
 
 3. **RDP** - Remote Desktop Protocol, a proprietary protocol developed by Microsoft that provides a user with a graphical interface to connect to another computer over a network connection.
+
+4. **System Monitoring** - Tools like htop and psutil allow you to track real-time CPU, memory, and disk usage metrics remotely, ensuring your Raspberry Pi operates efficiently and bottlenecks are minimized. This is essential for maintaining the health of IoT devices, especially in resource-constrained environments.
 
 However, all of these methods usually require port forwarding, which can pose security risks.
 
@@ -146,7 +150,7 @@ This message indicates that the VNC server is running on the Raspberry Pi and is
 
 #### Install VNC Viewer on your laptop or PC
 
-Since the raspberry pi acts as a TightVNC server, we need software which acts as a TightVNC client. Download the zip file from the [official website](https://www.tightvnc.com/download.php) and install it on your laptop or PC.
+Since the raspberry pi acts as a TightVNC server, we need software which acts as a TightVNC client. Download the zip file from the {{< link href="https://www.tightvnc.com/download.php" >}}official website{{< /link >}} and install it on your laptop or PC.
 
 After installing the VNC Viewer, open the application and enter the public URL in the address bar. Click on the connect button to establish a connection to your Raspberry Pi.
 
@@ -269,6 +273,23 @@ This command launches the HTOP interface, providing you with real-time insights 
 {{< image "iot/htop.webp" "HTOP" >}}
 
 By incorporating HTOP into your remote management toolkit, you can proactively address performance concerns, ensuring a smooth and reliable experience for your Raspberry Pi and IoT devices.
+
+## Monitoring Raspberry Pi System Metrics
+
+Tools like htop let you check CPU, memory, and process usage in real time via SSH. However, if you want quick or programmatic access to these metrics without manually logging in, you can run an API (e.g., FastAPI + psutil) to serve system stats (CPU, RAM, disk usage) over HTTP. By tunneling this local API through Pinggy, you can securely reach it from anywhere—no NAT configurations required.
+
+See our *[Remote System Monitoring with FastAPI and Pinggy article](https://pinggy.io/blog/remote_system_monitoring_with_fastapi_and_pinggy/)* for a ready-to-use example. The corresponding source code is available on {{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub{{< /link >}}. Once your app is running (typically on port 8000), create a tunnel:
+
+```bash
+ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+```
+
+{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI:" portstring="FastAPI Port" localport="8000" webdebugenabled=false keepalive=true >}}
+{{< /pinggytunnel >}}
+
+[Pinggy](https://pinggy.io) provides a public URL—anyone with that URL (and any auth you set up) can view metrics remotely. For interactive CLI monitoring, stick to htop via SSH; for automated or on-the-fly checks, use the FastAPI endpoints.
+
+
 
 ## Tips
 
