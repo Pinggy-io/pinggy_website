@@ -1,7 +1,7 @@
 ---
 title: "How to Share Your Ollama WebUI: A Guide to Secure Remote Access"
 description: "Learn how to securely share your Ollama WebUI for remote access, ensuring both convenience and safety for collaborative work or access from anywhere."
-date: 2025-01-06T15:30:00+05:30
+date: 2025-01-07T14:15:25+05:30
 draft: false
 og_image: "images/the_client_and_server_don't_support_a_common_ssl_protocol_version_or_cipher_suite/thumbnail.webp"
 tags: ["ollama webui", "docker", "remote access", "docker networking", "port forwarding"]
