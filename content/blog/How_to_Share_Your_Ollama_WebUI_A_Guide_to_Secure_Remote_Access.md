@@ -3,7 +3,7 @@ title: "How to Share Your Ollama WebUI: A Guide to Secure Remote Access"
 description: "Learn how to securely share your Ollama WebUI for remote access, ensuring both convenience and safety for collaborative work or access from anywhere."
 date: 2025-01-07T14:15:25+05:30
 draft: false
-og_image: "images/the_client_and_server_don't_support_a_common_ssl_protocol_version_or_cipher_suite/thumbnail.webp"
+og_image: "images/How_to_Share_Your_Ollama_WebUI/How_to_Share_Your_Ollama_WebUI.webp"
 tags: ["ollama webui", "docker", "remote access", "docker networking", "port forwarding"]
 outputs:
   - HTML
@@ -38,6 +38,8 @@ By following these steps, you can safely share your Ollama WebUI with secure rem
 
 {{% /tldr %}}
 
+{{< image "How_to_Share_Your_Ollama_WebUI/How_to_Share_Your_Ollama_WebUI.webp" "To share your Ollama WebUI, deploy it on a server or cloud platform and provide the public URL to others for access." >}}
+
 ## Step 1: Understanding Docker Networking Basics
 Docker containers provide isolated environments for applications, ensuring they don’t directly expose internal services to the host or the internet. To make the Ollama WebUI accessible remotely, you need to configure Docker networking and port mapping.
 
@@ -67,7 +69,7 @@ This shows details about your container, including network settings, IP address,
 
 ### C. Custom Networking
 If your setup involves multiple containers that need to communicate, consider creating a custom Docker network. This ensures that containers can talk to each other directly without exposing ports to the host system.
-- Example to create a custom network:
+- **Example to create a custom network**:
 ```bash
     docker network create ollama-network
     docker run --network ollama-network -p 8080:8080 ollama-webui-container
