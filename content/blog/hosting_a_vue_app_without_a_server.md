@@ -101,13 +101,13 @@ ssh -p 443 -R 0:localhost:8080 -t qr@a.pinggy.io "u:Host:localhost:8080"
 ```
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080 u:Host:localhost:8080\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"}}}"
 {{</ ssh_command >}}
 
 ### Command Breakdown:
 - **`ssh -p 443`**: Initiates a secure connection via Pinggy’s server.  
 - **`-R0:localhost:8080`**: Maps your Vue.js app (running on port 8080) to a public URL.  
-- The **`-t`** option and **`"u:Host:localhost:8080"`** modify the host header to ensure **`localhost:8080`** requests are correctly routed to your local app.
+- The **`-t`** option and **`"u:Host:localhost:8080"`** modifies the host header to ensure **`localhost:8080`** requests are correctly routed to your local app.
 - The **`qr`** the command displays the public URL as a QR code, making it easy to access your app on other devices.
 - **`qr@a.pinggy.io u:Host:localhost:8080`**: Specifies the Pinggy server.  
 
