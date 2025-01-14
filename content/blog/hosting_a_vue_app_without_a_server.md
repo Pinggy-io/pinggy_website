@@ -13,7 +13,9 @@ outputs:
 
 {{< image "hosting_a_vue_app_without_a_server/host_vue_app_without_server.webp" "Hosting a Vue App Without a Server Using Pinggy" >}}
 
-Exposing your {{< link href="https://vuejs.org/" >}}Vue.js{{< /link >}} app to the internet securely and without the hassle of setting up a server is now easier than ever with [Pinggy](https://pinggy.io). This guide will walk you through hosting your locally run Vue.js app on the web using Pinggy, a straightforward tunneling solution like {{< link href="https://ngrok.com/" >}}Ngrok{{< /link >}}.
+Making your {{< link href="https://vuejs.org/" >}}Vue.js{{< /link >}} app accessible on the internet doesn’t have to be complicated. If you’re new to Vue.js, it’s a progressive {{< link href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries" >}} JavaScript framework {{< /link >}} that makes building interactive user interfaces and single-page applications a breeze. Whether you’re working on a personal project, sharing progress with teammates, or testing your app on real devices, getting it online securely can feel like a challenge—especially if setting up servers isn’t your thing.  
+That’s where [Pinggy](https://pinggy.io) comes in. With Pinggy, you can host your locally running Vue.js app on the web without any server setup or complicated steps. It’s simple, secure, and works seamlessly, just like popular tools such as {{< link href="https://ngrok.com/" >}}Ngrok{{< /link >}}.  
+In this blog, we’ll show you how to use Pinggy to quickly share your Vue.js app with anyone, anywhere. Whether you’re showcasing a project or collaborating with others, Pinggy makes it easy to get your app online in no time.
 
 
 {{% tldr %}}
@@ -72,6 +74,7 @@ Start by creating and running a Vue.js app on your local machine.
    npx @vue/cli create my-vue-app
    ```
 {{< image "hosting_a_vue_app_without_a_server/vue_app_install_command.webp" "Vue app install Command" >}}
+
 2. **Navigate to the project directory**:  
    ```bash
    cd my-vue-app
@@ -83,6 +86,7 @@ Start by creating and running a Vue.js app on your local machine.
 {{< image "hosting_a_vue_app_without_a_server/run_vue_app_local.webp" "Vue app run command" >}}
 
 Once the server starts, your app will be accessible at `http://localhost:8080` by default.
+
 {{< image "hosting_a_vue_app_without_a_server/local_app_run_ss.webp" "Vue running on localhost" >}}
 
 
@@ -96,16 +100,16 @@ Run the following command in your terminal:
 ssh -p 443 -R 0:localhost:8080 -t qr@a.pinggy.io "u:Host:localhost:8080"
 ```
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 a.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"}}}"
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080 u:Host:localhost:8080\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io u:Host:localhost:8080\"}}}"
 {{</ ssh_command >}}
 
 ### Command Breakdown:
 - **`ssh -p 443`**: Initiates a secure connection via Pinggy’s server.  
 - **`-R0:localhost:8080`**: Maps your Vue.js app (running on port 8080) to a public URL.  
-- The **`-t`** option and **`"u:Host:localhost:8080"`** modify the host header to **`localhost:8080`**, ensuring requests are correctly routed to your local app.
-- The **`qr`** in the command displays the public URL as a QR code, making it easy to access your app on other devices.
-- **`a.pinggy.io`**: Specifies the Pinggy server.  
+- The **`-t`** option and **`"u:Host:localhost:8080"`** modify the host header to ensure **`localhost:8080`** requests are correctly routed to your local app.
+- The **`qr`** the command displays the public URL as a QR code, making it easy to access your app on other devices.
+- **`qr@a.pinggy.io u:Host:localhost:8080`**: Specifies the Pinggy server.  
 
 After running this command, Pinggy generates a public URL for your Vue.js app, such as:  
 ```
@@ -120,17 +124,43 @@ Open the provided URL in a browser to view your app live!
 
 {{< image "hosting_a_vue_app_without_a_server/website_on_public_url_ss.webp" "access vue app using public url" >}}
 {{< image "hosting_a_vue_app_without_a_server/request_ss.webp" "Pinggy public url logs" >}}
-## Step 3: Customize Your Pinggy Tunnel
+
+## Resolving HTTPS WebSocket Issues with Pinggy
+If you use a public HTTPS URL provided by Pinggy, you may encounter WebSocket issues. To resolve this, follow these steps:
+
+1. **Install serve globally:**
+```bash
+npm install -g serve
+```
+2. **Build your Vue.js app:**
+```bash
+npm run build
+```
+3. **Serve the built app using serve:**
+```bash
+serve -s dist
+```
+4. **Run the Pinggy command with port 3000:**
+```bash
+ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io
+```
+By serving your built Vue.js app through the serve package and using Pinggy’s HTTPS tunnel, you can avoid WebSocket issues when accessing your app via a public HTTPS URL.
+
+
+
+## Customize Your Pinggy Tunnel
 
 Enhance your tunnel with Pinggy’s advanced features:
 
 ### Custom Domains
 Replace the default Pinggy URL with a personalized domain to better align with your branding.  
 
+Refer to [Pinggy's Custom Domains documentation](http://localhost:1313/docs/custom_domain/) for detailed instructions.
+
 ### Password Protection
 Secure your tunnel by adding password authentication, ensuring only authorized users can access your app.  
 
-Refer to [Pinggy's documentation](https://pinggy.io/docs/) for detailed instructions.
+Refer to [Pinggy's Password Protection documentation](https://pinggy.io/docs/http_tunnels/basic_auth/) for detailed instructions.
 
 ## Benefits of Hosting Vue.js Apps with Pinggy
 
@@ -140,9 +170,9 @@ Refer to [Pinggy's documentation](https://pinggy.io/docs/) for detailed instruct
 
 ## Troubleshooting Tips
 
-- **Port Conflicts**: Ensure the port in the SSH command matches the port your app is running on (default is 8080).  
-- **Firewall Restrictions**: Temporarily disable firewalls if they block the SSH connection.  
-- **SSH Not Found**: Install SSH (pre-installed on macOS/Linux, or use tools like Git Bash on Windows).  
+- **Port Conflicts**: Make sure the port provided with the SSH command corresponds to the port used by Nuxt App, by default it is 3000. Mismatched ports will prevent a successful tunnel connection.
+- **Firewall Restrictions**:  Some of the network firewalls prevent tunneling connections. Make certain that SSH connection is authorised and if there are any firewalls active, then get them removed for some time.
+- **Command Not Found**: Make sure SSH is installed on your machine. On macOS and Linux, SSH is pre-installed, but on Windows, you may need to install it or use tools like Git Bash.
 
 ## Conclusion
 
