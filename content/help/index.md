@@ -4,7 +4,7 @@
  draft: false 
 ---
 
-<div class="row" style="max-width: 800px; margin: 0 auto">
+<div class="row" style="margin: 0 auto">
   <div class="col-lg-12 col-md-12 mb-4">
     <h1>Support</h1>
     <p>
@@ -12,7 +12,7 @@
     </p>
   </div>
 
-  <div class="col-lg-6 col-md-6">
+  <div class="col-lg-4 col-md-4">
     <div class="card p-4">
       <h2>Support Email</h2>
       <div class="d-flex flex-row bd-highlight justify-content-start">
@@ -26,13 +26,15 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-6">
+  <div class="col-lg-4 col-md-4">
     <div class="card p-4">
       <h2>Discord</h2>
       <div class="d-flex flex-row bd-highlight justify-content-start">
-        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-          <i class="bi bi-discord"></i>
-        </div>
+        <a href="https://discord.gg/KX5DpTs3xx" target="_blank">
+          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+            <i class="bi bi-discord"></i>
+          </div>
+        </a>
         <div class="px-2 bd-highlight">
           <div class="feature-name">
             Discord Channel
@@ -42,6 +44,25 @@
           </div>
           <div class="feature-description">
             <a href="https://discord.gg/KX5DpTs3xx" target="_blank">Invite link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4">
+    <div class="card p-4">
+      <h2>Forum</h2>
+      <div class="d-flex flex-row bd-highlight justify-content-start">
+        <a href="https://forum.pinggy.io/" target="_blank">
+          <div class="feature bg-white bg-gradient text-white rounded-3 mb-3 border">
+            <img title="Community Forum" src="/assets/pinggy_forum_logo.png" style="max-width: 1.3em;" />
+          </div>
+        </a>
+        <div class="px-2 bd-highlight">
+          <div class="feature-name">
+            <a href="https://forum.pinggy.io/" target="_blank">
+              Pinggy Community Forum
+            </a>
           </div>
         </div>
       </div>
