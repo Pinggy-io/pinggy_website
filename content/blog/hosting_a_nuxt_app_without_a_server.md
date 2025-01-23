@@ -18,7 +18,7 @@ Hosting your {{< link href="https://nuxt.com/" >}}Nuxt.Js{{< /link >}} app on th
 {{% tldr %}}
 1. **Run Nuxt.js App**
 
-   - Create and set up your <a href="https://nuxt.com/">Nuxt.js</a> app:
+   - Create and set up your <a href="https://nuxt.com/" target="_blank">Nuxt.js</a> app:
      ```bash
      npx create-nuxt-app my-nuxt-app
      cd my-nuxt-app
