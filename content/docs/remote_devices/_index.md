@@ -1,6 +1,7 @@
 ---
 title: "Remote Devices - remotely manage your tunnels with Pinggy"
 description: "You can manage your tunnels remotely from the Pinggy dashboard using the remote devices feature. All you need to do is run the Pinggy CLI and connect it in remote-management mode. This allows you to create, edit, and stop tunnels directly from the dashboard without needing physical access to your device."
+og_image: "doc_img/remote_device/remote_device_illustration.webp"
 date: 2024-01-24T14:15:25+05:30
 draft: false
 ---
@@ -40,7 +41,21 @@ Example:
 ./pinggy --remote-management xoBlIhaxriopBWSTZ7c62V
 ```
 
+---
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+  <iframe 
+    src="https://www.youtube.com/embed/ocgcw7R-xB4?si=Bo796QMrC1SQJ5QL" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+  ></iframe>
+</div>
+
+---
 
 ## Manage tunnels for a remote device
 
