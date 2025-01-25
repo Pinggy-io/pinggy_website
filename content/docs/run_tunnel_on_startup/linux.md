@@ -9,6 +9,15 @@ draft: false
 
 To run a tunnel on Linux startup, follow these steps:
 
+## Prerequisite
+
+Generate an ssh key, if you don't have one already.
+   
+   - In your terminal / command prompt run: `ssh-keygen`
+   - Press Enter key (Return key) till the command finishes.
+   
+   This is necessary to skip the password input of the ssh command.
+
 ## Step 1: Create a Shell Script
 
 1. **Open a Terminal:**
