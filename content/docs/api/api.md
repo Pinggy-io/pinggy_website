@@ -7,7 +7,7 @@
 
 # Pinggy Enterprise APIs
 
-> As of now, programmatic access to Pinggy tunnel information and management through APIs is only available for **enterprise users**. You can <a target="_blank" href="/#prices">compare our plans here</a>.
+Programmatic access to Pinggy tunnel information and management through APIs is only available for **Pinggy Pro** users. You can <a target="_blank" href="/#prices">compare our plans here</a>.
 
 Pinggy provides an HTTP API, which is similar to REST APIs. In order to access the APIs you need to use a token called `API Key`.
 
