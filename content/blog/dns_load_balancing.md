@@ -5,7 +5,7 @@ date: 2025-02-01T14:15:25+05:30
 lastmod: 2025-02-01T14:15:25+05:30
 draft: false
 tags: ["DNS Load Balancing", "Networking", "Cloud Services", "Traffic Optimization"]
-og_image: "images/dns_Load_Balancing/benefits_of_dns_load_balancing.webp"
+og_image: "images/dns_load_balancing/benefits_of_dns_load_balancing.webp"
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiVW5kZXJzdGFuZGluZyBETlMgTG9hZCBCYWxhbmNpbmc6IEJlbmVmaXRzLCBTZXR1cCwgYW5kIEJlc3QgUHJhY3RpY2VzIiwKICAiZGVzY3JpcHRpb24iOiAiRXhwbG9yZSB0aGUgY29uY2VwdCBvZiBETlMgTG9hZCBCYWxhbmNpbmcsIGl0cyBiZW5lZml0cywgYW5kIHRoZSBiZXN0IHByYWN0aWNlcyBmb3Igc2V0dGluZyBpdCB1cC4gTGVhcm4gaG93IGl0IG9wdGltaXplcyB3ZWIgdHJhZmZpYyBkaXN0cmlidXRpb24gZm9yIGltcHJvdmVkIHBlcmZvcm1hbmNlIGFuZCByZWxpYWJpbGl0eS4iLAogICJkYXRlUHVibGlzaGVkIjogIjIwMjUtMDItMDFUMTQ6MTU6MjUrMDU6MzAiLAogICJkYXRlTW9kaWZpZWQiOiAiMjAyNS0wMi0wMVQxNDoxNToyNSswNTozMCIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9kbnNfTG9hZF9CYWxhbmNpbmcvYmVuZWZpdHNfb2ZfZG5zX2xvYWRfYmFsYW5jaW5nLndlYnAiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJOZXR3b3JraW5nIiwKICAgICJDbG91ZCBTZXJ2aWNlcyIKICBdLAogICJrZXl3b3JkcyI6IFsKICAgICJETlMgTG9hZCBCYWxhbmNpbmciLAogICAgImxvYWQgYmFsYW5jaW5nIiwKICAgICJETlMgbWFuYWdlbWVudCIsCiAgICAidHJhZmZpYyBkaXN0cmlidXRpb24iLAogICAgIndlYiBwZXJmb3JtYW5jZSIsCiAgICAibmV0d29yayBvcHRpbWl6YXRpb24iLAogICAgIkROUyBzZXR1cCIKICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
@@ -62,7 +62,7 @@ At its core, DNS load balancing works by returning multiple IP addresses for a s
 - **Fault Tolerance**: In the event of server failures, DNS load balancing can reroute traffic to healthy servers, minimizing downtime and maintaining service continuity.
 
 
-{{< image "dns_Load_Balancing/benefits_of_dns_load_balancing.webp" "Benefits of DNS Load Balancing" >}}
+{{< image "dns_load_balancing/benefits_of_dns_load_balancing.webp" "Benefits of DNS Load Balancing" >}}
 
 
 As businesses continue to expand their digital footprint, DNS load balancing has become an indispensable tool for delivering high-quality user experiences. This article explores the mechanisms, benefits, challenges, and best practices of DNS load balancing, providing a comprehensive guide for implementing this critical technology.
@@ -77,14 +77,14 @@ DNS load balancing is a method of distributing incoming traffic across multiple 
 3. **Traffic Distribution**: The user’s device selects one of the IP addresses (often based on the order provided) and sends the request to the corresponding server.
 4. **Load Balancing**: Subsequent queries return the IP addresses in a rotated or prioritized order, ensuring even distribution of traffic.
 
-{{< image "dns_Load_Balancing/dns_load_balancing_process.webp" "DNS Load Balancing Process" >}}
+{{< image "dns_load_balancing/dns_load_balancing_process.webp" "DNS Load Balancing Process" >}}
 
 **Key Components**:
 - **A/AAAA Records**: DNS load balancing relies on A records (for IPv4) and AAAA records (for IPv6) to map domain names to multiple IP addresses.
 - **Time-to-Live (TTL)**: The TTL value determines how long DNS responses are cached by clients and resolvers. Lower TTL values allow for faster updates but increase DNS query volume.
 - **Routing Policies**: Advanced DNS load balancing solutions use routing policies (e.g., round-robin, weighted, geographic, latency-based) to optimize traffic distribution.
 
-{{< image "dns_Load_Balancing/dns_load_balancing_components.webp" "DNS Load Balancing Components" >}}
+{{< image "dns_load_balancing/dns_load_balancing_components.webp" "DNS Load Balancing Components" >}}
 
 **Comparison with Traditional Load Balancers**:
 - **DNS Load Balancing**:
@@ -98,7 +98,7 @@ DNS load balancing is a method of distributing incoming traffic across multiple 
   - Require additional infrastructure and configuration.
   - Offer finer control over traffic distribution and server health.
 
-{{< image "dns_Load_Balancing/compare_dns_and_traditional_load_balancers.webp" "Compare DNS and Traditional Load Balancers" >}}
+{{< image "dns_load_balancing/compare_dns_and_traditional_load_balancers.webp" "Compare DNS and Traditional Load Balancers" >}}
 
 **Use Cases**:
 - **Global Applications**: DNS load balancing is ideal for applications with a global user base, as it can route users to the nearest server based on their geographic location.
@@ -125,7 +125,7 @@ Round-robin DNS is the simplest and most widely used mechanism for DNS load bala
    - Third query: `[192.0.2.3, 192.0.2.1, 192.0.2.2]`
 3. The user’s device selects the first IP address in the list and sends the request to that server.
 
-{{< image "dns_Load_Balancing/round_robin_dns_load_balancing_mechanism.webp" "Round-Robin DNS Load Balancing Mechanism" >}}
+{{< image "dns_load_balancing/round_robin_dns_load_balancing_mechanism.webp" "Round-Robin DNS Load Balancing Mechanism" >}}
 
 **Advantages**:
 - **Simplicity**: Easy to implement and requires no additional hardware or software.
@@ -149,7 +149,7 @@ Weighted round-robin is an extension of round-robin DNS that assigns weights to 
    - Server B (weight 30) will receive 30% of the traffic.
    - Server C (weight 20) will receive 20% of the traffic.
 
-{{< image "dns_Load_Balancing/weighted_round_robin_dns_server_weighting_and_traffic_distribution.webp" "Weighted Round-Robin DNS: Server Weighting and Traffic Distribution" >}}
+{{< image "dns_load_balancing/weighted_round_robin_dns_server_weighting_and_traffic_distribution.webp" "Weighted Round-Robin DNS: Server Weighting and Traffic Distribution" >}}
 
 **Advantages**:
 - **Flexibility**: Allows administrators to prioritize high-capacity servers.
@@ -166,7 +166,7 @@ Geographic routing, also known as GeoDNS, directs users to the closest server ba
 2. The user is directed to the server located in or nearest to their region.
    - Example: A user in Europe is routed to a server in Frankfurt, while a user in Asia is routed to a server in Singapore.
 
-{{< image "dns_Load_Balancing/geographic_routing_process.webp" "Geographic Routing Process" >}}
+{{< image "dns_load_balancing/geographic_routing_process.webp" "Geographic Routing Process" >}}
 
 **Advantages**:
 - **Reduced Latency**: Users experience faster response times by connecting to nearby servers.
@@ -182,7 +182,7 @@ Latency-based routing selects the server with the lowest measured network delay 
 1. The DNS provider periodically measures latency between global networks and servers.
 2. When a user queries the domain, the DNS server returns the IP address of the server with the lowest latency for that user.
 
-{{< image "dns_Load_Balancing/latency_based_routing_process.webp" "Latency-Based Routing Process" >}}
+{{< image "dns_load_balancing/latency_based_routing_process.webp" "Latency-Based Routing Process" >}}
 
 **Advantages**:
 - **Optimal Performance**: Users are always connected to the fastest server, regardless of geographic location.
@@ -230,7 +230,7 @@ DNS load balancing is particularly effective for global applications, as it can 
 - **Improved User Experience**: Users experience faster and more reliable access.
 - **Regional Compliance**: Ensures adherence to data localization laws.
 
-{{< image "dns_Load_Balancing/exploring_the_multifaceted_benefits_of_dns_load_balancing.webp" "Exploring the Multifaceted Benefits of DNS Load Balancing" >}}
+{{< image "dns_load_balancing/exploring_the_multifaceted_benefits_of_dns_load_balancing.webp" "Exploring the Multifaceted Benefits of DNS Load Balancing" >}}
 
 ### Challenges and Considerations
 
@@ -300,7 +300,7 @@ Health checks are a critical feature of advanced DNS load balancing solutions. T
 **Example**:
 - AWS Route 53 health checks monitor HTTP endpoints and automatically update DNS records to exclude unhealthy servers.
 
-{{< image "dns_Load_Balancing/dns_health_check_process.webp" "DNS Health Check Process" >}}
+{{< image "dns_load_balancing/dns_health_check_process.webp" "DNS Health Check Process" >}}
 
 #### Dynamic Traffic Management
 Dynamic traffic management adjusts routing policies in real time based on server load, network conditions, and user location. This ensures optimal performance and resource utilization.
@@ -317,7 +317,7 @@ Dynamic traffic management adjusts routing policies in real time based on server
 **Example**:
 - Cloudflare’s load balancer uses real-time data to dynamically route traffic based on server health and latency.
 
-{{< image "dns_Load_Balancing/dynamic_traffic_management_process.webp" "Dynamic Traffic Management Process" >}}
+{{< image "dns_load_balancing/dynamic_traffic_management_process.webp" "Dynamic Traffic Management Process" >}}
 
 #### Integration with CDNs
 Content Delivery Networks (CDNs) enhance DNS load balancing by caching content at edge servers located close to users. This reduces latency and improves performance for global applications.
@@ -334,7 +334,7 @@ Content Delivery Networks (CDNs) enhance DNS load balancing by caching content a
 **Example**:
 - Akamai’s CDN uses DNS load balancing to route users to the nearest edge server, ensuring fast and reliable content delivery.
 
-{{< image "dns_Load_Balancing/cdn_Integration_for_enhanced_performance.webp" "CDN Integration for Enhanced Performance" >}}
+{{< image "dns_load_balancing/cdn_Integration_for_enhanced_performance.webp" "CDN Integration for Enhanced Performance" >}}
 
 ### Tools and Services for DNS Load Balancing
 
