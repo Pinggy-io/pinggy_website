@@ -45,9 +45,9 @@ DNS load balancing is a critical technique for distributing traffic across multi
 - CDN Integration: Enhances performance by caching content closer to users.
 
 #### Popular DNS Load Balancing Services:
-- Amazon Route 53 (AWS) – Advanced traffic policies & health checks.
-- Cloudflare DNS – Anycast DNS with security features.
-- Google Cloud DNS – Low-latency global DNS with integration to GCP.
+- <a href="https://aws.amazon.com/route53/" target="_blank" > Amazon Route 53 </a> – Advanced traffic policies & health checks.
+- <a href="https://www.cloudflare.com/dns/" target="_blank">Cloudflare DNS </a>  – Anycast DNS with security features.
+- <a href="https://cloud.google.com/dns" target="_blank">Google Cloud DNS</a> – Low-latency global DNS with integration to GCP.
 
 DNS load balancing is an essential tool for global web applications, providing high availability and optimal performance. With advancements in health monitoring and dynamic traffic management, it continues to be a cornerstone of internet infrastructure.  
 {{% /tldr %}}
@@ -337,6 +337,7 @@ Content Delivery Networks (CDNs) enhance DNS load balancing by caching content a
 Several tools and services provide advanced DNS load balancing features, making it easier for organizations to implement and manage load balancing strategies. Below, we explore some of the most popular options.
 
 #### Amazon Route 53
+
 {{< link href="https://aws.amazon.com/route53/" >}} Amazon Route 53 {{< /link >}} is a scalable and reliable DNS service that offers advanced load balancing features, including weighted, latency-based, and geolocation routing.
 
 **Key Features**:
@@ -359,7 +360,7 @@ Several tools and services provide advanced DNS load balancing features, making 
 - Suitable for organizations looking for a secure and high-performance DNS solution with global reach.
 
 #### ~Google Cloud DNS
- {{< link href="https://cloud.google.com/dns" >}} Google Cloud DNS {{< /link >}} is a scalable and low-latency DNS service that integrates with Google Cloud Platform (GCP) services.
+{{< link href="https://cloud.google.com/dns" >}} Google Cloud DNS {{< /link >}} is a scalable and low-latency DNS service that integrates with Google Cloud Platform (GCP) services.
 
 **Key Features**:
 - **Global Anycast**: Ensures low-latency DNS resolution worldwide.
