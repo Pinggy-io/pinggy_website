@@ -15,12 +15,7 @@ outputs:
 In today’s digital-first world, where users demand fast, reliable, and uninterrupted access to web applications, the ability to efficiently distribute traffic across servers is critical. DNS load balancing is a foundational technique that enables organizations to achieve this by leveraging the Domain Name System (DNS) to intelligently route user requests to the most optimal servers. Whether it’s a global e-commerce platform handling millions of transactions or a streaming service delivering high-definition content, DNS load balancing plays a pivotal role in ensuring seamless performance and high availability.
 
 {{% tldr %}}  
-DNS load balancing is a critical technique for distributing traffic across multiple servers using the Domain Name System (DNS). It enhances performance, fault tolerance, and scalability by returning multiple IP addresses for a single domain, ensuring users are directed to the most optimal server. Unlike traditional load balancers, which operate at the application or transport layer, DNS load balancing works at the DNS layer, making it lightweight, cost-effective, and scalable.
 
-#### Key Benefits:
-- Performance Optimization: Reduces latency and distributes traffic efficiently.
-- Scalability: Handles traffic spikes without significant overhead.
-- Fault Tolerance: Reroutes traffic to healthy servers during failures.
 
 #### How It Works:
 1. A user queries a domain name.
@@ -33,6 +28,12 @@ DNS load balancing is a critical technique for distributing traffic across multi
 - Weighted Round-Robin: Assigns different weights to servers based on capacity.
 - GeoDNS: Routes users to the nearest server based on location.
 - Latency-Based Routing: Directs users to the lowest-latency server.
+
+#### Key Benefits:
+- Performance Optimization: Reduces latency and distributes traffic efficiently.
+- Scalability: Handles traffic spikes without significant overhead.
+- Fault Tolerance: Reroutes traffic to healthy servers during failures.
+
 
 #### Challenges:
 - DNS Caching can cause delays in traffic redistribution.
@@ -50,6 +51,7 @@ DNS load balancing is a critical technique for distributing traffic across multi
 - <a href="https://cloud.google.com/dns" target="_blank">Google Cloud DNS</a> – Low-latency global DNS with integration to GCP.
 
 DNS load balancing is an essential tool for global web applications, providing high availability and optimal performance. With advancements in health monitoring and dynamic traffic management, it continues to be a cornerstone of internet infrastructure.  
+
 {{% /tldr %}}
 
 At its core, DNS load balancing works by returning multiple IP addresses for a single domain name, allowing traffic to be distributed across several servers. This approach not only improves fault tolerance by rerouting traffic away from failed servers but also enhances performance by directing users to the nearest or least congested server. Unlike traditional load balancers, which operate at the application or transport layer, DNS load balancing operates at the DNS layer, making it a lightweight, cost-effective, and scalable solution for global traffic management.
@@ -59,7 +61,9 @@ At its core, DNS load balancing works by returning multiple IP addresses for a s
 - **Scalability**: It allows organizations to handle traffic spikes and scale their infrastructure without significant overhead.
 - **Fault Tolerance**: In the event of server failures, DNS load balancing can reroute traffic to healthy servers, minimizing downtime and maintaining service continuity.
 
+
 {{< image "dns_Load_Balancing/benefits_of_dns_load_balancing.webp" "Benefits of DNS Load Balancing" >}}
+
 
 As businesses continue to expand their digital footprint, DNS load balancing has become an indispensable tool for delivering high-quality user experiences. This article explores the mechanisms, benefits, challenges, and best practices of DNS load balancing, providing a comprehensive guide for implementing this critical technology.
 
@@ -359,7 +363,7 @@ Several tools and services provide advanced DNS load balancing features, making 
 **Use Case**:
 - Suitable for organizations looking for a secure and high-performance DNS solution with global reach.
 
-#### ~Google Cloud DNS
+#### Google Cloud DNS
 {{< link href="https://cloud.google.com/dns" >}} Google Cloud DNS {{< /link >}} is a scalable and low-latency DNS service that integrates with Google Cloud Platform (GCP) services.
 
 **Key Features**:
