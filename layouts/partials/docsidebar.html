@@ -163,10 +163,29 @@
         >Persistent Subdomain</a
       >
     </li>
-    <li class="doclink">
-      <a href="/docs/custom_domain/" class="btn btn-non-toggle"
-        >Custom Domain</a
+    <li class="mb-1 collapsabledoclink">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#customdomain-collapse"
+        aria-expanded="false"
       >
+      Custom Domain
+      </button>
+      <div class="collapse" id="customdomain-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a href="/docs/custom_domain/" class="link-dark rounded"
+              >Custom Domain</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/relays/" class="link-dark rounded"
+              >Relays</a
+            >
+          </li>
+        </ul>
+      </div>
     </li>
     <li class="doclink">
       <a href="/docs/advanced/qr_code/" class="btn btn-non-toggle">QR Code</a>
