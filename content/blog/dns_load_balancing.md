@@ -87,8 +87,6 @@ DNS load balancing is a method of distributing incoming traffic across multiple 
 - **Time-to-Live (TTL)**: The TTL value determines how long DNS responses are cached by clients and resolvers. Lower TTL values allow for faster updates but increase DNS query volume.
 - **Routing Policies**: Advanced DNS load balancing solutions use routing policies (e.g., round-robin, weighted, geographic, latency-based) to optimize traffic distribution.
 
-{{< image "dns_load_balancing/dns_load_balancing_components.webp" "DNS Load Balancing Components" >}}
-
 **Comparison with Traditional Load Balancers**:
 - **DNS Load Balancing**:
   - Operates at the DNS layer (Layer 3).
@@ -165,11 +163,20 @@ Weighted round-robin is useful for environments with servers of varying capaciti
 Geographic routing, also known as GeoDNS, directs users to the closest server based on their geographic location. This reduces latency and improves performance for global applications.
 
 **How It Works**:
-1. The DNS server maps the user’s IP address to a geographic region using a database like MaxMind.
-2. The user is directed to the server located in or nearest to their region.
-   - Example: A user in Europe is routed to a server in Frankfurt, while a user in Asia is routed to a server in Singapore.
+1. **DNS Lookup Based on User Location**:  
+   - When a user requests `www.xyz.com`, their DNS query is processed based on their geographical location.
 
-{{< image "dns_load_balancing/geographic_routing_process.webp" "Geographic Routing Process" >}}
+2. **Mapping to the Nearest Server**:  
+   - The DNS resolver uses GeoDNS to identify the user’s approximate location.  
+   - The system then directs the request to the closest or most appropriate server.
+
+3. **Example from the Image**:  
+   - A user in South America queries `www.xyz.com`. The GeoDNS resolves it to the IP address `169.148.132.85`, located in North America.  
+   - A user in Europe queries the same domain, but GeoDNS resolves it to `169.148.128.85`, which is closer to their region.  
+
+This mechanism helps improve website performance, reduce latency, and balance traffic efficiently across multiple data centers worldwide.
+
+{{< image "dns/Geographic_and_Latency-Aware_Routing.webp" "Geographic Routing Process" >}}
 
 **Advantages**:
 - **Reduced Latency**: Users experience faster response times by connecting to nearby servers.
