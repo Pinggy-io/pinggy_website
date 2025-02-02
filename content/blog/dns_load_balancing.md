@@ -16,7 +16,6 @@ In today’s digital-first world, where users demand fast, reliable, and uninter
 
 {{% tldr %}}  
 
-
 #### How It Works:
 1. A user queries a domain name.
 2. The DNS server returns multiple IP addresses.
@@ -56,11 +55,15 @@ DNS load balancing is an essential tool for global web applications, providing h
 
 At its core, DNS load balancing works by returning multiple IP addresses for a single domain name, allowing traffic to be distributed across several servers. This approach not only improves fault tolerance by rerouting traffic away from failed servers but also enhances performance by directing users to the nearest or least congested server. Unlike traditional load balancers, which operate at the application or transport layer, DNS load balancing operates at the DNS layer, making it a lightweight, cost-effective, and scalable solution for global traffic management.
 
-**Why DNS Load Balancing Matters**:
-- **Performance Optimization**: By reducing latency and distributing traffic evenly, DNS load balancing ensures faster response times for users.
-- **Scalability**: It allows organizations to handle traffic spikes and scale their infrastructure without significant overhead.
-- **Fault Tolerance**: In the event of server failures, DNS load balancing can reroute traffic to healthy servers, minimizing downtime and maintaining service continuity.
+### **Why DNS Load Balancing Matters**  
 
+Traditional load balancing relies on software like {{< link href="https://www.haproxy.org/" >}} HAProxy{{< /link >}} to distribute traffic efficiently. But what happens when the load balancer itself becomes a bottleneck? This is where DNS load balancing comes in. It not only distributes traffic at the DNS level but also offers additional benefits like {{< link href="https://en.wikipedia.org/wiki/GeoDNS" >}} geoDNS{{< /link >}}, which we’ll explore later in this article.  
+
+Here’s why DNS load balancing is crucial:  
+
+- **Performance Optimization**: By reducing latency and evenly distributing traffic, it enhances response times for users.  
+- **Scalability**: It helps organizations handle traffic surges and expand their infrastructure with minimal overhead.  
+- **Fault Tolerance**: In case of server failures, DNS load balancing redirects traffic to healthy servers, ensuring minimal downtime and uninterrupted service.
 
 {{< image "dns_load_balancing/benefits_of_dns_load_balancing.webp" "Benefits of DNS Load Balancing" >}}
 
