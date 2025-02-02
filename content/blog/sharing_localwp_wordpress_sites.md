@@ -10,7 +10,7 @@ outputs:
   - AMP
 ---
 
-{{< image "sharing_localwp_wordPress_sites/thumbnail.webp" "How to Easily Share ComfyUI Online" >}}
+{{< image "sharing_localwp_wordpress_sites/thumbnail.webp" "How to Easily Share ComfyUI Online" >}}
 
 Creating a local WordPress site is a routine for most developers, though sharing a live preview with clients or multiperson collaboration in real-time without having to waste time on complicated networks and open ports is always a big problem. That’s where Pinggy comes into play – a simple and lightweight tool for sharing local WordPress sites, that works in harmony with {{< link href="https://localwp.com/" >}}LocalWP{{< /link >}} by Flywheel tool, helps to tunnel your site in order not to trouble yourself with its remote accessibility. This tutorial will help you to find out how you can make the most of Pinggy if you have a local WordPress environment set up.
 
@@ -52,17 +52,17 @@ Pinggy allows the user to securely share out the LocalWP setup allowing them to 
 
 if you have recently purchased a **Pinggy Pro subscription**, please enter the [Pinggy dashboard](https://dashboard.pinggy.io/). Go to [Subdomain](https://dashboard.pinggy.io/subdomains) settings – it is located at the bottom of the left menu – then click **Edit** under the ‘Subdomain’ heading and enter the subdomain you wish to use.
 
-{{< image "sharing_localwp_wordPress_sites/subdomain_page.webp" "Subdomain Page" >}}
+{{< image "sharing_localwp_wordpress_sites/subdomain_page.webp" "Subdomain Page" >}}
 
 Secondly, using LocalWP go to the **Site Domain** section and paste the subdomain obtained from Pinggy.
 
-{{< image "sharing_localwp_wordPress_sites/change_subdomain.webp" "How to Easily Share ComfyUI Online" >}}
+{{< image "sharing_localwp_wordpress_sites/change_subdomain.webp" "How to Easily Share ComfyUI Online" >}}
 
 ### Step 2: Launch Your LocalWP Site
 
 Open **LocalWP by Flywheel** and select your WordPress site. Click the **"open Site"** button to launch the site Locally.
 
-{{< image "sharing_localwp_wordPress_sites/opensite_page.webp" "How to Easily Share ComfyUI Online" >}}
+{{< image "sharing_localwp_wordpress_sites/opensite_page.webp" "How to Easily Share ComfyUI Online" >}}
 
 ### Step 3: Open Command Prompt and Enter the Updated Pinggy Command
 
@@ -94,8 +94,8 @@ Once the Pinggy tunnel is live, you can access your LocalWP site from anywhere u
 2. Enter the Pinggy URL provided in the terminal output (e.g., `https://moksh..pinggy.link`).
 3. Your locally developed WordPress site should now appear as though it’s hosted on a live server.
 
-{{< image "sharing_localwp_wordPress_sites/pinggy_url.webp" "How to Easily Share ComfyUI Online" >}}
-{{< image "sharing_localwp_wordPress_sites/site_preview.webp" "How to Easily Share ComfyUI Online" >}}
+{{< image "sharing_localwp_wordpress_sites/pinggy_url.webp" "How to Easily Share ComfyUI Online" >}}
+{{< image "sharing_localwp_wordpress_sites/site_preview.webp" "How to Easily Share ComfyUI Online" >}}
 ---
 
 By following these steps, you can efficiently set up and manage remote access for your LocalWP WordPress site using Pinggy.

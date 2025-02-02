@@ -9,7 +9,6 @@
 
 With <a target="_blank" href="https://pinggy.io/#prices">Pinggy Pro</a> you can configure your own domain name, such as `www.mysite.com`, to access your tunnels. Pinggy also configures TLS certificates for you automatically. The certificates are provided by <a target="_blank" href="https://letsencrypt.org/">Let's Encrypt</a>.
 
-**NOTE:** Pinggy uses CNAME records to configure custom domains. Most DNS servers do not allow setting CNAME records for the root domain, such as `mysite.com`. Therefore, you need to use a subdomain such as `www.mysite.com` or `app.mysite.com`, etc. This is same 
 
 ## Get your domain
 
@@ -25,8 +24,15 @@ Once you have upgraded to <a target="_blank" href="https://pinggy.io/#prices">Pi
 
 - Click on the **Configure** button for the token for which you want to set up the custom domain.
 - Enter your custom domain such as `app.example.com`. Then press the **Update** button.
-- After that, you will get the CNAME configuration instructions, such as:
+- After that, you will get the **CNAME configuration instructions**, such as:
     > Add a CNAME record to `app.example.com` with target `ahsu9ol.a.pinggy.link` and then Validate.
+
+
+---
+
+> **NOTE:** If you use a base domain, such as `mysite.com`, instead of a subdomain (`app.mysite.com`), then you will be guided through a [relay setup process](/docs/relays/). Click [here](/docs/relays/) to read about the relay setup process.
+
+---
     
 ![List of custom domains in Pinggy dashbaord](/doc_img/customdomain/customdomain1.png)
 
@@ -36,13 +42,13 @@ Once you have upgraded to <a target="_blank" href="https://pinggy.io/#prices">Pi
 
 - Follow the given instructions to set the CNAME record.
 - For example, for the above example, you need to set the cname record for `app.example.com` with the value `ahsu9ol.a.pinggy.link.`.
-- For configuring your CNAME record, most likely you need to visit your domain name provider's DNS manager.
+- For configuring your CNAME record, visit your domain name provider's DNS manager.
 - The record type will be `CNAME`.
-- Host value will be the part of the domain name excluding your root domain. For example: `app` in case of `app.example.com`. Similarly, for `abc.def.example.com`, host will be `abc.def`.
+- Host value will be the part of the domain name excluding your base domain. For example: `app` in case of `app.example.com`. Similarly, for `abc.def.example.com`, host will be `abc.def`.
 - The value of the record will be the target value shown in the dashboard. For example: `ahsu9ol.a.pinggy.link.` [ The dot at the end might be necessary ]
 - We recommend a low TTL such as `600`.
-
-- **Check the CNAME record:** Use the online tool: <a target="_blank" href="https://namecheap.com/">toolbox.googleapps.com/apps/dig/</a> to check if your CNAME record is set correctly or not.
+- **If you use Cloudflare to manage DNS, then turn off "proxy" option.**
+- **Check the CNAME record:** Use the online tool: <a target="_blank" href="https://toolbox.googleapps.com/apps/dig">toolbox.googleapps.com/apps/dig/</a> to check if your CNAME record is set correctly or not.
 
 
 ### Example with Namecheap for setting up CNAME record
