@@ -280,7 +280,7 @@ x:passpreflight
 ```
 
 #### 10. Reverse Proxy Mode
-Pinggy now supports reverse proxy which it puts `X-Forwarded-For`, `X-Forwarded-Proto` and `X-Forwarded-Host` headers in the http requests. This is enabled by default for HTTP(S) tunnels. But to disable it, pass the `x:noreverseproxy` argument.
+Pinggy now supports reverse proxy which it puts `X-Forwarded-For`, `X-Forwarded-Proto`, `X-Forwarded-Host`, and `Forwarded` headers in the http requests. This is enabled by default for HTTP(S) tunnels. But to disable it, pass the `x:noreverseproxy` argument.
 
 ```
 x:noreverseproxy

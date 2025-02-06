@@ -26,7 +26,7 @@ If you want to programatically disconnect an existing tunnel to forcefully creat
 
 ## Disable Reverse proxy mode
 
-By default Pinggy acts as a reverse proxy for HTTP(S) tunnels. This means it adds `X-Forwarded-For`, `X-Forwarded-Proto` and `X-Forwarded-Host` headers in the http requests.
+By default Pinggy acts as a reverse proxy for HTTP(S) tunnels. This means it adds `X-Forwarded-For`, `X-Forwarded-Proto`, `X-Forwarded-Host`, and `Forwarded` headers in the http requests.
 
 
 To disable reverse proxy mode, pass the argument `x:noreverseproxy`, and Pinggy will not add these headers.
