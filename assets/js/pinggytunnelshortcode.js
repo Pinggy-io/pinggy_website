@@ -186,20 +186,9 @@ document.addEventListener("alpine:init", () => {
           }
         }
 
-        if (data.reverseProxy) {
-          if (data.reverseProxyAddress) {
+        if (data.noReverseProxy) {
             headercommands +=
-              " " + `x:reverseproxy:${data.reverseProxyAddress}`;
-          } else if (!data.reverseProxyAddress && data.forwardHost && data.forwardHostAddress) {
-            headercommands +=
-              " " + `x:reverseproxy:${data.forwardHostAddress}`;
-          } else if (!data.reverseProxyAddress && (!data.forwardHost || !data.forwardHostAddress)) {
-            headercommands +=
-              " " + `x:reverseproxy:${host}`;
-          } else {
-            headercommands +=
-              " " + `x:reverseproxy`;
-          }
+              " " + `x:noreverseproxy`;
         }
 
         if (data.httpsonly) {
