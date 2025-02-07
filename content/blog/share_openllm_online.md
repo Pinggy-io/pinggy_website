@@ -123,10 +123,10 @@ You'll receive a public URL like `https://xyz123.pinggy.link`.
   Secure your tunnel by appending a username and password to your SSH command:  
 
   ```bash
-  ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password
+  ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password
   ```  
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}}}"
 {{</ ssh_command >}}
 
   You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the [official documentation](https://pinggy.io/docs/http_tunnels/basic_auth/).
