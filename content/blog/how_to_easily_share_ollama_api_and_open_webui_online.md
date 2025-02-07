@@ -204,8 +204,6 @@ Expose Ollama’s API to power:
 ### Academic and Research Workflows  
 Researchers can securely share access to proprietary models with peers without exposing internal infrastructure.  
 
----
-
 ## Troubleshooting Common Issues  
 
 ### Connection Errors  
