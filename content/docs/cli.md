@@ -396,15 +396,12 @@ u:header1:value1 u:header2:value2
 This argument will only allow HTTPS requests through the tunnel. HTTP requests will be redirected to HTTPS.
 
 
-**Reverse Proxy** : `x:reverseproxy:<hostname>`
+**No Reverse Proxy** : `x:noreverseproxy`
 
-This argument will set up Pinggy in reverse proxy mode for the specified hostname.
+By default Pinggy acts as a reverse proxy for HTTP(S) tunnels. This means it adds `X-Forwarded-For`, `X-Forwarded-Proto`, `X-Forwarded-Host`, and `Forwarded` headers in the http requests.
 
-Example:
+The argument `x:noreverseproxy` will disbale the reverse proxy mode, and Pinggy will not add these headers.
 
-```
-x:reverseproxy:localhost
-```
 
 **TLS connection** : `x:localserverTls:<local server name(SNI)>`
 

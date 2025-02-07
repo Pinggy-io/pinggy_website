@@ -21,8 +21,7 @@
 {{ $tryYourselfText := .Get "tryYourselfText" | default "" }}
 {{ $localServerTLS := .Get "localServerTLS" | default false }}
 {{ $localServerTLSSNI := .Get "localServerTLSSNI" | default "" }}
-{{ $reverseProxy := .Get "reverseProxy" | default false }}
-{{ $reverseProxyAddress := .Get "reverseProxyAddress" | default "" }}
+{{ $noReverseProxy := .Get "noReverseProxy" | default false }}
 {{ $httpsonly := .Get "httpsonly" | default false }}
 {{ $forwardHost := .Get "forwardHost" | default false }}
 {{ $forwardHostAddress := .Get "forwardHostAddress" | default "127.0.0.1" }}
@@ -57,8 +56,7 @@
         headerModifications: {{ $headermodifications }},
         localServerTLS: {{ $localServerTLS }},
         localServerTLSSNI: '{{ $localServerTLSSNI }}',
-        reverseProxy: {{ $reverseProxy }},
-        reverseProxyAddress: '{{ $reverseProxyAddress }}',
+        noReverseProxy: {{ $noReverseProxy }},
         httpsonly: {{ $httpsonly }},
         forwardHost: {{ $forwardHost }},
         forwardHostAddress: '{{ $forwardHostAddress }}',
@@ -765,35 +763,23 @@
           <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
             <div class="form-check form-switch mb-3">
               <input
-                class="form-check-input shortcode_reverseProxy"
+                class="form-check-input shortcode_noReverseProxy"
                 type="checkbox"
-                id="adv_reverseProxy_{{ $random }}"
-                x-model="data.reverseProxy"
+                id="adv_noReverseProxy_{{ $random }}"
+                x-model="data.noReverseProxy"
               />
               <label
                 class="form-check-label"
-                for="shortcode_reverseProxy_{{ $random }}"
-                >Reverse Proxy
+                for="shortcode_noReverseProxy_{{ $random }}"
+                >No Reverse Proxy
                 <i
                   class="bi bi-info-circle"
                   type="button"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Set required headers for reverse proxy mode"
+                  title="Disable reverse proxy headers"
                 ></i>
               </label>
-            </div>
-            <div class="col col-12 mb-3" 
-              x-show="data.reverseProxy"
-              x-transition.duration.300ms
-            >
-              <input
-                type="text"
-                aria-label="reverse proxy address"
-                placeholder="Host name"
-                class="form-control localServerTLSval"
-                x-model="data.reverseProxyAddress"
-            />
             </div>
           </div>
           <div class="col col-12 col-lg-6">

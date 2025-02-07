@@ -69,7 +69,7 @@ Open **LocalWP by Flywheel** and select your WordPress site. Click the **"open S
 In the terminal, use the updated Pinggy command, which now includes a token from your [Subdomain](https://dashboard.pinggy.io/subdomains) setup. Replace `moksh.a.pinggy.link` with your chosen subdomain.
 
 ```bash
-ssh -p 443 -t -R0:moksh.a.pinggy.link:80 jYEfZnpL3zR@a.pinggy.io u:Host:moksh.a.pinggy.link x:reverseproxy:moksh.a.pinggy.link
+ssh -p 443 -t -R0:moksh.a.pinggy.link:80 jYEfZnpL3zR@a.pinggy.io u:Host:moksh.a.pinggy.link
 ```
 
 {{< pinggytunnel box="true" mode="http" tunnelstring="Paste this command to start a tunnel to LocalWP:" portstring="LocalWP Port" localport="80" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
@@ -84,7 +84,6 @@ This command establishes a secure SSL connection from your local server to Pingg
 - **-R0:moksh.a.pinggy.link:80**: Sets up reverse tunneling from your Pinggy subdomain (`moksh.a.pinggy.link`) on port 80, allowing the LocalWP site to be accessed through this subdomain.
 - **jYEfZnpL3zR&#64;a.pinggy.io**: Your unique Pinggy authentication token (replace with your actual token), required to authorize the tunnel connection.
 - **u:Host:moksh.a.pinggy.link**: Sets the host header on the remote Pinggy server to align with your local setup, ensuring requests are directed correctly to the LocalWP site.
-- **x:reverseproxy:moksh.a.pinggy.link**: Activates reverse proxy mode, which manages site headers and hostnames, enabling seamless access to the local WordPress setup via the Pinggy subdomain.
 
 ## Finalizing Your Remote Access
 

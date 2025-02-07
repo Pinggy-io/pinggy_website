@@ -1,11 +1,11 @@
 ---
- title: "Pinggy Enterprise APIs" 
+ title: "Pinggy Pro APIs" 
  description: "Programmatically access and manage your Pinggy tunnels with advanced APIs."
  date: 2024-09-10T14:15:25+05:30 
  draft: false 
 ---
 
-# Pinggy Enterprise APIs
+# Pinggy Pro APIs
 
 Programmatic access to Pinggy tunnel information and management through APIs is only available for **Pinggy Pro** users. You can <a target="_blank" href="/#prices">compare our plans here</a>.
 
@@ -91,5 +91,63 @@ curl --location 'https://dashboard.pinggy.io/backend/api/v1/session/active' \
 ]
 ```
 
+## Get tunnel session history
 
+Get a history of all tunnels created from your account. You can query data no older than 60 days.
+
+
+
+```bash
+curl --location 'https://dashboard.pinggy.io/backend/api/v1/session/history/2025-02-06/2025-02-06?page=0&size=10' \
+--header 'Authorization: Bearer {API Key}'
+```
+
+**Example response:**
+
+```json
+{
+  "totalElements": 1,
+  "totalPages": 1,
+  "size": 10,
+  "content": [
+    {
+      "start_time": "2025-02-06T16:16:44.571+00:00",
+      "end_time": "2025-02-07T06:15:26.294+00:00",
+      "user_email": "youremail@example.com",
+      "token_value": "AAXXYY99F",
+      "virtual_token_value": null,
+      "domains": [
+        "test.example.com",
+        "test.a.pinggy.link"
+      ],
+      "mode": "http",
+      "mode_udp": "",
+      "client_ip": "[5.7.152.215]:48696",
+      "port": null
+    }
+  ],
+  "number": 0,
+  "sort": {
+    "empty": true,
+    "sorted": false,
+    "unsorted": true
+  },
+  "pageable": {
+    "pageNumber": 0,
+    "pageSize": 10,
+    "sort": {
+      "empty": true,
+      "sorted": false,
+      "unsorted": true
+    },
+    "offset": 0,
+    "paged": true,
+    "unpaged": false
+  },
+  "numberOfElements": 1,
+  "first": true,
+  "last": true,
+  "empty": false
+}
+```
 
