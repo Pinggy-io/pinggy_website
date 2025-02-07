@@ -20,7 +20,7 @@ In the era of generative AI, self-hosting large language models (LLMs) gives dev
 1. **Install OpenLLM & Deploy a Model**  
    ```bash
    pip install openllm
-   openllm serve <Model Name>
+   openllm serve llama3.2:1b-instruct-ggml-fp16-linux
    ```
 
 2. **Expose API via Pinggy**  
