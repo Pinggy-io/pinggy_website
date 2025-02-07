@@ -1,5 +1,5 @@
 ---
-title: "How to Easily Share Openllm API Online"
+title: "How to Easily Share OpenLLM API Online"
 description: "Discover how to deploy and share large language models locally using OpenLLM and expose APIs securely via Pinggy tunneling. Perfect for developers and AI enthusiasts."
 date: 2025-02-04T14:00:00+05:30
 draft: false
@@ -11,7 +11,7 @@ outputs:
   - AMP
 ---
 
-In the era of generative AI, self-hosting large language models (LLMs) gives developers full control over data privacy and model customization. {{< link href="https://github.com/bentoml/OpenLLM" >}} OpenLLM{{< /link >}} emerges as a powerful toolkit for deploying {{< link href="https://github.com/bentoml/openllm-models?tab=readme-ov-file#supported-models" >}}models{{< /link >}} like Llama 3 or Mistral locally, while [Pinggy](https://pinggy.io) enables secure internet exposure without complex infrastructure. This guide walks you through creating a production-ready LLM endpoint accessible globally in minutes.
+In the era of generative AI, self-hosting large language models (LLMs) gives developers full control over data privacy and model customization. {{< link href="https://github.com/bentoml/OpenLLM" >}} OpenLLM{{< /link >}} emerges as a powerful toolkit for deploying {{< link href="https://github.com/bentoml/openllm-models?tab=readme-ov-file#supported-models" >}}models{{< /link >}} like {{< link href="https://www.llama.com/" >}} Llama 3 {{< /link >}} or {{< link href="https://mistral.ai/en" >}} Mistral {{< /link >}} locally, while [Pinggy](https://pinggy.io) enables secure internet exposure without complex infrastructure. This guide walks you through self-hosting an LLM endpoint with a public URL, making it accessible and shareable in minutes.
 
 {{< image "share_openllm_online/thumbnail_image.png" "Self-Host LLMs with OpenLLM and Pinggy" >}}
 
@@ -22,6 +22,7 @@ In the era of generative AI, self-hosting large language models (LLMs) gives dev
    pip install openllm
    openllm serve llama3.2:1b-instruct-ggml-fp16-linux
    ```
+   Change llama3.2:1b-instruct-ggml-fp16-linux to the model you want to execute.
 
 2. **Expose API via Pinggy**  
    Tunnel port 3000:  
@@ -34,17 +35,18 @@ In the era of generative AI, self-hosting large language models (LLMs) gives dev
 
 ## Why Self-Host LLMs with OpenLLM?
 ### The Rise of Local AI Deployment  
-With growing concerns about data privacy and API costs, tools like Openllm have become essential for running LLMs locally. However, limiting access to your local network restricts their utility. By sharing them online, you can:  
+With growing concerns about data privacy and API costs, tools like OpenLLM have become essential for running LLMs locally. However, limiting access to your local network restricts their utility. By sharing them online, you can:  
 - **Collaborate remotely** with team members or clients.  
-- **Integrate AI into web/mobile apps** via Openllm’s API.  
+- **Integrate AI into web/mobile apps** via OpenLLM’s API.  
 - **Demo projects** without deploying to the cloud.  
 - **Reduce latency** by keeping inference local while enabling remote access.  
 
 ### Why Choose Pinggy for Tunneling?  
 Pinggy simplifies port forwarding by creating secure tunnels. Unlike alternatives like ngrok, it offers:  
-- **Free HTTPS URLs** with no signup required.  
+- **Free HTTPS URLs** with no installation required.  
 - **No rate limits** on the free tier.  
-- **SSH-based security** for encrypted connections.  
+- **No bandwidth limit** with the [Pinggy Pro plan](https://pinggy.io/#prices).
+- **Web Debugger** Observe and monitor requests coming to your server.  
 
 ## Step-by-Step Guide to Sharing OpenLLM   
 {{< iframe src="https://www.youtube.com/embed/mBeZZj1DnGc" title="YouTube video player" >}}
@@ -61,22 +63,23 @@ pip install openllm
 {{< image "share_openllm_online/install_openllm.webp" "install openllm" >}}
 
 ### Start a Model Server
-Launch llama3.2:1b-instruct-ggml-fp16-linux:
+Launch llama3.2:1b-instruct-ggml-fp16-linux. You can also choose a different model from {{< link href="https://github.com/bentoml/openllm-models?tab=readme-ov-file#supported-models" >}}this list{{</link>}}.
 ```bash
 openllm serve llama3.2:1b-instruct-ggml-fp16-linux
 ```
-{{< image "share_openllm_online/serve_openllm.webp" "serve openllm" >}}
-
 Available models include:
 - `mistral`
 - `falcon`
 - `qwen`
 - `dolly-v2`
 
+{{< image "share_openllm_online/serve_openllm.webp" "serve openllm" >}}
+
+
 ## Step 2: Expose OpenLLM API via Pinggy
 
 ### Create Secure Tunnel
-While OpenLLM runs on port 3000:
+While OpenLLM runs on port `3000`:
 ```bash
 ssh -p 443 -R0:localhost:3000 a.pinggy.io
 ```
@@ -116,17 +119,22 @@ You'll receive a public URL like `https://xyz123.pinggy.link`.
 ## Advanced Configuration and Security Best Practices  
 
 ### Secure Your Deployment  
-- **Add Basic Authentication to Pinggy**:  
-  Append a username/password to your SSH command:  
+- **Enable Basic Authentication in Pinggy**:  
+  Secure your tunnel by appending a username and password to your SSH command:  
+
   ```bash
-  ssh -p 443 -R0:localhost:3000 user:pass@a.pinggy.io
+  ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password
   ```  
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io b:username:password\"}}}"
+{{</ ssh_command >}}
+
+  You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the [official documentation](https://pinggy.io/docs/http_tunnels/basic_auth/).
 
 ### Custom Domains and Performance Optimization  
-Upgrade to Pinggy Pro (INR 204.89/month) for custom domains:  
-```bash
-ssh -p 443 -R0:localhost:3000 -T yourdomain.com@a.pinggy.io
-```
+With [Pinggy Pro](https://pinggy.io/#prices) (INR 204.89/month), you can set up a **custom domain** for your tunnels. This enhances branding and improves accessibility.  
+
+For a step-by-step guide on setting up a custom domain, refer to the [Pinggy Custom Domain Documentation](https://pinggy.io/docs/custom_domain/).
 
 ## Real-World Use Cases for Remote AI Access  
 
@@ -136,7 +144,7 @@ Distributed teams can:
 - Train custom models collaboratively using Open WebUI’s RAG features.  
 
 ### Customer-Facing Applications  
-Expose Openllm's API to power:  
+Expose OpenLLM's API to power:  b
 - **AI chatbots** for 24/7 customer support.  
 - **Content generation tools** for blogs, social media, or product descriptions.  
 
@@ -155,12 +163,15 @@ Researchers can securely share access to proprietary models with peers without e
 **Connection Timeouts**
 - Use Pinggy's TCP mode for unstable networks:
   ```bash
-  ssh -p 443 -R0:tcp:localhost:3000 a.pinggy.io
+  while true; do 
+    ssh -p 443 -o StrictHostKeyChecking=no -R0:localhost:3000 a.pinggy.io; 
+  sleep 10; done
   ```
+  *Note: This command requires [Pinggy Pro](https://pinggy.io/#prices)*.
 
 ## Conclusion
 
-Combining **OpenLLM**'s flexible model serving with **Pinggy**'s secure tunneling creates an enterprise-grade AI deployment accessible from anywhere. Whether you're prototyping chatbots or productionizing NLP pipelines, this stack offers:
+Combining **OpenLLM**'s flexible model serving with **Pinggy**'s secure tunneling provides a quick and easy way to deploy AI models accessible from anywhere. Whether you're prototyping chatbots or testing NLP pipelines, this stack simplifies remote access without the complexity of traditional deployments.
 
 - Complete data ownership
 - Cost-effective scaling
