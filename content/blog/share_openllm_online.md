@@ -5,7 +5,7 @@ date: 2025-02-04T14:00:00+05:30
 draft: false
 tags: ["OpenLLM", "Pinggy", "Self-Hosted AI", "LLM Deployment", "AI Tunneling"]
 og_image: "images/share_openllm_online/thumbnail_image.png"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtSG9zdCBMYXJnZSBMYW5ndWFnZSBNb2RlbHMgKExMTXMpIHdpdGggT3BlbkxMTSBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIGRlcGxveSBMTE1zIGxvY2FsbHkgdXNpbmcgT3BlbkxMTSBhbmQgc2VjdXJlbHkgZXhwb3NlIHRoZW0gb25saW5lIHZpYSBQaW5nZ3kgdHVubmVsaW5nLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9zaGFyZV9vcGVubGxtX29ubGluZS90aHVtYm5haWxfaW1hZ2UucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgT3BlbkxMTSBhbmQgZGVwbG95IGEgbW9kZWwuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlN0YXJ0IGEgbW9kZWwgc2VydmVyIHVzaW5nIE9wZW5MTE0sIGUuZy4sICdvcGVubGxtIHNlcnZlIGxsYW1hMy4yOjFiLWluc3RydWN0LWdnbWwtZnAxNi1saW51eCcuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIHNlY3VyZSB0dW5uZWwgd2l0aCBQaW5nZ3k6ICdzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6MzAwMCBhLnBpbmdneS5pbycuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkFjY2VzcyB5b3VyIExMTSBBUEkgYW5kIE9wZW4gV2ViVUkgdmlhIHRoZSBnZW5lcmF0ZWQgUGluZ2d5IHB1YmxpYyBVUkwuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkVuaGFuY2Ugc2VjdXJpdHkgYnkgYWRkaW5nIGF1dGhlbnRpY2F0aW9uIGFuZCBzZXR0aW5nIHVwIGEgY3VzdG9tIGRvbWFpbi4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtSG9zdCBMYXJnZSBMYW5ndWFnZSBNb2RlbHMgKExMTXMpIHdpdGggT3BlbkxMTSBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIGRlcGxveSBMTE1zIGxvY2FsbHkgdXNpbmcgT3BlbkxMTSBhbmQgc2VjdXJlbHkgZXhwb3NlIHRoZW0gb25saW5lIHZpYSBQaW5nZ3kgdHVubmVsaW5nLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9zaGFyZV9vcGVubGxtX29ubGluZS90aHVtYm5haWxfaW1hZ2UucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogInBpcCBpbnN0YWxsIG9wZW5sbG0gYW5kIGRlcGxveSBhIG1vZGVsLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTdGFydCBhIG1vZGVsIHNlcnZlciB1c2luZyBPcGVuTExNLCBlLmcuLCAnb3BlbmxsbSBzZXJ2ZSBsbGFtYTMuMjoxYi1pbnN0cnVjdC1nZ21sLWZwMTYtbGludXgnLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDcmVhdGUgYSBzZWN1cmUgdHVubmVsIHdpdGggUGluZ2d5OiAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMwMDAgYS5waW5nZ3kuaW8nLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciBMTE0gQVBJIGFuZCBPcGVuIFdlYlVJIHZpYSB0aGUgZ2VuZXJhdGVkIFBpbmdneSBwdWJsaWMgVVJMLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFbmhhbmNlIHNlY3VyaXR5IGJ5IGFkZGluZyBhdXRoZW50aWNhdGlvbiBhbmQgc2V0dGluZyB1cCBhIGN1c3RvbSBkb21haW4uIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
 outputs:
   - HTML
   - AMP
@@ -13,7 +13,7 @@ outputs:
 
 In the era of generative AI, self-hosting large language models (LLMs) gives developers full control over data privacy and model customization. {{< link href="https://github.com/bentoml/OpenLLM" >}} OpenLLM{{< /link >}} emerges as a powerful toolkit for deploying {{< link href="https://github.com/bentoml/openllm-models?tab=readme-ov-file#supported-models" >}}models{{< /link >}} like {{< link href="https://www.llama.com/" >}} Llama 3 {{< /link >}} or {{< link href="https://mistral.ai/en" >}} Mistral {{< /link >}} locally, while [Pinggy](https://pinggy.io) enables secure internet exposure without complex infrastructure. This guide walks you through self-hosting an LLM endpoint with a public URL, making it accessible and shareable in minutes.
 
-{{< image "share_openllm_online/thumbnail_image.png" "Self-Host LLMs with OpenLLM and Pinggy" >}}
+{{< image "share_openllm_online/pinggy.gif" "Self-Host LLMs with OpenLLM and Pinggy" >}}
 
 {{% tldr %}}
 
@@ -22,10 +22,10 @@ In the era of generative AI, self-hosting large language models (LLMs) gives dev
    pip install openllm
    openllm serve llama3.2:1b-instruct-ggml-fp16-linux
    ```
-   Change llama3.2:1b-instruct-ggml-fp16-linux to the model you want to execute.
+   Change `llama3.2:1b-instruct-ggml-fp16-linux` to the model you want to execute.
 
 2. **Expose API via Pinggy**  
-   Tunnel port 3000:  
+   Tunnel port `3000`:  
    ```bash
    ssh -p 443 -R0:localhost:3000 a.pinggy.io
    ```
@@ -132,7 +132,7 @@ You'll receive a public URL like `https://xyz123.pinggy.link`.
   You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the [official documentation](https://pinggy.io/docs/http_tunnels/basic_auth/).
 
 ### Custom Domains and Performance Optimization  
-With [Pinggy Pro](https://pinggy.io/#prices) (INR 204.89/month), you can set up a **custom domain** for your tunnels. This enhances branding and improves accessibility.  
+With [Pinggy Pro](https://pinggy.io/#prices) ((USD 3/month)/month), you can set up a **custom domain** for your tunnels. This enhances branding and improves accessibility.  
 
 For a step-by-step guide on setting up a custom domain, refer to the [Pinggy Custom Domain Documentation](https://pinggy.io/docs/custom_domain/).
 
