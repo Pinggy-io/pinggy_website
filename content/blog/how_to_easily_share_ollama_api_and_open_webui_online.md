@@ -191,7 +191,7 @@ You’ll receive a URL like `https://xyz456.pinggy.link`.
   You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the [official documentation](https://pinggy.io/docs/http_tunnels/basic_auth/).
 
 ### Custom Domains and Performance Optimization  
-With [Pinggy Pro](https://pinggy.io/#prices) (USD 3/month), you can set up a **custom domain** for your tunnels. This enhances branding and improves accessibility.  
+With [Pinggy Pro](https://pinggy.io/#prices) (3 USD/month), you can set up a **custom domain** for your tunnels. This enhances branding and improves accessibility.  
 
 For a step-by-step guide on setting up a custom domain, refer to the [Pinggy Custom Domain Documentation](https://pinggy.io/docs/custom_domain/).
 
