@@ -2,6 +2,7 @@
 title: "How to Easily Share Ollama API and Open WebUI Online"
 description: "Learn to securely expose Ollama's API and Open WebUI interface using Pinggy tunneling. A complete guide to running AI models locally while enabling remote access."
 date: 2025-01-26T14:00:00+05:30
+lastmod: 2025-02-07T14:15:25+05:30
 draft: false
 tags: ["Ollama", "Open WebUI", "Pinggy", "AI Deployment", "LLM Hosting"]
 og_image: "images/how_to_easily_share_ollama_api_and_open_webui_online/pinggy.png"
@@ -175,19 +176,24 @@ You’ll receive a URL like `https://xyz456.pinggy.link`.
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/open_webui_running_on_pinggy_url.png" "open webui live" >}}
 
 ## Advanced Configuration and Security Best Practices  
-
 ### Secure Your Deployment  
-- **Add Basic Authentication to Pinggy**:  
-  Append a username/password to your SSH command:  
+- **Enable Basic Authentication in Pinggy**:  
+  Secure your tunnel by appending a username and password to your SSH command:  
+
   ```bash
-  ssh -p 443 -R0:localhost:3000 user:pass@a.pinggy.io
+  ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password
   ```  
 
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}}}"
+{{</ ssh_command >}}
+
+  You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the [official documentation](https://pinggy.io/docs/http_tunnels/basic_auth/).
+
 ### Custom Domains and Performance Optimization  
-Upgrade to Pinggy Pro (INR 204.89/month) for custom domains:  
-```bash
-ssh -p 443 -R0:localhost:3000 -T yourdomain.com@a.pinggy.io
-```  
+With [Pinggy Pro](https://pinggy.io/#prices) (3 USD/month), you can set up a **custom domain** for your tunnels. This enhances branding and improves accessibility.  
+
+For a step-by-step guide on setting up a custom domain, refer to the [Pinggy Custom Domain Documentation](https://pinggy.io/docs/custom_domain/).
 
 ## Real-World Use Cases for Remote AI Access  
 
@@ -203,8 +209,6 @@ Expose Ollama’s API to power:
 
 ### Academic and Research Workflows  
 Researchers can securely share access to proprietary models with peers without exposing internal infrastructure.  
-
----
 
 ## Troubleshooting Common Issues  
 
