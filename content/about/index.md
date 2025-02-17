@@ -41,7 +41,7 @@
             <p class="card-subtitle">Co-Founder</p>
             <p class="card-text">
               <small class="text-muted"
-                >Distributed Systems & Security Research Student at IIT
+                >Ph.D. in Distributed Systems & Security from IIT
                 Kharagpur</small
               >
             </p>
