@@ -5,7 +5,7 @@ date: 2025-02-19T14:00:00+05:30
 draft: false
 tags: ["LM Studio", "Pinggy", "Self-Hosted AI", "LLM Deployment", "AI Tunneling"]
 og_image: "images/lm_studio/pinggy.gif"
-schemahowto: "ewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIEVhc2lseSBTaGFyZSBMTSBTdHVkaW8gQVBJIE9ubGluZSIsCiAgImRlc2NyaXB0aW9uIjogIkEgc3RlcC1ieS1zdGVwIGd1aWRlIHRvIGRlcGxveWluZyBhbmQgc2hhcmluZyBMTSBTdHVkaW8gQVBJIG9ubGluZSB1c2luZyBQaW5nZ3kgZm9yIHNlY3VyZSB0dW5uZWxpbmcuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2xtX3N0dWRpby9waW5nZ3kuZ2lmIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRvd25sb2FkICYgSW5zdGFsbCBMTSBTdHVkaW8iLAogICAgICAidGV4dCI6ICJWaXNpdCBodHRwczovL2xtc3R1ZGlvLmFpLywgZG93bmxvYWQgdGhlIGluc3RhbGxlciBmb3IgeW91ciBPUywgYW5kIGluc3RhbGwgTE0gU3R1ZGlvLiBOYXZpZ2F0ZSB0byB0aGUgRGlzY292ZXIgdGFiIGFuZCBkb3dubG9hZCB0aGUgbW9kZWwgeW91IHdhbnQgdG8gdXNlLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJFbmFibGUgdGhlIE1vZGVsIEFQSSIsCiAgICAgICJ0ZXh0IjogIkdvIHRvIHRoZSBEZXZlbG9wZXIgdGFiIGluIExNIFN0dWRpbywgY2hhbmdlIHRoZSBzdGF0dXMgZnJvbSBTdG9wIHRvIFJ1biwgYW5kIHRlc3QgdGhlIEFQSSB1c2luZyBQb3N0bWFuLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJFeHBvc2UgWW91ciBBUEkgd2l0aCBQaW5nZ3kiLAogICAgICAidGV4dCI6ICJSdW4gdGhlIFNTSCB0dW5uZWwgY29tbWFuZDogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjEyMzQgYS5waW5nZ3kuaW8uIFNoYXJlIHRoZSBnZW5lcmF0ZWQgcHVibGljIFVSTCB0byBhbGxvdyBleHRlcm5hbCBhY2Nlc3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNlY3VyZSBZb3VyIEFQSSIsCiAgICAgICJ0ZXh0IjogIkVuYWJsZSBiYXNpYyBhdXRoZW50aWNhdGlvbiBieSBtb2RpZnlpbmcgeW91ciBTU0ggY29tbWFuZDogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjEyMzQgLXQgYS5waW5nZ3kuaW8gYjp1c2VybmFtZTpwYXNzd29yZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiTW9uaXRvciBBUEkgUmVxdWVzdHMiLAogICAgICAidGV4dCI6ICJVc2UgUGluZ2d54oCZcyB3ZWIgZGVidWdnZXIgdG8gYW5hbHl6ZSBhbmQgdHJvdWJsZXNob290IGluY29taW5nIHJlcXVlc3RzLiIKICAgIH0KICBdCn0="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIEVhc2lseSBTaGFyZSBMTSBTdHVkaW8gQVBJIE9ubGluZSIsCiAgImRlc2NyaXB0aW9uIjogIkEgc3RlcC1ieS1zdGVwIGd1aWRlIHRvIGRlcGxveWluZyBhbmQgc2hhcmluZyBMTSBTdHVkaW8gQVBJIG9ubGluZSB1c2luZyBQaW5nZ3kgZm9yIHNlY3VyZSB0dW5uZWxpbmcuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2xtX3N0dWRpby9waW5nZ3kuZ2lmIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRvd25sb2FkICYgSW5zdGFsbCBMTSBTdHVkaW8iLAogICAgICAidGV4dCI6ICJWaXNpdCBodHRwczovL2xtc3R1ZGlvLmFpLywgZG93bmxvYWQgdGhlIGluc3RhbGxlciBmb3IgeW91ciBPUywgYW5kIGluc3RhbGwgTE0gU3R1ZGlvLiBOYXZpZ2F0ZSB0byB0aGUgRGlzY292ZXIgdGFiIGFuZCBkb3dubG9hZCB0aGUgbW9kZWwgeW91IHdhbnQgdG8gdXNlLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJFbmFibGUgdGhlIE1vZGVsIEFQSSIsCiAgICAgICJ0ZXh0IjogIkdvIHRvIHRoZSBEZXZlbG9wZXIgdGFiIGluIExNIFN0dWRpbywgY2hhbmdlIHRoZSBzdGF0dXMgZnJvbSBTdG9wIHRvIFJ1biwgYW5kIHRlc3QgdGhlIEFQSSB1c2luZyBQb3N0bWFuLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJFeHBvc2UgWW91ciBBUEkgd2l0aCBQaW5nZ3kiLAogICAgICAidGV4dCI6ICJSdW4gdGhlIFNTSCB0dW5uZWwgY29tbWFuZDogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjEyMzQgYS5waW5nZ3kuaW8uIFNoYXJlIHRoZSBnZW5lcmF0ZWQgcHVibGljIFVSTCB0byBhbGxvdyBleHRlcm5hbCBhY2Nlc3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNlY3VyZSBZb3VyIEFQSSIsCiAgICAgICJ0ZXh0IjogIkVuYWJsZSBiYXNpYyBhdXRoZW50aWNhdGlvbiBieSBtb2RpZnlpbmcgeW91ciBTU0ggY29tbWFuZDogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjEyMzQgLXQgYS5waW5nZ3kuaW8gYjp1c2VybmFtZTpwYXNzd29yZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiTW9uaXRvciBBUEkgUmVxdWVzdHMiLAogICAgICAidGV4dCI6ICJVc2UgUGluZ2d54oCZcyB3ZWIgZGVidWdnZXIgdG8gYW5hbHl6ZSBhbmQgdHJvdWJsZXNob290IGluY29taW5nIHJlcXVlc3RzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -18,7 +18,7 @@ In the era of generative AI, developers are continually seeking ways to quickly 
 {{% tldr %}}
 
 1. **Download & Install LM Studio**  
-   - Visit <a href = "https://lmstudio.ai/" >LM Studio</a> and download the installer for your operating system.
+   - Visit <a href = "https://lmstudio.ai/" target="_blank">LM Studio</a> and download the installer for your operating system.
    - Install LM Studio, launch the application, and navigate to the **Discover** tab.
    - Download the model you want to use and share its API online.
 
@@ -52,7 +52,7 @@ By sharing your LM Studio API online, you can:
 Pinggy provides a hassle-free solution for exposing your local API to the public internet without the need for complex infrastructure. Key benefits include:
 
 - **Free HTTPS URLs:** Secure, public URLs without additional installation overhead.
-- **No Rate Limits:** Enjoy unrestricted access, even on the free tier.
+- **No Bandwidth Limits:** Enjoy unrestricted access, even on the free tier.
 - **Bandwidth-Friendly:** With options like the Pinggy Pro plan, you can scale your usage as needed.
 - **Integrated Debugger:** Monitor and troubleshoot requests with Pinggy’s web-based debugger.
 
@@ -87,7 +87,7 @@ Pinggy provides a hassle-free solution for exposing your local API to the public
      This will launch your model’s API server on `http://localhost:1234`.
 
 3. **Test the API Endpoint:**  
-   Below the status button, you will see a list of supported endpoints. Copy the displayed curl command and test it using a tool like {{< link href="https://www.postman.com" >}} Postman {{< /link >}}.
+   Below the status button, you will see a list of supported endpoints. Copy the displayed `curl` command and test it using a tool like {{< link href="https://www.postman.com" >}} Postman {{< /link >}}.
 
    **Example Curl Command:**
    ```bash
