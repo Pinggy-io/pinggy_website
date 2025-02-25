@@ -11,14 +11,14 @@ outputs:
   - AMP
 ---
 
-In the world of web development, whether you’re a front-end engineer spinning up a React app or a back-end developer building APIs, **localhost** is where it all begins. But what exactly happens when you type “localhost” into your browser? This deep dive unpacks the magic behind this essential tool, explaining its significance, inner workings, and how you can leverage it to supercharge your development workflow.
+In the world of development, whether you’re a back-end engineer spinning up a local webserver, or a frontend engineer starting a React app dev server, localhost is where it all begins. But what exactly happens when you type “localhost” into your browser? This deep dive unpacks the magic behind this essential tool, explaining its significance, inner workings, and how you can leverage it to supercharge your development workflow.
 
-{{< image "localhost/what_is_localhost.webp" "what is localhost" >}}
+{{< image "localhost/localhost.png" "what is localhost" >}}
 
 {{% tldr %}}
 
 1. **What is Localhost?**  
-   Localhost is a reserved domain name that always points back to your own computer (127.0.0.1 for IPv4, ::1 for IPv6). It allows developers to test and debug applications locally without an internet connection.
+   Localhost is a reserved domain name that always points back to your own computer (`127.0.0.1` for `IPv4`, `::1` for `IPv6`). It allows developers to test and debug applications locally without an internet connection.
 2. **Why Is Localhost Important?**
    - Facilitates rapid development and testing  
    - Provides a secure and isolated environment  
@@ -38,7 +38,7 @@ In the world of web development, whether you’re a front-end engineer spinning 
 
 ## What Is Localhost?
 
-Localhost is far more than just a convenient term—it’s a reserved domain name that always points back to your own computer. Think of it as your digital home address, a built-in alias your operating system uses to refer to itself. When you type “localhost” into your browser, you’re effectively sending a message to your own machine, instructing it to handle the request internally.
+Localhost is far more than just a convenient term, - it’s a reserved domain name that always points back to your own computer. Think of it as your digital home address, a built-in alias your operating system uses to refer to itself. When you type “localhost” into your browser, you’re effectively sending a message to your own machine, instructing it to handle the request internally.
 
 ### In-Depth Details:
 - **Self-Referencing Domain:**  
@@ -55,6 +55,8 @@ Localhost is typically mapped to the IP address **127.0.0.1** for IPv4 or **::1*
 ## Why Is Localhost Important?
 
 Localhost is an indispensable tool in the toolkit of developers and network engineers, primarily due to its role in creating a secure, efficient, and flexible development environment.
+
+Local instantiation of network protocols allows applications to communicate within a system without requiring an internet connection. Operating systems run the TCP/IP stack even when offline, enabling local applications to interact over the `localhost` (127.0.0.1) loopback interface. This setup facilitates secure testing, debugging, and inter-process communication without external network dependencies.
 
 ### Instant Feedback for Developers:
 - **Rapid Development Cycles:**  
@@ -137,11 +139,12 @@ The hosts file is a simple text file used by your operating system to map hostna
    - To do this, right-click the editor’s shortcut and select “Run as administrator.”
 
 3. **Add Custom Domain Mapping:**  
-   Once the file is open, add a new line for your custom domain. For example:
+   Once the file is open, add a new line for your custom domain. For example:  
    ```
    127.0.0.1   mycustomdomain.local
-   ```
-   This line tells your computer that any request for “mycustomdomain.local” should be redirected to 127.0.0.1—your own machine.
+   ::1         mycustomdomain.local
+   ```  
+   This tells your computer that any request for “mycustomdomain.local” should be redirected to `127.0.0.1` (IPv4) or `::1` (IPv6), both pointing to your own machine.
 
 4. **Save and Verify:**  
    After saving the file, open your browser and type `mycustomdomain.local` into the address bar. It should behave the same as typing `localhost`, effectively directing the request to your local server.
@@ -190,7 +193,13 @@ Understanding the different types of IP addresses is crucial for networking and 
 ### Private IP Addresses
 
 - **Definition and Scope:**  
-  Private IP addresses are used within local networks (like home Wi-Fi or office LANs) and are not routable on the public internet. Common private IP ranges include **192.168.x.x**, **10.x.x.x**, and **172.16.x.x**.
+  Private IP addresses are used within local networks (like home Wi-Fi or office LANs) and are not routable on the public internet. The exact private IP ranges are:  
+
+  - **10.0.0.0 – 10.255.255.255** (Class A)  
+  - **172.16.0.0 – 172.31.255.255** (Class B)  
+  - **192.168.0.0 – 192.168.255.255** (Class C)  
+
+These ranges are reserved by **RFC 1918** for private network use.
 - **Usage:**  
   Devices on your local network, such as computers, smartphones, and printers, are assigned private IP addresses. These addresses facilitate internal communication without direct exposure to the internet.
 - **Advantages:**  
@@ -243,9 +252,11 @@ print("Localhost IP:", ip_address)
 - **Explanation:**  
   This script uses the `socket` library to convert the hostname “localhost” into its corresponding IP address. It’s a straightforward way to verify that your system is correctly resolving localhost.
 
-## Accessing Localhost from Anywhere with Pinggy
+## Sharing Localhost Applications
 
 While localhost is great for local development, sharing your work with teammates or testing webhooks from external services can be tricky. Pinggy solves this by providing an easy way to expose your localhost to the internet using a secure tunnel. Whether you're showcasing a front-end app, testing APIs on a mobile device, or debugging webhooks, Pinggy offers a lightweight and reliable solution.
+
+Most ISPs do not provide a public IP address to individual users; instead, they assign private IPs due to Carrier-Grade NAT (CGNAT). CGNAT allows multiple users to share a single public IP, making direct inbound connections impossible. This is why tools like Pinggy are essential for exposing local services over the internet.
 
 ### Start Tunnel with One Command
 No installation is required! You can start a tunnel instantly using the following command:
@@ -266,7 +277,7 @@ For more details, check out the official [Pinggy Documentation](https://pinggy.i
 
 ## Conclusion
 
-Localhost is more than just a buzzword—it is the cornerstone of safe, efficient, and flexible development and testing. By understanding how to modify your hosts file, you can simulate real-world domain scenarios without the need for external DNS changes. Additionally, differentiating between public IPs, private IPs, and the special loopback address of localhost gives you a deeper insight into network architecture and security.
+Localhost is more than just a buzzword, — it is the cornerstone of safe, efficient, and flexible development and testing. By understanding how to modify your hosts file, you can simulate real-world domain scenarios without the need for external DNS changes. Additionally, differentiating between public IPs, private IPs, and the special loopback address of localhost gives you a deeper insight into network architecture and security.
 
 Experimenting with custom domain mappings and testing these configurations using tools like `ping`, Python, or Java not only enhances your debugging capabilities but also prepares you for more complex network setups. Whether you’re debugging a React app or building robust back-end APIs, mastering localhost is essential to streamline your development workflow.
 
