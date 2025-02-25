@@ -56,7 +56,7 @@ Localhost is typically mapped to the IP address **127.0.0.1** for IPv4 or **::1*
 
 Localhost is an indispensable tool in the toolkit of developers and network engineers, primarily due to its role in creating a secure, efficient, and flexible development environment.
 
-Local instantiation of network protocols allows applications to communicate within a system without requiring an internet connection. Operating systems run the TCP/IP stack even when offline, enabling local applications to interact over the `localhost` (127.0.0.1) loopback interface. This setup facilitates secure testing, debugging, and inter-process communication without external network dependencies.
+Local instantiation of network protocols allows applications to communicate within a system without requiring an internet connection. Operating systems run the TCP/IP stack even when offline, enabling local applications to interact over the `localhost` (`127.0.0.1`) loopback interface. This setup facilitates secure testing, debugging, and inter-process communication without external network dependencies.
 
 ### Instant Feedback for Developers:
 - **Rapid Development Cycles:**  
@@ -78,7 +78,7 @@ Local instantiation of network protocols allows applications to communicate with
 
 ### Flexibility:
 - **Custom Domain Mapping:**  
-  Developers can modify the hosts file to assign custom domain names to 127.0.0.1. For instance, mapping “myapp” to 127.0.0.1 lets you simulate multiple environments or subdomains without deploying to an external server.
+  Developers can modify the hosts file to assign custom domain names to `127.0.0.1`. For instance, mapping “myapp” to `127.0.0.1` lets you simulate multiple environments or subdomains without deploying to an external server.
 - **Environment Simulation:**  
   This flexibility is particularly useful when testing applications that rely on different domain contexts, such as multi-tenant platforms or microservices architectures.
 
