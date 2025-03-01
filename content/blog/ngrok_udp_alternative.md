@@ -5,7 +5,7 @@ date: 2025-02-28T14:15:25+05:30
 draft: false
 tags: ["Ngrok Alternative", "UDP Tunneling", "Networking", "Pinggy"]
 og_image: "images/ngrok_udp_alternative/Ngrok UDP Alternative.gif"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNldHRpbmcgVXAgYSBVRFAgVHVubmVsIFVzaW5nIFBpbmdneSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBjcmVhdGUgYSBzZWN1cmUgVURQIHR1bm5lbCB1c2luZyBQaW5nZ3kuIFRoaXMgZ3VpZGUgd2Fsa3MgeW91IHRocm91Z2ggdGhlIENMSSBhbmQgV2ViIEFwcCBtZXRob2RzIGZvciB0dW5uZWxpbmcgVURQIHRyYWZmaWMgZWZmaWNpZW50bHkuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL25ncm9rX3VkcF9hbHRlcm5hdGl2ZS9OZ3JvayBVRFAgQWx0ZXJuYXRpdmUuZ2lmIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIk9wZW4geW91ciB0ZXJtaW5hbCBhbmQgcnVuIHRoZSBjb21tYW5kOiAuL3BpbmdneSAtcCA0NDMgLVIwOmxvY2FsaG9zdDo4MDAwIHVkcEBhLnBpbmdneS5pbyB0byBjcmVhdGUgYSBVRFAgdHVubmVsLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJEb3dubG9hZCBhbmQgaW5zdGFsbCB0aGUgUGluZ2d5IFdlYiBBcHAgZnJvbSBodHRwczovL3BpbmdneS5pby9hcHAvLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcGVuIHRoZSBQaW5nZ3kgV2ViIEFwcCwgbmF2aWdhdGUgdG8gJ0NyZWF0ZSBUdW5uZWwnLCBzZWxlY3QgJ1VEUCBUdW5uZWwnLCBhbmQgY29uZmlndXJlIHRoZSBkZXNpcmVkIHBvcnQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNsaWNrICdTYXZlJyBhbmQgJ1N0YXJ0IFR1bm5lbCcgdG8gaW5pdGlhdGUgeW91ciBVRFAgdHVubmVsLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDb3B5IHRoZSBSZW1vdGUgVVJMIHByb3ZpZGVkIGJ5IFBpbmdneSBhbmQgdXNlIGl0IGZvciBmb3J3YXJkaW5nIFVEUCB0cmFmZmljLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJUZXN0IHRoZSB0dW5uZWwgdXNpbmcgbmV0Y2F0IG9yIHNvY2F0IGJ5IHNlbmRpbmcgVURQIHBhY2tldHMgdG8gdmVyaWZ5IHByb3BlciBjb25uZWN0aXZpdHkuIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNldHRpbmcgVXAgYSBVRFAgVHVubmVsIFVzaW5nIFBpbmdneSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBjcmVhdGUgYSBzZWN1cmUgVURQIHR1bm5lbCB1c2luZyBQaW5nZ3kuIFRoaXMgZ3VpZGUgd2Fsa3MgeW91IHRocm91Z2ggdGhlIENMSSBhbmQgV2ViIEFwcCBtZXRob2RzIGZvciB0dW5uZWxpbmcgVURQIHRyYWZmaWMgZWZmaWNpZW50bHkuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL25ncm9rX3VkcF9hbHRlcm5hdGl2ZS9OZ3JvayBVRFAgQWx0ZXJuYXRpdmUuZ2lmIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlRvIGNyZWF0ZSBhIFVEUCB0dW5uZWwgdXNpbmcgUGluZ2d5IENMSSwgZmlyc3QgZG93bmxvYWQgdGhlIFBpbmdneSBDTEkgaHR0cHM6Ly9waW5nZ3kuaW8vY2xpLy4gVGhlbiwgb3BlbiB5b3VyIHRlcm1pbmFsIGFuZCBydW4gdGhlIGZvbGxvd2luZyBjb21tYW5kOiAuL3BpbmdneSAtcCA0NDMgLVIwOmxvY2FsaG9zdDo4MDAwIHVkcEBhLnBpbmdneS5pbyBSZXBsYWNlICoqODAwMCoqIHdpdGggeW91ciBkZXNpcmVkIHBvcnQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIGFuZCBpbnN0YWxsIHRoZSBQaW5nZ3kgV2ViIEFwcCBmcm9tIGh0dHBzOi8vcGluZ2d5LmlvL2FwcC8uIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIk9wZW4gdGhlIFBpbmdneSBXZWIgQXBwLCBuYXZpZ2F0ZSB0byAnQ3JlYXRlIFR1bm5lbCcsIHNlbGVjdCAnVURQIFR1bm5lbCcsIGFuZCBjb25maWd1cmUgdGhlIGRlc2lyZWQgcG9ydC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ2xpY2sgJ1NhdmUnIGFuZCAnU3RhcnQgVHVubmVsJyB0byBpbml0aWF0ZSB5b3VyIFVEUCB0dW5uZWwuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNvcHkgdGhlIFJlbW90ZSBVUkwgcHJvdmlkZWQgYnkgUGluZ2d5IGFuZCB1c2UgaXQgZm9yIGZvcndhcmRpbmcgVURQIHRyYWZmaWMuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlRlc3QgdGhlIHR1bm5lbCB1c2luZyBuZXRjYXQgb3Igc29jYXQgYnkgc2VuZGluZyBVRFAgcGFja2V0cyB0byB2ZXJpZnkgcHJvcGVyIGNvbm5lY3Rpdml0eS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
 outputs:
   - HTML
   - AMP
@@ -13,7 +13,7 @@ outputs:
 
 {{< link href="https://ngrok.com" >}}Ngrok{{< /link >}} is a popular tunneling tool that allows developers to expose local servers to the internet. However, one major limitation of Ngrok is that it does not support UDP tunnels. This can be a dealbreaker for users who need to expose UDP-based applications such as gaming servers, VoIP services, and custom networking applications.
 
-Fortunately, there are alternatives that support UDP tunneling. One of the best options available is [Pinggy](https://pinggy.io), which provides robust UDP tunneling from both the **CLI** and [Pinggy Web App](https://pinggy.io/app/). Unlike Ngrok, Pinggy allows users to forward UDP traffic seamlessly, making it a powerful solution for developers and network engineers.
+Fortunately, there are alternatives that support UDP tunneling. One of the best options available is [Pinggy](https://pinggy.io), which provides robust UDP tunneling from both the [CLI](https://pinggy.io/cli/) and [Pinggy Web App](https://pinggy.io/app/). Unlike Ngrok, Pinggy allows users to forward UDP traffic seamlessly, making it a powerful solution for developers and network engineers.
 
 In this article, we’ll explore UDP tunnels, their importance, why Ngrok does not support UDP, and how you can set up UDP tunneling with Pinggy. We’ll also highlight other alternatives and discuss why Pinggy is one of the best choices, especially for users who require unlimited bandwidth with the [Pinggy Pro Plan](https://pinggy.io/#prices).
 
@@ -30,11 +30,11 @@ In this article, we’ll explore UDP tunnels, their importance, why Ngrok does n
    - It provides a reliable way to expose UDP-based services like gaming servers, VoIP, and IoT applications.  
 
 3. **Setting Up UDP Tunneling with Pinggy**  
-   - **CLI Method**: Run the below command to establish a tunnel.  
+   - **CLI Method**: Download the Pinggy [CLI](https://pinggy.io/cli/) and execute the following command to create a tunnel.
    ```bash
    ./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io
    ```
-   - **Web App Method**: Install the Pinggy Web App, configure the port, and start the tunnel with ease.  
+   - **Web App Method**: Install the [Pinggy Web App](https://pinggy.io/app/), configure the port, and start the tunnel with ease.  
 
 4. **Testing Your UDP Tunnel**  
    - Use `netcat` or `socat` to send and receive UDP packets, ensuring your tunnel is working correctly.  
@@ -90,10 +90,13 @@ Ngrok is primarily designed for HTTP, HTTPS, and TCP traffic. While it excels at
 As a result, if you need to expose a UDP-based service, you will have to look for an alternative like **Pinggy**.
 
 ## How to Use Pinggy for UDP Tunneling
-Pinggy is an excellent alternative to Ngrok for UDP tunneling. It allows you to create secure UDP tunnels easily using either the **CLI** or the **Web App**.
+Pinggy is an excellent alternative to Ngrok for UDP tunneling. It allows you to create secure UDP tunnels easily using either the [CLI](https://pinggy.io/cli/) and [Pinggy Web App](https://pinggy.io/app/).
 
-### Step 1: Set Up UDP Tunneling Using the CLI
-To create a UDP tunnel using Pinggy's CLI, open your terminal and run the following command (replace **8000** with your desired port):
+### Step 1: Set Up UDP Tunneling Using the CLI  
+
+Unlike HTTP or TCP tunnels, Pinggy does not provide an SSH command option for UDP tunneling. To create a UDP tunnel, you need to download the [Pinggy CLI](https://pinggy.io/cli/).  
+
+Once downloaded, open your terminal and run the following command (replace **8000** with your desired port):
 
 {{< ssh_command clionly="true">}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\"}}}"
@@ -103,7 +106,7 @@ This will establish a secure UDP tunnel that forwards traffic from your local ma
 
 ### Step 2: Use the Web App (Alternative Method)
 If you prefer a graphical interface, Pinggy also provides a **Web App** for setting up UDP tunnels easily.
-- **[Pinggy Web App](https://pinggy.io/app/)**
+- [Pinggy Web App](https://pinggy.io/app/)
 
 Follow these steps:
 1. **Download the Pinggy Web App** from [Pinggy's official site](https://pinggy.io/app/) and install it according to your operating system.
@@ -147,7 +150,7 @@ With the [Pinggy Pro Plan](https://pinggy.io/#prices), there are no limits on da
 While Pinggy is one of the best solutions for UDP tunneling, there are a few other alternatives you might consider:
 
 1. **FRP (Fast Reverse Proxy):** A flexible reverse proxy tool that supports both TCP and UDP tunneling.
-2. **Holly TCP Relay:** A networking tool that can forward both TCP and UDP traffic.
+2. **Holly TCP Relay:** A networking tool that forwards both TCP and UDP traffic. You can also consider {{< link href="https://playit.gg/" >}}playit.gg{{< /link >}} as an alternative.
 3. **SSH Port Forwarding:** Some configurations of SSH can be used to tunnel UDP traffic indirectly.
 
 ## Conclusion
