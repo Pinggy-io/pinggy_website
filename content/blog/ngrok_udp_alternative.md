@@ -150,7 +150,7 @@ With the [Pinggy Pro Plan](https://pinggy.io/#prices), there are no limits on da
 While Pinggy is one of the best solutions for UDP tunneling, there are a few other alternatives you might consider:
 
 1. **FRP (Fast Reverse Proxy):** A flexible reverse proxy tool that supports both TCP and UDP tunneling.
-2. **Holly TCP Relay:** A networking tool that forwards both TCP and UDP traffic. You can also consider {{< link href="https://playit.gg/" >}}playit.gg{{< /link >}} as an alternative.
+2. **{{< link href="https://playit.gg/" >}}playit.gg{{< /link >}}:** A reliable option for UDP tunneling.  
 3. **SSH Port Forwarding:** Some configurations of SSH can be used to tunnel UDP traffic indirectly.
 
 ## Conclusion
