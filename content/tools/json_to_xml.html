@@ -59,6 +59,7 @@
             <div class="mt-3 d-flex justify-content-between">
               <button id="copyBtn" class="btn btn-secondary">Copy to Clipboard</button>
               <button id="downloadBtn" class="btn btn-success">Download XML</button>
+              <button id="clearBtn" class="btn btn-danger">Clear</button>
             </div>
           </div>
         </div>
@@ -166,6 +167,12 @@
           link.click();
         }
       });
+
+      $("#clearBtn").click(function() {
+        $("#jsonInput").val("");
+        $("#output").removeClass("text-danger").text("Your formatted XML will appear here...");
+      });
+
       
       // Function to display alert messages
       function showAlert(type, message) {
