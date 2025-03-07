@@ -607,7 +607,6 @@ pre .copy-to-clipboard:hover {
 }
 
 pre {
-  position: relative;
   color: rgb(105, 115, 134);
   padding: 1.2em 1.2em;
   margin: 1em 0em;
