@@ -48,112 +48,114 @@
   <div id="alertPlaceholder"></div>
 </div>
 <script>
-  // Recursive function to convert JSON to XML
-  function jsonToXml(json, nodeName) {
-    var xml = "";
-    if (Array.isArray(json)) {
-      for (var i = 0; i < json.length; i++) {
-        xml += jsonToXml(json[i], nodeName);
-      }
-    } else if (typeof json === "object" && json !== null) {
-      if (nodeName) {
-        xml += "<" + nodeName + ">";
-      }
-      for (var key in json) {
-        if (json.hasOwnProperty(key)) {
-          xml += jsonToXml(json[key], key);
+  window.onload = function () {
+    // Recursive function to convert JSON to XML
+    function jsonToXml(json, nodeName) {
+      var xml = "";
+      if (Array.isArray(json)) {
+        for (var i = 0; i < json.length; i++) {
+          xml += jsonToXml(json[i], nodeName);
+        }
+      } else if (typeof json === "object" && json !== null) {
+        if (nodeName) {
+          xml += "<" + nodeName + ">";
+        }
+        for (var key in json) {
+          if (json.hasOwnProperty(key)) {
+            xml += jsonToXml(json[key], key);
+          }
+        }
+        if (nodeName) {
+          xml += "</" + nodeName + ">";
+        }
+      } else {
+        if (nodeName) {
+          xml += "<" + nodeName + ">" + json + "</" + nodeName + ">";
+        } else {
+          xml += json;
         }
       }
-      if (nodeName) {
-        xml += "</" + nodeName + ">";
-      }
-    } else {
-      if (nodeName) {
-        xml += "<" + nodeName + ">" + json + "</" + nodeName + ">";
-      } else {
-        xml += json;
-      }
+      return xml;
     }
-    return xml;
-  }
-  // Function to format XML string with indentation
-  function formatXml(xml) {
-    var formatted = '';
-    var reg = /(>)(<)(\/*)/g;
-    xml = xml.replace(reg, '$1\n$2$3');
-    var pad = 0;
-    xml.split('\n').forEach(function(node) {
-      var indent = 0;
-      if (node.match(/.+<\/\w[^>]*>$/)) {
-        indent = 0;
-      } else if (node.match(/^<\/\w/)) {
-        if (pad !== 0) {
-          pad -= 1;
+    // Function to format XML string with indentation
+    function formatXml(xml) {
+      var formatted = '';
+      var reg = /(>)(<)(\/*)/g;
+      xml = xml.replace(reg, '$1\n$2$3');
+      var pad = 0;
+      xml.split('\n').forEach(function(node) {
+        var indent = 0;
+        if (node.match(/.+<\/\w[^>]*>$/)) {
+          indent = 0;
+        } else if (node.match(/^<\/\w/)) {
+          if (pad !== 0) {
+            pad -= 1;
+          }
+        } else if (node.match(/^<\w[^>]*[^\/]>.*$/)) {
+          indent = 1;
+        } else {
+          indent = 0;
         }
-      } else if (node.match(/^<\w[^>]*[^\/]>.*$/)) {
-        indent = 1;
-      } else {
-        indent = 0;
-      }
-      var padding = new Array(pad + 1).join('  ');
-      formatted += padding + node + '\n';
-      pad += indent;
-    });
-    return formatted.trim();
-  }
-  $(document).ready(function() {
-    // Convert JSON to formatted XML on button click
-    $("#convertBtn").click(function() {
-      $("#alertPlaceholder").empty();
-      $("#output").removeClass("text-danger").text("");
-      var jsonStr = $("#jsonInput").val();
-      try {
-        var jsonObj = JSON.parse(jsonStr);
-        var rawXml = jsonToXml(jsonObj, "root");
-        // Include the XML declaration and format the XML output
-        var xmlResult = '<?xml version="1.0" encoding="UTF-8" ?>\n' + formatXml(rawXml);
-        $("#output").text(xmlResult);
-      } catch (e) {
-        $("#output").addClass("text-danger").text("Invalid JSON: " + e.message);
-        showAlert("danger", "Invalid JSON: " + e.message);
-      }
-    });
-    // Copy XML output to clipboard
-    $("#copyBtn").click(function() {
-      var xmlText = $("#output").text();
-      if(xmlText.trim() !== "" && !xmlText.includes("Invalid JSON")) {
-        navigator.clipboard.writeText(xmlText).then(function() {
-          showAlert("success", "XML copied to clipboard!");
-        }, function() {
-          showAlert("danger", "Failed to copy XML.");
-        });
-      }
-    });
-    // Download XML output as a file
-    $("#downloadBtn").click(function() {
-      var xmlText = $("#output").text();
-      if(xmlText.trim() !== "" && !xmlText.includes("Invalid JSON")) {
-        var blob = new Blob([xmlText], { type: 'text/xml' });
-        var link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "converted.xml";
-        link.click();
-      }
-    });
-    $("#clearBtn").click(function() {
-      $("#jsonInput").val("");
-      $("#output").removeClass("text-danger").text("Your formatted XML will appear here...");
-    });
-    // Function to display alert messages
-    function showAlert(type, message) {
-      var alertHtml = '<div class="alert alert-' + type + ' alert-dismissible fade show" role="alert">' +
-                      message +
-                      '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                      '<span aria-hidden="true">&times;</span>' +
-                      '</button></div>';
-      $("#alertPlaceholder").html(alertHtml);
+        var padding = new Array(pad + 1).join('  ');
+        formatted += padding + node + '\n';
+        pad += indent;
+      });
+      return formatted.trim();
     }
-  });
+    $(document).ready(function() {
+      // Convert JSON to formatted XML on button click
+      $("#convertBtn").click(function() {
+        $("#alertPlaceholder").empty();
+        $("#output").removeClass("text-danger").text("");
+        var jsonStr = $("#jsonInput").val();
+        try {
+          var jsonObj = JSON.parse(jsonStr);
+          var rawXml = jsonToXml(jsonObj, "root");
+          // Include the XML declaration and format the XML output
+          var xmlResult = '<?xml version="1.0" encoding="UTF-8" ?>\n' + formatXml(rawXml);
+          $("#output").text(xmlResult);
+        } catch (e) {
+          $("#output").addClass("text-danger").text("Invalid JSON: " + e.message);
+          showAlert("danger", "Invalid JSON: " + e.message);
+        }
+      });
+      // Copy XML output to clipboard
+      $("#copyBtn").click(function() {
+        var xmlText = $("#output").text();
+        if(xmlText.trim() !== "" && !xmlText.includes("Invalid JSON")) {
+          navigator.clipboard.writeText(xmlText).then(function() {
+            showAlert("success", "XML copied to clipboard!");
+          }, function() {
+            showAlert("danger", "Failed to copy XML.");
+          });
+        }
+      });
+      // Download XML output as a file
+      $("#downloadBtn").click(function() {
+        var xmlText = $("#output").text();
+        if(xmlText.trim() !== "" && !xmlText.includes("Invalid JSON")) {
+          var blob = new Blob([xmlText], { type: 'text/xml' });
+          var link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = "converted.xml";
+          link.click();
+        }
+      });
+      $("#clearBtn").click(function() {
+        $("#jsonInput").val("");
+        $("#output").removeClass("text-danger").text("Your formatted XML will appear here...");
+      });
+      // Function to display alert messages
+      function showAlert(type, message) {
+        var alertHtml = '<div class="alert alert-' + type + ' alert-dismissible fade show" role="alert">' +
+                        message +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">&times;</span>' +
+                        '</button></div>';
+        $("#alertPlaceholder").html(alertHtml);
+      }
+    });
+  }
 </script>
 <style>
   .card-body {
