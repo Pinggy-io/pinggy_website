@@ -1,0 +1,48 @@
+{{ define "main" }}
+<main>
+  <div
+    class="row justify-content-center"
+    style="max-width: 800px; margin: 0 auto"
+  >
+    <div class="col-12 col-md-12">
+      <header>
+        <h1 class="display-4">Tools</h1>
+      </header>
+      <hr />
+      <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+      {{.Content}}
+      <ul class="m-0 p-0">
+        <!-- orders content according to the "date" field in front matter -->
+        {{ range .Paginator.Pages.ByDate.Reverse }}
+        <article>
+          <!-- this <div> includes the title summary -->
+          <div>
+            <a
+              href="{{ .RelPermalink }}"
+              class="text-decoration-none text-dark"
+            >
+            </a>
+            <div class="d-flex flex-row">
+              <div class="ms-2">
+                {{ range (.GetTerms "tags") }}
+                <span class="badge bg-secondary">{{ .LinkTitle }}</span>
+                {{ end }}
+              </div>
+            </div>
+            <div class="my-2">{{ .Summary }}</div>
+          </div>
+          {{ if .Truncated }}
+          <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+          <div>
+            <a href="{{ .RelPermalink }}" class="text-dark">Read More…</a>
+          </div>
+          {{ end }}
+        </article>
+        <hr />
+        {{ end }}
+      </ul>
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </div>
+</main>
+{{ end }}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{- partial "analytics.html" . -}}
+    {{- partial "header.html" . -}}
+    {{- partial "seoindex.html" . -}}
+  </head>
+
+  <body>
+    {{- partial "navbar.html" .}} 
+    <div class="contentcontainer">
+      {{- block "main" . }}{{- end }}
+  </div>
+    {{- partial
+    "footer.html" . -}}
+  </body>
+
+  {{- partial "jslibraries.html" . -}}
+
+  <!-- PAGE SPECIFIC JS -->
+  {{- block "pagespecificjs" . }}{{- end }}
+</html>
