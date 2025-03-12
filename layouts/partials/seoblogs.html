@@ -8,10 +8,14 @@
 
 {{ $metaDescription := .Params.description }} {{ if not $metaDescription }} {{
 $metaDescription = .Summary }} {{ end }}
+
+{{ $siteName := .Params.sitename }} {{ if not $siteName }} {{
+  $siteName = "Pinggy Blog" }} {{ end }}
+
 <meta name="description" content="{{ $metaDescription }}" />
 <meta property="og:description" content="{{ $metaDescription }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:site_name" content="Pinggy Blog" />
+<meta property="og:site_name" content="{{ $siteName }}" />
 <meta
   property="article:published_time"
   content='{{.Date.Format "2006-01-02"}}T14:07:59+00:00'
@@ -29,10 +33,10 @@ $metaDescription = .Summary }} {{ end }}
 {{ else }}
 <meta property="og:image" content="https://pinggy.io/assets/pinggy_og_img.jpg" />
 {{ end }}
-<meta name="author" content="Pinggy Blog" />
+<meta name="author" content="{{ $siteName }}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:label1" content="Written by" />
-<meta name="twitter:data1" content="Pinggy Blog" />
+<meta name="twitter:data1" content="{{ $siteName }}" />
 <meta name="twitter:label2" content="Est. reading time" />
 <meta
   name="twitter:data2"

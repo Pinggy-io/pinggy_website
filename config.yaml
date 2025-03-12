@@ -68,7 +68,6 @@ menus:
     - name: Help
       url: /help/
       weight: 150
-
   # - name: Terms of Service
   #   url: /Terms_of_Service
   #   weight: 110

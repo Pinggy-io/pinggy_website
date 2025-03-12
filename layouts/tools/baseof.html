@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{- partial "analytics.html" . -}}
+    {{- partial "header.html" . -}}
+    <link href="/css/tools.css" rel="stylesheet" />
+    {{- partial "seoblogs.html" . -}}
+  </head>
+
+  <body>
+    {{- partial "navbar.html" .}} 
+    <div class="contentcontainer">
+      <div class="container py-3 contentcontainer maincontent">
+        <div class="row flex-nowrap row justify-content-evenly">
+          <div class="col-lg-12 toolcontent">
+            {{- block "main" . }}{{- end }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{- partial "footer.html" . -}}
+  </body>
+
+  {{- partial "jslibraries.html" . -}}
+
+  <!-- PAGE SPECIFIC JS -->
+  {{- block "pagespecificjs" . }}{{- end }}
+</html>
