@@ -21,6 +21,7 @@
               href="{{ .RelPermalink }}"
               class="text-decoration-none text-dark"
             >
+            <h1 class="h2">{{ .Title }}</h1>
             </a>
             <div class="d-flex flex-row">
               <div class="ms-2">
@@ -34,7 +35,7 @@
           {{ if .Truncated }}
           <!-- This <div> includes a read more link, but only if the summary is truncated... -->
           <div>
-            <a href="{{ .RelPermalink }}" class="text-dark">Read More…</a>
+            <a href="{{ .RelPermalink }}" class="text-dark">Use the tool</a>
           </div>
           {{ end }}
         </article>

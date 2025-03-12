@@ -1,21 +1,17 @@
 ---
-title: "JSON to XML Converter - Free & Online Tool"
+title: "JSON to XML Converter - Free Online Tool"
 description: "Easily convert JSON to XML with this free online tool. Fast, accurate, and user-friendly JSON to XML converter for developers and data processing."
 date: 2025-03-10T01:15:25+05:30
 draft: false
+sitename: Pinggy
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwOi8vc2NoZW1hLm9yZyIsCiAgIkB0eXBlIjogIldlYkFwcGxpY2F0aW9uIiwKICAibmFtZSI6ICJKU09OIHRvIFhNTCBDb252ZXJ0ZXIiLAogICJ1cmwiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vdG9vbHMvanNvbl90b194bWwvIiwKICAiZGVzY3JpcHRpb24iOiAiRnJlZSBvbmxpbmUgSlNPTiB0byBYTUwgQ29udmVydGVyIHRoYXQgaXMgZmFzdCwgYWNjdXJhdGUsIGFuZCB1c2VyLWZyaWVuZGx5LiIsCiAgImFwcGxpY2F0aW9uQ2F0ZWdvcnkiOiAiRGV2ZWxvcGVyVG9vbCIsCiAgIm9wZXJhdGluZ1N5c3RlbSI6ICJBbGwiCn0KPC9zY3JpcHQ+"
-og_image: "images/json_to_xml/json_to_xml_og_image.webp"
+og_image: "tool_img/json_to_xml/json_to_xml_og_image.webp"
 ---
 <div class="container">
-  <div class="row mb-3">
-    <div class="col-12">
-      <h1 class="mb-3">JSON to XML Converter</h1>
-      <p class="lead">Convert your JSON into a well-formatted XML. Simply paste your JSON in the left panel and click convert!</p>
-    </div>
-  </div>
+  <p class="lead">Convert your JSON into a well-formatted XML. Simply paste your JSON in the left panel and click convert!</p>
   <div class="row">
     <!-- JSON Input Card -->
-    <div class="col-lg-6 mb-4 d-flex">
+    <div class="col-lg-6 mb-6 d-flex">
       <div class="card flex-fill shadow-sm">
         <div class="card-header">
           <strong>JSON Input</strong>
@@ -29,7 +25,7 @@ og_image: "images/json_to_xml/json_to_xml_og_image.webp"
       </div>
     </div>
     <!-- XML Output Card -->
-    <div class="col-lg-6 mb-4 d-flex">
+    <div class="col-lg-6 mb-6 d-flex">
       <div class="card flex-fill shadow-sm">
         <div class="card-header">
           <strong>XML Output</strong>
@@ -44,6 +40,8 @@ og_image: "images/json_to_xml/json_to_xml_og_image.webp"
         </div>
       </div>
     </div>
+  </div>
+</div>
 <section id="seo-content" class="mt-2">
   <div class="container">
     <h2>About Our Free JSON to XML Converter</h2>

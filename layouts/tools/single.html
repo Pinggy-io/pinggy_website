@@ -1,10 +1,9 @@
 {{ define "main" }}
-
-<h1 class="display-6 mb-4 d-flex justify-content-center">{{.Title}}</h1>
-
+<h1 class="display-6 mb-4" id="tooltitle">{{.Title}}</h1>
 
 <div class="row justify-content-center">
-  <hr class="mt-3" />
-  <div class="col-12 col-lg-12 blogbody">{{ .Content}}</div>
+  <div class="col-12 col-lg-12 toolbody">{{ .Content}}</div>
 </div>
-{{ end }} {{ define "pagespecificjs" }} {{ end }}
+{{ end }}
+
+{{ define "pagespecificjs" }} {{ end }}
