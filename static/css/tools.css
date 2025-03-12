@@ -1,0 +1,58 @@
+body {
+  font-family: Uncut Sans, sans-serif;
+  background-image: linear-gradient(to bottom, #effaff8c, #ffffff 11em),
+    url(../assets/header_grid2.png);
+  background-repeat: repeat;
+}
+
+.toolcontent {
+  text-align: justify;
+}
+
+.toolcontent h1,
+.toolcontent h2,
+.toolcontent h3,
+.toolcontent h4,
+.toolcontent h5,
+.toolcontent h6 {
+  text-align: left;
+}
+.toolcontent p {
+  hyphens: auto;
+}
+
+.toolcontent a {
+  hyphens: auto;
+  word-break: break-all;
+}
+
+.toolbody {
+  text-align: justify;
+}
+.toolbody p,
+.toolbody li {
+  line-height: 1.7rem;
+}
+
+.toolcontent img {
+  max-width: 100%;
+  padding: 1em 0.8em;
+  border-radius: 1%;
+}
+
+.toolbody h2 {
+  margin-top: 2rem;
+}
+.toolbody h3 {
+  margin-top: 1.5rem;
+}
+
+#tooltitle {
+  text-align: center;
+  font-size: calc(2.4rem + 1.5vw);
+}
+
+blockquote {
+  border-left: rgb(237, 237, 237) 3px solid;
+  padding-left: 0.8rem;
+}
