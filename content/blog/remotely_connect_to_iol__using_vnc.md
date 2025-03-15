@@ -60,7 +60,7 @@ Enter your VNC password to connect and access your IoT desktop remotely.
 
 #### (Optional) Step 1: Install Desktop Environment  
 
-If you want to visualize your IoT device's interface remotely, you can install a graphical desktop environment. **XFCE** is highly recommended due to its lightweight nature, making it suitable for IoT devices:  
+If you want to visualize your IoT device's interface remotely, you can install a graphical desktop environment. Some Linux distributions, like Ubuntu Server, do not come with a GUI by default. In that case, you can install XFCE, which is highly recommended due to its lightweight nature, making it suitable for IoT devices:
 
 ```bash
 sudo apt update && sudo apt upgrade -y  
