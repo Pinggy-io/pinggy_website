@@ -28,7 +28,7 @@ Hosting your {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app on 
      ```bash
      ssh -p 443 -R0:localhost:3000 a.pinggy.io
      ```
-   - Access your Next.js app via the provided [Pinggy](https://pinggy.io) public URL.
+    - Access your Next.js app via the provided [Pinggy](https://pinggy.io) public URL (e.g., `https://your-app.pinggy.link`).
 {{% /tldr %}}
 
 {{< iframe src="https://www.youtube.com/embed/Di72BacDylw" title="YouTube video player" >}}
@@ -45,19 +45,16 @@ Hosting your {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app on 
 
 Whether you’re prototyping a landing page, building a full e‑commerce storefront, or developing a complex dashboard, Next.js accelerates development while enforcing best practices.
 
-## What Is Pinggy?
+## Sharing Your Local Next.js App
 
-[Pinggy](https://pinggy.io) is a lightweight SSH‑based tunneling tool that securely exposes a local port to the internet via a publicly accessible URL. Unlike traditional cloud deployments or reverse‑proxy services, Pinggy requires zero configuration beyond a single terminal command ideal for:
+When developing a {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} application, you can run it on your local machine (localhost), but there's a common challenge: others cannot access your local development server. This limitation exists because of network constraints like {{< link href="https://en.wikipedia.org/wiki/Carrier-grade_NAT " >}}CGNAT{{< /link >}} (Carrier-Grade NAT), firewalls, and standard NAT configurations that prevent direct incoming connections to your device.
 
-- Live demos to clients  
-- Webhook development & testing  
-- Remote device/UAT access  
-- Ad hoc QA sessions  
+Traditional solutions involve deploying your app to cloud services, but this approach is often:
+- Time-consuming, requiring configuration and build processes
+- Expensive, especially for temporary sharing needs
+- Overkill for simple demos or quick feedback sessions
 
-### Features of Pinggy:
-- **Ease of Use**: Minimal configuration required.
-- **Secure Tunnels**: Data is transmitted securely using SSH.
-- **Customization**: Offers options like custom domains and password protection for enhanced control.
+Using [Pinggy](http://pinggy.io), you can create a secure tunnel that instantly makes your locally-hosted {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} application accessible to anyone on the internet no complex configuration or cloud deployments required.
 
 ## Prerequisites
 -  **Node.js and npm**: Installed on your system. You can download it from {{< link href="https://nodejs.org/" >}}Node.js official website{{< /link >}}.
