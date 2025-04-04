@@ -21,31 +21,37 @@ Encountering the `ERR_NAME_NOT_RESOLVED` error can be frustrating and disruptive
 1. **Double Check the URL**  
    - Make sure there are no typos, spaces, or extra characters in the website address.
 
-2. **Restart Your Router**  
-   - Turn off your router, wait 30 seconds, and then power it back on.
+Here's a cleaner, manager-style summary of that point:
+
+2. **Verify DNS Resolution via Command Line**  
+- Use command-line tools to ensure DNS is working properly:
+
+   - **Windows:**  
+  `nslookup example.com`, `ping example.com`, or `Resolve-DnsName example.com` (PowerShell)
+
+   - **Linux/macOS:**  
+  `dig example.com`, `nslookup example.com`, `host example.com`, or `ping example.com`
+
+   These commands help quickly identify DNS or connectivity issues.
 
 3. **Clear DNS Cache**  
    - Flush your DNS cache to remove outdated data.  
      - **Windows**: `ipconfig /flushdns`  
      - **macOS**: `sudo dscacheutil -flushcache`
-
 4. **Change DNS Servers**  
    - Switch to Google DNS or Cloudflare DNS for faster and more reliable resolution.  
      - Google DNS: `8.8.8.8` and `8.8.4.4`
-
 5. **Clear Browser Cache and Cookies**  
    - Clear your browser’s cache and cookies to fix DNS issues caused by stored data.
-
 6. **Disable Browser Prediction Services**  
    - Disable Chrome’s "Preload pages" setting to prevent interference with DNS.
-
 7. **Check Your Firewall and Antivirus Settings**  
    - Temporarily disable firewall/antivirus to check if they're blocking DNS queries.
-
 8. **Verify Your Hosts File**  
    - Ensure there are no incorrect entries in your system’s hosts file.
-
 {{% /tldr %}}
+
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/error_flowchat.png" "FlowChat" >}}
 
 
 ## What Causes ERR_NAME_NOT_RESOLVED?
@@ -71,16 +77,42 @@ Before diving into technical fixes, ensure the website address you’ve typed is
 
 {{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/pinggy_site_ss.webp" "Url Check ScreenShot" >}}
 
-#### 2. Restart Your Router
-Sometimes network issues, such as connectivity drops or DNS failures, can be resolved by restarting your router. This is particularly effective if your router has been running for a long period without a reset.
+#### 2. **Verify DNS Resolution**  
+   - Check if DNS resolution is functioning correctly by querying it from the command line:
 
-**Solution**:
-- Turn off your router and unplug it from the power source.
-- Wait for at least 30 seconds to allow it to reset.
-- Plug the router back in and power it on.
-- Wait for the router to fully start up before testing the connection again.
+     **Windows (Command Prompt or PowerShell):**
+     - Using `nslookup`:
+       ```sh
+       nslookup example.com
+       ```
+     - Using `ping` (for basic resolution):
+       ```sh
+       ping example.com
+       ```
+     - Using `Resolve-DnsName` (PowerShell only):
+       ```powershell
+       Resolve-DnsName example.com
+       ```
 
-This simple process clears minor network glitches and can help resolve the issue.
+     **Linux (Terminal):**
+     - Using `dig` (most detailed):
+       ```sh
+       dig example.com
+       ```
+     - Using `nslookup`:
+       ```sh
+       nslookup example.com
+       ```
+     - Using `host`:
+       ```sh
+       host example.com
+       ```
+     - Using `ping` (for basic resolution):
+       ```sh
+       ping example.com
+       ```
+
+   These commands help confirm whether DNS resolution is functioning correctly and can identify if the issue lies with DNS settings or connectivity.
 
 #### 3. Clear DNS Cache
 Your computer stores DNS information in a local cache to speed up future visits to websites. However, if this cache becomes outdated or corrupt, it can cause the `ERR_NAME_NOT_RESOLVED` error. Clearing the DNS cache forces your device to obtain fresh DNS information from your DNS server.
@@ -189,6 +221,11 @@ Regularly review your firewall and antivirus configurations to prevent accidenta
 - **DNS Jumper**: An easy-to-use tool that helps quickly switch between DNS providers, improving browsing speed and reliability.
 
 By following these comprehensive steps, you'll effectively resolve and prevent `ERR_NAME_NOT_RESOLVED` errors, ensuring smooth and uninterrupted internet browsing.
+
+## Fixing ERR_NAME_NOT_RESOLVED Errors for Pinggy URLs
+
+[Pinggy](https://pinggy.io) dynamically assigns DNS records when a tunnel is created. This means that if your browser queries the URL before the tunnel is fully set up, you may encounter the `ERR_NAME_NOT_RESOLVED` error. However, the Time-To-Live (TTL) for Pinggy's DNS records is only 10 seconds. As a result, after waiting for around 10 to 15 seconds, refreshing the page should resolve the issue and allow the URL to load successfully.
+
 
 ### Conclusion
 The `ERR_NAME_NOT_RESOLVED` error can be caused by a variety of factors, from simple typing mistakes to more complex network or DNS configuration problems. By following the above step-by-step troubleshooting methods, you can resolve most issues and get back to browsing without interruptions.
