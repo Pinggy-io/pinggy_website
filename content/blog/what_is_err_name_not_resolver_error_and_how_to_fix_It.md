@@ -4,14 +4,14 @@ description: "Learn about the ERR_NAME_NOT_RESOLVED error, its causes, and detai
 date: 2025-04-03T14:00:00+05:30
 draft: false
 tags: ["DNS", "Error Fix", "ERR_NAME_NOT_RESOLVED", "Troubleshooting", "Web Development"]
-og_image: "images/what_is_err_name_not_resolver_error_and_how_to_fix_It/err_name_not_resolver_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiRml4IEVSUl9OQU1FX05PVF9SRVNPTFZFRCBFcnJvciIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byByZXNvbHZlIHRoZSBFUlJfTkFNRV9OT1RfUkVTT0xWRUQgZXJyb3IsIGluY2x1ZGluZyBjaGVja2luZyBVUkwsIHJlc3RhcnRpbmcgcm91dGVyLCBjbGVhcmluZyBETlMgY2FjaGUsIGFuZCBtb3JlLiIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJEb3VibGUgQ2hlY2sgdGhlIFVSTCIsCiAgICAgICJ0ZXh0IjogIkNhcmVmdWxseSByZXZpZXcgdGhlIHdlYnNpdGUgYWRkcmVzcyBmb3IgYW55IHR5cG9zLCBhZGRpdGlvbmFsIHNwYWNlcywgb3IgY2hhcmFjdGVycy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiUmVzdGFydCBZb3VyIFJvdXRlciIsCiAgICAgICJ0ZXh0IjogIlR1cm4gb2ZmIHlvdXIgcm91dGVyLCB3YWl0IDMwIHNlY29uZHMsIHRoZW4gdHVybiBpdCBiYWNrIG9uIHRvIHJlc2V0IHlvdXIgbmV0d29yay4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ2xlYXIgRE5TIENhY2hlIiwKICAgICAgInRleHQiOiAiRmx1c2ggeW91ciBETlMgY2FjaGUgdG8gcmVtb3ZlIG91dGRhdGVkIGluZm9ybWF0aW9uIHRoYXQgbWlnaHQgY2F1c2UgdGhlIGVycm9yLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJDaGFuZ2UgRE5TIFNlcnZlcnMiLAogICAgICAidGV4dCI6ICJTd2l0Y2ggdG8gcmVsaWFibGUgRE5TIHNlcnZlcnMgbGlrZSBHb29nbGUgRE5TIG9yIENsb3VkZmxhcmUgRE5TIGZvciBpbXByb3ZlZCByZXNvbHV0aW9uLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJDbGVhciBCcm93c2VyIENhY2hlIGFuZCBDb29raWVzIiwKICAgICAgInRleHQiOiAiQ2xlYXIgeW91ciBicm93c2Vy4oCZcyBjYWNoZSBhbmQgY29va2llcyB0byByZW1vdmUgcG90ZW50aWFsbHkgcHJvYmxlbWF0aWMgZGF0YS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiRGlzYWJsZSBCcm93c2VyIFByZWRpY3Rpb24gU2VydmljZXMiLAogICAgICAidGV4dCI6ICJEaXNhYmxlIHByZWxvYWRpbmcgYW5kIHByZWRpY3Rpb24gc2VydmljZXMgaW4geW91ciBicm93c2VyIHNldHRpbmdzIHRvIHJlc29sdmUgcG90ZW50aWFsIGNvbmZsaWN0cy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ2hlY2sgWW91ciBGaXJld2FsbCBhbmQgQW50aXZpcnVzIFNldHRpbmdzIiwKICAgICAgInRleHQiOiAiVGVtcG9yYXJpbHkgZGlzYWJsZSBmaXJld2FsbCBvciBhbnRpdmlydXMgdG8gY2hlY2sgaWYgdGhleSBhcmUgYmxvY2tpbmcgRE5TIHRyYWZmaWMuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlZlcmlmeSBZb3VyIEhvc3RzIEZpbGUiLAogICAgICAidGV4dCI6ICJFbnN1cmUgeW91ciBzeXN0ZW3igJlzIGhvc3RzIGZpbGUgZG9lcyBub3QgY29udGFpbiBpbmNvcnJlY3QgZG9tYWluIG1hcHBpbmdzIHRoYXQgYmxvY2sgYWNjZXNzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
+og_image: "images/what_is_err_name_not_resolver_error_and_how_to_fix_it/err_name_not_resolver_banner.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiRml4IEVSUl9OQU1FX05PVF9SRVNPTFZFRCBFcnJvciIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byByZXNvbHZlIHRoZSBFUlJfTkFNRV9OT1RfUkVTT0xWRUQgZXJyb3IsIGluY2x1ZGluZyBjaGVja2luZyBVUkwsIHJlc3RhcnRpbmcgcm91dGVyLCBjbGVhcmluZyBETlMgY2FjaGUsIGFuZCBtb3JlLiIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJEb3VibGUgQ2hlY2sgdGhlIFVSTCIsCiAgICAgICJ0ZXh0IjogIkNhcmVmdWxseSByZXZpZXcgdGhlIHdlYnNpdGUgYWRkcmVzcyBmb3IgYW55IHR5cG9zLCBhZGRpdGlvbmFsIHNwYWNlcywgb3IgY2hhcmFjdGVycy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiVmVyaWZ5IEROUyBSZXNvbHV0aW9uIiwKICAgICAgInRleHQiOiAiQ2hlY2sgd2hldGhlciB5b3VyIGRldmljZSBjYW4gcmVzb2x2ZSBkb21haW4gbmFtZXMgdG8gSVAgYWRkcmVzc2VzIGJ5IHRlc3RpbmcgZGlmZmVyZW50IHdlYnNpdGVzIG9yIHVzaW5nIEROUyBkaWFnbm9zdGljIHRvb2xzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJDbGVhciBETlMgQ2FjaGUiLAogICAgICAidGV4dCI6ICJGbHVzaCB5b3VyIEROUyBjYWNoZSB0byByZW1vdmUgb3V0ZGF0ZWQgaW5mb3JtYXRpb24gdGhhdCBtaWdodCBjYXVzZSB0aGUgZXJyb3IuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNoYW5nZSBETlMgU2VydmVycyIsCiAgICAgICJ0ZXh0IjogIlN3aXRjaCB0byByZWxpYWJsZSBETlMgc2VydmVycyBsaWtlIEdvb2dsZSBETlMgb3IgQ2xvdWRmbGFyZSBETlMgZm9yIGltcHJvdmVkIHJlc29sdXRpb24uIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNsZWFyIEJyb3dzZXIgQ2FjaGUgYW5kIENvb2tpZXMiLAogICAgICAidGV4dCI6ICJDbGVhciB5b3VyIGJyb3dzZXLigJlzIGNhY2hlIGFuZCBjb29raWVzIHRvIHJlbW92ZSBwb3RlbnRpYWxseSBwcm9ibGVtYXRpYyBkYXRhLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJEaXNhYmxlIEJyb3dzZXIgUHJlZGljdGlvbiBTZXJ2aWNlcyIsCiAgICAgICJ0ZXh0IjogIkRpc2FibGUgcHJlbG9hZGluZyBhbmQgcHJlZGljdGlvbiBzZXJ2aWNlcyBpbiB5b3VyIGJyb3dzZXIgc2V0dGluZ3MgdG8gcmVzb2x2ZSBwb3RlbnRpYWwgY29uZmxpY3RzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJDaGVjayBZb3VyIEZpcmV3YWxsIGFuZCBBbnRpdmlydXMgU2V0dGluZ3MiLAogICAgICAidGV4dCI6ICJUZW1wb3JhcmlseSBkaXNhYmxlIGZpcmV3YWxsIG9yIGFudGl2aXJ1cyB0byBjaGVjayBpZiB0aGV5IGFyZSBibG9ja2luZyBETlMgdHJhZmZpYy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiVmVyaWZ5IFlvdXIgSG9zdHMgRmlsZSIsCiAgICAgICJ0ZXh0IjogIkVuc3VyZSB5b3VyIHN5c3RlbeKAmXMgaG9zdHMgZmlsZSBkb2VzIG5vdCBjb250YWluIGluY29ycmVjdCBkb21haW4gbWFwcGluZ3MgdGhhdCBibG9jayBhY2Nlc3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlVzZSBuc2xvb2t1cCBvciBkaWcgQ29tbWFuZCIsCiAgICAgICJ0ZXh0IjogIlJ1biAnbnNsb29rdXAgZXhhbXBsZS5jb20nIG9yICdkaWcgZXhhbXBsZS5jb20nIGluIHlvdXIgdGVybWluYWwgb3IgY29tbWFuZCBwcm9tcHQgdG8gY2hlY2sgaWYgRE5TIGlzIHJlc29sdmluZyBjb3JyZWN0bHkuIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/err_name_not_resolver_banner.webp" "err_name_not_resolver_banner" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/err_name_not_resolver_banner.webp" "err_name_not_resolver_banner" >}}
 
 Encountering the `ERR_NAME_NOT_RESOLVED` error can be frustrating and disruptive, particularly when you're trying to access an important or urgent website. This error is displayed by browsers such as {{< link href="https://www.google.com/chrome/dr/download/" >}}Chrome{{< /link >}}, {{< link href="https://www.mozilla.org/en-US/firefox/windows/" >}}Firefox{{< /link >}}, and {{< link href="https://www.microsoft.com/en-us/edge/download?form=MA13FJ" >}}Edge{{< /link >}} when the Domain Name System (DNS) fails to translate a domain name into its corresponding Internet Protocol (IP) address. DNS is a fundamental service that translates human-friendly website addresses (URLs) into numerical IP addresses that computers understand. When DNS resolution fails, browsers can't establish a connection, resulting in the `ERR_NAME_NOT_RESOLVED` error.
 
@@ -51,7 +51,7 @@ Here's a cleaner, manager-style summary of that point:
    - Ensure there are no incorrect entries in your system’s hosts file.
 {{% /tldr %}}
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/error_flowchat.png" "FlowChat" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/error_flowchat.png" "FlowChat" >}}
 
 
 ## What Causes ERR_NAME_NOT_RESOLVED?
@@ -75,7 +75,7 @@ Before diving into technical fixes, ensure the website address you’ve typed is
 
 **Solution**: Carefully check the URL for any errors or unnecessary spaces. If possible, try accessing the website using a different device to verify that the issue is not due to a typo.
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/pinggy_site_ss.webp" "Url Check ScreenShot" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/pinggy_site_ss.webp" "Url Check ScreenShot" >}}
 
 #### 2. **Verify DNS Resolution**  
    - Check if DNS resolution is functioning correctly by querying it from the command line:
@@ -94,7 +94,7 @@ Before diving into technical fixes, ensure the website address you’ve typed is
        Resolve-DnsName example.com
        ```
 
-     **Linux (Terminal):**
+     **Linux/Mac (Terminal):**
      - Using `dig` (most detailed):
        ```sh
        dig example.com
@@ -114,6 +114,10 @@ Before diving into technical fixes, ensure the website address you’ve typed is
 
    These commands help confirm whether DNS resolution is functioning correctly and can identify if the issue lies with DNS settings or connectivity.
 
+   If DNS lookup is successful, the output will display the resolved IP address of the domain (e.g., `Name: example.com Address: 93.184.216.34`).
+
+  If DNS lookup fails, the output will indicate an error such as `Non-existent domain`, `NXDOMAIN`, or `connection timed out; no servers could be reached`.
+
 #### 3. Clear DNS Cache
 Your computer stores DNS information in a local cache to speed up future visits to websites. However, if this cache becomes outdated or corrupt, it can cause the `ERR_NAME_NOT_RESOLVED` error. Clearing the DNS cache forces your device to obtain fresh DNS information from your DNS server.
 
@@ -127,7 +131,7 @@ Your computer stores DNS information in a local cache to speed up future visits 
   2. Type `sudo dscacheutil -flushcache` and press Enter.
   3. You may be asked to enter your administrator password.
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/terminal_ss.webp" "Clear DNS Cache" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/terminal_ss.webp" "Clear DNS Cache" >}}
 
 After clearing the cache, retry visiting the website.
 
@@ -149,7 +153,7 @@ If the default DNS server you are using is slow or unreliable, switching to a di
      - `8.8.8.8` (Google DNS)
      - `8.8.4.4` (Google DNS)
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/wifi_ss.webp" "Change DNS Servers" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/wifi_ss.webp" "Change DNS Servers" >}}
 
 This change forces your device to use a new DNS provider for resolving domain names.
 
@@ -160,7 +164,7 @@ Your browser’s cache and cookies can sometimes interfere with DNS resolution. 
 - Open your browser settings, go to Privacy or History settings, and clear browsing data, including cached images, cookies, and other site data.
 - Restart your browser and try to visit the website again.
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/cached_file_clean.webp" "Clear Browser Cache and Cookies" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/cached_file_clean.webp" "Clear Browser Cache and Cookies" >}}
 
 
 #### 6. Disable Browser Prediction Services
@@ -173,7 +177,7 @@ Browsers like {{< link href="https://www.google.com/chrome/dr/download/" >}}Chro
 
 Disabling this setting can stop {{< link href="https://www.google.com/chrome/dr/download/" >}}Chrome{{< /link >}} from attempting to pre-resolve websites that might conflict with DNS settings.
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/perload_pages.webp" "Disable Browser Prediction Services" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/perload_pages.webp" "Disable Browser Prediction Services" >}}
 
 #### 7. Check Your Firewall and Antivirus Settings
 In some cases, your firewall or antivirus software might block DNS queries, causing the error. Disabling your firewall or antivirus temporarily can help determine if they are the cause.
@@ -197,7 +201,7 @@ The hosts file on your computer contains mappings of IP addresses to domain name
   2. Review the file and remove any incorrect mappings.
   3. Save the file and exit (press `CTRL + X`, then `Y` to confirm, and `Enter`).
 
-{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_It/etc_host_terminal.webp" "Verify Your Hosts File" >}}
+{{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/etc_host_terminal.webp" "Verify Your Hosts File" >}}
 
 Once the hosts file is corrected, try reloading the website.
 
@@ -224,7 +228,7 @@ By following these comprehensive steps, you'll effectively resolve and prevent `
 
 ## Fixing ERR_NAME_NOT_RESOLVED Errors for Pinggy URLs
 
-[Pinggy](https://pinggy.io) dynamically assigns DNS records when a tunnel is created. This means that if your browser queries the URL before the tunnel is fully set up, you may encounter the `ERR_NAME_NOT_RESOLVED` error. However, the Time-To-Live (TTL) for Pinggy's DNS records is only 10 seconds. As a result, after waiting for around 10 to 15 seconds, refreshing the page should resolve the issue and allow the URL to load successfully.
+[Pinggy](https://pinggy.io) dynamically assigns [DNS records](https://pinggy.io/blog/scaling_across_multiple_regions/) when a tunnel is created. This means that if your browser queries the URL before the tunnel is fully set up, you may encounter the `ERR_NAME_NOT_RESOLVED` error. However, the Time-To-Live (TTL) for Pinggy's DNS records is only 10 seconds. As a result, after waiting for around 10 to 15 seconds, refreshing the page should resolve the issue and allow the URL to load successfully.
 
 
 ### Conclusion
