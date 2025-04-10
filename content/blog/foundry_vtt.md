@@ -1,5 +1,5 @@
 ---
-title: "Foundry VTT"
+title: "Foundry VTT Self Hosting Guide"
 description: "Learn how to effortlessly host Foundry VTT online with Pinggy in just minutes, without downloading software or configuring network settings."
 date: 2025-04-08T14:00:00+05:30
 draft: false
@@ -10,6 +10,7 @@ outputs:
   - HTML
   - AMP
 ---
+
 {{< image "foundry_vtt/banner.webp" "Banner Image" >}}
 
 
@@ -19,20 +20,19 @@ In this comprehensive guide, I’ll provide detailed steps on how to effortlessl
 
 {{% tldr %}}
 1. **Run Foundry VTT Locally**
-   - Launch your Foundry VTT server locally on port `3000`:
-     ```bash
-     # Navigate to your Foundry VTT folder and launch the app
-     cd /path/to/foundryvtt
-     ./FoundryVTT
+   - Launch the Foundry VTT application as you normally would. By default, it runs on port `30000`.
+   - Check the local network address in Foundry under:
      ```
-   - Verify Foundry is running:
+     Game Access > Invitation Links
      ```
-     http://localhost:3000
+     It will look something like:
+     ```
+     http://10.123.1.136:30000
      ```
 2. **Create a Tunnel with Pinggy**
    - Start the Pinggy SSH tunnel (no software installation required):
      ```bash
-     ssh -p 443 -R0:localhost:3000 a.pinggy.io
+     ssh -p 443 -R0:localhost:30000 a.pinggy.io
      ```
    - Share the provided public URL `https://abc123xyz.a.pinggy.link` from [Pinggy](https://pinggy.io) with your players to instantly connect to your Foundry session.
 {{% /tldr %}}
@@ -47,16 +47,15 @@ This makes Pinggy perfect for quick sessions, easy demonstrations, gaming, or te
 
 ### Step 1: Launch Your Foundry VTT Server Locally
 
-Before creating your public URL, you must first ensure your Foundry VTT instance is running locally on your machine. By default, Foundry runs on port `3000`.
+To begin, ensure your Foundry VTT instance is running on your local machine. By default, Foundry operates on port `30000`.
 
-- Start your Foundry VTT application normally.
-- Verify it's running by opening your browser and navigating to:
+1. **Start the Foundry VTT Application**
+Launch the Foundry VTT application as you normally would.
 
-```bash
-http://localhost:3000
-```
+2. **Check Local Network Access**
+Navigate to `Game Access > Invitation Links` within the Foundry interface. Here, you’ll see the local network address where Foundry is running, such as:`http://10.123.1.136:30000`
 
-You should see your Foundry VTT login page or welcome screen.
+{{< image "foundry_vtt/foundry_vtt_home_page.webp" "foundry vtt homepage" >}}
 
 #### Quick Tip for Testing (Optional):
 
@@ -65,10 +64,10 @@ If you want to test Pinggy without launching Foundry first, you can quickly spin
 Open your terminal or command prompt, and run:
 
 ```bash
-python3 -m http.server 3000
+python3 -m http.server 30000
 ```
 
-This will create a simple web server accessible at `http://localhost:3000`.
+This will create a simple web server accessible at `http://localhost:30000`.
 
 ### Step 2: Create a Public URL Using Pinggy (Single SSH Command)
 
@@ -79,11 +78,11 @@ Next, you’ll create a public tunnel to your local Foundry VTT instance using P
 Open your terminal (macOS/Linux) or PowerShell (Windows) and run:
 
 ```bash
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:30000 a.pinggy.io
 ```
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 a.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"}}}"
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:30000 a.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 {{< image "foundry_vtt/pinggy_command.webp" "Pinggy Command" >}}
@@ -91,7 +90,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 **Explanation of this command:**
 
 - `-p 443`: Uses port 443 for SSH, ensuring compatibility through most firewalls.
-- `-R0:localhost:3000`: Requests Pinggy to forward connections from a random public URL to your local port `3000`.
+- `-R0:localhost:30000`: Requests Pinggy to forward connections from a random public URL to your local port `30000`.
 - `a.pinggy.io`: Connects to Pinggy's tunneling server.
 
 #### Example Output:
@@ -128,7 +127,7 @@ Pinggy provides an intuitive, web-based dashboard to monitor and manage your tun
 Use your Pinggy access token with your SSH command to link this tunnel directly to your Pinggy dashboard for convenient management:
 
 ```bash
-ssh -p 443 -R0:localhost:3000 -t yourAccessToken@a.pinggy.io
+ssh -p 443 -R0:localhost:30000 -t yourAccessToken@a.pinggy.io
 ```
 
 **Replace** `yourAccessToken` with the actual token obtained from your dashboard.
@@ -144,7 +143,7 @@ To further secure your Foundry VTT session, Pinggy supports Basic Authentication
 Execute the following command to enable password-protected access to your Foundry VTT:
 
 ```bash
-ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password
+ssh -p 443 -R0:localhost:30000 -t a.pinggy.io b:username:password
 ```
 
 - Replace `username` and `password` with your desired credentials.

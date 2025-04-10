@@ -205,6 +205,29 @@ The hosts file on your computer contains mappings of IP addresses to domain name
 
 Once the hosts file is corrected, try reloading the website.
 
+### Step 1: Launch Your Foundry VTT Server Locally
+
+To begin, ensure your Foundry VTT instance is running on your local machine. By default, Foundry operates on port `30000`.
+
+1. **Start the Foundry VTT Application**  
+   Launch the Foundry VTT application as you normally would.
+
+2. **Check Local Network Access**  
+   Navigate to `Game > Access > Local Network` within the Foundry interface. Here, you’ll see the local network address where Foundry is running, such as:
+
+   ```bash
+   http://10.123.1.136:30000
+   ```
+
+3. **Verify the Server is Running**  
+   Open your web browser and go to:
+
+   ```bash
+   http://localhost:30000
+   ```
+
+   If everything is set up correctly, you should see the Foundry VTT login page or welcome screen.
+
 ## How to Prevent ERR_NAME_NOT_RESOLVED Errors in the Future
 
 ### Regularly Update Software and Drivers
