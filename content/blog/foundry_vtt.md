@@ -5,7 +5,7 @@ date: 2025-04-08T14:00:00+05:30
 draft: false
 tags: ["Foundry VTT", "Pinggy", "Self-hosting", "Gaming", "Remote Hosting"]
 og_image: "images/foundry_vtt/banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlF1aWNrbHkgU2VsZi1Ib3N0IEZvdW5kcnkgVlRUIHdpdGggUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGVhc2lseSBob3N0aW5nIHlvdXIgRm91bmRyeSBWVFQgc2Vzc2lvbnMgb25saW5lIHVzaW5nIFBpbmdneSwgd2l0aCBubyBzb2Z0d2FyZSBpbnN0YWxsYXRpb24gb3IgY29tcGxleCBuZXR3b3JrIGNvbmZpZ3VyYXRpb24gcmVxdWlyZWQuIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkxhdW5jaCB5b3VyIEZvdW5kcnkgVmlydHVhbCBUYWJsZXRvcCBhcHBsaWNhdGlvbiBsb2NhbGx5IG9uIHlvdXIgY29tcHV0ZXIgYW5kIGVuc3VyZSBpdCBpcyBydW5uaW5nIG9uIDxwb3J0PiBFZy4zMDAwIC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVmVyaWZ5IEZvdW5kcnkgVlRUIGlzIHJ1bm5pbmcgYnkgb3BlbmluZyB5b3VyIGJyb3dzZXIgYXQgaHR0cDovL2xvY2FsaG9zdDozMDAwMC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgc2VjdXJlIHB1YmxpYyBVUkwgdXNpbmcgUGluZ2d5IGJ5IGV4ZWN1dGluZyB0aGUgY29tbWFuZDogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMwMDAwMCBhLnBpbmdneS5pby4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29weSB0aGUgcHVibGljIFVSTCBodHRwczovL2FiYzEyM3h5ei5hLnBpbmdneS5saW5rIGdlbmVyYXRlZCBieSBQaW5nZ3kgYW5kIHNoYXJlIGl0IHdpdGggeW91ciBwbGF5ZXJzIHRvIGpvaW4geW91ciBGb3VuZHJ5IFZUVCBnYW1lLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlF1aWNrbHkgU2VsZi1Ib3N0IEZvdW5kcnkgVlRUIHdpdGggUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGVhc2lseSBob3N0aW5nIHlvdXIgRm91bmRyeSBWVFQgc2Vzc2lvbnMgb25saW5lIHVzaW5nIFBpbmdneSwgd2l0aCBubyBzb2Z0d2FyZSBpbnN0YWxsYXRpb24gb3IgY29tcGxleCBuZXR3b3JrIGNvbmZpZ3VyYXRpb24gcmVxdWlyZWQuIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkxhdW5jaCB5b3VyIEZvdW5kcnkgVmlydHVhbCBUYWJsZXRvcCBhcHBsaWNhdGlvbiBsb2NhbGx5IG9uIHlvdXIgY29tcHV0ZXIgYW5kIGVuc3VyZSBpdCBpcyBydW5uaW5nIG9uIDxwb3J0PiBFZy4zMDAwMCAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlZlcmlmeSBGb3VuZHJ5IFZUVCBpcyBydW5uaW5nIGJ5IG9wZW5pbmcgeW91ciBicm93c2VyIGF0IGh0dHA6Ly9sb2NhbGhvc3Q6MzAwMDAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIHNlY3VyZSBwdWJsaWMgVVJMIHVzaW5nIFBpbmdneSBieSBleGVjdXRpbmcgdGhlIGNvbW1hbmQ6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDozMDAwMCBhLnBpbmdneS5pby4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29weSB0aGUgcHVibGljIFVSTCBodHRwczovL2FiYzEyM3h5ei5hLnBpbmdneS5saW5rIGdlbmVyYXRlZCBieSBQaW5nZ3kgYW5kIHNoYXJlIGl0IHdpdGggeW91ciBwbGF5ZXJzIHRvIGpvaW4geW91ciBGb3VuZHJ5IFZUVCBnYW1lLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -39,7 +39,7 @@ In this comprehensive guide, I’ll provide detailed steps on how to effortlessl
 
 ## What Exactly is Pinggy?
 
-[Pinggy](https://pinggy.io) is a robust, easy-to-use tunneling tool that lets you instantly create secure, publicly accessible URLs for your locally hosted applications (such as Foundry VTT). Unlike alternatives like {{< link href="https://ngrok.com" >}}ngrok{{< /link >}}, Pinggy doesn't require any software downloads. Instead, it works directly via a single, straightforward SSH command from your terminal or command prompt.
+[Pinggy](https://pinggy.io) is a robust, easy-to-use tunneling tool that lets you instantly create secure, publicly accessible URLs for your locally hosted applications (such as Foundry VTT). Pinggy doesn't require any software downloads. Instead, it works directly via a single, straightforward SSH command from your terminal or command prompt.
 
 This makes Pinggy perfect for quick sessions, easy demonstrations, gaming, or testing purposes.
 
@@ -76,10 +76,6 @@ Next, you’ll create a public tunnel to your local Foundry VTT instance using P
 #### Execute the Following Command:
 
 Open your terminal (macOS/Linux) or PowerShell (Windows) and run:
-
-```bash
-ssh -p 443 -R0:localhost:30000 a.pinggy.io
-```
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:30000 a.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"}}}"
