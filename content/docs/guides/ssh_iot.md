@@ -7,19 +7,43 @@
 
 # SSH IoT device from anywhere
 
-## The challenge of remote access
+## Understanding the Challenge
 
-SSH follows a client-server model — the SSH server runs on your IoT device (like a Raspberry Pi) and the SSH client runs on your laptop or PC. The SSH server listens on TCP port 22 by default.
+SSH follows a client-server model the SSH server runs on your IoT device (like a Raspberry Pi) and the SSH client runs on your laptop or PC. The SSH server listens on TCP port 22 by default.
 
-However, if your IoT device is behind a NAT router, firewall, or CGNAT (Carrier-Grade NAT), you won't be able to access it directly from the internet without port forwarding. This is a common challenge when trying to remotely access devices that don't have a public IP address.
+If your IoT device is behind NAT, a firewall, or CGNAT, you won't be able to access it remotely without port forwarding. Pinggy solves this problem by providing remote access to your devices without requiring port forwarding.
 
-## Solution: Pinggy tunnels
+## Using Pinggy for Remote SSH Access
 
-With Pinggy, you can SSH into your Raspberry Pi and other similar IoT devices from anywhere without port forwarding or complex configuration.
+Pinggy provides a secure and reliable method to remotely access your IoT devices, including:
+- Raspberry Pi
+- Banana Pi
+- Orange Pi
+- NanoPi NEO
+- Odroid
+- Rock Pi
+- NVIDIA Jetson Nano
+- And other similar devices
 
-You need to <a target="_blank" href="https://dashboard.pinggy.io">sign in to Pinggy</a> to create TCP tunnels.
+Even if your device doesn't have a public IP address, Pinggy enables you to establish an SSH connection from anywhere in the world. Pinggy offers a free tier that allows remote access to your devices.
 
-Once you sign in, you will be presented a dashboard where you will find your access token.
+### Free Access Option
+
+On your IoT device, open a terminal and run the following command:
+
+```
+ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+```
+
+This command establishes a secure connection to the Pinggy server, creating a tunnel that forwards traffic from the server to your IoT device's SSH port (22).
+
+{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to SSH server:" portstring="SSH server Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
+
+### Using Your Pinggy Account
+
+For more features, you can <a target="_blank" href="https://dashboard.pinggy.io">sign in to Pinggy</a> to create TCP tunnels with your account.
+
+Once signed in, you'll find your access token in the dashboard:
 
 Example:
 
@@ -27,29 +51,27 @@ Example:
 b0b87d56-653f-45fb-98d9-8e43779c9081
 ```
 
-Create a tunnel to you IoT device, just use a single command as follows.
-
-On your IoT device, run the following command to start a tunnel to port `22` and with token `b0b87d56-653f-45fb-98d9-8e43779c9081`:
-<br>
+Then create a tunnel to your IoT device using your token:
 
 ```
 ssh -p 443 -R0:localhost:22 b0b87d56-653f-45fb-98d9-8e43779c9081+tcp@a.pinggy.io
 ```
 
-_Replace `8000` with the port where your service is running_.
-
 _Replace `b0b87d56-653f-45fb-98d9-8e43779c9081` with your own token from the dashboard._
 
-This will give you a public URL like:
+## Connecting to Your Device
+
+After running the tunneling command, you'll receive a public URL like:
 
 ```
-tcp://tljocjkijs.a.pinggy.link:40527
+tcp://rnrwn-14-139-241-214.a.free.pinggy.link:43141
+```
+{{< image "iot/public_url.webp" "Public URL" >}}
+
+Using this public URL and port, you can SSH into your device with:
+
+```
+ssh -p 43141 username@rnrwn-14-139-241-214.a.free.pinggy.link
 ```
 
-Given this public URL and port you can now ssh into your device using the command:
-
-```
-ssh -p 40527 username@tljocjkijs.a.pinggy.link
-```
-
-Replace the `username` with the username of the IoT device, and use the url and port from the output of the first ssh command.
+Replace `username` with the username of your IoT device, and use the URL and port from the output of the tunneling command.
