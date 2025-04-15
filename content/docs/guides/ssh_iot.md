@@ -7,7 +7,15 @@
 
 # SSH IoT device from anywhere
 
-Your IoT device such as Raspberry Pi does not have a public IP address? No problem, with Pinggy you can ssh into your Raspberry Pi and other similar IoT devices from anywehere.
+## The challenge of remote access
+
+SSH follows a client-server model — the SSH server runs on your IoT device (like a Raspberry Pi) and the SSH client runs on your laptop or PC. The SSH server listens on TCP port 22 by default.
+
+However, if your IoT device is behind a NAT router, firewall, or CGNAT (Carrier-Grade NAT), you won't be able to access it directly from the internet without port forwarding. This is a common challenge when trying to remotely access devices that don't have a public IP address.
+
+## Solution: Pinggy tunnels
+
+With Pinggy, you can SSH into your Raspberry Pi and other similar IoT devices from anywhere without port forwarding or complex configuration.
 
 You need to <a target="_blank" href="https://dashboard.pinggy.io">sign in to Pinggy</a> to create TCP tunnels.
 
