@@ -7,41 +7,74 @@
 
 # SSH IoT device from anywhere
 
-Your IoT device such as Raspberry Pi does not have a public IP address? No problem, with Pinggy you can ssh into your Raspberry Pi and other similar IoT devices from anywehere.
 
-You need to <a target="_blank" href="https://dashboard.pinggy.io">sign in to Pinggy</a> to create TCP tunnels.
+SSH follows a client-server model the SSH server runs on your IoT device (like a Raspberry Pi) and the SSH client runs on your laptop or PC. The SSH server listens on TCP port 22 by default.
 
-Once you sign in, you will be presented a dashboard where you will find your access token.
+If your IoT device is behind NAT, a firewall, or CGNAT, you won't be able to access it remotely without port forwarding. Pinggy solves this problem by providing remote access to your devices without requiring port forwarding.
+
+
+Pinggy provides a secure and reliable method to remotely access your IoT devices, including: Raspberry Pi, Banana Pi, Orange Pi, NanoPi NEO, Odroid, Rock Pi, NVIDIA Jetson Nano, and other similar devices.
+
+Even if your device doesn't have a public IP address, Pinggy enables you to establish an SSH connection from anywhere in the world. Pinggy offers a free tier that allows remote access to your devices.
+
+### One command to get a public address for ssh:
+
+On your IoT device, open a terminal and run the following command:
+
+```bash
+ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+```
+
+This command establishes a secure connection to the Pinggy server, creating a tunnel that forwards traffic from the server to your IoT device's SSH port (22).
+
+{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to SSH server:" portstring="SSH server Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
+
+After running the tunneling command, you'll receive a public URL like:
+
+```
+tcp://rndnj-103-170-183-11.a.free.pinggy.online:37315
+```
+{{< image "iot/url.webp" "Public URL" >}}
+
+Using this public URL and port, you can SSH into your device with:
+
+```
+ssh -p 37315 username@rndnj-103-170-183-11.a.free.pinggy.online
+```
+
+Replace `username` with the username of your IoT device, and use the URL and port from the output of the tunneling command.
+
+
+### Using Your Pinggy Account
+
+For more features, you can <a target="_blank" href="https://dashboard.pinggy.io">sign in to Pinggy</a> to create TCP tunnels with your account.
+
+Once signed in, you'll find your access token in the dashboard:
 
 Example:
 
 ```
-b0b87d56-653f-45fb-98d9-8e43779c9081
+b0b87d56T
 ```
 
-Create a tunnel to you IoT device, just use a single command as follows.
-
-On your IoT device, run the following command to start a tunnel to port `22` and with token `b0b87d56-653f-45fb-98d9-8e43779c9081`:
-<br>
+Then create a tunnel to your IoT device using your token:
 
 ```
-ssh -p 443 -R0:localhost:22 b0b87d56-653f-45fb-98d9-8e43779c9081+tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 b0b87d56T+tcp@a.pinggy.io
 ```
 
-_Replace `8000` with the port where your service is running_.
+_Replace `b0b87d56T` with your own token from the dashboard._
 
-_Replace `b0b87d56-653f-45fb-98d9-8e43779c9081` with your own token from the dashboard._
-
-This will give you a public URL like:
+If you are subscribed to [Pinggy Pro](/#prices) plan, you will get a persistent address and port which will not change. Such as:
 
 ```
-tcp://tljocjkijs.a.pinggy.link:40527
+tcp://myraspberrypi.a.pinggy.link:43142
 ```
 
-Given this public URL and port you can now ssh into your device using the command:
+Using this public URL and port, you can SSH into your device with:
 
 ```
-ssh -p 40527 username@tljocjkijs.a.pinggy.link
+ssh -p 43142 username@myraspberrypi.a.pinggy.link
 ```
 
-Replace the `username` with the username of the IoT device, and use the url and port from the output of the first ssh command.
+Replace `username` with the username of your IoT device, and use the URL and port from the output of the tunneling command.
