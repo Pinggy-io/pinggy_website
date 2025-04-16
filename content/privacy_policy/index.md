@@ -84,7 +84,9 @@ We may also collect information that Your browser sends whenever You visit Pingg
 
 ### Tracking Technologies and Cookies
 
-We use Cookies and similar tracking technologies to track the activity on Pinggy Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Pinggy Service. The technologies We use may include:
+We use cookies to ensure that we give you the best experience on our website, and dashboard. If you continue to use this site and dashboard, we will assume that you are happy with it.
+
+We use Cookies and similar tracking technologies to support essential functionality and gather statistics on activity on Pinggy Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Pinggy Service. The technologies We use may include:
 
 - __Cookies or Browser Cookies.__ A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of Pinggy Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, Pinggy Service may use Cookies.
 
@@ -100,13 +102,15 @@ We use both Session and Persistent Cookies for the purposes set out below:
 	Administered by: Us
 
 	Purpose: These Cookies are essential to provide You with services available through the Website and Pinggy dashboard, and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.
+
 - __Cookies Policy / Notice Acceptance Cookies__
 
 	Type: Persistent Cookies
 
 	Administered by: Us
 
-	Purpose: These Cookies identify if users have accepted the use of cookies on the Website.
+	Purpose: These Cookies identify if users have accepted the notice about the use of cookies on the Website. We use cookies to ensure that we give you the best experience on our website. If you continue to use services of Pinggy, we will assume that you are happy with our cookie policy.
+
 - __Functionality Cookies__
 
 	Type: Persistent Cookies
@@ -115,9 +119,13 @@ We use both Session and Persistent Cookies for the purposes set out below:
 
 	Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website and Pinggy dashboard.
 
+- __Statistical Cookies__
 
-
-For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.
+	Type: Persistent Cookies  
+	
+	Administered by: Us (or third-party analytics providers, if applicable)
+	
+	Purpose: These cookies help us understand how users interact with the Website by collecting and reporting information anonymously. The data gathered allows us to analyze performance and improve our services.
 
 
 ## Use of Your Personal Data
