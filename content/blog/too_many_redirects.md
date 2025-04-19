@@ -11,8 +11,22 @@
   - AMP
 ---
 
-{{< image "too_many_redirects/too_many_redirects_banner.webp" "too many redirects banner" >}}
 If you've ever encountered a frustrating error message stating **Too Many Redirects** `ERR_TOO_MANY_REDIRECTS` or `This page has a redirect loop`, you're dealing with a common but troublesome web browsing issue. This comprehensive guide will help you understand what causes this error and provide practical solutions to fix it.
+
+
+## What Happens in a Redirect Loop?
+
+A redirect loop occurs when a web server keeps sending your browser back and forth between URLs with no resolution. Here's exactly what happens:
+
+1. Your browser sends a request to a URL (e.g., `/blog`)
+2. The server responds with a 302 redirect to another URL (e.g., `/blog/new`)
+3. Your browser follows this redirect and requests the new URL
+4. The server then redirects back to the original URL
+5. This cycle repeats, creating an endless loop
+
+After approximately 20 redirects, your browser detects this infinite pattern and breaks the cycle, displaying the `ERR_TOO_MANY_REDIRECTS` error to prevent your browser from being trapped in an endless loop.
+
+{{< image "too_many_redirects/too_many_redirect_sequence_diagram.webp" "too many redirect sequence diagram" >}}
 
 {{% tldr %}}
 1. **What is the `Too Many Redirects` Error?**  
