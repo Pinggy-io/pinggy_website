@@ -21,17 +21,31 @@ Let's start with basic ssh options:
 Detailed usages are available on `ssh` man page at <https://man.openbsd.org/ssh>
 
 ```
-ssh -p443 -R0:<localhost>:<localport> [<token/keyword/tunneltype>@]a.pinggy.io <remote options>
+ssh -p443 -R0:<localhost>:<localport> [-R<domain>:0:<localhost>:<localport>[ -R<domain>:0:<localhost>:<localport>...]] [<token/keyword/tunneltype>@]a.pinggy.io <remote options>
 ```
 
 <table markdown="1">
 <tr><td colspan=2>
--R remoteport:localaddress:localport
+-R [remote_address:]remote_port:local_address:local_port
 </td><tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
-Expose a local service running on localaddress:localport to remoteport. There are multiple variations of reverse tunneling. However, Pinggy supports only this version.
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td markdown="1">
+Expose a local service running on `local_address:local_port` to `remote_address:remote_port`. While there are multiple variations of reverse tunneling, Pinggy supports only this specific version.
 
-Pinggy ignores the remote port and assigns a domain name and port as per the subscription and tunnel type.
+By default, Pinggy ignores the provided remote port and assigns a domain name and port based on the subscription plan and tunnel type.
+
+Pinggy supports two types of reverse forwarding:
+
+1. **Default Forwarding:**
+   By default, Pinggy requires a single port to forward incoming requests—this is known as *default forwarding*. In this case, users should **not** provide any `remote_address`. Pinggy will forward all requests that do not match any *domain forwarding* rules.
+   - Only **one** *default forwarding* is allowed per session.
+   - Providing multiple *default forwardings* is **not supported**, and the behavior is undefined.
+
+2. **Domain Forwarding:**
+   Pinggy supports multiple port forwardings using *domain forwarding*. In this mode, users must provide a valid domain name (associated with their token) as the `remote_address`.
+   - Multiple *domain forwardings* are allowed. However, they are not effective without a *default forwarding*.
+   - *Domain forwarding* is particularly useful with wildcard domains.
+   - This mode is **not supported** for `TCP` and `UDP` tunnels.
+
 </td></tr>
 
 <tr><td colspan=2>
@@ -75,7 +89,7 @@ Pinggy uses remote command execution to enable advanced functionalities includin
 
 <tr><td>&nbsp</td></tr>
 <tr><td colspan=2>
--L <localport>:localhost:4300
+-L localport:localhost:4300
 </td><tr markdown="1">
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td markdown="1">
 
@@ -194,6 +208,19 @@ Pinggy provides `force` keyword to forcefully disconnect existing tunnel with th
 ssh -R0:localhost:<localport> <token>+force@a.pinggy.io
 ```
 It is useful only with token based connection.
+
+## Multiple Port Forwarding
+Pinggy supports multiple port forwarding via *Domain Forwarding*. This feature is available only for Pro tunnels. If a token has multiple domain names associated with it (e.g., via a wildcard custom domain), multiple port forwarding can be used to route requests for different domains to different ports.
+
+Let's assume that `*.example.com` is registered with the token `tkn`. We want to forward requests to `register.example.com` to port `8080`, while the rest of the requests should be forwarded to port `80`. We can use the following `ssh` command to set up these forwardings:
+
+{{< tabs >}}
+{{% tab name="With Token" %}}
+```
+ssh -R0:localhost:80 -Rregister.example.com:0:localhost:8080 tkn+qr@a.pinggy.io
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Command line options
 Pinggy has options to configure live HTTP header manipulation, HTTP authentication, and IP whitelisting in the command line only.
