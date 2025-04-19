@@ -217,7 +217,7 @@ Let's assume that `*.example.com` is registered with the token `tkn`. We want to
 {{< tabs >}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:80 -Rregister:0:localhost:8080 tkn+qr@a.pinggy.io
+ssh -R0:localhost:80 -Rregister.example.com:0:localhost:8080 tkn+qr@a.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
