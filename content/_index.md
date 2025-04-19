@@ -19,8 +19,8 @@ title: "Pinggy - Simple Localhost Tunnels"
     })"
 >
   <div class="container">
-    <div class="alert alert-warning p-1 text-center" role="alert">
-      You can now remotely manage your tunnels! <a href="/docs/remote_devices" target="_blank">Learn more.</a> 🚀
+    <div class="alert alert-primary p-1 text-center" role="alert">
+      Pinggy now supports <b>wildcard domains</b>! <a href="/docs/custom_domain" target="_blank">Learn more.</a> 🚀
     </div>
     <div class="row justify-content-evenly">
       <div class="col-lg-5">

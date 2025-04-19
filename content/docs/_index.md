@@ -37,3 +37,7 @@ https://fakqxzqrohxxx.a.pinggy.link
 ```
 
 You can access your localhost service using these URLs.
+
+#### Quickstart Recipes
+
+View our <a href="/quickstart/" target="_blank"><button type="button" class="btn btn-dark">Quickstart Recipes</button></a> to find the Pinggy configuration for your favourite app / service.

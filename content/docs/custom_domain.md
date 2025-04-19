@@ -7,7 +7,7 @@
 
 # Custom Domain
 
-With <a target="_blank" href="https://pinggy.io/#prices">Pinggy Pro</a> you can configure your own domain name, such as `www.mysite.com`, to access your tunnels. Pinggy also configures TLS certificates for you automatically. The certificates are provided by <a target="_blank" href="https://letsencrypt.org/">Let's Encrypt</a>.
+With <a target="_blank" href="https://pinggy.io/#prices">Pinggy Pro</a> you can configure your own domain name, such as `www.mysite.com` or `*.example.com`, to access your tunnels. Pinggy also configures TLS certificates for you automatically. The certificates are provided by <a target="_blank" href="https://letsencrypt.org/">Let's Encrypt</a>.
 
 
 ## Get your domain
@@ -24,6 +24,7 @@ Once you have upgraded to <a target="_blank" href="https://pinggy.io/#prices">Pi
 
 - Click on the **Configure** button for the token for which you want to set up the custom domain.
 - Enter your custom domain such as `app.example.com`. Then press the **Update** button.
+- You may also enter a wildcard custom domain such as `*.example.com`.
 - After that, you will get the **CNAME configuration instructions**, such as:
     > Add a CNAME record to `app.example.com` with target `ahsu9ol.a.pinggy.link` and then Validate.
 
