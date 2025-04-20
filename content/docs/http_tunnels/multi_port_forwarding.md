@@ -2,7 +2,8 @@
  title: "Multiple Port Forwarding" 
  description: "Share multiple ports with a single Pinggy tunnel through different subdomains. Configure a wildcard custom domain and host multiple websites and applications."
  date: 2025-04-18T01:15:25+05:30
- draft: false 
+ draft: false
+ og_image: "doc_img/multi_port.png"
 ---
 
 # Multiple Port Forwarding
