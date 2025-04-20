@@ -1,12 +1,12 @@
 ---
- title: "Support - Pinggy" 
+ title: "Help and Support - Pinggy" 
  date: 2022-12-02T14:15:25+05:30 
  draft: false 
 ---
 
 <div class="row" style="margin: 0 auto">
   <div class="col-lg-12 col-md-12 mb-4">
-    <h1>Support</h1>
+    <h1>Help and Support</h1>
     <p>
       Reach out to us over Email / Discord for support, issue reporting, feature requests, and feedback. We're here to help!
     </p>
