@@ -11,7 +11,7 @@ cover:
     caption: "Real-Time Log Monitoring with journalctl"
 ---
 
-## Key Commands at a Glance
+When troubleshooting Linux systems that use systemd, monitoring logs in real-time is essential for identifying and resolving issues quickly. The `journalctl` command with its `-f` parameter (short for "follow") provides this capability, showing logs continuously as they're generated—similar to the traditional `tail -f` command but with the powerful filtering capabilities of systemd's journal. This real-time monitoring lets you observe system behavior as it happens, catching errors and anomalies immediately.
 
 ```bash
 # Basic live log monitoring
@@ -23,8 +23,6 @@ journalctl -u service_name -f
 # Live monitoring with error level filtering
 journalctl -f -p err
 ```
-
-The `-f` parameter (short for "follow") tells journalctl to show logs continuously in real-time, similar to the `tail -f` command, but with the powerful filtering capabilities of systemd's journal.
 
 {{% tldr %}}
 
