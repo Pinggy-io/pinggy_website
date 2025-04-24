@@ -1,15 +1,18 @@
 ---
-title: "Real-Time Log Monitoring with journalctl -f: The Complete Guide"
+title: "journalctl tail – How to View journalctl Logs Live in Real-Time"
 date: 2025-04-21T10:00:00+00:00
 description: "Learn how to effortlessly stream, filter, and analyze system logs live using journalctl for efficient troubleshooting and monitoring."
 draft: false
 tags: ["journalctl tail","Linux", "System Administration", "DevOps", "Monitoring", "Troubleshooting"]
-ShowToc: true
-cover:
-    image: "/blog_img/journalctl_real_time_monitoring/cover.jpg"
-    alt: "Terminal showing real-time log monitoring with journalctl"
-    caption: "Real-Time Log Monitoring with journalctl"
+og_image: "images/journalctl_tail/journalctl_banner.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJUZWNoQXJ0aWNsZSIsCiAgImhlYWRsaW5lIjogImpvdXJuYWxjdGwgdGFpbCDigJMgSG93IHRvIFZpZXcgam91cm5hbGN0bCBMb2dzIExpdmUgaW4gUmVhbC1UaW1lIiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIGVmZm9ydGxlc3NseSBzdHJlYW0sIGZpbHRlciwgYW5kIGFuYWx5emUgc3lzdGVtIGxvZ3MgbGl2ZSB1c2luZyBqb3VybmFsY3RsIGZvciBlZmZpY2llbnQgdHJvdWJsZXNob290aW5nIGFuZCBtb25pdG9yaW5nLiIsCiAgImltYWdlIjogImltYWdlcy9qb3VybmFsY3RsX3RhaWwvam91cm5hbGN0bF9iYW5uZXIud2VicCIsCiAgImRhdGVQdWJsaXNoZWQiOiAiMjAyNS0wNC0yMVQxMDowMDowMCswMDowMCIsCiAgImF1dGhvciI6IHsKICAgICJAdHlwZSI6ICJPcmdhbml6YXRpb24iLAogICAgIm5hbWUiOiAiUGluZ2d5IiwKICAgICJ1cmwiOiAiaHR0cHM6Ly9waW5nZ3kuaW8iCiAgfSwKICAibWFpbkVudGl0eU9mUGFnZSI6IHsKICAgICJAdHlwZSI6ICJXZWJQYWdlIiwKICAgICJAaWQiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vYmxvZy9qb3VybmFsY3RsX3JlYWxfdGltZV9tb25pdG9yaW5nLyIKICB9LAogICJrZXl3b3JkcyI6IFsKICAgICJqb3VybmFsY3RsIHRhaWwiLAogICAgIkxpbnV4IiwKICAgICJTeXN0ZW0gQWRtaW5pc3RyYXRpb24iLAogICAgIkRldk9wcyIsCiAgICAiTW9uaXRvcmluZyIsCiAgICAiVHJvdWJsZXNob290aW5nIgogIF0sCiAgImFydGljbGVTZWN0aW9uIjogIlN5c3RlbSBBZG1pbmlzdHJhdGlvbiIsCiAgImFib3V0IjogewogICAgIkB0eXBlIjogIlRoaW5nIiwKICAgICJuYW1lIjogIkxpbnV4IFN5c3RlbSBMb2dnaW5nIgogIH0sCiAgImluTGFuZ3VhZ2UiOiAiZW4tVVMiLAogICJpc0FjY2Vzc2libGVGb3JGcmVlIjogdHJ1ZSwKICAibWVudGlvbnMiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJTb2Z0d2FyZUFwcGxpY2F0aW9uIiwKICAgICAgIm5hbWUiOiAiam91cm5hbGN0bCIsCiAgICAgICJhcHBsaWNhdGlvbkNhdGVnb3J5IjogIlN5c3RlbSBUb29sIiwKICAgICAgIm9wZXJhdGluZ1N5c3RlbSI6ICJMaW51eCIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJTb2Z0d2FyZUFwcGxpY2F0aW9uIiwKICAgICAgIm5hbWUiOiAic3lzdGVtZCIsCiAgICAgICJhcHBsaWNhdGlvbkNhdGVnb3J5IjogIlN5c3RlbSBUb29sIiwKICAgICAgIm9wZXJhdGluZ1N5c3RlbSI6ICJMaW51eCIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJTb2Z0d2FyZUFwcGxpY2F0aW9uIiwKICAgICAgIm5hbWUiOiAiR3JhZmFuYSIsCiAgICAgICJhcHBsaWNhdGlvbkNhdGVnb3J5IjogIk1vbml0b3JpbmcgVG9vbCIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJTb2Z0d2FyZUFwcGxpY2F0aW9uIiwKICAgICAgIm5hbWUiOiAiTmV3IFJlbGljIiwKICAgICAgImFwcGxpY2F0aW9uQ2F0ZWdvcnkiOiAiTW9uaXRvcmluZyBUb29sIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIlNvZnR3YXJlQXBwbGljYXRpb24iLAogICAgICAibmFtZSI6ICJEYXRhZG9nIiwKICAgICAgImFwcGxpY2F0aW9uQ2F0ZWdvcnkiOiAiTW9uaXRvcmluZyBUb29sIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
+outputs:
+  - HTML
+  - AMP
+
 ---
+
+{{< image "journalctl_tail/journalctl_banner.webp" "journalctl banner" >}}
 
 When troubleshooting Linux systems that use systemd, monitoring logs in real-time is essential for identifying and resolving issues quickly. The `journalctl` command with its `-f` parameter (short for "follow") provides this capability, showing logs continuously as they're generated—similar to the traditional `tail -f` command but with the powerful filtering capabilities of systemd's journal. This real-time monitoring lets you observe system behavior as it happens, catching errors and anomalies immediately.
 
@@ -19,6 +22,9 @@ journalctl -f
 
 # Live monitoring of specific service
 journalctl -u service_name -f
+
+# Example: Monitor the journal daemon itself
+journalctl -u systemd-journald.service -f
 
 # Live monitoring with error level filtering
 journalctl -f -p err
@@ -32,7 +38,7 @@ journalctl -f -p err
    journalctl -f
    
    # Monitor specific service
-   journalctl -u nginx -f
+   journalctl -u nginx.service -f
    ```
 
 2. **Filtering Options**
@@ -75,6 +81,8 @@ When troubleshooting issues in Linux systems using systemd, watching logs in rea
 journalctl -f
 ```
 
+{{< image "journalctl_tail/journalctl_f_command.webp" "journalctl -f" >}}
+
 This command displays new journal entries as they are added to the system journal, continuously streaming until interrupted with `Ctrl+C`. It's especially useful during service restarts, system updates, or when troubleshooting intermittent issues.
 
 ### Filtering by Service
@@ -92,6 +100,9 @@ journalctl -u nginx -f
 journalctl -u my-application.service -f
 ```
 
+{{< image "journalctl_tail/journalctl_u_ssh_f_command.webp" "journalctl -u ssh -f" >}}
+{{< image "journalctl_tail/journalctl_u_nginx_f.webp" "journalctl -u nginx -f" >}}
+
 This filtering is particularly valuable when:
 - Deploying new service configurations
 - Troubleshooting service failures
@@ -107,6 +118,8 @@ journalctl -u nginx -f
 # In terminal 2: Restart the service
 sudo systemctl restart nginx
 ```
+
+{{< image "journalctl_tail/nginx_restart_journalctl_command.webp" "Monitoring a Service During Restart" >}}
 
 With this approach, you can immediately see any startup issues, configuration problems, or error messages as the service initializes.
 
@@ -127,6 +140,8 @@ journalctl --since="2025-04-22 09:00:00" -f
 journalctl --since="1 hour ago" -f
 ```
 
+{{< image "journalctl_tail/journalctl_since_1_hour_ago_f.webp" "Time-Based Filtering" >}}
+
 The `--since` parameter accepts various time formats, including relative times like "yesterday", "2 days ago", or absolute timestamps.
 
 ### Limiting Initial Output
@@ -140,6 +155,7 @@ journalctl -n 20 -f
 # Show no past entries, only new ones (equivalent to --lines=0 -f)
 journalctl --no-tail -f
 ```
+{{< image "journalctl_tail/journalctl_n_20_f.webp" "Show the last 20 lines before starting real-time monitoring" >}}
 
 ### Combining Time Filters with Service Filters
 
@@ -152,6 +168,8 @@ journalctl -u nginx --since=boot -f
 # Show SSH logs from the past 30 minutes and continue monitoring
 journalctl -u ssh --since="30 min ago" -f
 ```
+
+{{< image "journalctl_tail/journalctl_u_ssh_since_30_min_ago_f.webp" " Show SSH logs from the past 30 minutes and continue monitoring" >}}
 
 This approach helps focus your troubleshooting on relevant time periods while maintaining real-time awareness.
 
@@ -214,6 +232,8 @@ When troubleshooting complex issues involving interactions between multiple serv
 journalctl -u nginx -u mysql -f
 ```
 
+{{< image "journalctl_tail/journalctl_u_nginx_u_mysql_f.webp" "Monitor both web server and database logs simultaneously" >}}
+
 This command combines logs from both services in a single chronological stream, making it easier to spot cause-and-effect relationships.
 
 ### Monitoring Service Groups
@@ -247,6 +267,8 @@ journalctl -u my-service -u dependent-service1 -u dependent-service2 -f
 journalctl -u nginx -u php-fpm -u redis -u postgres -f
 ```
 
+{{< image "journalctl_tail/journalctl_u_nginx_u_php_fpm_u_redis_u_postgres_f.webp" "Monitor the entire web application stack in real-time" >}}
+
 This approach provides a comprehensive view of your application's behavior across multiple components.
 
 ## Highlighting Logs from Multiple Services
@@ -269,6 +291,8 @@ The `ccze` utility provides automatic colorization of logs:
 # Install ccze first: sudo apt install ccze (Debian/Ubuntu)
 journalctl -u nginx -u mysql -f | ccze -A
 ```
+
+{{< image "journalctl_tail/journalctl_u_nginx_u_mysql_f_ccze_a.webp" "Using the `ccze` Tool" >}}
 
 ### Service-Specific Terminals
 
@@ -294,6 +318,7 @@ Journalctl supports various output formats that can be useful for both human rea
 # Stream logs in JSON format
 journalctl -f -o json
 ```
+{{< image "journalctl_tail/journalctl_f_o_json.webp" "JSON Output for Programmatic Processing" >}}
 
 This format is particularly useful for piping into tools like `jq` for further processing:
 
@@ -318,6 +343,8 @@ journalctl -f -o short-precise
 journalctl -f -o cat
 ```
 
+{{< image "journalctl_tail/journalctl_f_o_short.webp" "Short output format " >}}
+
 ### Customizing Timestamp Format
 
 For real-time monitoring with custom timestamps:
@@ -329,6 +356,8 @@ journalctl -f --output=short-iso
 # Show RFC 3339 format timestamps
 journalctl -f --output=short-precise
 ```
+
+{{< image "journalctl_tail/journalctl_f_output_short_precise.webp" "Show RFC 3339 format timestamps" >}}
 
 ### Practical Example: Creating a Custom Monitoring View
 
@@ -347,7 +376,7 @@ Real-time log monitoring in the terminal is helpful for immediate troubleshootin
 
 ### Sending Logs to Grafana Loki
 
-[Grafana Loki](https://grafana.com/oss/loki/) is a lightweight log aggregation system that pairs well with Grafana for visualization:
+{{< link href="https://grafana.com/oss/loki/" >}}Grafana Loki{{< /link >}} is a lightweight log aggregation system that pairs well with Grafana for visualization:
 
 ```bash
 # Install promtail to ship logs to Loki
@@ -377,7 +406,7 @@ scrape_configs:
 
 ### Integrating with Datadog
 
-[Datadog](https://www.datadoghq.com/) provides comprehensive monitoring including log management:
+{{< link href="https://www.datadoghq.com/" >}}Datadog{{< /link >}} provides comprehensive monitoring including log management:
 
 ```bash
 # Install the Datadog agent
@@ -396,7 +425,7 @@ logs:
 
 ### Setting Up New Relic Integration
 
-[New Relic](https://newrelic.com/) offers infrastructure and log monitoring solutions:
+{{< link href="https://newrelic.com/" >}}New Relic{{< /link >}} offers infrastructure and log monitoring solutions:
 
 ```bash
 # Install the New Relic infrastructure agent
