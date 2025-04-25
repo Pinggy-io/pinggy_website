@@ -1,5 +1,5 @@
 ---
-title: "journalctl tail – How to View journalctl Logs Live in Real-Time"
+title: "journalctl tail - How to View journalctl Logs Live in Real-Time"
 date: 2025-04-21T10:00:00+00:00
 description: "Learn how to effortlessly stream, filter, and analyze system logs live using journalctl for efficient troubleshooting and monitoring."
 draft: false
