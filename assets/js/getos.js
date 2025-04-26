@@ -7,6 +7,5 @@ function getOS() {
     else if (userAgent.includes("linux")) platform = "linux";
     else if (userAgent.includes("iphone") || userAgent.includes("ipad")) platform = "mac";
     else if (userAgent.includes("android")) platform = "linux";
-    console.log(platform);
     return platform;
 }

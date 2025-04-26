@@ -7,10 +7,8 @@ title: "Pinggy - Simple Localhost Tunnels"
   class="pt-1 contentcontainer"
   x-data="{ data : $store.advModal }"
   x-init="data.tryItYourself = JSON.parse(localStorage.getItem('tryItYourself')) || {
-        selectedOption: 'python',
-        label: 'You may start a local server using:',
-        command: 'python3 -m http.server',
-        port: '8000',
+        selectedProtocol: 'HTTP',
+        localaddress: 'localhost:8080',
         webdebugCheck: false,
         qrCheck: true
     };
@@ -78,87 +76,36 @@ title: "Pinggy - Simple Localhost Tunnels"
           </div>
         </div>
       </div>
-      <div class="col-lg-5 mt-3">
+      <div class="col-lg-5 mt-5">
         <div class="text-left card" id="bigcodecolumn">
           <div class="px-4">
-            <button
-              type="button"
-              class="btn btn-link text-decoration-none float-end"
-              data-bs-toggle="modal"
-              data-bs-target="#advancedModal"
-              id="advancedModalButton"
-            >
-              <i class="bi bi-gear"></i> Advanced Settings
-              <i class="bi bi-chevron-right" style="font-size: 0.8rem"></i>
-            </button>
-            <div class="input-group mb-4 pt-1">
-              <label class="input-group-text" id="tryityourselftext"
-                >Try it yourself with:</label
+            <h2 class="h5 mt-3">Configure your tunnel</h2>
+            <form class="mt-3">
+              <label for="localaddress" class="text-bold"
+                ><strong>Your local address:</strong></label
               >
-              <select
-                class="form-select"
-                id="techselect"
-                aria-label="Select technology"
-                x-model="data.tryItYourself.selectedOption"
-                x-on:change="data.updateLabelAndCommand()"
-              >
-                <option value="python">Python</option>
-                <option value="nodejs">Node.js</option>
-                <option value="reactjs">React.js</option>
-                <option value="nextjs">Next.js</option>
-                <option value="nginx">Apache / Nginx</option>
-                <option value="rails">Ruby on Rails</option>
-                <option value="laravel">Laravel / Symfony</option>
-                <option value="hugo">Hugo</option>
-              </select>
-            </div>
-            <label
-              class="text-bold"
-              id="tryityourselflabel"
-              x-text="data.tryItYourself.label"
-            ></label>
-            <div class="input-group mb-3" x-show="data.tryItYourself.command">
-              <input
-                id="tryityourselfprecommand"
-                type="text"
-                class="form-control"
-                aria-label="Command to start local server"
-                x-model="data.tryItYourself.command"
-                readonly
-              />
-              <button
-                class="btn btn-outline-dark"
-                type="button"
-                id="copybutton_tryityourself"
-                aria-label="Copy to Clipboard"
-                onclick="copytoclipboard(this,'#tryityourselfprecommand')"
-              >
-                <i class="bi bi-clipboard"></i>
-              </button>
-            </div>
-            <div
-              class="input-group mb-3"
-              x-show="!data.tryItYourself.command"
-            ></div>
-            <div
-              class="input-group mb-3"
-              x-show="!data.tryItYourself.command"
-            ></div>
-            <div
-              class="input-group mb-3"
-              x-show="!data.tryItYourself.command"
-            ></div>
-            <form>
-              <label for="portform" class="text-bold"
-                ><strong>Your local port:</strong></label
-              >
-              <input
-                class="form-control"
-                id="portform"
-                type="text"
-                :placeholder="data.tryItYourself.port"
-                x-model="data.tryItYourself.port"
-              />
+              <div class="input-group mt-2">
+                <div class="input-group-prepend">
+                  <select
+                    class="form-select"
+                    id="protocolSelect"
+                    x-model="data.tryItYourself.selectedProtocol"
+                    aria-label="Select protocol"
+                  >
+                    <option value="HTTP">HTTP</option>
+                    <option value="TCP">TCP</option>
+                    <option value="UDP">UDP</option>
+                  </select>
+                </div>
+                <input
+                  class="form-control"
+                  id="localaddress"
+                  type="text"
+                  :placeholder="data.tryItYourself.localaddress || 'localhost:8000'"
+                  x-model="data.tryItYourself.localaddress"
+                  aria-label="Local address"
+                />
+              </div>
             </form>
             <div class="mt-3 row">
               <div class="col-md-6">
@@ -196,8 +143,14 @@ title: "Pinggy - Simple Localhost Tunnels"
                 </span>
               </div>
             </div>
+            <div class="alert alert-warning mt-3 mb-0" x-show="$store.advModal.getError()" x-text="$store.advModal.getError()" role="alert">
+              A simple warning alert—check it out!
+            </div>
           </div>
           <div id="finalcommand" class="border-top mt-3 px-4 py-3">
+            <label class="text-bold mt-2" x-show="data.tryItYourself.selectedProtocol == 'UDP'">
+              <strong>First Download the <a target="_blank" href="/cli/">Pinggy CLI</a></strong><br>
+            </label>
             <label class="text-bold mt-2"
               ><strong>Paste this command to start tunnel:</strong></label
             >
@@ -232,6 +185,27 @@ title: "Pinggy - Simple Localhost Tunnels"
               <a href="http://localhost:4300" target="_blank"
                 >http://localhost:4300</a
               >
+            </div>
+            <div class="mt-3">
+            <button
+              type="button"
+              class="ml-1 btn btn-light text-decoration-none float-end border"
+              data-bs-toggle="modal"
+              data-bs-target="#advancedModal"
+              id="advancedModalButton"
+            >
+              <i class="bi bi-gear"></i> Advanced Settings
+              <i class="bi bi-chevron-right" style="font-size: 0.8rem"></i>
+            </button>
+            <a
+              href="/docs/"
+              target="_blank"
+              type="button"
+              class="mx-1 btn btn-light text-decoration-none float-end border"
+            >
+              <i class="bi bi-file-text"></i> Docs
+              <i class="bi bi-chevron-right" style="font-size: 0.8rem"></i>
+            </a>
             </div>
           </div>
         </div>

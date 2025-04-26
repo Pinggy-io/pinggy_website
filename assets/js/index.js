@@ -1,3 +1,8 @@
+const IPV6_HOSTNAME_REGEX = /^\[([A-Fa-f0-9:]+)](?::(\d{1,5}))?$/;
+const IPV4_HOSTNAME_REGEX =
+  /^((?:\d{1,3}\.){3}\d{1,3}|[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*)(?::(\d{1,5}))?$/;
+
+
 document.addEventListener("alpine:init", () => {
   const defaultHttpConfig = {
     localPort: 8000,
@@ -15,69 +20,122 @@ document.addEventListener("alpine:init", () => {
     httpConfig:
       JSON.parse(localStorage.getItem("httpConfig")) || defaultHttpConfig,
 
-    updateLabelAndCommand: function () {
-      const option = this.tryItYourself.selectedOption;
-      const optionInfo = {
-        python: {
-          label: "You may start a local server using:",
-          command: "python3 -m http.server",
-          port: "8000",
-        },
-        nodejs: {
-          label: "You may start a local server using:",
-          command: "npx http-server",
-          port: "8080",
-        },
-        reactjs: {
-          label: "You may start a React.js app using:",
-          command: "npx create-react-app app && cd app && npm start",
-          port: "3000",
-        },
-        nextjs: {
-          label: "You may start a Next.js app using:",
-          command: "npx create-next-app app && cd app && npm run dev",
-          port: "3000",
-        },
-        nginx: {
-          label: "Apache / Nginx by default runs at port 80",
-          command: "",
-          port: "80",
-        },
-        rails: {
-          label: "Rails development server runs on port 3000 by default",
-          command: "",
-          port: "3000",
-        },
-        laravel: {
-          label:
-            "Laravel / Symfony development server runs on port 8000 by default",
-          command: "",
-          port: "8000",
-        },
-        hugo: {
-          label: "Hugo development server runs on port 1313 by default",
-          command: "",
-          port: "1313",
-        },
-      };
+    parseLocalAddress: function () {
+      let config = this.tryItYourself;
+      let url = config.localaddress;
 
-      if (option in optionInfo) {
-        this.tryItYourself.label = optionInfo[option].label;
-        this.tryItYourself.command = optionInfo[option].command;
-        this.tryItYourself.port = optionInfo[option].port;
+      let protocol = config.selectedProtocol,
+        host = 'localhost',
+        port = 8000,
+        error = null,
+        warning = null;
+
+      if (!url || typeof url !== 'string') {
+        return { protocol, host, port, warning, error };
       }
+
+      // Split by "://"
+      const parts = url.split('://');
+      if (parts.length > 2) {
+        return { protocol, host, port, warning, error: 'Invalid URL format' };
+      }
+      if (parts.length == 2) {
+        protocol = parts[0].toLowerCase();
+        url = parts[1];
+      }
+      // Split by "/"
+      const urlparts = url.split('/');
+      if (urlparts.length > 1) {
+        url = urlparts[0];
+      }
+
+      if (url.includes('[') || url.includes(']')) {
+        // **IPv6 Parsing**
+        const match = url.match(IPV6_HOSTNAME_REGEX);
+        if (!match) {
+          return { protocol, host, port, warning, error: 'Invalid IPv6 format' };
+        }
+        host = `[${match[1]}]`;
+        port = match[2] ? parseInt(match[2], 10) : protocol;
+      } else if (url.includes(':')) {
+        // **IPv4 or Domain Parsing**
+        const match = url.match(IPV4_HOSTNAME_REGEX);
+        if (!match) {
+          return { protocol, host, port, warning, error: 'Invalid host format' };
+        }
+        host = match[1];
+        port = match[2] ? parseInt(match[2], 10) : protocol;
+      } else {
+        // No colon — could be port-only or a host without port
+        const parsedInt = parseInt(url, 10);
+
+        if (/[a-zA-Z]/.test(url)) {
+          host = url;
+        } else if (parsedInt >= 1 && parsedInt <= 65535) {
+          // Port-only, assume localhost
+          port = parsedInt;
+        } else {
+          host = url;
+          warning = 'Invalid port value, assuming it as hostname';
+        }
+      }
+
+      if (isNaN(port) || port < 1 || port > 65535) {
+        return {
+          protocol,
+          host,
+          port,
+          warning,
+          error: `Invalid port: "${port}"`,
+        };
+      }
+
+      return { protocol, host, port, warning, error };
     },
+
+    getError: function () {
+      let { protocol, host, port, warning, error }  = this.parseLocalAddress();
+      return error || warning
+    },
+
     tryItYourselfCommand: function () {
+
+      let { protocol, host, port, warning, error }  = this.parseLocalAddress();
       let config = this.tryItYourself;
 
+      // Hostnames
+      if(host === "localhost" && getOS() === "windows") {
+        host = "127.0.0.1";
+      }
       let localhostStr = getOS() === "windows" ? "127.0.0.1" : "localhost";
 
+      // User string
+      let userStr = "";
+      if(config.qrCheck) {
+        userStr = "qr";
+      }
+      if (config.selectedProtocol === "TCP") {
+        userStr = userStr + (userStr ? "+tcp" : "tcp")
+      }
+      if (config.selectedProtocol === "UDP") {
+        userStr = userStr + (userStr ? "+udp" : "udp")
+      }
+
+      // SSH / CLI
+      let program = config.selectedProtocol === "UDP" ? (getOS() === "windows" ? "pinggy.exe" : "./pinggy") : "ssh";
+
+      // Args
+      let args = "";
+      if(config.selectedProtocol === "HTTP" && protocol.toLowerCase() === "https") {
+        args = " x:localServerTls:" + host
+      }
+
       let command =
-        "ssh -p 443 -R0:" + localhostStr + ":" +
-        config.port +
+        program + " -p 443 -R0:" + host + ":" +
+        port +
         (config.webdebugCheck ? " -L4300:" + localhostStr + ":4300" : "") +
-        (config.qrCheck ? " qr@" : " ") +
-        "a.pinggy.io";
+        (userStr ? (" " + userStr + "@") : " ") +
+        "free.pinggy.io" + args;
 
       return command;
     },
@@ -205,7 +263,7 @@ $("#textchanger").teletype({
 });
 
 // OS detection script
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var userOS = getOS();
   var tabId = userOS + '-tab';
   var tabElement = document.getElementById(tabId);
