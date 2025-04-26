@@ -20,11 +20,36 @@ This will start a server at <a href="http://localhost:8000" target="_blank">http
 
 #### Step 2: Create a tunnel using a single command
 
-{{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\"}}}"
-{{</ ssh_command >}}
+{{< tabs >}}
+{{% tab name="SSH" %}}
+Open your terminal / command prompt and run the following to create a tunnel using SSH:
+
+```bash
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
+```
 
 Replace the port `8000` with the localhost port where your service is running.
+
+![SSH Tunnel Screenshot](/assets/ssh_tui_screenshot.png)
+{{% /tab %}}
+
+{{% tab name="CLI" %}}
+Download the Pinggy CLI from <a href="/cli" target="_blank">here</a> and run the following command:
+
+```bash
+./pinggy -p 443 -R0:localhost:8000
+```
+Replace the port `8000` with the localhost port where your service is running.
+
+![CLI Tunnel Screenshot](/assets/cli_tui.png)
+{{% /tab %}}
+
+{{% tab name="App" %}}
+Download the Pinggy App from <a href="/app" target="_blank">here</a> and follow the instructions to set up a tunnel for your localhost service.
+
+![Pinggy App Screenshot](/assets/app5.webp)
+{{% /tab %}}
+{{< /tabs >}}
 
 #### Step 3: Access through public URL
 
