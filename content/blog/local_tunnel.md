@@ -31,7 +31,7 @@ Change <kbd>8000</kbd> to your required port. Visit https://pinggy.io for more d
 **Local Tunnel Overview**  
 - Securely exposes your local services to the internet via a generated URL.  
 - Supports HTTP, TCP, and UDP, bypassing NAT, CGNAT, and firewalls.
-- Zero installation required - uses SSH which is available on all platforms.
+- Zero installation required - Pinggy uses SSH which is available on all platforms.
 
 **Benefits & Use Cases**  
 - **Rapid Setup:** One command to expose your local environment.  
@@ -109,6 +109,10 @@ Using [Pinggy](https://pinggy.io/) is the fastest way to set up a local tunnel. 
 
    {{< image "iot/url.webp" "Pinggy tunnel for T-Mobile home internet port forwarding" >}}
 
+## Using a VPS with SSH Port Forwarding
+
+If you want to set up a local tunnel from scratch, you can also rent a VPS and use SSH port forwarding to expose your local services. This involves setting up an SSH connection to the VPS and forwarding ports manually. While this method provides more control, it is more complex to configure and requires managing the VPS, firewall rules, and SSH keys. For most users, tools like Pinggy offer a simpler and faster solution.
+
 ## Benefits of Using Local Tunnels
 
 Local tunnels offer several key advantages:
@@ -137,10 +141,10 @@ Local tunnels are incredibly versatile and can be applied to various scenarios, 
 While local tunnels simplify connectivity, they also introduce some security challenges:
 
 - **Exposure of Sensitive Services:** By making your local services public, you risk exposing development tools or sensitive endpoints.  
-  **Mitigation:** Use authentication, restrict access with IP whitelisting, and ensure that no production data is exposed.
+  **Mitigation:** Use authentication, restrict access with <a target="_blank" href="/docs/http_tunnels/ip_whitelist/">IP whitelisting</a>, and ensure that no production data is exposed.
   
 - **Data Leakage:** Unsecured tunnels can inadvertently expose confidential or internal data.  
-  **Mitigation:** Always use encrypted tunnels (TLS/HTTPS) and avoid using real production data in your development environment.
+  **Mitigation:** Always use encrypted tunnels (TLS/HTTPS) and avoid using real production data in your development environment. Use <a target="_blank" href="/docs/http_tunnels/basic_auth/">basic authentication</a> or <a target="_blank" href="/docs/http_tunnels/key_auth/">bearer token</a> authentication for more security.
   
 - **Unauthorized Access:** A publicly accessible tunnel may attract unwanted attention, including brute-force or exploitation attempts.  
   **Mitigation:** Employ robust access tokens, use persistent subdomains through trusted dashboards (like Pinggy's), and monitor traffic for any suspicious activity.
