@@ -18,7 +18,7 @@ In today's AI landscape, running powerful language models locally gives you priv
 {{% tldr %}}
 
 1. **Install Ollama**  
-   - Download from [ollama.com/download](https://ollama.com/download) for your operating system
+   - Download from <a href="https://ollama.com/download" target="_blank">ollama.com/download</a> for your operating system
 2. **Get a DeepSeek-R1 Model**  
    ```bash
    # Choose the right size for your computer:
@@ -140,7 +140,7 @@ You can also use DeepSeek-R1 in your applications through the Ollama API:
 
 ## Sharing Your Model Online (Optional)
 
-If you want to share your DeepSeek-R1 model with others or access it remotely, you can use Pinggy:
+If you want to share your DeepSeek-R1 model with others or access it remotely, you can use [Pinggy](https://pinggy.io):
 
 1. **Start the Ollama server**:
    ```bash
