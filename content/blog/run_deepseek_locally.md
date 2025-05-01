@@ -138,6 +138,36 @@ You can also use DeepSeek-R1 in your applications through the Ollama API:
     - Install the required dependencies by running `npm install`.
     - Execute the script with `node main.js` to test the API.
 
+## Using DeepSeek through a GUI with Open WebUI
+
+Instead of interacting with DeepSeek through the command line, you can use Open WebUI - a user-friendly ChatGPT-like interface for Ollama models:
+
+1. **Install Open WebUI via Docker**:
+   ```bash
+   docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+   ```
+
+2. **Access the UI** at `http://localhost:3000` in your browser and create an admin account on first use.
+
+   {{< image "how_to_easily_share_ollama_api_and_open_webui_online/open_webui_running_on_local.webp" "Open WebUI running on localhost" >}}
+
+3. **Chat with DeepSeek models**:
+   - Select your DeepSeek model from the dropdown menu in the top-right corner
+   - Start chatting in a clean, modern interface
+   - Upload documents for analysis
+   - Organize conversations in folders
+
+   {{< image "how_to_easily_share_ollama_api_and_open_webui_online/open_webui_running_on_pinggy_url.png" "Open WebUI interface" >}}
+
+Open WebUI provides several advantages:
+- Multi-modal support for image inputs
+- Conversation history management
+- Preset prompts and system prompts
+- Shareable chat URLs
+- Mobile-friendly interface
+
+To learn more about Open WebUI, including advanced features, check out our guide on [How to Easily Share Ollama API and Open WebUI Online](https://pinggy.io/blog/how_to_easily_share_ollama_api_and_open_webui_online/).
+
 ## Sharing Your Model Online (Optional)
 
 If you want to share your DeepSeek-R1 model with others or access it remotely, you can use [Pinggy](https://pinggy.io):
@@ -159,13 +189,13 @@ If you want to share your DeepSeek-R1 model with others or access it remotely, y
 
 **Command Breakdown**:  
 - `-p 443`: Connects via HTTPS for firewall compatibility.  
-- `-R0:localhost:11434`: Forwards Ollama’s port to Pinggy.  
-- `qr@a.pinggy.io`: Pinggy’s tunneling endpoint.  
+- `-R0:localhost:11434`: Forwards Ollama's port to Pinggy.  
+- `qr@a.pinggy.io`: Pinggy's tunneling endpoint.  
 - `u:Host:localhost:11434`: Maps the tunnel to your local port.
 
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/pinggy_tunnel_command_for_model.webp" "pinggy command" >}}
 
-After running, you’ll see a public URL like `https://abc123.pinggy.link`.  
+After running, you'll see a public URL like `https://abc123.pinggy.link`.  
 
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/ollama_api_log_terminal.webp" "ollama log" >}}
 
