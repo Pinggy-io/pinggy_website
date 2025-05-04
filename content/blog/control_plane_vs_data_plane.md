@@ -11,7 +11,8 @@ outputs:
   - AMP
 ---
 
-In modern networking and cloud infrastructure, understanding the distinction between **control plane** and **data plane** is crucial for designing, implementing, and troubleshooting systems effectively. These fundamental concepts appear across various technologies, from traditional networking to Software-Defined Networking (SDN), Kubernetes, and service meshes. This article will break down what control plane and data plane mean, their differences, and why this separation matters.
+
+As systems grow more complex, managing infrastructure alongside application logic becomes a bottleneck. For example, rolling out a new security policy across services or updating routing logic without downtime is difficult when control and data are tightly coupled. Separating them into a **control plane** (for config and policy) and a **data plane** (for handling traffic) solves this. In a service mesh, the control plane pushes routing rules to sidecars in the data plane. In Kubernetes, the control plane schedules pods while the data plane runs them. This separation brings flexibility, safety, and scalability. This article will break down what control plane and data plane mean, their differences, and why this separation matters.
 
 {{% tldr %}}
 
