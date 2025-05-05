@@ -19,26 +19,21 @@ As systems grow more complex, managing infrastructure alongside application logi
 <script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
 
 {{% tldr %}}
-
 1. **Control Plane vs Data Plane: Basic Definition**
-   - **Control Plane**: Responsible for making decisions about where network traffic should go; handles configuration, routing logic, and management operations
-   - **Data Plane**: Responsible for forwarding packets/traffic based on the control plane's decisions; handles the actual movement of data
-
+    - **Control Plane**: Responsible for making decisions about where network traffic should go; handles configuration, routing logic, and management operations
+    - **Data Plane**: Responsible for forwarding packets/traffic based on the control plane's decisions; handles the actual movement of data
 2. **Key Differences**
-   - **Purpose**: Control plane determines *how* data should flow; data plane executes the actual data movement
-   - **Operations**: Control plane operations are slower but less frequent; data plane operations are high-volume and performance-critical
-   - **Failure Impact**: Control plane failures affect system configuration; data plane failures directly impact traffic flow
-
+    - **Purpose**: Control plane determines *how* data should flow; data plane executes the actual data movement
+    - **Operations**: Control plane operations are slower but less frequent; data plane operations are high-volume and performance-critical
+    - **Failure Impact**: Control plane failures affect system configuration; data plane failures directly impact traffic flow
 3. **Real-World Examples**
-   - **Traditional Networking**: Router's routing protocols (control) vs packet forwarding (data)
-   - **Kubernetes**: API server, scheduler, controllers (control) vs kubelet, container runtime (data)
-   - **Service Mesh**: Istiod/control server (control) vs Envoy proxies (data)
-
+    - **Traditional Networking**: Router's routing protocols (control) vs packet forwarding (data)
+    - **Kubernetes**: API server, scheduler, controllers (control) vs kubelet, container runtime (data)
+    - **Service Mesh**: Istiod/control server (control) vs Envoy proxies (data)
 4. **Benefits of Separation**
-   - Enables independent scaling, upgrading, and optimizing each plane
-   - Improves system reliability through isolation of concerns
-   - Facilitates centralized management with distributed execution
-
+    - Enables independent scaling, upgrading, and optimizing each plane
+    - Improves system reliability through isolation of concerns
+    - Facilitates centralized management with distributed execution
 {{% /tldr %}}
 
 ## Why Separate Control Plane and Data Plane?
