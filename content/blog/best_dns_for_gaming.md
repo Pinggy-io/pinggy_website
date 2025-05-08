@@ -2,6 +2,7 @@
 title: "Best DNS for Gaming"
 description: "Discover the best DNS for gaming to reduce latency, improve connection reliability, and enhance your overall gaming performance. Explore top options like Cloudflare, Google DNS, and OpenDNS, and learn how to configure them for an optimized gaming experience."
 date: 2024-11-21T14:15:25+05:30
+lastmod: 2025-05-06T14:15:25+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
 tags: ["gaming", "dns", "internet", "guide"]
@@ -29,7 +30,7 @@ Thus, in this article, we will learn why DNS matter for gaming, the recommended 
 
 {{% /tldr %}}
 
-{{< image "best_dns_for_gaming/dns_for_gaming.webp" "Without IGMP Snooping" >}}
+{{< image "best_dns_for_gaming/dns_for_gaming.webp" "Best DNS for Gaming" >}}
 
 ### What is DNS, and Why Does It Matter for Gaming?
 
