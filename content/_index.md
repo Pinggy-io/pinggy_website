@@ -1184,6 +1184,9 @@ title: "Pinggy - Simple Localhost Tunnels"
                         </a>
                     </li>
                     <li class="list-group-item p-2">
+                      Remote Device Management
+                    </li>
+                    <li class="list-group-item p-2">
                       <b>Wildcard Domain Support</b>
                     </li>
                     <li class="list-group-item p-2">
