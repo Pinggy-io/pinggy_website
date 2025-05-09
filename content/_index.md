@@ -875,13 +875,14 @@ title: "Pinggy - Simple Localhost Tunnels"
             <i class="bi bi-window-stack"></i>
           </div>
           <h2 class="h3 fw-bolder">No downloads</h2>
-          <h2 class="h4 fw-light">Runs everywhere</h2>
+          <h2 class="h6 fw-light">Runs everywhere</h2>
           <p>
             <i class="bi bi-check2-circle me-2"></i><b>Windows</b> <br /><i
               class="bi bi-check2-circle me-2"
             ></i
             ><b>Mac</b> <br /><i class="bi bi-check2-circle me-2"></i
-            ><b>Linux</b>
+            ><b>Linux</b><br />
+            <i class="bi bi-check2-circle me-2"></i><b>Docker</b>
           </p>
         </div>
       </div>
@@ -918,12 +919,13 @@ title: "Pinggy - Simple Localhost Tunnels"
           </div>
           <h2 class="h3 fw-bolder">Instant Domains</h2>
           <p>
-            <i class="bi bi-check2-circle me-2"></i><b>Subdomain</b>: Instantly
-            get persistent custom subdomains. <br /><i
+            <i class="bi bi-check2-circle me-2"></i><b>Subdomain</b>: Custom persistent subdomains. <br /><i
               class="bi bi-check2-circle me-2"
             ></i
-            ><b>Custom domain</b>: Use your own domains with built-in HTTPS
-            certificates.
+            ><b>Custom domain</b>: Bring your own domains with built-in HTTPS
+            certificates.<br />
+            <i class="bi bi-check2-circle me-2"></i>
+            <b>Wildcard domains</b>: Use <code>*.yourdomain.com</code> to route different subdomains to different ports.
           </p>
         </div>
       </div>
@@ -1180,6 +1182,9 @@ title: "Pinggy - Simple Localhost Tunnels"
                       > <a href="/docs/teams/" target="_blank" class="link-dark">
                           <i class="bi bi-info-circle"></i>
                         </a>
+                    </li>
+                    <li class="list-group-item p-2">
+                      <b>Wildcard Domain Support</b>
                     </li>
                     <li class="list-group-item p-2">
                       <b>Unlimited Data Transfer</b>
