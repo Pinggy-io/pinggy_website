@@ -88,12 +88,75 @@ tunnel = pinggy.start_tunnel(
 print(f"Tunnel started at {tunnel.urls}")
 ```
 
+### Expose local http server with X-Forwarded-For header
+```python
+import pinggy
+tunnel = pinggy.start_tunnel(
+    forwardto=8080,
+    xff=True
+)
+print(f"Tunnel started at {tunnel.urls}")
+```
+### Expose local http server with HTTPS only
+```python
+import pinggy
+tunnel = pinggy.start_tunnel(
+    forwardto=8080,
+    httpsonly=True
+)
+print(f"Tunnel started at {tunnel.urls}")
+```
+### Expose local http server with full request URL
+```python
+import pinggy
+tunnel = pinggy.start_tunnel(
+    forwardto=8080,
+    fullrequesturl=True
+)
+print(f"Tunnel started at {tunnel.urls}")
+```
+### Expose local http server with preflight request support
+```python
+import pinggy
+tunnel = pinggy.start_tunnel(
+    forwardto=8080,
+    allowpreflight=True
+)
+print(f"Tunnel started at {tunnel.urls}")
+```
+### Expose local http server with reverse proxy disabled
+```python
+import pinggy
+tunnel = pinggy.start_tunnel(
+    forwardto=8080,
+    reverseproxy=False
+)
+print(f"Tunnel started at {tunnel.urls}")
+```
+
+### Expose http server running at local network address 192.168.1.1:8080
+```python
+import pinggy
+tunnel = pinggy.start_tunnel(
+    forwardto="192.168.1.1:8080"
+)
+print(f"Tunnel started at {tunnel.urls}")
+```
+
 ### Expose remote desktop over pinggy
 ```python
 import pinggy
 tunnel = pinggy.start_tunnel(forwardto="localhost:3389", type="tcp")
 print(f"Tunnel started at {tunnel.urls}")
 ```
+
+### Expose ssh server over pinggy
+```python
+import pinggy
+tunnel = pinggy.start_tunnel(forwardto="localhost:22", type="tcp")
+print(f"Tunnel started at {tunnel.urls}")
+```
+
 
 ## Usage
 
