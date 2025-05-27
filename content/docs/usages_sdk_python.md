@@ -73,7 +73,7 @@ print(f"Tunnel started at {tunnel.urls}")
 import pinggy
 tunnel = pinggy.start_tunnel(
     forwardto=8080,
-    headermodification=["r:Accept", "u:UserAgent:PinggyTestServer 1.2.3"]
+    headermodification=["r:Accept", "u:User-Agent:PinggyTestServer 1.2.3"]
 )
 print(f"Tunnel started at {tunnel.urls}")
 ```
