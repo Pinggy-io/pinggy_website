@@ -2,18 +2,40 @@
  title: "SSH Reverse Tunneling" 
  description: "This article offers a comprehensive guide to SSH reverse tunneling, explaining its role in securely accessing local services from remote locations, even behind firewalls or NATs. It covers common use cases like remote IoT control, database access, and gaming, while also highlighting security best practices and alternatives such as VPNs and Pinggy, a tool that simplifies the tunneling process. Additionally, it explores how Pinggy provides developers with an easy-to-use interface for exposing local services to the internet."
  date: 2024-10-23T14:15:25+05:30
- lastmod: 2024-10-23T15:15:25+05:30
+ lastmod: 2025-06-02T15:15:25+05:30
  draft: false 
+ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJCbG9nUG9zdGluZyIsCiAgIm1haW5FbnRpdHlPZlBhZ2UiOiB7CiAgICAiQHR5cGUiOiAiV2ViUGFnZSIsCiAgICAiQGlkIjogImh0dHBzOi8vcGluZ2d5LmlvL2Jsb2cvc3NoX3JldmVyc2VfdHVubmVsbGluZy8iCiAgfSwKICAiaGVhZGxpbmUiOiAiU1NIIFJldmVyc2UgVHVubmVsaW5nOiBBIENvbXBsZXRlIEd1aWRlIiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IFNTSCByZXZlcnNlIHR1bm5lbGluZyB3b3JrcywgaXRzIHByYWN0aWNhbCB1c2UgY2FzZXMsIHNlY3VyaXR5IGJlc3QgcHJhY3RpY2VzLCBhbmQgaG93IFBpbmdneSBzaW1wbGlmaWVzIHNlY3VyZSB0dW5uZWxpbmcgZnJvbSBsb2NhbGhvc3QuIiwKICAicHVibGlzaGVyIjogewogICAgIkB0eXBlIjogIk9yZ2FuaXphdGlvbiIsCiAgICAibmFtZSI6ICJQaW5nZ3kiCiAgfSwKICAiZGF0ZVB1Ymxpc2hlZCI6ICIyMDI0LTEwLTIzIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjUtMDYtMDIiLAogICJrZXl3b3JkcyI6ICJTU0gsIHJldmVyc2UgdHVubmVsaW5nLCByZW1vdGUgYWNjZXNzLCBOQVQsIGZpcmV3YWxsLCBQaW5nZ3ksIGF1dG9zc2gsIHJlbW90ZSBkZWJ1Z2dpbmcsIElvVCBhY2Nlc3MsIGRhdGFiYXNlIHR1bm5lbGluZywgU1NIIHNlY3VyaXR5LCBwb3J0IGZvcndhcmRpbmciLAogICJhcnRpY2xlU2VjdGlvbiI6ICJOZXR3b3JraW5nLCBEZXZPcHMsIFNlY3VyaXR5IiwKICAidXJsIjogImh0dHBzOi8vcGluZ2d5LmlvL2Jsb2cvc3NoX3JldmVyc2VfdHVubmVsbGluZy8iLAogICJhcnRpY2xlQm9keSI6ICJUbyBzZXQgdXAgYSBiYXNpYyBTU0ggcmV2ZXJzZSB0dW5uZWwsIHVzZSB0aGUgZm9sbG93aW5nIGNvbW1hbmQ6XG5cbnNzaCAtUiA4MDgwOmxvY2FsaG9zdDozMDAwIHVzZXJAcmVtb3RlLXNlcnZlci5jb21cblxuVGhpcyB3aWxsIGV4cG9zZSB5b3VyIGxvY2FsIHBvcnQgMzAwMCB0byB0aGUgcmVtb3RlIHNlcnZlcuKAmXMgcG9ydCA4MDgwLiBXaXRoIFBpbmdneSwgeW91IGNhbiBhY2hpZXZlIHNpbWlsYXIgdHVubmVsaW5nIHdpdGhvdXQgbmVlZGluZyBhIHB1YmxpYyBJUCBvciBjb21wbGV4IHNldHVwLiIKfQo8L3NjcmlwdD4="
  tags: ["guide","SSH Reverse Tunneling", "NAT/Firewall", "Reverse Proxy"]
- og_image: "images/ssh_reverse_tunnelling/ssh-reverse-tunneling-img.webp"
+ og_image: "images/ssh_reverse_tunnelling/ssh-reverse-tunneling.webp"
  outputs:
   - HTML
   - AMP
 ---
 
+{{< image "ssh_reverse_tunnelling/ssh-reverse-tunneling.webp" "SSH Reverse Tunnel Command Example" >}}
+
+
 SSH reverse tunneling is a powerful tool that enables secure remote access to systems or services that are behind firewalls or NATs (Network Address Translation). It is often used to provide external access to local systems and services without modifying the network's security settings. In this detailed guide, we will break down SSH reverse tunneling, explain its applications, highlight security practices, and discuss alternatives. We will then discuss how [Pinggy](https://pinggy.io) uses SSH reverse tunneling to share applications and services from localhost.
 
-{{< image "ssh_reverse_tunnelling/ssh-reverse-tunnelling.webp" "SSH Reverse Tunnelling" >}}
+{{% tldr %}}
+SSH reverse tunneling allows you to expose local services to the internet, bypassing firewalls and NAT restrictions.
+
+**Basic Commands:**
+1. Create a basic reverse tunnel:
+   ```bash
+   ssh -R 8080:localhost:3000 user@remote-server.com
+   ```
+   
+2. Create a persistent tunnel with autossh:
+   ```bash
+   autossh -M 0 -R 8080:localhost:3000 user@remote-server.com
+   ```
+   
+3. Quick tunneling with Pinggy:
+   ```bash
+   ssh -p 443 -R0:localhost:3000 a.pinggy.io
+   ```
+{{% /tldr %}}
 
 ## What is SSH Reverse Tunneling?
 
@@ -26,6 +48,9 @@ This technique is especially useful for:
 - Accessing services on a local machine from a remote location
 - Enabling remote debugging or testing of applications
 - Managing IoT devices, servers, or databases from anywhere
+
+
+{{< image "ssh_reverse_tunnelling/ssh-reverse-tunnelling.webp" "SSH Reverse Tunnel Example" >}}
 
 ## How SSH Reverse Tunneling Works?
 
@@ -302,16 +327,6 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 ```
 ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" a.pinggy.io
 ```
-
-## Advantages of Pinggy for SSH Reverse Tunneling
-
-- Pinggy removes the complexity of managing SSH servers and firewalls. With a single command, developers can expose their local applications and obtain a public URL for sharing.
-
-- Pinggy offers security features such as IP whitelisting, HTTP basic authentication, etc., to protect the tunnel from unauthorized access.
-
-- Pinggy’s tunneling over HTTPS and SSL ensures that even in restrictive environments, your local services can be accessed remotely.
-
-- Pinggy is perfect for testing webhooks or exposing IoT devices, allowing external services or collaborators to interact with your local machine without additional network setup.
 
 ## Conclusion
 
