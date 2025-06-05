@@ -2,6 +2,7 @@
 title: "Minecraft Port Forwarding"
 description: "Learn how to set up Minecraft port forwarding to share your server with friends. Covers port forwarding across different routers, troubleshooting, and alternative solutions using Pinggy."
 date: 2025-05-18T14:15:25+05:30
+lastmod: 2025-05-27T15:15:25+05:30
 draft: false
 tags: ["gaming", "minecraft", "networking", "port-forwarding", "guide"]
 og_image: "images/minecraft_port_forwarding/minecraft_banner.webp"
@@ -27,6 +28,12 @@ Port forwarding is a crucial step for Minecraft players who want to host their o
 - **Access Router:** Enter router's IP in browser (typically 192.168.0.1 or 192.168.1.1).
 - **Create Forwarding Rule:** Set up port 25565 (TCP) to point to your computer's local IP.
 - **Share Public IP:** Find your public IP to share with friends so they can connect.
+
+**Alternative: Using Pinggy**
+- **No Port Forwarding Required:** Bypasses router configuration completely.
+- **Works with CGNAT:** Solution for ISPs that block traditional port forwarding.
+- **Simple Setup:** Just run a single command to create a secure tunnel.
+- **Instant Access:** Friends connect using the Pinggy-provided hostname and port.
 
 {{% /tldr %}}
 
