@@ -287,100 +287,116 @@ curl -X POST "https://abcdefghij.a.pinggy.link/send" \
 
 If you see the message in your Discord channel, congratulations! Your webhook is working correctly.
 
-## Enhancing Your Discord Webhook
+## Discord Outgoing Webhooks
 
-Once you have the basic webhook working, you can enhance it with more features:
+While the previous sections covered how to send messages to Discord using webhooks (incoming webhooks), Discord also supports outgoing webhooks - where Discord sends HTTP requests to your server when certain events occur. This is particularly useful for building interactive applications that respond to user actions in real-time.
 
-### Sending Embedded Messages
+### Understanding Discord Outgoing Webhooks
 
-Discord webhooks can send rich embedded messages with fields, images, and formatting:
+Discord can send webhook events to your server for various interactions:
+
+1. **Interaction Events**: When users interact with your application's commands or components
+2. **Guild Events**: When server-related changes occur
+3. **Message Events**: When messages are created, updated, or deleted
+
+These outgoing webhooks allow your application to respond to Discord events without maintaining a persistent connection, making them ideal for serverless architectures and microservices.
+
+### Setting Up an Outgoing Webhook Endpoint
+
+To receive webhook events from Discord, you need to:
+
+1. Create an endpoint in your server to receive POST requests
+2. Configure your Discord application to send events to this endpoint
+3. Implement proper verification to ensure requests are genuinely from Discord
+
+Here's a simple Flask endpoint to receive Discord interaction events:
 
 ```python
-@app.route('/send-embed', methods=['POST'])
-def send_embed():
+@app.route('/discord-interactions', methods=['POST'])
+def discord_interactions():
+    # Get the request data
     data = request.get_json()
     
-    # Prepare webhook payload with embed
-    payload = {
-        "username": data.get('username', 'Webhook Bot'),
-        "avatar_url": data.get('avatar_url', ''),
-        "embeds": [
-            {
-                "title": data.get('title', 'Embed Title'),
-                "description": data.get('description', 'This is an embedded message'),
-                "color": data.get('color', 7506394),  # Blurple color
-                "fields": [
-                    {
-                        "name": "Field 1",
-                        "value": "Value 1",
-                        "inline": True
-                    },
-                    {
-                        "name": "Field 2",
-                        "value": "Value 2",
-                        "inline": True
-                    }
-                ],
-                "footer": {
-                    "text": "Powered by Pinggy"
-                }
+    # Log the incoming event
+    logging.info(f"Received Discord event: {data.get('type')}")
+    
+    # Handle different interaction types
+    if data.get('type') == 1:  # PING
+        return jsonify({
+            "type": 1  # Respond with PONG
+        })
+    elif data.get('type') == 2:  # APPLICATION_COMMAND
+        # Handle slash command
+        command_name = data.get('data', {}).get('name')
+        
+        # Respond to the command
+        return jsonify({
+            "type": 4,  # CHANNEL_MESSAGE_WITH_SOURCE
+            "data": {
+                "content": f"You used the /{command_name} command!"
             }
-        ]
-    }
+        })
     
-    # Send to Discord
-    response = requests.post(WEBHOOK_URL, json=payload)
-    logging.info(f"Sent embed to Discord. Response: {response.status_code}")
-    
-    if response.status_code == 204:
-        return jsonify({'status': 'success'})
-    else:
-        return jsonify({'status': 'error', 'discord_response': response.text}), 500
+    # Default response
+    return jsonify({"error": "Unknown interaction type"}), 400
 ```
 
-### Integrating with Other Services
+### Configuring Your Discord Application
 
-You can extend your webhook server to receive events from other services:
+To enable outgoing webhooks from Discord to your server:
 
-1. **GitHub Integration**: Receive notifications when someone pushes to your repository
-2. **CI/CD Pipeline**: Get alerts when builds succeed or fail
-3. **Monitoring Systems**: Receive alerts when issues are detected
+1. Go to your application in the Discord Developer Portal
+2. Navigate to the "General Information" tab
+3. Set the "Interactions Endpoint URL" to your public endpoint (e.g., `https://abcdefghij.a.pinggy.link/discord-interactions`)
 
-For example, to accept GitHub webhooks, you could add:
+{{< image "how_to_set_up_and_test_discord_bot_webhook/interactions_endpoint_url.webp" "Setting the Interactions Endpoint URL" >}}
+
+Discord will send a test request to verify your endpoint is working correctly. Your endpoint must respond to this test request with a proper response.
+
+### Why Pinggy is Essential for Testing
+
+Testing Discord's outgoing webhooks presents a unique challenge: Discord needs to send HTTP requests to your server, which means your server must be publicly accessible. This is where Pinggy becomes invaluable:
+
+1. **Public URL for Local Development**: Pinggy gives your localhost a public URL that Discord can reach
+2. **No Deployment Needed**: Test webhook functionality without deploying to a production server
+3. **Real-time Debugging**: See incoming requests in real-time as Discord sends them
+4. **Secure Testing**: Test with your actual Discord application credentials in a controlled environment
+
+Without a tool like Pinggy, you would need to deploy your code to a public server for every test, making the development process slow and cumbersome.
+
+### Implementing Webhook Security
+
+When receiving webhooks from Discord, it's crucial to verify that the requests are genuinely from Discord:
 
 ```python
-@app.route('/github', methods=['POST'])
-def github_webhook():
+import nacl.signing
+from nacl.exceptions import BadSignatureError
+
+@app.route('/discord-interactions', methods=['POST'])
+def discord_interactions():
+    # Get the signature and timestamp from the headers
+    signature = request.headers.get('X-Signature-Ed25519')
+    timestamp = request.headers.get('X-Signature-Timestamp')
+    
+    # Get the raw request body
+    body = request.data.decode('utf-8')
+    
+    # Verify the signature
+    PUBLIC_KEY = "your_discord_application_public_key"
+    verify_key = nacl.signing.VerifyKey(bytes.fromhex(PUBLIC_KEY))
+    
+    try:
+        verify_key.verify(f"{timestamp}{body}".encode(), bytes.fromhex(signature))
+    except BadSignatureError:
+        return jsonify({"error": "Invalid request signature"}), 401
+    
+    # Process the verified request
     data = request.get_json()
     
-    # Process GitHub event
-    event_type = request.headers.get('X-GitHub-Event')
-    
-    if event_type == 'push':
-        # Extract info from push event
-        repo_name = data['repository']['full_name']
-        branch = data['ref'].split('/')[-1]
-        pusher = data['pusher']['name']
-        
-        # Create message for Discord
-        message = {
-            "username": "GitHub",
-            "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-            "embeds": [
-                {
-                    "title": f"New push to {repo_name}",
-                    "description": f"{pusher} pushed to {branch}",
-                    "color": 3066993,  # Green
-                    "url": data['repository']['html_url']
-                }
-            ]
-        }
-        
-        # Send to Discord
-        requests.post(WEBHOOK_URL, json=message)
-        
-    return jsonify({'status': 'success'})
+    # Handle interaction types as before...
 ```
+
+This verification ensures that only legitimate requests from Discord are processed by your application.
 
 ## Conclusion
 
