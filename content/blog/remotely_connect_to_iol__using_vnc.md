@@ -15,7 +15,7 @@ draft: false
 Virtual Network Computing (VNC) is a graphical desktop-sharing system leveraging the Remote Frame Buffer (RFB) protocol, which allows remote control and visualization of another computer over a network. This technology is particularly useful for managing and interacting with IoT devices such as 
 {{< link href="https://www.raspberrypi.org/" >}}Raspberry Pi{{< /link >}}, {{< link href="https://www.nvidia.com/en-in/autonomous-machines/embedded-systems/jetson-nano/product-development/" >}}Nvidia Jetson Nano{{< /link >}} , and {{< link href="https://coral.ai/" >}}Google Coral {{< /link >}} remotely from any location worldwide.
 
-This comprehensive guide details the steps required to set up a VNC server on your IoT device, securely connect to it remotely using the [Pinggy](http://pinggy.io) SSH tunneling service, and access its desktop environment via a VNC client.
+This comprehensive guide details the steps required to set up a VNC server on your IoT device, securely connect to it remotely using the [Pinggy](https://pinggy.io) SSH tunneling service, and access its desktop environment via a VNC client.
 
 {{% tldr %}}
 
@@ -27,7 +27,7 @@ sudo apt install -y tightvncserver
 vncserver
 ```
 
-2. **Step 2.** Create a secure SSH tunnel with [Pinggy](http://pinggy.io) to access your VNC server remotely:
+2. **Step 2.** Create a secure SSH tunnel with [Pinggy](https://pinggy.io) to access your VNC server remotely:
 
 ```
 ssh -p 443 -R0:localhost:5901 tcp@a.pinggy.io
@@ -118,7 +118,7 @@ The VNC server now listens on TCP port `5901` by default.
 
 #### Step 3: Secure Remote Access Using Pinggy
 
-To securely access your IoT device remotely, use [Pinggy](http://pinggy.io), a secure SSH tunneling service.
+To securely access your IoT device remotely, use [Pinggy](https://pinggy.io), a secure SSH tunneling service.
 
 Execute the following command to establish a secure SSH tunnel to your IoT device’s VNC server:
 
@@ -158,12 +158,12 @@ Click **Connect**, enter your VNC password, and gain remote desktop access to yo
 ### Best Practices and Security Tips
 
 - **Robust Passwords:** Always use strong, unique passwords.
-- **SSH Tunneling:** Opt for reliable tunneling services like [Pinggy](http://pinggy.io) to encrypt remote sessions securely.
+- **SSH Tunneling:** Opt for reliable tunneling services like [Pinggy](https://pinggy.io) to encrypt remote sessions securely.
 - **Firewall Management:** Limit your IoT device's open ports, permitting only necessary connections (typically port `5901`).
 
 ### Conclusion
 
-Remotely connecting to IoT devices using VNC provides powerful flexibility and control, enabling users to manage IoT resources seamlessly across global distances. By implementing the described setup using XFCE, TightVNC, and [Pinggy](http://pinggy.io) SSH tunneling, users can achieve secure, reliable, and efficient remote desktop connectivity.
+Remotely connecting to IoT devices using VNC provides powerful flexibility and control, enabling users to manage IoT resources seamlessly across global distances. By implementing the described setup using XFCE, TightVNC, and [Pinggy](https://pinggy.io) SSH tunneling, users can achieve secure, reliable, and efficient remote desktop connectivity.
 
 Always follow best practices for securing your VNC sessions, including using strong passwords and carefully managing firewall rules. Leveraging automation and monitoring tools further enhances the productivity and effectiveness of remote IoT device management. Embrace these strategies to fully harness the potential of your IoT devices from anywhere, at any time.
 
