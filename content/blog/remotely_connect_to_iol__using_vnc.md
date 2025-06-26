@@ -27,7 +27,7 @@ sudo apt install -y tightvncserver
 vncserver
 ```
 
-2. **Step 2.** Create a secure SSH tunnel with [Pinggy](https://pinggy.io) to access your VNC server remotely:
+2. **Step 2.** Create a secure SSH tunnel with [Pinggy](https://pinggy.io/) to access your VNC server remotely:
 
 ```
 ssh -p 443 -R0:localhost:5901 tcp@a.pinggy.io
@@ -118,7 +118,7 @@ The VNC server now listens on TCP port `5901` by default.
 
 #### Step 3: Secure Remote Access Using Pinggy
 
-To securely access your IoT device remotely, use [Pinggy](https://pinggy.io), a secure SSH tunneling service.
+To securely access your IoT device remotely, use [Pinggy](https://pinggy.io/), a secure SSH tunneling service.
 
 Execute the following command to establish a secure SSH tunnel to your IoT device’s VNC server:
 
@@ -158,12 +158,12 @@ Click **Connect**, enter your VNC password, and gain remote desktop access to yo
 ### Best Practices and Security Tips
 
 - **Robust Passwords:** Always use strong, unique passwords.
-- **SSH Tunneling:** Opt for reliable tunneling services like [Pinggy](https://pinggy.io) to encrypt remote sessions securely.
+- **SSH Tunneling:** Opt for reliable tunneling services like [Pinggy](https://pinggy.io/) to encrypt remote sessions securely.
 - **Firewall Management:** Limit your IoT device's open ports, permitting only necessary connections (typically port `5901`).
 
 ### Conclusion
 
-Remotely connecting to IoT devices using VNC provides powerful flexibility and control, enabling users to manage IoT resources seamlessly across global distances. By implementing the described setup using XFCE, TightVNC, and [Pinggy](https://pinggy.io) SSH tunneling, users can achieve secure, reliable, and efficient remote desktop connectivity.
+Remotely connecting to IoT devices using VNC provides powerful flexibility and control, enabling users to manage IoT resources seamlessly across global distances. By implementing the described setup using XFCE, TightVNC, and [Pinggy](https://pinggy.io/) SSH tunneling, users can achieve secure, reliable, and efficient remote desktop connectivity.
 
 Always follow best practices for securing your VNC sessions, including using strong passwords and carefully managing firewall rules. Leveraging automation and monitoring tools further enhances the productivity and effectiveness of remote IoT device management. Embrace these strategies to fully harness the potential of your IoT devices from anywhere, at any time.
 

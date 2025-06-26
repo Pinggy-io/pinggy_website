@@ -19,7 +19,7 @@ Pinggy Command Line Tool provides more robust tunnels with quicker reconnections
 
 ## Download
 
-You can download Pinggy CLI from {{< link href="/cli" >}}here{{</ link >}}. Pinggy CLI is available for Windows, Mac, and Linux.
+You can download Pinggy CLI from {{< link href="/cli/" >}}here{{</ link >}}. Pinggy CLI is available for Windows, Mac, and Linux.
 
 
 ## Getting Started
