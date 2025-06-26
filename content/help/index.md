@@ -55,7 +55,7 @@
       <div class="d-flex flex-row bd-highlight justify-content-start">
         <a href="https://forum.pinggy.io/" target="_blank">
           <div class="feature bg-white bg-gradient text-white rounded-3 mb-3 border">
-            <img title="Community Forum" src="/assets/pinggy_forum_logo.png" style="max-width: 1.3em;" />
+            <img title="Community Forum" src="/assets/pinggy_forum_logo.png" alt= "Pinggy Community Forum Logo" style="max-width: 1.3em;" />
           </div>
         </a>
         <div class="px-2 bd-highlight">
