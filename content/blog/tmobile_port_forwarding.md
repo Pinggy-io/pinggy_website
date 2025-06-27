@@ -41,7 +41,7 @@ Usually random users from the internet cannot reach your local computer because 
 
 It's also helpful for receiving webhooks, which are like real-time messages from other services. For instance, if you're using a smart security camera that sends alerts to your phone, port forwarding lets those alerts reach you even when you're away. Additionally, if you have a Network Attached Storage (NAS) device that holds all your important files, port forwarding allows you to access those files remotely, as if you were right at home.
 
-   {{< image "iot/port_forwarding.webp" "port forwarding" >}}
+   {{< image "iot/port_forwarding.png" "port forwarding" >}}
 
 ## T-mobile does not allow port forwarding
 
