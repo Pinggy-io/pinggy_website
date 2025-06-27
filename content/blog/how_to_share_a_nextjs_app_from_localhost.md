@@ -54,7 +54,7 @@ Traditional solutions involve deploying your app to cloud services, but this app
 - Expensive, especially for temporary sharing needs
 - Overkill for simple demos or quick feedback sessions
 
-Using [Pinggy](http://pinggy.io), you can create a secure tunnel that instantly makes your locally-hosted {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} application accessible to anyone on the internet no complex configuration or cloud deployments required.
+Using [Pinggy](https://pinggy.io), you can create a secure tunnel that instantly makes your locally-hosted {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} application accessible to anyone on the internet no complex configuration or cloud deployments required.
 
 ## Prerequisites
 -  **Node.js and npm**: Installed on your system. You can download it from {{< link href="https://nodejs.org/" >}}Node.js official website{{< /link >}}.
@@ -143,4 +143,4 @@ To learn more about these features, refer to [Pinggy's official documentation](h
 
 ## Conclusion
 
-Hosting a {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app with [Pinggy](http://pinggy.io) empowers you to bypass traditional infrastructure overhead while maintaining enterprise‑grade security via SSH. In just three commands, you transform a local development server into a publicly accessible, shareable demo environment — ideal for stakeholder reviews, client feedback, or remote testing. When you’re ready for production, migrating to a managed platform (Vercel, Netlify, or AWS Amplify) is seamless thanks to Next.js’s deployment‑ready optimizations.
+Hosting a {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app with [Pinggy](https://pinggy.io) empowers you to bypass traditional infrastructure overhead while maintaining enterprise‑grade security via SSH. In just three commands, you transform a local development server into a publicly accessible, shareable demo environment — ideal for stakeholder reviews, client feedback, or remote testing. When you’re ready for production, migrating to a managed platform (Vercel, Netlify, or AWS Amplify) is seamless thanks to Next.js’s deployment‑ready optimizations.

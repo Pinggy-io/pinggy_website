@@ -141,6 +141,6 @@ If you run into issues with the Pinggy tunnel or ComfyUI setup, try these soluti
 
 ## Conclusion
 
-Using [Pinggy](http://pinggy.io) to host your {{< link href="https://nuxt.com/" >}}Nuxt.Js{{< /link >}} app provides a secure, serverless solution for developers. Whether you’re showcasing your app to clients or testing it on the go, Pinggy simplifies the process, making it accessible to anyone with a few terminal commands. 
+Using [Pinggy](https://pinggy.io) to host your {{< link href="https://nuxt.com/" >}}Nuxt.Js{{< /link >}} app provides a secure, serverless solution for developers. Whether you’re showcasing your app to clients or testing it on the go, Pinggy simplifies the process, making it accessible to anyone with a few terminal commands. 
 
 With its advanced features like custom domains and password protection, Pinggy is an excellent tool for hosting and sharing your local projects effortlessly.

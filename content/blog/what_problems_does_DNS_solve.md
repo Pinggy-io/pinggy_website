@@ -86,17 +86,17 @@ DNS helps mitigate geographic and latency-related issues by enabling **geographi
 
 ### 5. Logical Subdivision of Services
 
-Modern organizations offer **multiple services** under a **single brand**. For example, Google provides **search** ([www.google.com](http://www.google.com)), **email** ([mail.google.com](http://mail.google.com)), and **cloud services** ([cloud.google.com](http://cloud.google.com)). Managing these services independently while maintaining a **cohesive identity** can be a challenge.
+Modern organizations offer **multiple services** under a **single brand**. For example, Google provides **search** ([www.google.com](https://www.google.com)), **email** ([mail.google.com](https://mail.google.com)), and **cloud services** ([cloud.google.com](https://cloud.google.com)). Managing these services independently while maintaining a **cohesive identity** can be a challenge.
 
 #### How DNS Solves It:
 
 DNS allows **logical subdivision** of services through **subdomains**. Each subdomain can point to a **specific server** or service, enabling **efficient management** and **scaling**. For example:
 
-[www.google.com](http://www.google.com) → **Google Search**
+[www.google.com](https://www.google.com) → **Google Search**
 
-[mail.google.com](http://mail.google.com) → **Gmail**
+[mail.google.com](https://mail.google.com) → **Gmail**
 
-[cloud.google.com](http://cloud.google.com) → **Google Cloud Platform**
+[cloud.google.com](https://cloud.google.com) → **Google Cloud Platform**
 
 This **hierarchical structure** ensures that services remain **organized** and **user-friendly** while providing **flexibility** for routing and **resource allocation**. Subdomains also enhance **branding** by associating all services with a **single, recognizable domain name**.
 
