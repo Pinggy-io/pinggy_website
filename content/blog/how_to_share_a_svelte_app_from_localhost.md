@@ -58,7 +58,7 @@ Traditional solutions involve deploying your app to cloud services, but this app
 - Expensive, especially for temporary sharing needs
 - Overkill for simple demos or quick feedback sessions
 
-Using [Pinggy](http://pinggy.io), you can create a secure tunnel that instantly makes your locally-hosted {{< link href="https://svelte.dev/" >}}Svelte{{< /link >}} application accessible to anyone on the internet no complex configuration or cloud deployments required.
+Using [Pinggy](https://pinggy.io), you can create a secure tunnel that instantly makes your locally-hosted {{< link href="https://svelte.dev/" >}}Svelte{{< /link >}} application accessible to anyone on the internet no complex configuration or cloud deployments required.
 
 ## Prerequisites
 
@@ -150,5 +150,5 @@ To learn more about these features, refer to [Pinggy's official documentation](h
 
 ## Conclusion
 
-Using [Pinggy](http://pinggy.io) to share your [Svelte](https://svelte.dev/) app lets you skip complex deployments while keeping your work secure via SSH tunneling. With a few commands, your local app becomes globally accessible—perfect for demos, reviews, or testing. When it’s time for production, Svelte’s lightweight output pairs seamlessly with platforms like {{< link href="https://vercel.com/" >}}Vercel{{< /link >}} or {{< link href="https://netlify.com/" >}}Netlify{{< /link >}}.
+Using [Pinggy](https://pinggy.io) to share your [Svelte](https://svelte.dev/) app lets you skip complex deployments while keeping your work secure via SSH tunneling. With a few commands, your local app becomes globally accessible—perfect for demos, reviews, or testing. When it’s time for production, Svelte’s lightweight output pairs seamlessly with platforms like {{< link href="https://vercel.com/" >}}Vercel{{< /link >}} or {{< link href="https://netlify.com/" >}}Netlify{{< /link >}}.
 

@@ -9,7 +9,7 @@
 
 Using Pinggy CLI (beta) you can create UDP tunnels to localhost. UDP tunnels cannot be created using SSH command.
 
-Step 1. [Download the Pinggy CLI](/cli).
+Step 1. [Download the Pinggy CLI](/cli/).
 
 Step 2. Start the UDP tunnel using the CLI with the following command: 
 

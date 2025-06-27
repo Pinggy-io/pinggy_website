@@ -19,7 +19,7 @@ Looking for **Playit.gg alternatives** in 2025? This guide explores the best opt
 
 ### **Top Categories:**
 1. **Port-Forwarding & Tunneling Services** – Easily expose local servers with:  
-[Pinggy](http://pinggy.io), <a href="https://ngrok.com" target="_blank">Ngrok</a>, <a href="https://portmap.io/" target="_blank">Portmap.io</a>, <a href="https://localxpose.io/" target="_blank">LocalXpose</a>  
+[Pinggy](https://pinggy.io), <a href="https://ngrok.com" target="_blank">Ngrok</a>, <a href="https://portmap.io/" target="_blank">Portmap.io</a>, <a href="https://localxpose.io/" target="_blank">LocalXpose</a>  
 
 2. **Game Server Hosting** – Free & paid hosting services like <a href="https://aternos.org/:en/" target="_blank">Aternos</a> (free Minecraft hosting), <a href="https://exaroton.com/:en/" target="_blank">Exaroton</a>, <a href="https://apexminecrafthosting.com/" target="_blank">Apex Hosting</a>, <a href="https://server.nitrado.net/en-GB" target="_blank">Nitrado</a>  **Cloud VPS** providers like <a href="https://www.interserver.net/apps/diy-hosting.html" target="_blank">DIY Hosting</a> for dedicated game servers.  
 

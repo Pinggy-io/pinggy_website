@@ -13,7 +13,7 @@ outputs:
 
 In the era of generative AI, self-hosting large language models (LLMs) gives developers full control over data privacy and model customization. {{< link href="https://github.com/bentoml/OpenLLM" >}} OpenLLM{{< /link >}} emerges as a powerful toolkit for deploying {{< link href="https://github.com/bentoml/openllm-models?tab=readme-ov-file#supported-models" >}}models{{< /link >}} like {{< link href="https://www.llama.com/" >}} Llama 3 {{< /link >}} or {{< link href="https://mistral.ai/en" >}} Mistral {{< /link >}} locally, while [Pinggy](https://pinggy.io) enables secure internet exposure without complex infrastructure. This guide walks you through self-hosting an LLM endpoint with a public URL, making it accessible and shareable in minutes.
 
-{{< image "share_openllm_online/pinggy.gif" "Self-Host LLMs with OpenLLM and Pinggy" >}}
+{{< image "share_openllm_online/thumbnail_image.png" "Self-Host LLMs with OpenLLM and Pinggy" >}}
 
 {{% tldr %}}
 

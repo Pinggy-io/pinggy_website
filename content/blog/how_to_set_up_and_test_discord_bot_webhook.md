@@ -134,7 +134,7 @@ https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&perm
 
 Select your server from the dropdown and authorize the bot. This gives your bot the necessary permissions to create webhooks in your server.
 
-{{< image "how_to_set_up_and_test_discord_bot_webhook/oauth_window.webp" "OAuth2 URL Generator" >}}
+{{< image "how_to_set_up_and_test_discord_bot_webhook/oauth_window.png" "OAuth2 URL Generator" >}}
 
 ## Step 3: Create a Discord Webhook Using the API
 
