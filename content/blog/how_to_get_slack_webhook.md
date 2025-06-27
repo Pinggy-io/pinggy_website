@@ -50,7 +50,7 @@ Incoming webhooks push messages from an external application directly to a Slack
 
 #### Step 1: Create a Slack App
 
-1. Go to the {{< link href="https://api.slack.com/apps" >}}Slack API Website{{</ link >}}.
+1. Go to the {{< link href="https://api.slack.com/apps/" >}}Slack API Website{{</ link >}}.
 2. Click on **Create New App**.
 3. Choose **From scratch** to create an app manually.
 4. Enter a name for your app and select the workspace where it will reside.
@@ -78,7 +78,7 @@ Incoming webhooks push messages from an external application directly to a Slack
 
 #### Step 1: Go to the Slack App Directory
 
-1. Open the {{< link href="https://slack.com/apps" >}}Slack App Directory{{</ link >}}.
+1. Open the {{< link href="https://slack.com/apps/" >}}Slack App Directory{{</ link >}}.
 2. Search for **Outgoing webhooks** and select it.
 
 #### Step 2: Set Up the Outgoing Webhook
