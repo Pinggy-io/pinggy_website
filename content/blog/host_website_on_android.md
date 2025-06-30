@@ -1,6 +1,6 @@
 ---
  title: "You can host your website on Android! Here's how." 
- description: "Learn how to turn your Android into a web server with Termux and Pinggy. This quick guide walks you through the steps, from installing Termux to getting a public URL. Share your content seamlessly from your pocket to the world!"
+ description: "Learn how to turn your Android into a web server with Termux and Pinggy. Quick guide from installing Termux to getting a public URL for your content."
  date: 2023-05-01T01:15:25+05:30 
  draft: false 
  tags: ["guide", "android"]

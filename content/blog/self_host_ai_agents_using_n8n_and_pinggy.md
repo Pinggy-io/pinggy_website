@@ -1,6 +1,6 @@
 ---
 title: "Self-Host AI Agents Using n8n and Pinggy"
-description: "Learn how to self-host n8n's AI Starter Kit and access your AI workflows remotely with Pinggy. A step-by-step guide to creating privacy-focused AI solutions with local LLMs."
+description: "Learn how to self-host n8n's AI Starter Kit and access your AI workflows remotely with Pinggy. Step-by-step guide to privacy-focused AI solutions with local LLMs."
 date: 2025-06-07T14:00:00+05:30
 draft: false
 tags: ["n8n", "AI", "Self-Hosted", "Pinggy", "Ollama", "Qdrant", "Local LLM"]

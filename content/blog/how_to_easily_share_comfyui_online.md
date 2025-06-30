@@ -1,6 +1,6 @@
 ---
 title: "How to Easily Share ComfyUI Online"
-description: "Learn how to share your ComfyUI setup online with Pinggy. This easy guide walks you through each step to securely share ComfyUI over the internet, making collaboration and remote access simple!"
+description: "Learn how to share your ComfyUI setup online with Pinggy. Easy guide to securely share ComfyUI over the internet for collaboration and remote access."
 date: 2024-10-28T01:15:25+05:30
 draft: false
 tags: ["ComfyUI","Pinggy","guide","tunneling","remote access"]

@@ -1,6 +1,6 @@
 ---
  title: "Documentation - Getting Started" 
- description: "Start using Pinggy in three simple steps. Host websites, receive webhooks, share files, and connect to your localhost remotely with ease. Explore the quickstart guide now."
+ description: "Start using Pinggy in three simple steps. Host websites, receive webhooks, share files, and connect to your localhost remotely with ease."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---

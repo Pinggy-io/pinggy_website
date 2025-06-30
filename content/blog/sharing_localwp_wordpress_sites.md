@@ -1,6 +1,6 @@
 ---
 title: "Sharing LocalWP WordPress sites"
-description: "Easily share your Local WordPress sites online with Pinggy. This guide covers the steps to securely share LocalWP setups for collaboration and remote access with minimal setup."
+description: "Easily share your Local WordPress sites online with Pinggy. Guide covers steps to securely share LocalWP setups for collaboration and remote access."
 date: 2024-11-01T10:00:00+05:30
 draft: false
 tags: ["WordPress", "Pinggy", "LocalWP", "guide", "tunneling", "remote access"]

@@ -1,6 +1,6 @@
 ---
  title: "TCP Tunnels" 
- description: "Effortlessly create TCP tunnels with Pinggy using a single command. Reserve a port on the dashboard for a consistent connection. No complexities, just seamless tunneling for your localhost."
+ description: "Effortlessly create TCP tunnels with Pinggy using a single command. Reserve a port on the dashboard for consistent connections and seamless localhost tunneling."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---

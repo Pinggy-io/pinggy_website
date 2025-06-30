@@ -1,6 +1,6 @@
 ---
 title: "SSH Into Docker Container"
-description: "Learn how to securely SSH into Docker containers with practical examples and step-by-step instructions. Master container management and troubleshooting in your development workflow."
+description: "Learn how to securely SSH into Docker containers with practical examples and step-by-step instructions. Master container management and troubleshooting."
 date: 2024-10-18T14:15:25+05:30
 lastmod: 2024-10-18T14:15:25+05:30
 draft: false
