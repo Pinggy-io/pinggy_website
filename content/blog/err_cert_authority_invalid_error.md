@@ -1,6 +1,6 @@
 ---
 title: "NET::ERR_CERT_AUTHORITY_INVALID Error"
-description: "Learn about the NET::ERR_CERT_AUTHORITY_INVALID error, its causes, and effective solutions. Discover detailed troubleshooting steps for browsers like Chrome, Safari, and Arc, and understand how to resolve SSL certificate issues for enhanced online security."
+description: "Learn about the NET::ERR_CERT_AUTHORITY_INVALID error, its causes, and effective solutions. Troubleshooting steps for Chrome, Safari, and Arc browsers."
 date: 2024-11-24T15:30:00+05:30
 draft: false
 og_image: "images/err_cert_authority_invalid_error/thumbnail.webp"

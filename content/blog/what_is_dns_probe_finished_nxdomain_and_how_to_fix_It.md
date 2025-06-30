@@ -1,6 +1,6 @@
 ---
 title: "DNS_PROBE_FINISHED_NXDOMAIN: What it is and How to fix it"
-description: "Encountering the dns_probe_finished_nxdomain error? Learn what it means, why it happens, and how to resolve it with step-by-step solutions. Understand DNS, its role, and prevent future occurrences."
+description: "Encountering the dns_probe_finished_nxdomain error? Learn what it means, why it happens, and how to resolve it with step-by-step solutions."
 date: 2024-11-11T10:00:00+00:00
 lastmod: 2025-03-29T14:15:25+05:30
 draft: false

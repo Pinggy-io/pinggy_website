@@ -1,6 +1,6 @@
 ---
  title: "Share files directly form localhost"
- description: "Effortlessly share files from your PC without cloud hassle. Use Pinggy to create tunnels, generate public URLs, and share files directly from localhost. Simple, quick, and no need for uploads." 
+ description: "Effortlessly share files from your PC without cloud hassle. Use Pinggy to create tunnels, generate public URLs, and share files directly from localhost."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---

@@ -1,5 +1,6 @@
 ---
  title: "Creating tunnel behind proxy and firewall"
+ description: "Learn how to create Pinggy tunnels from networks behind HTTP proxies and firewalls. Covers ProxyCommand options for Linux, MacOS, and Windows."
  date: 2023-08-21T09:15:25+05:30
  draft: false
 ---

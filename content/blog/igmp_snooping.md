@@ -1,6 +1,6 @@
 ---
 title: "Understanding IGMP Snooping: Enhancing Network Efficiency and Security"
-description: "Learn how IGMP Snooping prevents multicast traffic flooding, improves network efficiency, and ensures secure, optimized data delivery. Explore detailed steps, benefits, and advanced configurations for VLANs and IGMP queriers."
+description: "Learn how IGMP Snooping prevents multicast traffic flooding, improves network efficiency, and ensures secure data delivery. Explore benefits and configurations."
 date: 2024-11-16T14:15:25+05:30
 draft: false
 lastmod: 2025-06-30T14:15:25+05:30

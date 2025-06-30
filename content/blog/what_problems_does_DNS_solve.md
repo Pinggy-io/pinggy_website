@@ -1,6 +1,6 @@
 ---
 title: "What problems does DNS solve?"
-description: "The Domain Name System (DNS) simplifies internet access by translating IP addresses into user-friendly domain names, ensuring seamless connectivity, optimizing performance, and enhancing security. It enables efficient traffic management, geographic routing, and service organization, making the internet accessible, reliable, and resilient."
+description: "Learn how DNS simplifies internet access by translating IP addresses into user-friendly domain names, ensuring seamless connectivity and enhanced security."
 date: 2024-12-19T14:15:25+05:30
 draft: false
 og_image: "images/dns/Domain_Name_System.webp"

@@ -1,6 +1,6 @@
 ---
 title: "Run Tunnel on Startup for Windows"
-description: "Run your Pinggy tunnel on Windows startup with ease. Create a batch file with your Pinggy command, save it in the startup folder, and enjoy automatic tunnel execution upon logging in."
+description: "Run your Pinggy tunnel on Windows startup with ease. Create a batch file with your Pinggy command, save it in the startup folder for automatic execution."
 date: 2023-12-13T14:15:25+05:30
 draft: false
 ---

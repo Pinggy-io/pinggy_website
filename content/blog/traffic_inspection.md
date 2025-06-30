@@ -1,6 +1,6 @@
 ---
  title: "Simplifying Traffic Inspection with Pinggy" 
- description: "Discover how Pinggy advanced traffic inspection and web debugger streamline debugging, offering real-time insights into network traffic. Optimize your workflow and enhance application performance effortlessly."
+ description: "Discover how Pinggy's advanced traffic inspection and web debugger streamline debugging with real-time network traffic insights. Optimize workflow and performance."
  date: 2023-05-31T14:15:25+05:30 
  draft: false 
  og_image: "images/jupyter/image0.webp"

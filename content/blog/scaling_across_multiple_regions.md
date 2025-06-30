@@ -1,6 +1,6 @@
 ---
  title: "Scaling across Multiple Regions" 
- description: "Explore how Pinggy scales across multiple regions to provide faster and more reliable tunnels. Learn about the challenges of DNS management, the integration of PowerDNS and Route 53, and the end-to-end flow of creating tunnels in this multi-region setup."
+ description: "Explore how Pinggy scales across multiple regions to provide faster and more reliable tunnels. Learn about DNS management challenges and PowerDNS integration."
  date: 2023-09-08T14:15:25+05:30
  lastmod: 2023-09-08T14:15:25+05:30
  draft: false

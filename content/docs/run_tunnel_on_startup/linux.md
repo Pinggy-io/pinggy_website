@@ -1,6 +1,6 @@
 ---
 title: "Run Tunnel on Startup for Linux"
-description: "Run your Pinggy tunnel on Linux startup with ease. Create a shell script with your Pinggy command, set up a systemd service, and enjoy automatic tunnel execution upon booting."
+description: "Run your Pinggy tunnel on Linux startup with ease. Create a shell script with your Pinggy command and set up a systemd service for automatic execution."
 date: 2023-02-07T14:15:25+05:30
 draft: false
 ---

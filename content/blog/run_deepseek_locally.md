@@ -1,6 +1,6 @@
 ---
 title: "How to Run DeepSeek Locally"
-description: "Learn how to run powerful DeepSeek AI models locally on your computer using Ollama for privacy-focused, cost-effective AI development with complete control over your data."
+description: "Learn how to run powerful DeepSeek AI models locally on your computer using Ollama for privacy-focused, cost-effective AI development with data control."
 date: 2025-04-29T14:00:00+05:30
 draft: false
 tags: ["DeepSeek", "DeepSeek-R1", "Ollama", "Self-Hosted AI", "LLM Deployment", "AI Models"]
