@@ -1,6 +1,6 @@
 ---
 title: "How to Easily Share OpenLLM API Online"
-description: "Discover how to deploy and share large language models locally using OpenLLM and expose APIs securely via Pinggy tunneling. Perfect for developers and AI enthusiasts."
+description: "Discover how to deploy and share large language models locally using OpenLLM and expose APIs securely via Pinggy tunneling. Perfect for developers."
 date: 2025-02-04T14:00:00+05:30
 draft: false
 tags: ["OpenLLM", "Pinggy", "Self-Hosted AI", "LLM Deployment", "AI Tunneling"]

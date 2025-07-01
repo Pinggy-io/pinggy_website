@@ -1,6 +1,6 @@
 ---
  title: "T-Mobile Port Forwarding" 
- description: "T-Mobile home internet employs CG-NAT, which makes port forwarding difficult. To enable port forwarding, paste a single command in the terminal to create a Pinggy TCP tunnel. Using the Pinggy tunnel, you can forward any port through T-Mobile's CG-NAT."
+ description: "T-Mobile home internet uses CG-NAT, making port forwarding difficult. Learn how to create a Pinggy TCP tunnel to forward any port through T-Mobile's CG-NAT."
  date: 2024-06-20T14:15:25+05:30
  lastmod: 2025-06-13T14:15:25+05:30
  draft: false 

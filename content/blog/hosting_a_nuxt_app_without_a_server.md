@@ -1,6 +1,6 @@
 ---
 title: "Hosting a Nuxt App Without a Server"
-description: "Learn how to securely host your Nuxt.js app online using Pinggy. This step-by-step guide walks you through running your app locally and creating a secure tunnel for remote access."
+description: "Learn how to securely host your Nuxt.js app online using Pinggy. Step-by-step guide for running your app locally and creating secure tunnels."
 date: 2025-01-02T14:00:00+05:30
 draft: false
 tags: ["Nuxt.js", "Pinggy", "guide", "tunneling", "remote access"]

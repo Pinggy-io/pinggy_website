@@ -1,6 +1,6 @@
 ---
 title: "How to Share a Svelte App from Localhost"
-description: "Learn how to securely share your Svelte app online using Pinggy. This step-by-step guide walks you through running your app locally and creating a secure tunnel for remote access."
+description: "Learn how to securely share your Svelte app online using Pinggy. Step-by-step guide for running your app locally and creating secure tunnels."
 date: 2025-03-26T10:00:00+05:30
 draft: false
 tags: ["Svelte", "Pinggy", "guide", "tunneling", "remote access"]

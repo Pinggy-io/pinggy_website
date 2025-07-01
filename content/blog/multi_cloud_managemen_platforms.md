@@ -1,6 +1,6 @@
 ---
 title: "Top Open-Source Multi-Cloud Management Platforms in 2025"
-description: "Discover the best open-source multi-cloud management platforms in 2025. Learn how these solutions help organizations efficiently manage resources across AWS, Azure, Google Cloud, and other providers."
+description: "Discover the best open-source multi-cloud management platforms in 2025. Learn how to efficiently manage resources across AWS, Azure, Google Cloud, and more."
 date: 2025-05-05T10:00:00+05:30
 draft: false
 tags: ["cloud", "multi-cloud", "open-source", "devops"]

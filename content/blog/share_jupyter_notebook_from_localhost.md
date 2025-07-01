@@ -1,6 +1,6 @@
 ---
  title: "Sharing Jupyter Notebooks from localhost" 
- description: "Effortlessly share Jupyter Notebooks globally with Pinggy. Securely collaborate, access, and obtain a public URL for your locally running Jupyter Notebook. No complex setups, just seamless sharing."
+ description: "Effortlessly share Jupyter Notebooks globally with Pinggy. Securely collaborate and obtain a public URL for your locally running Jupyter Notebook."
  date: 2023-05-29T14:15:25+05:30 
  draft: false 
  og_image: "images/jupyter/image0.webp"

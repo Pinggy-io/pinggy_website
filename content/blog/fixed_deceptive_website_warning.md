@@ -1,6 +1,6 @@
 ---
  title: "Updates to counter deceptive content distribution" 
- description: "Discover the latest steps Pinggy has taken to combat deceptive content distribution. Changes include domain updates and enhanced security measures. Learn how these updates impact your Pinggy tunnels and ensure a secure online experience."
+ description: "Latest steps Pinggy has taken to combat deceptive content distribution. Domain updates and enhanced security measures to ensure secure tunneling experience."
  date: 2023-07-16T14:15:25+05:30 
  lastmod: 2023-07-26T14:15:25+05:30
  draft: false 

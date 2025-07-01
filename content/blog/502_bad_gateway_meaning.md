@@ -1,6 +1,6 @@
 ---
  title: "502 Bad Gateway Meaning" 
- description: "502 Bad Gateway error occurs when a reverse proxy server cannot receive a valid response from an upstream server. This article explains the causes of the error and provides troubleshooting steps to fix it."
+ description: "502 Bad Gateway error occurs when a reverse proxy server cannot receive a valid response from upstream server. Learn causes and troubleshooting steps."
  date: 2024-11-16T14:15:25+05:30
  lastmod: 2024-11-16T15:15:25+05:30
  draft: false 

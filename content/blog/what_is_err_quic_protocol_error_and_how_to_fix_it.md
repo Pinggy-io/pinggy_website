@@ -1,6 +1,6 @@
 ---
 title: "What Is ERR_QUIC_PROTOCOL_ERROR and How To Fix It"
-description: "Learn about the ERR_QUIC_PROTOCOL_ERROR in Google Chrome, its causes, and effective solutions. Discover detailed troubleshooting steps for resolving QUIC protocol issues and understand how to restore normal browsing functionality."
+description: "Learn about the ERR_QUIC_PROTOCOL_ERROR in Google Chrome, its causes, and effective solutions. Detailed troubleshooting steps to restore normal browsing."
 date: 2025-06-16T15:30:00+05:30
 draft: false
 og_image: "images/what_is_err_quic_protocol_error_and_how_to_fix_it/what_is_err_quic_protocol_error_and_how_to_fix_it_banner.webp"

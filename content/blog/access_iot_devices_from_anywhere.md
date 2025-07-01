@@ -1,6 +1,6 @@
 ---
  title: "Access IoT Devices from Anywhere"
- description: "Seamlessly manage and access your IoT devices, including Raspberry Pi, from anywhere with Pinggy. Utilize a single command to establish a secure TCP tunnel, enabling remote SSH connections." 
+ description: "Seamlessly manage and access your IoT devices, including Raspberry Pi, from anywhere with Pinggy. Use a single command to establish secure TCP tunnels."
  date: 2023-06-09T14:15:25+05:30
  lastmod: 2023-08-10T14:15:25+05:30
  draft: false 

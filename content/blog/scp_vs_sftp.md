@@ -1,7 +1,8 @@
 ---
-title: "SCP vs SFTP"
-description: "Discover the differences between SCP and SFTP for secure file transfers. Learn their features, use cases, strengths, limitations, and when to use SCP vs SFTP for optimal performance."
+title: "Comparing SCP and SFTP: Secure File Transfer Protocols Explained"
+description: "Discover the differences between SCP and SFTP for secure file transfers. Learn their features, use cases, strengths, and when to use each for optimal performance."
 date: 2024-12-17T14:15:25+05:30
+lastmod: 2025-06-30T14:15:25+05:30
 draft: false
 og_image: "images/scp_vs_sftp/scp_vs_sftp.png"
 tags: ["file transfer", "scp", "sftp", "secure transfer", "ssh"]

@@ -1,6 +1,6 @@
 ---
 title: "Access raspberry pi remotely to control iot devices"
-description: "Learn how to securely connect to your Raspberry Pi or IoT device remotely over the internet without the need for port forwarding. Explore methods such as SSH, VNC, and RDP, and discover how to use Pinggy.io to create secure tunnels for seamless remote management. Enhance your IoT device control and management from anywhere in the world."
+description: "Learn how to securely connect to your Raspberry Pi or IoT device remotely over the internet without port forwarding. Explore SSH, VNC, and RDP methods."
 og_image: "images/iot/remote_access_raspberry_pi.webp"
 tags: ["iot", "guide", "raspberrypi"]
 outputs:

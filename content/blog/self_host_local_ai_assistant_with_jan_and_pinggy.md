@@ -1,6 +1,6 @@
 ---
 title: "Self-host Local AI Assistant with Jan and Pinggy"
-description: "Learn how to run Jan, a ChatGPT alternative, locally and share it online using Pinggy. Complete guide to setting up your private AI assistant with local models and remote API access."
+description: "Learn how to run Jan, a ChatGPT alternative, locally and share it online using Pinggy. Complete guide to setting up your private AI assistant."
 date: 2025-06-19T14:00:00+05:30
 draft: false
 tags: ["Jan", "Pinggy", "Self-Hosted AI", "Local AI", "AI Assistant", "Privacy", "Jan.ai"]

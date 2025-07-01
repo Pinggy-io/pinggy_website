@@ -1,6 +1,6 @@
 ---
  title: "Top 10 Cloudflare Tunnel Alternatives in 2024" 
- description: "Discover the top 10 Cloudflare Tunnel alternatives in 2024. Explore Pinggy.io, ngrok, Localtunnel, and more. Compare features, ease of use, and prices in this comprehensive guide."
+ description: "Discover the top 10 Cloudflare Tunnel alternatives in 2024. Explore Pinggy.io, ngrok, Localtunnel, and more. Compare features, ease of use, and prices."
  date: 2024-10-17T14:15:25+05:30
  lastmod: 2024-10-17T15:15:25+05:30
  draft: false 
@@ -66,7 +66,7 @@ Pinggy is ideal for developers who need to share their development environments 
 
 - Easy setup with no complex installation.
 - Works directly from the terminal, making it highly convenient for developers who prefer command-line interfaces.
-- Generates QR codes for tunnel URLs, making it easy to share your local applications with others quickly.
+- You can create {{< link href="https://www.adobe.com/express/feature/image/qr-code-generator" >}}QR code{{</ link >}} which you can generate for tunnel URLs, making it easy to share your local applications with others quickly.
 - Includes a built-in tool for monitoring and inspecting HTTP requests and responses, enabling real-time debugging.
 - Supports custom domain mapping, which is beneficial for branding and user-friendly URLs.
 - Provides tunneling for both TCP and UDP protocols, making it versatile for various applications.

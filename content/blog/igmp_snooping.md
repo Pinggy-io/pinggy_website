@@ -1,9 +1,9 @@
 ---
-title: "IGMP Snooping"
-description: "Learn how IGMP Snooping prevents multicast traffic flooding, improves network efficiency, and ensures secure, optimized data delivery. Explore detailed steps, benefits, and advanced configurations for VLANs and IGMP queriers."
+title: "Understanding IGMP Snooping: Enhancing Network Efficiency and Security"
+description: "Learn how IGMP Snooping prevents multicast traffic flooding, improves network efficiency, and ensures secure data delivery. Explore benefits and configurations."
 date: 2024-11-16T14:15:25+05:30
 draft: false
-lastmod: 2025-04-01T14:15:25+05:30
+lastmod: 2025-06-30T14:15:25+05:30
 og_image: "images/igmp_snooping/banner.webp"
 tags: ["networking", "multicast", "guide"]
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwgCiAgIkB0eXBlIjogIkhvd1RvIiwgCiAgIm5hbWUiOiAiSG93IHRvIGNvbmZpZ3VyZSBJR01QIFNub29waW5nIGZvciBlZmZpY2llbnQgbXVsdGljYXN0IHRyYWZmaWMgbWFuYWdlbWVudCIsCiAgImRlc2NyaXB0aW9uIjogIkFjaGlldmUgb3B0aW1pemVkIG11bHRpY2FzdCB0cmFmZmljIG1hbmFnZW1lbnQgdXNpbmcgSUdNIFNub29waW5nLiBMZWFybiBob3cgdG8gZW5hYmxlIGFuZCBjb25maWd1cmUgdGhpcyBmZWF0dXJlIGZvciB2YXJpb3VzIG5ldHdvcmsgc2V0dXBzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9pZ21wX3Nub29waW5nL3dpdGhvdXRfaWdtcF9zbm9vcGluZy53ZWJwIiwKICAidG90YWxUaW1lIjogIlBUM00iLAogICJlc3RpbWF0ZWRDb3N0IjogewogICAgIkB0eXBlIjogIk1vbmV0YXJ5QW1vdW50IiwKICAgICJjdXJyZW5jeSI6ICJVU0QiLAogICAgInZhbHVlIjogIjMwIgp9Cn0KPC9zY3JpcHQ+Cg=="

@@ -1,6 +1,6 @@
 ---
  title: "How to get Slack webhooks" 
- description: "Learn how to set up Slack webhooks to automate message posting and integrate real-time updates with your external applications. Get step-by-step guidance on creating and testing webhooks easily."
+ description: "Learn how to set up Slack webhooks to automate message posting and integrate real-time updates with external applications. Step-by-step guidance included."
  date: 2024-10-27T14:15:25+05:30
  lastmod: 2024-10-27T15:15:25+05:30
  draft: false 

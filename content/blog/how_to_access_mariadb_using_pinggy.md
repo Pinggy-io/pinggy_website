@@ -1,6 +1,6 @@
 ---
 title: "How to Access MariaDB Using Pinggy"
-description: "Learn how to access MariaDB from anywhere using Pinggy. Bypass NAT, CGNAT, and firewall restrictions with this simple guide. Set up MariaDB in Docker, start a Pinggy TCP tunnel, and connect via MariaDB client or DBeaver."
+description: "Learn how to access MariaDB from anywhere using Pinggy. Bypass NAT, CGNAT, and firewall restrictions. Set up MariaDB in Docker and create TCP tunnels."
 date: 2024-12-19T10:30:00+05:30
 draft: false
 og_image: "images/access_mariadb_using_pinggy/mariadb_pinggy.webp"

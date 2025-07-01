@@ -1,6 +1,6 @@
 ---
  title: "Display qr code in terminal"
- description: "Generate QR codes in your terminal with Pinggy effortlessly. Press 'c' for ASCII or 'u' for Unicode. Use keywords during tunnel creation for always-displayed QR codes."
+ description: "Generate QR codes in your terminal with Pinggy effortlessly. Press 'c' for ASCII or 'u' for Unicode. Use keywords during tunnel creation for persistent QR codes."
  date: 2023-08-07T14:15:25+05:30
  draft: false
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Control Plane vs Data Plane: Key Differences Explained"
-description: "Understand the fundamental differences between control plane and data plane in networking and cloud architecture. Learn how these concepts apply to SDN, Kubernetes, and modern infrastructure with practical examples."
+description: "Understand the fundamental differences between control plane and data plane in networking and cloud architecture. Learn SDN, Kubernetes applications with examples."
 date: 2025-05-01T10:00:00+05:30
 draft: false
 tags: ["networking", "cloud", "kubernetes", "sdn"]

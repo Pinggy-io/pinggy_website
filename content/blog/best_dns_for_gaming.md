@@ -1,6 +1,6 @@
 ---
 title: "Best DNS for Gaming"
-description: "Discover the best DNS for gaming to reduce latency, improve connection reliability, and enhance your overall gaming performance. Explore top options like Cloudflare, Google DNS, and OpenDNS, and learn how to configure them for an optimized gaming experience."
+description: "Discover the best DNS for gaming to reduce latency and improve performance. Explore top options like Cloudflare, Google DNS, and OpenDNS with setup guides."
 date: 2024-11-21T14:15:25+05:30
 lastmod: 2025-05-06T14:15:25+05:30
 draft: false

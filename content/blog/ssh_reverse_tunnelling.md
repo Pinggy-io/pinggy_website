@@ -1,6 +1,6 @@
 ---
  title: "SSH Reverse Tunneling" 
- description: "This article offers a comprehensive guide to SSH reverse tunneling, explaining its role in securely accessing local services from remote locations, even behind firewalls or NATs. It covers common use cases like remote IoT control, database access, and gaming, while also highlighting security best practices and alternatives such as VPNs and Pinggy, a tool that simplifies the tunneling process. Additionally, it explores how Pinggy provides developers with an easy-to-use interface for exposing local services to the internet."
+ description: "Learn SSH reverse tunneling to securely access local services from remote locations, even behind firewalls or NATs. Covers IoT control and database access."
  date: 2024-10-23T14:15:25+05:30
  lastmod: 2025-06-02T15:15:25+05:30
  draft: false 

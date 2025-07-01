@@ -1,6 +1,6 @@
 ---
  title: "HTTP / HTTPS Tunnels" 
- description: "Create HTTP/HTTPS tunnels to your localhost effortlessly with Pinggy. Use a single command to share your service, and access it through dynamic URLs. For a persistent subdomain, upgrade to Pinggy Pro."
+ description: "Create HTTP/HTTPS tunnels to your localhost effortlessly with Pinggy. Use a single command to share your service and access it through dynamic URLs."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---

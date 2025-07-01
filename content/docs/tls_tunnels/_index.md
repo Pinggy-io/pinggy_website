@@ -1,6 +1,6 @@
 ---
  title: "TLS Tunnels" 
- description: "Create TLS tunnels with Pinggy in a single command. Establish SSL/TLS connections to your localhost using unique domains. Follow the guide for creating TLS tunnels now."
+ description: "Create TLS tunnels with Pinggy in a single command. Establish SSL/TLS connections to your localhost using unique domains. Follow the guide for TLS tunnels."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---

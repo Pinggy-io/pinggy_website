@@ -1,6 +1,6 @@
 ---
 title: "Accessing Remote Servers with SSH ProxyJump and Jump Hosts"
-description: "Learn how to securely navigate network segments with SSH ProxyJump and Jump Hosts. This guide covers the basics of SSH, the role of Jump Hosts, and how ProxyJump simplifies secure connections. Discover practical configurations, security best practices, and troubleshooting tips for accessing remote servers across complex networks."
+description: "Learn how to securely navigate network segments with SSH ProxyJump and Jump Hosts. Covers SSH basics, configurations, and security best practices."
 date: 2024-11-06T10:30:00+05:30
 lastmod: 2024-11-06T10:30:00+05:30
 draft: false

@@ -1,6 +1,6 @@
 ---
  title: "Key Authentication with HTTP Tunnel" 
- description: "Learn to secure connections with Pinggy's key-based authentication. Follow easy steps for tunnel creation, customize commands, and enhance connection security effortlessly."
+ description: "Learn to secure connections with Pinggy's key-based authentication. Follow easy steps for tunnel creation, customize commands, and enhance connection security."
  date: 2023-12-07T01:15:25+05:30
  draft: false 
 ---

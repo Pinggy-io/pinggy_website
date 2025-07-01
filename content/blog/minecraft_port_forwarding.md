@@ -1,6 +1,6 @@
 ---
 title: "Minecraft Port Forwarding"
-description: "Learn how to set up Minecraft port forwarding to share your server with friends. Covers port forwarding across different routers, troubleshooting, and alternative solutions using Pinggy."
+description: "Learn how to set up Minecraft port forwarding to share your server with friends. Covers different routers, troubleshooting, and Pinggy alternatives."
 date: 2025-05-18T14:15:25+05:30
 lastmod: 2025-05-27T15:15:25+05:30
 draft: false

@@ -1,6 +1,6 @@
 ---
  title: "Remote Desktop for Raspberry Pi and other IoT devices" 
- description: "Discover a quick guide to remotely access your Raspberry Pi desktop using Remote Desktop Protocol (RDP). Learn how to set up an RDP server, create a Pinggy TCP tunnel for internet access, and connect seamlessly to your IoT devices from anywhere!"
+ description: "Quick guide to remotely access your Raspberry Pi desktop using Remote Desktop Protocol (RDP). Set up RDP server and create Pinggy TCP tunnel for remote access."
  date: 2023-08-11T14:15:25+05:30
  draft: false 
  og_image: "images/pirdp/pirdp.webp"

@@ -1,6 +1,6 @@
 ---
 title: "How to Share a Next.js App from Localhost"
-description: "Learn how to securely host your Next.js app online using Pinggy. This step‑by‑step guide walks you through running your app locally and creating a secure tunnel for remote access."
+description: "Learn how to securely host your Next.js app online using Pinggy. Step-by-step guide for running your app locally and creating secure tunnels."
 date: 2025-03-23T10:00:00+05:30
 draft: false
 tags: ["Next.js", "Pinggy", "guide", "tunneling", "remote access"]

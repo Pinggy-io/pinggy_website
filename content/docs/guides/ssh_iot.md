@@ -1,6 +1,6 @@
 ---
  title: "SSH IoT device from anywhere"
- description: "Securely SSH into your IoT devices, like Raspberry Pi, from anywhere with Pinggy. No need for a public IP address – create TCP tunnels effortlessly. Obtain a public URL and port for remote access. Simplify IoT device management."
+ description: "Securely SSH into your IoT devices, like Raspberry Pi, from anywhere with Pinggy. No public IP needed – create TCP tunnels effortlessly for remote access."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---
