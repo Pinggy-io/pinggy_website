@@ -1,6 +1,6 @@
 ---
  title: "Sharing a Minecraft Server running on Localhost with Your Friends Online"
- description: "Learn how to easily expose your localhost Minecraft server to the internet using Pinggy. This step-by-step guide covers everything from installing the Minecraft Launcher to configuring and sharing your server online, enabling you to play with friends worldwide."
+ description: "Learn how to easily expose your localhost Minecraft server to the internet using Pinggy. Step-by-step guide to share your server and play with friends worldwide."
  og_image: "images/minecraft/minecraft_launcher.webp"
  date: 2024-03-01T23:33:55+05:30
  lastmod: 2025-01-17T14:15:25+05:30

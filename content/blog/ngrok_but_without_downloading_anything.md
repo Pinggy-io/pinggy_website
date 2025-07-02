@@ -1,6 +1,6 @@
 ---
  title: "Ngrok - But without downloading anything" 
- description: "Ngrok download not required. Just paste one command to get localhost tunnels. Ngrok requires downloading a platform-specific program (binary) for your operating system, be it Mac, Windows, or Linux. With Pinggy that is replaced by one command."
+ description: "Get localhost tunnels without downloading anything. Unlike Ngrok which requires platform-specific downloads, Pinggy works with just one command."
  date: 2023-08-12T14:15:25+05:30
  draft: false 
  og_image: "/assets/header.webp"

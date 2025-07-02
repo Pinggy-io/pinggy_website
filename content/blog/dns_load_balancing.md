@@ -1,6 +1,6 @@
 ---
 title: "DNS Load Balancing"
-description: "Explore the concept of DNS Load Balancing, its benefits, and the best practices for setting it up. Learn how it optimizes web traffic distribution for improved performance and reliability."
+description: "Explore DNS Load Balancing, its benefits, and best practices for setup. Learn how it optimizes web traffic distribution for improved performance and reliability."
 date: 2025-02-01T14:15:25+05:30
 lastmod: 2025-02-01T14:15:25+05:30
 draft: false

@@ -1,8 +1,8 @@
 ---
- title: "TLS Tunnel" 
- description: "Explore TLS tunnels – secure, encrypted channels for client-server communication. Create one easily with Pinggy for secure connections to localhost servers without any downloads."
+ title: "Understanding TLS Tunnels: Secure Channels for Encrypted Communication"
+ description: "Explore TLS tunnels – secure, encrypted channels for client-server communication. Create one easily with Pinggy for secure localhost connections."
  date: 2023-08-22T14:15:25+05:30
- lastmod: 2024-02-20T14:15:25+05:30
+ lastmod: 2025-06-30T14:15:25+05:30
  draft: false 
  tags: ["guide", "tls"]
  og_image: "images/tls_tunnel/tls.webp"

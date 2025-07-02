@@ -1,6 +1,6 @@
 ---
 title: "AI Video Editors for the Visually Impaired"
-description: "Discover how AI-powered video editing tools are making video creation accessible for the visually impaired through voice commands, automated editing, and smart features."
+description: "Discover how AI-powered video editing tools make video creation accessible for the visually impaired through voice commands, automated editing, and smart features."
 date: 2025-05-09T14:15:25+05:30
 draft: false
 tags: ["AI Video Editing", "Accessibility", "Visual Impairment", "AI Tools", "Video Production"]

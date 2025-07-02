@@ -7,7 +7,7 @@
  og_image: "/quickstart/images/slack.svg"
 ---
 
-Slack webhooks can be a powerful way to integrate your localhost app with Slack, allowing you to receive notifications when specific events occur in your Slack account. To achieve this, your application needs to be accessible through an HTTPS endpoint. This guide will walk you through using [pinggy.io](https://pinggy.io) to achieve seamless integration with Slack.
+Slack webhooks can be a powerful way to integrate your localhost app with Slack, allowing you to receive notifications when specific events occur in your Slack account. To achieve this, your application needs to be accessible through an HTTPS endpoint. This guide will walk you through using [pinggy.io](https://pinggy.io/) to achieve seamless integration with Slack.
 
 ## Step 1: Start Your App
 
@@ -67,9 +67,9 @@ If you run the command with your specified port where your service is running, y
 
 To register a webhook with your Slack account, follow the instructions below:
 
-1. Access the [Slack Web App](https://app.slack.com) and sign in using your Slack account.Continue with the **use Slack in your browser** option.
+1. Access the [Slack Web App](https://app.slack.com/) and sign in using your Slack account.Continue with the **use Slack in your browser** option.
 
-2. In the same browser tab, access the [Slack API portal](https://api.slack.com/apps) and then click **Create New App**. If you already have some apps created, click \*\*\*\*.
+2. In the same browser tab, access the [Slack API portal](https://api.slack.com/apps/) and then click **Create New App**. If you already have some apps created, click \*\*\*\*.
 
 3. In the **Create an app** window, click **From scratch**, provide the **App Name**, select a workspace under **Pick a workspace to develop your app in**, and then click **Create App**.
 
@@ -81,7 +81,7 @@ To register a webhook with your Slack account, follow the instructions below:
 
 {{< figure src="/quickstart_img/slack/slack_enable_events.webp" alt="Enable Slack Events" >}}
 
-6. On the same page, expand **Subscribe to events on behalf of users**, click **Add Workspace Event**, select `message.im`, and then click **Save Changes**. More about Slack event types [here](https://api.slack.com/events).
+6. On the same page, expand **Subscribe to events on behalf of users**, click **Add Workspace Event**, select `message.im`, and then click **Save Changes**. More about Slack event types [here](https://api.slack.com/events/).
 
 7. In the left menu, click **Install App**, click **Install to Workspace**, and then click **Allow** to allow your application to access your workspace.
 
@@ -91,7 +91,7 @@ To register a webhook with your Slack account, follow the instructions below:
 
 Because you've subscribed to the `message.im` event and installed your app to your slack workspace, you now can direct message any person in the workspace to make Slack call your localhost application:
 
-1. Access the [Slack Web App](https://app.slack.com) or open the slack app on your desktop, and verify that your application appears under Apps in the left menu.
+1. Access the [Slack Web App](https://app.slack.com/) or open the slack app on your desktop, and verify that your application appears under Apps in the left menu.
 
 2. Select one person in your workspace and send the person a message. Alternatively, you can select the **Slackbot**, write `Hello Slack bot!` in the message field, and then send it.
 

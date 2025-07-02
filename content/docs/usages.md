@@ -1,5 +1,6 @@
 ---
  title: "Pinggy Usage"
+ description: "Learn how Pinggy uses SSH reverse tunneling for secure connections. Covers SSH options, tunnel configuration, and debugging features."
  date: 2023-08-19T14:15:25+05:30
  draft: false
 ---

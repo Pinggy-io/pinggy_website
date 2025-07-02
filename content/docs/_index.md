@@ -1,6 +1,6 @@
 ---
  title: "Documentation - Getting Started" 
- description: "Start using Pinggy in three simple steps. Host websites, receive webhooks, share files, and connect to your localhost remotely with ease. Explore the quickstart guide now."
+ description: "Start using Pinggy in three simple steps. Host websites, receive webhooks, share files, and connect to your localhost remotely with ease."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---
@@ -34,7 +34,7 @@ Replace the port `8000` with the localhost port where your service is running.
 {{% /tab %}}
 
 {{% tab name="CLI" %}}
-Download the Pinggy CLI from <a href="/cli" target="_blank">here</a> and run the following command:
+Download the Pinggy CLI from <a href="/cli/" target="_blank">here</a> and run the following command:
 
 ```bash
 ./pinggy -p 443 -R0:localhost:8000
@@ -45,7 +45,7 @@ Replace the port `8000` with the localhost port where your service is running.
 {{% /tab %}}
 
 {{% tab name="App" %}}
-Download the Pinggy App from <a href="/app" target="_blank">here</a> and follow the instructions to set up a tunnel for your localhost service.
+Download the Pinggy App from <a href="/app/" target="_blank">here</a> and follow the instructions to set up a tunnel for your localhost service.
 
 ![Pinggy App Screenshot](/assets/app5.webp)
 {{% /tab %}}

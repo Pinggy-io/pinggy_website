@@ -1,6 +1,6 @@
 ---
 title: "Ngrok UDP Alternative"
-description: "Learn why Ngrok does not support UDP and explore Pinggy as a reliable alternative for setting up secure UDP tunnels. Discover step-by-step instructions for using Pinggy's CLI and Web App to expose UDP services."
+description: "Learn why Ngrok doesn't support UDP and explore Pinggy as a reliable alternative for secure UDP tunnels. Step-by-step instructions for CLI and Web App."
 date: 2025-02-28T14:15:25+05:30
 draft: false
 tags: ["Ngrok Alternative", "UDP Tunneling", "Networking", "Pinggy"]

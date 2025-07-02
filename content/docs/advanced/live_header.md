@@ -1,6 +1,6 @@
 ---
  title: "Live HTTP Header Modification" 
- description: "Enhance your tunnel experience with Pinggy's live header modification. Effortlessly add, remove, or update headers using command-line arguments for a secure and tailored outcome."
+ description: "Enhance your tunnel experience with Pinggy's live header modification. Effortlessly add, remove, or update headers using command-line arguments for secure outcomes."
  date: 2023-05-02T20:00:00+05:30 
  draft: false 
 ---

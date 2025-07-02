@@ -1,6 +1,6 @@
 ---
  title: "TLSTCP Tunnels" 
- description: "Create TLSTCP tunnels with Pinggy in a single command. Establish TLS-wrapped connections to your localhost using unique domains. Follow the guide for creating TLSTCP tunnels now."
+ description: "Create TLSTCP tunnels with Pinggy in a single command. Establish TLS-wrapped connections to your localhost using unique domains. Follow the guide for TLSTCP tunnels."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
 ---

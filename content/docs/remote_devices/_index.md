@@ -1,6 +1,6 @@
 ---
 title: "Remote Devices - remotely manage your tunnels with Pinggy"
-description: "You can manage your tunnels remotely from the Pinggy dashboard using the remote devices feature. All you need to do is run the Pinggy CLI and connect it in remote-management mode. This allows you to create, edit, and stop tunnels directly from the dashboard without needing physical access to your device."
+description: "Manage your tunnels remotely from the Pinggy dashboard using the remote devices feature. Run Pinggy CLI in remote-management mode to control tunnels."
 og_image: "doc_img/remote_device/remote_device_illustration.webp"
 date: 2024-01-24T14:15:25+05:30
 draft: false
@@ -19,9 +19,9 @@ You can manage your tunnels remotely from the {{< link href="https://dashboard.p
 
 ## Connecting a remote device
 
-For connecting a remote device, you need to intall {{< link href="https://pinggy.io/cli" >}}Pinggy CLI{{</ link >}}, and get an {{< link href="https://dashboard.pinggy.io/api-keys" >}}API Key{{</ link >}}.
+For connecting a remote device, you need to intall {{< link href="https://pinggy.io/cli/" >}}Pinggy CLI{{</ link >}}, and get an {{< link href="https://dashboard.pinggy.io/api-keys" >}}API Key{{</ link >}}.
 
-**Step 1.** Install the  {{< link href="https://pinggy.io/cli" >}}Pinggy CLI{{</ link >}} by following the instructions {{< link href="https://pinggy.io/cli" >}}here{{</ link >}}.
+**Step 1.** Install the  {{< link href="https://pinggy.io/cli/" >}}Pinggy CLI{{</ link >}} by following the instructions {{< link href="https://pinggy.io/cli/" >}}here{{</ link >}}.
 
 **Step 2.** Create an API Key from the dashboard by logging in to {{< link href="https://dashboard.pinggy.io/api-keys" >}}API Key{{</ link >}}. You can name your API key appropriately to later identify the device you are connecting.
 

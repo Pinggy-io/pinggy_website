@@ -1,6 +1,6 @@
 ---
 title: "How to Easily Share Ollama API and Open WebUI Online"
-description: "Learn to securely expose Ollama's API and Open WebUI interface using Pinggy tunneling. A complete guide to running AI models locally while enabling remote access."
+description: "Learn to securely expose Ollama's API and Open WebUI interface using Pinggy tunneling. Complete guide to running AI models locally with remote access."
 date: 2025-01-26T14:00:00+05:30
 lastmod: 2025-02-07T14:15:25+05:30
 draft: false
