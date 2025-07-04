@@ -23,28 +23,28 @@ Whether you're seeking simpler setup, more integrations, better pricing, or enha
    - Most popular with 6,000+ app integrations
    - User-friendly drag-and-drop interface
    - Best for simple trigger-action workflows
-   - <a taget="_blank" href="https://zapier.com" >Try Zapier</a >
+   - <a target="_blank" href="https://zapier.com" >Try Zapier</a >
 
 2. **Make (formerly Integromat)**
    - Visual workflow builder with advanced data manipulation
    - Better pricing for high-volume workflows
    - Supports complex branching logic
-   - <a taget="_blank" href="https://make.com" >Try Make</a >
+   - <a target="_blank" href="https://make.com" >Try Make</a >
 3. **Pipedream**
    - Developer-focused with code flexibility
    - Serverless execution environment
    - 10,000+ pre-built API integrations
-   - <a taget="_blank" href="https://pipedream.com" >Try Pipedream</a >
+   - <a target="_blank" href="https://pipedream.com" >Try Pipedream</a >
 4. **Windmill**
    - Open-source with self-hosting options
    - Multi-language support (TypeScript, Python, Go, Bash)
    - Visual orchestration with code scripts
-   - <a taget="_blank" href="https://windmill.dev" >Try Windmill</a >
+   - <a target="_blank" href="https://windmill.dev" >Try Windmill</a >
 5. **Temporal**
    - Enterprise-grade reliability and durable execution
    - Mission-critical workflow handling
    - Advanced observability and monitoring
-   - <a taget="_blank" href="https://temporal.io" >Try Temporal</a >
+   - <a target="_blank" href="https://temporal.io" >Try Temporal</a >
 {{% /tldr %}}
 
 ## Why consider n8n alternatives?
@@ -141,7 +141,7 @@ What makes Pipedream unique is its serverless execution environment. You can run
 
 #### Pipedream pricing
 
-Pipedream offers a generous free tier with 10,000 invocations per month. Paid plans start at $19/month for additional compute time and premium features.
+Pipedream offers a generous free tier with 10,000 invocations per month. Paid plans start at $29/month for additional compute time and premium features.
 
 {{< image "top_5_n8n_alternatives_in_2025/pipedream.webp" "Pipedream" >}}
 
@@ -193,7 +193,7 @@ Temporal excels at long-running workflows, complex state management, and scenari
 
 #### Temporal pricing
 
-Temporal offers an open-source version for self-hosting. Their cloud service pricing is based on actions and starts at $200/month for production workloads.
+Temporal offers an open-source version for self-hosting. Their cloud service pricing is based on actions and starts at $100/month for production workloads.
 
 {{< image "top_5_n8n_alternatives_in_2025/temporal.webp" "Temporal" >}}
 
