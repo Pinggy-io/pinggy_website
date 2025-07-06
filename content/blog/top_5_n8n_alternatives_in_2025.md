@@ -14,7 +14,7 @@ outputs:
 
 {{< image "top_5_n8n_alternatives_in_2025/n8n_alternatives.webp" "top 5 n8n alternatives in 2025" >}}
 
-{{< link href="https://n8n.io" >}}n8n{{< /link >}} has become a popular choice for workflow automation, offering a fair-code approach that gives developers the flexibility of code with the speed of no-code. With over 400 integrations and native AI capabilities, it's helped countless teams automate their processes. However, as your automation needs grow or change, you might find yourself looking for alternatives that better fit your specific requirements.
+{{< link href="https://n8n.io" >}}n8n{{< /link >}} has become a popular choice for workflow automation, offering a fair-code approach that gives developers the flexibility of code with the speed of no-code. With over 500+ integrations and native AI capabilities, it's helped countless teams automate their processes. However, as your automation needs grow or change, you might find yourself looking for alternatives that better fit your specific requirements.
 
 Whether you're seeking simpler setup, more integrations, better pricing, or enhanced enterprise features, there are several excellent alternatives to n8n available in 2025. In this guide, we'll explore the **top 5 n8n alternatives** that can help you streamline your workflows and boost productivity.
 
@@ -33,7 +33,7 @@ Whether you're seeking simpler setup, more integrations, better pricing, or enha
 3. **Pipedream**
    - Developer-focused with code flexibility
    - Serverless execution environment
-   - Access to 2,700+ APIs with 10,000+ prebuilt tools
+   - Access to 2700+ integrated apps with 10,000+ prebuilt tools
    - <a target="_blank" href="https://pipedream.com" >Try Pipedream</a >
 4. **Windmill**
    - Open-source with self-hosting options
@@ -123,13 +123,13 @@ Make offers a free tier with 1,000 operations per month. Paid plans start at $9/
 
 {{< link href="https://pipedream.com" >}}Pipedream{{< /link >}} bridges the gap between no-code and pro-code automation. It's designed for developers who want the flexibility to write custom code while still benefiting from a visual workflow builder and pre-built integrations.
 
-What makes Pipedream unique is its serverless execution environment. You can run custom logic using Python, Node.js, Bash, or Go without worrying about infrastructure management. The platform provides access to 2,400+ APIs with 10,000+ prebuilt tools and allows you to build custom components when needed.
+What makes Pipedream unique is its serverless execution environment. You can run custom logic using Python, Node.js, Bash, or Go without worrying about infrastructure management. The platform provides access to 2700+ integrated apps with 10,000+ prebuilt tools and allows you to build custom components when needed.
 
 #### Pros of Pipedream
 
 - **Code flexibility** - Write custom logic in multiple programming languages
 - **Serverless execution** - No infrastructure management required
-- **Extensive API library** - Access to 2,400+ APIs with 10,000+ prebuilt tools
+- **Extensive API library** - Access to 2700+ integrated apps with 10,000+ prebuilt tools
 - **Developer-friendly** - Git integration, version control, and collaborative development
 - **AI assistance** - Built-in AI chatbot to help generate and edit code
 
@@ -141,7 +141,7 @@ What makes Pipedream unique is its serverless execution environment. You can run
 
 #### Pipedream pricing
 
-Pipedream offers a generous free tier with 10,000 invocations per month. Paid plans start at $29/month for additional compute time and premium features.
+Pipedream offers a generous free tier with 2M AI tokens per month. Paid plans start at $45/month for additional compute time and premium features.
 
 {{< image "top_5_n8n_alternatives_in_2025/pipedream.webp" "Pipedream" >}}
 
@@ -167,7 +167,7 @@ Windmill allows you to create workflows using TypeScript, Python, Go, or Bash sc
 
 #### Windmill pricing
 
-Windmill offers a free open-source version for self-hosting. Their cloud service starts at $10/month per user with generous compute allowances.
+Windmill offers a free {{< link href="https://github.com/windmill-labs/windmill" >}}open-source version{{< /link >}} for self-hosting. Their cloud service starts at $10/month per user with generous compute allowances.
 
 {{< image "top_5_n8n_alternatives_in_2025/windmill.webp" "Windmill" >}}
 
