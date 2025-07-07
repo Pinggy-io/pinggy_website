@@ -11,7 +11,7 @@
 />
 <meta
   name="description"
-  content="Pinggy is the simplest way to bring your localhost projects online. It the the fastest way to create secure tunnels to localhost with a public url."
+  content="{{ if .Params.description }}{{ .Params.description }}{{ else }}Pinggy is the simplest way to bring your localhost projects online. It the the fastest way to create secure tunnels to localhost with a public url.{{ end }}"
 />
 <meta
   property="og:description"
