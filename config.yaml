@@ -74,3 +74,5 @@ menus:
   # - name: Cancellation and Return Policy
   #   url: /Return_policy
   #   weight: 120
+
+minifyOutput: true
