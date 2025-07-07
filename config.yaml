@@ -59,6 +59,9 @@ menus:
     - name: CLI
       url: /cli/
       weight: 125
+    - name: Compare
+      url: /compare/
+      weight: 125
     - name: Quickstart
       url: /quickstart/
       weight: 130

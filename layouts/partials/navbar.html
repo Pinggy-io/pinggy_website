@@ -37,6 +37,18 @@
                     <a class="dropdown-item" href="/quickstart/">Quickstart recipes</a>
                 </div>
             </div>
+            {{ else if eq .Name "Compare" }}
+            <div class="nav-item dropdown">
+                <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="compareDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ .Pre }}
+                    <span style="display:inline-block;">
+                        {{ .Name }}
+                    </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="compareDropdown">
+                    <a class="dropdown-item" href="/compare/pinggy-vs-ngrok/">Pinggy vs Ngrok</a>
+                </div>
+            </div>
             {{ else if eq .Name "Help" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="helpDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
