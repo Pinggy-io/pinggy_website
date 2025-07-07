@@ -1137,6 +1137,11 @@ title: "Pinggy - Simple Localhost Tunnels"
                     </h1>
                     <span class="text-muted fw-light">(billed monthly)</span>
                   </div>
+                  <template x-if="seatVal > 20">
+                    <div class="alert alert-info text-center my-2" role="alert">
+                      <a href="/contact_us/" target="_blank"><b>Contact us</b></a> to get volume discounts!
+                    </div>
+                  </template>
                   <ul class="list-unstyled mt-3 mb-4 text-left list-group">
                     <li class="list-group-item p-2 bg-light">
                       Everything in Free plan
