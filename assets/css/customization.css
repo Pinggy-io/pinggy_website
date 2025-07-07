@@ -173,6 +173,10 @@ input[type="number"] {
   border-style: solid;
 }
 
+.border-color-subtlegray {
+  border-color: #434343 !important;
+}
+
 .pinggy-link {
   color: #0695ff;
 }
