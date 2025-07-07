@@ -79,7 +79,7 @@ title: "Pinggy - Simple Localhost Tunnels"
       <div class="col-lg-5 mt-5">
         <div class="text-left card" id="bigcodecolumn">
           <div class="px-4">
-            <h2 class="h5 mt-3">Configure your tunnel</h2>
+            <h2 class="h5 mt-3">Configure your free tunnel</h2>
             <form class="mt-3">
               <label for="localaddress" class="text-bold"
                 ><strong>Your local address:</strong></label
