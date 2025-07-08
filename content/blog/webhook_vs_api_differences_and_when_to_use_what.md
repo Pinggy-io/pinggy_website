@@ -38,7 +38,7 @@ Both **webhooks** and **APIs** are essential tools in our integration toolkit, b
    - **APIs**: You control the timing but may waste resources with polling  
    - **Webhooks**: More efficient but require public endpoints and robust error handling  
    - **Security**: APIs typically use OAuth/API keys; webhooks require signature verification  
-   - **Testing**: Use tools like Pinggy to expose localhost for webhook testing  
+   - **Testing**: Use tools like [Pinggy](https://pinggy.io) to expose localhost for webhook testing  
 {{% /tldr %}}
 
 ## APIs: The "Hey, Give Me That Data" Approach
@@ -325,7 +325,7 @@ curl -X POST http://localhost:3000/api/users \
 
 Here's where things get tricky. Webhooks need a publicly accessible URL, but you're developing on localhost. The old-school solution was ngrok, but there's a simpler way.
 
-{{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} lets you expose your local webhook endpoints without downloading anything:
+[Pinggy](https://pinggy.io) lets you expose your local webhook endpoints without downloading anything:
 
 ```bash
 # One command to rule them all
@@ -346,4 +346,4 @@ The best part? No downloads, no accounts needed for testing, just SSH (which you
 
 Both webhooks and APIs are essential in modern development. Choose APIs for on-demand data operations and complex workflows. Choose webhooks for real-time event notifications and automated triggers.
 
-The best approach often combines both - webhooks for instant notifications, APIs for detailed data operations. Tools like {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} make testing webhooks locally simple, so you can build reliable integrations without the deployment hassle.
+The best approach often combines both - webhooks for instant notifications, APIs for detailed data operations. Tools like [Pinggy](https://pinggy.io) make testing webhooks locally simple, so you can build reliable integrations without the deployment hassle.
