@@ -18,23 +18,20 @@ As developers, we're constantly building systems that need to talk to each other
 Both **webhooks** and **APIs** are essential tools in our integration toolkit, but they work in completely different ways. Getting this choice wrong can lead to inefficient polling, missed events, or overly complex architectures. Let's dive into when you should reach for each one and why it matters for your next project.
 
 {{% tldr %}}
-1. **What's the Difference Between Webhooks and APIs?**  
+1. **What's the Difference Between Webhooks and APIs?**
    - **APIs (Application Programming Interfaces)** are request-driven interfaces where your application actively requests data or actions from another service.  
    - **Webhooks** are event-driven notifications where an external service automatically sends data to your application when specific events occur.  
-
-2. **When to Use APIs:**  
+2. **When to Use APIs:**
    - When you need to fetch data on-demand or at specific times  
    - For complex multi-step operations requiring orchestration  
    - When you need full CRUD (Create, Read, Update, Delete) operations  
    - For user-initiated actions requiring immediate responses  
-
-3. **When to Use Webhooks:**  
+3. **When to Use Webhooks:**
    - For real-time notifications about events (payments, sign-ups, etc.)  
    - To avoid resource-intensive polling of APIs  
    - For event-driven architectures and automated workflows  
    - When you need to react to changes immediately as they happen  
-
-4. **Key Considerations:**  
+4. **Key Considerations:**
    - **APIs**: You control the timing but may waste resources with polling  
    - **Webhooks**: More efficient but require public endpoints and robust error handling  
    - **Security**: APIs typically use OAuth/API keys; webhooks require signature verification  
@@ -106,51 +103,51 @@ Let's break down the key differences in a way that actually matters for your day
 <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; color: #333;">
   <thead>
     <tr style="color: #000; text-align: left;">
-      <th style="border: 1px solid #ddd; padding: 10px;"><strong>What You Care About</strong></th>
-      <th style="border: 1px solid #ddd; padding: 10px;"><strong>APIs</strong></th>
-      <th style="border: 1px solid #ddd; padding: 10px;"><strong>Webhooks</strong></th>
+      <th style="text-align: left;border: 1px solid #ddd; padding: 10px;"><strong>What You Care About</strong></th>
+      <th style="text-align: left;border: 1px solid #ddd; padding: 10px;"><strong>APIs</strong></th>
+      <th style="text-align: left;border: 1px solid #ddd; padding: 10px;"><strong>Webhooks</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>Who starts the conversation?</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">You do (when you need data)</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">They do (when something happens)</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Who starts the conversation?</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">You do (when you need data)</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">They do (when something happens)</td>
     </tr>
     <tr style="background-color: #f9f9f9;">
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>How do you get updates?</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Keep asking "anything new?"</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">They'll ping you when there is</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>How do you get updates?</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Keep asking "anything new?"</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">They'll ping you when there is</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>Resource usage</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Can be heavy if you're polling</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Super light - only when needed</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Resource usage</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Can be heavy if you're polling</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Super light - only when needed</td>
     </tr>
     <tr style="background-color: #f9f9f9;">
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>Control</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">You're the boss of timing</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">They decide when to call</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Control</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">You're the boss of timing</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">They decide when to call</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>Complexity</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Standard HTTP stuff you know</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Need to handle incoming requests</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Complexity</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Standard HTTP stuff you know</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Need to handle incoming requests</td>
     </tr>
     <tr style="background-color: #f9f9f9;">
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>Best for</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">CRUD ops, data fetching</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Real-time notifications, events</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Best for</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">CRUD ops, data fetching</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Real-time notifications, events</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>Reliability</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Usually has retry built-in</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">You'll need to handle failures</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Reliability</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Usually has retry built-in</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">You'll need to handle failures</td>
     </tr>
     <tr style="background-color: #f9f9f9;">
-      <td style="border: 1px solid #ddd; padding: 10px;"><strong>Security</strong></td>
-      <td style="border: 1px solid #ddd; padding: 10px;">OAuth, API keys, the usual</td>
-      <td style="border: 1px solid #ddd; padding: 10px;">Signature verification is key</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Security</strong></td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">OAuth, API keys, the usual</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Signature verification is key</td>
     </tr>
   </tbody>
 </table>
@@ -205,7 +202,7 @@ Let's look at some actual code to see how these play out in practice.
 
 ### API Example: Building a User Dashboard
 
-Here's what a typical user management flow looks like with APIs:
+Here's what a typical user management flow looks like with APIs. The code is in JavaScript, but the idea remains same across all programming languages.
 
 ```javascript
 // When user visits their profile page
