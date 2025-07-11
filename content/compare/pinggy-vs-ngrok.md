@@ -1,5 +1,5 @@
 ---
-title: "Pinggy vs Ngrok: Comparison"
+title: "Pinggy vs Ngrok: The Best Localhost Tunneling Tools"
 description: "A detailed comparison of Pinggy and Ngrok for localhost tunneling."
 hero_heading: "Pinggy vs Ngrok"
 hero_subheading: "Pinggy provides a simple yet powerful tunneling experience compared to other tools."
