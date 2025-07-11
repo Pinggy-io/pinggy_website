@@ -21,16 +21,17 @@
         font-weight: 600;
         color: #fff;
         border: 1px solid #e5e7eb;
-        background-color: #466fc7;
+        background: linear-gradient(90deg, #424242 0%, #3d4349 100%);
         text-align: center;
 
     }
 
     .comparison-table td {
+        width: 33%;
         padding: 1rem;
         font-size: 0.95rem;
         border: 1px solid #e5e7eb;
-        text-align: center;
+        text-align: left;
         vertical-align: middle;
     }
 
@@ -42,10 +43,6 @@
         font-weight: 700;
         font-size: 1rem;
 
-    }
-
-    .comparison-table tbody tr:nth-child(odd) {
-        background-color: #f9fafb;
     }
 
     .comparison-table tbody tr:hover {
@@ -78,6 +75,15 @@
         font-size: 0.75rem;
         border-radius: 9999px;
     }
+    .tag-partial {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        background-color: #fefce2;
+        color: #9e300e;
+        font-weight: 600;
+        font-size: 0.75rem;
+        border-radius: 9999px;
+    }
 
     .price-highlight {
         font-size: 1.1rem;
@@ -93,27 +99,30 @@
             padding: 0.75rem;
         }
     }
+
+    .pinggy-better {
+        background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important;
+        font-weight: 600;
+        color: #2a4a8a;
+    }
 </style>
 
 <div class="container  contentcontainer ">
     <div class="comparison-container">
-        <h1>{{ .Title }}</h1>
-        <p class="text-gray-600">{{ .Params.description }}</p>
-        <section class="py-5 mb-4"
-            style="background: linear-gradient(90deg, #466fc7 0%, #8e54e9 100%); border-radius: 0.6em; color: #fff; box-shadow: 0 4px 24px rgba(70, 111, 199, 0.40);">
+        <section class="py-5 px-3 mb-4"
+            style="background: linear-gradient(90deg, #272727 0%, #394553 100%); border-radius: 0.6em; color: #fff; box-shadow: 0 4px 24px rgba(70, 111, 199, 0.40);">
             <div class="container py-4 text-left">
                 <h1 class="display-4 fw-bold mb-3">{{ .Params.hero_heading }}</h1>
                 <h2 class="h5 fw-light mb-3">{{ .Params.hero_subheading }}</h2>
-                <p class="lead mb-4">{{ .Params.hero_cta }}</p>
+                <p class="mb-2 mt-4">Compare Pinggy with:</p>
                 <select class="form-select" onchange="if (this.value) window.location.href=this.value"
                     style="padding: 0.6rem 1rem; border-radius: 0.5em; background-color: #fff; color: #333; font-weight: 600; border: none;max-width: 350px;">
                     <option selected disabled>Compare Pinggy with...</option>
                     <option value="/compare/pinggy-vs-ngrok/">Ngrok</option>
-                    <option value="/compare/pinggy-vs-localtunnel/">LocalTunnel</option>
                     <option value="/compare/pinggy-vs-localxpose/">LocalXpose</option>
                     <option value="/compare/pinggy-vs-cloudflare-tunnel/">Cloudflare Tunnel</option>
+                    <option value="/compare/pinggy-vs-localtunnel/">LocalTunnel</option>
                 </select>
-
             </div>
         </section>
 
