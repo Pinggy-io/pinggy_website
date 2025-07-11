@@ -16,7 +16,7 @@ As a developer or tech enthusiast using Virgin Media broadband, you may need to 
 
 {{% tldr %}}
 
-1. Access Virgin Media Hub admin panel at 192.168.0.1 (or IP printed on router).
+1. Access Virgin Media Hub admin panel at `192.168.0.1` (or IP printed on router).
 2. Navigate to Advanced Settings > Security > Port Forwarding or Virtual Servers.
 3. Create a port forwarding rule with:
    - Service name (e.g., Web Server)
@@ -26,7 +26,7 @@ As a developer or tech enthusiast using Virgin Media broadband, you may need to 
 
 4. If port forwarding is blocked or not working, use Pinggy as a workaround:
    ```
-   ssh -p 443 -R0:localhost:80 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:80 tcp@free.pinggy.io
    ```
    (Replace `80` with the port you want to forward)
 5. After running the tunneling command, you'll receive a public URL to access your service from anywhere.
@@ -120,7 +120,7 @@ This approach works even if your Virgin Media connection uses CG-NAT or blocks s
 
 2. Run the following command (replace `8000` with your local port):
    ```
-   ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+   ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
    ```
 
 3. Pinggy will generate a public URL that you can share with others.
@@ -134,7 +134,7 @@ This approach works even if your Virgin Media connection uses CG-NAT or blocks s
 
 2. Run the following command (replace `22` with your local port):
    ```
-   ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
    ```
 
 3. Pinggy will provide a TCP address in the format:
