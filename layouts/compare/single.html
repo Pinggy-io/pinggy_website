@@ -114,15 +114,37 @@
             <div class="container py-4 text-left">
                 <h1 class="display-4 fw-bold mb-3">{{ .Params.hero_heading }}</h1>
                 <h2 class="h5 fw-light mb-3">{{ .Params.hero_subheading }}</h2>
-                <p class="mb-2 mt-4">Compare Pinggy with:</p>
-                <select class="form-select" onchange="if (this.value) window.location.href=this.value"
-                    style="padding: 0.6rem 1rem; border-radius: 0.5em; background-color: #fff; color: #333; font-weight: 600; border: none;max-width: 350px;">
-                    <option selected disabled>Compare Pinggy with...</option>
-                    <option value="/compare/pinggy-vs-ngrok/">Ngrok</option>
-                    <option value="/compare/pinggy-vs-localxpose/">LocalXpose</option>
-                    <option value="/compare/pinggy-vs-cloudflare-tunnel/">Cloudflare Tunnel</option>
-                    <option value="/compare/pinggy-vs-localtunnel/">LocalTunnel</option>
-                </select>
+                <div class="mb-2 mt-4" style="max-width: 350px;">
+                    <div style="display: flex; align-items: center;">
+                        <span class="input-group-text" style="background: #dfe5eb; border-radius: 0.5em 0 0 0.5em; border: none; font-weight: 600; color: #333;">Pinggy vs</span>
+                        <select id="compareSelect" class="form-select" style="border-radius: 0 0.5em 0.5em 0; background-color: #f3f3f3; color: #333; font-weight: 600; border: none;"
+                            onchange="if (this.value) window.location.href=this.value">
+                            <option value="" disabled>Compare Pinggy with...</option>
+                            <option value="/compare/pinggy-vs-ngrok/">Ngrok</option>
+                            <option value="/compare/pinggy-vs-localxpose/">LocalXpose</option>
+                            <option value="/compare/pinggy-vs-cloudflare-tunnel/">Cloudflare Tunnel</option>
+                            <option value="/compare/pinggy-vs-localtunnel/">LocalTunnel</option>
+                        </select>
+                    </div>
+                </div>
+                <script>
+                    // Pre-select based on current URL
+                    (function() {
+                        var select = document.getElementById('compareSelect');
+                        var options = select.options;
+                        var currentUrl = window.location.pathname.toLowerCase();
+                        for (var i = 0; i < options.length; i++) {
+                            if (options[i].value && currentUrl.indexOf(options[i].value.replace('/compare/', '').replace('/', '').toLowerCase()) !== -1) {
+                                options[i].selected = true;
+                                break;
+                            }
+                        }
+                        // If none matched, select the placeholder
+                        if (select.selectedIndex === -1 || select.value === "") {
+                            select.selectedIndex = 0;
+                        }
+                    })();
+                </script>
             </div>
         </section>
 
