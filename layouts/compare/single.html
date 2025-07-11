@@ -1,0 +1,157 @@
+{{ define "main" }}
+<style>
+    .comparison-container {
+        font-family: "Inter", "Noto Sans", sans-serif;
+        background-color: #fff;
+        padding: 2rem 1rem;
+    }
+
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .comparison-table th {
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        border: 1px solid #e5e7eb;
+        background: linear-gradient(90deg, #424242 0%, #3d4349 100%);
+        text-align: center;
+
+    }
+
+    .comparison-table td {
+        padding: 1rem;
+        font-size: 0.95rem;
+        border: 1px solid #e5e7eb;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .comparison-table thead {
+        background-color: #f1f5f9;
+    }
+
+    .comparison-table thead th {
+        font-weight: 700;
+        font-size: 1rem;
+
+    }
+
+    .comparison-table tbody tr:hover {
+        background-color: #f1f5f9;
+    }
+
+    .comparison-table td:first-child {
+        font-weight: 600;
+        text-align: left;
+        background-color: #f1f5f9;
+        color: #0f172a;
+    }
+
+    .tag-yes {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        background-color: #dcfce7;
+        color: #166534;
+        font-weight: 600;
+        font-size: 0.75rem;
+        border-radius: 9999px;
+    }
+
+    .tag-no {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        background-color: #fee2e2;
+        color: #991b1b;
+        font-weight: 600;
+        font-size: 0.75rem;
+        border-radius: 9999px;
+    }
+    .tag-partial {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        background-color: #fefce2;
+        color: #9e300e;
+        font-weight: 600;
+        font-size: 0.75rem;
+        border-radius: 9999px;
+    }
+
+    .price-highlight {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #4338ca;
+    }
+
+    @media (max-width: 768px) {
+
+        .comparison-table th,
+        .comparison-table td {
+            font-size: 0.85rem;
+            padding: 0.75rem;
+        }
+        .comparison-container {
+            padding: 2rem 0rem;
+        }
+
+    }
+
+    .pinggy-better {
+        background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important;
+        font-weight: 600;
+        color: #2a4a8a;
+    }
+</style>
+
+<div class="container  contentcontainer ">
+    <div class="comparison-container">
+        <section class="py-5 px-3 mb-4"
+            style="background: linear-gradient(90deg, #272727 0%, #394553 100%); border-radius: 0.6em; color: #fff; box-shadow: 0 4px 24px rgba(70, 111, 199, 0.40);">
+            <div class="container py-4 text-left">
+                <h1 class="display-4 fw-bold mb-3">{{ .Params.hero_heading }}</h1>
+                <h2 class="h5 fw-light mb-3">{{ .Params.hero_subheading }}</h2>
+                <div class="mb-2 mt-4" style="max-width: 350px;">
+                    <div style="display: flex; align-items: center;">
+                        <span class="input-group-text" style="background: #dfe5eb; border-radius: 0.5em 0 0 0.5em; border: none; font-weight: 600; color: #333;">Pinggy vs</span>
+                        <select id="compareSelect" class="form-select" style="border-radius: 0 0.5em 0.5em 0; background-color: #f3f3f3; color: #333; font-weight: 600; border: none;"
+                            onchange="if (this.value) window.location.href=this.value">
+                            <option value="" disabled>Compare Pinggy with...</option>
+                            <option value="/compare/pinggy-vs-ngrok/">Ngrok</option>
+                            <option value="/compare/pinggy-vs-localxpose/">LocalXpose</option>
+                            <option value="/compare/pinggy-vs-cloudflare-tunnel/">Cloudflare Tunnel</option>
+                            <option value="/compare/pinggy-vs-localtunnel/">LocalTunnel</option>
+                        </select>
+                    </div>
+                </div>
+                <script>
+                    // Pre-select based on current URL
+                    (function() {
+                        var select = document.getElementById('compareSelect');
+                        var options = select.options;
+                        var currentUrl = window.location.pathname.toLowerCase();
+                        for (var i = 0; i < options.length; i++) {
+                            if (options[i].value && currentUrl.indexOf(options[i].value.replace('/compare/', '').replace('/', '').toLowerCase()) !== -1) {
+                                options[i].selected = true;
+                                break;
+                            }
+                        }
+                        // If none matched, select the placeholder
+                        if (select.selectedIndex === -1 || select.value === "") {
+                            select.selectedIndex = 0;
+                        }
+                    })();
+                </script>
+            </div>
+        </section>
+
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}

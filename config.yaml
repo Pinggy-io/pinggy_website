@@ -24,7 +24,8 @@ markup:
 taxonomies:
   tag: tags
 
-paginate: 8
+pagination:
+  pagerSize: 10
 
 outputs:
   home: ["HTML", "AMP"]
