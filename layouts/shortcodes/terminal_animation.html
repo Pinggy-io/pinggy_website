@@ -1,0 +1,490 @@
+<style>
+.termgif-terminal {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0;
+    max-width: 600px;
+    min-height: 340px;
+    box-shadow: 0 8px 32px rgba(60,60,60,0.10), 0 1.5px 6px rgba(60,60,60,0.08);
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.termgif-header {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 32px;
+    background: linear-gradient(180deg, #ECECEC 0%, #D8D8D8 100%);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 1px 0 #B0B0B0;
+    position: relative;
+}
+.termgif-dots {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.termgif-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+}
+.termgif-dot.red { background-color: #FF5F56; border-color: #E0443E; }
+.termgif-dot.yellow { background-color: #FFBD2E; border-color: #DEA123; }
+.termgif-dot.green { background-color: #27C93F; border-color: #13A10E; }
+.termgif-content {
+    padding: 18px 16px 10px 16px;
+    color: #F8F8F2;
+    font-size: 15px;
+    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+    background: none;
+    background-color: #272822;
+    min-height: 330px;
+}
+.termgif-step {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+    font-size: 15px;
+    color: #F8F8F2;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+.blink {
+    animation: blink 1s step-end infinite;
+    color: #f1f1f1;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.monokai-green { color: #A6E22E; }
+.monokai-pink { color: #F92672; }
+.monokai-yellow { color: #E6DB74; }
+.monokai-blue { color: #66D9EF; }
+.monokai-orange { color: #FD971F; }
+</style>
+
+
+<div class="container">
+  <div class="pt-5 my-3 row justify-content-center">
+    <div class="col-lg-6">
+      <h2 class="mt-5 mb-5 text-left fw-light">
+        Quickest way to <span id="textchanger"></span>
+      </h2>
+        <section id="features">
+        <div class="container">
+            <div class="marquee">
+            <div class="marquee-content">
+                <a
+                href="quickstart/jupyternotebook/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/jupyter.svg" alt="jupyter" />
+                </a>
+                <a
+                href="quickstart/django/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/django.svg" alt="django" />
+                </a>
+                <a
+                href="quickstart/apachehttpd/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/apache.svg" alt="apache" />
+                </a>
+                <a
+                href="quickstart/drupal/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/drupal.svg" alt="drupal" />
+                </a>
+                <a
+                href="quickstart/flask/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/flask.svg" alt="flask" />
+                </a>
+                <a
+                href="quickstart/github/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/github.svg" alt="github" />
+                </a>
+                <a
+                href="quickstart/gitlab/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/gitlab.svg" alt="gitlab" />
+                </a>
+                <a
+                href="quickstart/joomla/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/joomla.svg" alt="joomla" />
+                </a>
+                <a
+                href="quickstart/laravel/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/laravel.svg" alt="laravel" />
+                </a>
+                <a
+                href="quickstart/mongodb/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/mongodb.svg" alt="mongodb" />
+                </a>
+                <a
+                href="quickstart/mysql/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/mysql.svg" alt="mysql" />
+                </a>
+                <a
+                href="quickstart/mssql/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/mssql.svg" alt="mssql" />
+                </a>
+                <a
+                href="quickstart/nuxt/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/nuxt.svg" alt="nuxt" />
+                </a>
+                <a
+                href="quickstart/nginx/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/nginx.svg" alt="nginx" />
+                </a>
+                <a
+                href="quickstart/postgresql/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/postgresql.svg" alt="postgresql" />
+                </a>
+                <a
+                href="quickstart/redis/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/redis.svg" alt="redis" />
+                </a>
+                <a
+                href="quickstart/wordpress/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/wordpress.svg" alt="wordpress" />
+                </a>
+                <a
+                href="quickstart/xampp/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/xampp.svg" alt="xampp" />
+                </a>
+                <a
+                href="quickstart/ghost/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/ghost.svg" alt="ghost" />
+                </a>
+                <a
+                href="quickstart/homeassistant/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img
+                    src="./quickstart/images/homeassistant.svg"
+                    alt="homeassistant"
+                />
+                </a>
+                <a
+                href="quickstart/shopify/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/shopify.svg" alt="shopify" />
+                </a>
+                <a
+                href="quickstart/razorpay/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/razorpay.svg" alt="razorpay" />
+                </a>
+                <a
+                href="quickstart/traefik/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/traefik.svg" alt="traefik" />
+                </a>
+                <a
+                href="quickstart/portainer/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/portainer.svg" alt="portainer" />
+                </a>
+                <a
+                href="quickstart/slack/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/slack.svg" alt="slack" />
+                </a>
+                <a
+                href="quickstart/stripe/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/stripe.svg" alt="stripe" />
+                </a>
+                <a
+                href="quickstart/wamp/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/wamp.svg" alt="wamp" />
+                </a>
+                <a
+                href="quickstart/rails/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/rails.svg" alt="rails" />
+                </a>
+                <a
+                href="quickstart/react/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/react.svg" alt="react" />
+                </a>
+                <a
+                href="quickstart/svelte/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/svelte.svg" alt="svelte" />
+                </a>
+                <a
+                href="quickstart/next/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/next.svg" alt="next" />
+                </a>
+                <a
+                href="quickstart/express/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/express.svg" alt="express" />
+                </a>
+                <a
+                href="quickstart/springboot/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/springboot.svg" alt="springboot" />
+                </a>
+                <a
+                href="quickstart/nextcloud/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/nextcloud.svg" alt="nextcloud" />
+                </a>
+                <a
+                href="quickstart/twilio/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/twilio.svg" alt="twilio" />
+                </a>
+                <a
+                href="quickstart/telegram/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/telegram.svg" alt="telegram" />
+                </a>
+                <a
+                href="quickstart/hugo/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/hugo.svg" alt="hugo" />
+                </a>
+                <a
+                href="quickstart/jekyll/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/jekyll.svg" alt="jekyll" />
+                </a>
+                <a
+                href="quickstart/netdata/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/netdata.webp" alt="netdata" />
+                </a>
+                <a
+                href="quickstart/strapi/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/strapi.svg" alt="strapi" />
+                </a>
+                <a
+                href="quickstart/jupyternotebook/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/jupyter.svg" alt="jupyter" />
+                </a>
+                <a
+                href="quickstart/django/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/django.svg" alt="django" />
+                </a>
+                <a
+                href="quickstart/apachehttpd/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/apache.svg" alt="apache" />
+                </a>
+                <a
+                href="quickstart/drupal/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/drupal.svg" alt="drupal" />
+                </a>
+                <a
+                href="quickstart/flask/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/flask.svg" alt="flask" />
+                </a>
+                <a
+                href="quickstart/github/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/github.svg" alt="github" />
+                </a>
+                <a
+                href="quickstart/gitlab/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/gitlab.svg" alt="gitlab" />
+                </a>
+                <a
+                href="quickstart/joomla/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/joomla.svg" alt="joomla" />
+                </a>
+                <a
+                href="quickstart/laravel/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/laravel.svg" alt="laravel" />
+                </a>
+                <a
+                href="quickstart/mongodb/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/mongodb.svg" alt="mongodb" />
+                </a>
+                <a
+                href="quickstart/mysql/"
+                class="ribbon-element text-decoration-none text-reset"
+                target="_blank"
+                >
+                <img src="./quickstart/images/mysql.svg" alt="mysql" />
+                </a>
+            </div>
+            </div>
+        </div>
+        </section>
+    </div>
+    <div class="col-lg-6">
+        <div class="termgif-terminal">
+        <div class="termgif-header">
+            <div class="termgif-dots">
+            <div class="termgif-dot red"></div>
+            <div class="termgif-dot yellow"></div>
+            <div class="termgif-dot green"></div>
+            </div>
+            <span style="margin: 0 auto; font-size: 13px; color: #444; font-weight: 500; letter-spacing: 0.2px; position: absolute; left: 0; right: 0; text-align: center;">bash — pinggy</span>
+        </div>
+        <div class="termgif-content" id="terminalContent">
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+function renderTerminalContent() {
+    const content = document.getElementById('terminalContent');
+    content.innerHTML = `
+    <div class="termgif-step" style="animation-delay: 0s;"><span style="color:#A6E22E;">$</span> ssh -p 443 -R0:localhost:3000 tok+qr@pro.pinggy.io</div>
+    <div class="termgif-step" style="margin-top: 1em; animation-delay: 0.7s;"><span style="color:#ffffff;">You are authenticated as user@example.com</span><br><span style="color:#fffcd3;">https://myapp.a.pinggy.link</span></div>
+    <div class="termgif-step" style="animation-delay: 1.5s; margin-top: 2em;"><span style="color: #2e8be2;">  GET </span><span style="color: #A6E22E;">200 OK      /index.html</span></div>
+    <div class="termgif-step" style="animation-delay: 2s;"><span style="color: #2e8be2;">  GET </span><span style="color: #A6E22E;">200 OK      /_next/static/css/8b418144d8f6049f.css</span></div>
+    <div class="termgif-step" style="animation-delay: 2.2s;"><span style="color: #2e8be2;">  GET </span><span style="color: #A6E22E;">200 OK      /icon.svg?d1cd45fef217606d</span></div>
+    `;
+}
+renderTerminalContent();
+setInterval(renderTerminalContent, 6000);
+</script>
