@@ -1,12 +1,12 @@
 ---
-title: "Best DNS for Gaming"
-description: "Discover the best DNS for gaming to reduce latency and improve performance. Explore top options like Cloudflare, Google DNS, and OpenDNS with setup guides."
+title: "Best DNS for Gaming in 2025"
+description: "Discover the best DNS for gaming in 2025 to reduce latency and improve performance. Explore top options like Cloudflare, Google DNS, and OpenDNS with setup guides."
 date: 2024-11-21T14:15:25+05:30
-lastmod: 2025-05-06T14:15:25+05:30
+lastmod: 2025-07-15T14:15:25+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
 tags: ["gaming", "dns", "internet", "guide"]
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkJlc3QgRE5TIGZvciBHYW1pbmciLAogICJkZXNjcmlwdGlvbiI6ICJEaXNjb3ZlciB0aGUgYmVzdCBETlMgZm9yIGdhbWluZyB0byByZWR1Y2UgbGF0ZW5jeSwgaW1wcm92ZSBjb25uZWN0aW9uIHJlbGlhYmlsaXR5LCBhbmQgZW5oYW5jZSB5b3VyIG92ZXJhbGwgZ2FtaW5nIHBlcmZvcm1hbmNlLiBFeHBsb3JlIHRvcCBvcHRpb25zIGxpa2UgQ2xvdWRmbGFyZSwgR29vZ2xlIEROUywgYW5kIE9wZW5ETlMsIGFuZCBsZWFybiBob3cgdG8gY29uZmlndXJlIHRoZW0gZm9yIGFuIG9wdGltaXplZCBnYW1pbmcgZXhwZXJpZW5jZS4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvYmVzdF9kbnNfZm9yX2dhbWluZy9kbnNfZm9yX2dhbWluZy53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlRlc3QgbGF0ZW5jeSBvZiBwb3B1bGFyIEROUyBzZXJ2ZXJzOlxuIDEuIHBpbmcgOC44LjguOFxuIDIuIHBpbmcgMS4xLjEuMSBUaGVuLCBzZWxlY3QgdGhlIEROUyBzZXJ2ZXIgd2l0aCBsb3dlc3QgbGF0ZW5jeS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29uZmlndXJlIHlvdXIgbmV0d29yayB0byB1c2UgdGhlIGJlc3QgZGV0ZWN0ZWQgRE5TIGZvciBnYW1pbmcgdXNpbmcgdGhlIGVuc3Vpbmcgc3RlcHMuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkJlc3QgRE5TIGZvciBHYW1pbmcgaW4gMjAyNSIsCiAgImRlc2NyaXB0aW9uIjogIkRpc2NvdmVyIHRoZSBiZXN0IEROUyBmb3IgZ2FtaW5nIGluIDIwMjUgdG8gcmVkdWNlIGxhdGVuY3ksIGltcHJvdmUgY29ubmVjdGlvbiByZWxpYWJpbGl0eSwgYW5kIGVuaGFuY2UgeW91ciBvdmVyYWxsIGdhbWluZyBwZXJmb3JtYW5jZS4gRXhwbG9yZSB0b3Agb3B0aW9ucyBsaWtlIENsb3VkZmxhcmUsIEdvb2dsZSBETlMsIGFuZCBPcGVuRE5TLCBhbmQgbGVhcm4gaG93IHRvIGNvbmZpZ3VyZSB0aGVtIGZvciBhbiBvcHRpbWl6ZWQgZ2FtaW5nIGV4cGVyaWVuY2UuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2Jlc3RfZG5zX2Zvcl9nYW1pbmcvZG5zX2Zvcl9nYW1pbmcud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJUZXN0IGxhdGVuY3kgb2YgcG9wdWxhciBETlMgc2VydmVyczpcbiAxLiBwaW5nIDguOC44LjhcbiAyLiBwaW5nIDEuMS4xLjEgVGhlbiwgc2VsZWN0IHRoZSBETlMgc2VydmVyIHdpdGggbG93ZXN0IGxhdGVuY3kuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNvbmZpZ3VyZSB5b3VyIG5ldHdvcmsgdG8gdXNlIHRoZSBiZXN0IGRldGVjdGVkIEROUyBmb3IgZ2FtaW5nIHVzaW5nIHRoZSBlbnN1aW5nIHN0ZXBzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -27,6 +27,7 @@ Thus, in this article, we will learn why DNS matter for gaming, the recommended 
    - <a href="https://www.opendns.com" target="_blank"> OpenDNS (208.67.222.222)</a>: Reliable with added security features.
    - <a href="https://www.quad9.net/" target="_blank"> Quad9 DNS (9.9.9.9)</a>: Strong focus on security with low latency.
    - <a href="https://dns.watch/" target="_blank"> DNS.Watch (84.200.69.80)</a>: Privacy-centric with solid speed.
+3. **Setup Instructions**: Learn [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows, Mac, and Linux systems.
 
 {{% /tldr %}}
 
