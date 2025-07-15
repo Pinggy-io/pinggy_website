@@ -4,18 +4,19 @@
  date: 2025-07-13T14:15:25+05:30
  draft: false 
  tags: ["guide", "comparison", "open-source"]
-#  og_image: "images/top_open_source_tailscale_alternatives/img1.webp"
+ og_image: "images/top_open_source_tailscale_alternatives/top_open_source_tailscale_alternatives_banner.webp"
  schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiVG9wIE9wZW4gU291cmNlIFRhaWxzY2FsZSBBbHRlcm5hdGl2ZXMgaW4gMjAyNSIsCiAgImRlc2NyaXB0aW9uIjogIkRpc2NvdmVyIHRoZSB0b3Agb3BlbiBzb3VyY2UgVGFpbHNjYWxlIGFsdGVybmF0aXZlcyBpbiAyMDI1LiBFeHBsb3JlIEhlYWRzY2FsZSwgTmV0QmlyZCwgTmVidWxhLCBhbmQgbW9yZS4gQ29tcGFyZSBmZWF0dXJlcywgc2VsZi1ob3N0aW5nIG9wdGlvbnMsIGFuZCBlYXNlIG9mIHVzZSBpbiB0aGlzIGNvbXByZWhlbnNpdmUgZ3VpZGUuIiwKICAiZGF0ZVB1Ymxpc2hlZCI6ICIyMDI1LTAxLTE0VDE0OjE1OjI1KzA1OjMwIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjUtMDEtMTRUMTQ6MTU6MjUrMDU6MzAiLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvdG9wX29wZW5fc291cmNlX3RhaWxzY2FsZV9hbHRlcm5hdGl2ZXMvaW1nMS53ZWJwIiwKICAiYXJ0aWNsZVNlY3Rpb24iOiBbCiAgICAiVGVjaG5vbG9neSIsCiAgICAiR3VpZGVzIiwKICAgICJDb21wYXJpc29ucyIKICBdLAogICJrZXl3b3JkcyI6IFsKICAgICJUYWlsc2NhbGUgYWx0ZXJuYXRpdmVzIiwKICAgICJvcGVuIHNvdXJjZSBWUE4iLAogICAgIm1lc2ggbmV0d29ya2luZyIsCiAgICAiSGVhZHNjYWxlIiwKICAgICJOZXRCaXJkIiwKICAgICJOZWJ1bGEiLAogICAgIldpcmVHdWFyZCIKICBdCn0KPC9zY3JpcHQ+IA=="
  outputs:
   - HTML
   - AMP
 ---
 
+{{< image "top_open_source_tailscale_alternatives/top_open_source_tailscale_alternatives_banner.webp" "top open source tailscale alternatives" >}}
+
 {{< link href="https://tailscale.com" >}}Tailscale{{< /link >}} is a popular mesh VPN service that makes it easy to connect devices securely across networks. Built on WireGuard, it provides zero-configuration networking with features like automatic NAT traversal, device authentication, and centralized management. While Tailscale offers excellent user experience and robust features, many developers and organizations prefer open source alternatives for greater control, privacy, and cost-effectiveness.
 
 In this article, we'll explore the **top open source Tailscale alternatives in 2025**, covering their features, installation process, self-hosting capabilities, and use cases to help you choose the best solution for your mesh networking needs.
 
-{{< image "top_open_source_tailscale_alternatives/img1.webp" "top open source tailscale alternatives" >}}
 
 {{% tldr %}}
 <a href="https://headscale.net/" target="_blank">Headscale</a> - Drop-in replacement for Tailscale's control server that works with official Tailscale clients, providing complete privacy and control over your mesh network infrastructure.
@@ -71,7 +72,7 @@ Install Headscale on your server:
 
 ```bash
 # Download and install Headscale
-wget https://github.com/juanfont/headscale/releases/latest/download/headscale_linux_amd64
+wget https://github.com/juanfont/headscale/releases/download/v0.26.1/headscale_0.26.1_linux_amd64
 chmod +x headscale_linux_amd64
 sudo mv headscale_linux_amd64 /usr/local/bin/headscale
 
