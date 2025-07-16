@@ -16,6 +16,83 @@ When it comes to online gaming, a stable and fast internet connection is crucial
 
 Thus, in this article, we will learn why DNS matter for gaming, the recommended DNS servers for gaming and how to set them up in a proper way.
 
+
+
+### Comparison Table for Best DNS for Gaming
+
+<style>
+.dns-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dns-table th, .dns-table td {
+  border: 1px solid #ddd;
+  padding: 0.4em 0.4em;
+  text-align: left;
+}
+.dns-table th {
+  background: #f5f7fa;
+  color: #333;
+  font-weight: bold;
+}
+.dns-table tr:nth-child(even) {
+  background: #f9fbfd;
+}
+.dns-table tr:hover {
+  background: #eef6ff;
+}
+</style>
+
+<table class="dns-table">
+<thead>
+<tr>
+  <th>DNS Provider</th>
+  <th>DNS Servers</th>
+  <th>Latency</th>
+  <th>Reliability</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Cloudflare</strong></td>
+  <td>1.1.1.1<br>1.0.0.1</td>
+  <td>Very Low</td>
+  <td>Excellent</td>
+  <td>Strong privacy, no logs. Fastest globally, privacy-focused.</td>
+</tr>
+<tr>
+  <td><strong>Google DNS</strong></td>
+  <td>8.8.8.8<br>8.8.4.4</td>
+  <td>Low</td>
+  <td>Excellent</td>
+  <td>Good privacy, minimal logs. Widely supported, robust infra.</td>
+</tr>
+<tr>
+  <td><strong>OpenDNS</strong></td>
+  <td>208.67.222.222<br>208.67.220.220</td>
+  <td>Low</td>
+  <td>Excellent</td>
+  <td>Security filtering. Parental controls, phishing block.</td>
+</tr>
+<tr>
+  <td><strong>Quad9</strong></td>
+  <td>9.9.9.9<br>149.112.112.112</td>
+  <td>Low</td>
+  <td>Very Good</td>
+  <td>Focus on security/privacy. Blocks malicious domains.</td>
+</tr>
+<tr>
+  <td><strong>DNS.Watch</strong></td>
+  <td>84.200.69.80<br>84.200.70.40</td>
+  <td>Low</td>
+  <td>Good</td>
+  <td>No logs, privacy-focused. Based in Germany, privacy-centric.</td>
+</tr>
+</tbody>
+</table>
+
+
 {{% tldr %}}
 
 1. **What is DNS and Why It Matters for Gaming?**
@@ -27,6 +104,9 @@ Thus, in this article, we will learn why DNS matter for gaming, the recommended 
    - <a href="https://www.opendns.com" target="_blank"> OpenDNS (208.67.222.222)</a>: Reliable with added security features.
    - <a href="https://www.quad9.net/" target="_blank"> Quad9 DNS (9.9.9.9)</a>: Strong focus on security with low latency.
    - <a href="https://dns.watch/" target="_blank"> DNS.Watch (84.200.69.80)</a>: Privacy-centric with solid speed.
+   - <a href="https://www.comodo.com/secure-dns/" target="_blank"> Comodo Secure DNS (8.26.56.26)</a>: Security-focused with threat protection.
+
+
 3. **Setup Instructions**: Learn [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows, Mac, and Linux systems.
 
 {{% /tldr %}}
