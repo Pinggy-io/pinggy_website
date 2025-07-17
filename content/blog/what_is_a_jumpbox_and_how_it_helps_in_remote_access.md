@@ -135,7 +135,7 @@ Jumpboxes are particularly valuable in several scenarios:
 
 While traditional jumpboxes are effective, modern tunneling services like {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} offer alternative approaches to secure remote access. These services can create secure tunnels without requiring dedicated jumpbox infrastructure, making them particularly useful for development environments and temporary access needs.
 
-Tunneling services provide similar security benefits while reducing the operational overhead of maintaining dedicated jumpbox servers. They're especially valuable when you need quick, secure access to development environments or when traditional jumpbox setup isn't feasible.
+Tunneling services provide similar security benefits while reducing the operational overhead of maintaining dedicated jumpbox servers. They're especially valuable when you need quick, secure access to development environments or when traditional jumpbox setup isn't feasible. For specific use cases like IoT device management, you can explore detailed guides such as {{< link href="https://pinggy.io/docs/guides/ssh_iot/" >}}SSH for IoT devices{{< /link >}} which demonstrates secure remote access patterns for connected devices.
 
 ## Setting Up Your First Jumpbox
 
