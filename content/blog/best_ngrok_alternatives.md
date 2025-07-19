@@ -151,7 +151,7 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Request Inspection 🐞</td>
-    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/inspect/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/web_debugger/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
