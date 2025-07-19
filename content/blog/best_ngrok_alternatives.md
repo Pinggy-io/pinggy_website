@@ -99,225 +99,114 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
 
 <h3 class="h5">Comparing Ngrok and Pinggy:</h3>
 
-<div class="comparison-container">
-<table class="comparison-table my-4">
-<thead>
+<div style="font-family: 'Inter', 'Noto Sans', sans-serif; background-color: #fff;">
+<table style="width: 100%; border-collapse: collapse; background: #fff; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);" class="comparison-table my-4">
+<thead style="background-color: #f1f5f9;">
     <tr>
-    <th>Feature</th>
-    <th>Pinggy (Pro)</th>
-    <th>Ngrok (Personal)</th>
+    <th style="padding: 0.4rem; font-size: 1rem; font-weight: 600; color: #fff; border: 1px solid #e5e7eb; background: linear-gradient(90deg, #424242 0%, #3d4349 100%); text-align: center;">Feature</th>
+    <th style="padding: 0.4rem; font-size: 1rem; font-weight: 600; color: #fff; border: 1px solid #e5e7eb; background: linear-gradient(90deg, #424242 0%, #3d4349 100%); text-align: center;">Pinggy (Pro)</th>
+    <th style="padding: 0.4rem; font-size: 1rem; font-weight: 600; color: #fff; border: 1px solid #e5e7eb; background: linear-gradient(90deg, #424242 0%, #3d4349 100%); text-align: center;">Ngrok (Personal)</th>
     </tr>
 </thead>
 <tbody>
     <tr>
-    <td><b>Monthly Price 💸</b></td>
-    <td class="pinggy-better">$3.00</td>
-    <td><b>$10.00</b></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Monthly Price 💸</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;">$3.00</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><b>$10.00</b></td>
     </tr>
     <tr>
-    <td><b>HTTP(S) and TCP Tunnels 🌐</b></td>
-    <td><span class="tag-yes">Yes</span> <a href="/docs/http_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-yes">Yes</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">HTTP(S) and TCP Tunnels 🌐</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
-    <td><b>UDP Tunnels ⚡️</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> <a href="/docs/udp_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-no">No</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">UDP Tunnels ⚡️</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/udp_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
-    <td><b>TLS Tunnels 🔒</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> <a href="/docs/tls_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-no">No</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">TLS Tunnels 🔒</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/tls_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
-    <td><b>Persistent Subdomains 🔗</b></td>
-    <td><span class="tag-yes">Yes</span></td>
-    <td><span class="tag-yes">Yes</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Persistent Subdomains 🔗</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
-    <td><b>Custom Domains 🌐</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span></td>
-    <td><span class="tag-partial">Limited</span> Only subdomains (app.example.com). No root/apex domains (example.com).</td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Custom Domains 🌐</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fefce2; color: #9e300e; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Limited</span> Only subdomains (app.example.com). No root/apex domains (example.com).</td>
     </tr>
     <tr>
-    <td><b>Wildcard Domains ⭐</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> <a href="/docs/http_tunnels/multi_port_forwarding/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-no">No</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Wildcard Domains ⭐</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/multi_port_forwarding/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
-    <td><b>Bandwidth (Data Transferred) 📦</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Unlimited</span> <a href="/#prices" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-partial">Limited</span> 5 GB per month</td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Bandwidth (Data Transferred) 📦</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Unlimited</span> <a href="/#prices" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fefce2; color: #9e300e; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Limited</span> 5 GB per month</td>
     </tr>
     <tr>
-    <td><b>Request Inspection 🐞</b></td>
-    <td><span class="tag-yes">Yes</span> <a href="/docs/inspect/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-yes">Yes</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Request Inspection 🐞</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/inspect/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
-    <td><b>Access Control 🔑</b></td>
-    <td><span class="tag-yes">Yes</span> Password, Bearer Token, IP Whitelist <a href="/docs/http_tunnels/basic_auth/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-yes">Yes</span> OIDC, SAML, Webhook Auth</td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Access Control 🔑</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> Password, Bearer Token, IP Whitelist <a href="/docs/http_tunnels/basic_auth/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> OIDC, SAML, Webhook Auth</td>
     </tr>
     <tr>
-    <td><b>IP Whitelisting 💻</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> <a href="/docs/http_tunnels/ip_whitelist/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-no">No</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">IP Whitelisting 💻</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/ip_whitelist/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
-    <td><b>Webhook Verification 🔐</b></td>
-    <td><span class="tag-no">No</span></td>
-    <td><span class="tag-yes">Yes</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Webhook Verification 🔐</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
-    <td><b>Edge routing and load balancing 🔐</b></td>
-    <td><span class="tag-no">No</span></td>
-    <td><span class="tag-yes">Yes</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Edge routing and load balancing 🔐</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
-    <td><b>Team Collaboration 👥</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> <a href="/docs/teams/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-no">No</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Team Collaboration 👥</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/teams/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
-    <td><b>Remotely Manage Tunnels 🎛️</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> <a href="/docs/remote_devices/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-no">No</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Remotely Manage Tunnels 🎛️</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/remote_devices/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
-    <td><b>GUI App 🖥️</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> (Windows, Mac, Linux) <a href="/app/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-no">No</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">GUI App 🖥️</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> (Windows, Mac, Linux) <a href="/app/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
-    <td><b>CLI 💻</b></td>
-    <td><span class="tag-yes">Yes</span> <a href="/cli/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-yes">Yes</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">CLI 💻</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/cli/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
-    <td><b>API 🔗</b></td>
-    <td><span class="tag-yes">Yes</span> <a href="/docs/api/api/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-yes">Yes</span></td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">API 🔗</td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/api/api/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     </tr>
     <tr>
-    <td><b>Support 💬</b></td>
-    <td class="pinggy-better"><span class="tag-yes">Yes</span> Email, Discord <a href="/help/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
-    <td><span class="tag-yes">Yes</span> Email</td>
+    <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Support 💬</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> Email, Discord <a href="/help/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> Email</td>
     </tr>
 </tbody>
 </table>
 </div>
-
-
-<style>
-    .comparison-container {
-        font-family: "Inter", "Noto Sans", sans-serif;
-        background-color: #fff;
-    }
-
-    .comparison-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: #fff;
-        border-radius: 0.75rem;
-        overflow: hidden;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    }
-
-    .comparison-table th {
-        padding: 0.4rem;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #fff;
-        border: 1px solid #e5e7eb;
-        background: linear-gradient(90deg, #424242 0%, #3d4349 100%);
-        text-align: center;
-
-    }
-
-    .comparison-table td {
-        padding: 0.4rem;
-        font-size: 0.95rem;
-        border: 1px solid #e5e7eb;
-        text-align: left;
-        vertical-align: middle;
-    }
-
-    .comparison-table thead {
-        background-color: #f1f5f9;
-    }
-
-    .comparison-table thead th {
-        font-weight: 700;
-        font-size: 1rem;
-
-    }
-
-    .comparison-table tbody tr:hover {
-        background-color: #f1f5f9;
-    }
-
-    .comparison-table td:first-child {
-        font-weight: 600;
-        text-align: left;
-        background-color: #f1f5f9;
-        color: #0f172a;
-    }
-
-    .tag-yes {
-        display: inline-block;
-        padding: 0.25rem 0.5rem;
-        background-color: #dcfce7;
-        color: #166534;
-        font-weight: 600;
-        font-size: 0.75rem;
-        border-radius: 9999px;
-    }
-
-    .tag-no {
-        display: inline-block;
-        padding: 0.25rem 0.5rem;
-        background-color: #fee2e2;
-        color: #991b1b;
-        font-weight: 600;
-        font-size: 0.75rem;
-        border-radius: 9999px;
-    }
-    .tag-partial {
-        display: inline-block;
-        padding: 0.25rem 0.5rem;
-        background-color: #fefce2;
-        color: #9e300e;
-        font-weight: 600;
-        font-size: 0.75rem;
-        border-radius: 9999px;
-    }
-
-    .price-highlight {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #4338ca;
-    }
-
-    @media (max-width: 768px) {
-
-        .comparison-table th,
-        .comparison-table td {
-            font-size: 0.85rem;
-            padding: 0.75rem;
-        }
-        .comparison-container {
-            padding: 2rem 0rem;
-        }
-
-    }
-
-    .pinggy-better {
-        background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important;
-        font-weight: 600;
-        color: #2a4a8a;
-    }
-</style>
 
 ## 2. LocalXpose
 
