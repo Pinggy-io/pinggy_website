@@ -111,7 +111,7 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
 <tbody>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Monthly Price 💸</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;">$3.00</td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;">$3.00</td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><b>$10.00</b></td>
     </tr>
     <tr>
@@ -121,12 +121,12 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">UDP Tunnels ⚡️</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/udp_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/udp_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">TLS Tunnels 🔒</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/tls_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/tls_tunnels/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
@@ -136,17 +136,17 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Custom Domains 🌐</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fefce2; color: #9e300e; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Limited</span> Only subdomains (app.example.com). No root/apex domains (example.com).</td>
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Wildcard Domains ⭐</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/multi_port_forwarding/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/multi_port_forwarding/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Bandwidth (Data Transferred) 📦</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Unlimited</span> <a href="/#prices" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Unlimited</span> <a href="/#prices" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fefce2; color: #9e300e; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Limited</span> 5 GB per month</td>
     </tr>
     <tr>
@@ -161,7 +161,7 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">IP Whitelisting 💻</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/ip_whitelist/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/http_tunnels/ip_whitelist/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
@@ -176,17 +176,17 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Team Collaboration 👥</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/teams/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/teams/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Remotely Manage Tunnels 🎛️</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/remote_devices/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> <a href="/docs/remote_devices/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">GUI App 🖥️</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> (Windows, Mac, Linux) <a href="/app/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> (Windows, Mac, Linux) <a href="/app/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #fee2e2; color: #991b1b; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">No</span></td>
     </tr>
     <tr>
@@ -201,7 +201,7 @@ Pinggy is one of the cheaper Ngrok alternatives. It has a free tier, and the pai
     </tr>
     <tr>
     <td style="font-weight: 600; text-align: left; background-color: #f1f5f9; color: #0f172a; border: 1px solid #e5e7eb; padding: 0.4rem;">Support 💬</td>
-    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%) !important; font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> Email, Discord <a href="/help/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
+    <td style="background: linear-gradient(90deg, hsl(205, 100.00%, 97.60%) 0%, rgb(248, 248, 255) 100%); font-weight: 600; color: #2a4a8a; border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> Email, Discord <a href="/help/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td style="border: 1px solid #e5e7eb; padding: 0.4rem;"><span style="display: inline-block; padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 0.75rem; border-radius: 9999px;">Yes</span> Email</td>
     </tr>
 </tbody>
