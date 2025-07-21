@@ -27,12 +27,12 @@ Traditional methods like port forwarding can be complex and often don't work wit
 
 2. **Create an HTTP tunnel** (replace `8080` with your port):
    ```bash
-   ssh -p 443 -R0:localhost:8080 qr@a.pinggy.io
+   ssh -p 443 -R0:localhost:8080 qr@free.pinggy.io
    ```
 
 3. **Create an SSH tunnel** for remote terminal access:
    ```bash
-   ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
    ```
 
 4. Use the public URL provided by Pinggy to access your Raspberry Pi from anywhere on the internet.
