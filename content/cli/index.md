@@ -14,7 +14,7 @@
         </h1>
         <span class="d-block" id="lead2">
           Pinggy Command Line Tool provides more robust tunnels with quicker
-          reconnections when your tunnels are interrupted.
+          reconnections. It supports HTTP(S), TCP, <b>UDP</b>, and TLS tunnels.
         </span>
       </div>
     </div>
