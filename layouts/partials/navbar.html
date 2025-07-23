@@ -37,6 +37,20 @@
                     <a class="dropdown-item" href="/quickstart/">Quickstart recipes</a>
                 </div>
             </div>
+            {{ else if eq .Name "Download" }}
+            <div class="nav-item dropdown">
+                <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="downloadDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ .Pre }}
+                    <span style="display:inline-block;">
+                        {{ .Name }}
+                    </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="downloadDropdown">
+                    <a class="dropdown-item" href="/app/">GUI App</a>
+                    <a class="dropdown-item" href="/cli/">CLI</a>
+                    <a target="_blank" class="dropdown-item" href="https://pinggy-io.github.io/sdk-nodejs/">Node.js SDK</a>
+                    <a target="_blank" class="dropdown-item" href="https://pypi.org/project/pinggy/">Python SDK</a>
+                </div>
             {{ else if eq .Name "Compare" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="compareDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

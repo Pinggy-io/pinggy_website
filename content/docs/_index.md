@@ -49,6 +49,51 @@ Download the Pinggy App from <a href="/app/" target="_blank">here</a> and follow
 
 ![Pinggy App Screenshot](/assets/app5.webp)
 {{% /tab %}}
+{{% tab name="Node.js SDK" %}}
+Install the <a target="_blank" href="https://pinggy-io.github.io/sdk-nodejs/">Pinggy Node.js SDK</a> using `npm`:
+
+```bash
+npm i @pinggy/pinggy
+```
+
+<br/>
+
+Then, create a tunnel in your Node.js application:
+
+```js
+import { pinggy } from "@pinggy/pinggy";
+
+const tunnel = pinggy.createTunnel({ forwardTo: "localhost:3000" });
+await tunnel.start();
+console.log("Tunnel URLs:", tunnel.urls()); 
+```
+
+Replace `3000` with the port where your service is running.
+
+{{% /tab %}}
+{{% tab name="Python SDK" %}}
+Install the <a target="_blank" href="https://pypi.org/project/pinggy/">Python SDK</a> using `pip`:
+
+```bash
+pip install pinggy
+```
+
+<br/>
+
+Then, create a tunnel in your Python application:
+
+```python
+import pinggy
+
+# Start an HTTP tunnel forwarding traffic to localhost on port 8080
+tunnel = pinggy.start_tunnel(forwardto="localhost:8080")
+
+print(f"Tunnel started with token: {tunnel.token}")
+```
+
+Replace `8080` with the port where your service is running.
+
+{{% /tab %}}
 {{< /tabs >}}
 
 #### Step 3: Access through public URL

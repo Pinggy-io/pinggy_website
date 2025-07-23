@@ -208,6 +208,11 @@
       >
     </li>
     <li class="doclink">
+      <a href="/docs/remote_devices/" class="btn btn-non-toggle"
+        >Remote Devices</a
+      >
+    </li>
+    <li class="doclink">
       <a href="/docs/cli/" class="btn btn-non-toggle"
         >Pinggy CLI</a
       >
@@ -217,10 +222,32 @@
         >Docker</a
       >
     </li>
-    <li class="doclink">
-      <a href="/docs/remote_devices/" class="btn btn-non-toggle"
-        >Remote Devices</a
+    <li class="mb-1 collapsabledoclink">
+      <button
+        class="btn btn-toggle align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#sdk-collapse"
+        aria-expanded="false"
       >
+        SDK
+      </button>
+      <div class="collapse" id="sdk-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li class="doclink">
+            <a target="_blank" href="https://pinggy-io.github.io/sdk-nodejs/" class="link-dark rounded"
+              >Node.js SDK</a
+            >
+          </li>
+          <li class="doclink">
+            <a
+              target="_blank"
+              href="https://pypi.org/project/pinggy/"
+              class="link-dark rounded"
+              >Python SDK</a
+            >
+          </li>
+        </ul>
+      </div>
     </li>
     <li class="mb-1 collapsabledoclink">
       <button
