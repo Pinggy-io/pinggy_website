@@ -54,12 +54,9 @@ menus:
     - name: Docs
       url: /docs/
       weight: 120
-    - name: App
+    - name: Download
       url: /app/
-      weight: 126
-    - name: CLI
-      url: /cli/
-      weight: 125
+      weight: 123
     - name: Compare
       url: /compare/
       weight: 125

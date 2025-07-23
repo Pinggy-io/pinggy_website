@@ -7,7 +7,7 @@
 
 # Pinggy CLI
 
-Pinggy Command Line Tool provides more robust tunnels with quicker reconnections when your tunnels are interrupted.
+Pinggy Command Line Tool provides more robust tunnels with quicker reconnections when your tunnels are interrupted. It supports HTTP(S), TCP, UDP, and TLS tunnels.
 
 <div>
     <img

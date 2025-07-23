@@ -19,75 +19,51 @@ Thus, in this article, we will learn why DNS matter for gaming, the recommended 
 
 
 ### Comparison Table for Best DNS for Gaming
-
-<style>
-.dns-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.dns-table th, .dns-table td {
-  border: 1px solid #ddd;
-  padding: 0.4em 0.4em;
-  text-align: left;
-}
-.dns-table th {
-  background: #f5f7fa;
-  color: #333;
-  font-weight: bold;
-}
-.dns-table tr:nth-child(even) {
-  background: #f9fbfd;
-}
-.dns-table tr:hover {
-  background: #eef6ff;
-}
-</style>
-
-<table class="dns-table">
+<table style="width:100%;border-collapse:collapse;">
 <thead>
 <tr>
-  <th>DNS Provider</th>
-  <th>DNS Servers</th>
-  <th>Latency</th>
-  <th>Reliability</th>
-  <th>Notes</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">DNS Provider</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">DNS Servers</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Latency</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Reliability</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Notes</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-  <td><strong>Cloudflare</strong></td>
-  <td>1.1.1.1<br>1.0.0.1</td>
-  <td>Very Low</td>
-  <td>Excellent</td>
-  <td>Strong privacy, no logs. Fastest globally, privacy-focused.</td>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Cloudflare</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1.1.1.1<br>1.0.0.1</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Low</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Strong privacy, no logs. Fastest globally, privacy-focused.</td>
 </tr>
 <tr>
-  <td><strong>Google DNS</strong></td>
-  <td>8.8.8.8<br>8.8.4.4</td>
-  <td>Low</td>
-  <td>Excellent</td>
-  <td>Good privacy, minimal logs. Widely supported, robust infra.</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Google DNS</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">8.8.8.8<br>8.8.4.4</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Good privacy, minimal logs. Widely supported, robust infra.</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>OpenDNS</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">208.67.222.222<br>208.67.220.220</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Security filtering. Parental controls, phishing block.</td>
 </tr>
 <tr>
-  <td><strong>OpenDNS</strong></td>
-  <td>208.67.222.222<br>208.67.220.220</td>
-  <td>Low</td>
-  <td>Excellent</td>
-  <td>Security filtering. Parental controls, phishing block.</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Quad9</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">9.9.9.9<br>149.112.112.112</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Focus on security/privacy. Blocks malicious domains.</td>
 </tr>
-<tr>
-  <td><strong>Quad9</strong></td>
-  <td>9.9.9.9<br>149.112.112.112</td>
-  <td>Low</td>
-  <td>Very Good</td>
-  <td>Focus on security/privacy. Blocks malicious domains.</td>
-</tr>
-<tr>
-  <td><strong>DNS.Watch</strong></td>
-  <td>84.200.69.80<br>84.200.70.40</td>
-  <td>Low</td>
-  <td>Good</td>
-  <td>No logs, privacy-focused. Based in Germany, privacy-centric.</td>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>DNS.Watch</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">84.200.69.80<br>84.200.70.40</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Good</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">No logs, privacy-focused. Based in Germany, privacy-centric.</td>
 </tr>
 </tbody>
 </table>
