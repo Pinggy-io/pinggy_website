@@ -13,16 +13,15 @@ outputs:
 
 {{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/err_name_not_resolver_banner.webp" "err_name_not_resolver_banner" >}}
 
-Encountering the `ERR_NAME_NOT_RESOLVED` error can be frustrating and disruptive, particularly when you're trying to access an important or urgent website. This error is displayed by browsers such as {{< link href="https://www.google.com/chrome/dr/download/" >}}Chrome{{< /link >}}, {{< link href="https://www.mozilla.org/en-US/firefox/windows/" >}}Firefox{{< /link >}}, and {{< link href="https://www.microsoft.com/en-us/edge/download?form=MA13FJ" >}}Edge{{< /link >}} when the Domain Name System (DNS) fails to translate a domain name into its corresponding Internet Protocol (IP) address. DNS is a fundamental service that translates human-friendly website addresses (URLs) into numerical IP addresses that computers understand. When DNS resolution fails, browsers can't establish a connection, resulting in the `ERR_NAME_NOT_RESOLVED` error.
+The `ERR_NAME_NOT_RESOLVED` error is one of those frustrating roadblocks that can stop your development workflow dead in its tracks. Whether you're testing a local application, debugging API endpoints, or simply browsing the web, this DNS resolution failure can appear in {{< link href="https://www.google.com/chrome/dr/download/" >}}Chrome{{< /link >}}, {{< link href="https://www.mozilla.org/en-US/firefox/windows/" >}}Firefox{{< /link >}}, and {{< link href="https://www.microsoft.com/en-us/edge/download?form=MA13FJ" >}}Edge{{< /link >}} when your browser can't translate a domain name into its corresponding IP address.
+
+As developers, we know that DNS (Domain Name System) acts as the internet's phonebook, converting human-readable domain names into machine-readable IP addresses. When this translation process fails, your browser throws the `ERR_NAME_NOT_RESOLVED` error, leaving you unable to reach your destination.
 
 
 {{% tldr %}}
 
 1. **Double Check the URL**  
    - Make sure there are no typos, spaces, or extra characters in the website address.
-
-Here's a cleaner, manager-style summary of that point:
-
 2. **Verify DNS Resolution via Command Line**  
 - Use command-line tools to ensure DNS is working properly:
 
@@ -56,17 +55,19 @@ Here's a cleaner, manager-style summary of that point:
 
 ## What Causes ERR_NAME_NOT_RESOLVED?
 
-The `ERR_NAME_NOT_RESOLVED` error can occur due to several common reasons, each impacting your browsing experience differently:
+Understanding the root causes helps you troubleshoot more effectively. Here are the most common culprits behind this DNS resolution error:
 
-1. **Incorrect URL**: One of the simplest and most frequent causes is an incorrect website URL. This includes typos, misspellings, unnecessary spaces, or accidental additional characters that lead to domain resolution failure.
+**Incorrect URL or Domain Name** - Simple typos, extra spaces, or wrong TLD extensions (`.com` vs `.co`) are surprisingly common. Even developers can miss these when quickly typing URLs during testing.
 
-2. **DNS Server Issues**: If your DNS server is temporarily down, slow, or experiencing technical issues, it cannot process DNS requests efficiently, resulting in resolution failures and the `ERR_NAME_NOT_RESOLVED` error.
+**DNS Server Problems** - Your configured DNS server might be experiencing downtime, high latency, or configuration issues. ISP-provided DNS servers are particularly prone to these problems.
 
-3. **DNS Cache Problems**: Your operating system and browser store previously resolved domain names to speed up future access. However, this cache can become outdated or corrupted, causing the DNS to resolve to incorrect IP addresses and leading to errors.
+**Stale DNS Cache** - Both your operating system and browser cache DNS lookups to improve performance. When these caches contain outdated information, they can prevent successful resolution of updated domain records.
 
-4. **Misconfigured Network Settings**: Incorrect or outdated DNS server settings on your device can disrupt the proper functioning of DNS queries. If your system attempts to connect to an inactive or misconfigured DNS server, you will encounter resolution problems.
+**Network Configuration Issues** - Misconfigured DNS settings, incorrect network adapter configurations, or problems with your router's DNS forwarding can all trigger this error.
 
-5. **Firewall or Antivirus Restrictions**: Security software such as firewalls, antivirus, or network security tools can inadvertently block DNS queries. This usually happens when these tools are overly restrictive or misconfigured, mistakenly identifying legitimate DNS requests as harmful activities, thus blocking access to certain websites.
+**Security Software Interference** - Overzealous firewalls, antivirus programs, or network security tools may block legitimate DNS queries, especially when they're configured with strict security policies.
+
+**Hosts File Conflicts** - Manual entries in your system's hosts file can override DNS resolution, potentially blocking access to specific domains if configured incorrectly.
 
 ### Step-by-Step Solutions to Fix ERR_NAME_NOT_RESOLVED
 
@@ -118,44 +119,73 @@ Before diving into technical fixes, ensure the website address you’ve typed is
 
   If DNS lookup fails, the output will indicate an error such as `Non-existent domain`, `NXDOMAIN`, or `connection timed out; no servers could be reached`.
 
-#### 3. Clear DNS Cache
-Your computer stores DNS information in a local cache to speed up future visits to websites. However, if this cache becomes outdated or corrupt, it can cause the `ERR_NAME_NOT_RESOLVED` error. Clearing the DNS cache forces your device to obtain fresh DNS information from your DNS server.
+### 3. Clear DNS Cache
 
-**Solution**:
-- **Windows**:
-  1. Press `Windows + R` to open the Run dialog.
-  2. Type `cmd` and hit Enter to open Command Prompt.
-  3. Type `ipconfig /flushdns` and press Enter to clear the DNS cache.
-- **macOS**:
-  1. Open Terminal (use Spotlight to search for it).
-  2. Type `sudo dscacheutil -flushcache` and press Enter.
-  3. You may be asked to enter your administrator password.
+DNS caching improves performance by storing recent lookups, but stale cache entries can cause resolution failures. When you're developing and testing with frequently changing DNS records, clearing the cache is often necessary.
+
+**Windows:**
+```bash
+# Open Command Prompt as Administrator and run:
+ipconfig /flushdns
+
+# Verify the cache was cleared:
+ipconfig /displaydns
+```
+
+**macOS:**
+```bash
+# Clear DNS cache (requires admin password):
+sudo dscacheutil -flushcache
+
+# For older macOS versions, you might need:
+sudo killall -HUP mDNSResponder
+```
+
+**Linux:**
+```bash
+# For systemd-resolved (Ubuntu 18.04+):
+sudo systemd-resolve --flush-caches
+
+# For older systems with nscd:
+sudo service nscd restart
+```
 
 {{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/terminal_ss.webp" "Clear DNS Cache" >}}
 
-After clearing the cache, retry visiting the website.
+**Pro tip**: If you're frequently switching between development environments, consider scripting these commands for quick cache clearing.
 
-#### 4. Change DNS Servers
-If the default DNS server you are using is slow or unreliable, switching to a different, more reliable DNS provider can help resolve the issue. {{< link href="https://developers.google.com/speed/public-dns" >}}Google DNS{{< /link >}} and {{< link href="https://www.cloudflare.com/en-gb/application-services/products/dns/" >}}Cloudflare DNS{{< /link >}} are popular choices that often provide faster and more reliable service.
+### 4. Switch to Reliable DNS Servers
 
-**Solution**:
-- **Windows**:
-  1. Go to Control Panel > Network and Internet > Network Connections.
-  2. Right-click on your active network connection, then click Properties.
-  3. Choose "Internet Protocol Version 4 (TCP/IPv4)" and click Properties.
-  4. Select "Use the following DNS server addresses" and enter:
-     - Preferred DNS server: `8.8.8.8` (Google DNS)
-     - Alternate DNS server: `8.8.4.4` (Google DNS)
-- **macOS**:
-  1. Go to System Preferences > Network.
-  2. Select your active network connection (Wi-Fi or Ethernet), then click Advanced.
-  3. Go to the DNS tab and click the `+` button to add:
-     - `8.8.8.8` (Google DNS)
-     - `8.8.4.4` (Google DNS)
+Your ISP's default DNS servers might be slow, unreliable, or experiencing outages. Switching to public DNS providers often resolves these issues and can improve overall browsing performance.
+
+**Recommended DNS Providers:**
+- **{{< link href="https://developers.google.com/speed/public-dns" >}}Google DNS{{< /link >}}**: `8.8.8.8` and `8.8.4.4`
+- **{{< link href="https://www.cloudflare.com/dns/" >}}Cloudflare DNS{{< /link >}}**: `1.1.1.1` and `1.0.0.1`
+- **Quad9**: `9.9.9.9` and `149.112.112.112` (security-focused)
+
+**Quick DNS Change via Command Line:**
+
+**Windows (PowerShell as Administrator):**
+```powershell
+# Set DNS to Cloudflare
+netsh interface ip set dns "Wi-Fi" static 1.1.1.1
+netsh interface ip add dns "Wi-Fi" 1.0.0.1 index=2
+
+# Or use Google DNS
+netsh interface ip set dns "Wi-Fi" static 8.8.8.8
+netsh interface ip add dns "Wi-Fi" 8.8.4.4 index=2
+```
+
+**macOS/Linux:**
+```bash
+# Temporarily test with different DNS (doesn't persist)
+dig @1.1.1.1 example.com
+dig @8.8.8.8 example.com
+```
 
 {{< image "what_is_err_name_not_resolver_error_and_how_to_fix_it/wifi_ss.webp" "Change DNS Servers" >}}
 
-This change forces your device to use a new DNS provider for resolving domain names.
+**For permanent changes**, use your system's network settings GUI or modify `/etc/resolv.conf` on Linux systems.
 
 #### 5. Clear Browser Cache and Cookies
 Your browser’s cache and cookies can sometimes interfere with DNS resolution. Clearing the cache can help resolve any issues caused by outdated or corrupt files.
@@ -205,7 +235,66 @@ The hosts file on your computer contains mappings of IP addresses to domain name
 
 Once the hosts file is corrected, try reloading the website.
 
-### Step 1: Launch Your Foundry VTT Server Locally
+## Advanced DNS Troubleshooting for Developers
+
+### Using dig for Detailed DNS Analysis
+
+The `dig` command provides comprehensive DNS information that's invaluable for debugging:
+
+```bash
+# Basic A record lookup
+dig example.com
+
+# Query specific DNS server
+dig @8.8.8.8 example.com
+
+# Get all DNS record types
+dig example.com ANY
+
+# Trace the full DNS resolution path
+dig +trace example.com
+
+# Check reverse DNS lookup
+dig -x 93.184.216.34
+```
+
+### DNS Propagation Testing
+
+When you've recently changed DNS records, test propagation across different servers:
+
+```bash
+# Test multiple DNS servers
+for server in 8.8.8.8 1.1.1.1 9.9.9.9; do
+  echo "Testing $server:"
+  dig @$server example.com +short
+done
+```
+
+### Browser-Specific DNS Issues
+
+**Chrome DNS Cache**: Chrome maintains its own DNS cache. Clear it by visiting:
+```
+chrome://net-internals/#dns
+```
+Click "Clear host cache" to flush Chrome's internal DNS cache.
+
+**Firefox DNS Cache**: Disable DNS caching in Firefox for development:
+1. Go to `about:config`
+2. Set `network.dnsCacheExpiration` to `0`
+
+### Network-Level Debugging
+
+Check if the issue is network-specific:
+
+```bash
+# Test from different network interfaces
+ping -I eth0 example.com
+ping -I wlan0 example.com
+
+# Check routing table
+route -n  # Linux
+netstat -rn  # macOS/BSD
+```
 
 To begin, ensure your Foundry VTT instance is running on your local machine. By default, Foundry operates on port `30000`.
 
@@ -228,31 +317,52 @@ To begin, ensure your Foundry VTT instance is running on your local machine. By 
 
    If everything is set up correctly, you should see the Foundry VTT login page or welcome screen.
 
-## How to Prevent ERR_NAME_NOT_RESOLVED Errors in the Future
+## Prevention and Best Practices for Developers
 
-### Regularly Update Software and Drivers
-Keep your browser and network drivers updated to ensure compatibility and stability.
+### Use Reliable DNS Infrastructure
 
-### Use Reliable DNS Services
-Consider using reputable DNS providers like Google DNS (`8.8.8.8`, `8.8.4.4`) or Cloudflare DNS (`1.1.1.1`) for reliable performance and better security.
+For production environments, avoid relying on ISP-provided DNS servers. Instead, configure your systems to use enterprise-grade DNS providers:
 
-### Periodically Clear DNS Cache
-Regularly clearing your DNS cache prevents outdated information from causing connectivity issues.
+- **{{< link href="https://www.cloudflare.com/dns/" >}}Cloudflare DNS{{< /link >}}**: `1.1.1.1` and `1.0.0.1` (fastest response times)
+- **{{< link href="https://developers.google.com/speed/public-dns" >}}Google DNS{{< /link >}}**: `8.8.8.8` and `8.8.4.4` (reliable and widely supported)
+- **Quad9**: `9.9.9.9` (security-focused with malware blocking)
 
-### Maintain Proper Security Settings
-Regularly review your firewall and antivirus configurations to prevent accidental blocking of legitimate DNS queries.
+### Development Environment Tips
 
-## Recommended Tools
-- **Cloudflare DNS (1.1.1.1)**: A fast, secure, and privacy-focused DNS resolution service.
-- **Google DNS (8.8.8.8, 8.8.4.4)**: Widely used and reliable DNS solution.
-- **DNS Jumper**: An easy-to-use tool that helps quickly switch between DNS providers, improving browsing speed and reliability.
+**Local Development**: When working with local services, consider using `.local` domains or editing your hosts file for consistent resolution:
 
-By following these comprehensive steps, you'll effectively resolve and prevent `ERR_NAME_NOT_RESOLVED` errors, ensuring smooth and uninterrupted internet browsing.
+```bash
+# Add to /etc/hosts (Linux/macOS) or C:\Windows\System32\drivers\etc\hosts (Windows)
+127.0.0.1 myapp.local
+127.0.0.1 api.myapp.local
+```
 
-## Fixing ERR_NAME_NOT_RESOLVED Errors for Pinggy URLs
+**Docker Development**: Use Docker's internal DNS resolution for container-to-container communication instead of relying on external DNS.
 
-[Pinggy](https://pinggy.io) dynamically assigns [DNS records](https://pinggy.io/blog/scaling_across_multiple_regions/) when a tunnel is created. This means that if your browser queries the URL before the tunnel is fully set up, you may encounter the `ERR_NAME_NOT_RESOLVED` error. However, the Time-To-Live (TTL) for Pinggy's DNS records is only 10 seconds. As a result, after waiting for around 10 to 15 seconds, refreshing the page should resolve the issue and allow the URL to load successfully.
+### Monitoring and Automation
 
+Set up DNS monitoring for critical domains and automate cache clearing in your deployment scripts:
 
-### Conclusion
+```bash
+#!/bin/bash
+# Example deployment script snippet
+echo "Clearing DNS cache..."
+sudo systemd-resolve --flush-caches
+echo "DNS cache cleared"
+```
+
+## Developer Tools and Resources
+
+- **{{< link href="https://www.cloudflare.com/dns/" >}}Cloudflare DNS{{< /link >}}**: Fast, privacy-focused DNS with excellent uptime
+- **{{< link href="https://developers.google.com/speed/public-dns" >}}Google Public DNS{{< /link >}}**: Reliable DNS service with global infrastructure
+- **dig/nslookup**: Essential command-line tools for DNS troubleshooting
+- **Browser DevTools**: Network tab for monitoring DNS resolution timing
+
+## Special Case: Dynamic DNS Services
+
+When working with dynamic DNS services like {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, you might encounter `ERR_NAME_NOT_RESOLVED` errors due to DNS propagation delays. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} dynamically assigns {{< link href="https://pinggy.io/blog/scaling_across_multiple_regions/" >}}DNS records{{< /link >}} when tunnels are created, which can cause temporary resolution failures.
+
+**Solution for Dynamic DNS**: Wait 10-15 seconds after tunnel creation before accessing the URL, as the TTL (Time-To-Live) for these records is typically very short.
+
+## Conclusion
 The `ERR_NAME_NOT_RESOLVED` error can be caused by a variety of factors, from simple typing mistakes to more complex network or DNS configuration problems. By following the above step-by-step troubleshooting methods, you can resolve most issues and get back to browsing without interruptions.
