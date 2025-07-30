@@ -72,16 +72,13 @@ Make sure you have the following installed and set up on your system:
 Every Telegram integration starts with creating a bot through BotFather:
 
 - Open Telegram and search for "BotFather" (@BotFather)
-
-{{< image "how_to_set_up_and_test_telegram_bot_webhook/start_chat_with_god_bot.webp" "Bot Father Chat" >}}
+  {{< image "how_to_set_up_and_test_telegram_bot_webhook/start_chat_with_god_bot.webp" "Bot Father Chat" >}}
 - Start a conversation and send the command `/newbot`
-
-{{< image "how_to_set_up_and_test_telegram_bot_webhook/newbot_chat.webp" "newbot" >}}
+  {{< image "how_to_set_up_and_test_telegram_bot_webhook/newbot_chat.webp" "newbot" >}}
 - Follow the instructions to name your bot and create a username
-
-{{< image "how_to_set_up_and_test_telegram_bot_webhook/bot_name.webp" "name" >}}
+  {{< image "how_to_set_up_and_test_telegram_bot_webhook/bot_name.webp" "name" >}}
 - BotFather will provide an API token that looks like: `123456789:ABCDefGhIJKlmNoPQRsTUVwxyZ`
-{{< image "how_to_set_up_and_test_telegram_bot_webhook/bot_token.png" "bot token" >}}
+  {{< image "how_to_set_up_and_test_telegram_bot_webhook/bot_token.png" "bot token" >}}
 
 
 This token is crucial as it authenticates your bot with Telegram's servers and allows n8n to send and receive messages.

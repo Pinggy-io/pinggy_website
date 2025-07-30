@@ -70,6 +70,9 @@ console.log("Tunnel URLs:", tunnel.urls());
 
 Replace `3000` with the port where your service is running.
 
+Follow <a target="_blank" href="https://pinggy-io.github.io/sdk-nodejs/">Pinggy Node.js SDK docs</a> for more details. 
+
+
 {{% /tab %}}
 {{% tab name="Python SDK" %}}
 Install the <a target="_blank" href="https://pypi.org/project/pinggy/">Python SDK</a> using `pip`:
@@ -85,13 +88,15 @@ Then, create a tunnel in your Python application:
 ```python
 import pinggy
 
-# Start an HTTP tunnel forwarding traffic to localhost on port 8080
-tunnel = pinggy.start_tunnel(forwardto="localhost:8080")
+# Start an HTTP tunnel forwarding traffic to localhost on port 8000
+tunnel = pinggy.start_tunnel(forwardto="localhost:8000")
 
-print(f"Tunnel started with token: {tunnel.token}")
+print(f"Tunnel started. Urls: {tunnel.urls}")
 ```
 
-Replace `8080` with the port where your service is running.
+Replace `8000` with the port where your service is running.
+
+Follow <a target="_blank" href="https://pypi.org/project/pinggy/">Python SDK docs</a> for more details. 
 
 {{% /tab %}}
 {{< /tabs >}}
