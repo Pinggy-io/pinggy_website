@@ -7,3 +7,9 @@ HUGO_ENABLEGITINFO = "true"
   from = "/*"
   to = "/404/"
   status = 404
+
+[[redirects]]
+  from = "/sdk/nodejs"
+  to = "https://pinggy-io.github.io/sdk-nodejs/"
+  status = 200
+
