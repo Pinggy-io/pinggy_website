@@ -14,9 +14,9 @@ outputs:
 
 {{< image "n8n_telegram_integration_with_pinggy/n8n_workflow_banner.webp" "n8n Telegram Integration with Pinggy" >}}
 
-Building automated workflows that connect Telegram with other services has become essential for modern businesses and developers. {{< link href="https://n8n.io" >}}n8n{{< /link >}} provides a powerful platform for creating these automations, while {{< link href="https://telegram.org" >}}Telegram{{< /link >}} offers an excellent messaging interface for users to interact with your automated systems.
+Building automated workflows that connect Telegram with other services is extremely valuable for modern businesses and developers. {{< link href="https://n8n.io" >}}n8n{{< /link >}} provides a powerful platform for creating these automations, while {{< link href="https://telegram.org" >}}Telegram{{< /link >}} offers an excellent messaging interface for users to interact with your automated systems.
 
-However, when developing locally, connecting Telegram webhooks to your n8n instance can be challenging since Telegram requires HTTPS endpoints. This is where {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} becomes invaluable, providing instant HTTPS tunnels to your local development environment without any complex setup.
+However, when developing locally, connecting Telegram webhooks to your self-hosted n8n instance can be challenging since Telegram requires HTTPS endpoints. This is where {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} becomes invaluable, providing instant HTTPS tunnels to your local development environment without any complex setup.
 
 {{% tldr %}}
 
