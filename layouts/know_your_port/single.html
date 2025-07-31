@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<h1 class="display-3 mb-4">{{.Title}}</h1>
+
+<div class="row justify-content-center">
+  <div class="col-12 col-md-12">
+    <div class="row">
+      <div class="col col-12 col-lg-6">
+        {{ if ne .Lastmod .Date }}
+        <span class="date-info italic">
+          <br />
+          Updated on {{ .Lastmod.Format "Jan 2, 2006" }}</span
+        >
+        {{ else }}
+        <i class="bi bi-calendar4-event me-1"></i
+        ><span>{{ .Date.Format "Jan 2, 2006" }}</span>
+        {{ end }}
+    </div>
+  </div>
+
+  <hr class="mt-3" />
+  <div class="col-12 col-lg-12">{{ .Content}}</div>
+</div>
+{{ end }} {{ define "pagespecificjs" }} {{ end }}
