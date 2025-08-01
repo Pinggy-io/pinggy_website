@@ -113,9 +113,9 @@ title: "Pinggy App"
     </div>
     <div class="col-lg-6 mt-3">
       <img
-        src="/assets/app5.webp"
+        src="/assets/app6.png"
         class="img-fluid featureimage"
-        alt="Pinggy Dev/Test Environment Gateway"
+        alt="Pinggy GUI App"
       />
     </div>
   </div>
