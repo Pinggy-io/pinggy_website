@@ -1,0 +1,37 @@
+{{ define "main" }}
+<main>
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <header>
+          <h1 class="display-4">{{ .Title }}</h1>
+        </header>
+        <hr />
+        {{.Content}}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          {{ range .Paginator.Pages.ByDate.Reverse }}
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">
+                  <h2 class="card-title h4">{{ .Title }}</h2>
+                </a>
+                <p class="card-text">{{ .Description }}</p>
+              </div>
+              {{ if .Truncated }}
+              <div class="card-footer bg-transparent border-0">
+                <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-sm">Read More…</a>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+        <div class="mt-4">
+          {{ template "_internal/pagination.html" . }}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}
