@@ -135,6 +135,24 @@ If you can't access `localhost:8000`, here's how to diagnose and fix common Pyth
 
 ---
 
+## Access localhost:8000 from Other Devices
+
+If you can not reach localhost:8000 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8000 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local Python server on port 8000, allowing you to:
+- **Share your Django/FastAPI app** with team members or clients
+- **Test on mobile devices** without being on the same network
+- **Demo your application** from anywhere in the world
+- **Debug Python applications** on different devices and browsers
+
+The tunnel provides a public URL that you can share, making your localhost:8000 Python development server accessible from any device with internet access.
+
+---
+
 ## Common Problems and Solutions
 
 Here are typical issues with `localhost:8000` and how to resolve them:

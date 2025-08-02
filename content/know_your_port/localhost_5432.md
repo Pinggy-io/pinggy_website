@@ -140,6 +140,24 @@ If you can't connect to `localhost:5432`, here's how to diagnose and fix common 
 
 ---
 
+## Access localhost:5432 from Other Devices
+
+If you can not reach localhost:5432 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5432 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5432 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5432 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local PostgreSQL database server on port 5432, allowing you to:
+- **Connect to your database** from remote applications
+- **Share database access** with team members for development
+- **Test database connections** from different environments
+- **Access your PostgreSQL server** from cloud applications or services
+
+**Important:** Only use this for development databases. Never expose production databases through tunnels without proper security measures and authentication.
+
+---
+
 ## Common Problems and Solutions
 
 Here are typical issues with `localhost:5432` and how to resolve them:
