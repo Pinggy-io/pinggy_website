@@ -4,85 +4,81 @@
  draft: false 
 ---
 
-<div class="row">
-  <div class="col-lg-6 col-md-12">
-    <div class="card p-3">
-      <div class="card-body">
-        <h1 class="card-title display-7">About Us</h1>
-        <p class="card-text text-justify">
-          We are a team of developers who are passionate about making network
-          tooling more developer-friendly. We believe that the current era of
-          fast-paced prototyping requires tools that are easy to set up and
-          maintain. That's why we have designed our tools to be simple, yet
-          powerful. We offer a wide range of features that can help developers
-          build and deploy their apps, tools, and services, quickly and easily.
-          <br />
-          <br />
-          We hope that our tools will help developers build better products,
-          faster.
-        </p>
+<!-- Hero Section -->
+<div class="container my-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-6">
+      <div class="card p-4 shadow">
+        <div class="card-body">
+          <h1 class="card-title display-5 mb-3">About Pinggy</h1>
+          <p class="card-text fs-5">
+            <b>Pinggy</b> is a modern tunneling platform designed to make sharing your localhost, apps, and development environments simple, secure, and lightning-fast.<br /><br />
+            Our mission is to empower developers, teams, and businesses to collaborate and test with ease-no matter where they are or what stack they use.<br /><br />
+            Trusted by thousands of developers and teams globally, Pinggy is committed to innovation, reliability, and privacy. Join us and experience the next generation of tunneling and remote access.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mb-4 mb-lg-0">
+      <img src="/assets/header.webp" alt="Pinggy tunnel network diagram" class="img-fluid rounded" />
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="container my-5">
+    <div class="row justify-content-center align-items-stretch">
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100 p-4 text-center shadow">
+        <img src="/assets/app5.webp" alt="Pinggy desktop app screenshot" class="img-fluid rounded mb-3" />
+        <h3 class="card-title">Instant Public URLs</h3>
+        <p class="card-text">Share HTTP(S), TCP, UDP, and TLS tunnels instantly. No downloads required-just one command and you're live.</p>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100 p-4 text-center shadow">
+        <img src="/assets/webdebugger.webp" alt="Pinggy web debugger screenshot" class="img-fluid rounded mb-3" />
+        <h3 class="card-title">Live Debugging</h3>
+        <p class="card-text">Inspect, replay, and manipulate HTTP requests in real time. Debug webhooks and APIs with ease.</p>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100 p-4 text-center shadow">
+        <img src="/assets/tui1.webp" alt="Pinggy terminal interface screenshot" class="img-fluid rounded mb-3" />
+        <h3 class="card-title">Rich Terminal & GUI Apps</h3>
+        <p class="card-text">Manage tunnels with a beautiful desktop app or a powerful CLI. Persistent domains, wildcard support, and advanced access controls included.</p>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12">
-    <div class="card p-3">
-      <div class="row g-0">
-        <div class="col-md-4 d-flex justify-content-center align-items-center">
-          <img
-            src="/assets/bishakh.webp"
-            class="rounded-circle img-fluid featureimage shadow-4"
-            style="width: 8em"
-            alt="Bishakh Ghosh - Co-founder Pinggy"
-          />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Bishakh Ghosh</h5>
-            <p class="card-subtitle">Co-Founder</p>
-            <p class="card-text">
-              <small class="text-muted"
-                >Ph.D. in Distributed Systems & Security from IIT
-                Kharagpur</small
-              >
-            </p>
-            <div class="social-media">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/ghoshbishakh/"
-                class="btn btn-outline-dark"
-              >
-                <i class="bi bi-linkedin"></i>
-              </a>
-              <a
-                target="_blank"
-                href="https://twitter.com/iambishakh"
-                class="btn btn-outline-dark"
-              >
-                <i class="bi bi-twitter"></i>
-              </a>
-              <a
-                target="_blank"
-                href="https://scholar.google.com/citations?user=5kBZSVkAAAAJ"
-                class="btn btn-outline-dark"
-              >
-                <i class="bi bi-mortarboard"></i>
-              </a>
-              <a
-                target="_blank"
-                href="mailto:ghoshbishakh@pinggy.io"
-                class="btn btn-outline-dark"
-              >
-                <i class="bi bi-envelope"></i>
-              </a>
-              <a
-                target="_blank"
-                href="https://ghoshbishakh.github.io"
-                class="btn btn-outline-dark"
-              >
-                <i class="bi bi-link"></i>
-              </a>
-            </div>
-          </div>
+</div>
+
+<!-- Values Section -->
+<div class="container my-5">
+    <div class="row justify-content-center align-items-stretch">
+    <div class="col-lg-10">
+      <div class="card p-4 shadow border-0">
+        <div class="card-body">
+          <h2 class="card-title mb-4">Our Values</h2>
+          <ul class="list-unstyled fs-5">
+            <li class="mb-3">
+              <b>Developer-First Approach:</b> Pinggy is built for developers, by developers. Every feature, workflow, and decision is made with the developer experience at the core.
+            </li>
+            <li class="mb-3">
+              <b>Openness & Transparency:</b> We believe in clear communication, honest feedback, and open documentation. Our platform is designed to be easy to understand and use.
+            </li>
+            <li class="mb-3">
+              <b>Security & Privacy:</b> Your data and tunnels are protected with industry-leading security. We never compromise on privacy.
+            </li>
+            <li class="mb-3">
+              <b>Speed & Reliability:</b> Fast connections, low latency, and high uptime are our promises. We obsess over performance so you can focus on building.
+            </li>
+            <li class="mb-3">
+              <b>Community & Support:</b> We listen to our users and actively engage with the developer community. Your feedback shapes our roadmap.
+            </li>
+            <li class="mb-3">
+              <b>Continuous Innovation:</b> We constantly improve Pinggy with new features, integrations, and optimizations to help you stay ahead.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
