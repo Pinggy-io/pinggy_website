@@ -25,7 +25,7 @@ Setting up port forwarding can seem daunting, especially when you encounter obst
    ssh -p 443 -R0:localhost:8080 tcp@a.pinggy.io
    ```
 
-4. **Get persistent access**: Sign in to {{< link href="https://dashboard.pinggy.io" >}}Pinggy Dashboard{{< /link >}} for permanent URLs and custom domains.
+4. **Get persistent access**: Sign in to <a href="https://dashboard.pinggy.io" target="_blank" >Pinggy Dashboard</a > for permanent URLs and custom domains.
 
 {{% /tldr %}}
 
