@@ -692,7 +692,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                     </li>
                     <li class="list-group-item p-2">Random subdomains</li>
                     <li class="list-group-item p-2">
-                      Restricted bandwidth and connections
+                      Unlimited Data Transfer
                     </li>
                   </ul>
                   <a class="mt-auto" href="https://dashboard.pinggy.io/"
