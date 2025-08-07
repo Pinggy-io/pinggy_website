@@ -22,7 +22,7 @@ Setting up port forwarding can seem daunting, especially when you encounter obst
 
 3. **For CGNAT situations**: Use Pinggy tunnel with command:
    ```
-   ssh -p 443 -R0:localhost:8080 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:8080 free.pinggy.io
    ```
 
 4. **Get persistent access**: Sign in to <a href="https://dashboard.pinggy.io" target="_blank" >Pinggy Dashboard</a > for permanent URLs and custom domains.
@@ -49,11 +49,11 @@ Port forwarding isn't always necessary. You only need it when you want to make s
 - Accessing Network Attached Storage (NAS) devices
 - Managing IoT devices and home automation systems
 
-If your device has a direct public IP address (rare these days), port forwarding isn't required. However, most home networks use NAT (Network Address Translation) through a router, which blocks incoming connections by default.
+If your device has a direct public IP address (rare these days), port forwarding isn't required. Even if you have  a public IP from your ISP, most home networks use NAT (Network Address Translation) through a router. This blocks incoming connections by default.
 
 ## Understanding port forwarding
 
-Think of port forwarding as creating a specific pathway through your router's firewall. Your router acts like a security guard, normally blocking all uninvited visitors from the internet. Port forwarding gives the guard specific instructions: "When someone knocks on port 8080, let them through to the computer at 192.168.1.100."
+Think of port forwarding as creating a specific pathway through your router's firewall. Your router acts like a security guard, normally blocking all uninvited visitors from the internet. Port forwarding gives the guard specific instructions: "When someone knocks on port `8080`, let them through to the computer at `192.168.1.100`."
 
 This process involves mapping an external port on your router's public IP to an internal port on a specific device within your network. When external traffic arrives at the specified port, your router knows exactly where to send it.
 
@@ -61,8 +61,46 @@ This process involves mapping an external port on your router's public IP to an 
 
 Most modern routers provide web-based interfaces for configuring port forwarding. Here's the general process:
 
+<svg width="100%" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+  <title id="title">Sample port forwarding interface</title>
+  <desc id="desc">A sample router ui for setting up port forwarding.</desc>
+  <rect width="100%" height="100%" fill="#f5f5f5" />
+  <text x="50%" y="40" text-anchor="middle" font-size="24" font-weight="bold">Port Forwarding Configuration</text>
+  <!-- Labels -->
+  <text x="50" y="90" font-size="14">Service Name</text>
+  <text x="230" y="90" font-size="14">Internal IP</text>
+  <text x="370" y="90" font-size="14">Internal Port</text>
+  <text x="490" y="90" font-size="14">External Port</text>
+  <!-- Input Boxes with dummy values -->
+  <!-- Row 1 -->
+  <rect x="40" y="100" width="140" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="50" y="120" font-size="14" fill="#000">HTTP</text>
+  <rect x="220" y="100" width="120" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="225" y="120" font-size="14" fill="#000">192.168.1.100</text>
+  <rect x="360" y="100" width="100" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="365" y="120" font-size="14" fill="#000">80</text>
+  <rect x="480" y="100" width="100" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="485" y="120" font-size="14" fill="#000">8080</text>
+  <!-- Row 2 -->
+  <rect x="40" y="140" width="140" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="50" y="160" font-size="14" fill="#000">SSH</text>
+  <rect x="220" y="140" width="120" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="225" y="160" font-size="14" fill="#000">192.168.1.101</text>
+  <rect x="360" y="140" width="100" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="365" y="160" font-size="14" fill="#000">22</text>
+  <rect x="480" y="140" width="100" height="30" rx="5" fill="#fff" stroke="#ccc"/>
+  <text x="485" y="160" font-size="14" fill="#000">22</text>
+  <!-- Add Rule Button -->
+  <rect x="240" y="200" width="120" height="35" rx="5" fill="#4CAF50"/>
+  <text x="300" y="223" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Add Rule</text>
+  <!-- Save Button -->
+  <rect x="240" y="260" width="120" height="35" rx="5" fill="#2196F3"/>
+  <text x="300" y="283" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Save Settings</text>
+</svg>
+
+
 **Step 1: Access your router's admin panel**
-Open a web browser and navigate to your router's IP address (commonly 192.168.1.1 or 192.168.0.1). Log in using your admin credentials.
+Open a web browser and navigate to your router's IP address (commonly `192.168.1.1` or `192.168.0.1`). Log in using your admin credentials.
 
 **Step 2: Find the port forwarding section**
 Look for sections labeled "Port Forwarding," "Virtual Servers," "Port Mapping," or "NAT/Gaming." The exact terminology varies by manufacturer.
@@ -85,9 +123,12 @@ Popular router interfaces like ASUS, Netgear, Linksys, and TP-Link all follow si
 CGNAT presents a significant challenge for traditional port forwarding. Many internet service providers, including T-Mobile, Verizon, and various mobile carriers, use CGNAT to conserve IPv4 addresses. Under CGNAT, multiple customers share a single public IP address, making direct port forwarding impossible.
 
 **How to identify CGNAT:**
-Check your router's WAN IP address in the admin panel. If it starts with 10.x.x.x, 172.16-31.x.x, or 192.168.x.x, you're likely behind CGNAT. These are private IP ranges that indicate your router doesn't have a true public IP.
+Check your router's WAN IP address in the admin panel. If it starts with `10.x.x.x`, `172.16-31.x.x`, `100.64.x.x`, or `192.168.x.x`, you're likely behind CGNAT. These are private IP ranges that indicate your router doesn't have a true public IP.
 
 **CGNAT limitations:**
+
+CGNAT imposes several limitations that can hinder your ability to host services or access devices remotely. Since your network shares a public IP address with many other users, direct inbound connections from the internet are not possible. This means traditional port forwarding rules won't work.
+
 - No direct inbound connections possible
 - Traditional port forwarding rules won't work
 - UPnP (Universal Plug and Play) is ineffective
@@ -109,7 +150,7 @@ Check your router's WAN IP address in the admin panel. If it starts with 10.x.x.
 
 The process is straightforward:
 
-1. **Install SSH client** (usually pre-installed on Mac/Linux, use PuTTY on Windows)
+1. **Open CMD or terminal**
 2. **Run the tunnel command** replacing the port number with your service's port
 3. **Access your service** using the provided public URL
 4. **Get persistent URLs** by signing up for a free Pinggy account
@@ -120,9 +161,9 @@ The process is straightforward:
 - Traffic inspection and debugging tools
 - Multiple tunnel management through the dashboard
 
-## Why port forwarding beats disabling firewall
+## Why port forwarding beats disabling firewall or using DMZ
 
-Some users consider disabling their firewall entirely, but this creates massive security risks. Port forwarding is superior because:
+Some users consider disabling their firewall entirely or enabling a DMZ (Demilitarized Zone) for a device, but both approaches create massive security risks. Port forwarding is superior because:
 
 **Selective exposure:** Only specific ports on specific devices are accessible, not your entire network.
 
@@ -136,8 +177,4 @@ Disabling your firewall exposes every device on your network to potential attack
 
 ## Conclusion
 
-Port forwarding remains essential for hosting services and enabling remote access, but CGNAT has complicated the traditional approach. While standard router-based port forwarding works well for users with public IP addresses, those behind CGNAT need alternative solutions.
-
-{{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} bridges this gap by providing reliable tunneling that works regardless of your network configuration. Whether you're hosting a game server, running a development environment, or need remote access to your devices, Pinggy's simple command-line interface gets you connected in seconds.
-
-The combination of understanding when you need port forwarding, knowing how to configure it traditionally, and having Pinggy as a CGNAT workaround ensures you can make your local services accessible from anywhere on the internet.
+Port forwarding’s still super useful for stuff like hosting servers or remote access, but CGNAT makes the usual router setup kind of useless. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} fixes that by letting you tunnel your local services online with a simple command, no public IP needed. So whether you’re coding, gaming, or just need access to something at home, it’s an easy way to make it work from anywhere.
