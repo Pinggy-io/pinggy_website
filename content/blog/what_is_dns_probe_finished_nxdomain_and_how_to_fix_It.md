@@ -11,7 +11,7 @@ outputs:
   - HTML
   - AMP
 ---
-{{< image "dns_probe_finished_nxdomain/thumbnail.webp" "thumbnail" >}}
+{{< image "dns_probe_finished_nxdomain/thumbnail.webp" "what is dns_probe_finished_nxdomain and its solutions" >}}
 
 If you've encountered the **"dns_probe_finished_nxdomain"** error while browsing, you're experiencing one of the most common DNS-related issues on the internet. This error appears when your browser cannot resolve the domain name of the website you're trying to visit, essentially meaning it can't find the website's location on the internet.
 
@@ -106,11 +106,11 @@ The most critical step is ensuring your domain has the correct DNS records point
 
 Use the {{< link href="https://toolbox.googleapps.com/apps/dig/" >}}Google Dig Tool{{< /link >}} to check your DNS records. Enter your domain name and select "A Record" from the dropdown menu. If the tool returns an NXDOMAIN error or shows incorrect IP addresses, you need to update your DNS settings.
 
-{{< image "dns_probe_finished_nxdomain/homepage.webp" "Google Dig Homepage" >}}
+{{< image "dns_probe_finished_nxdomain/homepage.webp" "Google Dig for checking dns records to avoid dns_probe_finished_nxdomain error" >}}
 
 Access your domain registrar or DNS hosting provider's control panel and verify that your A records point to the correct server IP address. If you're using a hosting service, confirm the IP address they've provided matches what's configured in your DNS settings.
 
-{{< image "dns_probe_finished_nxdomain/search_pinggy_io.webp" "Search Pinggy.io" >}}
+{{< image "dns_probe_finished_nxdomain/search_pinggy_io.webp" "verify DNS records using dig tool, and find the reason for dns_probe_finished_nxdomain" >}}
 
 #### Check Domain Registration Status
 
