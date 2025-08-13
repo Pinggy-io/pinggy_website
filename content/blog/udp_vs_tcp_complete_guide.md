@@ -15,7 +15,7 @@ outputs:
 
 When building network applications, developers face a fundamental choice between two core internet protocols: TCP and UDP. This decision can make or break your application's performance, affecting everything from user experience to system reliability.
 
-Understanding the differences between UDP and TCP isn't just academic knowledge—it's practical wisdom that determines whether your online game feels responsive, your video call stays smooth, or your financial transaction completes successfully.
+Understanding the differences between UDP and TCP isn't just academic knowledge - it's practical wisdom that determines whether your online game feels responsive, your video call stays smooth, or your financial transaction completes successfully.
 
 {{% tldr %}}
 
@@ -46,11 +46,11 @@ Both TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operat
 
 **TCP** establishes a reliable connection between sender and receiver through a three-way handshake. It guarantees that every piece of data arrives intact and in the correct order, making it the go-to choice for applications where data accuracy is non-negotiable.
 
-{{< image "udp_vs_tcp_complete_guide/tcp_connection.webp" "TCP Working" >}}
+{{< image "udp_vs_tcp_complete_guide/tcp_connection.png" "TCP Working" >}}
 
 **UDP**, on the other hand, takes a "fire and forget" approach. It sends data without establishing connections or waiting for confirmations, prioritizing speed over guaranteed delivery.
 
-{{< image "udp_vs_tcp_complete_guide/udp_connectionless_protocol.webp" "UDP" >}}
+{{< image "udp_vs_tcp_complete_guide/udp_connectionless_protocol.png" "UDP" >}}
 
 ## Key differences between UDP and TCP
 
@@ -130,6 +130,19 @@ Many games use UDP for real-time gameplay data while employing TCP for critical 
 **Streaming Services**
 Netflix uses TCP for video-on-demand content where buffering is acceptable, but switches to UDP-based protocols for live events where real-time delivery is crucial.
 
+## How Big Tech Picks TCP or UDP
+
+Even the biggest tech companies have to pick between TCP and UDP, and they choose based on what their apps need most: speed, reliability, or a mix of both.
+
+#### Google – YouTube & Search
+When you watch YouTube or do a Google search, you are often using QUIC, which runs on UDP. It skips the slow handshake that TCP does and starts sending data right away. QUIC still makes sure things arrive in order, so you get the speed of UDP without stuff going missing. This is why videos and pages load faster even on a bad connection.
+
+#### Microsoft – Teams
+Teams uses UDP for voice and video calls because speed matters more than perfection. A small glitch in the audio is fine but a long delay is not. When you send a chat or share a file, Teams switches to TCP so nothing gets lost.
+
+#### Netflix – Movies vs Live Streams
+For shows and movies, Netflix uses TCP so every bit of the video is perfect even if it takes a couple of seconds to start. For live events, they use UDP-based tech to cut down delay so you are not reacting way after everyone else.
+
 ## UDP tunneling with Pinggy
 
 {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} offers robust UDP tunneling capabilities that make it easy to expose UDP-based applications to the internet, even when you're behind NAT or restrictive firewalls. This is particularly valuable for gaming servers, real-time applications, and IoT devices that rely on UDP for optimal performance.
@@ -159,19 +172,6 @@ Replace `8080` with the UDP port your application is using. This command will:
 
 The combination of UDP's speed and Pinggy's reliable tunneling creates an ideal solution for applications that need both performance and accessibility.
 
-## Security considerations
-
-Both protocols have distinct security implications:
-
-**TCP Security**
-- Connection-oriented nature makes it easier to implement security measures
-- Stateful firewalls can track TCP connections more effectively
-- More predictable behavior for security monitoring
-
-**UDP Security**
-- Connectionless nature can make it harder to secure
-- Some firewalls block UDP traffic by default
-- Requires application-level security implementations
 
 ## Conclusion
 
