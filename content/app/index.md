@@ -65,13 +65,13 @@ title: "Pinggy App"
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Intel 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.8/mac/amd64/Pinggy-1.0.8-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/mac/amd64/Pinggy-1.0.9-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Apple Silicon</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.8/mac/arm64/Pinggy-1.0.8-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/mac/arm64/Pinggy-1.0.9-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
@@ -81,13 +81,13 @@ title: "Pinggy App"
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>x86 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.8/windows/x64/Pinggy-1.0.8 Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/windows/x64/Pinggy-1.0.9 Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Arm 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.8/windows/arm64/Pinggy-1.0.8 Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/windows/arm64/Pinggy-1.0.9 Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
@@ -97,13 +97,13 @@ title: "Pinggy App"
             <li class="list-group-item">
               <div class="d-flex justify-content-between align-items-center">
                 <span>Ubuntu (deb) x86 64 bit</span>
-                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.8/linux/x64/pinggyapp_1.0.8_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/linux/x64/pinggyapp_1.0.9_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
               </div>
             </li>
             <li class="list-group-item">
               <div class="d-flex justify-content-between align-items-center">
                 <span>Ubuntu (deb) arm 64 bit</span>
-                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.8/linux/arm64/pinggyapp_1.0.8_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/linux/arm64/pinggyapp_1.0.9_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
               </div>
             </li>
           </ul>
