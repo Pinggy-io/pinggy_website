@@ -71,48 +71,7 @@ If you capture this in Wireshark, you'll literally see "ICMP Echo (ping) request
 
 Let's visualize this. Two machines: Computer A wants to `ping` Computer B. Here's how the ICMP message moves down and up through the layers:
 
-<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: monospace;">
-  <thead>
-    <tr style="background-color: #e9ecef;">
-      <th style="border: 2px solid #495057; padding: 15px; text-align: center; font-weight: bold;">Network Layer</th>
-      <th style="border: 2px solid #495057; padding: 15px; text-align: center; font-weight: bold;">Computer A (Sender)</th>
-      <th style="border: 2px solid #495057; padding: 15px; text-align: center; font-weight: bold;">Direction</th>
-      <th style="border: 2px solid #495057; padding: 15px; text-align: center; font-weight: bold;">Computer B (Receiver)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="background-color: #f8f9fa;">
-      <td style="border: 1px solid #dee2e6; padding: 12px; font-weight: bold; background-color: #e3f2fd;">Application Layer</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ Application: ping ]</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px; text-align: center;">→</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ Application: ping reply ]</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #dee2e6; padding: 12px; font-weight: bold; background-color: #e8f5e8;">Network Layer (ICMP)</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ ICMP: Echo Request ]</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px; text-align: center;">→</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ ICMP: Echo Reply ]</td>
-    </tr>
-    <tr style="background-color: #f8f9fa;">
-      <td style="border: 1px solid #dee2e6; padding: 12px; font-weight: bold; background-color: #fff3e0;">Network Layer (IP)</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ IP: src=192.168.1.10<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dst=192.168.1.20]</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px; text-align: center;">→</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ IP: src=192.168.1.20<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dst=192.168.1.10 ]</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #dee2e6; padding: 12px; font-weight: bold; background-color: #fce4ec;">Data Link Layer</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ Ethernet frame ]</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px; text-align: center;">→</td>
-      <td style="border: 1px solid #dee2e6; padding: 12px;">[ Ethernet frame ]</td>
-    </tr>
-    <tr style="background-color: #f0f0f0;">
-      <td style="border: 2px solid #495057; padding: 15px; font-weight: bold; text-align: center;" colspan="4">
-        <strong>Physical Network Transmission</strong><br>
-        <span style="font-size: 18px;">Computer A ----------> Network  ---------->  Computer B</span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+{{< image "what_port_does_ping_work_on/what_port_does_ping_work_on_without_header.webp" "Message passing between two computers">}}
 
 **Key Observation**: Notice how there's **no transport layer** (no TCP/UDP) in this table, so there's nothing with a `port=...` field in it. The message just rides IP straight into ICMP land and back.
 
