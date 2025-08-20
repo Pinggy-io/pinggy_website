@@ -5,14 +5,14 @@ date: 2025-08-13T14:15:25+05:30
 draft: false
 tags: ["networking", "ICMP", "ping", "protocols", "troubleshooting"]
 categories: ["Networking", "Protocols", "Troubleshooting"]
-og_image: "/images/what_port_does_ping_work_on/what_port_does_ping_work_on.webp"
+og_image: "/images/what_port_does_ping_work_on/what_port_does_ping_work_on.png"
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiVW5kZXJzdGFuZCBXaHkgUGluZyBEb2Vzbid0IFVzZSBQb3J0cyIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIHdoeSBwaW5nIGRvZXNuJ3QgdXNlIFRDUCBvciBVRFAgcG9ydHMsIGhvdyBJQ01QIHByb3RvY29sIHdvcmtzLCBhbmQgdGhlIGRpZmZlcmVuY2UgYmV0d2VlbiBuZXR3b3JrIGxheWVyIGFuZCB0cmFuc3BvcnQgbGF5ZXIgcHJvdG9jb2xzLiIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJVbmRlcnN0YW5kIFBpbmcgQmFzaWNzIiwKICAgICAgInRleHQiOiAiUGluZyB1c2VzIElDTVAgKEludGVybmV0IENvbnRyb2wgTWVzc2FnZSBQcm90b2NvbCkgaW5zdGVhZCBvZiBUQ1Agb3IgVURQLiBJQ01QIG9wZXJhdGVzIGF0IHRoZSBuZXR3b3JrIGxheWVyIChMYXllciAzKSBhbmQgZG9lc24ndCB1c2UgcG9ydCBudW1iZXJzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJJZGVudGlmeSBJQ01QIE1lc3NhZ2UgVHlwZXMiLAogICAgICAidGV4dCI6ICJJQ01QIEVjaG8gUmVxdWVzdCBoYXMgVHlwZSA4LCBDb2RlIDAuIElDTVAgRWNobyBSZXBseSBoYXMgVHlwZSAwLCBDb2RlIDAuIFRoZXNlIGFyZSB1c2VkIGluc3RlYWQgb2YgcG9ydCBudW1iZXJzIGZvciBpZGVudGlmaWNhdGlvbi4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiRGlzdGluZ3Vpc2ggRnJvbSBQb3J0LUJhc2VkIFRlc3RpbmciLAogICAgICAidGV4dCI6ICJVc2UgJ25jIC12eiBob3N0IDgwJyBvciBzaW1pbGFyIHRvb2xzIGZvciBUQ1AgcG9ydCB0ZXN0aW5nLiBUaGlzIGlzIGRpZmZlcmVudCBmcm9tIHBpbmcsIHdoaWNoIHRlc3RzIG5ldHdvcmsgcmVhY2hhYmlsaXR5LCBub3Qgc3BlY2lmaWMgc2VydmljZSBhdmFpbGFiaWxpdHkuIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "what_port_does_ping_work_on/what_port_does_ping_work_on.webp" "Understanding why ping doesn't use ports - ICMP protocol explained" >}}
+{{< image "what_port_does_ping_work_on/what_port_does_ping_work_on.png" "Understanding why ping doesn't use ports - ICMP protocol explained" >}}
 
 `ping` doesn't use a TCP or UDP port at all. Zero. None. Nada.
 
@@ -71,30 +71,10 @@ If you capture this in Wireshark, you'll literally see "ICMP Echo (ping) request
 
 Let's visualize this. Two machines: Computer A wants to `ping` Computer B. Here's how the ICMP message moves down and up through the layers:
 
-{{< image "what_port_does_ping_work_on/what_port_does_ping_work_on_without_header.webp" "Message passing between two computers">}}
+{{< image "what_port_does_ping_work_on/what_port_does_ping_work_on.png" "How ping ICMP request travel between network layers">}}
 
-**Key Observation**: Notice how there's **no transport layer** (no TCP/UDP) in this table, so there's nothing with a `port=...` field in it. The message just rides IP straight into ICMP land and back.
+**Key Observation**: Notice how the ICMP requests **do not reach the transport layer** (no TCP/UDP), so there's nothing with a `port=...` field in it. The message just rides IP straight into ICMP land and back.
 
-### Simplified Packet Flow
-
-<table style="width: 60%; border-collapse: collapse; margin: 20px auto; font-family: monospace;">
-  <tbody>
-    <tr style="background-color: #e8f5e8;">
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center;">Computer A (ping)</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center; font-size: 16px;">───→</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center;">ICMP Echo Request</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center; font-size: 16px;">───→</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center;">Computer B</td>
-    </tr>
-    <tr style="background-color: #d3f9d8;">
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center;">Computer A</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center; font-size: 16px;">←───</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center;">ICMP Echo Reply</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center; font-size: 16px;">←───</td>
-      <td style="border: 1px solid #2f9e44; padding: 10px; text-align: center;">Computer B (ping reply)</td>
-    </tr>
-  </tbody>
-</table>
 
 ## Why people think it uses a port
 
@@ -216,11 +196,12 @@ On the flip side, some networks block ICMP entirely (common in corporate setups 
 
 Knowing this difference can save you hours of head-scratching. I've seen folks waste an afternoon thinking a server was "down" because `ping` failed, only to find out ICMP was just filtered at the edge while the HTTP port was wide open.
 
-## Bonus: ICMP over IPv6
+## Does Traceroute also use Ping?
 
-In IPv6, `ping` still doesn't use ports - it uses **ICMPv6**. Echo Request in ICMPv6 is Type `128`, Echo Reply is Type `129`. Same idea, just a slightly different protocol number.
+While `ping` sends ICMP requests, whereas `traceroute` sends UDP packets with low TTLs and relies on ICMP Time Exceeded replies from routers.
 
-One important IPv6 quirk is that ICMPv6 isn't just for echo requests - it's also critical for things like Neighbor Discovery (IPv6's version of ARP) and Path MTU Discovery. Block ICMPv6 entirely and you'll break way more than `ping` - you'll cripple IPv6 connectivity in weird, hard-to-debug ways.
+Traceroute works by manipulating the TTL (Time To Live) value in outgoing packets and observing how routers respond. By default, `traceroute` sends **UDP packets** to high-numbered ports (typically starting at 33434 and incrementing for each probe), which are unlikely to match any listening service on the target host. As each packet's TTL expires at a different router along the way, those routers reply with **ICMP "Time Exceeded" messages**, allowing `traceroute` to reveal each hop. When the packet finally reaches the destination, the host usually responds with an ICMP "Port Unreachable" message, confirming the end of the route.
+
 
 ## Conclusion
 
