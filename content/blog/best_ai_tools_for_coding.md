@@ -12,7 +12,7 @@ outputs:
   - AMP
 ---
 
-{{< image "best_ai_tools_for_coding/ai_coding_tools.webp.webp" "Best AI Tools for Coding in 2025" >}}
+{{< image "best_ai_tools_for_coding/ai_coding_tools.webp" "Best AI Tools for Coding in 2025" >}}
 
 The landscape of AI-powered coding tools has evolved dramatically in 2025, transforming how developers write, debug, and maintain code. From intelligent autocomplete suggestions to full codebase analysis and refactoring, AI coding assistants have become indispensable tools for modern software development.
 
@@ -29,6 +29,7 @@ Whether you're a solo developer looking to boost productivity or part of a team 
 7. **Cline** - Open-source autonomous coding agent extension for VS Code - <a target="_blank" href="https://github.com/cline/cline">Try Cline</a>
 
 **Honorable Mentions:**
+- **Kilo Code** - Lightweight AI coding assistant for VS code - <a target="_blank" href="https://kilocode.ai/">Try Kilo Code</a>
 - **Blackbox AI** - Free alternative with code search capabilities - <a target="_blank" href="https://blackbox.ai">Try Blackbox AI</a>
 - **CodeGPT** - Multi-model AI assistant supporting various LLMs - <a target="_blank" href="https://codegpt.co">Try CodeGPT</a>
 - **Bito AI** - AI coding assistant with chat and code generation - <a target="_blank" href="https://bito.ai">Try Bito AI</a>
@@ -36,16 +37,17 @@ Whether you're a solo developer looking to boost productivity or part of a team 
 - **Continue.dev** - Open-source AI coding assistant with local model support - <a target="_blank" href="https://continue.dev">Try Continue.dev</a>
 - **OpenAI Codex** - Foundation model for many AI coding tools - <a target="_blank" href="https://github.com/openai/codex">Learn about Codex</a>
 - **CodeAssist** - Google's AI coding assistant with intelligent suggestions - <a target="_blank" href="https://codeassist.google/">Try CodeAssist</a>
-- **Qwen3-Coder** - Advanced open-source coding model by Alibaba - <a target="_blank" href="https://github.com/QwenLM/Qwen3-Coder">Try Qwen3-Coder</a>
+
+
 
 **CLI-based Coding Agents:**
 1. **Claude Code** - Anthropic's command-line interface for AI assistance - <a target="_blank" href="https://www.anthropic.com/claude-code">Try Claude Code</a>
 2. **Gemini CLI** - Google's open-source AI coding assistant for command line - <a target="_blank" href="https://github.com/google-gemini/gemini-cli">Try Gemini CLI</a>
-3. **Aider** - AI pair programming in your terminal - <a target="_blank" href="https://aider.chat">Try Aider</a>
-4. **Goose** - Open-source AI coding agent for terminal workflows - <a target="_blank" href="https://github.com/square/goose">Try Goose</a>
-5. **Amazon Q Developer CLI** - AWS's AI coding assistant for command line - <a target="_blank" href="https://aws.amazon.com/q/developer">Try Amazon Q</a>
-6. **Kilo Code** - Lightweight AI coding assistant for terminal workflows - <a target="_blank" href="https://kilocode.ai/">Try Kilo Code</a>
-7. **Qwen3 Code** - Advanced open-source coding model by Alibaba - <a target="_blank" href="https://github.com/QwenLM/Qwen3-Coder">Try Qwen3-Coder</a>
+3. **Qwen Code** - CLI Coding agent optimized for Qwen3-coder model by Alibaba - <a target="_blank" href="https://github.com/QwenLM/qwen-code">Try Qwen-Code</a>
+4. **Aider** - AI pair programming in your terminal - <a target="_blank" href="https://aider.chat">Try Aider</a>
+5. **Goose** - Open-source AI coding agent for terminal workflows - <a target="_blank" href="https://github.com/square/goose">Try Goose</a>
+6. **Amazon Q Developer CLI** - AWS's AI coding assistant for command line - <a target="_blank" href="https://aws.amazon.com/q/developer">Try Amazon Q</a>
+
 
 {{% /tldr %}}
 
@@ -205,7 +207,7 @@ Cline is open-source and free to use. You only pay for the underlying AI model u
 ## Honorable Mentions
 
 While the above seven tools represent the top tier of AI coding assistants, several other tools deserve recognition for their unique features and capabilities:
-
+- {{< link href="https://kilocode.ai/" >}}Kilo Code{{< /link >}} - Lightweight VS code AI assistant for fast code suggestions, debugging, and minimal resource usage
 - {{< link href="https://blackbox.ai" >}}Blackbox AI{{< /link >}} - Offers comprehensive code search across millions of repositories and free tier with generous limits
 - {{< link href="https://codegpt.co" >}}CodeGPT{{< /link >}} - Provides multi-model support allowing connection to GPT-4, Claude, and open-source alternatives
 - {{< link href="https://bito.ai" >}}Bito AI{{< /link >}} - Excels at code explanation, unit test generation, and performance optimization suggestions
@@ -213,7 +215,7 @@ While the above seven tools represent the top tier of AI coding assistants, seve
 - {{< link href="https://continue.dev" >}}Continue.dev{{< /link >}} - Open-source AI coding assistant that runs locally or connects to various AI providers, offering maximum privacy and customization
 - {{< link href="https://github.com/openai/codex" >}}OpenAI Codex{{< /link >}} - Foundation model that powers many popular AI coding tools including GitHub Copilot, providing the underlying technology for code understanding and generation
 - {{< link href="https://codeassist.google/" >}}CodeAssist (Gemini Code Assist){{< /link >}} - Google's AI coding assistant with intelligent suggestions, code completion, and integration across Google Cloud services
-- {{< link href="https://github.com/QwenLM/Qwen3-Coder" >}}Qwen3-Coder{{< /link >}} - Alibaba's advanced 480-billion parameter open-source coding model with state-of-the-art performance in code generation and understanding
+
 
 ## CLI-based Standalone AI Coding Agents
 
@@ -308,31 +310,17 @@ Amazon Q Developer CLI is particularly valuable for DevOps engineers and develop
 - **Security guidance** - Provides security best practices and compliance recommendations
 - **Cost optimization** - Suggests cost-effective AWS configurations
 
-### 6. Kilo Code
 
-{{< image "best_ai_tools_for_coding/kilo_code.webp" "Kilo Code AI Assistant" >}}
-
-{{< link href="https://kilocode.ai/" >}} Kilo Code {{< /link >}} is a lightweight AI coding assistant designed specifically for terminal workflows. It focuses on providing quick, contextual code suggestions and assistance without the overhead of larger AI tools.
-
-Kilo Code is perfect for developers who want AI assistance but prefer minimal, fast tools that don't interfere with their existing terminal-based development workflow. It's particularly useful for quick code generation, debugging assistance, and learning new programming concepts.
-
-#### Key Features of Kilo Code
-
-- **Lightweight design** - Minimal resource usage and fast startup
-- **Terminal-focused** - Built specifically for command-line development
-- **Quick assistance** - Fast code suggestions and debugging help
-- **Low latency** - Optimized for immediate responses
-- **Simple interface** - Easy to integrate into existing workflows
-
-### 7. Qwen3 Code
+### 7. Qwen Code
 
 {{< image "best_ai_tools_for_coding/qwen.webp" "Qwen3 Code AI Assistant" >}}
 
-{{< link href="https://github.com/QwenLM/Qwen3-Coder" >}}Qwen3 Code{{< /link >}} is Alibaba's advanced open-source coding model that brings state-of-the-art AI capabilities to command-line workflows. Built on a 480-billion parameter architecture with Mixture-of-Experts design, it represents one of the most powerful open-source coding models available.
+{{< link href="https://github.com/QwenLM/qwen-code" >}}Qwen Code{{< /link >}} is an advanced command-line AI coding agent, adapted from Gemini CLI and tailored for Qwen3-Coder models.
+{{< link href="https://github.com/QwenLM/Qwen3-Coder" >}}Qwen3-Coder{{< /link >}} is Alibaba's advanced open-source coding model that brings state-of-the-art AI capabilities to command-line workflows. Built on a 480-billion parameter architecture with Mixture-of-Experts design, it represents one of the most powerful open-source coding models available.
 
-Qwen3 Code excels at understanding complex code patterns, generating high-quality code across multiple programming languages, and providing intelligent assistance for software development tasks. Its open-source nature makes it particularly valuable for organizations that want cutting-edge AI coding capabilities while maintaining full control over their development environment.
+Qwen Code excels at understanding complex code patterns, generating high-quality code across multiple programming languages, and providing intelligent assistance for software development tasks. Its open-source nature makes it particularly valuable for organizations that want cutting-edge AI coding capabilities while maintaining full control over their development environment.
 
-#### Key Features of Qwen3 Code
+#### Key Features of Qwen code with Qwen3-Coder model
 
 - **Advanced AI architecture** - 480-billion parameter model with Mixture-of-Experts design
 - **Multi-language expertise** - Excellent performance across various programming languages
@@ -341,14 +329,13 @@ Qwen3 Code excels at understanding complex code patterns, generating high-qualit
 - **Agentic capabilities** - Designed for autonomous programming workflows and complex task execution
 - **Research-grade performance** - Built on latest advances in AI coding research
 
-#### Qwen3 Code Pricing
+#### Qwen Code Pricing
 
-Qwen3 Code is completely free and open-source under the Apache 2.0 license. You only need to provide your own compute resources for running the model locally.
+Qwen Code is completely free and open-source under the Apache 2.0 license. You only need to provide your own compute resources for running the model locally.
 
 ## Conclusion
+Alright, so 2025 is wild for AI coding tools. There’s basically something for everyone now. If you’re into editors, Cursor, Windsurf, Copilot, Augment Code, Tabnine, Supermaven, and Cline are all solid picks—just plug them into your workflow and you’re good. Prefer living in the terminal? Aider, Goose, and Gemini CLI have you covered.
 
-The AI coding landscape in 2025 offers diverse solutions for every developer need. The top 7 editors and extensions - Cursor, Windsurf, GitHub Copilot, Augment Code, Tabnine, Supermaven, and Cline - provide seamless integration into existing workflows, while CLI tools like Aider, Goose, and the open-source Gemini CLI offer powerful terminal-based assistance.
+Wanna keep your code private or just like open-source stuff? Check out Continue.dev, Qwen-Code, or anything built on Codex. They’re pretty chill for folks who don’t want to send their code to the cloud. Kilo Code is nice too if you want something super lightweight and not bloated.
 
-Open-source alternatives like Continue.dev, Qwen3-Coder, and Codex-based models ensure privacy-conscious developers can benefit from cutting-edge AI without compromising security. Additional tools like Kilo Code provide lightweight alternatives for developers who prefer minimal overhead.
-
-Choose tools based on your development environment, privacy requirements, and task complexity. Many developers use multiple tools for different purposes - perhaps GitHub Copilot for daily coding, Cursor for complex refactoring, and Aider for terminal-based workflows. As AI continues advancing, these assistants are becoming essential for modern software development.
+Honestly, just mix and match depending on what you’re working on. Most devs I know use Copilot for everyday stuff, Cursor when things get hairy, and maybe Aider for those git-heavy terminal sessions. AI is everywhere now—if you’re not using at least one of these, you’re probably missing out.
