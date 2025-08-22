@@ -19,10 +19,12 @@ Ever been happily browsing the web when suddenly Chrome throws this cryptic **ER
 Don't worry though - you're definitely not alone in dealing with this. I've seen this error pop up more and more as websites start adopting newer technologies, and while it sounds super technical and intimidating, it's actually pretty straightforward to fix once you know what's going on under the hood.
 
 {{% tldr %}}
-1. **What is `ERR_QUIC_PROTOCOL_ERROR`?**  
-   This error occurs in Google Chrome when there's a problem with the QUIC (Quick UDP Internet Connections) protocol communication between your browser and the website server.  
+**🚀 Quick Fix**: Disable QUIC in Chrome's flags (`chrome://flags/`) - it works 90% of the time!
+
+1. **What is `ERR_QUIC_PROTOCOL_ERROR`?**
+   This error occurs in Google Chrome when there's a problem with the QUIC (Quick UDP Internet Connections) protocol communication between your browser and the website server.
    - **For Website Visitors**: It can result from QUIC protocol conflicts, browser extensions interference, proxy configuration issues, or network connection problems.
-   - **For Website Owners**: It indicates potential server-side QUIC implementation issues, firewall blocking, or incompatible network configurations. 
+   - **For Website Owners**: It indicates potential server-side QUIC implementation issues, firewall blocking, or incompatible network configurations.
 
 2. **How to Fix It?**  
    - **For Website Visitors**:  
@@ -81,7 +83,7 @@ Google constantly updates both Chrome and QUIC, so version mismatches can cause 
 Alright, enough theory - let's fix this thing! I'm going to walk you through the solutions in order of how likely they are to work, starting with the nuclear option that fixes it 90% of the time.
 
 #### 1. Disable the QUIC Protocol in Chrome
-This is the big gun, and honestly, it's probably going to solve your problem right away. We're basically telling Chrome "hey, stop trying to be fancy with QUIC and just use the old reliable method." Don't worry - your browsing won't be noticeably slower, and you'll actually be able to access websites again.
+This is the big gun, and honestly, it's probably going to solve your problem right away - **this fix works 90% of the time!** We're basically telling Chrome "hey, stop trying to be fancy with QUIC and just use the old reliable method." Don't worry - your browsing won't be noticeably slower, and you'll actually be able to access websites again.
 
 Here's how to do it:
 
