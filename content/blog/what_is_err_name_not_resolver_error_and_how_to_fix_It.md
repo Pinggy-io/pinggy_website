@@ -2,6 +2,7 @@
 title: "What Is ERR_NAME_NOT_RESOLVED Error And How To Fix It"
 description: "Learn about the ERR_NAME_NOT_RESOLVED error, its causes, and detailed step-by-step solutions to fix it, including clearing DNS cache and changing DNS servers."
 date: 2025-04-03T14:00:00+05:30
+lastmod: 2025-07-26T12:15:25+05:30
 draft: false
 tags: ["DNS", "Error Fix", "ERR_NAME_NOT_RESOLVED", "Troubleshooting", "Web Development"]
 og_image: "images/what_is_err_name_not_resolver_error_and_how_to_fix_it/err_name_not_resolver_banner.webp"
