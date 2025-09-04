@@ -22,9 +22,7 @@ What's really cool is that this competition isn't just about bigger models anymo
 {{% tldr %}}
 The global AI race has three distinct leaders, each with their own strengths:
 
-**USA dominates with breakthrough models** like Gemini 2.5 Pro (1456 Arena score), GPT-5-high (1447), and Claude 4 Sonnet (1447) leading performance benchmarks.
-
-**Arena scores** use the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" target="_blank">Elo rating system </a> from chess, where real users vote between anonymous AI models in head-to-head battles. Higher scores mean the model wins more often against competitors.*
+**USA dominates with breakthrough models** like Gemini 2.5 Pro (1456 <a target="_blank" href="https://lmarena.ai/leaderboard">Arena score</a>), GPT-5-high (1447), and Claude 4 Sonnet (1447) leading performance benchmarks.
 
 **China competes with efficient alternatives** including DeepSeek-V3 (1419 Arena score),
 Qwen3-Coder (1382), and GLM-4.5 (1410) offering cost-effective performance.
@@ -52,7 +50,7 @@ The American AI scene in 2025 is basically what you'd expect from Silicon Valley
 
 ### The Big Three American Models
 
-**Arena scores** use the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" target="_blank"> Elo rating system </a> from chess, where real users vote between anonymous AI models in head-to-head battles. Higher scores mean the model wins more often against competitors.
+**Arena scores** given out by <a target="_blank" href="https://lmarena.ai/leaderboard">LMArena</a> use the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" target="_blank"> Elo rating system </a> from chess, where real users vote between anonymous AI models in head-to-head battles. Higher scores mean the model wins more often against competitors.
 
 <table style="width:100%;border-collapse:collapse;">
 <thead>
