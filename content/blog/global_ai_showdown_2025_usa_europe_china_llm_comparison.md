@@ -24,6 +24,8 @@ The global AI race has three distinct leaders, each with their own strengths:
 
 **USA dominates with breakthrough models** like Gemini 2.5 Pro (1456 Arena score), GPT-5-high (1447), and Claude 4 Sonnet (1447) leading performance benchmarks.
 
+**Arena scores** use the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" target="_blank">Elo rating system </a> from chess, where real users vote between anonymous AI models in head-to-head battles. Higher scores mean the model wins more often against competitors.*
+
 **China competes with efficient alternatives** including DeepSeek-V3 (1419 Arena score),
 Qwen3-Coder (1382), and GLM-4.5 (1410) offering cost-effective performance.
 
@@ -49,6 +51,8 @@ Europe decided to play the long game with regulation and ethics. While American 
 The American AI scene in 2025 is basically what you'd expect from Silicon Valley on steroids. These companies have ridiculous amounts of funding, access to the best talent, and a culture that rewards pushing boundaries even when it seems impossible.
 
 ### The Big Three American Models
+
+**Arena scores** use the <a href="https://en.wikipedia.org/wiki/Elo_rating_system" target="_blank"> Elo rating system </a> from chess, where real users vote between anonymous AI models in head-to-head battles. Higher scores mean the model wins more often against competitors.
 
 <table style="width:100%;border-collapse:collapse;">
 <thead>
@@ -330,21 +334,6 @@ Video generation showcases how different tech cities approach AI innovation, wit
 San Francisco's Sora revolutionized the field with physics-aware 60-second videos, while New York's Runway focuses on professional creative tools. Beijing's Kling Video actually beats Sora on duration with 120-second clips, and Shanghai's Vidu emphasizes rapid generation speeds. London provides the open-source foundation that enables global innovation.
 
 The regional approaches are clear: American cities prioritize breakthrough capabilities, Chinese cities focus on practical improvements like longer videos and faster processing, while European cities contribute open-source foundations for widespread adoption.
-
-## What Are Arena Scores?
-
-Before diving into the numbers, let's understand what arena scores actually mean. Arena scores come from the Chatbot Arena, a crowdsourced evaluation platform where real users compare AI models in head-to-head battles without knowing which model they're testing.
-
-The system uses the **Elo rating system** – the same method used to rank chess players. Here's how it works:
-
-- **Real user battles**: People ask questions to two anonymous AI models and vote for which response they prefer
-- **Elo calculations**: Each model's score adjusts based on wins and losses, similar to chess rankings
-- **Relative performance**: The score differences predict how likely one model is to beat another
-- **Crowdsourced evaluation**: Thousands of real users contribute votes, making it more representative than academic benchmarks
-
-An arena score of 1450 versus 1350 means the higher-rated model wins about 64% of head-to-head battles. The beauty of this system is that it captures what real users actually prefer, not just performance on artificial test questions.
-
-Arena scores have become the gold standard for LLM evaluation because they reflect real-world usage patterns and user preferences better than traditional benchmarks.
 
 ## The Benchmark Reality Check
 
