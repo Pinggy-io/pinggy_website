@@ -175,6 +175,9 @@ Ollama supports dozens of popular open-source models, each with different capabi
 
 Since Ollama is running inside a Docker container, you'll need to use Docker commands to interact with it. To download a model, you'll execute commands inside the running Ollama container.
 
+Note: You can explore the full list of available models here: {{<link href="https://ollama.com/library" >}}  Ollama Model Library 
+{{</link>}}  
+
 **Download your first model:**
 ```bash
 docker exec -it ollama ollama pull gemma3:270m
