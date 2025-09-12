@@ -161,7 +161,7 @@ While 127.0.0.1 keeps your development secure and local, sometimes you need to s
 Share your local server running on 127.0.0.1:8000 with a single command:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 This creates a secure tunnel that allows external access to your local development server while keeping your actual machine protected.
