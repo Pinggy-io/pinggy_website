@@ -21,8 +21,6 @@ This comprehensive guide will walk you through setting up your own LLM hosting e
 
 1. **Install Docker**
    - Get Docker Desktop from <a href="https://www.docker.com/products/docker-desktop/" target="_blank">docker.com</a>
-   - **System Requirements:** 4GB RAM minimum, 8GB+ recommended
-   - **Storage:** At least 20GB free space for containers and models
    - Ensure Docker is running before proceeding (green whale icon in system tray)
    - Verify installation: `docker --version`
 
@@ -30,9 +28,8 @@ This comprehensive guide will walk you through setting up your own LLM hosting e
    ```bash
    docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
    ```
-   - **What this does:** Creates persistent storage, exposes API on port 11434
-   - **Wait time:** Container startup takes 30-60 seconds
-   - **Verify:** Check with `docker ps` to see "ollama" container running
+   - What this does: Creates persistent storage, exposes API on port `11434`
+   - Verify: Check with `docker ps` to see "ollama" container running
 
 3. **Download an LLM Model**
    ```bash
@@ -41,23 +38,17 @@ This comprehensive guide will walk you through setting up your own LLM hosting e
    # Or try a more capable model
    docker exec -it ollama ollama pull llama3.1:8b
    ```
-   - **Model sizes:** 3B (~2GB), 8B (~4.7GB), 70B (~40GB)
-   - **Download time:** 5-30 minutes depending on internet speed
-   - **Storage:** Models stored in Docker volume, persist across restarts
-
-4. **Setup Open WebUI with Docker**
+   - Model sizes: 3B (~2GB), 8B (~4.7GB), 70B (~40GB)
+   
+4. **Getting a Chat interface using Open WebUI**
    ```bash
    docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
    ```
-   - **Port mapping:** Local port 3000 → Container port 8080
-   - **Data persistence:** Chat history and settings saved in Docker volume
-   - **Auto-restart:** Container restarts automatically on system reboot
 
 5. **Access Your Self-Hosted LLM**
    - Open `http://localhost:3000` in your browser
-   - **First time:** Create admin account (username/password of your choice)
-   - **Model selection:** Choose from dropdown in top-right corner
-   - **Features:** Chat history, document upload, model switching, conversation export
+   - First time: Create admin account (username/password of your choice)
+   - Model selection: Choose from dropdown in top-right corner
 
 {{% /tldr %}}
 
