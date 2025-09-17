@@ -347,6 +347,7 @@ Once the plugin is installed and enabled, you'll see a new "Self-hosted LiveSync
 - **Username**: `admin`
 - **Password**: Your CouchDB admin password (from `docker-compose.yml`)
 - **Database name**: `obsidian`
+- **Enable CORS**: Turn this on to allow cross-origin requests (required for web-based sync)
 - **Test Connection**: Click to verify your settings
 - Then click "Next" and accept any warnings if prompted
 
