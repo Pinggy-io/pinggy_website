@@ -47,7 +47,7 @@ This comprehensive guide will show you exactly how to forward Ollama's port `114
 ## Why Forward Ollama Port 11434?
 
 ### Understanding Ollama's Default Configuration
-Ollama automatically binds to port 11434 on localhost, making it accessible only from your local machine. This default behavior ensures security but limits functionality when you need remote access. By forwarding port 11434, you can:
+Ollama automatically binds to port `11434` on localhost, making it accessible only from your local machine. This default behavior ensures security but limits functionality when you need remote access. By forwarding port `11434`, you can:
 
 - **Access models from anywhere** with an internet connection
 - **Integrate AI into web applications** running on different servers  
@@ -56,7 +56,7 @@ Ollama automatically binds to port 11434 on localhost, making it accessible only
 - **Enable mobile app integration** with your local AI models
 
 ### Benefits of Port Forwarding vs Cloud Deployment
-Unlike deploying to cloud services, forwarding port 11434 offers:
+Unlike deploying to cloud services, forwarding port `11434` offers:
 - **Zero cloud costs** - keep everything running locally
 - **Complete data privacy** - your data never leaves your infrastructure
 - **Full model control** - use any model without platform restrictions
