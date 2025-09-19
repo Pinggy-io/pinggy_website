@@ -278,7 +278,7 @@ document.addEventListener("alpine:init", () => {
             : `${data.mode}${forcePart}@`;
       }
 
-      let selectedRegion = "a.pinggy.io";
+      let selectedRegion = "free.pinggy.io";
       if (data.selectedRegion) {
         selectedRegion = data.selectedRegion;
       }
