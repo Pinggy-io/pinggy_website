@@ -13,16 +13,16 @@ outputs:
 
 {{< image "forward_ollama_port_11434_online_access/forward_ollama_port_11434_online_access.webp" "Forward Ollama Port 11434 for Online Access" >}}
 
-Running AI models locally with Ollama gives you complete control over your data and inference, but what happens when you need to access these models remotely? Whether you're working from different locations, collaborating with team members, or integrating AI into web applications, forwarding Ollama's default port 11434 is the key to unlocking remote access to your local AI models.
+Running AI models locally with Ollama gives you complete control over your data and inference, but what happens when you need to access these models remotely? Whether you're working from different locations, collaborating with team members, or integrating AI into web applications, forwarding Ollama's default port `11434` is the key to unlocking remote access to your local AI models.
 
-This comprehensive guide will show you exactly how to forward Ollama's port 11434 to make your local AI models accessible online using secure tunneling. You'll learn the most effective methods to expose your Ollama API without compromising security or performance.
+This comprehensive guide will show you exactly how to forward Ollama's port `11434` to make your local AI models accessible online using secure tunneling. You'll learn the most effective methods to expose your Ollama API without compromising security or performance.
 
 
 
 {{% tldr %}}
 
 1. **Start Ollama Server**  
-   - Ollama runs on port 11434 by default:  
+   - Ollama runs on port `11434` by default:  
      ```bash
      ollama serve
      ```
@@ -47,7 +47,7 @@ This comprehensive guide will show you exactly how to forward Ollama's port 1143
 ## Why Forward Ollama Port 11434?
 
 ### Understanding Ollama's Default Configuration
-Ollama automatically binds to port 11434 on localhost, making it accessible only from your local machine. This default behavior ensures security but limits functionality when you need remote access. By forwarding port 11434, you can:
+Ollama automatically binds to port `11434` on localhost, making it accessible only from your local machine. This default behavior ensures security but limits functionality when you need remote access. By forwarding port `11434`, you can:
 
 - **Access models from anywhere** with an internet connection
 - **Integrate AI into web applications** running on different servers  
@@ -56,7 +56,7 @@ Ollama automatically binds to port 11434 on localhost, making it accessible only
 - **Enable mobile app integration** with your local AI models
 
 ### Benefits of Port Forwarding vs Cloud Deployment
-Unlike deploying to cloud services, forwarding port 11434 offers:
+Unlike deploying to cloud services, forwarding port `11434` offers:
 - **Zero cloud costs** - keep everything running locally
 - **Complete data privacy** - your data never leaves your infrastructure
 - **Full model control** - use any model without platform restrictions
@@ -100,7 +100,7 @@ ollama serve
 Keep this terminal window open - Ollama needs to stay running to handle API requests.
 
 ### Step 2: Create Secure Tunnel for Port 11434
-Use Pinggy to create a secure tunnel that forwards port 11434:
+Use Pinggy to create a secure tunnel that forwards port `11434`:
 ```bash
 ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io "u:Host:localhost:11434"
 ```
@@ -118,7 +118,7 @@ ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io "u:Host:localhost:11434"
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/pinggy_tunnel_command_for_model.webp" "Create Pinggy tunnel for port 11434" >}}
 
 ### Step 3: Get Your Public URL
-After running the command, Pinggy will provide a public HTTPS URL like `https://abc123.pinggy.link`. This URL now forwards all requests to your local Ollama server on port 11434.
+After running the command, Pinggy will provide a public HTTPS URL like `https://abc123.pinggy.link`. This URL now forwards all requests to your local Ollama server on port `11434`.
 
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/ollama_api_log_terminal.webp" "Ollama API accessible via public URL" >}}
 
@@ -128,7 +128,7 @@ After running the command, Pinggy will provide a public HTTPS URL like `https://
 Once your tunnel is established, you can verify that Ollama is accessible through your forwarded port:
 
 1. **Browser Verification**:
-   Open your browser and navigate to the public URL provided by Pinggy (e.g., `https://abc123.pinggy.link`). You should see Ollama running and responding, confirming that port 11434 is successfully forwarded.
+   Open your browser and navigate to the public URL provided by Pinggy (e.g., `https://abc123.pinggy.link`). You should see Ollama running and responding, confirming that port `11434` is successfully forwarded.
 
    {{< image "how_to_easily_share_ollama_api_and_open_webui_online/ollama_api_test_local.webp" "Ollama running via forwarded port in browser" >}}
 
@@ -141,7 +141,7 @@ Once your tunnel is established, you can verify that Ollama is accessible throug
    # List available models
    curl https://abc123.pinggy.link/api/tags
    ```
-   
+
 
 3. **Test Model Inference**:
    Once you confirm Ollama is accessible, test actual model inference:
@@ -163,7 +163,7 @@ This repository provides complete examples of how to integrate and test your for
 
 ## Adding Open WebUI to Your Forwarded Ollama Setup
 
-Now that you have Ollama's port 11434 forwarded and accessible online, you can enhance the experience by adding Open WebUI for a ChatGPT-like interface:
+Now that you have Ollama's port `11434` forwarded and accessible online, you can enhance the experience by adding Open WebUI for a ChatGPT-like interface:
 
 ### Quick Open WebUI Setup:
 1. **Install Open WebUI**:
@@ -183,11 +183,11 @@ Now that you have Ollama's port 11434 forwarded and accessible online, you can e
 ### Complete Setup:
 For detailed instructions on setting up both Ollama API and Open WebUI together, check out our comprehensive guide: {{< link href="https://pinggy.io/blog/how_to_easily_share_ollama_api_and_open_webui_online/" >}}How to Easily Share Ollama API and Open WebUI Online{{< /link >}}.
 
-This combination gives you both programmatic API access (via forwarded port 11434) and a user-friendly web interface for interacting with your local AI models.
+This combination gives you both programmatic API access (via forwarded port `11434`) and a user-friendly web interface for interacting with your local AI models.
 
 ## Conclusion
 
-Forwarding Ollama's port 11434 opens up a world of possibilities for remote AI model access. Whether you're building applications, collaborating with team members, or simply need access to your models from different locations, this approach provides a secure and efficient solution.
+Forwarding Ollama's port `11434` opens up a world of possibilities for remote AI model access. Whether you're building applications, collaborating with team members, or simply need access to your models from different locations, this approach provides a secure and efficient solution.
 
 The combination of Ollama's powerful local inference capabilities with Pinggy's secure tunneling creates an ideal setup for developers who want the benefits of cloud accessibility without sacrificing data privacy or incurring cloud costs.
 

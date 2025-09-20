@@ -2,6 +2,7 @@
 title: "How to Self-Host Any LLM – Step by Step Guide"
 description: "Complete guide to self-hosting large language models locally using Ollama and Open WebUI with Docker. Learn to run AI models privately with full control over your data."
 date: 2025-09-08T14:00:00+05:30
+lastmod: 2025-09-20T14:15:25+05:30
 draft: false
 tags: ["Self-Hosted AI", "Ollama", "Open WebUI", "Docker", "LLM Deployment", "AI Privacy"]
 og_image: "images/how_to_self_host_any_llm_step_by_step_guide/how_to_self_host_any_llm_step_by_step_guide.webp.webp"
@@ -53,6 +54,8 @@ This comprehensive guide will walk you through setting up your own LLM hosting e
 {{% /tldr %}}
 
 ## Why Self-Host Your LLMs?
+
+{{< iframe src="https://www.youtube.com/embed/D4WWitOn2HU?si=K3XsKGpWVkSSqqwP" title="How to Self-Host Any LLM – Step by Step Guide" >}}
 
 ### Complete Control and Privacy
 
