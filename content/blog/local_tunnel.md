@@ -27,41 +27,36 @@ Simply replace <kbd>8000</kbd> with your desired port number. For additional fea
 **Local tunnels are simple using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}** 
 
 {{% tldr %}}
+**Local Tunnel — Quick Overview**
 
-**Local Tunnel Overview**
-- Instantly exposes your local services to the internet through a secure, generated URL
-- Works with HTTP, TCP, and UDP protocols while bypassing NAT, CGNAT, and firewall restrictions
-- No downloads needed – leverages SSH that's already installed on every platform
+* Exposes local services to the internet via a secure, generated URL (HTTP/TCP/UDP).
+* Bypasses NAT/CGNAT and firewalls using SSH—no extra downloads.
 
-**Key Benefits & Applications**
-- **Lightning-Fast Setup:** Get your local environment online with just one command
-- **Seamless Collaboration:** Share live demos and debugging sessions effortlessly
-- **Budget-Friendly & Flexible:** Skip expensive deployments while enjoying custom domains and persistent URLs through Pinggy
-- **Perfect For:** Web development, mobile testing, API integration, remote access, and IoT device management
+**Why use it**
 
-**Security Best Practices**
-- **Common Risks:** Unintended data exposure, unauthorized access attempts, and potential man-in-the-middle attacks
-- **Protection Strategies:** Enable encryption (TLS/HTTPS), implement secure access tokens, configure IP whitelisting, and actively monitor tunnel traffic
+* One-command setup for quick demos and debugging.
+* Easy collaboration and remote testing (web, mobile, APIs, IoT).
+* Cost-effective; supports custom domains and persistent URLs via Pinggy.
 
-**Setting Up with Pinggy**  
-- **HTTP Tunnel:**  
-  ```bash
-  ssh -p 443 -R0:localhost:<your-port> qr@free.pinggy.io
-  ```  
-- **TCP Tunnel:**  
-  ```bash
-  ssh -p 443 -R0:localhost:<your-port> tcp@free.pinggy.io
-  ```  
-- Sign in to the [Pinggy Dashboard](https://dashboard.pinggy.io/) for access tokens and custom domain configurations.
+**Security (short)**
 
+* Risks: data leaks, unauthorized access, MITM.
+* Mitigations: TLS/HTTPS, access tokens, IP whitelisting, monitor traffic.
+
+**Pinggy setup**
+
+* HTTP tunnel: `ssh -p 443 -R0:localhost:<your-port> qr@free.pinggy.io`
+* TCP tunnel: `ssh -p 443 -R0:localhost:<your-port> tcp@free.pinggy.io`
+* Use the Pinggy Dashboard for tokens and custom domains: [https://dashboard.pinggy.io/](https://dashboard.pinggy.io/)
 {{% /tldr %}}
 
 ## Create Local Tunnels with a Single Command
 
 Local tunnels establish secure pathways between your localhost and the internet, making it possible to expose websites, web applications, files, and enable remote access from anywhere. They become indispensable when traditional port forwarding fails, particularly in environments with CGNAT or restrictive firewalls. With Pinggy, a single command creates a secure tunnel to your localhost server directly from your terminal. There's no need for complex installations or platform-specific software – Pinggy's HTTP, TCP, and TLS tunnels deliver seamless server exposure that developers around the world rely on.
 
-{{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel:" portstring="Localhost port" localport="8080" webdebugenabled=true keepalive=true tryYourselfText="Paste one command to start tunnel:" >}}
-{{< /pinggytunnel >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"}}}"
+{{</ ssh_command >}}
 
 A local tunnel is created and you get an HTTP link to your localhost in seconds.
 
@@ -79,35 +74,29 @@ Usually, localhost ports aren't reachable from the internet because of NAT, CGNA
 ### HTTP Local Tunnel Setup:
 
 1. Launch your command prompt or terminal. Copy and paste this command, then press enter to initialize your local tunnel. Substitute `8000` with your target port:
-   ```
-   ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
-   ```
+   {{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io\"}}}"
+{{</ ssh_command >}}
 2. Once executed, Pinggy generates a public URL that provides immediate access to your local tunnel.
-
-   {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel:" portstring="Localhost port" localport="8080" webdebugenabled=true keepalive=true tryYourselfText="Customize the command for required features and better reliability:" >}}
-   {{< /pinggytunnel >}}
+  {{< image "iot/https_pinggy_public_url.webp" "Pinggy Https Public Url" >}}
 
 3. By default, Pinggy assigns a random URL to your tunnel. For more control, sign into https://dashboard.pinggy.io to obtain an access token. With your token, you can track active tunnel URLs through the dashboard and upgrade to Pro for persistent subdomains.
 
-4. For a permanent localhost URL, connect your custom domain to your Pinggy tunnel.
+4. You can link a custom domain to your Pinggy tunnel to have a permanent URL to localhost.
 
 ### TCP Local Tunnel Setup:
 
 1. Create a TCP local tunnel by executing this command in your command prompt or terminal (substitute `22` with your specific port):
-
-   ```
-   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
-   ```
-
-   {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a TCP tunnel:" portstring="TCP Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="You can customize the command with more options:" >}}
-   {{< /pinggytunnel >}}
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}}}"
+{{</ ssh_command >}}
 
 2. Upon executing the tunneling command, you'll receive a public URL formatted like this:
    tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
    Use this address and port combination to establish connections to your local port from any external network location.
 
-   {{< image "iot/url.webp" "Pinggy tunnel for T-Mobile home internet port forwarding" >}}
+   {{< image "iot/url.webp" "Pinggy Tcp Public Url" >}}
 
 ## Alternative: VPS with SSH Port Forwarding
 
@@ -115,42 +104,27 @@ For those preferring a DIY approach, you can establish local tunnels by renting 
 
 ## Why Local Tunnels Are Game-Changers
 
-Local tunnels deliver compelling advantages that transform how developers work:
+Local tunnels deliver compelling advantages that transform how developers work. With instant deployment capabilities, a single command exposes your local service while completely bypassing complex network configuration headaches. This enables effortless collaboration by allowing you to share work-in-progress with remote team members or clients immediately, without the overhead of server deployments.
 
-- **Instant Deployment:** One command instantly exposes your local service, completely bypassing complex network configuration headaches.
-- **Effortless Collaboration:** Share work-in-progress with remote team members or clients immediately, without the overhead of server deployments.
-- **Network Barrier Elimination:** Seamlessly overcome NAT, CGNAT, and firewall restrictions that typically block inbound connections to local development environments.
-- **Budget-Conscious Development:** Replace expensive server provisioning for testing and demos with cost-effective, on-demand tunnel solutions.
-- **Branded Connectivity:** Customize endpoints with personal subdomains or integrate your own domain for professional, memorable public URLs.
-- **Universal Protocol Compatibility:** Expose HTTP, TCP, or UDP services with minimal configuration changes to match your specific requirements.
-- **Zero-Friction Setup:** Leverage SSH that's already installed on virtually every operating system, eliminating additional software downloads.
+These tools excel at eliminating network barriers, seamlessly overcoming NAT, CGNAT, and firewall restrictions that typically block inbound connections to local development environments. From a budget perspective, they replace expensive server provisioning for testing and demos with cost-effective, on-demand tunnel solutions. You can even customize endpoints with personal subdomains or integrate your own domain for professional, memorable public URLs.
+
+The universal protocol compatibility means you can expose HTTP, TCP, or UDP services with minimal configuration changes to match your specific requirements. Best of all, the zero-friction setup leverages SSH that's already installed on virtually every operating system, eliminating the need for additional software downloads.
 
 ## Real-World Applications for Local Tunnels
 
-Local tunnels excel across diverse scenarios, making them indispensable tools for modern development:
+Local tunnels excel across diverse scenarios, making them indispensable tools for modern development. In web development and testing, they allow you to instantly showcase local web applications for live demos, gather client feedback, or conduct collaborative debugging sessions. Mobile app developers benefit by testing applications against backend services running on their development machine without complex deployment steps.
 
-- **Web Development & Testing:** Instantly showcase local web applications for live demos, gather client feedback, or conduct collaborative debugging sessions.
-- **Mobile App Development:** Test mobile applications against backend services running on your development machine without complex deployment steps.
-- **API Integration & Webhooks:** Expose local APIs to external services for comprehensive callback testing, webhook validation, and integration verification.
-- **IoT Device Administration:** Remotely monitor and manage IoT devices operating within private networks from anywhere in the world.
-- **System Administration:** Securely access and administer servers or desktop systems from external networks without establishing complex VPN infrastructures.
-- **Client Presentations:** Deliver seamless demonstrations of prototypes or beta software to remote stakeholders, eliminating the need for premature production deployments.
+For API integration and webhooks, local tunnels expose local APIs to external services for comprehensive callback testing, webhook validation, and integration verification. They're equally valuable for IoT device administration, enabling remote monitoring and management of devices operating within private networks from anywhere in the world.
+
+System administrators can securely access and administer servers or desktop systems from external networks without establishing complex VPN infrastructures. When it comes to client presentations, local tunnels deliver seamless demonstrations of prototypes or beta software to remote stakeholders, eliminating the need for premature production deployments.
 
 ## Security Considerations and Protection Strategies
 
-Local tunnels streamline connectivity but require careful attention to security implications:
+Local tunnels streamline connectivity but require careful attention to security implications. Publishing local services creates potential access points to development tools and sensitive endpoints, so it's crucial to implement robust authentication mechanisms, configure <a target="_blank" href="/docs/http_tunnels/ip_whitelist/">IP whitelisting</a> for restricted access, and maintain strict separation between development and production data.
 
-- **Sensitive Service Exposure:** Publishing local services creates potential access points to development tools and sensitive endpoints.
-  **Protection:** Implement robust authentication mechanisms, configure <a target="_blank" href="/docs/http_tunnels/ip_whitelist/">IP whitelisting</a> for restricted access, and maintain strict separation between development and production data.
+Improperly secured tunnels may inadvertently leak confidential or proprietary information. To prevent unintended data disclosure, mandate encrypted tunnels (TLS/HTTPS) for all connections, avoid production data in development environments, and implement <a target="_blank" href="/docs/http_tunnels/basic_auth/">basic authentication</a> or <a target="_blank" href="/docs/http_tunnels/key_auth/">bearer token</a> security layers.
 
-- **Unintended Data Disclosure:** Improperly secured tunnels may inadvertently leak confidential or proprietary information.
-  **Protection:** Mandate encrypted tunnels (TLS/HTTPS) for all connections, avoid production data in development environments, and implement <a target="_blank" href="/docs/http_tunnels/basic_auth/">basic authentication</a> or <a target="_blank" href="/docs/http_tunnels/key_auth/">bearer token</a> security layers.
-
-- **Malicious Access Attempts:** Public tunnel endpoints can attract unwanted attention, including automated attacks and exploitation attempts.
-  **Protection:** Deploy strong access tokens, leverage persistent subdomains through trusted platforms (such as Pinggy's dashboard), and establish continuous traffic monitoring for suspicious patterns.
-
-- **Interception Vulnerabilities:** Unencrypted tunnel traffic remains susceptible to man-in-the-middle attacks and data interception.
-  **Protection:** Enforce data encryption in transit through TLS protocols and verify tunnel security configurations regularly.
+Public tunnel endpoints can attract unwanted attention, including automated attacks and exploitation attempts. Protect against malicious access by deploying strong access tokens, leveraging persistent subdomains through trusted platforms (such as Pinggy's dashboard), and establishing continuous traffic monitoring for suspicious patterns. Additionally, unencrypted tunnel traffic remains susceptible to man-in-the-middle attacks and data interception, so always enforce data encryption in transit through TLS protocols and verify tunnel security configurations regularly.
 
 Understanding these risks and implementing comprehensive protection measures ensures you can harness local tunnel benefits while maintaining robust security standards.
 
