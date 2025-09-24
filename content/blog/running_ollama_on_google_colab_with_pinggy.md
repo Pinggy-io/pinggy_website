@@ -13,7 +13,7 @@ outputs:
 
 {{< image "running_ollama_on_google_colab_with_pinggy/running_ollama_on_google_colab_with_pinggy.webp" "Running Ollama on Google Colab Through Pinggy" >}}
 
-Running large language models locally can be expensive and resource-intensive. If you're tired of paying premium prices for GPU access or dealing with complex local setups, there's a better way. Google Colab provides free GPU resources, and when combined with {{< link href="https://pinggy.io" >}}Pinggy's{{< /link >}} tunneling service, you can run {{< link href="https://ollama.com/" >}}Ollama{{< /link >}} models accessible from anywhere on the internet.
+Running large language models locally can be expensive and resource-intensive. If you're tired of paying premium prices for GPU access or dealing with complex local setups, there's a better way. {{<link href="https://colab.research.google.com/" >}} Google Colab {{</link >}}provides free GPU resources, and when combined with {{< link href="https://pinggy.io" >}}Pinggy's{{< /link >}} tunneling service, you can run {{< link href="https://ollama.com/" >}}Ollama{{< /link >}} models accessible from anywhere on the internet.
 
 This comprehensive guide will show you exactly how to set up Ollama on Google Colab and use Pinggy's Python SDK to create secure tunnels that make your models accessible through public URLs. We'll also cover installing {{< link href="https://github.com/open-webui/open-webui" >}}OpenWebUI{{< /link >}} for a user-friendly ChatGPT-like interface to interact with your models.
 
@@ -25,7 +25,7 @@ This comprehensive guide will show you exactly how to set up Ollama on Google Co
 
 2. **Install Pinggy Python SDK**  
    - Install package: `!pip install pinggy`
-   - Create tunnel: `pinggy.start_tunnel(forwardto="localhost:11434")`
+   - Create tunnel: `pinggy.start_tunnel(forwardto="localhost:11434" headermodification=["u:Host:localhost:11434"])`
 
 3. **Setup OpenWebUI Interface**  
    - Install: `!pip install open-webui`
@@ -37,17 +37,19 @@ This comprehensive guide will show you exactly how to set up Ollama on Google Co
 
 {{% /tldr %}}
 
-## Why Choose Pinggy Over Other Tunneling Services?
+## Why is running Ollama on Colab useful?
 
-While {{< link href="https://ngrok.com" >}}ngrok{{< /link >}} has been the go-to solution for many developers, Pinggy offers several advantages that make it particularly well-suited for Google Colab environments. Pinggy provides a simple Python SDK that integrates seamlessly with Colab notebooks, offers persistent URLs for up to 7 days, and supports custom domains without requiring complex authentication setups.
+Google Colab provides free access to powerful GPU resources that would otherwise cost hundreds of dollars per month. This makes it an ideal platform for running resource-intensive AI models like those available through Ollama. Instead of investing in expensive hardware or paying premium cloud computing fees, you can leverage Colab's free T4 GPUs to run models like Llama, Mistral, and CodeLlama.
 
-The Python integration is especially smooth. Instead of dealing with command-line tools or external binaries, you can manage everything directly within your Python code. This makes it perfect for Colab environments where you want to keep everything contained within your notebook.
+The combination is particularly powerful for developers, researchers, and students who want to experiment with large language models without financial barriers. Colab's environment comes pre-configured with CUDA drivers and machine learning libraries, eliminating the complex setup process typically required for GPU-accelerated AI workloads.
 
-Unlike other tunneling services, Pinggy offers unlimited bandwidth on their free tier and doesn't require account registration for basic usage. The Python SDK approach means you can programmatically control your tunnels, making it ideal for automated setups and CI/CD pipelines.
+Beyond the cost savings, this setup offers incredible flexibility. You can quickly spin up different model configurations, test various prompting strategies, or even run multiple models simultaneously. The ephemeral nature of Colab instances also means you can experiment freely without worrying about cluttering your local system or managing complex dependencies.
 
 ## Setting Up Your Google Colab Environment
 
-Before we dive into the Ollama setup, you'll need to prepare your Colab environment. Start by creating a new notebook and ensuring you're using a GPU runtime. Go to **Runtime > Change runtime type** and select **GPU** as your hardware accelerator.
+Before we dive into the Ollama setup, you'll need to prepare your Colab environment. Start by creating a new notebook and **we strongly recommend using a GPU runtime**. Go to **Runtime > Change runtime type** and select **GPU** as your hardware accelerator.
+
+While it's technically possible to run very small models like Gemma 2:2B on CPU, GPU acceleration is essential for any practical use. The performance difference is dramatic - what might take minutes on CPU can complete in seconds on GPU. For models larger than 2-3 billion parameters, GPU is practically mandatory due to memory and processing requirements.
 
 The first step is installing Ollama on your Colab instance. Ollama provides a convenient installation script that works perfectly in Colab environments. Run the following command to download and install Ollama:
 
@@ -138,7 +140,7 @@ While the API access is great for programmatic use, you might want a more user-f
 !pip install open-webui
 ```
 
-After installation, you can start OpenWebUI and create another tunnel for it:
+After installation, we first create a tunnel that runs in the background. Then, we launch Open WebUI, which continuously displays logs in the foreground.
 
 ```python
 import pinggy
@@ -147,7 +149,9 @@ tunnel1 = pinggy.start_tunnel(
 )
 
 print(f"Tunnel1 started - URLs: {tunnel1.urls}")
+```
 
+```python
 !open-webui serve --port 8000
 ```
 
