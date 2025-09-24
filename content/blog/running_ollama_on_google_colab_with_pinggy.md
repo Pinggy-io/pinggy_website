@@ -13,7 +13,7 @@ outputs:
 
 {{< image "running_ollama_on_google_colab_with_pinggy/running_ollama_on_google_colab_with_pinggy.webp" "Running Ollama on Google Colab Through Pinggy" >}}
 
-Running large language models locally can be expensive and resource-intensive. If you're tired of paying premium prices for GPU access or dealing with complex local setups, there's a better way. {{<link href="https://colab.research.google.com/" >}} Google Colab {{</link >}}provides free GPU resources, and when combined with {{< link href="https://pinggy.io" >}}Pinggy's{{< /link >}} tunneling service, you can run {{< link href="https://ollama.com/" >}}Ollama{{< /link >}} models accessible from anywhere on the internet.
+Running large language models locally can be expensive and resource-intensive. If you're tired of paying premium prices for GPU access or dealing with complex local setups, there's a better way. {{<link href="https://colab.research.google.com/" >}}Google Colab{{</link >}} provides free GPU resources, and when combined with {{< link href="https://pinggy.io" >}}Pinggy's{{< /link >}} tunneling service, you can run {{< link href="https://ollama.com/" >}}Ollama{{< /link >}} models accessible from anywhere on the internet.
 
 This comprehensive guide will show you exactly how to set up Ollama on Google Colab and use Pinggy's Python SDK to create secure tunnels that make your models accessible through public URLs. We'll also cover installing {{< link href="https://github.com/open-webui/open-webui" >}}OpenWebUI{{< /link >}} for a user-friendly ChatGPT-like interface to interact with your models.
 
