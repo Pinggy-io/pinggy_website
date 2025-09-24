@@ -29,7 +29,7 @@
 {{ $corsPreflight := .Get "corsPreflight" | default false }}
 {{ $xForwardedFor := .Get "xForwardedFor" | default false }}
 {{ $fullUrl := .Get "fullUrl" | default false }}
-{{ $selectedRegion := .Get "selectedRegion" | default "a.pinggy.io" }}
+{{ $selectedRegion := .Get "selectedRegion" | default "free.pinggy.io" }}
 
 <div
   class="mb-3"
@@ -257,10 +257,10 @@
                 <select class="form-select" id="shortcode_regionselect"
                     x-model="data.selectedRegion"
                 >
-                    <option value="a.pinggy.io">Auto</option>
-                    <option value="us.a.pinggy.io">USA</option>
-                    <option value="eu.a.pinggy.io">Europe</option>
-                    <option value="ap.a.pinggy.io">Asia</option>
+                    <option value="free.pinggy.io">Auto</option>
+                    <option value="us.free.pinggy.io">USA</option>
+                    <option value="eu.free.pinggy.io">Europe</option>
+                    <option value="ap.free.pinggy.io">Asia</option>
                 </select>
                 <label for="shortcode_regionselect" id="shortcode_regionselector">Region</label>
             </div>
