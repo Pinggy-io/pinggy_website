@@ -41,9 +41,9 @@ _Note: Do not share Jupyter notebook token publicly, as it will grant remote exe
 
 {{% /tldr %}}
 
-## Installing Jupyter Notebook
-
 {{< iframe src="https://www.youtube.com/embed/Fr92jL8yB30?si=1ToHSDsC-njHX0N5" title="Sharing Jupyter Notebooks from localhost" >}}
+
+## Installing Jupyter Notebook
 
 Before we dive into sharing Jupyter Notebooks with Pinggy, let's quickly go over the installation process for Jupyter Notebook. You can find detailed instructions on the official Jupyter website ({{< link href="https://jupyter.org/install" >}}https://jupyter.org/install{{< /link >}} ). Typically, the installation can be done using a single command:
 
@@ -82,7 +82,7 @@ Pinggy simplifies the process of sharing your Jupyter Notebooks by providing a s
 
     **In this command, replace `8888` with your output port number on which your Jupyter Notebook server is running, if it differs.**
 
-       {{< ssh_command >}}
+{{< ssh_command >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"}}}"
 {{</ ssh_command >}}
 
