@@ -93,7 +93,7 @@ Pinggy simplifies the process of sharing your Jupyter Notebooks by providing a s
 
     Or you can append the token obtained from your locally running server to the URL as a query parameter. The token is included in the original URL provided when starting the Jupyter Notebook server. The final URL will look something like this:
 
-    https://ranlkfsbjkxry.a.pinggy.link?token=09f45d3196cfa14ff25ce2f4c60c23d7a7df2be3eb2xxxx
+    `https://ranlkfsbjkxry.a.pinggy.link?token=09f45d3196cfa14ff25ce2f4c60c23d7a7df2be3eb2xxxx`
 
 ## Security
 
