@@ -47,6 +47,8 @@ Beyond the cost savings, this setup offers incredible flexibility. You can quick
 
 ## Setting Up Your Google Colab Environment
 
+{{< iframe src="https://www.youtube.com/embed/OhWEKvYj-UE?si=N0SR8XvYUgHWRk_L" title="Run Ollama Models for Free on Google Colab with Pinggy + OpenWebUI" >}}
+
 Before we dive into the Ollama setup, you'll need to prepare your Colab environment. Start by creating a new notebook and **we strongly recommend using a GPU runtime**. Go to **Runtime > Change runtime type** and select **GPU** as your hardware accelerator.
 
 While it's technically possible to run very small models like Gemma 2:2B on CPU, GPU acceleration is essential for any practical use. The performance difference is dramatic - what might take minutes on CPU can complete in seconds on GPU. For models larger than 2-3 billion parameters, GPU is practically mandatory due to memory and processing requirements.
