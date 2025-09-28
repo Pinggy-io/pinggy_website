@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 body {
-  font-family: Inter, sans-serif;
+  font-family: Uncut Sans, sans-serif;
   background-image: linear-gradient(to bottom, #effaff8c, #ffffff 11em),
     url(../assets/header_grid2.png);
   background-repeat: repeat;

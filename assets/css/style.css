@@ -14,10 +14,6 @@
 /* Extra font */
 /* Font */
 
-/* Import Geist Mono */
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&display=swap');
-
-
 @font-face {
   font-family: uncut sans;
   font-style: normal;
@@ -370,7 +366,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: 'Geist Mono', monospace;
+  font-family: var(--bs-font-monospace);
   font-size: 1em;
   direction: ltr /* rtl:ignore */;
   unicode-bidi: bidi-override;

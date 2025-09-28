@@ -1,3 +1,7 @@
+/* Import Geist Mono */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* QuickStart Ribbon */
 .ribbon-element img {
   width: 3em;
@@ -674,6 +678,15 @@ pre {
 .tab-item pre {
   margin-bottom: 0;
   margin-top: 0;
+}
+
+
+/* Blog Page ==== */
+.blogcontent{
+  font-family: Inter, sans-serif;
+} 
+.blogcontent code {
+  font-family: 'Geist Mono', monospace;
 }
 
 /* ----------------- */
