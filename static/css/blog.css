@@ -1,3 +1,9 @@
+/* Import Geist Mono */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
+/* Import Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+
 body {
   font-family: Uncut Sans, sans-serif;
   background-image: linear-gradient(to bottom, #effaff8c, #ffffff 11em),
@@ -6,8 +12,13 @@ body {
 }
 
 .blogcontent {
+  font-family: Inter, sans-serif;
   max-width: 60em;
-  text-align: justify;
+  font-weight: 300;
+}
+
+.blogcontent code {
+  font-family: 'Geist Mono', monospace;
 }
 
 .blogcontent h1,
@@ -18,6 +29,7 @@ body {
 .blogcontent h6 {
   text-align: left;
 }
+
 .blogcontent p {
   hyphens: auto;
 }
@@ -29,22 +41,23 @@ body {
 
 .blogbody {
   max-width: 42em;
-  text-align: justify;
 }
+
 .blogbody p,
 .blogbody li {
-  line-height: 1.7rem;
+  line-height: 1.76rem;
 }
 
 .blogcontent img {
   max-width: 100%;
-  padding: 1em 0.8em;
+  padding: 1em 0em;
   border-radius: 1%;
 }
 
 .blogbody h2 {
   margin-top: 2rem;
 }
+
 .blogbody h3 {
   margin-top: 1.5rem;
 }
