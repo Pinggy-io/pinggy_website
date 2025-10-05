@@ -69,11 +69,15 @@ Start by creating a new Google Colab notebook and ensuring you have GPU runtime 
 
 These packages provide essential utilities for downloading files and handling graphics libraries that ComfyUI depends on. The installation process typically takes a few minutes, and you'll see various system packages being updated and installed.
 
-Next, clone the official {{< link href="https://github.com/comfyanonymous/ComfyUI" >}} ComfyUI repository from GitHub {{< /link>}}. This gives you access to the latest version with all the recent improvements and bug fixes:
+{{< image "run_and_share_comfyui_on_google_colab/update_necessary_package.webp" "Update Necessary Package" >}}
+
+Next, clone the official {{< link href="https://github.com/comfyanonymous/ComfyUI" >}} ComfyUI repository from GitHub{{< /link>}}. This gives you access to the latest version with all the recent improvements and bug fixes:
 
 ```bash
 !git clone https://github.com/comfyanonymous/ComfyUI.git
 ```
+
+{{< image "run_and_share_comfyui_on_google_colab/clone_confyui.webp" "Clone ComfyUI Repository" >}}
 
 Once the repository is cloned, navigate to the ComfyUI directory and install all the required Python dependencies:
 
@@ -84,6 +88,8 @@ Once the repository is cloned, navigate to the ComfyUI directory and install all
 
 This installation process can take several minutes as it downloads and installs numerous packages including PyTorch, Transformers, and other machine learning libraries. The requirements.txt file ensures you get all the exact versions that ComfyUI has been tested with.
 
+{{< image "run_and_share_comfyui_on_google_colab/install_confyui_req.webp" "Install ComfyUI Requirements" >}}
+
 ## Creating Public Access with Pinggy
 
 The magic of making your ComfyUI instance accessible from anywhere comes from Pinggy's tunneling service. First, install the Pinggy Python package:
@@ -91,6 +97,9 @@ The magic of making your ComfyUI instance accessible from anywhere comes from Pi
 ```bash
 !pip install pinggy
 ```
+
+{{< image "run_and_share_comfyui_on_google_colab/install_pinggy_sdk.webp" "Install Pinggy SDK" >}}
+
 
 Now create a tunnel that forwards traffic from a public URL to your local ComfyUI server:
 
@@ -118,7 +127,9 @@ With your tunnel established, you can now start the ComfyUI server. The key para
 
 When the server starts successfully, you'll see output indicating that ComfyUI is running and ready to accept connections. The server will display information about your GPU, available VRAM, and the web interface URL.
 
-{{< image "run_and_share_comfyui_on_google_colab/comfyui_web_ui.webp" "ComfyUI Web UI" >}}        
+After launching the ComfyUI server, you can access the ComfyUI interface using the Pinggy public URL that was generated earlier. Simply copy the HTTPS URL from the tunnel output and paste it into your browser. This URL allows you to access your ComfyUI instance from anywhere in the world, making it perfect for sharing with collaborators or accessing your workspace from different devices.
+
+{{< image "run_and_share_comfyui_on_google_colab/comfyui_web_ui.webp" "ComfyUI Web UI" >}}
 
 ## Performance Expectations and Limitations
 
@@ -146,7 +157,7 @@ Several issues commonly arise when running ComfyUI on Colab. Here are the most f
 
 ## GitHub Repository
 
-You can find the complete Colab notebook with all the code examples and setup instructions in our GitHub repository: {{< link href="https://github.com/Moksh45/Run-and-Share-ComfyUI-on-Google-Colab/blob/main/run-and-share-comfyui-on-google-colab.ipynb" >}}Run and Share ComfyUI on Google Colab {{< /link >}}. The repository includes the ready-to-use notebook, troubleshooting guides, and additional tips for optimizing your ComfyUI workflows on Colab.
+You can find the complete Colab notebook with all the code examples and setup instructions in our GitHub repository: {{< link href="https://github.com/Moksh45/Run-and-Share-ComfyUI-on-Google-Colab/blob/main/run-and-share-comfyui-on-google-colab.ipynb" >}}Run and Share ComfyUI on Google Colab{{< /link >}}. The repository includes the ready-to-use notebook, troubleshooting guides, and additional tips for optimizing your ComfyUI workflows on Colab.
 Here’s a shorter version of your conclusion while keeping the key points:
 
 ## Conclusion
