@@ -127,6 +127,8 @@ With your tunnel established, you can now start the ComfyUI server. The key para
 
 When the server starts successfully, you'll see output indicating that ComfyUI is running and ready to accept connections. The server will display information about your GPU, available VRAM, and the web interface URL.
 
+## Access ComfyUI using Pinggy URL
+
 After launching the ComfyUI server, you can access the ComfyUI interface using the Pinggy public URL that was generated earlier. Simply copy the HTTPS URL from the tunnel output and paste it into your browser. This URL allows you to access your ComfyUI instance from anywhere in the world, making it perfect for sharing with collaborators or accessing your workspace from different devices.
 
 {{< image "run_and_share_comfyui_on_google_colab/comfyui_web_ui.webp" "ComfyUI Web UI" >}}
