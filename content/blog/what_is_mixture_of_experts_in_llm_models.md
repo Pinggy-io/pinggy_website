@@ -6,7 +6,7 @@ draft: false
 tags: ["LLM", "AI Models", "Mixture of Experts", "MoE", "AI Architecture", "Machine Learning", "Neural Networks", "Model Efficiency"]
 categories: ["Technology", "AI", "Machine Learning"]
 og_image: "images/what_is_mixture_of_experts_in_llm_models/mixture_of_experts_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiV2hhdCBpcyAnTWl4dHVyZSBvZiBFeHBlcnRzJyBpbiBMTE0gTW9kZWxzPyIsCiAgImRlc2NyaXB0aW9uIjogIlVuZGVyc3RhbmQgTWl4dHVyZSBvZiBFeHBlcnRzIChNb0UpIGFyY2hpdGVjdHVyZSBpbiBMTE0gbW9kZWxzIC0gaG93IGl0IHdvcmtzLCB3aHkgaXQncyBlZmZpY2llbnQsIGFuZCB3aGljaCBtb2RlbHMgdXNlIGl0LiBMZWFybiBhYm91dCBzcGFyc2UgYWN0aXZhdGlvbiwgcm91dGluZywgYW5kIHBlcmZvcm1hbmNlIGJlbmVmaXRzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy93aGF0X2lzX21peHR1cmVfb2ZfZXhwZXJ0c19pbl9sbG1fbW9kZWxzL21peHR1cmVfb2ZfZXhwZXJ0c19iYW5uZXIud2VicCIsCiAgImF1dGhvciI6IHsKICAgICJAdHlwZSI6ICJPcmdhbml6YXRpb24iLAogICAgIm5hbWUiOiAiUGluZ2d5IiwKICAgICJ1cmwiOiAiaHR0cHM6Ly9waW5nZ3kuaW8iCiAgfSwKICAicHVibGlzaGVyIjogewogICAgIkB0eXBlIjogIk9yZ2FuaXphdGlvbiIsCiAgICAibmFtZSI6ICJQaW5nZ3kiLAogICAgImxvZ28iOiB7CiAgICAgICJAdHlwZSI6ICJJbWFnZU9iamVjdCIsCiAgICAgICJ1cmwiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2xvZ28ucG5nIgogICAgfQogIH0sCiAgImRhdGVQdWJsaXNoZWQiOiAiMjAyNS0xMC0wOSIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI1LTEwLTA5IiwKICAibWFpbkVudGl0eU9mUGFnZSI6IHsKICAgICJAdHlwZSI6ICJXZWJQYWdlIiwKICAgICJAaWQiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vYmxvZy93aGF0X2lzX21peHR1cmVfb2ZfZXhwZXJ0c19pbl9sbG1fbW9kZWxzLyIKICB9Cn0KPC9zY3JpcHQ+"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiQXJ0aWNsZSIsCiAgImhlYWRsaW5lIjogIldoYXQgaXMgJ01peHR1cmUgb2YgRXhwZXJ0cycgaW4gTExNIE1vZGVscz8iLAogICJkZXNjcmlwdGlvbiI6ICJDb21wcmVoZW5zaXZlIGd1aWRlIHRvIDIwMjUncyBicmVha3Rocm91Z2ggTW9FIG1vZGVscyBpbmNsdWRpbmcgT3BlbkFJIEdQVC1PU1MsIEtpbWkgSzIsIERlZXBTZWVrIFIxLCBhbmQgUXdlbjMuIExlYXJuIGFib3V0IHNwYXJzZSBhY3RpdmF0aW9uLCBoeWJyaWQgcmVhc29uaW5nLCBhbmQgdHJpbGxpb24tcGFyYW1ldGVyIGVmZmljaWVuY3kuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL3doYXRfaXNfbWl4dHVyZV9vZl9leHBlcnRzX2luX2xsbV9tb2RlbHMvbWl4dHVyZV9vZl9leHBlcnRzX2Jhbm5lci53ZWJwIiwKICAicHVibGlzaGVyIjogewogICAgIkB0eXBlIjogIk9yZ2FuaXphdGlvbiIsCiAgICAibmFtZSI6ICJQaW5nZ3kiCiAgfSwKICAiZGF0ZVB1Ymxpc2hlZCI6ICIyMDI1LTEwLTA5IiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjUtMTAtMDkiLAogICJtYWluRW50aXR5T2ZQYWdlIjogewogICAgIkB0eXBlIjogIldlYlBhZ2UiLAogICAgIkBpZCI6ICJodHRwczovL3BpbmdneS5pby9ibG9nL3doYXRfaXNfbWl4dHVyZV9vZl9leHBlcnRzX2luX2xsbV9tb2RlbHMvIgogIH0sCiAgImtleXdvcmRzIjogWyJNaXh0dXJlIG9mIEV4cGVydHMiLCAiTW9FIiwgIkxMTSIsICIyMDI1IiwgIk9wZW5BSSBHUFQtT1NTIiwgIkRlZXBTZWVrIiwgIktpbWkgSzIiLCAiUXdlbjMiLCAic3BhcnNlIGFjdGl2YXRpb24iLCAiQUkgbW9kZWxzIl0sCiAgImFib3V0IjogWwogICAgewogICAgICAiQHR5cGUiOiAiVGhpbmciLAogICAgICAibmFtZSI6ICJNaXh0dXJlIG9mIEV4cGVydHMiLAogICAgICAiZGVzY3JpcHRpb24iOiAiTmV1cmFsIG5ldHdvcmsgYXJjaGl0ZWN0dXJlIHVzaW5nIG11bHRpcGxlIHNwZWNpYWxpemVkIGV4cGVydCBuZXR3b3JrcyB3aXRoIHNwYXJzZSBhY3RpdmF0aW9uIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIlRoaW5nIiwgCiAgICAgICJuYW1lIjogIkxhcmdlIExhbmd1YWdlIE1vZGVscyIsCiAgICAgICJkZXNjcmlwdGlvbiI6ICJBZHZhbmNlZCBBSSBtb2RlbHMgZm9yIG5hdHVyYWwgbGFuZ3VhZ2UgcHJvY2Vzc2luZyBhbmQgZ2VuZXJhdGlvbiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -14,7 +14,7 @@ outputs:
 
 {{< image "what_is_mixture_of_experts_in_llm_models/mixture_of_experts_banner.webp" "What is Mixture of Experts in LLM Models" >}}
 
-Mixture of Experts (MoE) has become one of the most important architectural innovations in modern large language models, enabling massive scale while keeping computational costs manageable. If you've wondered how models like <a href="https://openai.com/gpt-4" target="_blank">GPT-4</a>, <a href="https://ai.google/discover/palm2" target="_blank">PaLM-2</a>, or <a href="https://arxiv.org/abs/2101.03961" target="_blank">Switch Transformer</a> can have hundreds of billions or even trillions of parameters while still being practical to run, MoE is often the secret sauce behind their efficiency.
+Mixture of Experts (MoE) has become one of the most important architectural innovations in modern large language models, enabling massive scale while keeping computational costs manageable. If you've wondered how cutting-edge 2025 models like {{< link href="https://openai.com/" >}}OpenAI's GPT-OSS-120B{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, or {{< link href="https://www.deepseek.com/" >}}DeepSeek's V3.1{{< /link >}} can have hundreds of billions or even trillions of parameters while still being practical to run, MoE is the secret sauce behind their efficiency.
 
 Understanding MoE architecture is crucial for developers working with AI models, whether you're choosing between different model architectures, optimizing inference costs, or building applications that need to scale efficiently. This guide breaks down exactly how Mixture of Experts works, why it matters, and which models are using it to push the boundaries of what's possible in AI.
 
@@ -32,13 +32,13 @@ Understanding MoE architecture is crucial for developers working with AI models,
 - **Specialization** - Different experts can specialize in different domains/tasks
 - **Performance** - Often outperforms dense models of similar computational cost
 
-**Popular MoE Models:**
-- <a href="https://openai.com/gpt-4" target="_blank">GPT-4</a> - Rumored to use MoE architecture (8 experts)
-- <a href="https://ai.google/discover/palm2" target="_blank">PaLM-2</a> - Google's efficient large language model
-- <a href="https://arxiv.org/abs/2101.03961" target="_blank">Switch Transformer</a> - Google's 1.6 trillion parameter model
-- <a href="https://arxiv.org/abs/2112.06905" target="_blank">GLaM</a> - Google's 1.2 trillion parameter model
-- <a href="https://qwenlm.github.io/" target="_blank">Qwen3-Coder-480B</a> - Alibaba's coding model (480B total, 35B active)
-- <a href="https://mistral.ai/news/mixtral-of-experts/" target="_blank">Mixtral 8x7B</a>** - Mistral AI's open-source MoE model
+**State-of-the-Art 2025 MoE Models:**
+- <a href="https://openai.com/" target="_blank">GPT-OSS-120B</a> - OpenAI's first open-source MoE (117B total, 5.1B active)
+- <a href="https://qwenlm.github.io/" target="_blank">Qwen3-235B-A22B</a> - Alibaba's flagship with hybrid reasoning (235B total, 22B active)
+- <a href="https://www.moonshot.cn/" target="_blank">Kimi K2</a> - Moonshot AI's trillion-parameter model (1T total, 32B active)
+- <a href="https://www.deepseek.com/" target="_blank">DeepSeek R1</a> - Reasoning-optimized MoE (671B total, 37B active)
+- <a href="https://www.deepseek.com/" target="_blank">DeepSeek V3.1</a> - Hybrid thinking mode MoE (671B total, 37B active)
+- <a href="https://huggingface.co/allenai/OLMoE-1B-7B" target="_blank">OLMoE-1B-7B</a> - Efficiency-focused model (7B total, 1B active)
 
 **When to Use MoE:**
 - Need large model capacity with controlled costs
@@ -77,7 +77,7 @@ Only the selected experts are activated and contribute to the final output. The 
 
 {{< image "what_is_mixture_of_experts_in_llm_models/mixture_of_experts_layer_architecture.webp" "Mixture of Experts Layer Architecture" >}}
 
-The diagram above shows how MoE works in practice. Input tokens flow through a gating network (the router) that decides which expert networks to activate. In this example, only 2 out of 8 available experts are selected for each token, dramatically reducing computational load while maintaining model capacity. The selected experts process the input in parallel, and their outputs are combined based on the gating weights to produce the final result.
+This diagram illustrates MoE's core efficiency principle: input flows through a gating network that selectively activates only specific experts while keeping others dormant. The activated experts process the input in parallel, and their outputs are combined using weights determined by the gating network. This sparse activation pattern allows models like Kimi K2 to have trillion-parameter capacity while only using 32B parameters per inference.
 
 ### The Training Process
 
@@ -85,23 +85,134 @@ Training MoE models is trickier than dense models because you need to ensure all
 
 Modern MoE implementations use techniques like load balancing losses and expert capacity limits to ensure training stability and proper expert utilization. The goal is to have each expert develop its own specialty while maintaining overall model performance.
 
-## Real-World MoE Models
+## State-of-the-Art 2025 MoE Models
 
-### GPT-4's Rumored Architecture
+The year 2025 has been revolutionary for MoE architectures, with several groundbreaking models pushing the boundaries of what's possible with sparse activation. These models demonstrate that MoE has evolved from an experimental technique to the dominant architecture for state-of-the-art language models.
 
-While <a href="https://openai.com/" target="_blank">OpenAI</a> hasn't officially confirmed <a href="https://openai.com/gpt-4" target="_blank">GPT-4's</a> architecture, industry speculation suggests it uses an 8-expert MoE setup. This would explain how GPT-4 achieves such impressive performance while maintaining reasonable inference costs. Each expert might specialize in different domains - coding, creative writing, scientific reasoning, etc.
+### OpenAI GPT-OSS Series (2025)
 
-### Google's Switch Transformer
+In a surprising move, {{< link href="https://openai.com/" >}}OpenAI{{< /link >}} released their first fully open-source models in August 2025 with the GPT-OSS series. **GPT-OSS-120B** features 117 billion total parameters with only 5.1 billion active per token, using approximately 23 experts with top-k routing. This represents only 4-5% of the model's weights being used for any given token, drastically reducing compute compared to a dense 120B model.
 
-<a href="https://research.google/" target="_blank">Google's</a> <a href="https://arxiv.org/abs/2101.03961" target="_blank">Switch Transformer</a> was one of the first major demonstrations of MoE's potential, scaling to 1.6 trillion parameters while using similar computational resources to a 175B dense model. It showed that MoE could achieve better performance than dense models of equivalent computational cost.
+The model introduces a revolutionary "dual mode" capability - users can toggle between a "thinking" mode for complex reasoning and a fast response mode for straightforward queries. This allows the model to balance latency versus accuracy on demand. Despite its sparse activation, GPT-OSS-120B achieves approximately 90% on MMLU (Massive Multitask Language Understanding), nearly matching OpenAI's proprietary GPT-4 models.
 
-### Mixtral 8x7B - Open Source MoE
+**GPT-OSS-20B**, the smaller variant with 21 billion total parameters and 3.6 billion active, can run on a single 16GB GPU while delivering mid-80s MMLU performance. Both models support 128K context windows and are released under the Apache 2.0 license, making them fully open-source for commercial use.
 
-<a href="https://mistral.ai/" target="_blank">Mistral AI's</a> <a href="https://mistral.ai/news/mixtral-of-experts/" target="_blank">Mixtral 8x7B</a> is one of the most accessible MoE models for developers. With 8 experts of 7B parameters each (56B total), it only activates about 13B parameters per token. This gives you near-<a href="https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates" target="_blank">GPT-3.5</a> performance at a fraction of the computational cost, and it's completely open source.
+### Alibaba Qwen3-235B-A22B (2025)
 
-### Qwen3-Coder-480B
+{{< link href="https://qwenlm.github.io/" >}}Qwen3-235B-A22B{{< /link >}} represents Alibaba's flagship MoE model, unveiled in April 2025. With 235 billion total parameters and 22 billion active per token, it uses 128 experts with top-8 routing across 94 transformer layers. The model was trained on an unprecedented 36 trillion tokens and supports 119+ languages.
 
-<a href="https://www.alibabacloud.com/" target="_blank">Alibaba's</a> latest <a href="https://qwenlm.github.io/" target="_blank">coding model</a> showcases MoE at massive scale - 480 billion total parameters with only 35 billion active at any time. This allows it to have enormous capacity for understanding code while remaining practical to run for coding tasks.
+The standout feature is its "hybrid reasoning" capability - Qwen3 can switch between thinking mode (with internal multi-step reasoning and self-consistency checks) and non-thinking mode for quick responses. This gives users control over the computational "budget" per query. The model achieves 87-88% on MMLU and demonstrates strong coding ability with ~70% pass@1 on code challenges, often outperforming OpenAI's models on math competitions like AIME.
+
+### Moonshot AI Kimi K2 (2025)
+
+{{< link href="https://www.moonshot.cn/" >}}Kimi K2{{< /link >}} pushes MoE to unprecedented scale with 1 trillion total parameters and 32 billion active per token. Using 384 experts with top-8 routing, it represents one of the largest open-source models ever created. Each expert sub-network contains approximately 4 billion parameters, with only 2% of total weights used at inference time.
+
+Kimi K2 is specifically tuned for "agentic intelligence" - excelling at multi-step tasks involving tool use and external actions. It achieves 85.7% pass@1 on MultiPL-E (multilingual coding) and 89-93% on MMLU, rivaling closed models. The model uses a custom MuonClip optimizer to stabilize training of such an ultra-large MoE and features 128K context support.
+
+### DeepSeek R1 (2025)
+
+{{< link href="https://www.deepseek.com/" >}}DeepSeek R1{{< /link >}} is a reasoning-optimized MoE model released in January 2025, building on DeepSeek's V3 architecture with 671 billion total parameters and 37 billion active per token. What makes R1 unique is its training approach - it was primarily trained through reinforcement learning to excel at step-by-step logical reasoning, with minimal supervised fine-tuning.
+
+This RL-first approach taught R1 to effectively generate and verify chains of thought, making it exceptionally capable at complex problem solving. The results are remarkable: 97.3% on the MATH benchmark, ~80% on AIME competition problems, and a Codeforces Elo rating of 2029 (expert programmer level). R1 essentially matches GPT-4's performance on knowledge assessments while being fully open-source under MIT license.
+
+### DeepSeek V3.1 (2025)
+
+{{< link href="https://www.deepseek.com/" >}}DeepSeek V3.1{{< /link >}}, released in August 2025, represents the evolution of MoE into a truly hybrid system. Using the same 671B total/37B active architecture as R1, V3.1 introduces "hybrid thinking mode" - it can toggle between fast, direct responses and deep reasoning within a single model.
+
+This is achieved through sophisticated prompt formatting and API flags that control whether the model enters "think mode" (producing chain-of-thought for complex tasks) or operates in fast mode for casual queries. V3.1 matches R1's reasoning capabilities while significantly reducing latency through "chain-of-thought compression" - internalizing reasoning steps to solve problems with fewer output tokens.
+
+The model excels at tool use and agent-based tasks, outperforming both its predecessors on evaluations requiring smart API invocation or web search integration. It supports 128K context natively and uses multi-head latent attention for efficient long-context handling.
+
+### OLMoE-1B-7B (2025)
+
+{{< link href="https://huggingface.co/allenai/OLMoE-1B-7B" >}}OLMoE-1B-7B{{< /link >}} proves that MoE efficiency works at smaller scales. Developed collaboratively by HuggingFace and Allen Institute for AI, this model has 7 billion total parameters but only activates 1 billion per token - achieving 13B-level performance at 1B computational cost.
+
+Using 7 experts with top-1 routing, OLMoE was trained on 5 trillion tokens (massive for its size) and outperforms much larger dense models like LLaMA2-13B on many benchmarks. The project is notable for complete transparency - releasing not just weights but all training data, code, and logs under permissive licenses.
+
+The model demonstrates clear expert specialization, with each expert focusing on distinct topics or styles, providing valuable insights into how MoE routing naturally develops specialized capabilities.
+
+### 2025 MoE Models Comparison
+
+<table style="width:100%;border-collapse:collapse;">
+<thead>
+<tr>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Model</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Total Params</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Active Params</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Key Features</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">MMLU Score</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>GPT-OSS-120B</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">117B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">5.1B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Dual thinking mode, 128K context</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~90%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Apache 2.0</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>GPT-OSS-20B</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">21B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">3.6B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Edge-optimized, runs on 16GB GPU</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~85%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Apache 2.0</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Qwen3-235B-A22B</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">235B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">22B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Hybrid reasoning, 119+ languages</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~87%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Apache 2.0</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Kimi K2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1T</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">32B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Agentic AI, tool use specialist</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~90%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Modified MIT</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>DeepSeek R1</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">671B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">37B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Reasoning-optimized via RL</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~91%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">MIT</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>DeepSeek V3.1</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">671B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">37B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Hybrid think/no-think modes</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~89%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">MIT</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>OLMoE-1B-7B</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">7B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1B</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Ultra-efficient, full transparency</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">>55%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Apache 2.0</td>
+</tr>
+</tbody>
+</table>
+
+These 2025 models demonstrate several key trends in MoE evolution:
+
+**Reasoning Integration**: Models like GPT-OSS, Qwen3, and DeepSeek V3.1 can dynamically switch between fast responses and deep reasoning, giving users control over the compute-accuracy tradeoff.
+
+**Massive Scale**: Kimi K2's trillion parameters prove that MoE can scale to previously unimaginable sizes while remaining practical to run.
+
+**Open Source Dominance**: All major 2025 MoE advances are open-source, democratizing access to state-of-the-art AI capabilities.
+
+**Specialized Training**: DeepSeek R1's RL-first approach and OLMoE's transparency show how training methodology innovations are as important as architectural ones.
 
 ## Benefits and Trade-offs
 
@@ -121,17 +232,21 @@ While <a href="https://openai.com/" target="_blank">OpenAI</a> hasn't officially
 
 **Training Complexity**: MoE models are significantly more complex to train than dense models. Load balancing, expert utilization, and routing stability all require careful tuning and monitoring.
 
-**Communication Costs**: In distributed settings, routing tokens to different experts across different machines can create communication bottlenecks that don't exist with dense models. This is particularly relevant for <a href="https://pytorch.org/tutorials/intermediate/ddp_tutorial.html" target="_blank">distributed training</a> scenarios.
+**Communication Costs**: In distributed settings, routing tokens to different experts across different machines can create communication bottlenecks that don't exist with dense models. This is particularly relevant for {{< link href="https://pytorch.org/tutorials/intermediate/ddp_tutorial.html" >}}distributed training{{< /link >}} scenarios.
 
 ## When Should You Use MoE Models?
 
 ### Perfect Use Cases
 
-**Large-Scale Applications**: If you're building applications that need the capabilities of very large models but have computational budget constraints, MoE models offer an excellent efficiency trade-off.
+**Large-Scale Applications**: If you're building applications that need the capabilities of very large models but have computational budget constraints, MoE models offer an excellent efficiency trade-off. Models like Kimi K2 prove you can access trillion-parameter capabilities at 32B computational cost.
 
-**Multi-Domain Tasks**: Applications that need to handle diverse types of content (code, creative writing, technical documentation, etc.) can benefit from MoE's natural specialization.
+**Multi-Domain Tasks**: Applications that need to handle diverse types of content (code, creative writing, technical documentation, etc.) can benefit from MoE's natural specialization. The 2025 models show clear expert specialization across different domains.
 
-**Cost-Sensitive Deployments**: When inference costs are a major concern but you still need high-quality outputs, MoE models can provide better performance per dollar than dense alternatives.
+**Cost-Sensitive Deployments**: When inference costs are a major concern but you still need high-quality outputs, MoE models can provide better performance per dollar than dense alternatives. OLMoE-1B-7B demonstrates this at smaller scales.
+
+**Reasoning-Heavy Applications**: With models like DeepSeek R1 and V3.1, MoE now excels at complex reasoning tasks while maintaining efficiency. The hybrid thinking modes let you choose when to invest in deep reasoning.
+
+**Agentic AI Systems**: Models like Kimi K2 and DeepSeek V3.1 are specifically optimized for tool use and multi-step agent workflows, making them ideal for autonomous AI applications.
 
 ### When Dense Models Might Be Better
 
@@ -143,8 +258,6 @@ While <a href="https://openai.com/" target="_blank">OpenAI</a> hasn't officially
 
 ## Conclusion
 
-Mixture of Experts represents a fundamental shift in how we think about scaling AI models. Instead of just making models bigger and denser, MoE shows us how to make them smarter about resource utilization. As we move toward even larger models and more complex AI systems, MoE-style architectures will likely become the norm rather than the exception.
+2025 has established Mixture of Experts as the dominant architecture for state-of-the-art language models. With breakthrough open-source releases like {{< link href="https://openai.com/" >}}OpenAI's GPT-OSS series{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, and {{< link href="https://www.deepseek.com/" >}}DeepSeek's reasoning-optimized models{{< /link >}}, developers now have access to GPT-4-level capabilities without usage restrictions.
 
-The next generation of MoE models is already pushing boundaries further with techniques like <a href="https://arxiv.org/abs/2106.05974" target="_blank">hierarchical expert routing</a>, dynamic expert selection, and even more sophisticated specialization strategies. Research into <a href="https://arxiv.org/abs/2202.08906" target="_blank">expert specialization</a> and <a href="https://arxiv.org/abs/2112.10752" target="_blank">routing efficiency</a> continues to advance the field. For developers working with AI, understanding MoE isn't just about current models - it's about preparing for the future of efficient, scalable AI systems.
-
-Whether you're choosing models for your applications, optimizing inference costs, or just trying to understand how modern AI achieves its impressive capabilities, Mixture of Experts is a key piece of the puzzle that's worth understanding deeply.
+Key 2025 innovations include hybrid reasoning modes, trillion-parameter scale at practical costs, and complete model transparency. For developers building AI applications today, MoE offers the optimal balance of performance, efficiency, and accessibility - making it the clear choice for next-generation AI systems.
