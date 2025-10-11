@@ -14,7 +14,7 @@ outputs:
 
 {{< image "what_is_mixture_of_experts_in_llm_models/mixture_of_experts_banner.webp" "What is Mixture of Experts in LLM Models" >}}
 
-Mixture of Experts (MoE) has become one of the most important architectural innovations in modern large language models, enabling massive scale while keeping computational costs manageable. If you've wondered how cutting-edge 2025 models like {{< link href="https://openai.com/" >}}OpenAI's GPT-OSS-120B{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, or {{< link href="https://www.deepseek.com/" >}}DeepSeek's V3.1{{< /link >}} can have hundreds of billions or even trillions of parameters while still being practical to run, MoE is the secret sauce behind their efficiency.
+Mixture of Experts (MoE) has become one of the most important architectural innovations in modern large language models, enabling massive scale while keeping computational costs manageable. If you've wondered how cutting-edge 2025 models like {{< link href="https://openai.com/" >}}OpenAI's GPT-5 and GPT-OSS-120B{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, or {{< link href="https://www.deepseek.com/" >}}DeepSeek's V3.1{{< /link >}} can have hundreds of billions or even trillions of parameters while still being practical to run, MoE is the secret sauce behind their efficiency.
 
 Understanding MoE architecture is crucial for developers working with AI models, whether you're choosing between different model architectures, optimizing inference costs, or building applications that need to scale efficiently. This guide breaks down exactly how Mixture of Experts works, why it matters, and which models are using it to push the boundaries of what's possible in AI.
 
@@ -33,6 +33,7 @@ Understanding MoE architecture is crucial for developers working with AI models,
 - **Performance** - Often outperforms dense models of similar computational cost
 
 **State-of-the-Art 2025 MoE Models:**
+- <a href="https://openai.com/" target="_blank">GPT-5</a> - OpenAI's flagship with specialized expert routing and multimodal capabilities
 - <a href="https://openai.com/" target="_blank">GPT-OSS-120B</a> - OpenAI's first open-source MoE (117B total, 5.1B active)
 - <a href="https://qwenlm.github.io/" target="_blank">Qwen3-235B-A22B</a> - Alibaba's flagship with hybrid reasoning (235B total, 22B active)
 - <a href="https://www.moonshot.cn/" target="_blank">Kimi K2</a> - Moonshot AI's trillion-parameter model (1T total, 32B active)
@@ -88,6 +89,14 @@ Modern MoE implementations use techniques like load balancing losses and expert 
 ## State-of-the-Art 2025 MoE Models
 
 The year 2025 has been revolutionary for MoE architectures, with several groundbreaking models pushing the boundaries of what's possible with sparse activation. These models demonstrate that MoE has evolved from an experimental technique to the dominant architecture for state-of-the-art language models.
+
+### OpenAI GPT-5 (2025)
+
+{{< link href="https://openai.com/" >}}GPT-5{{< /link >}} represents OpenAI's most significant architectural shift, moving from dense transformer models to a sophisticated Mixture of Experts design. Rather than relying on a single monolithic neural network, GPT-5 employs multiple specialized "expert" sub-models, each trained to master specific types of tasks like coding, conversation, mathematics, or multimodal analysis.
+
+The genius of GPT-5's MoE architecture lies in its selective activation: only the most relevant experts activate based on your query. Ask it to debug code, and the "code expert" engages; request image interpretation, and the visual reasoning expert takes charge. This approach delivers incredible efficiency - instead of activating the entire model, GPT-5 uses just what's needed for each specific task.
+
+Key innovations include **expert specialization** (different experts for different domains), **dynamic routing** (intelligent selection of which experts to activate), and **multimodal integration** (seamless handling of text, images, and other data types). This makes GPT-5 not just larger, but fundamentally smarter in how it allocates computational resources.
 
 ### OpenAI GPT-OSS Series (2025)
 
@@ -146,6 +155,14 @@ The model demonstrates clear expert specialization, with each expert focusing on
 </thead>
 <tbody>
 <tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>GPT-5</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">-</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">-</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Multimodal, expert specialization</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">-</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Proprietary</td>
+</tr>
+<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>GPT-OSS-120B</strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">117B</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">5.1B</td>
@@ -198,7 +215,7 @@ The model demonstrates clear expert specialization, with each expert focusing on
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">7B</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1B</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Ultra-efficient, full transparency</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">>55%</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~55%</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Apache 2.0</td>
 </tr>
 </tbody>
@@ -258,6 +275,6 @@ These 2025 models demonstrate several key trends in MoE evolution:
 
 ## Conclusion
 
-2025 has established Mixture of Experts as the dominant architecture for state-of-the-art language models. With breakthrough open-source releases like {{< link href="https://openai.com/" >}}OpenAI's GPT-OSS series{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, and {{< link href="https://www.deepseek.com/" >}}DeepSeek's reasoning-optimized models{{< /link >}}, developers now have access to GPT-4-level capabilities without usage restrictions.
+2025 has established Mixture of Experts as the dominant architecture for state-of-the-art language models. With breakthrough models like {{< link href="https://openai.com/" >}}OpenAI's GPT-5 and GPT-OSS series{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, and {{< link href="https://www.deepseek.com/" >}}DeepSeek's reasoning-optimized models{{< /link >}}, MoE has proven to be the key to scaling AI capabilities efficiently.
 
 Key 2025 innovations include hybrid reasoning modes, trillion-parameter scale at practical costs, and complete model transparency. For developers building AI applications today, MoE offers the optimal balance of performance, efficiency, and accessibility - making it the clear choice for next-generation AI systems.
