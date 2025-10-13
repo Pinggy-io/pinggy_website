@@ -21,7 +21,7 @@ Running powerful AI language models locally has become increasingly accessible i
 **Top 5 Local LLM Tools:**
 1. **Ollama** - One-line commands, 100+ models | <a href="https://ollama.com/download" target="_blank">Download</a>
 2. **LM Studio** - Best GUI, model discovery | <a href="https://lmstudio.ai/" target="_blank">Download</a>
-3. **text-generation-webui** - Flexible, extensions | <a href="https://github.com/oobabooga/text-generation-webui" target="_blanbest_ai_tools_for_codingk">GitHub</a>
+3. **text-generation-webui** - Flexible, extensions | <a href="https://github.com/oobabooga/text-generation-webui" target="_blank">GitHub</a>
 4. **GPT4All** - Beginner-friendly desktop app | <a href="https://gpt4all.io/" target="_blank">Download</a>
 5. **LocalAI** - Developer-focused, OpenAI API compatible | <a href="https://github.com/go-skynet/LocalAI" target="_blank">GitHub</a>
 
