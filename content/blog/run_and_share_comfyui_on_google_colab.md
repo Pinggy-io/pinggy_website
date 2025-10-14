@@ -60,6 +60,9 @@ Without GPU acceleration, you'll encounter extremely slow loading times, timeout
 
 ## Setting Up Your Colab Environment
 
+
+{{< iframe src="https://www.youtube.com/embed/ILjLap85Qsg?si=XI9MGQAU7UI38SZE" title="Run Ollama Models for Free on Google Colab with Pinggy + OpenWebUI" >}}
+
 Start by creating a new Google Colab notebook and ensuring you have GPU runtime enabled. The first step is preparing your environment with the necessary system packages and tools that ComfyUI requires.
 
 ```bash
