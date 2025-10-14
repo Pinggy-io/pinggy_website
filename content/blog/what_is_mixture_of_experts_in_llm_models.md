@@ -14,7 +14,7 @@ outputs:
 
 {{< image "what_is_mixture_of_experts_in_llm_models/mixture_of_experts_banner.webp" "What is Mixture of Experts in LLM Models" >}}
 
-Mixture of Experts (MoE) has become one of the most important architectural innovations in modern large language models, enabling massive scale while keeping computational costs manageable. If you've wondered how cutting-edge 2025 models like {{< link href="https://openai.com/" >}}OpenAI's GPT-5 and GPT-OSS-120B{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, or {{< link href="https://www.deepseek.com/" >}}DeepSeek's V3.1{{< /link >}} can have hundreds of billions or even trillions of parameters while still being practical to run, MoE is the secret sauce behind their efficiency.
+Mixture of Experts (MoE) has become one of the most important architectural innovations in modern large language models, enabling massive scale while keeping computational costs manageable. If you've wondered how cutting-edge 2025 models like {{< link href="https://openai.com/index/introducing-gpt-5" >}}OpenAI's GPT-5{{< /link >}} and {{< link href="https://openai.com/index/introducing-gpt-oss" >}}GPT-OSS-120B{{< /link >}}, {{< link href="https://github.com/MoonshotAI/Kimi-K2" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, or {{< link href="https://api-docs.deepseek.com/news/news250821" >}}DeepSeek's V3.1{{< /link >}} can have hundreds of billions or even trillions of parameters while still being practical to run, MoE is the secret sauce behind their efficiency.
 
 Understanding MoE architecture is crucial for developers working with AI models, whether you're choosing between different model architectures, optimizing inference costs, or building applications that need to scale efficiently. This guide breaks down exactly how Mixture of Experts works, why it matters, and which models are using it to push the boundaries of what's possible in AI.
 
@@ -33,13 +33,13 @@ Understanding MoE architecture is crucial for developers working with AI models,
 - **Performance** - Often outperforms dense models of similar computational cost
 
 **State-of-the-Art 2025 MoE Models:**
-- <a href="https://openai.com/" target="_blank">GPT-5</a> - OpenAI's flagship with specialized expert routing and multimodal capabilities
-- <a href="https://openai.com/" target="_blank">GPT-OSS-120B</a> - OpenAI's first open-source MoE (117B total, 5.1B active)
-- <a href="https://qwenlm.github.io/" target="_blank">Qwen3-235B-A22B</a> - Alibaba's flagship with hybrid reasoning (235B total, 22B active)
-- <a href="https://www.moonshot.cn/" target="_blank">Kimi K2</a> - Moonshot AI's trillion-parameter model (1T total, 32B active)
-- <a href="https://www.deepseek.com/" target="_blank">DeepSeek R1</a> - Reasoning-optimized MoE (671B total, 37B active)
-- <a href="https://www.deepseek.com/" target="_blank">DeepSeek V3.1</a> - Hybrid thinking mode MoE (671B total, 37B active)
-- <a href="https://huggingface.co/allenai/OLMoE-1B-7B" target="_blank">OLMoE-1B-7B</a> - Efficiency-focused model (7B total, 1B active)
+- <a href="https://openai.com/index/introducing-gpt-5" target="_blank">GPT-5</a> - OpenAI's flagship with specialized expert routing and multimodal capabilities
+- <a href="https://openai.com/index/introducing-gpt-oss" target="_blank">GPT-OSS-120B</a> - OpenAI's first open-source MoE (117B total, 5.1B active)
+- <a href="https://huggingface.co/Qwen/Qwen3-235B-A22B" target="_blank">Qwen3-235B-A22B</a> - Alibaba's flagship with hybrid reasoning (235B total, 22B active)
+- <a href="https://github.com/MoonshotAI/Kimi-K2" target="_blank">Kimi K2</a> - Moonshot AI's trillion-parameter model (1T total, 32B active)
+- <a href="https://api-docs.deepseek.com/news/news250120" target="_blank">DeepSeek R1</a> - Reasoning-optimized MoE (671B total, 37B active)
+- <a href="https://api-docs.deepseek.com/news/news250821" target="_blank">DeepSeek V3.1</a> - Hybrid thinking mode MoE (671B total, 37B active)
+- <a href="https://huggingface.co/allenai/OLMoE-1B-7B-0125-Instruct" target="_blank">OLMoE-1B-7B</a> - Efficiency-focused model (7B total, 1B active)
 
 **When to Use MoE:**
 - Need large model capacity with controlled costs
@@ -92,7 +92,7 @@ The year 2025 has been revolutionary for MoE architectures, with several groundb
 
 ### OpenAI GPT-5 (2025)
 
-{{< link href="https://openai.com/" >}}GPT-5{{< /link >}} represents OpenAI's most significant architectural shift, moving from dense transformer models to a sophisticated Mixture of Experts design. Rather than relying on a single monolithic neural network, GPT-5 employs multiple specialized "expert" sub-models, each trained to master specific types of tasks like coding, conversation, mathematics, or multimodal analysis.
+{{< link href="https://openai.com/index/introducing-gpt-5/" >}}GPT-5{{< /link >}} represents OpenAI's most significant architectural shift, moving from dense transformer models to a sophisticated Mixture of Experts design. Rather than relying on a single monolithic neural network, GPT-5 employs multiple specialized "expert" sub-models, each trained to master specific types of tasks like coding, conversation, mathematics, or multimodal analysis.
 
 The genius of GPT-5's MoE architecture lies in its selective activation: only the most relevant experts activate based on your query. Ask it to debug code, and the "code expert" engages; request image interpretation, and the visual reasoning expert takes charge. This approach delivers incredible efficiency - instead of activating the entire model, GPT-5 uses just what's needed for each specific task.
 
@@ -100,7 +100,7 @@ Key innovations include **expert specialization** (different experts for differe
 
 ### OpenAI GPT-OSS Series (2025)
 
-In a surprising move, {{< link href="https://openai.com/" >}}OpenAI{{< /link >}} released their first fully open-source models in August 2025 with the GPT-OSS series. **GPT-OSS-120B** features 117 billion total parameters with only 5.1 billion active per token, using approximately 23 experts with top-k routing. This represents only 4-5% of the model's weights being used for any given token, drastically reducing compute compared to a dense 120B model.
+In a surprising move, {{< link href="https://openai.com/index/introducing-gpt-oss" >}}OpenAI{{< /link >}} released their first fully open-source models in August 2025 with the GPT-OSS series. **GPT-OSS-120B** features 117 billion total parameters with only 5.1 billion active per token, using approximately 23 experts with top-k routing. This represents only 4-5% of the model's weights being used for any given token, drastically reducing compute compared to a dense 120B model.
 
 The model introduces a revolutionary "dual mode" capability - users can toggle between a "thinking" mode for complex reasoning and a fast response mode for straightforward queries. This allows the model to balance latency versus accuracy on demand. Despite its sparse activation, GPT-OSS-120B achieves approximately 90% on MMLU (Massive Multitask Language Understanding), nearly matching OpenAI's proprietary GPT-4 models.
 
@@ -108,25 +108,25 @@ The model introduces a revolutionary "dual mode" capability - users can toggle b
 
 ### Alibaba Qwen3-235B-A22B (2025)
 
-{{< link href="https://qwenlm.github.io/" >}}Qwen3-235B-A22B{{< /link >}} represents Alibaba's flagship MoE model, unveiled in April 2025. With 235 billion total parameters and 22 billion active per token, it uses 128 experts with top-8 routing across 94 transformer layers. The model was trained on an unprecedented 36 trillion tokens and supports 119+ languages.
+{{< link href="https://huggingface.co/Qwen/Qwen3-235B-A22B" >}}Qwen3-235B-A22B{{< /link >}} represents Alibaba's flagship MoE model, unveiled in April 2025. With 235 billion total parameters and 22 billion active per token, it uses 128 experts with top-8 routing across 94 transformer layers. The model was trained on an unprecedented 36 trillion tokens and supports 119+ languages.
 
 The standout feature is its "hybrid reasoning" capability - Qwen3 can switch between thinking mode (with internal multi-step reasoning and self-consistency checks) and non-thinking mode for quick responses. This gives users control over the computational "budget" per query. The model achieves 87-88% on MMLU and demonstrates strong coding ability with ~70% pass@1 on code challenges, often outperforming OpenAI's models on math competitions like AIME.
 
 ### Moonshot AI Kimi K2 (2025)
 
-{{< link href="https://www.moonshot.cn/" >}}Kimi K2{{< /link >}} pushes MoE to unprecedented scale with 1 trillion total parameters and 32 billion active per token. Using 384 experts with top-8 routing, it represents one of the largest open-source models ever created. Each expert sub-network contains approximately 4 billion parameters, with only 2% of total weights used at inference time.
+{{< link href="https://github.com/MoonshotAI/Kimi-K2" >}}Kimi K2{{< /link >}} pushes MoE to unprecedented scale with 1 trillion total parameters and 32 billion active per token. Using 384 experts with top-8 routing, it represents one of the largest open-source models ever created. Each expert sub-network contains approximately 4 billion parameters, with only 2% of total weights used at inference time.
 
 Kimi K2 is specifically tuned for "agentic intelligence" - excelling at multi-step tasks involving tool use and external actions. It achieves 85.7% pass@1 on MultiPL-E (multilingual coding) and 89-93% on MMLU, rivaling closed models. The model uses a custom MuonClip optimizer to stabilize training of such an ultra-large MoE and features 128K context support.
 
 ### DeepSeek R1 (2025)
 
-{{< link href="https://www.deepseek.com/" >}}DeepSeek R1{{< /link >}} is a reasoning-optimized MoE model released in January 2025, building on DeepSeek's V3 architecture with 671 billion total parameters and 37 billion active per token. What makes R1 unique is its training approach - it was primarily trained through reinforcement learning to excel at step-by-step logical reasoning, with minimal supervised fine-tuning.
+{{< link href="https://api-docs.deepseek.com/news/news250120" >}}DeepSeek R1{{< /link >}} is a reasoning-optimized MoE model released in January 2025, building on DeepSeek's V3 architecture with 671 billion total parameters and 37 billion active per token. What makes R1 unique is its training approach - it was primarily trained through reinforcement learning to excel at step-by-step logical reasoning, with minimal supervised fine-tuning.
 
 This RL-first approach taught R1 to effectively generate and verify chains of thought, making it exceptionally capable at complex problem solving. The results are remarkable: 97.3% on the MATH benchmark, ~80% on AIME competition problems, and a Codeforces Elo rating of 2029 (expert programmer level). R1 essentially matches GPT-4's performance on knowledge assessments while being fully open-source under MIT license.
 
 ### DeepSeek V3.1 (2025)
 
-{{< link href="https://www.deepseek.com/" >}}DeepSeek V3.1{{< /link >}}, released in August 2025, represents the evolution of MoE into a truly hybrid system. Using the same 671B total/37B active architecture as R1, V3.1 introduces "hybrid thinking mode" - it can toggle between fast, direct responses and deep reasoning within a single model.
+{{< link href="https://api-docs.deepseek.com/news/news250821" >}}DeepSeek V3.1{{< /link >}}, released in August 2025, represents the evolution of MoE into a truly hybrid system. Using the same 671B total/37B active architecture as R1, V3.1 introduces "hybrid thinking mode" - it can toggle between fast, direct responses and deep reasoning within a single model.
 
 This is achieved through sophisticated prompt formatting and API flags that control whether the model enters "think mode" (producing chain-of-thought for complex tasks) or operates in fast mode for casual queries. V3.1 matches R1's reasoning capabilities while significantly reducing latency through "chain-of-thought compression" - internalizing reasoning steps to solve problems with fewer output tokens.
 
@@ -134,7 +134,7 @@ The model excels at tool use and agent-based tasks, outperforming both its prede
 
 ### OLMoE-1B-7B (2025)
 
-{{< link href="https://huggingface.co/allenai/OLMoE-1B-7B" >}}OLMoE-1B-7B{{< /link >}} proves that MoE efficiency works at smaller scales. Developed collaboratively by HuggingFace and Allen Institute for AI, this model has 7 billion total parameters but only activates 1 billion per token - achieving 13B-level performance at 1B computational cost.
+{{< link href="https://huggingface.co/allenai/OLMoE-1B-7B-0125-Instruct" >}}OLMoE-1B-7B{{< /link >}} proves that MoE efficiency works at smaller scales. Developed collaboratively by HuggingFace and Allen Institute for AI, this model has 7 billion total parameters but only activates 1 billion per token - achieving 13B-level performance at 1B computational cost.
 
 Using 7 experts with top-1 routing, OLMoE was trained on 5 trillion tokens (massive for its size) and outperforms much larger dense models like LLaMA2-13B on many benchmarks. The project is notable for complete transparency - releasing not just weights but all training data, code, and logs under permissive licenses.
 
@@ -275,6 +275,6 @@ These 2025 models demonstrate several key trends in MoE evolution:
 
 ## Conclusion
 
-2025 has established Mixture of Experts as the dominant architecture for state-of-the-art language models. With breakthrough models like {{< link href="https://openai.com/" >}}OpenAI's GPT-5 and GPT-OSS series{{< /link >}}, {{< link href="https://www.moonshot.cn/" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, and {{< link href="https://www.deepseek.com/" >}}DeepSeek's reasoning-optimized models{{< /link >}}, MoE has proven to be the key to scaling AI capabilities efficiently.
+2025 has established Mixture of Experts as the dominant architecture for state-of-the-art language models. With breakthrough models like {{< link href="https://openai.com/index/introducing-gpt-5/" >}}OpenAI's GPT-5{{< /link >}} and {{< link href="https://openai.com/index/introducing-gpt-oss/" >}}GPT-OSS series{{< /link >}}, {{< link href="https://github.com/MoonshotAI/Kimi-K2" >}}Moonshot's trillion-parameter Kimi K2{{< /link >}}, and {{< link href="https://api-docs.deepseek.com/news/news250821" >}}DeepSeek's reasoning-optimized models{{< /link >}}, MoE has proven to be the key to scaling AI capabilities efficiently.
 
 Key 2025 innovations include hybrid reasoning modes, trillion-parameter scale at practical costs, and complete model transparency. For developers building AI applications today, MoE offers the optimal balance of performance, efficiency, and accessibility - making it the clear choice for next-generation AI systems.
