@@ -1,20 +1,20 @@
 ---
 title: "Self-hosting n8n with Google Sign-In"
 description: "Learn how to self-host n8n using npm and configure Google Sign-In authentication. Complete guide with Pinggy tunneling for secure remote access."
-date: 2025-10-14T14:00:00+05:30
+date: 2025-10-16T14:00:00+05:30
 draft: false
 tags: ["n8n", "Self-Hosted", "Google Sign-In", "OAuth", "Pinggy", "Authentication"]
 og_image: "images/self_hosting_n8n_with_google_sign_in/n8n_google_signin.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtaG9zdGluZyBuOG4gd2l0aCBHb29nbGUgU2lnbi1JbiIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWxmLWhvc3QgbjhuIHVzaW5nIG5wbSBhbmQgY29uZmlndXJlIEdvb2dsZSBTaWduLUluIGF1dGhlbnRpY2F0aW9uIHdpdGggUGluZ2d5IHR1bm5lbGluZy4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvc2VsZl9ob3N0aW5nX244bl93aXRoX2dvb2dsZV9zaWduX2luL244bl9nb29nbGVfc2lnbmluLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiSW5zdGFsbCBOb2RlLmpzIGFuZCBucG0gb24geW91ciBzeXN0ZW0iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiSW5zdGFsbCBuOG4gZ2xvYmFsbHkgdXNpbmc6IG5wbSBpbnN0YWxsIC1nIG44biIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTZXQgdXAgR29vZ2xlIE9BdXRoIGNyZWRlbnRpYWxzIGluIEdvb2dsZSBDbG91ZCBDb25zb2xlIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIFBpbmdneSB0dW5uZWwgZm9yIEhUVFBTIGFjY2Vzczogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjU2NzggYS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29uZmlndXJlIG44biB3aXRoIFdFQkhPT0tfVVJMIGVudmlyb25tZW50IHZhcmlhYmxlIGFuZCBHb29nbGUgT0F1dGggY3JlZGVudGlhbHMiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgbjhuIGFuZCBhY2Nlc3MgaXQgdmlhIHRoZSBQaW5nZ3kgVVJMIHdpdGggR29vZ2xlIFNpZ24tSW4gZW5hYmxlZCIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtaG9zdGluZyBuOG4gd2l0aCBHb29nbGUgU2lnbi1JbiIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWxmLWhvc3QgbjhuIHVzaW5nIG5wbSBhbmQgY29uZmlndXJlIEdvb2dsZSBTaWduLUluIGF1dGhlbnRpY2F0aW9uIHdpdGggUGluZ2d5IHR1bm5lbGluZy4gUmVxdWlyZXMgUGluZ2d5IFBybyBmb3Igc3RhYmxlIE9BdXRoIFVSTHMuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL3NlbGZfaG9zdGluZ19uOG5fd2l0aF9nb29nbGVfc2lnbl9pbi9uOG5fZ29vZ2xlX3NpZ25pbi53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgTm9kZS5qcyAodmVyc2lvbiAxOC4xMCBvciBoaWdoZXIpIGFuZCBucG0gb24geW91ciBzeXN0ZW0iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiSW5zdGFsbCBuOG4gZ2xvYmFsbHkgdXNpbmc6IG5wbSBpbnN0YWxsIC1nIG44biIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDcmVhdGUgYSBQaW5nZ3kgdHVubmVsIGZvciBIVFRQUyBhY2Nlc3M6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDo1Njc4IGEucGluZ2d5LmlvIChQaW5nZ3kgUHJvIHJlcXVpcmVkIGZvciBzdGFibGUgT0F1dGggVVJMcykiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgbjhuIHdpdGggV0VCSE9PS19VUkwgZW52aXJvbm1lbnQgdmFyaWFibGU6IFdFQkhPT0tfVVJMPVwiaHR0cHM6Ly95b3VyLXBpbmdneS11cmwuYS5mcmVlLnBpbmdneS5saW5rXCIgbjhuIHN0YXJ0IgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkFjY2VzcyBuOG4gdmlhIFBpbmdneSBVUkwsIGNyZWF0ZSBhY2NvdW50LCBhbmQgYWRkIGEgR29vZ2xlIHNlcnZpY2Ugbm9kZSB0byBnZXQgdGhlIE9BdXRoIHJlZGlyZWN0IFVSTCIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTZXQgdXAgR29vZ2xlIENsb3VkIENvbnNvbGU6IGNyZWF0ZSBwcm9qZWN0LCBPQXV0aCAyLjAgY3JlZGVudGlhbHMsIGVuYWJsZSBBUElzLCBhbmQgY29uZmlndXJlIE9BdXRoIGNvbnNlbnQgc2NyZWVuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNvbXBsZXRlIE9BdXRoIHNldHVwIGluIG44bjogYWRkIENsaWVudCBJRCBhbmQgU2VjcmV0LCB0ZXN0IEdvb2dsZSBTaWduLUluLCBhbmQgYXV0aG9yaXplIGFwcCBhY2Nlc3MiCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
 ---
 {{< image "self_hosting_n8n_with_google_sign_in/n8n_google_signin.webp" "Self-hosting n8n with Google Sign-In" >}}
 
-Self-hosting n8n opens up a world of workflow automation possibilities, giving you complete control over your data and integrations. While setting up n8n itself is refreshingly straightforward, configuring Google Sign-In authentication can feel like navigating a maze of OAuth settings and redirect URLs. The good news? Once you understand the key pieces—especially the crucial WEBHOOK_URL environment variable and the proper sequence of setup—the process becomes much more manageable.
+Self-hosting {{< link href="https://n8n.io/" >}}n8n{{< /link >}} opens up a world of workflow automation possibilities, giving you complete control over your data and integrations. While setting up n8n itself is refreshingly straightforward, configuring Google Sign-In authentication can feel like navigating a maze of OAuth settings and redirect URLs. The good news? Once you understand the key pieces especially the crucial `WEBHOOK_URL` environment variable and the proper sequence of setup the process becomes much more manageable.
 
-In this comprehensive guide, we'll walk through self-hosting n8n using the npm approach and then tackle the trickier part: enabling Google Sign-In authentication with the help of Pinggy for secure HTTPS access. Note that for OAuth integration, you'll need Pinggy Pro to ensure stable redirect URLs. Whether you're building internal workflows for your team or creating automated processes that need Google integration, this setup will have you up and running with enterprise grade authentication.
+In this comprehensive guide, we'll walk through self-hosting n8n using the npm approach and then tackle the trickier part: enabling Google Sign-In authentication with the help of {{< link href="https://pinggy.io/" >}}Pinggy{{< /link >}} for secure HTTPS access. Note that for OAuth integration, you'll need {{< link href="https://pinggy.io/#prices" >}}Pinggy Pro{{< /link >}} to ensure stable redirect URLs. Whether you're building internal workflows for your team or creating automated processes that need Google integration, this setup will have you up and running with enterprise grade authentication.
 
 
 {{% tldr %}}
@@ -49,7 +49,7 @@ In this comprehensive guide, we'll walk through self-hosting n8n using the npm a
 
 ## Why Self-Host n8n?
 
-Before diving into the technical setup, let's understand why self-hosting n8n makes sense. n8n is a powerful workflow automation tool that connects different services and automates repetitive tasks. While n8n Cloud offers convenience, self-hosting provides several compelling advantages.
+Before diving into the technical setup, let's understand why self-hosting n8n makes sense. {{< link href="https://n8n.io/" >}}n8n{{< /link >}} is a powerful workflow automation tool that connects different services and automates repetitive tasks. While {{< link href="https://n8n.io/cloud/" >}}n8n Cloud{{< /link >}} offers convenience, self-hosting provides several compelling advantages.
 
 Self-hosting gives you complete control over your data and workflows. Your sensitive information never leaves your infrastructure, which is crucial for businesses handling confidential data or operating in regulated industries. You also avoid the limitations and costs of cloud plans no restrictions on workflow executions, data retention, or the number of active workflows.
 
@@ -59,13 +59,13 @@ Additionally, self-hosting allows for unlimited customization. You can install c
 
 Before we begin, ensure you have the following ready:
 
-- **Node.js** (version 18.10 or higher) installed on your system
+- {{< link href="https://nodejs.org/" >}}Node.js{{< /link >}} (`version 18.10` or higher) installed on your system
 - **npm** (comes with Node.js)
-- A **Google account** for setting up OAuth credentials
+- A {{< link href="https://accounts.google.com/" >}}Google account{{< /link >}} for setting up OAuth credentials
 - Basic familiarity with command line operations
 - An internet connection for downloading packages and creating tunnels
 
-You can verify your Node.js installation by running `node --version` in your terminal. If you need to install or update Node.js, visit the official Node.js website and download the latest LTS version for your operating system.
+You can verify your Node.js installation by running `node --version` in your terminal. If you need to install or update Node.js, visit the {{< link href="https://nodejs.org/" >}}official Node.js website{{< /link >}} and download the latest LTS version for your operating system.
 
 ## Step 1: Installing n8n via npm
 
@@ -77,7 +77,7 @@ Start by installing n8n globally on your system:
 npm install -g n8n
 ```
 
-This command downloads and installs n8n along with all its dependencies. The global installation means you can run n8n from any directory on your system. At this point, we have n8n installed but we won't start it yet—we need to set up the public tunnel first to get the proper WEBHOOK_URL.
+This command downloads and installs n8n along with all its dependencies. The global installation means you can run n8n from any directory on your system. At this point, we have n8n installed but we won't start it yet—we need to set up the public tunnel first to get the proper `WEBHOOK_URL`.
 
 ## Step 2: Creating an HTTPS Tunnel with Pinggy
 
@@ -101,7 +101,7 @@ Copy this URL carefully—you'll need it for the next step. Keep this terminal w
 
 ## Step 3: Starting n8n with WEBHOOK_URL
 
-Now that you have your Pinggy URL, you can start n8n with the crucial WEBHOOK_URL environment variable. This tells n8n what its public address is, which is essential for OAuth redirects to work properly.
+Now that you have your Pinggy URL, you can start n8n with the crucial `WEBHOOK_URL` environment variable. This tells n8n what its public address is, which is essential for OAuth redirects to work properly.
 
 In a new terminal window (keeping the Pinggy tunnel running), start n8n with:
 
@@ -119,7 +119,7 @@ Now comes the interesting part we need to access n8n through the Pinggy URL and 
 
 Open your Pinggy URL in a web browser (e.g., `https://svglm-2405-201-6040-68c0-3857-e5f9-45f5-e0f1.a.free.pinggy.link`). If this is your first time accessing n8n, you'll be prompted to create an account. Set up your email and password credentials.
 
-Once logged in, click "Create workflow" to start building your first automation. For this setup, we'll add a Google service trigger to generate the OAuth configuration. Click on the "+" button to add a new node, then search for and select any Google service like "Google Drive," "Google Sheets," or "Gmail."
+Once logged in, click "Create workflow" to start building your first automation. For this setup, we'll add a Google service trigger to generate the OAuth configuration. Click on the "+" button to add a new node, then search for and select any Google service like "{{< link href="https://developers.google.com/drive" >}}Google Drive{{< /link >}}," "{{< link href="https://developers.google.com/sheets" >}}Google Sheets{{< /link >}}," or "{{< link href="https://developers.google.com/gmail" >}}Gmail{{< /link >}}."
 
 {{< image "self_hosting_n8n_with_google_sign_in/google_drive_n8n.webp" "Searching for Google Drive node in n8n" >}}
 
@@ -167,7 +167,7 @@ Click "Save" and you'll receive your Client ID and Client Secret. Copy both of t
 
 ### Enabling Required APIs
 
-Next, you need to enable the specific Google service you want to use. search for the service you selected in n8n (e.g., "Google Drive API" if you chose Google Drive). Click on the service and then click "Enable."
+Next, you need to enable the specific Google service you want to use. In the left sidebar, go to "Library" and search for the service you selected in n8n (e.g., "{{< link href="https://console.cloud.google.com/apis/library/drive.googleapis.com" >}}Google Drive API{{< /link >}}" if you chose Google Drive). Click on the service and then click "Enable."
 
 {{< image "self_hosting_n8n_with_google_sign_in/search_google_drive.webp" "Searching for Google Drive node in n8n" >}}
 
@@ -175,11 +175,11 @@ Next, you need to enable the specific Google service you want to use. search for
 
 ### Configuring OAuth Consent Screen
 
-This step is crucial for making your OAuth integration work properly. In the left sidebar, click on "OAuth consent screen or search for it." Here you'll configure how users see your application when they're asked to grant permissions.
+This step is crucial for making your OAuth integration work properly. In the left sidebar, click on "{{< link href="https://console.cloud.google.com/apis/credentials/consent" >}}OAuth consent screen{{< /link >}}" or search for it. Here you'll configure how users see your application when they're asked to grant permissions.
 
 {{< image "self_hosting_n8n_with_google_sign_in/search_oauth_consent_screen.webp" "Searching for OAuth consent screen in Google Cloud Console" >}}
 
-1. **User Type**: Choose "External" (unless you're using Google Workspace)
+1. **User Type**: Choose "External" (unless you're using {{< link href="https://workspace.google.com/" >}}Google Workspace{{< /link >}})
 2. **App Information**: Fill in your app name, user support email, and developer contact information
 3. **Scopes**: Click "Add or Remove Scopes" and select all the permissions your n8n workflow will need (e.g., for Google Drive, you might need "See and download all your Google Drive files")
 
@@ -229,8 +229,8 @@ If everything works correctly, you now have a fully functional self-hosted n8n i
 
 ## Conclusion
 
-Self-hosting n8n with Google OAuth integration might seem complex at first, but following the correct sequence makes the process much more manageable. The key insights are starting with the Pinggy tunnel first to get your public HTTPS URL, then using that URL consistently throughout the n8n and Google Cloud Console configuration.
+Self-hosting {{< link href="https://n8n.io/" >}}n8n{{< /link >}} with Google OAuth integration might seem complex at first, but following the correct sequence makes the process much more manageable. The key insights are starting with the {{< link href="https://pinggy.io/" >}}Pinggy{{< /link >}} tunnel first to get your public HTTPS URL, then using that URL consistently throughout the n8n and {{< link href="https://console.cloud.google.com/" >}}Google Cloud Console{{< /link >}} configuration.
 
-This setup gives you a powerful, secure workflow automation platform with seamless Google service integration. You maintain complete control over your data and workflows while leveraging the convenience of Google's authentication and APIs. The combination of npm installation, Pinggy tunneling for HTTPS access, and proper OAuth configuration creates a robust foundation for building sophisticated automation workflows.
+This setup gives you a powerful, secure workflow automation platform with seamless Google service integration. You maintain complete control over your data and workflows while leveraging the convenience of Google's authentication and APIs. The combination of {{< link href="https://www.npmjs.com/" >}}npm{{< /link >}} installation, Pinggy tunneling for HTTPS access, and proper OAuth configuration creates a robust foundation for building sophisticated automation workflows.
 
-Whether you're automating document processing with Google Drive, managing spreadsheet data with Google Sheets, or integrating email workflows with Gmail, this self-hosted setup provides the flexibility and security that cloud-based solutions often can't match. Remember to consider Pinggy Pro for production use to ensure stable, persistent URLs that won't break your OAuth configuration.
+Whether you're automating document processing with {{< link href="https://developers.google.com/drive" >}}Google Drive{{< /link >}}, managing spreadsheet data with {{< link href="https://developers.google.com/sheets" >}}Google Sheets{{< /link >}}, or integrating email workflows with {{< link href="https://developers.google.com/gmail" >}}Gmail{{< /link >}}, this self-hosted setup provides the flexibility and security that cloud-based solutions often can't match. Remember to consider {{< link href="https://pinggy.io/#prices" >}}Pinggy Pro{{< /link >}} for production use to ensure stable, persistent URLs that won't break your OAuth configuration.
