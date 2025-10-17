@@ -12,7 +12,7 @@ outputs:
 ---
 {{< image "self_hosting_n8n_with_google_sign_in/n8n_google_signin.webp" "Self-hosting n8n with Google Sign-In" >}}
 
-Self-hosting {{< link href="https://n8n.io/" >}}n8n{{< /link >}} opens up a world of workflow automation possibilities, giving you complete control over your data and integrations. While setting up n8n itself is refreshingly straightforward, configuring Google Sign-In authentication can feel like navigating a maze of OAuth settings and redirect URLs. The good news? Once you understand the key pieces especially the crucial `WEBHOOK_URL` environment variable and the proper sequence of setup the process becomes much more manageable.
+Self-hosting {{< link href="https://n8n.io/" >}}n8n{{< /link >}} opens up a world of workflow automation possibilities, giving you complete control over your data and integrations. While setting up n8n itself is refreshingly straightforward, configuring Google Sign-In authentication can feel like navigating a maze of OAuth settings and redirect URLs. Additionally, receiving webhooks in self-hosted n8n is also tricky such as from Telegram, Slack, and other services that need to send data to your workflows. The good news? Once you understand the key pieces especially the crucial `WEBHOOK_URL` environment variable and the proper sequence of setup the process becomes much more manageable.
 
 In this comprehensive guide, we'll walk through self-hosting n8n using the npm approach and then tackle the trickier part: enabling Google Sign-In authentication with the help of {{< link href="https://pinggy.io/" >}}Pinggy{{< /link >}} for secure HTTPS access. Note that for OAuth integration, you'll need {{< link href="https://pinggy.io/#prices" >}}Pinggy Pro{{< /link >}} to ensure stable redirect URLs. Whether you're building internal workflows for your team or creating automated processes that need Google integration, this setup will have you up and running with enterprise grade authentication.
 
@@ -21,7 +21,7 @@ In this comprehensive guide, we'll walk through self-hosting n8n using the npm a
 
 1. **Install n8n via npm**
    - Install Node.js (version 18.10 or higher)
-   - Install n8n globally: `npm install -g n8n`
+   - Install n8n globally: `npm install -g n8n` (or use `npx n8n start` to run without installing)
 
 2. **Create HTTPS tunnel with Pinggy**
    - Run: `ssh -p 443 -R0:localhost:5678 a.pinggy.io`
@@ -77,7 +77,11 @@ Start by installing n8n globally on your system:
 npm install -g n8n
 ```
 
-This command downloads and installs n8n along with all its dependencies. The global installation means you can run n8n from any directory on your system. At this point, we have n8n installed but we won't start it yet—we need to set up the public tunnel first to get the proper `WEBHOOK_URL`.
+This command downloads and installs n8n along with all its dependencies. The global installation means you can run n8n from any directory on your system.
+
+**Alternative**: If you prefer not to install n8n globally, you can use `npx n8n start` instead, which will download and run n8n without installing it permanently on your system. This approach is particularly useful for testing or one-time usage.
+
+At this point, we have n8n ready to run but we won't start it yet—we need to set up the public tunnel first to get the proper `WEBHOOK_URL`.
 
 ## Step 2: Creating an HTTPS Tunnel with Pinggy
 
@@ -93,7 +97,7 @@ Run the following command in your terminal:
 
 This command creates a secure tunnel from Pinggy's servers to your local port 5678 (where n8n will run). Within seconds, you'll see output showing your public HTTPS URL, something like 
 
-`https://svglm-2405-201-6040-68c0-3857-e5f9-45f5-e0f1.a.free.pinggy.link`.
+`https://mysite.a.pinggy.link`.
 
 {{< image "self_hosting_n8n_with_google_sign_in/pinggy_public_url.webp" "Pinggy tunnel creating public HTTPS URL" >}}
 
@@ -106,7 +110,11 @@ Now that you have your Pinggy URL, you can start n8n with the crucial `WEBHOOK_U
 In a new terminal window (keeping the Pinggy tunnel running), start n8n with:
 
 ```bash
-WEBHOOK_URL="https://svglm-2405-201-6040-68c0-3857-e5f9-45f5-e0f1.a.free.pinggy.link" n8n start
+# If you installed n8n globally
+WEBHOOK_URL="https://mysite.a.pinggy.link" n8n start
+
+# Or if using npx (without global installation)
+WEBHOOK_URL="https://mysite.a.pinggy.link" npx n8n start
 ```
 
 Replace the URL with your actual Pinggy URL. n8n will start on port `5678` and be accessible via your Pinggy URL. You'll see output indicating that n8n is running and ready to accept connections.
@@ -117,7 +125,7 @@ Replace the URL with your actual Pinggy URL. n8n will start on port `5678` and b
 
 Now comes the interesting part we need to access n8n through the Pinggy URL and set up a Google service to get the proper redirect URL that we'll use in Google Cloud Console.
 
-Open your Pinggy URL in a web browser (e.g., `https://svglm-2405-201-6040-68c0-3857-e5f9-45f5-e0f1.a.free.pinggy.link`). If this is your first time accessing n8n, you'll be prompted to create an account. Set up your email and password credentials.
+Open your Pinggy URL in a web browser (e.g., `https://mysite.a.pinggy.link`). If this is your first time accessing n8n, you'll be prompted to create an account. Set up your email and password credentials.
 
 Once logged in, click "Create workflow" to start building your first automation. For this setup, we'll add a Google service trigger to generate the OAuth configuration. Click on the "+" button to add a new node, then search for and select any Google service like "{{< link href="https://developers.google.com/drive" >}}Google Drive{{< /link >}}," "{{< link href="https://developers.google.com/sheets" >}}Google Sheets{{< /link >}}," or "{{< link href="https://developers.google.com/gmail" >}}Gmail{{< /link >}}."
 
@@ -132,7 +140,7 @@ After selecting your Google service node, you'll see a "Credential to connect wi
 
 Copy the redirect URL that appears, which will look something like:
 ```
-https://svglm-2405-201-6040-68c0-3857-e5f9-45f5-e0f1.a.free.pinggy.link/rest/oauth2-credential/callback
+https://mysite.a.pinggy.link/rest/oauth2-credential/callback
 ```
 
 {{< image "self_hosting_n8n_with_google_sign_in/copy_redirect_url.webp" "Copy the redirect URL" >}}
@@ -156,8 +164,8 @@ In the left sidebar, navigate to "Credentials." Click "Create Credentials" and s
 For the OAuth client setup:
 1. **Application type**: Select "Web application"
 2. **Name**: Give it a descriptive name like "n8n Google Integration"
-3. **Authorized JavaScript origins**: Add your Pinggy public URL (e.g., `https://svglm-2405-201-6040-68c0-3857-e5f9-45f5-e0f1.a.free.pinggy.link`)
-4. **Authorized redirect URIs**: Paste the redirect URL you copied from n8n (e.g., `https://svglm-2405-201-6040-68c0-3857-e5f9-45f5-e0f1.a.free.pinggy.link/rest/oauth2-credential/callback`)
+3. **Authorized JavaScript origins**: Add your Pinggy public URL (e.g., `https://mysite.a.pinggy.link`)
+4. **Authorized redirect URIs**: Paste the redirect URL you copied from n8n (e.g., `https://mysite.a.pinggy.link/rest/oauth2-credential/callback`)
 
 {{< image "self_hosting_n8n_with_google_sign_in/create_client_id_web_application.webp" "Creating OAuth 2.0 Client ID in Google Cloud Console" >}}
 
