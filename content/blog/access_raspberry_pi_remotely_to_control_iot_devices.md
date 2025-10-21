@@ -1,13 +1,13 @@
 ---
-title: "Access raspberry pi remotely to control iot devices"
-description: "Learn how to securely connect to your Raspberry Pi or IoT device remotely over the internet without port forwarding. Explore SSH, VNC, and RDP methods."
+title: "Access Raspberry Pi Remotely to Control IoT Devices"
+description: "Learn how to securely connect to your Raspberry Pi or IoT device remotely over the internet without port forwarding. Explore SSH, VNC, and RDP methods with step-by-step guides."
 og_image: "images/iot/remote_access_raspberry_pi.webp"
 tags: ["iot", "guide", "raspberrypi"]
 outputs:
 - HTML
 - AMP
 date: 2024-06-25T03:57:29+05:30
-lastmod: 2024-12-28T14:15:25+05:30
+lastmod: 2025-10-21T14:15:25+05:30
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkFjY2VzcyBSYXNwYmVycnkgUGkgUmVtb3RlbHkgdG8gQ29udHJvbCBJb1QgRGV2aWNlcyIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWN1cmVseSBjb25uZWN0IHRvIHlvdXIgUmFzcGJlcnJ5IFBpIG9yIElvVCBkZXZpY2UgcmVtb3RlbHkgb3ZlciB0aGUgaW50ZXJuZXQgd2l0aG91dCB0aGUgbmVlZCBmb3IgcG9ydCBmb3J3YXJkaW5nLiBFeHBsb3JlIG1ldGhvZHMgc3VjaCBhcyBTU0gsIFZOQywgYW5kIFJEUCwgYW5kIGRpc2NvdmVyIGhvdyB0byB1c2UgUGluZ2d5LmlvIHRvIGNyZWF0ZSBzZWN1cmUgdHVubmVscyBmb3Igc2VhbWxlc3MgcmVtb3RlIG1hbmFnZW1lbnQuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2lvdC9yZW1vdGVfYWNjZXNzX3Jhc3BiZXJyeV9waS53ZWJwIiwKICAidG90YWxUaW1lIjogIlBUMzBNIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNldCBVcCBSZW1vdGUgQWNjZXNzIFVzaW5nIFNTSCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgU1NIIG9uIHlvdXIgUmFzcGJlcnJ5IFBpIGFuZCB1c2UgdGhlIGNvbW1hbmQgJ3NzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoyMiB0Y3BAYS5waW5nZ3kuaW8nIHRvIGVzdGFibGlzaCBhIHNlY3VyZSB0dW5uZWwgZm9yIHJlbW90ZSBhY2Nlc3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlNldCBVcCBSZW1vdGUgQWNjZXNzIFVzaW5nIFZOQyIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgVGlnaHRWTkMgc2VydmVyIG9uIHlvdXIgUmFzcGJlcnJ5IFBpIGFuZCB1c2UgUGluZ2d5IHRvIHR1bm5lbCB0aGUgVk5DIHNlcnZlciBwb3J0IGZvciByZW1vdGUgR1VJIGFjY2Vzcy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiU2V0IFVwIFJlbW90ZSBEZXNrdG9wIEFjY2VzcyBVc2luZyBSRFAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIFhSRFAgb24geW91ciBSYXNwYmVycnkgUGkgYW5kIHVzZSB0aGUgY29tbWFuZCAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMzODkgdGNwQGEucGluZ2d5LmlvJyB0byBlbmFibGUgcmVtb3RlIGRlc2t0b3AgYWNjZXNzIHZpYSBSRFAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIk1vbml0b3IgU3lzdGVtIE1ldHJpY3MiLAogICAgICAidGV4dCI6ICJUcmFjayBDUFUsIG1lbW9yeSwgYW5kIGRpc2sgdXNhZ2Ugb24geW91ciBSYXNwYmVycnkgUGkgdXNpbmcgdG9vbHMgbGlrZSBodG9wIG9yIHBzdXRpbC4gTGVhcm4gbW9yZSBhYm91dCBzeXN0ZW0gbW9uaXRvcmluZyBhdCAnaHR0cHM6Ly9waW5nZ3kuaW8vYmxvZy9yZW1vdGVfc3lzdGVtX21vbml0b3Jpbmdfd2l0aF9mYXN0YXBpX2FuZF9waW5nZ3kvJy4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
 draft: false
 ---
@@ -15,18 +15,27 @@ draft: false
 {{< image "iot/remote_access_raspberry_pi.webp" "Access raspberry pi remotely to control iot devices" >}}
 
 In this blog, we’ll discuss how to **securely connect to your Raspberry Pi or IoT device remotely from anywhere over the internet without port forwarding**, allowing you to remotely manage your devices more effectively.
+Ever tried to access your Raspberry Pi from work, only to realize it's sitting behind your home router with no way to reach it? You're not alone. Most IoT enthusiasts face this exact challenge when trying to manage their devices remotely.
 
-There are three main ways to access your Raspberry Pi remotely over the internet:
+## Why Remote Access Matters for IoT Projects
 
-1. **SSH** - Secure Shell, a cryptographic network protocol for secure remote access to devices over an unsecured network such as the internet.
+Whether you're monitoring a home automation system, checking sensor data, or troubleshooting a project, remote access is crucial for serious IoT work. But traditional methods come with baggage:
 
-2. **VNC** - Virtual Network Computing, a protocol for safely accessing the Raspberry Pi GUI or desktop.
+- **Port forwarding** exposes your devices to internet threats
+- **Dynamic IPs** change without warning
+- **CGNAT** (Carrier-Grade NAT) blocks incoming connections entirely
+- **Corporate firewalls** prevent most tunneling solutions
 
-3. **RDP** - Remote Desktop Protocol, a proprietary protocol developed by Microsoft that provides a user with a graphical interface to connect to another computer over a network connection.
+## Four Ways to Access Your Raspberry Pi Remotely
 
-4. **System Monitoring** - Tools like htop and psutil allow you to track real-time CPU, memory, and disk usage metrics remotely, ensuring your Raspberry Pi operates efficiently and bottlenecks are minimized. This is essential for maintaining the health of IoT devices, especially in resource-constrained environments.
+Here are the main methods we'll cover, each suited for different use cases:
 
-However, all of these methods usually require port forwarding, which can pose security risks.
+1. **SSH (Command Line)** - Perfect for server management, file transfers, and running scripts remotely
+2. **VNC (Desktop GUI)** - Ideal when you need the full desktop experience for configuration or development
+3. **RDP (Remote Desktop)** - Great for Windows users who prefer familiar remote desktop tools
+4. **Web Applications** - Access custom dashboards, APIs, or web-based IoT interfaces
+
+The beauty? All of these work without touching your router settings.
 
 
 {{% tldr %}}
@@ -41,14 +50,14 @@ However, all of these methods usually require port forwarding, which can pose se
 2. **Step 2.** Run this command to get a public URL to your Raspberry Pi:
 
    ```
-   ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:3389 tcp@free.pinggy.io
    ```
 
    You will get a URL and port in the output such as:<br>
    tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
 3. **Step 3.** Open _Remote Desktop Connection_ application on your Windows / _Microsoft Remote Desktop_ on Mac. Enter the URL:Port to connect.<br>
-   Example: `tljocjkijs.a.pinggy.link:40527`
+   Example: `tljocjkijs.a.free.pinggy.link:40527`
 
 4. Sign in to https://dashboard.pinggy.io to get your ongoing tunnel URLs from the dashboard.
 
@@ -67,9 +76,17 @@ Here, we’ll discuss how to configure and setup Raspberry Pi for remote access 
 
 [Pinggy](https://pinggy.io) is a tunneling tool that gives a public address to access your localhost, even while sitting behind a NAT or a firewall -- all this in a single command.
 
-## Remotely connect to Raspberry Pi behind NAT router or firwall over the Internet using SSH
+## Method 1: SSH Access - Your Command Line Gateway
 
-SSH follows a client server model — the SSH server runs on the Raspberry pi and the SSH client runs on the user laptop or PC. SSH server listens on TCP port 22 by default. But without port forwarding, if your Raspberry pi is behind NAT or firewall or CGNAT, you will not be able to access your defive. In the following guide we explain how you can remotely access raspberry pi and other iot devices for free without port forwarding.
+SSH is the Swiss Army knife of remote access. Whether you're updating packages, checking logs, or running Python scripts, SSH gives you full command-line control of your Raspberry Pi from anywhere.
+
+**Why SSH is perfect for IoT:**
+- Lightweight and fast, even on slow connections
+- Secure encrypted communication
+- Perfect for headless servers and automation
+- Works great for file transfers with SCP/SFTP
+
+The challenge? SSH typically requires port forwarding, which most home networks and corporate firewalls block. Here's how to bypass that entirely.
 
 #### Using Pinggy for remote SSH access
 
@@ -78,7 +95,7 @@ Pinggy provides a secure and reliable method to remotely access your IoT devices
 1. On your Raspberry Pi, open a terminal and run the following command:
 
    ```bash
-   ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
    ```
 
    This command establishes a secure connection to the Pinggy server, creating a tunnel that forward traffic from the server’s port 22 to your IoT device’s port 22.
@@ -97,13 +114,19 @@ Pinggy provides a secure and reliable method to remotely access your IoT devices
 
 By executing this command, you establish an SSH connection to the Pinggy server, which redirects the traffic to your Raspberry Pi through the previously created tunnel. You can now access and control your Raspberry Pi as if it were directly connected to your local network.
 
-You should however create a free account in [Pinggy](https://dashboard.pinggy.io/) so that you can get the remote URL just by logging in to the dashboard. It is recommended that you go through the [guide](https://pinggy.io/docs/run_tunnel_on_startup/linux/) to learn how to run the tunnel automatically whenever the raspberry pi is switched on.  
+You should however create a free account in [Pinggy](https://dashboard.pinggy.io/) so that you can get the remote URL just by logging in to the dashboard. It is recommended that you go through the [guide](https://pinggy.io/docs/run_tunnel_on_startup/linux/) to learn how to run the tunnel automatically whenever the raspberry pi is switched on.
 
-## Connect to Raspberry Pi remotely over the Internet using VNC
+## Method 2: VNC Access - Full Desktop Experience
 
-Virtual Network Computing (VNC) is a client-server system which helps to control remote computer over a network connection. Actions like keyboard button presses and mouse clicks are transmitted from one computer to another over this virtual network. It works on client-server model.
+Sometimes you need more than a command line. Maybe you're configuring GPIO pins with a visual tool, debugging a Python GUI application, or just prefer clicking around the desktop. VNC gives you the complete Raspberry Pi desktop experience, streamed directly to your computer.
 
-VNC follows a client server model — the VNC server runs on the raspberry pi and the VNC client runs on the user laptop or PC. VNC server listens on TCP port 5901 by default.
+**When to use VNC:**
+- Setting up new software with graphical installers
+- Debugging visual applications or GPIO projects
+- Teaching others how to use the Raspberry Pi
+- When you need the familiar desktop environment
+
+VNC traditionally runs on port 5901, but again, we'll bypass the port forwarding headache entirely.
 
 #### Install TightVNC server on Raspberry Pi
 
@@ -137,7 +160,7 @@ This message indicates that the VNC server is running on the Raspberry Pi and is
 1. On your Raspberry Pi, open a terminal and run the following command:
 
    ```bash
-   ssh -p 443 -R0:localhost:5901 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:5901 tcp@free.pinggy.io
    ```
 
    This command establishes a secure connection to the Pinggy server, creating a tunnel that forward traffic from the server’s port 5901 to your IoT device’s port 5901.
@@ -156,11 +179,17 @@ After installing the VNC Viewer, open the application and enter the public URL i
 
 {{< image "iot/vnc_viewer.webp" "VNC Viewer" >}}
 
-## Connect to Raspberry Pi remotely over the Internet using RDP
+## Method 3: RDP Access - Windows-Style Remote Desktop
 
-Remote Desktop Protocol(RDP) is a network protocol developed by Microsoft and is widely used by users to remotely access and interact with the graphical user interface of a remote machine such as Windows Server, Mac, or Linux machine including Raspberry Pi.
+If you're coming from a Windows background, RDP will feel like home. It's Microsoft's remote desktop protocol, and it works surprisingly well on Raspberry Pi. The interface is smooth, responsive, and integrates nicely with Windows' built-in Remote Desktop Connection tool.
 
-RDP follows the client-server model, where an RDP client is installed on a local machine, and an RDP server is installed on the remote server or IoT device.
+**Why choose RDP:**
+- Familiar interface for Windows users
+- Built into Windows (no extra software needed)
+- Often faster than VNC for desktop tasks
+- Good clipboard and file sharing support
+
+Let's get RDP running on your Pi and accessible from anywhere.
 
 #### Install xrdp on Raspberry Pi
 
@@ -177,7 +206,7 @@ RDP follows the client-server model, where an RDP client is installed on a local
 1. On your Raspberry Pi, open a terminal and run the following command:
 
    ```bash
-   ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:3389 tcp@free.pinggy.io
    ```
 
    This command establishes a secure connection to the Pinggy server, creating a tunnel that forward traffic from the server’s port 3389 to your IoT device’s port 3389.
@@ -194,32 +223,54 @@ Since the raspberry pi acts as an RDP server, we need an RDP client to connect t
 
 {{< image "pirdp/rdp.webp" "Remote Desktop Connection" >}}
 
-## Remote Access a web app running on Raspberry Pi
+## Method 4: Web Application Access - Custom Dashboards and APIs
 
-Let's assume you have a Node.js web server running on your Raspberry Pi, and you want to access it from anywhere in the world.
+This is where IoT gets really exciting. Maybe you've built a sensor dashboard, a home automation control panel, or an API that serves data from your Pi. Getting these web applications accessible remotely opens up endless possibilities.
+
+**Perfect for:**
+- IoT sensor dashboards and monitoring interfaces
+- Home automation control panels
+- REST APIs serving sensor data
+- Custom web applications for device management
+
+Let's say you have a Node.js web server running on your Raspberry Pi, and you want to access it from anywhere in the world.
 
 ```javascript
 const express = require("express");
 const app = express();
 const port = 3000;
 
+// Simple IoT dashboard example
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send(`
+    <h1>My IoT Dashboard</h1>
+    <p>Temperature: 23.5°C</p>
+    <p>Humidity: 65%</p>
+    <p>Last updated: ${new Date().toLocaleString()}</p>
+  `);
+});
+
+// API endpoint for sensor data
+app.get("/api/sensors", (req, res) => {
+  res.json({
+    temperature: 23.5,
+    humidity: 65,
+    timestamp: new Date().toISOString()
+  });
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening 
-  at http://localhost:${port}`);
+  console.log(`IoT Dashboard running at http://localhost:${port}`);
 });
 ```
 
-Save the above code in a file named app.js and run the following command to start the application:
+Save this code as `iot-dashboard.js` and run it:
 
 ```bash
-node app.js
+node iot-dashboard.js
 ```
 
-We'll use the above Node.js web server as an example to demonstrate how to access a web app running on your Raspberry Pi from anywhere in the world.
+This creates a simple IoT dashboard that you can access from anywhere once we set up the tunnel.
 
 Right now the web application can be accessed only from a local network because it runs on your IoT behind a NAT router or Firewall.
 
@@ -228,7 +279,7 @@ Right now the web application can be accessed only from a local network because 
 1. On your Raspberry Pi, open a terminal and run the following command:
 
    ```bash
-   ssh -p 443 -R0:localhost:3000 -o ServerAliveInterval=30 a.pinggy.io
+   ssh -p 443 -R0:localhost:3000 -o ServerAliveInterval=30 free.pinggy.io
    ```
 
    {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to your web server:" portstring="Web server Port" localport="3000" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
@@ -241,9 +292,11 @@ Right now the web application can be accessed only from a local network because 
 
 3. Now, you can use the public URL to access your web app from anywhere in the world. Open a web browser on your laptop or PC and enter the public URL in the address bar.
 
-## Monitor Raspberry Pi Health with htop
+## Bonus: Monitor Your Pi's Health Remotely
 
-Ensuring the optimal performance and health of your Raspberry Pi is crucial for seamless remote management. One effective way to monitor its system resources is by using `htop`, a powerful terminal-based system monitoring tool.
+Once you have remote access set up, keeping an eye on your Pi's performance becomes crucial. Is your IoT project consuming too much CPU? Running out of memory? A quick health check can save you from mysterious crashes and performance issues.
+
+`htop` is like Task Manager for Linux—it shows you exactly what's happening with your Pi's resources in real-time.
 
 #### Installing htop on Raspberry Pi
 
@@ -281,15 +334,13 @@ Tools like htop let you check CPU, memory, and process usage in real time via SS
 See our *[Remote System Monitoring with FastAPI and Pinggy article](https://pinggy.io/blog/remote_system_monitoring_with_fastapi_and_pinggy/)* for a ready-to-use example. The corresponding source code is available on {{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub{{< /link >}}. Once your app is running (typically on port 8000), create a tunnel:
 
 ```bash
-ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 ```
 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI:" portstring="FastAPI Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
 [Pinggy](https://pinggy.io) provides a public URL—anyone with that URL (and any auth you set up) can view metrics remotely. For interactive CLI monitoring, stick to htop via SSH; for automated or on-the-fly checks, use the FastAPI endpoints.
-
-
 
 ## Tips
 
