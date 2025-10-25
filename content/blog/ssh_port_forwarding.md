@@ -27,7 +27,7 @@ SSH port forwarding is one of those tools that seems intimidating at first but b
 
 2. **Remote forwarding**:
    ```bash
-   ssh -R 0.0.0.0:8080:server:80 user@gateway
+   ssh -R 0.0.0.0:8080:localhost:80 user@gateway
    ```
    Expose local service to remote server
 
@@ -79,18 +79,18 @@ Now you can connect to `localhost:5432` on your laptop, and it'll be as if you'r
 Remote port forwarding works in the opposite direction. It forwards a port on the remote server back to your local machine. This is super handy when you're developing something locally and need to share it with someone else, or when you need to expose a local service to a remote network. For a deeper dive into remote tunneling, check out our {{< link href="https://pinggy.io/blog/ssh_reverse_tunnelling/" >}}SSH reverse tunneling guide{{< /link >}}.
 
 ```bash
-ssh -R 0.0.0.0:8080:server:80 user@gateway
+ssh -R 0.0.0.0:8080:localhost:80 user@gateway
 ```
 
-{{< image "ssh_port_forwarding/remote_port_forwarding.webp" "Local Port Forwarding Example" >}}
+{{< image "ssh_port_forwarding/remote_port_forwarding.webp" "Remote Port Forwarding Example" >}}
 
 Imagine you're building a webhook handler for a payment processor, but you're developing it locally. The payment service needs to send webhooks to your application, but it can't reach your laptop directly. Remote port forwarding to the rescue:
 
 ```bash
-ssh -R 0.0.0.0:8080:server:80 john@my-public-server.com
+ssh -R 0.0.0.0:8080:locahost:80 john@my-public-server.com
 ```
 
-Now when the payment service sends a webhook to `my-public-server.com:8080`, it gets forwarded to your local development server running on port 3000. You can test webhooks in real-time without deploying anything.
+Now when the payment service sends a webhook to `my-public-server.com:8080`, it gets forwarded to your local development server running on port 80. You can test webhooks in real-time without deploying anything.
 
 ### Dynamic Port Forwarding (SOCKS Proxy)
 
@@ -203,7 +203,7 @@ Always use SSH key authentication instead of passwords when possible, especially
 
 ## Pinggy: quick tunnels when SSH port forwarding isn't an option
 
-Sometimes you just need to share a local app on the internet and you don't have a public SSH server, or you're behind CGNAT. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} opens a reverse tunnel from your machine to a public URL—no router changes, public IP, or DNS required.
+Sometimes you just need to share a local app on the internet and you don't have a public SSH server, or you're behind CGNAT. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} opens a reverse tunnel from your machine to a public URL - no router changes, public IP, or DNS required.
 
 Start a quick HTTP tunnel in seconds:
 
