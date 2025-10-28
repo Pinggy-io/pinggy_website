@@ -18,26 +18,28 @@ As organizations increasingly adopt multiple cloud providers to avoid vendor loc
 
 
 {{% tldr %}}
+**Top 3 Open-Source Multi-Cloud Platforms:**
 
-1. **Multi-Cloud Management Essentials**  
-   - 97% of organizations now use at least two cloud providers  
-   - Key benefits include avoiding vendor lock-in, optimizing costs, and accessing best-of-breed services  
-   - Critical capabilities: unified interface, resource orchestration, cost management, security governance  
-2. **Top Multi-Cloud Management Platforms**
-   - **Open-Source Leaders**: <a href="https://cloudstack.apache.org/" target="_blank">Apache CloudStack</a>, <a href="https://kubernetes.io/" target="_blank">Kubernetes with multi-cloud operators</a>, <a href="https://www.terraform.io/" target="_blank">Terraform</a>, <a href="https://www.manageiq.org/" target="_blank">ManageIQ</a>, <a href="https://www.openstack.org/" target="_blank">OpenStack</a>, <a href="https://opentofu.org" target="_blank">OpenTofu</a>, <a href="https://cloudify.co" target="_blank">Cloudify</a>, <a href="https://opennebula.io/" target="_blank">OpenNebula</a>, <a href="https://www.cloudfoundry.org/" target="_blank">Cloud Foundry</a>
-   - **Commercial Solutions**: <a href="https://www.vmware.com/products/aria.html" target="_blank">VMware Aria</a>, <a href="https://morpheusdata.com/" target="_blank">Morpheus Data</a>, <a href="https://www.cloudbolt.io/" target="_blank">CloudBolt</a>, <a href="https://www.scalr.com/" target="_blank">Scalr</a>, <a href="https://www.cloudzero.com" target="_blank">CloudZero</a>, <a href="https://spacelift.io" target="_blank">Spacelift</a>, <a href="https://www.nutanix.com/products/cloud-manager" target="_blank">Nutanix Cloud Manager</a>, <a href="https://www.flexera.com/products/flexera-one" target="_blank">Flexera One</a>, <a href="https://platform9.com" target="_blank">Platform9</a>, <a href="https://www.densify.com" target="_blank">Densify</a>, <a href="https://www.nops.io" target="_blank">nOps</a>, <a href="https://www.fortinet.com/products/forticnapp" target="_blank">Fortinet</a>, <a href="https://www.hpe.com/us/en/zerto-software.html" target="_blank">HPE Zerto</a>
-3. **Key Selection Criteria**  
-   - Compatibility with your cloud providers  
-   - Automation capabilities  
-   - Cost visibility and optimization features  
-   - Security and compliance controls  
-   - Ease of implementation and use  
-4. **Implementation Best Practices**  
-   - Start with a clear multi-cloud strategy  
-   - Implement infrastructure as code  
-   - Standardize tagging and resource organization  
-   - Build a Cloud Center of Excellence  
-
+1. <a href="https://cloudstack.apache.org/" target="_blank">Apache CloudStack</a>
+   - **Features**: Unified IaaS management, supports KVM/VMware/XenServer, advanced networking, resource metering, robust API, user management
+   - **Price**: Free (Apache 2.0 license)
+2. <a href="https://kubernetes.io/" target="_blank">Kubernetes with Multi-Cloud Operators</a>
+   - **Features**: Container orchestration, Crossplane for cloud resource provisioning, Cluster API for lifecycle management, Kubernetes-native workflows, extensive ecosystem
+   - **Price**: Free (Apache 2.0 license)
+3. <a href="https://www.terraform.io/" target="_blank">Terraform</a>
+   - **Features**: Infrastructure-as-code, 3000+ providers (AWS/Azure/GCP), declarative syntax, state management, modular configurations, extensive community
+   - **Price**: Free core (MPL 2.0), Enterprise pricing on request
+   
+**Top 3 Commercial Multi-Cloud Platforms:**
+1. <a href="https://spacelift.io" target="_blank">Spacelift</a>
+   - **Features**: Multi-IaC orchestration (Terraform/OpenTofu/Pulumi), policy-as-code (OPA), drift detection, GitOps integration, OIDC credentials, audit logs
+   - **Price**: Free tier available, paid plans from $399/month
+2. <a href="https://www.nops.io/" target="_blank">nOps</a>
+   - **Features**: Automated AWS cost optimization, Savings Plans/RI/Spot orchestration, Kubernetes cost allocation, GenAI spend tracking, event-driven remediation, Well-Architected reviews
+   - **Price**: <a href="https://www.nops.io/pricing/" target="_blank">Try for free for 14 days</a>, paid plans based on cloud spend
+3. <a href="https://platform9.com" target="_blank">Platform9</a>
+   - **Features**: SaaS-managed Kubernetes and OpenStack, centralized control plane, 24×7 support with SLA, hybrid/edge coverage, EKS cost optimization, VM and container management
+   - **Price**: Paid plans priced per-node, Growth tier starts at ~$160 per node
 {{% /tldr %}}
 
 ## Why Multi-Cloud Management Matters
