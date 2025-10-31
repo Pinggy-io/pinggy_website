@@ -4,14 +4,14 @@ description: "Learn how to build and host a complete AI-powered Flask applicatio
 date: 2025-10-31T14:00:00+05:30
 draft: false
 tags: ["Google Colab", "Ollama", "Flask", "Pinggy", "AI App", "LLM", "Free Hosting", "Python"]
-og_image: "images/host_your_ai_app_on_google_colab_for_free/host_your_ai_app_on_google_colab_for_free.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBIb3N0IFlvdXIgQUkgQXBwIG9uIEdvb2dsZSBDb2xhYiBmb3IgRnJlZSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBidWlsZCBhbmQgaG9zdCBhIGNvbXBsZXRlIEFJLXBvd2VyZWQgRmxhc2sgYXBwbGljYXRpb24gb24gR29vZ2xlIENvbGFiIHdpdGggZnJlZSBHUFUgYWNjZXNzIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2hvc3RfeW91cl9haV9hcHBfb25fZ29vZ2xlX2NvbGFiX2Zvcl9mcmVlL2hvc3RfeW91cl9haV9hcHBfb25fZ29vZ2xlX2NvbGFiX2Zvcl9mcmVlLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2V0IHVwIEdvb2dsZSBDb2xhYiBlbnZpcm9ubWVudCB3aXRoIEdQVSBydW50aW1lIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgYW5kIGNvbmZpZ3VyZSBPbGxhbWEgc2VydmVyIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIExMTSBtb2RlbCBhbmQgdmVyaWZ5IHNldHVwIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBQaW5nZ3kgdHVubmVsIGZvciBwdWJsaWMgYWNjZXNzIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkJ1aWxkIGFuZCBkZXBsb3kgRmxhc2sgQUkgYXBwbGljYXRpb24iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
+og_image: "images/host_your_ai_app_on_google_colab_for_free/host_your_ai_app_on_google_colab_for_free.png"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBIb3N0IFlvdXIgQUkgQXBwIG9uIEdvb2dsZSBDb2xhYiBmb3IgRnJlZSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBidWlsZCBhbmQgaG9zdCBhIGNvbXBsZXRlIEFJLXBvd2VyZWQgRmxhc2sgYXBwbGljYXRpb24gb24gR29vZ2xlIENvbGFiIHdpdGggZnJlZSBHUFUgYWNjZXNzIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2hvc3RfeW91cl9haV9hcHBfb25fZ29vZ2xlX2NvbGFiX2Zvcl9mcmVlL2hvc3RfeW91cl9haV9hcHBfb25fZ29vZ2xlX2NvbGFiX2Zvcl9mcmVlLnBuZyIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTZXQgdXAgR29vZ2xlIENvbGFiIGVudmlyb25tZW50IHdpdGggR1BVIHJ1bnRpbWUiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiSW5zdGFsbCBhbmQgY29uZmlndXJlIE9sbGFtYSBzZXJ2ZXIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRG93bmxvYWQgTExNIG1vZGVsIGFuZCB2ZXJpZnkgc2V0dXAiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIFBpbmdneSB0dW5uZWwgZm9yIHB1YmxpYyBhY2Nlc3MiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQnVpbGQgYW5kIGRlcGxveSBGbGFzayBBSSBhcHBsaWNhdGlvbiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "host_your_ai_app_on_google_colab_for_free/host_your_ai_app_on_google_colab_for_free.webp" "How to Host Your AI App on Google Colab for Free" >}}
+{{< image "host_your_ai_app_on_google_colab_for_free/host_your_ai_app_on_google_colab_for_free.png" "How to Host Your AI App on Google Colab for Free" >}}
 
 Building AI-powered applications is exciting, but hosting them can quickly become expensive. Between GPU costs, server infrastructure, and bandwidth charges, running even a simple AI app can drain your budget. What if you could build and host a complete AI application with a beautiful web interface, all for free? That's exactly what we're going to do using {{< link href="https://colab.research.google.com/" >}}Google Colab{{< /link >}}, {{< link href="https://ollama.com/" >}}Ollama{{< /link >}}, and {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}.
 
@@ -40,7 +40,10 @@ In this guide, we'll build an AI Blog Writer application that uses {{< link href
    - Build AI-powered web app with custom UI
    - Access from anywhere via public URL
 
+**Open in Colab**: <a href="https://colab.research.google.com/github/Moksh45/Host-your-AI-App-on-Google-Colab/blob/main/How_to_Host_your_AI_App_on_Google_Colab_for_Free.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 **Complete Code**: Get the full working notebook from <a href="https://github.com/Moksh45/Host-your-AI-App-on-Google-Colab" target="_blank">GitHub repository</a>
+
 
 {{% /tldr %}}
 
@@ -346,9 +349,15 @@ Try entering different blog topics and watch as the AI generates content in real
 
 {{< image "host_your_ai_app_on_google_colab_for_free/running_ai_app_2.webp" "Running AI App With Output" >}}
 
-## GitHub Repository
 
-You can find the complete Colab notebook with all the code and additional examples in the GitHub repository: {{< link href="https://github.com/Moksh45/Host-your-AI-App-on-Google-Colab" >}}Host your AI App on Google Colab{{< /link >}}. The repository includes the full notebook, troubleshooting tips, and suggestions for extending the application with additional features.
+## Notebook Source Code
+
+You can find the complete Colab notebook with all the code in the GitHub repository:   
+{{< link href="https://github.com/Moksh45/Host-your-AI-App-on-Google-Colab" >}} Host your AI App on Google Colab{{< /link >}}.
+
+Want to try it right away? Click the button below to open the notebook directly in **Google Colab**: <a href="https://colab.research.google.com/github/Moksh45/Host-your-AI-App-on-Google-Colab/blob/main/How_to_Host_your_AI_App_on_Google_Colab_for_Free.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 ## Conclusion
 
