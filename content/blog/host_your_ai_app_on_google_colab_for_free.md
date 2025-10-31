@@ -1,7 +1,7 @@
 ---
 title: "How to Host Your AI App on Google Colab for Free"
 description: "Learn how to build and host a complete AI-powered Flask application on Google Colab with free GPU access. Use Ollama for LLM inference and Pinggy for public access - no server costs required."
-date: 2025-10-30T14:00:00+05:30
+date: 2025-10-31T14:00:00+05:30
 draft: false
 tags: ["Google Colab", "Ollama", "Flask", "Pinggy", "AI App", "LLM", "Free Hosting", "Python"]
 og_image: "images/host_your_ai_app_on_google_colab_for_free/host_your_ai_app_on_google_colab_for_free.webp"
