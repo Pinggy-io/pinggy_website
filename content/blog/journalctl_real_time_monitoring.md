@@ -217,7 +217,7 @@ The `-A` (after) and `-B` (before) flags give you context. This is super helpful
 
 ### Inverting the Match
 
-Got a chatty service that logs something every second and clutters your view? Filter it out:
+Sometimes it's useful to exclude certain noisy log entries:
 
 ```bash
 # Show all logs except those containing "periodic"

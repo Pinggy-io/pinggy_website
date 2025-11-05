@@ -20,31 +20,17 @@ The magic happens through the TLS protocol, which creates an encrypted connectio
 In this guide, we'll break down how TLS tunnels actually work and show you how to create one for free using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, a developer-friendly tool that makes setting up secure TLS tunnels to localhost super straightforward.
 
 {{% tldr %}}
-**TLS Tunnel — Quick Overview**
-
+**TLS Tunnel — Quick Overview:**
 * Creates a secure, encrypted channel between client and server using the TLS protocol.
 * Provides end-to-end encryption no third party (including tunnel providers or ISPs) can decrypt your traffic.
 * Uses Server Name Indication (SNI) to route traffic to the correct tunnel.
 
-**Quick Setup with Pinggy**
+**Quick Setup with Pinggy:**
 
 Create a free TLS tunnel to your localhost HTTPS server:
 ```bash
 ssh -p 443 -R0:localhost:443 tls@free.pinggy.io
 ```
-
-**Requirements**
-
-* Your HTTPS server must have valid TLS certificates for the tunnel domain.
-* For custom domains, sign in to <a target="_blank" href="https://dashboard.pinggy.io/">Pinggy Dashboard</a> .
-* Use <a target="_blank" href="https://letsencrypt.org/docs/">Let's Encrypt</a> to obtain for free SSL certificates.
-
-**Key Benefits**
-
-* End-to-end encryption for all traffic
-* Secure remote access through NATs and firewalls
-* Protection against eavesdropping and tampering
-* Platform-independent and easy to set up
 {{% /tldr %}}
 
 ## What is TLS

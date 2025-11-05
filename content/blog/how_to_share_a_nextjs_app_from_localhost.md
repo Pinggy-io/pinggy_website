@@ -31,7 +31,7 @@ Hosting your {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app on 
     - Access your Next.js app via the provided [Pinggy](https://pinggy.io) public URL (e.g., `https://your-app.pinggy.link`).
 {{% /tldr %}}
 
-{{< iframe src="https://www.youtube.com/embed/HJCr-9HpTpY?si=9mEqvhjSLmwRQbRw" title="YouTube video player" >}}
+{{< iframe src="https://www.youtube.com/embed/HJCr-9HpTpY?si=9mEqvhjSLmwRQbRw" title="How to Share a Next.js App from Localhost - Tutorial Video" >}}
 
 ## What Is Next.js?
 {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} is an open‑source React framework created by {{< link href="https://vercel.com/" >}}Vercel{{< /link >}} that streamlines building production‑ready web applications. Out of the box it provides:
