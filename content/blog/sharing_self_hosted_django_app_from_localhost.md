@@ -1,7 +1,7 @@
 ---
 title: "Sharing a Self-Hosted Django Application from Localhost"
 description: "Learn how to share your Django application from localhost using Pinggy. Step-by-step guide for running Django locally and creating secure tunnels for remote access."
-date: 2025-11-05T10:00:00+05:30
+date: 2025-11-07T10:00:00+05:30
 draft: false
 tags: ["Django", "Pinggy", "guide", "tunneling", "remote access", "Python"]
 og_image: "images/sharing_self_hosted_django_app_from_localhost/sharing_self_hosted_django_app_from_localhost_banner.webp"
@@ -15,7 +15,7 @@ outputs:
 
 Building web applications with {{< link href="https://www.djangoproject.com/" >}}Django{{< /link >}} is a joy, but sharing your work-in-progress with teammates, clients, or testers can be surprisingly tricky. Your Django app runs perfectly on localhost, but the moment you need someone else to see it, you're stuck dealing with deployment pipelines, cloud configurations, or complex networking setups. What if you could skip all that and share your local Django server instantly?
 
-In this guide, we'll show you how to expose your Django application to the internet in seconds using [Pinggy](https://pinggy.io), without deploying to any server or messing with your router settings.
+In this guide, we'll show you how to expose your Django application to the internet in seconds using {{<link href="https://pinggy.io" >}}Pinggy{{</link >}}, without deploying to any server or messing with your router settings.
 
 {{% tldr %}}
 1. **Create and activate a virtual environment**
@@ -35,10 +35,10 @@ In this guide, we'll show you how to expose your Django application to the inter
 
 3. **Share your local Django app using Pinggy**
    ```bash
-   ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000
+   ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000
    ```
    
-   Access your Django app via the provided [Pinggy](https://pinggy.io) public URL (e.g., `https://your-app.pinggy.link`).
+   Access your Django app via the provided <a href="https://pinggy.io" target="_blank">Pinggy</a> public URL (e.g., `https://your-app.pinggy.link`).
 {{% /tldr %}}
 
 {{< iframe src="https://www.youtube.com/embed/xsIrb1PM2Hc?si=Yt2iMBklj76_JZfl" title="Share Django App from Localhost" >}}
@@ -66,7 +66,7 @@ When you're developing a Django application locally, it runs on `127.0.0.1:8000`
 - **Webhook Testing**: Many third-party services (payment gateways, social auth, APIs) require a public URL to send webhooks.
 - **Mobile Testing**: Testing your Django app on mobile devices becomes complicated without a public URL.
 
-Traditional solutions involve deploying to staging servers, which is time-consuming and often overkill for quick demos or testing. Using [Pinggy](https://pinggy.io), you can create a secure tunnel that makes your local Django application accessible to anyone on the internet, no deployment required.
+Traditional solutions involve deploying to staging servers, which is time-consuming and often overkill for quick demos or testing. Using {{<link href="https://pinggy.io" >}}Pinggy{{</link >}} , you can create a secure tunnel that makes your local Django application accessible to anyone on the internet, no deployment required.
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ Before we begin, make sure you have:
 - **Python 3.8+**: Installed on your system. Download from {{< link href="https://www.python.org/downloads/" >}}Python's official website{{< /link >}}.
 - **SSH Client**: Built-in on macOS/Linux; Windows users can use Git Bash or OpenSSH.
 - **Basic Terminal Knowledge**: Familiarity with running commands in the terminal.
--  **[Pinggy Account](https://dashboard.pinggy.io/)(Optional)**: For custom domains and advanced features.
+-  **{{<link href="https://dashboard.pinggy.io/" >}}Pinggy Account{{</link >}} (Optional)**: For custom domains and advanced features.
 
 ## Step 1: Set Up Your Django Project
 
@@ -177,8 +177,8 @@ Open your browser and visit `http://127.0.0.1:8000/`. You'll see Django's friend
 Now comes the magic part. Open a new terminal window (keep your Django server running in the first one) and run this command:
 
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t a.pinggy.io u:Host:127.0.0.1:8000\"}}}"
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 -t free.pinggy.io u:Host:127.0.0.1:8000\"}}}"
 {{</ ssh_command >}}
 
 {{< image "sharing_self_hosted_django_app_from_localhost/pinggy_command.webp" "Pinggy Command" >}}
@@ -190,7 +190,7 @@ Let's break down what this command does:
 - **`ssh -p 443`**: Establishes a secure SSH connection to Pinggy's server on port 443 (HTTPS port, which works even on restrictive networks).
 - **`-R0:localhost:8000`**: Creates a reverse tunnel that maps your local Django app (running on port 8000) to a public URL.
 - **`-L4300:localhost:4300`**: Sets up local port forwarding for Pinggy's web debugger interface.
-- **`-t a.pinggy.io`**: Specifies the Pinggy server to connect to.
+- **`-t free.pinggy.io`**: Specifies the Pinggy server to connect to.
 - **`u:Host:127.0.0.1:8000`**: Updates the HTTP Host header to ensure Django accepts requests from the public URL.
 
 ### What You'll See
@@ -224,11 +224,11 @@ Pinggy offers several advanced features that make it even more powerful for Djan
 
 Instead of using a random Pinggy subdomain, you can use your own custom domain. This is perfect for professional demos or when you need a branded URL.
 
-Visit [Pinggy's documentation](https://pinggy.io/docs/) to learn how to set up custom domains.
+Visit {{<link href="https://pinggy.io/docs/" >}}Pinggy's documentation{{</link >}}  to learn how to set up custom domains.
 
 ### Persistent URLs
 
-By default, Pinggy generates a new URL each time you create a tunnel. With a [Pinggy Pro account](https://pinggy.io/#prices), you can get persistent URLs that remain the same across sessions.
+By default, Pinggy generates a new URL each time you create a tunnel. With a {{<link href="https://pinggy.io/#prices" >}}Pinggy Pro account{{</link >}}, you can get persistent URLs that remain the same across sessions.
 
 ## Common Use Cases for Sharing Django Apps
 
@@ -244,7 +244,7 @@ Here are some scenarios where sharing your Django app from localhost is incredib
 
 ## Conclusion
 
-Sharing your Django application from localhost has never been easier. With [Pinggy](https://pinggy.io), you can transform your local development server into a publicly accessible application in seconds, without dealing with deployment pipelines, cloud configurations, or network settings. Whether you're demoing to clients, testing webhooks, or collaborating with remote teammates, Pinggy provides a fast, secure, and developer-friendly solution.
+Sharing your Django application from localhost has never been easier. With {{<link href="https://pinggy.io" >}}Pinggy{{</link >}}, you can transform your local development server into a publicly accessible application in seconds, without dealing with deployment pipelines, cloud configurations, or network settings. Whether you're demoing to clients, testing webhooks, or collaborating with remote teammates, Pinggy provides a fast, secure, and developer-friendly solution.
 
 The combination of Django's powerful framework and Pinggy's instant tunneling creates a workflow that lets you focus on building great applications instead of wrestling with infrastructure. Give it a try on your next Django project — you'll wonder how you ever lived without it.
 
