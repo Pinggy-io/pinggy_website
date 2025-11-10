@@ -20,9 +20,10 @@ With <a target="_blank" href="https://pinggy.io/#prices">Pinggy Pro</a> you can 
 
 ## Configure Custom Domain in Pinggy
 
-Once you have upgraded to <a target="_blank" href="https://pinggy.io/#prices">Pinggy Pro</a>, log in to <a href="https://dashboard.pinggy.io/customdomains" target="_blank">Pinggy Dashboard -> Custom Domains</a>.
+Once you have upgraded to <a target="_blank" href="https://pinggy.io/#prices">Pinggy Pro</a>, log in to <a href="https://dashboard.pinggy.io/domains" target="_blank">Pinggy Dashboard -> Domains</a>.
 
-- Click on the **Configure** button for the token for which you want to set up the custom domain.
+- Click on the **edit icon** for the domain for which you want to set up the custom domain.
+- Click on the "Custom Domain" tab.
 - Enter your custom domain such as `app.example.com`. Then press the **Update** button.
 - You may also enter a wildcard custom domain such as `*.example.com`.
 - After that, you will get the **CNAME configuration instructions**, such as:

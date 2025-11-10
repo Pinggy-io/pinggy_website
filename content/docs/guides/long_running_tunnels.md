@@ -9,7 +9,7 @@
 
 You can use Pinggy to host websites, apps, and files from localhost just like any server. You just need to ensure the following:
 
-1. Get a persistent subdomain or a custom domain from the [dashboard](https://dashboard.pinggy.io).
+1. Get a persistent subdomain or a custom domain from the <a href="https://dashboard.pinggy.io" target="_blank">dashboard</a>.
 2. To generate an SSH key, run the following command in your terminal and press Enter:
 
    {{< ssh_command text="ssh-keygen" >}}
@@ -23,38 +23,33 @@ You can use Pinggy to host websites, apps, and files from localhost just like an
    The following command ensures that your tunnels stay alive and restart on its own if something goes wrong:
 
    {{< tabs >}}
-   {{% tab name="Linux" %}}
+   {{% tab name="CLI" %}}
+   Pinggy CLI has auto reconnection built in. Download the Pinggy CLI from <a href="/cli/" target="_blank">here</a> and run the following command:
+
+```bash
+./pinggy -p 443 -R0:localhost:8000 <token>@pro.pinggy.io
+```
+   {{% /tab %}}
+   {{% tab name="SSH" %}}
+
+   In **Mac OS** or **Linux**, use the following script to enable auto reconnection.
 
    ```bash
    # pinggy.sh
 
    while true;
-       do ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 token@a.pinggy.io;
+       do ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 <token>@pro.pinggy.io;
        sleep 2;
    done
    ```
+<br/>
 
-   {{% /tab %}}
-   {{% tab name="macOS" %}}
-
-   ```bash
-   # pinggy.sh
-
-   while true;
-       do ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 token@a.pinggy.io;
-       sleep 2;
-   done
-   ```
-
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
-
-   ```bash
+   For **Windows**, use the following script:
+ ```bash
    # pinggy.bat
 
-   FOR /L %N IN () DO ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 token@a.pinggy.io
+   FOR /L %N IN () DO ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 <token>@pro.pinggy.io
    ```
-
    {{% /tab %}}
    {{< /tabs >}}
 

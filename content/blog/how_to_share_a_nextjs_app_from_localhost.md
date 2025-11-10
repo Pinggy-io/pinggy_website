@@ -39,7 +39,7 @@ Hosting your {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app on 
 - **Static Site Generation (SSG)** for lightning‑fast, SEO‑friendly pages  
 - **Server‑Side Rendering (SSR)** to deliver dynamic content on request  
 - **Incremental Static Regeneration (ISR)** to update static content without redeploying  
-- **Built‑in Routing & API Routes** — no extra server configuration required  
+- **Built‑in Routing & API Routes** - no extra server configuration required  
 - **Automatic Code Splitting & Optimization** for smaller bundles and faster load times  
 - **Image & Font Optimization**, Internationalization (i18n), and Analytics integrations  
 
@@ -98,7 +98,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 
 {{< image "how_to_share_a_nextjs_app_from_localhost/pinggy_command.webp" "pinggy ssh command" >}}
 
-Pinggy will output a secure public URL (e.g., `https://your-app.pinggy.link`). Paste that URL in your browser — your Next.js app is now accessible from anywhere.
+Pinggy will output a secure public URL (e.g., `https://your-app.pinggy.link`). Paste that URL in your browser - your Next.js app is now accessible from anywhere.
 
 {{< image "how_to_share_a_nextjs_app_from_localhost/pinggy_public_url.webp" "pinggy url" >}}
 
@@ -143,4 +143,4 @@ To learn more about these features, refer to [Pinggy's official documentation](h
 
 ## Conclusion
 
-Hosting a {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app with [Pinggy](https://pinggy.io) empowers you to bypass traditional infrastructure overhead while maintaining enterprise‑grade security via SSH. In just three commands, you transform a local development server into a publicly accessible, shareable demo environment — ideal for stakeholder reviews, client feedback, or remote testing. When you’re ready for production, migrating to a managed platform (Vercel, Netlify, or AWS Amplify) is seamless thanks to Next.js’s deployment‑ready optimizations.
+Hosting a {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app with [Pinggy](https://pinggy.io) empowers you to bypass traditional infrastructure overhead while maintaining enterprise‑grade security via SSH. In just three commands, you transform a local development server into a publicly accessible, shareable demo environment - ideal for stakeholder reviews, client feedback, or remote testing. When you’re ready for production, migrating to a managed platform (Vercel, Netlify, or AWS Amplify) is seamless thanks to Next.js’s deployment‑ready optimizations.

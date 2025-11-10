@@ -277,7 +277,7 @@ For more details, check out the official [Pinggy Documentation](https://pinggy.i
 
 ## Conclusion
 
-Localhost is more than just a buzzword, — it is the cornerstone of safe, efficient, and flexible development and testing. By understanding how to modify your hosts file, you can simulate real-world domain scenarios without the need for external DNS changes. Additionally, differentiating between public IPs, private IPs, and the special loopback address of localhost gives you a deeper insight into network architecture and security.
+Localhost is more than just a buzzword, - it is the cornerstone of safe, efficient, and flexible development and testing. By understanding how to modify your hosts file, you can simulate real-world domain scenarios without the need for external DNS changes. Additionally, differentiating between public IPs, private IPs, and the special loopback address of localhost gives you a deeper insight into network architecture and security.
 
 Experimenting with custom domain mappings and testing these configurations using tools like `ping`, Python, or Java not only enhances your debugging capabilities but also prepares you for more complex network setups. Whether you’re debugging a React app or building robust back-end APIs, mastering localhost is essential to streamline your development workflow.
 
