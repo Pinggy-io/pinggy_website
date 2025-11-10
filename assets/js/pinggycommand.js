@@ -18,7 +18,8 @@ document.addEventListener("alpine:init", () => {
       const { platformselect, token } = this.commandConfig;
       const connectionType = this.cliOrSSH();
       const platformType = platformselect === "unix" ? "linux" : "windows";
-      const commandTemplate = cmd?.[connectionType]?.[platformType]?.ps || "";
+      let commandTemplate = cmd?.[connectionType]?.[platformType]?.ps || "";
+      commandTemplate = commandTemplate.replace("a.pinggy.io", "free.pinggy.io");
 
       // Validate token format
       if (!/^[a-zA-Z0-9-]+$/.test(token)) {
@@ -27,12 +28,12 @@ document.addEventListener("alpine:init", () => {
 
       // Inject the token into the command where applicable
       return commandTemplate.replace(
-        /(tlstcp|tcp|tls|qr|force|udp)?@?a.pinggy.io/g,
+        /(tlstcp|tcp|tls|qr|force|udp)?@?free.pinggy.io/g,
         (match, protocol) => {
           if (protocol) {
-            return `${token}+${protocol}@a.pinggy.io`;
+            return `${token}+${protocol}@pro.pinggy.io`;
           }
-          return `${token}@a.pinggy.io`;
+          return `${token}@pro.pinggy.io`;
         }
       );
     },

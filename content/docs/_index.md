@@ -25,10 +25,13 @@ This will start a server at <a href="http://localhost:8000" target="_blank">http
 Open your terminal / command prompt and run the following to create a tunnel using SSH:
 
 ```bash
-ssh -p 443 -R0:localhost:8000 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 free.pinggy.io
 ```
 
 Replace the port `8000` with the localhost port where your service is running.
+
+If you are prompted for a password, just press enter.
+
 
 ![SSH Tunnel Screenshot](/assets/ssh_tui_screenshot.png)
 {{% /tab %}}
@@ -104,15 +107,17 @@ Follow <a target="_blank" href="https://pypi.org/project/pinggy/">Python SDK doc
 
 #### Step 3: Access through public URL
 
-The above command will provide you http and https URLs as follows:
+The above step will provide you http and https URLs as follows:
 
 ```
 // You can access local server via following URL(s):
-http://fakqxzqrohxxx.a.pinggy.link
-https://fakqxzqrohxxx.a.pinggy.link
+http://uljtt-30-47-152-61.a.free.pinggy.link
+https://uljtt-30-47-152-61.a.free.pinggy.link
 ```
 
 You can access your localhost service using these URLs.
+
+With Pinggy Pro you can customize these urls by logging in to  <a href="https://dashboard.pinggy.io" target="_blank">dashboard.pinggy.io</a>.
 
 #### Quickstart Recipes
 
