@@ -63,9 +63,10 @@ Then, create a tunnel in your Node.js application:
 ```js
 import { pinggy } from "@pinggy/pinggy";
 
-const tunnel = pinggy.createTunnel({ forwardTo: "localhost:3000" });
+
+const tunnel = pinggy.createTunnel({ forwarding: "localhost:3000" });
 await tunnel.start();
-console.log("Tunnel URLs:", tunnel.urls()); 
+console.log("Tunnel URLs:", await tunnel.urls()); // Get all public urls
 ```
 
 Replace `3000` with the port where your service is running.
