@@ -66,7 +66,7 @@ document.addEventListener("alpine:init", () => {
         host = match[1];
         port = match[2] ? parseInt(match[2], 10) : protocol;
       } else {
-        // No colon — could be port-only or a host without port
+        // No colon - could be port-only or a host without port
         const parsedInt = parseInt(url, 10);
 
         if (/[a-zA-Z]/.test(url)) {

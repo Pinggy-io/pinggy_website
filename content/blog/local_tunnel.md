@@ -27,7 +27,7 @@ Simply replace <kbd>8000</kbd> with your desired port number. For additional fea
 **Local tunnels are simple using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}** 
 
 {{% tldr %}}
-**Local Tunnel — Quick Overview**
+**Local Tunnel - Quick Overview**
 
 * Exposes local services to the internet via a secure, generated URL (HTTP/TCP/UDP).
 * Bypasses NAT/CGNAT and firewalls using SSH—no extra downloads.
