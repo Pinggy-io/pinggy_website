@@ -154,6 +154,12 @@ Server is running on http://localhost:3000
 
 Open your browser and visit `http://localhost:3000`. You'll see your welcome message, confirming everything is working correctly. Try visiting `http://localhost:3000/api/hello` to see the JSON response.
 
+{{< image "sharing_express_js_app_from_localhost/run_express_server.webp" "Run Express.js Server" >}}
+
+{{< image "sharing_express_js_app_from_localhost/express_app_running_on_port_3000.webp" "Express.js App Running on Localhost" >}}
+
+{{< image "sharing_express_js_app_from_localhost/express_app_json_response.webp" "Express.js JSON Response" >}}
+
 ## Step 2: Share Your Express.js App with Pinggy
 
 Now comes the exciting part. Open a new terminal window (keep your Express.js server running in the first one) and run this command:
@@ -161,6 +167,8 @@ Now comes the exciting part. Open a new terminal window (keep your Express.js se
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io\"}}}"
 {{</ ssh_command >}}
+
+{{< image "sharing_express_js_app_from_localhost/pinggy_command.webp" "Pinggy Command" >}}
 
 ### Understanding the Command
 
@@ -182,11 +190,17 @@ https://rnssh-12-34-56-78.a.pinggy.link
 Web Debugger: http://localhost:4300
 ```
 
+{{< image "sharing_express_js_app_from_localhost/pinggy_public_url.webp" "Pinggy Public URL" >}}
+
 That's it! Your Express.js application is now publicly accessible. Anyone can visit the Pinggy URL and interact with your app as if it were deployed on a real server.
 
 ## Step 3: Test Your Public Express.js App
 
 Copy the Pinggy URL from your terminal and paste it into any browser. You should see your Express.js application load perfectly. Try accessing your API endpoints by appending `/api/hello` to the Pinggy URL. Share it with colleagues, test it on your phone, or use it with webhook services — everything works seamlessly.
+
+{{< image "sharing_express_js_app_from_localhost/app_running_on_pinggy_public_url.webp" "Express.js App Running on Pinggy Public URL" >}}
+
+{{< image "sharing_express_js_app_from_localhost/access_json_response_using_pinggy_public_url.webp" "Access JSON Response Using Pinggy Public URL" >}}
 
 The web debugger at `http://localhost:4300` is particularly useful. It shows you all incoming HTTP requests in real-time, including headers, query parameters, request bodies, and response data. This is invaluable for debugging webhooks, API integrations, and understanding how external services interact with your application.
 
@@ -211,13 +225,13 @@ Pinggy allows you to add password protection to your tunnels, ensuring that only
 Secure your tunnel by appending a username and password to your SSH command:  
 
   ```bash
-  ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password
+  ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password
   ```  
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"}}}"
 {{</ ssh_command >}}
 
-  You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the [official documentation](https://pinggy.io/docs/http_tunnels/basic_auth/).
+  You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the {{<link href="https://pinggy.io/docs/http_tunnels/basic_auth/">}}official documentation{{</link >}}.
 
 ## Common Use Cases for Sharing Express.js Apps
 
