@@ -20,7 +20,7 @@ The magic happens through the TLS protocol, which creates an encrypted connectio
 In this guide, we'll break down how TLS tunnels actually work and show you how to create one for free using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, a developer-friendly tool that makes setting up secure TLS tunnels to localhost super straightforward.
 
 {{% tldr %}}
-**TLS Tunnel — Quick Overview:**
+**TLS Tunnel - Quick Overview:**
 * Creates a secure, encrypted channel between client and server using the TLS protocol.
 * Provides end-to-end encryption no third party (including tunnel providers or ISPs) can decrypt your traffic.
 * Uses Server Name Indication (SNI) to route traffic to the correct tunnel.
@@ -165,4 +165,4 @@ Overall, TLS tunnels strengthen network security and ensure safe, consistent com
 
 TLS tunnels play a crucial role in securing modern internet communication by providing end-to-end encryption, ensuring data integrity, and enabling safe remote access through firewalls or NATs. Whether you’re protecting sensitive data or exposing a localhost server securely, TLS tunnels offer a simple yet powerful solution.
 
-With tools like {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, setting up a TLS tunnel takes just a single command — giving developers an effortless way to create encrypted, trusted connections without complex configurations. In short, TLS tunneling is an essential step toward building a safer and more private web experience.
+With tools like {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, setting up a TLS tunnel takes just a single command - giving developers an effortless way to create encrypted, trusted connections without complex configurations. In short, TLS tunneling is an essential step toward building a safer and more private web experience.

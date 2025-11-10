@@ -119,7 +119,7 @@ In the end, gaming DNS means better performance, lag-free experience, giving you
 Selecting the best DNS server for gaming involves evaluating several critical factors. Here’s a detailed guide on what to consider:
 
 #### 1. Low Latency
-The amount of time taken by a data packet from your device till it reaches a server and back is latency. Low latency (or ping, a funny play on words) is indispensable in gaming, but it keeps people sane — or at least focused. Because milliseconds are of importance in competitive gaming, a faster hitting DNS server can shave off milliseconds which can make a difference.
+The amount of time taken by a data packet from your device till it reaches a server and back is latency. Low latency (or ping, a funny play on words) is indispensable in gaming, but it keeps people sane - or at least focused. Because milliseconds are of importance in competitive gaming, a faster hitting DNS server can shave off milliseconds which can make a difference.
 
 - **Why It Matters**: Faster DNS responses mean quicker connections to gaming servers, reducing lag.
 - **Tip**: Use tools like **Namebench** or **DNS Jumper** to measure latency for different DNS servers.
@@ -294,5 +294,5 @@ Changing your DNS is easy and can be done in just a few steps:
 
 ### Conclusion
 
-Although choosing best DNS for gaming may not seem much, it can make a difference in your online gaming experience. You have lots of great options, depending on which one of these — speed, security, privacy — you care more about. Reducing latency and improving performance can be done with Cloudflare, Google DNS, OpenDNS. Changing to a more reliable, faster DNS server will help you get a smoother, lag free gaming experience.
+Although choosing best DNS for gaming may not seem much, it can make a difference in your online gaming experience. You have lots of great options, depending on which one of these - speed, security, privacy - you care more about. Reducing latency and improving performance can be done with Cloudflare, Google DNS, OpenDNS. Changing to a more reliable, faster DNS server will help you get a smoother, lag free gaming experience.
 
