@@ -277,7 +277,7 @@ listen(app, {
 
 {{< image "sharing_express_js_app_from_localhost/run_app.webp" "Pinggy Public URL" >}}
 
-{{< image "sharing_express_js_app_from_localhost/open_webpage_using_pinggy_url.webp" "Open Webpage using Pinggy URL" >}}
+{{< image "sharing_express_js_app_from_localhost/express_app_running_on_pinggy_public_url.webp" "Express App Running on Pinggy Public URL" >}}
 
 ### How the SDK Works
 
