@@ -233,6 +233,60 @@ Secure your tunnel by appending a username and password to your SSH command:
 
   You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the {{<link href="https://pinggy.io/docs/http_tunnels/basic_auth/">}}official documentation{{</link >}}.
 
+## Sharing using Pinggy SDK
+
+While the SSH command approach works great, Pinggy also offers a Node.js SDK that provides an even more seamless integration with your Express.js application. The SDK allows you to start your Express.js server and create a tunnel programmatically, all within your application code.
+
+### Install the Pinggy SDK
+
+First, install the Pinggy SDK package alongside Express.js:
+
+```bash
+npm install --update @pinggy/pinggy express
+```
+
+This installs both Express.js and the Pinggy SDK as dependencies in your project.
+
+{{< image "sharing_express_js_app_from_localhost/install_pinggy_package.webp" "Install Pinggy Package" >}}
+
+### Using the SDK with Express.js
+
+The Pinggy SDK provides a convenient `listen` function that starts your Express.js server and automatically creates a tunnel in one step. Here's how to use it:
+
+```javascript
+const express = require("express");
+const { listen } = require("@pinggy/pinggy");
+
+const app = express();
+
+app.get("/", (req, res) => res.send("Hello from Express over Pinggy!"));
+
+// Define more routes
+
+listen(app, {
+  /* you can add PinggyOptions here, e.g. token: "..." */
+}).then(async (server) => {
+  console.log("Tunnel public URL:", await server.tunnel.urls());
+  console.log("Local server port:", server.address().port);
+
+  // Clean up when done
+  // server.close();
+  // server.tunnel.stop();
+});
+```
+
+{{< image "sharing_express_js_app_from_localhost/run_app.webp" "Pinggy Public URL" >}}
+
+{{< image "sharing_express_js_app_from_localhost/express_app_running_on_pinggy_public_url.webp" "Express App Running on Pinggy Public URL" >}}
+
+### How the SDK Works
+
+When you use `pinggy.listen()` with your Express.js app, it automatically starts your server on an available port, creates a Pinggy tunnel, and attaches the tunnel instance to `server.tunnel` for programmatic access.
+
+### Benefits of Using the SDK
+
+The SDK offers programmatic control over tunnels, eliminates the need for separate terminal windows, and keeps your entire setup in one file. You can start and stop tunnels directly from your code, making it perfect for automated testing and cleaner development workflows.
+
 ## Common Use Cases for Sharing Express.js Apps
 
 Here are some scenarios where sharing your Express.js app from localhost is incredibly useful:
