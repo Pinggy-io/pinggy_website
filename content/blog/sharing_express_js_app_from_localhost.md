@@ -34,7 +34,7 @@ In this guide, we'll show you how to expose your Express.js application to the i
 
 3. **Share your local Express.js app using Pinggy**
    ```bash
-   ssh -p 443 -R0:localhost:3000 -L4300:localhost:4300 -t free.pinggy.io
+   ssh -p 443 -R0:localhost:3000 -t free.pinggy.io
    ```
    
    Access your Express.js app via the provided <a href="https://pinggy.io" target="_blank">Pinggy</a> public URL (e.g., `https://your-app.pinggy.link`).
@@ -196,7 +196,7 @@ That's it! Your Express.js application is now publicly accessible. Anyone can vi
 
 ## Step 3: Test Your Public Express.js App
 
-Copy the Pinggy URL from your terminal and paste it into any browser. You should see your Express.js application load perfectly. Try accessing your API endpoints by appending `/api/hello` to the Pinggy URL. Share it with colleagues, test it on your phone, or use it with webhook services — everything works seamlessly.
+Copy the Pinggy URL from your terminal and paste it into any browser. You should see your Express.js application load perfectly. Try accessing your API endpoints by appending `/api/hello` to the Pinggy URL. Share it with colleagues, test it on your phone, or use it with webhook services - everything works seamlessly.
 
 {{< image "sharing_express_js_app_from_localhost/app_running_on_pinggy_public_url.webp" "Express.js App Running on Pinggy Public URL" >}}
 
@@ -303,5 +303,5 @@ Here are some scenarios where sharing your Express.js app from localhost is incr
 
 Sharing your Express.js application from localhost has never been easier. With {{<link href="https://pinggy.io" >}}Pinggy{{</link >}}, you can transform your local development server into a publicly accessible application in seconds, without dealing with deployment pipelines, cloud configurations, or network settings. Whether you're demoing to clients, testing webhooks, collaborating with remote teammates, or developing APIs, Pinggy provides a fast, secure, and developer-friendly solution.
 
-The combination of Express.js's lightweight framework and Pinggy's instant tunneling creates a workflow that lets you focus on building great applications instead of wrestling with infrastructure. Give it a try on your next Express.js project — you'll wonder how you ever lived without it.
+The combination of Express.js's lightweight framework and Pinggy's instant tunneling creates a workflow that lets you focus on building great applications instead of wrestling with infrastructure. Give it a try on your next Express.js project - you'll wonder how you ever lived without it.
 

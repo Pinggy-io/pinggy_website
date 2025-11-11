@@ -210,7 +210,7 @@ That's it! Your Django application is now publicly accessible. Anyone can visit 
 
 ## Step 3: Test Your Public Django App
 
-Copy the Pinggy URL from your terminal and paste it into any browser. You should see your Django application load perfectly. Try it on your phone, share it with a colleague, or test it with webhook services — it all works seamlessly.
+Copy the Pinggy URL from your terminal and paste it into any browser. You should see your Django application load perfectly. Try it on your phone, share it with a colleague, or test it with webhook services - it all works seamlessly.
 
 The web debugger at `http://localhost:4300` is particularly useful. It shows you all incoming HTTP requests in real-time, including headers, query parameters, and request bodies. This is invaluable for debugging webhooks and API integrations.
 
@@ -246,5 +246,5 @@ Here are some scenarios where sharing your Django app from localhost is incredib
 
 Sharing your Django application from localhost has never been easier. With {{<link href="https://pinggy.io" >}}Pinggy{{</link >}}, you can transform your local development server into a publicly accessible application in seconds, without dealing with deployment pipelines, cloud configurations, or network settings. Whether you're demoing to clients, testing webhooks, or collaborating with remote teammates, Pinggy provides a fast, secure, and developer-friendly solution.
 
-The combination of Django's powerful framework and Pinggy's instant tunneling creates a workflow that lets you focus on building great applications instead of wrestling with infrastructure. Give it a try on your next Django project — you'll wonder how you ever lived without it.
+The combination of Django's powerful framework and Pinggy's instant tunneling creates a workflow that lets you focus on building great applications instead of wrestling with infrastructure. Give it a try on your next Django project - you'll wonder how you ever lived without it.
 
