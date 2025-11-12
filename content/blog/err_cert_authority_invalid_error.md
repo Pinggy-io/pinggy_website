@@ -1,5 +1,5 @@
 ---
-title: "NET::ERR_CERT_AUTHORITY_INVALID Error"
+title: "How to Fix NET::ERR_CERT_AUTHORITY_INVALID Error"
 description: "Learn about the NET::ERR_CERT_AUTHORITY_INVALID error, its causes, and effective solutions. Troubleshooting steps for Chrome, Safari, and Arc browsers."
 date: 2024-11-24T15:30:00+05:30
 lastmod: 2025-11-12T15:15:25+05:30
