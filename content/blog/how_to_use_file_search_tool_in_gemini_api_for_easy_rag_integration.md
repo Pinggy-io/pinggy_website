@@ -17,11 +17,17 @@ outputs:
 Building a Retrieval Augmented Generation (RAG) system has traditionally been complex managing vector databases, embeddings, and chunking strategies. {{< link  href="https://blog.google/technology/developers/file-search-gemini-api/" >}} Google's File Search tool {{< /link >}} in the Gemini API simplifies this by providing a fully managed RAG solution. This tutorial shows you exactly how to install, configure, and use it with complete working code.
 
 {{% tldr %}}
-- Install and set up the Gemini API with File Search in minutes
-- Get complete working code to upload documents and query them with RAG
-- Follow a step-by-step guide from API key generation to running queries
-- No vector database management or embedding configuration needed
+- **Install Google GenAI Package**: Run `pip install google-genai` to install the single package required for Gemini’s File Search API.
+- **Generate Your Gemini API Key**: Go to https://aistudio.google.com/api-keys, sign in, and create your free API key.
+- **Prepare Your Document**: Create a sample text file, PDF, DOCX, or any supported format (up to 100 MB) that you want to search.
+- **Create a File Search Store**: Initialize a File Search store with a display name to organize the uploaded documents.
+- **Upload and Import Files**: Add your document to the File Search store with an optional display name and metadata.
+- **Wait for Import Completion**: Track the import operation status to ensure your file is fully processed and indexed.
+- **Ask Questions About the File**: Use natural language queries with the Gemini model and File Search tool to search your content.
+- **View Citation Metadata**: Check grounding metadata to see which document sections contributed to the generated answer.
+- **Clean Up Resources**: Delete the File Search store after use to keep your environment tidy.
 {{% /tldr %}}
+
 
 ## Prerequisites: What You Need Before Starting
 
