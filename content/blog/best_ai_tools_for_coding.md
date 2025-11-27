@@ -6,7 +6,7 @@ draft: false
 tags: ["AI coding tools", "GitHub Copilot", "Cursor", "development", "programming"]
 categories: ["Technology", "Development", "AI Tools"]
 og_image: "images/best_ai_tools_for_coding/ai_coding_tools.webp.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiQ2hvb3NlIHRoZSBCZXN0IEFJIENvZGluZyBUb29sIGZvciBZb3VyIERldmVsb3BtZW50IFdvcmtmbG93IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGV2YWx1YXRlIGFuZCBjaG9vc2UgdGhlIGJlc3QgQUkgY29kaW5nIHRvb2wgZm9yIHlvdXIgZGV2ZWxvcG1lbnQgbmVlZHMsIGluY2x1ZGluZyBHaXRIdWIgQ29waWxvdCwgQ3Vyc29yLCBXaW5kc3VyZiwgYW5kIG9wZW4tc291cmNlIGFsdGVybmF0aXZlcy4iLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQXNzZXNzIFlvdXIgRGV2ZWxvcG1lbnQgRW52aXJvbm1lbnQiLAogICAgICAidGV4dCI6ICJEZXRlcm1pbmUgeW91ciBwcmltYXJ5IGNvZGUgZWRpdG9yIChWUyBDb2RlLCBJbnRlbGxpSiwgZXRjLikgYW5kIHByb2dyYW1taW5nIGxhbmd1YWdlcy4gVGhpcyB3aWxsIGhlbHAgeW91IGNob29zZSBiZXR3ZWVuIGVkaXRvci1iYXNlZCBleHRlbnNpb25zIG9yIHN0YW5kYWxvbmUgQUkgdG9vbHMuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkV2YWx1YXRlIFlvdXIgQ29kaW5nIE5lZWRzIiwKICAgICAgInRleHQiOiAiSWRlbnRpZnkgd2hldGhlciB5b3UgbmVlZCBzaW1wbGUgY29kZSBjb21wbGV0aW9uLCBjb21wbGV4IHJlZmFjdG9yaW5nLCBvciBmdWxsIGNvZGViYXNlIGFuYWx5c2lzLiBGb3IgYmFzaWMgYXV0b2NvbXBsZXRlLCBjb25zaWRlciBHaXRIdWIgQ29waWxvdCBvciBUYWJuaW5lLiBGb3IgYWR2YW5jZWQgZmVhdHVyZXMsIGV2YWx1YXRlIEN1cnNvciBvciBXaW5kc3VyZi4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ29uc2lkZXIgUHJpdmFjeSBhbmQgU2VjdXJpdHkiLAogICAgICAidGV4dCI6ICJEZXRlcm1pbmUgaWYgeW91J3JlIGNvbWZvcnRhYmxlIHNlbmRpbmcgY29kZSB0byBjbG91ZC1iYXNlZCBzZXJ2aWNlcy4gRm9yIG1heGltdW0gcHJpdmFjeSwgY29uc2lkZXIgb3Blbi1zb3VyY2Ugb3B0aW9ucyBsaWtlIENvbnRpbnVlLmRldiBvciBsb2NhbCBMTE0gc29sdXRpb25zLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJUZXN0IHdpdGggRnJlZSBUcmlhbHMiLAogICAgICAidGV4dCI6ICJTaWduIHVwIGZvciBmcmVlIHRyaWFscyBvciBmcmVlIHRpZXJzIG9mIHlvdXIgdG9wIGNhbmRpZGF0ZXMuIFRlc3QgY29kZSBjb21wbGV0aW9uIGFjY3VyYWN5LCByZXNwb25zZSBzcGVlZCwgYW5kIGludGVncmF0aW9uIHF1YWxpdHkgd2l0aCB5b3VyIGV4aXN0aW5nIHdvcmtmbG93IGJlZm9yZSBjb21taXR0aW5nLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiQ2hvb3NlIHRoZSBCZXN0IEFJIENvZGluZyBUb29sIGZvciBZb3VyIERldmVsb3BtZW50IFdvcmtmbG93IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGV2YWx1YXRlIGFuZCBjaG9vc2UgdGhlIGJlc3QgQUkgY29kaW5nIHRvb2wgZm9yIHlvdXIgZGV2ZWxvcG1lbnQgbmVlZHMsIGluY2x1ZGluZyBDdXJzb3IsIEdvb2dsZSBBbnRpZ3Jhdml0eSwgR2l0SHViIENvcGlsb3QsIFdpbmRzdXJmLCBhbmQgb3Blbi1zb3VyY2UgYWx0ZXJuYXRpdmVzLiIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJBc3Nlc3MgWW91ciBEZXZlbG9wbWVudCBFbnZpcm9ubWVudCIsCiAgICAgICJ0ZXh0IjogIkRldGVybWluZSB5b3VyIHByaW1hcnkgY29kZSBlZGl0b3IgKFZTIENvZGUsIEludGVsbGlKLCBldGMuKSBhbmQgcHJvZ3JhbW1pbmcgbGFuZ3VhZ2VzLiBUaGlzIHdpbGwgaGVscCB5b3UgY2hvb3NlIGJldHdlZW4gZWRpdG9yLWJhc2VkIGV4dGVuc2lvbnMsIHN0YW5kYWxvbmUgQUkgdG9vbHMsIG9yIGFnZW50aWMgZGV2ZWxvcG1lbnQgcGxhdGZvcm1zIGxpa2UgR29vZ2xlIEFudGlncmF2aXR5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJFdmFsdWF0ZSBZb3VyIENvZGluZyBOZWVkcyBhbmQgV29ya2Zsb3ciLAogICAgICAidGV4dCI6ICJJZGVudGlmeSB3aGV0aGVyIHlvdSBuZWVkIHNpbXBsZSBjb2RlIGNvbXBsZXRpb24sIGNvbXBsZXggcmVmYWN0b3JpbmcsIGZ1bGwgY29kZWJhc2UgYW5hbHlzaXMsIG9yIGF1dG9ub21vdXMgYWdlbnQgY2FwYWJpbGl0aWVzLiBGb3IgYmFzaWMgYXV0b2NvbXBsZXRlLCBjb25zaWRlciBHaXRIdWIgQ29waWxvdCBvciBUYWJuaW5lLiBGb3IgYWR2YW5jZWQgZmVhdHVyZXMsIGV2YWx1YXRlIEN1cnNvciBvciBXaW5kc3VyZi4gRm9yIGFnZW50aWMgdGFzayBvcmNoZXN0cmF0aW9uLCBleHBsb3JlIEdvb2dsZSBBbnRpZ3Jhdml0eS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ29uc2lkZXIgUHJpdmFjeSBhbmQgU2VjdXJpdHkiLAogICAgICAidGV4dCI6ICJEZXRlcm1pbmUgaWYgeW91J3JlIGNvbWZvcnRhYmxlIHNlbmRpbmcgY29kZSB0byBjbG91ZC1iYXNlZCBzZXJ2aWNlcy4gRm9yIG1heGltdW0gcHJpdmFjeSwgY29uc2lkZXIgb3Blbi1zb3VyY2Ugb3B0aW9ucyBsaWtlIENvbnRpbnVlLmRldiBvciBsb2NhbCBMTE0gc29sdXRpb25zLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJUZXN0IHdpdGggRnJlZSBUcmlhbHMiLAogICAgICAidGV4dCI6ICJTaWduIHVwIGZvciBmcmVlIHRyaWFscyBvciBmcmVlIHRpZXJzIG9mIHlvdXIgdG9wIGNhbmRpZGF0ZXMuIFRlc3QgY29kZSBjb21wbGV0aW9uIGFjY3VyYWN5LCByZXNwb25zZSBzcGVlZCwgYWdlbnQgY2FwYWJpbGl0aWVzLCBhbmQgaW50ZWdyYXRpb24gcXVhbGl0eSB3aXRoIHlvdXIgZXhpc3Rpbmcgd29ya2Zsb3cgYmVmb3JlIGNvbW1pdHRpbmcuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
 outputs:
   - HTML
   - AMP
@@ -19,14 +19,15 @@ The landscape of AI-powered coding tools has evolved dramatically in 2025, trans
 Whether you're a solo developer looking to boost productivity or part of a team seeking to streamline your development workflow, choosing the right AI coding tool can significantly impact your coding efficiency and code quality. In this comprehensive guide, we'll explore the **best AI tools for coding in 2025**, categorized by their integration approach and functionality.
 
 {{% tldr %}}
-**Top 7 Editors and Extensions:**
-1. **Cursor** - AI-first code editor with advanced codebase understanding - <a target="_blank" href="https://cursor.sh">Try Cursor</a>
-2. **Windsurf** - Codeium's AI editor with agentic capabilities - <a target="_blank" href="https://codeium.com/windsurf">Try Windsurf</a>
-3. **GitHub Copilot** - Most popular with multi-language support and seamless VS Code integration - <a target="_blank" href="https://github.com/features/copilot">Try GitHub Copilot</a>
-4. **Augment Code** - Advanced AI coding assistant with world-class context engine - <a target="_blank" href="https://www.augmentcode.com/">Try Augment Code</a>
-5. **Tabnine** - Privacy-focused with on-premises deployment options - <a target="_blank" href="https://tabnine.com">Try Tabnine</a>
-6. **Supermaven** - Fast AI code completion with large context windows - <a target="_blank" href="https://supermaven.com">Try Supermaven</a>
-7. **Cline** - Open-source autonomous coding agent extension for VS Code - <a target="_blank" href="https://github.com/cline/cline">Try Cline</a>
+**Top 8 Editors and Extensions:**
+1. **Cursor** - AI first code editor with advanced codebase understanding - <a target="_blank" href="https://cursor.sh">Try Cursor</a>
+2. **Google Antigravity** - Google's new agentic development platform with autonomous agents - <a target="_blank" href="https://antigravity.google/">Try Google Antigravity</a>
+3. **Windsurf** - Codeium's AI editor with agentic capabilities - <a target="_blank" href="https://codeium.com/windsurf">Try Windsurf</a>
+4. **GitHub Copilot** - Most popular with multi-language support and seamless VS Code integration - <a target="_blank" href="https://github.com/features/copilot">Try GitHub Copilot</a>
+5. **Augment Code** - Advanced AI coding assistant with world-class context engine - <a target="_blank" href="https://www.augmentcode.com/">Try Augment Code</a>
+6. **Tabnine** - Privacy-focused with on-premises deployment options - <a target="_blank" href="https://tabnine.com">Try Tabnine</a>
+7. **Supermaven** - Fast AI code completion with large context windows - <a target="_blank" href="https://supermaven.com">Try Supermaven</a>
+8. **Cline** - Open-source autonomous coding agent extension for VS Code - <a target="_blank" href="https://github.com/cline/cline">Try Cline</a>
 
 **Honorable Mentions:**
 - **Kilo Code** - Lightweight AI coding assistant for VS code - <a target="_blank" href="https://kilocode.ai/">Try Kilo Code</a>
@@ -76,7 +77,29 @@ Cursor excels at complex refactoring tasks, codebase-wide changes, and understan
 
 Cursor offers a free tier with limited usage. Pro plans start at $20/month per user with unlimited usage and advanced features.
 
-### 2. Windsurf
+### 2. Google Antigravity
+
+{{< image "best_ai_tools_for_coding/google_antigravity.webp" "Google Antigravity Agentic Development Platform" >}}
+
+{{< link href="https://antigravity.google/" >}}Google Antigravity{{< /link >}} is Google's new agentic development platform launched in November 2025, designed to help developers operate at a higher, task-oriented level. Unlike traditional AI coding tools, Antigravity combines a familiar AI-powered IDE with a dedicated agent-first interface for orchestrating complex development tasks.
+
+Antigravity introduces a paradigm shift in how developers work with AI. It features two distinct modes: the Editor View for hands-on coding with AI assistance, and the Manager Surface where you can deploy autonomous agents that work across your editor, terminal, and browser. Agents communicate progress through Artifacts (screenshots, recordings, task lists) rather than raw logs, making it easy to verify their work at a glance.
+
+#### Key Features of Google Antigravity
+
+- **Dual interface design** - Editor View for hands-on coding and Manager Surface for agent orchestration
+- **Autonomous agents** - Deploy agents that plan, execute, and verify complex tasks independently
+- **Artifact-based verification** - Agents generate screenshots, recordings, and task lists for easy review
+- **Multi-tool integration** - Agents work seamlessly across editor, terminal, and browser
+- **Knowledge base** - Agents save useful context and code snippets to improve future tasks
+- **Model flexibility** - Supports Gemini 3 Pro, Claude Sonnet 4.5, and GPT-OSS
+- **Cross-platform** - Available on MacOS, Windows, and Linux
+
+#### Google Antigravity Pricing
+
+Google Antigravity is available in public preview at no cost for individuals, with generous rate limits on Gemini 3 Pro and full support for other AI models.
+
+### 3. Windsurf
 
 {{< image "best_ai_tools_for_coding/windsurf.webp" "Windsurf AI Code Editor" >}}
 
@@ -96,7 +119,7 @@ Windsurf shines in scenarios where you need to implement features that span mult
 
 Windsurf offers a generous free tier. Premium plans start at $15/month with enhanced AI capabilities and priority support.
 
-### 3. GitHub Copilot
+### 4. GitHub Copilot
 
 {{< image "best_ai_tools_for_coding/github_copilot.webp" "GitHub Copilot AI Assistant" >}}
 
@@ -116,7 +139,7 @@ What makes GitHub Copilot exceptional is its deep integration with the developme
 
 GitHub Copilot offers a free tier for verified students and open-source maintainers. Individual Pro plans start at $10/month, while Pro+ plans are $39/month per user with additional enterprise features.
 
-### 4. Augment Code
+### 5. Augment Code
 
 {{< image "best_ai_tools_for_coding/augment_code.webp" "Augment Code AI Assistant" >}}
 
@@ -142,7 +165,7 @@ Augment Code offers a comprehensive pricing structure with options for every dev
 
 All paid plans include chat & agents, context engine, MCP & native tools, next edits & completions, and team management features. Enterprise plans add SOC 2 Type II compliance and dedicated support.
 
-### 5. Tabnine
+### 6. Tabnine
 
 {{< image "best_ai_tools_for_coding/tabnine.webp" "Tabnine AI Code Completion" >}}
 
@@ -163,7 +186,7 @@ Tabnine can be trained on your specific codebase to provide more relevant sugges
 
 Tabnine offers a free tier with basic features. Pro plans start at $9/month per user, with enterprise plans offering custom pricing for on-premises deployment.
 
-### 6. Supermaven
+### 7. Supermaven
 
 {{< image "best_ai_tools_for_coding/supermaven.webp" "Supermaven AI Code Assistant" >}}
 
@@ -183,7 +206,7 @@ Supermaven's strength lies in its performance optimization and ability to handle
 
 Supermaven offers a free tier with limited usage. Pro plans start at $10/month with unlimited usage and priority support.
 
-### 7. Cline
+### 8. Cline
 
 {{< image "best_ai_tools_for_coding/cline.webp" "Cline Autonomous Coding Agent" >}}
 
