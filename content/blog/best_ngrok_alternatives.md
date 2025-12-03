@@ -362,6 +362,8 @@ Using Tailscale Funnel you can achive the functionality of Ngrok.
 - More complex setup for simple use cases
 - Tailscale Funnel feature is less mature than dedicated tunneling tools
 - Limited to VPN-style connectivity rather than public URL exposure
+- Funnel can listen on limited public ports 443, 8443, and 10000
+- No TCP or UDP tunnels
 
 #### Price of Tailscale
 
@@ -392,6 +394,7 @@ In the broad scheme of Cloudflare offerings, using Cloudflare Tunnels, organizat
 - Requires installing and running the cloudflared daemon
 - Steeper learning curve for beginners
 - Tied to Cloudflare ecosystem
+- No UDP or TCP tunnels
 
 #### Price of Cloudflare Tunnel
 
