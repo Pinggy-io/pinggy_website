@@ -221,7 +221,7 @@ X-Forwarded-For: 2001:db8::1, 203.0.113.50
 
 ### NGINX
 
-{{< link href="https://nginx.org/" >}} NGINX {{</link>}} provides the `ngx_http_realip_module` for handling forwarded headers:
+{{< link href="https://nginx.org/" >}}NGINX{{</link>}} provides the `ngx_http_realip_module` for handling forwarded headers:
 
 ```nginx
 # /etc/nginx/conf.d/realip.conf
