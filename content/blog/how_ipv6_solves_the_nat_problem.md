@@ -52,6 +52,9 @@ The Internet Assigned Numbers Authority (IANA) allocated the last blocks of IPv4
 
 ## What Is NAT and Why Was It Introduced?
 
+{{< image "how_ipv6_solves_the_nat_problem/nat_vs_ipv4_ipv6.webp" "NAT vs IPv4 and IPv6" >}}
+
+
 Network Address Translation (NAT), defined in {{< link href="https://datatracker.ietf.org/doc/html/rfc1631" >}}RFC 1631{{< /link >}}, emerged as a pragmatic solution to IPv4 address exhaustion. The concept is straightforward: instead of assigning a unique public IP address to every device, NAT allows an entire network of devices to share a single public IP address.
 
 NAT works by maintaining a translation table that maps internal (private) IP addresses to external (public) IP addresses. When a device on your home network sends a request to a web server, the NAT router rewrites the source IP address from the device's private address (like `192.168.1.100`) to the router's public IP address. It also typically modifies the source port number to track which internal device initiated the connection. When the response comes back, NAT reverses the translation and forwards the packet to the correct internal device.
