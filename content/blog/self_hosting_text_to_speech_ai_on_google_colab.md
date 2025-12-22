@@ -284,7 +284,7 @@ The interface includes a text input area, dropdown menus for voice and language 
 
 With everything in place, run the application cell in your Colab notebook. The server will start on port `5000`, and you can access it using the Pinggy URL that was generated earlier. Open the URL in your browser, and you'll see your text-to-speech interface ready to use.
 
-{{< image "self_hosting_text_to_speech_ai_on_google_colab/app.webp" "Running Your TTS Application" >}}
+{{< image "self_hosting_text_to_speech_ai_on_google_colab/app.jpeg" "Running Your TTS Application" >}}
 
 Try entering different text passages and experimenting with various voices and languages. The model handles both short phrases and longer paragraphs effectively. You can adjust the speed slider to make the speech faster or slower according to your needs. The generated audio can be played directly in the browser or downloaded as a WAV file for use in other projects.
 
