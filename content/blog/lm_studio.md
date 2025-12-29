@@ -2,6 +2,7 @@
 title: "How to Easily Share LM studio API Online"
 description: "Learn how to share your LM Studio API online using Pinggy. Deploy and run AI models locally, then expose them securely to the internet."
 date: 2025-02-19T14:00:00+05:30
+lastmod: 2025-12-29T14:15:25+05:30
 draft: false
 tags: ["LM Studio", "Pinggy", "Self-Hosted AI", "LLM Deployment", "AI Tunneling"]
 og_image: "images/lm_studio/pinggy.png"
@@ -11,9 +12,10 @@ outputs:
   - AMP
 ---
 
-In the era of generative AI, developers are continually seeking ways to quickly deploy and share their AI models without relying on complex cloud infrastructures. {{< link href="https://lmstudio.ai/" >}} LM Studio {{< /link >}} offers a seamless experience to download, install, and run AI models locally, while tools like [Pinggy](https://pinggy.io) enable you to expose your local endpoints to the internet securely. This guide provides a step-by-step tutorial on sharing your LM Studio API online, making your AI models accessible and shareable in minutes.
 
 {{< image "lm_studio/pinggy.png" "Self-Host LLM with lm Studio" >}}
+
+In the era of generative AI, developers are continually seeking ways to quickly deploy and share their AI models without relying on complex cloud infrastructures. {{< link href="https://lmstudio.ai/" >}} LM Studio {{< /link >}} offers a seamless experience to download, install, and run AI models locally, while tools like [Pinggy](https://pinggy.io) enable you to expose your local endpoints to the internet securely. This guide provides a step-by-step tutorial on sharing your LM Studio API online, making your AI models accessible and shareable in minutes.
 
 {{% tldr %}}
 
@@ -30,7 +32,7 @@ In the era of generative AI, developers are continually seeking ways to quickly 
 3. **Expose Your API with Pinggy**  
    - Create a secure tunnel using the following command:  
      ```bash
-     ssh -p 443 -R0:localhost:1234 a.pinggy.io
+     ssh -p 443 -R0:localhost:1234 free.pinggy.io
      ```
    - Share the generated public URL for easy access to your API.
 
@@ -57,7 +59,7 @@ Pinggy provides a hassle-free solution for exposing your local API to the public
 - **Integrated Debugger:** Monitor and troubleshoot requests with Pinggy’s web-based debugger.
 
 ## Step-by-Step Guide to Sharing LM Studio API
-{{< iframe src="https://www.youtube.com/embed/2WFBBR1nsMw" title="YouTube video player" >}}
+{{< iframe src="https://www.youtube.com/embed/FQgmqxBE3f4?si=HBfOprFGjYng5fdK" title="Youtube video on how to easily share lm studio api online" >}}
 
 ### Step 1: Download and Install LM Studio
 
@@ -113,10 +115,10 @@ Pinggy provides a hassle-free solution for exposing your local API to the public
    While your LM Studio API is running on `http://localhost:1234`, open your terminal and execute the following command to create a secure tunnel:
 
    ```bash
-   ssh -p 443 -R0:localhost:1234 a.pinggy.io
+   ssh -p 443 -R0:localhost:1234 free.pinggy.io
    ```
    {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1234 a.pinggy.io \",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:1234 a.pinggy.io \"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1234 a.pinggy.io \",\"cmd\":\"./pinggy -p 443 -R0:localhost:1234 a.pinggy.io \"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1234 a.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:1234 a.pinggy.io \"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1234 a.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:1234 a.pinggy.io \"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1234 free.pinggy.io \",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:1234 free.pinggy.io \"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1234 free.pinggy.io \",\"cmd\":\"./pinggy -p 443 -R0:localhost:1234 free.pinggy.io \"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1234 free.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:1234 free.pinggy.io \"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1234 free.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:1234 free.pinggy.io \"}}}"
 {{</ ssh_command >}}
 
 2. **Share the Public URL:**  
@@ -133,7 +135,7 @@ Pinggy provides a hassle-free solution for exposing your local API to the public
 - **Enable Basic Authentication:**  
   To secure your tunnel, modify your SSH command to include a username and password:
   ```bash
-  ssh -p 443 -R0:localhost:1234 -t a.pinggy.io b:username:password
+  ssh -p 443 -R0:localhost:1234 -t free.pinggy.io b:username:password
   ```
   This ensures that only authorized users can access your public URL.
 
@@ -160,7 +162,7 @@ Pinggy provides a hassle-free solution for exposing your local API to the public
 - Use Pinggy's TCP mode for unstable networks:
   ```bash
   while true; do 
-    ssh -p 443 -o StrictHostKeyChecking=no -R0:localhost:3000 a.pinggy.io; 
+    ssh -p 443 -o StrictHostKeyChecking=no -R0:localhost:3000 free.pinggy.io; 
   sleep 10; done
   ```
   *Note: This command requires [Pinggy Pro](https://pinggy.io/#prices)*.
