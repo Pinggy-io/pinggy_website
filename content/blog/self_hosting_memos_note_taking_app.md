@@ -63,6 +63,8 @@ The application is built with a Go backend and React frontend, making it blazing
 - **Multi-User Support**: Perfect for personal use or small teams
 - **Mobile-Responsive**: Works beautifully on all devices
 
+{{< image "self_hosting_memos/memos_ss.webp" "Memos" >}}
+
 ## Prerequisites
 
 Before we start, ensure you have Docker installed on your system. Docker provides a consistent environment across Windows, macOS, and Linux, making deployment straightforward regardless of your operating system.
