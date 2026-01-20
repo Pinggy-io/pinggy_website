@@ -37,28 +37,28 @@ Whether you're a senior engineer who lives in the terminal, a DevOps professiona
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Advanced reasoning & large context</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Aider</strong></td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Git-native workflows & refactoring</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Codex CLI</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">OpenAI integration & code generation</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free (open-source)</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Git integration & multi-file editing</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Direct GPT access & lightweight</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>OpenCode</strong></td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Multi-model flexibility & privacy</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free (open-source)</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">75+ LLM providers & LSP integration</td>
-</tr>
-<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Gemini CLI</strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Fast UI generation & Google AI</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free tier available</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Multimodal & ReAct loop</td>
 </tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Plandex</strong></td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Large projects & complex tasks</td>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>OpenCode</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Multi-model flexibility & privacy</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free (open-source)</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">2M token context & sandbox review</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">75+ LLM providers & LSP integration</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Aider</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Git-native workflows & refactoring</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free (open-source)</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Git integration & multi-file editing</td>
 </tr>
 </tbody>
 </table>
@@ -74,12 +74,12 @@ Whether you're a senior engineer who lives in the terminal, a DevOps professiona
 
 2. **Top CLI Coding Agents**:
    - <a href="https://claude.com/product/claude-code" target="_blank">Claude Code</a>: Advanced reasoning and large context windows for complex projects
-   - <a href="https://aider.chat" target="_blank">Aider</a>: Git-native workflows with automatic commits and multi-file coordination
+   - <a href="https://openai.com/index/introducing-codex/" target="_blank">Codex CLI</a>: OpenAI's lightweight terminal agent with direct GPT access
+   - <a href="https://github.com/google-gemini/gemini-cli" target="_blank">Gemini CLI</a>: Fast, multimodal assistance with Google's AI models
    - <a href="https://opencode.ai" target="_blank">OpenCode</a>: Provider-agnostic with 75+ LLM support and LSP integration
-   - <a href="https://geminicli.com/" target="_blank">Gemini CLI</a>: Fast, multimodal assistance with Google's AI models
-   - <a href="https://plandex.ai" target="_blank">Plandex</a>: Large-scale project management with 2M token context
+   - <a href="https://aider.chat" target="_blank">Aider</a>: Git-native workflows with automatic commits and multi-file coordination
 
-3. **Honorable Mentions**: Goose (Block's open-source agent), Qwen Code (Alibaba's coding model), Amazon Q Developer CLI (AWS integration), and Crush CLI (multi-model with beautiful TUI)
+3. **Honorable Mentions**: Goose (Block's open-source agent), Qwen Code (Alibaba's coding model), Amazon Q Developer CLI (AWS integration), Crush CLI (multi-model with beautiful TUI), and Plandex (2M token context for large projects)
 
 4. **Key Features to Look For**: Multi-model support, Git integration, context window size, LSP integration, local model support, and autonomous capabilities
 
@@ -122,34 +122,61 @@ Claude Code operates as a terminal-first agent that can autonomously navigate co
 
 Claude Code operates on Anthropic's API pricing model. You pay per token usage based on your chosen Claude model (Claude 4.5 Sonnet, Claude 4.5 Opus, etc.).
 
-#### 2. Aider
+#### 2. Codex CLI
 
-{{< image "top_cli_based_ai_coding_agents/aider_cli.webp" "aider cli" >}}
+{{< image "top_cli_based_ai_coding_agents/codex_cli.webp" "codex cli" >}}
 
-{{< link href="https://aider.chat" >}}Aider{{< /link >}} is designed specifically for AI pair programming in your terminal, with a strong focus on Git-native workflows. It connects to various AI models and can make coordinated changes across multiple files in your repository, making it perfect for complex refactoring tasks and feature implementations.
+{{< link href="https://openai.com/index/introducing-codex/" >}}Codex CLI{{< /link >}} is OpenAI's official command-line interface for accessing their powerful AI models directly from the terminal. As an open-source, lightweight coding agent, it runs entirely in your terminal and connects to OpenAI's cloud-based models like o4-mini and o3, providing developers with direct access to cutting-edge code generation capabilities.
 
-Aider's standout feature is its deep Git integration. The tool automatically commits changes with descriptive messages, offers built-in commands for reviewing changes, and manages everything within the Git system. This makes it particularly valuable for developers who work heavily with version control and need AI assistance that respects their Git workflow.
+Codex CLI stands out for its simplicity and focus on core development workflows. Unlike more complex agents, it offers a streamlined experience that prioritizes speed and reliability. The tool can read, modify, and create files in your codebase, run shell commands in a sandboxed environment, and reason through multi-step problems autonomously all while maintaining a clean, intuitive interface.
 
-The tool builds a comprehensive map of your entire codebase, enabling it to understand and effectively modify large projects. It can coordinate code changes across multiple files, applying them within a single changeset while maintaining code quality and consistency. Unlike traditional coding assistants, Aider operates autonomously to complete entire features or refactoring tasks.
+What makes Codex CLI particularly appealing is its seamless integration with the OpenAI ecosystem. Developers already familiar with GPT models will find the transition natural, and the tool benefits from OpenAI's continuous model improvements. It's especially effective for rapid prototyping, code refactoring, and debugging sessions where quick iterations are essential.
 
-**Key Features of Aider**:
+**Key Features of Codex CLI**:
 
-- **Git-native workflow** - Automatic commits with descriptive messages and built-in change review
-- **Multi-file editing** - Coordinates changes across multiple files intelligently
-- **LLM agnostic** - Supports GPT-5, Claude-4.5 Sonnet, DeepSeek V3, and local models
-- **Comprehensive codebase understanding** - Maps entire projects for effective modifications
-- **Automated linting and testing** - Runs tests after changes and fixes identified issues
-- **Voice-to-code functionality** - Verbal requests for features, tests, or bug fixes
-- **Visual context support** - Add images and web pages for additional AI context
-- **IDE integration** - Works from within IDEs via embedded comments
-- **Cost tracking** - Visibility into session costs for token-based API usage
-- **Context management** - Save and load context files across sessions
+- **Direct OpenAI access** - Native integration with GPT-5.2, GPT-5, and future models
+- **Lightweight design** - Minimal footprint with fast startup and response times
+- **File operations** - Read, write, and modify files directly from the terminal
+- **Sandboxed execution** - Run shell commands safely in isolated environments
+- **Multi-step reasoning** - Autonomously plans and executes complex coding tasks
+- **Open-source** - Fully transparent codebase with community contributions
+- **Natural language interface** - Describe tasks in plain English
+- **Context-aware** - Understands project structure and coding conventions
+- **Multi-language support** - Works across various programming languages
+- **Easy installation** - Simple npm install with minimal configuration
 
-**Aider Pricing**:
+**Codex CLI Pricing**:
 
-Aider is open-source and free to use. You only pay for the underlying AI model usage (OpenAI, Anthropic, etc.) based on your chosen provider's pricing.
+Codex CLI is open-source and free to use. You pay only for OpenAI API usage based on token consumption for your chosen model.
 
-#### 3. OpenCode
+#### 3. Gemini CLI
+
+{{< image "top_cli_based_ai_coding_agents/gemini_cli.webp" "gemini cli" >}}
+
+{{< link href="https://github.com/google-gemini/gemini-cli" >}}Gemini CLI{{< /link >}} is Google's open-source command-line interface for accessing Gemini AI models directly from the terminal. It provides powerful AI assistance for coding tasks, code review, and development workflows without leaving the command line.
+
+Gemini CLI excels at understanding complex code patterns and providing intelligent suggestions for optimization, debugging, and feature implementation. It's particularly valuable for developers who prefer terminal-based workflows and need quick access to Google's advanced AI capabilities. The tool is known for being fast, clean, and especially effective for frontend work and rapid UI generation.
+
+The CLI uses a "reason and act" (ReAct) loop with built-in tools like grep, terminal commands, file read/write operations, and web search for handling complex tasks. It can manage large codebases, providing context-aware suggestions across hundreds of files, making it suitable for substantial projects.
+
+**Key Features of Gemini CLI**:
+
+- **Google AI integration** - Direct access to Gemini's advanced language models
+- **Terminal-native design** - Built for command-line workflows
+- **ReAct loop** - Reason and act cycle with built-in tools (grep, terminal, file operations, web search)
+- **Multi-language support** - Supports various programming languages and frameworks
+- **Large codebase management** - Context-aware suggestions across hundreds of files
+- **Multimodal understanding** - Processes text, code, and visual context
+- **Code analysis** - Detailed code review and optimization suggestions
+- **Fast responses** - Optimized for quick AI assistance in development workflows
+- **Open-source** - Community-driven development with transparency
+- **Generous free tier** - Accessible pricing for individual developers
+
+**Gemini CLI Pricing**:
+
+Gemini CLI is free to use with Google's generous free tier for Gemini models. Paid usage follows Google's AI pricing based on token consumption.
+
+#### 4. OpenCode
 
 {{< image "top_cli_based_ai_coding_agents/opencode_cli.webp" "opencode cli" >}}
 
@@ -178,59 +205,32 @@ The tool features a responsive, native, and themeable terminal UI built with Bub
 
 OpenCode is completely free and open-source. You only pay for the AI model usage based on your chosen provider.
 
-#### 4. Gemini CLI
+#### 5. Aider
 
-{{< image "top_cli_based_ai_coding_agents/gemini_cli.webp" "gemini cli" >}}
+{{< image "top_cli_based_ai_coding_agents/aider_cli.webp" "aider cli" >}}
 
-{{< link href="https://github.com/google-gemini/gemini-cli" >}}Gemini CLI{{< /link >}} is Google's open-source command-line interface for accessing Gemini AI models directly from the terminal. It provides powerful AI assistance for coding tasks, code review, and development workflows without leaving the command line.
+{{< link href="https://aider.chat" >}}Aider{{< /link >}} is designed specifically for AI pair programming in your terminal, with a strong focus on Git-native workflows. It connects to various AI models and can make coordinated changes across multiple files in your repository, making it perfect for complex refactoring tasks and feature implementations.
 
-Gemini CLI excels at understanding complex code patterns and providing intelligent suggestions for optimization, debugging, and feature implementation. It's particularly valuable for developers who prefer terminal-based workflows and need quick access to Google's advanced AI capabilities. The tool is known for being fast, clean, and especially effective for frontend work and rapid UI generation.
+Aider's standout feature is its deep Git integration. The tool automatically commits changes with descriptive messages, offers built-in commands for reviewing changes, and manages everything within the Git system. This makes it particularly valuable for developers who work heavily with version control and need AI assistance that respects their Git workflow.
 
-The CLI uses a "reason and act" (ReAct) loop with built-in tools like grep, terminal commands, file read/write operations, and web search for handling complex tasks. It can manage large codebases, providing context-aware suggestions across hundreds of files, making it suitable for substantial projects.
+The tool builds a comprehensive map of your entire codebase, enabling it to understand and effectively modify large projects. It can coordinate code changes across multiple files, applying them within a single changeset while maintaining code quality and consistency. Unlike traditional coding assistants, Aider operates autonomously to complete entire features or refactoring tasks.
 
-**Key Features of Gemini CLI**:
+**Key Features of Aider**:
 
-- **Google AI integration** - Direct access to Gemini's advanced language models
-- **Terminal-native design** - Built for command-line workflows
-- **ReAct loop** - Reason and act cycle with built-in tools (grep, terminal, file operations, web search)
-- **Multi-language support** - Supports various programming languages and frameworks
-- **Large codebase management** - Context-aware suggestions across hundreds of files
-- **Multimodal understanding** - Processes text, code, and visual context
-- **Code analysis** - Detailed code review and optimization suggestions
-- **Fast responses** - Optimized for quick AI assistance in development workflows
-- **Open-source** - Community-driven development with transparency
-- **Generous free tier** - Accessible pricing for individual developers
+- **Git-native workflow** - Automatic commits with descriptive messages and built-in change review
+- **Multi-file editing** - Coordinates changes across multiple files intelligently
+- **LLM agnostic** - Supports GPT-5, Claude-4.5 Sonnet, DeepSeek V3, and local models
+- **Comprehensive codebase understanding** - Maps entire projects for effective modifications
+- **Automated linting and testing** - Runs tests after changes and fixes identified issues
+- **Voice-to-code functionality** - Verbal requests for features, tests, or bug fixes
+- **Visual context support** - Add images and web pages for additional AI context
+- **IDE integration** - Works from within IDEs via embedded comments
+- **Cost tracking** - Visibility into session costs for token-based API usage
+- **Context management** - Save and load context files across sessions
 
-**Gemini CLI Pricing**:
+**Aider Pricing**:
 
-Gemini CLI is free to use with Google's generous free tier for Gemini models. Paid usage follows Google's AI pricing based on token consumption.
-
-#### 5. Plandex
-
-{{< image "top_cli_based_ai_coding_agents/plandex_cli.webp" "plandex cli" >}}
-
-{{< link href="https://plandex.ai" >}}Plandex{{< /link >}} is an open-source, terminal-based AI coding agent specifically designed to handle complex and large-scale software development tasks. Unlike tools focused on simple code completion, Plandex excels at project-level understanding and can manage massive codebases with up to a 2 million token effective context window.
-
-What makes Plandex exceptional is its ability to handle entire features that span dozens of files. The tool can autonomously plan, implement, debug, and commit code changes across your entire project while giving you fine-grained control through a step-by-step review process. You can choose between full auto mode for rapid development or controlled mode for careful oversight.
-
-Plandex's standout feature is its cumulative diff review sandbox. All AI-generated changes are first applied to an isolated, version-controlled environment where you can review, test, and roll back changes before applying them to your actual project files. This ensures code quality and prevents unintended alterations, making it safe to use even on critical production codebases.
-
-**Key Features of Plandex**:
-
-- **Massive context window** - 2 million token effective context with 20M+ token indexing via Tree-sitter
-- **Diff review sandbox** - Isolated environment for reviewing and testing changes before applying
-- **Autonomous workflow** - Plans, implements, debugs, and commits across dozens of files
-- **Multi-model support** - Combines OpenAI, Anthropic, Google, and open-source models
-- **Automated debugging** - Executes tests and linters, automatically fixes issues
-- **Fine-grained control** - Choose between full auto mode or step-by-step review
-- **Context management** - Loads only necessary codebase parts to reduce costs and latency
-- **Zero-dependency install** - One-line CLI install for Mac, Linux, FreeBSD, Windows
-- **Flexible deployment** - Cloud hosting, bring-your-own-key, or self-hosted options
-- **Large project specialization** - Built specifically for massive codebases and complex tasks
-
-**Plandex Pricing**:
-
-Plandex is open-source and free to use. You can bring your own API keys for AI models or use their cloud hosting option. Self-hosted deployments are available for maximum privacy.
+Aider is open-source and free to use. You only pay for the underlying AI model usage (OpenAI, Anthropic, etc.) based on your chosen provider's pricing.
 
 ### Honorable Mentions: Other CLI Coding Agents Worth Considering
 
@@ -252,9 +252,9 @@ While the five tools above represent the top tier of CLI coding agents, several 
 
 {{< image "top_cli_based_ai_coding_agents/crush_cli.webp" "crush cli" >}}
 
-**{{< link href="https://developers.openai.com/codex/cli/" >}}Codex CLI{{< /link >}}** - OpenAI's command-line interface providing direct access to Codex and GPT models for code generation. While Codex often serves as the underlying model for tools like GitHub Copilot, the CLI offers direct terminal access with strong integration testing capabilities. Lightweight and privacy-focused with options for local execution.
+**{{< link href="https://plandex.ai" >}}Plandex{{< /link >}}** - Open-source, terminal-based AI coding agent designed for complex and large-scale software development tasks. Features a massive 2 million token effective context window with 20M+ token indexing via Tree-sitter. Includes a cumulative diff review sandbox for reviewing and testing changes before applying them to your project. Supports multi-model workflows with OpenAI, Anthropic, Google, and open-source models.
 
-{{< image "top_cli_based_ai_coding_agents/codex_cli.webp" "codex cli" >}}
+{{< image "top_cli_based_ai_coding_agents/plandex_cli.webp" "plandex cli" >}}
 
 ### How to Integrate CLI Coding Agents into Your Workflow
 
@@ -274,6 +274,6 @@ Successfully incorporating CLI coding agents into your development process requi
 
 ### Conclusion
 
-CLI coding agents are now powerful terminal-based assistants that handle everything from quick code generation to large-scale refactoring. In `2026`, tools like Claude Code, Aider, OpenCode, Gemini CLI, and Plandex each shine in different workflows Git heavy work, flexible model choice, deep reasoning, or large project management.
+CLI coding agents are now powerful terminal based assistants that handle everything from quick code generation to large-scale refactoring. In `2026`, tools like Claude Code, Codex CLI, Gemini CLI, OpenCode, and Aider each shine in different workflows deep reasoning, OpenAI integration, Google AI capabilities, flexible model choice, or Git-heavy work.
 
 Most are open-source and low-cost, letting you run locally with Ollama for privacy or use cloud models for advanced features. Many developers mix tools based on tasks. Pick one or two that fit your workflow the terminal first approach delivers speed, focus, and AI right where developers work best.
