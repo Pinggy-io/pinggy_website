@@ -96,7 +96,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.2.5/windows/amd64/pinggy.exe"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.3.2/pinggy-win-x64.exe"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -105,7 +105,7 @@
                   </li>
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.2.5/windows/arm64/pinggy.exe"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.3.2/pinggy-win-arm64.exe"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -123,11 +123,21 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.2.5/mac/univ/pinggy"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.3.2/pinggy-macos-arm64"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
-                      >Download for Mac OS</a
+                      >Download for Mac OS - Apple Silicon</a
+                    >
+                  </li>
+                  </li>
+                  <li class="list-group-item">
+                    <a
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.3.2/pinggy-macos-x64"
+                      target="_blank"
+                      class="btn btn-primary"
+                      style="background-color: rgba(70, 117, 199, 1)"
+                      >Download for Mac OS - Intel</a
                     >
                   </li>
                   </li>
@@ -143,7 +153,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.2.5/linux/amd64/pinggy"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.3.2/pinggy-linux-x64"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -152,7 +162,7 @@
                   </li>
                   <li class="list-group-item">
                     <a
-                      href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/cli/v0.2.5/linux/arm64/pinggy"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.3.2/pinggy-linux-arm64"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
