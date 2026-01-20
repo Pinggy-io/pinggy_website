@@ -67,7 +67,7 @@ Then, create a tunnel in your Node.js application:
 import { pinggy } from "@pinggy/pinggy";
 
 
-const tunnel = pinggy.createTunnel({ forwarding: "localhost:3000" });
+const tunnel = await pinggy.createTunnel({ forwarding: "localhost:3000" });
 await tunnel.start();
 console.log("Tunnel URLs:", await tunnel.urls()); // Get all public urls
 ```
