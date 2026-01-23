@@ -90,27 +90,18 @@ In this guide, we'll explore the best video generation AI models in 2026, coveri
 
 {{% tldr %}}
 
-1. **Why Use AI Video Generation in 2026?**
-   - Create professional-quality videos from text prompts or reference images
-   - Native 4K resolution and 20+ second durations are now standard
-   - Synchronized audio generation eliminates post-production sound design
-   - Physics simulation produces realistic motion and object interactions
-   - Open-source models enable local generation on consumer GPUs
+1. **Top Proprietary AI Video Models**:
+   - <a href="https://openai.com/sora/" target="_blank">Sora 2</a>: Cinematic physics, synchronized audio, Disney characters | $20/mo (Plus) or $200/mo (Pro)
+   - <a href="https://deepmind.google/models/veo/" target="_blank">Google Veo 3.1</a>: Native 4K, character consistency, vertical video support | $19.99/mo (Gemini Advanced)
+   - <a href="https://runwayml.com/product" target="_blank">Runway Gen-4.5</a>: #1 benchmark score, motion brushes, scene consistency | From $12/mo
+   - <a href="https://klingai.com/global/dev/pricing" target="_blank">Kling 2.6</a>: Simultaneous audio-visual, up to 2 min videos | Free tier available
+   - <a href="https://lumalabs.ai/pricing" target="_blank">Luma Ray3</a>: Hi-Fi 4K HDR, superior physics simulation | From $7.99/mo
+   - <a href="https://pika.art/pricing" target="_blank">Pika 2.5</a>: Pikaswaps, Pikaffects, fast 42s renders | From $8/mo
 
-2. **Top Proprietary AI Video Models**:
-   - <a href="https://openai.com/sora/" target="_blank">Sora 2</a>: Cinematic quality with realistic physics and Disney character support
-   - <a href="https://deepmind.google/models/veo/" target="_blank">Google Veo 3.1</a>: Native 4K output with character consistency and Google ecosystem integration
-   - <a href="https://runwayml.com/product" target="_blank">Runway Gen-4.5</a>: Top-rated model with motion brushes and precise creative control
-   - <a href="https://klingai.com/global/dev/pricing" target="_blank">Kling 2.6</a>: Simultaneous audio-visual generation for short-form content
-   - <a href="https://lumalabs.ai/pricing" target="_blank">Luma Ray3</a>: Hi-Fi 4K HDR with natural physics and motion
-   - <a href="https://pika.art/pricing" target="_blank">Pika 2.5</a>: Quick effects and transformations for social media content
-
-3. **Top Open-Source Models**:
-   - <a href="https://github.com/Wan-Video/Wan2.1" target="_blank">Wan2.2</a>: MoE architecture with 720p on consumer GPUs (RTX 4090)
-   - <a href="https://github.com/Lightricks/LTX-Video" target="_blank">LTX-2</a>: First open-source 4K with native audio under Apache 2.0
-   - <a href="https://github.com/Tencent-Hunyuan/HunyuanVideo" target="_blank">HunyuanVideo 1.5</a>: Efficient 8.3B parameter model for consumer hardware
-
-4. **Key Features to Look For**: Resolution (4K support), video duration, audio generation, physics accuracy, character consistency, API availability, and local deployment options
+2. **Top Open-Source Models**:
+   - <a href="https://github.com/Wan-Video/Wan2.1" target="_blank">Wan2.2</a>: MoE architecture, 8.19GB VRAM min, bilingual text in videos | Free
+   - <a href="https://github.com/Lightricks/LTX-Video" target="_blank">LTX-2</a>: Native 4K 50fps with audio, Apache 2.0, licensed training data | Free (<$10M ARR)
+   - <a href="https://github.com/Tencent-Hunyuan/HunyuanVideo" target="_blank">HunyuanVideo 1.5</a>: 8.3B params, 75s gen time on RTX 4090, 13.6GB VRAM | Free
 
 {{% /tldr %}}
 
@@ -276,7 +267,7 @@ Pika offers a free basic tier. Paid plans start at $8/month, scaling through Pro
 
 The open-source video generation ecosystem has matured significantly in 2026, offering viable alternatives to proprietary solutions for developers and creators who need local deployment, customization, or cost control.
 
-#### 7. Wan2.2 (Alibaba)
+#### 1. Wan2.2 (Alibaba)
 
 {{< image "best_video_generation_ai_models/wan_video.webp" "Wan2.2 Open Source Video Generation" >}}
 
@@ -300,7 +291,7 @@ The model suite is remarkably accessible. The T2V-1.3B variant requires only 8.1
 
 Completely free and open-source. Models available on GitHub and Hugging Face. The repository supports two Text-to-Video models (1.3B and 14B) and two resolutions (480P and 720P).
 
-#### 8. LTX-2 (Lightricks)
+#### 2. LTX-2 (Lightricks)
 
 {{< image "best_video_generation_ai_models/ltx_video.webp" "LTX-2 Open Source Video Generation" >}}
 
@@ -324,7 +315,7 @@ LTX-2 is optimized for NVIDIA's ecosystem through NVFP8 quantization, reducing m
 
 Free for academic research and commercial use by companies under $10 million ARR. Tiered licensing for larger commercial applications. Available on GitHub and Hugging Face.
 
-#### 9. HunyuanVideo 1.5 (Tencent)
+#### 3. HunyuanVideo 1.5 (Tencent)
 
 {{< image "best_video_generation_ai_models/hunyuan_video.webp" "HunyuanVideo 1.5 Video Generation" >}}
 
