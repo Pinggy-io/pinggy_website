@@ -46,11 +46,11 @@ This setup leverages InsightFace's powerful face detection and swapping models a
 
 ## Why Build Your Own Face Swap App?
 
-Commercial face swap applications often come with limitations: watermarks on outputs, subscription fees, privacy concerns about uploading your photos to third-party servers, and restricted usage quotas. By building your own face swap application, you eliminate all these constraints.
+Ever wanted to see yourself as a movie star, swap faces with your pet, or create hilarious memes with your friends? Face swapping is one of those fun AI projects that never gets old. The best part? You can build your own face swap app in just a few minutes and share it with anyone.
 
-Running the application on Google Colab means you get free access to GPU resources that would otherwise cost money to rent. The InsightFace library provides state-of-the-art face detection and swapping capabilities, while Gradio creates an intuitive web interface that anyone can use without technical knowledge.
+This project is perfect for a weekend experiment, a party trick, or just goofing around with friends. Imagine sending your group chat a link where everyone can swap faces with celebrities, historical figures, or each other. The reactions are priceless.
 
-The combination of these tools gives you a professional-grade face swap application without spending a single dollar on infrastructure or software licenses.
+Plus, building it yourself means no watermarks ruining your creations, no subscription fees eating into your wallet, and no uploading your photos to random servers. Everything runs on Google Colab's free GPU, so you get professional-grade results without spending anything. It's the kind of project that's genuinely fun to build and even more fun to use.
 
 ## What is Face Swap UI?
 
@@ -82,7 +82,20 @@ No local installation is required since everything runs in the cloud. Google Col
 
 Start by opening {{< link href="https://colab.research.google.com/" >}}Google Colab{{< /link >}} in your browser. Click on **"New Notebook"** to create a fresh notebook for your face swap application.
 
-You can name your notebook something descriptive like `faceswap.ipynb` by clicking on the title at the top of the page. While GPU is beneficial for faster processing, the face swap application can run on CPU as well.
+You can name your notebook something descriptive like `faceswap.ipynb` by clicking on the title at the top of the page.
+
+### Enable GPU for Faster Processing
+
+While the face swap application can run on CPU, enabling GPU acceleration significantly speeds up face detection and swapping operations. To enable GPU:
+
+1. Go to **Runtime** in the top menu
+2. Click **Change runtime type**
+3. Under **Hardware accelerator**, select **GPU** (T4 is available on the free tier)
+4. Click **Save**
+
+{{< image "face_swap_app_google_colab/enable_gpu_colab.webp" "Enable GPU in Google Colab" >}}
+
+Google Colab provides free access to Tesla T4 GPUs with 15GB of VRAM, which is more than enough for face swapping tasks. With GPU enabled, face detection and swapping operations complete in seconds rather than minutes.
 
 ## Step 2: Clone the Face Swap UI Repository
 
