@@ -105,9 +105,9 @@ cd openclaw
 npm init -y
 npm install openclaw@latest
 ```
+{{< image "self_hosting_openclaw_ai_agent/npm_init_command.webp" "npm init command for local installation" >}}
 
 {{< image "self_hosting_openclaw_ai_agent/install_openclaw.webp" "Installing OpenClaw" >}}
-{{< image "self_hosting_openclaw_ai_agent/npm_init_command.webp" "npm init command for local installation" >}}
 
 For global installation, use `npm install -g` which makes OpenClaw available system-wide. If you prefer local installation, omit the `-g` flag and OpenClaw will be installed in your current project directory.
 
