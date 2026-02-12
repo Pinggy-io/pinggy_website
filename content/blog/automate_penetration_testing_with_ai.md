@@ -254,7 +254,7 @@ One of the most common scenarios is pentesting an application that is still runn
 
 {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} provides a cleaner solution. It creates an HTTPS tunnel from your local application to a public URL in seconds, with no signup or installation required. Shannon can then target that public URL just as it would target any deployed application.
 
-Let us walk through the full flow using the {{< link href="https://github.com/Pinggy-io/vuln-demo-app" >}}vuln-demo-app{{< /link >}} we cloned earlier.
+Let us walk through the full flow using the {{< link href="https://github.com/Moksh45/vuln-demo-app" >}}vuln-demo-app{{< /link >}} we cloned earlier.
 
 ### Step 1: Start Your Local Application
 
