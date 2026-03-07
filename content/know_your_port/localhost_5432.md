@@ -81,11 +81,6 @@ Port 5432 is exclusively used by PostgreSQL and related database tools. Here are
 </div>
 
 PostgreSQL automatically configures itself to listen on port 5432 when installed. You can verify this by running `sudo netstat -tlnp | grep 5432` and connect using `psql -h localhost -p 5432 -U postgres`. The database accepts connections through various methods including command-line tools, GUI clients, application frameworks, and programming language drivers.
-
-
-
-
-
 ---
 
 ## How to Troubleshoot Localhost:5432
@@ -135,8 +130,6 @@ If you can't connect to `localhost:5432`, here's how to diagnose and fix common 
 <li><strong>Check logs:</strong> <code>sudo tail -f /var/log/postgresql/postgresql-*.log</code></li>
 </ul>
 </div>
-
-
 
 ---
 
