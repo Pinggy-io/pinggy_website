@@ -2,9 +2,9 @@
 title: "localhost:5432 - PostgreSQL Database Port Guide"
 description: "Complete guide to localhost:5432 - the default port for PostgreSQL database server, connections, and development workflows."
 date: 2025-01-30T10:00:00+05:30
+lastmod: 2026-03-07T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "postgresql", "database", "sql", "development"]
-og_image: "/images/ports/localhost_5432.webp"
 schemahowto: true
 outputs:
   - HTML

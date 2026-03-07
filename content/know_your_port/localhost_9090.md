@@ -4,7 +4,6 @@ description: "Complete guide to localhost:9090 - the popular port used by OpenCl
 date: 2026-03-06T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "openclaw", "prometheus", "ai", "dashboard"]
-og_image: "/images/ports/localhost_9090.webp"
 schemahowto: true
 outputs:
   - HTML

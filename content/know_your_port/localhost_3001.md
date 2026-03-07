@@ -4,7 +4,6 @@ description: "Complete guide to localhost:3001 - the default port for AnythingLL
 date: 2026-03-06T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "anythingllm", "llm", "ai", "workspace"]
-og_image: "/images/ports/localhost_3001.webp"
 schemahowto: true
 outputs:
   - HTML

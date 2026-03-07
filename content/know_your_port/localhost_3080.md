@@ -4,7 +4,6 @@ description: "Complete guide to localhost:3080 - the default port for LibreChat,
 date: 2026-03-06T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "librechat", "llm", "ai", "chatgpt"]
-og_image: "/images/ports/localhost_3080.webp"
 schemahowto: true
 outputs:
   - HTML

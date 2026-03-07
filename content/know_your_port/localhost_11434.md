@@ -4,7 +4,6 @@ description: "Complete guide to localhost:11434 - the default port for Ollama, t
 date: 2026-03-06T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "ollama", "llm", "ai", "development"]
-og_image: "/images/ports/localhost_11434.webp"
 schemahowto: true
 outputs:
   - HTML

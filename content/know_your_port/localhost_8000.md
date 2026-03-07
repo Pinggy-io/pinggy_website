@@ -4,7 +4,6 @@ description: "Complete guide to localhost:8000 - the popular port used by Django
 date: 2025-01-30T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "python", "django", "development", "http server"]
-og_image: "/images/ports/localhost_8000.webp"
 schemahowto: true
 outputs:
   - HTML

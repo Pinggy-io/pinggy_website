@@ -4,7 +4,6 @@ description: "Complete guide to localhost:3210 - the default port for LobeChat, 
 date: 2026-03-06T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "lobechat", "llm", "ai", "chat"]
-og_image: "/images/ports/localhost_3210.webp"
 schemahowto: true
 outputs:
   - HTML

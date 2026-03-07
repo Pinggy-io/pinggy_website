@@ -4,7 +4,6 @@ description: "Complete guide to localhost:1337 - the default port for Jan, an op
 date: 2026-03-06T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "jan", "llm", "ai", "offline"]
-og_image: "/images/ports/localhost_1337.webp"
 schemahowto: true
 outputs:
   - HTML

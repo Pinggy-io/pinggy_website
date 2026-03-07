@@ -2,9 +2,9 @@
 title: "localhost:8080 - Web Server and Application Port Guide"
 description: "Complete guide to localhost:8080 - the popular alternative HTTP port used by Tomcat, Jenkins, development servers, and web applications."
 date: 2025-01-30T10:00:00+05:30
+lastmod: 2026-03-07T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "web server", "tomcat", "jenkins", "http"]
-og_image: "/images/ports/localhost_8080.webp"
 schemahowto: true
 outputs:
   - HTML
