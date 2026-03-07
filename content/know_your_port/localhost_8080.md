@@ -2,9 +2,9 @@
 title: "localhost:8080 - Web Server and Application Port Guide"
 description: "Complete guide to localhost:8080 - the popular alternative HTTP port used by Tomcat, Jenkins, development servers, and web applications."
 date: 2025-01-30T10:00:00+05:30
+lastmod: 2026-03-07T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "web server", "tomcat", "jenkins", "http"]
-og_image: "/images/ports/localhost_8080.webp"
 schemahowto: true
 outputs:
   - HTML
@@ -75,6 +75,14 @@ Port 8080 is not tied to a single service by default, so many different applicat
 <li><strong>{{< link href="https://webpack.js.org/configuration/dev-server/" >}}Webpack Dev Server{{< /link >}}</strong>: Alternative development port</li>
 <li><strong>Local Development Servers</strong>: Python, Node.js alternatives</li>
 <li><strong>API Mock Servers</strong>: Testing and development APIs</li>
+</ul>
+</div>
+
+<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
+<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🤖 AI & Local Apps</h3>
+<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<li><strong>{{< link href="https://openwebui.com/" >}}Open WebUI{{< /link >}}</strong>: Frontend GUI for local LLMs via Ollama, defaulting to port 8080</li>
+<li><strong>Self-hosted AI endpoints</strong>: Many AI web interfaces and local models bind here</li>
 </ul>
 </div>
 
