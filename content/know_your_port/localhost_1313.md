@@ -4,7 +4,6 @@ description: "Complete guide to localhost:1313 - the default port for Hugo stati
 date: 2025-01-30T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "hugo", "static site", "development", "jamstack"]
-og_image: "/images/ports/localhost_1313.webp"
 schemahowto: true
 outputs:
   - HTML

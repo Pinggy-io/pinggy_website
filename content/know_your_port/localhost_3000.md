@@ -4,7 +4,6 @@ description: "Complete guide to localhost:3000 - the most popular development se
 date: 2025-01-30T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "development", "react", "express", "rails"]
-og_image: "/images/ports/localhost_3000.webp"
 schemahowto: true
 outputs:
   - HTML

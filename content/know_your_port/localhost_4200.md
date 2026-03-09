@@ -4,7 +4,6 @@ description: "Complete guide to localhost:4200 - the default port for Angular de
 date: 2025-01-30T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "angular", "frontend", "development", "cli"]
-og_image: "/images/ports/localhost_4200.webp"
 schemahowto: true
 outputs:
   - HTML
