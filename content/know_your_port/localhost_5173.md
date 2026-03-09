@@ -4,7 +4,6 @@ description: "Complete guide to localhost:5173 - the default port for Vite devel
 date: 2025-01-30T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "vite", "vue", "react", "frontend", "development"]
-og_image: "/images/ports/localhost_5173.webp"
 schemahowto: true
 outputs:
   - HTML
