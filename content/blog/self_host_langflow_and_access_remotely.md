@@ -41,7 +41,7 @@ The catch with any self-hosted tool is remote access. Once Langflow is running o
    ssh -p 443 -R0:localhost:7860 free.pinggy.io
    ```
 
-   You get a public HTTPS URL like `https://abc123.a.pinggy.link` — share it with anyone.
+   You get a public HTTPS URL like `https://abc123.a.pinggy.link` - share it with anyone.
 
 3. **Add password protection (optional)**
 
@@ -58,7 +58,7 @@ The catch with any self-hosted tool is remote access. Once Langflow is running o
 
 ## What is Langflow?
 
-{{< image "langflow_self_host/langflow.webp" "Langflow — visual platform for building AI agents and pipelines" >}}
+{{< image "langflow_self_host/langflow.webp" "Langflow - visual platform for building AI agents and pipelines" >}}
 
 Langflow is an open-source, low-code platform for building AI-powered agents and pipelines. It provides a visual canvas where you connect components language models, vector databases, web search tools, custom Python code, APIs, and more into a complete workflow without writing boilerplate integration code.
 
@@ -300,12 +300,12 @@ This flow builds an agent that can search the web in real time and summarize the
 
 **Components needed:**
 
-1. **Chat Input** — the user's question
-2. **DuckDuckGo Search** (or SerpAPI) — performs the web search, outputs `Data`
-3. **Parse Data** — converts `Data` to `Text` so it can feed into a prompt
-4. **Prompt Template** — combines the question and search results into a prompt
-5. **OpenAI** — generates the final answer
-6. **Chat Output** — displays the response
+1. **Chat Input** - the user's question
+2. **DuckDuckGo Search** (or SerpAPI) - performs the web search, outputs `Data`
+3. **Parse Data** - converts `Data` to `Text` so it can feed into a prompt
+4. **Prompt Template** - combines the question and search results into a prompt
+5. **OpenAI** - generates the final answer
+6. **Chat Output** - displays the response
 
 The **Parse Data** component is required because the Search API outputs a `Data` object (structured records), while the Prompt Template expects plain `Text`. Without it, Langflow will refuse the connection the handle colors won't match.
 
@@ -338,15 +338,15 @@ Langflow runs the search first, Parse Data flattens the results into a text bloc
 
 A Retrieval-Augmented Generation (RAG) pipeline is one of the most common Langflow use cases. It lets your agent answer questions based on your own documents instead of just the model's training data. Here's the component flow:
 
-1. **File component** — upload a PDF or text file
-2. **Split Text component** — chunk the document into smaller pieces
-3. **OpenAI Embeddings** (or Ollama Embeddings for local inference) — convert chunks to vectors
-4. **Chroma DB component** — store and index the vectors locally
-5. **Chat Input component** — accept the user's question
-6. **Retriever component** — fetch the most relevant chunks for the question
-7. **Prompt Template component** — combine the retrieved context with the question
-8. **OpenAI / Anthropic / Ollama LLM component** — generate the final answer
-9. **Chat Output component** — display the response
+1. **File component** - upload a PDF or text file
+2. **Split Text component** - chunk the document into smaller pieces
+3. **OpenAI Embeddings** (or Ollama Embeddings for local inference) - convert chunks to vectors
+4. **Chroma DB component** - store and index the vectors locally
+5. **Chat Input component** - accept the user's question
+6. **Retriever component** - fetch the most relevant chunks for the question
+7. **Prompt Template component** - combine the retrieved context with the question
+8. **OpenAI / Anthropic / Ollama LLM component** - generate the final answer
+9. **Chat Output component** - display the response
 
 Drag each component onto the canvas and connect them by clicking the output handle of one component and dragging it to the input handle of the next. Langflow color-codes the handles by data type, so mismatched connections are easy to spot.
 
