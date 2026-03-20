@@ -5,14 +5,14 @@ date: 2026-03-15T10:00:00+05:30
 lastmod: 2026-03-15T10:00:00+05:30
 draft: false
 tags: ["uptime monitoring", "open source", "GitHub Actions", "status page", "DevOps"]
-og_image: "images/upptime_uptime_monitoring/upptime_blog_thumbnail.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBNb25pdG9yIFVwdGltZSBTdGF0dXMgb2YgWW91ciBXZWJzaXRlIG9yIEFwcCBmb3IgRnJlZSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZXQgdXAgVXBwdGltZSwgYSBmcmVlIG9wZW4tc291cmNlIHVwdGltZSBtb25pdG9yaW5nIGFuZCBzdGF0dXMgcGFnZSBzb2x1dGlvbiBwb3dlcmVkIGVudGlyZWx5IGJ5IEdpdEh1YiBBY3Rpb25zLCBHaXRIdWIgSXNzdWVzLCBhbmQgR2l0SHViIFBhZ2VzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy91cHB0aW1lX3VwdGltZV9tb25pdG9yaW5nL3VwcHRpbWVfYmxvZ190aHVtYm5haWwud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDcmVhdGUgYSBuZXcgcmVwb3NpdG9yeSBmcm9tIHRoZSBVcHB0aW1lIEdpdEh1YiB0ZW1wbGF0ZSBhdCBnaXRodWIuY29tL3VwcHRpbWUvdXBwdGltZSIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFbmFibGUgR2l0SHViIEFjdGlvbnMgd29ya2Zsb3dzIGluIHlvdXIgbmV3IHJlcG9zaXRvcnkncyBBY3Rpb25zIHRhYiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDb25maWd1cmUgR2l0SHViIFBhZ2VzIGJ5IGdvaW5nIHRvIFNldHRpbmdzIMOiwobCkiBQYWdlcyBhbmQgc2VsZWN0aW5nIHRoZSBnaC1wYWdlcyBicmFuY2giCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgUGVyc29uYWwgQWNjZXNzIFRva2VuIChQQVQpIHdpdGggcmVhZC13cml0ZSBwZXJtaXNzaW9ucyBmb3IgQWN0aW9ucywgQ29udGVudHMsIElzc3VlcywgYW5kIFdvcmtmbG93cywgdGhlbiBzYXZlIGl0IGFzIGEgcmVwb3NpdG9yeSBzZWNyZXQgbmFtZWQgR0hfUEFUIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkVkaXQgdGhlIC51cHB0aW1lcmMueW1sIGZpbGUgdG8gYWRkIHlvdXIgR2l0SHViIHVzZXJuYW1lLCByZXBvc2l0b3J5IG5hbWUsIGFuZCB0aGUgVVJMcyBvZiBzaXRlcyB5b3Ugd2FudCB0byBtb25pdG9yIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlZlcmlmeSBhdXRvbWF0aW9uIGJ5IGNoZWNraW5nIHRoZSBBY3Rpb25zIHRhYiBhbmQgY29uZmlybWluZyB5b3VyIHN0YXR1cyBwYWdlIGlzIGxpdmUgb24gR2l0SHViIFBhZ2VzIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
+og_image: "images/uptime_monitoring/upptime_blog_thumbnail.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBNb25pdG9yIFVwdGltZSBTdGF0dXMgb2YgWW91ciBXZWJzaXRlIG9yIEFwcCBmb3IgRnJlZSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZXQgdXAgVXBwdGltZSwgYSBmcmVlIG9wZW4tc291cmNlIHVwdGltZSBtb25pdG9yaW5nIGFuZCBzdGF0dXMgcGFnZSBzb2x1dGlvbiBwb3dlcmVkIGVudGlyZWx5IGJ5IEdpdEh1YiBBY3Rpb25zLCBHaXRIdWIgSXNzdWVzLCBhbmQgR2l0SHViIFBhZ2VzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy91cHRpbWVfbW9uaXRvcmluZy91cHB0aW1lX2Jsb2dfdGh1bWJuYWlsLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgbmV3IHJlcG9zaXRvcnkgZnJvbSB0aGUgVXBwdGltZSBHaXRIdWIgdGVtcGxhdGUgYXQgZ2l0aHViLmNvbS91cHB0aW1lL3VwcHRpbWUiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRW5hYmxlIEdpdEh1YiBBY3Rpb25zIHdvcmtmbG93cyBpbiB5b3VyIG5ldyByZXBvc2l0b3J5J3MgQWN0aW9ucyB0YWIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29uZmlndXJlIEdpdEh1YiBQYWdlcyBieSBnb2luZyB0byBTZXR0aW5ncyDDg8Kiw4LChsOCwpIgUGFnZXMgYW5kIHNlbGVjdGluZyB0aGUgZ2gtcGFnZXMgYnJhbmNoIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIFBlcnNvbmFsIEFjY2VzcyBUb2tlbiAoUEFUKSB3aXRoIHJlYWQtd3JpdGUgcGVybWlzc2lvbnMgZm9yIEFjdGlvbnMsIENvbnRlbnRzLCBJc3N1ZXMsIGFuZCBXb3JrZmxvd3MsIHRoZW4gc2F2ZSBpdCBhcyBhIHJlcG9zaXRvcnkgc2VjcmV0IG5hbWVkIEdIX1BBVCIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFZGl0IHRoZSAudXBwdGltZXJjLnltbCBmaWxlIHRvIGFkZCB5b3VyIEdpdEh1YiB1c2VybmFtZSwgcmVwb3NpdG9yeSBuYW1lLCBhbmQgdGhlIFVSTHMgb2Ygc2l0ZXMgeW91IHdhbnQgdG8gbW9uaXRvciIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJWZXJpZnkgYXV0b21hdGlvbiBieSBjaGVja2luZyB0aGUgQWN0aW9ucyB0YWIgYW5kIGNvbmZpcm1pbmcgeW91ciBzdGF0dXMgcGFnZSBpcyBsaXZlIG9uIEdpdEh1YiBQYWdlcyIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "upptime_uptime_monitoring/upptime_blog_thumbnail.webp" "How to Monitor Uptime Status of Your Website or App for Free" >}}
+{{< image "uptime_monitoring/upptime_blog_thumbnail.webp" "How to Monitor Uptime Status of Your Website or App for Free" >}}
 
 Every developer has experienced the uncomfortable surprise of learning from a user rather than their own monitoring system that their website has been down for the past hour. Uptime monitoring is not optional for any serious web application. But many solutions that do this well come with a monthly price tag, require you to maintain a separate server, or lock your data inside a third-party platform. What if you could get reliable uptime monitoring, a polished public status page, and incident tracking completely for free, with zero infrastructure to manage?
 
@@ -42,7 +42,7 @@ The challenge for individuals and small teams is that commercial uptime monitori
 
 ## Introducing Upptime: GitHub as Your Monitoring Backend
 
-{{< image "upptime_uptime_monitoring/upptime_website.webp" "Upptime Website" >}}
+{{< image "uptime_monitoring/upptime_website.webp" "Upptime Website" >}}
 
 {{< link href="https://upptime.js.org/" >}}Upptime{{< /link >}}, created by open-source developer Anand Chowdhary and supported by Pabio, has earned over **16,900 stars** on GitHub since its release. The project has been used by organizations including Canonical and WakaTime, and CSS-Tricks called it "an incredibly clever usage of GitHub Actions."
 
@@ -72,31 +72,31 @@ Getting started with Upptime takes only a few minutes if you follow these steps 
 
 Navigate to the {{< link href="https://github.com/upptime/upptime" >}}Upptime GitHub repository{{< /link >}} and click **"Use this template"** → **"Create a new repository"**. Give your repository a name (for example, `my-status-page`), decide whether it should be public or private, and make sure to include all branches. Public repositories are recommended since GitHub Actions minutes are unlimited for public repos.
 
-{{< image "upptime_uptime_monitoring/upptime_github_repo_use_this_template.webp" "Upptime GitHub repo Use This Template button" >}}
+{{< image "uptime_monitoring/upptime_github_repo_use_this_template.webp" "Upptime GitHub repo Use This Template button" >}}
 
-{{< image "upptime_uptime_monitoring/create_upptime_repo.webp" "Create a new repository from the Upptime template" >}}
+{{< image "uptime_monitoring/create_upptime_repo.webp" "Create a new repository from the Upptime template" >}}
 
 ### Step 2: Enable GitHub Actions
 
 Once your repository is created, go to the **Actions** tab. GitHub may prompt you to enable workflows on a newly forked or templated repository. Click the button to enable them. You should see all the Upptime workflows listed there.
 
-{{< image "upptime_uptime_monitoring/github_action.webp" "GitHub Actions tab showing the Upptime workflows" >}}
+{{< image "uptime_monitoring/github_action.webp" "GitHub Actions tab showing the Upptime workflows" >}}
 
 ### Step 3: Configure GitHub Pages
 
 Go to your repository **Settings** → **Pages**. Under the "Source" section, change the branch from "None" to `gh-pages` and set the directory to `/ (root)`. Save the settings. GitHub will now host your status page at `https://<your-username>.github.io/<your-repo-name>/`.
 
-{{< image "upptime_uptime_monitoring/github_page.webp" "Configure GitHub Pages to deploy from the gh-pages branch" >}}
+{{< image "uptime_monitoring/github_page.webp" "Configure GitHub Pages to deploy from the gh-pages branch" >}}
 
 ### Step 4: Create a Personal Access Token
 
 Upptime needs permission to create and close issues, commit data, and trigger workflows on your behalf. Go to your GitHub **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** (or classic tokens with the `repo` and `workflow` scopes). Generate a token with read-write access to Actions, Contents, Issues, and Workflows.
 
-{{< image "upptime_uptime_monitoring/create_personal_access_token.webp" "Create a Personal Access Token with the required permissions" >}}
+{{< image "uptime_monitoring/create_personal_access_token.webp" "Create a Personal Access Token with the required permissions" >}}
 
 Back in your repository, go to **Settings** → **Secrets and variables** → **Actions**, and add a new repository secret named `GH_PAT` with the token value you just created.
 
-{{< image "upptime_uptime_monitoring/add_secreats_and_vairables.webp" "Add GH_PAT as a repository secret in Actions secrets" >}}
+{{< image "uptime_monitoring/add_secreats_and_vairables.webp" "Add GH_PAT as a repository secret in Actions secrets" >}}
 
 ### Step 5: Edit `.upptimerc.yml`
 
@@ -122,17 +122,17 @@ status-website:
 
 Commit and push the file. This will trigger the Static Site CI workflow and kick off the first monitoring check.
 
-{{< image "upptime_uptime_monitoring/update_upptimerc_file.webp" "Edit .upptimerc.yml with your sites and GitHub username" >}}
+{{< image "uptime_monitoring/update_upptimerc_file.webp" "Edit .upptimerc.yml with your sites and GitHub username" >}}
 
 ### Step 6: Verify It Is Working
 
 Head to the **Actions** tab and watch the workflows run. Within a few minutes, the **Uptime CI** workflow should complete its first check. A green checkmark next to the workflow run confirms everything is working correctly.
 
-{{< image "upptime_uptime_monitoring/github_action_success.webp" "Uptime CI workflow completed successfully" >}}
+{{< image "uptime_monitoring/github_action_success.webp" "Uptime CI workflow completed successfully" >}}
 
 Visit your GitHub Pages URL to see the live status page with your configured endpoints listed and their current uptime percentages.
 
-{{< image "upptime_uptime_monitoring/live_status_ss.webp" "Live Upptime status page showing monitored endpoints" >}}
+{{< image "uptime_monitoring/live_status_ss.webp" "Live Upptime status page showing monitored endpoints" >}}
 
 You can also verify directly from your repository's **README**. Upptime automatically updates the README with a summary table of all monitored sites, their current status (up or down), uptime percentage over the last 30 days, and response time. If the README shows green status badges and populated uptime data, your monitoring pipeline is fully operational. The README badges are generated from the same JSON endpoints that power Shields.io, so they update automatically with every monitoring cycle.
 
