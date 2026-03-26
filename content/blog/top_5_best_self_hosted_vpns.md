@@ -103,6 +103,8 @@ It effectively democratizes the "stealth VPN". You don't need to know how to con
 
 Perfect for: Users in restrictive network environments (China, Russia, corporate firewalls), people who want a "one-click" self-hosted server setup, and privacy enthusiasts who need advanced obfuscation without the manual configuration headache. Not ideal for: Complex enterprise routing or managing hundreds of users (it's more personal/small-group focused).
 
+For those who prefer a CLI-based setup without the desktop app, [amneziawg-installer](https://github.com/bivlked/amneziawg-installer) deploys AmneziaWG 2.0 on Ubuntu and Debian with one command — server hardening and client management included.
+
 ## 3. Headscale - Zero-Config Mesh VPN
 
 {{< image "top_5_best_self_hosted_vpns/tailscale.webp" "Tailscale Mesh VPN" >}}
