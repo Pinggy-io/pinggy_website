@@ -13,16 +13,16 @@ outputs:
 
 {{< image "best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp" "Best Open Source Self-Hosted LLMs for Coding in 2026" >}}
 
-The gap between proprietary and open source AI models for coding is narrowing fast. A year ago, self-hosting an LLM for development meant settling for significantly worse performance than cloud-based alternatives like GPT-4 or Claude. In 2026, the best open source models are closing in on proprietary leaders across composite benchmarks like the {{< link href="https://artificialanalysis.ai/leaderboards/models?is_open_weights=open_source" >}}Artificial Analysis Intelligence Index{{< /link >}}, and some even outperform them on specific tasks like code generation and completion.
+The gap between proprietary and open source AI models for coding is narrowing fast. A year ago, self-hosting an LLM for development meant settling for significantly worse performance than cloud-based alternatives like GPT-4 or Claude. In 2026, the best open source models are closing in on proprietary leaders across benchmarks like {{< link href="https://livebench.ai/#/?sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench{{< /link >}}, and some even outperform them on specific tasks like code generation and completion.
 
 Whether you're a solo developer who wants to keep code off third-party servers, a startup looking to cut API costs, or an enterprise with strict data compliance requirements, self-hosted open source LLMs have become a genuinely viable option for professional software development. In this guide, we'll cover the best open source models you can self-host for coding, the tools to deploy them, and the hardware you need to get started.
 
 {{% tldr %}}
 
 **Top Open Source LLMs for Coding (Self-Hostable):**
-1. **GLM-5** - 744B MoE, #1 open source on Intelligence Index (50.0), MIT license - <a target="_blank" href="https://huggingface.co/zai-org/GLM-5">Get GLM-5</a>
-2. **Kimi K2.5** - 1T MoE with agent swarm, Intelligence Index 47, 99% HumanEval - <a target="_blank" href="https://huggingface.co/moonshotai/Kimi-K2.5">Get Kimi K2.5</a>
-3. **DeepSeek V3.2** - 671B MoE, Intelligence Index 42, MIT license - <a target="_blank" href="https://huggingface.co/deepseek-ai">Get DeepSeek V3.2</a>
+1. **GLM-5** - 744B MoE, 90% HumanEval, MIT license - <a target="_blank" href="https://huggingface.co/zai-org/GLM-5">Get GLM-5</a>
+2. **Kimi K2.5** - 1T MoE with agent swarm, 99% HumanEval, 85% LiveCodeBench - <a target="_blank" href="https://huggingface.co/moonshotai/Kimi-K2.5">Get Kimi K2.5</a>
+3. **DeepSeek V3.2** - 671B MoE, 75.69 LiveBench Coding Avg, MIT license - <a target="_blank" href="https://huggingface.co/deepseek-ai">Get DeepSeek V3.2</a>
 4. **Devstral 2** - 123B model, 72.2% SWE-bench Verified (self-reported), 256K context - <a target="_blank" href="https://huggingface.co/mistralai">Get Devstral 2</a>
 5. **Qwen3-Coder** - 480B MoE, agentic coding model with CLI tool - <a target="_blank" href="https://github.com/QwenLM/Qwen3-Coder">Get Qwen3-Coder</a>
 6. **Devstral Small 2** - 24B model, 68% SWE-bench Verified (self-reported), runs on consumer GPU - <a target="_blank" href="https://huggingface.co/mistralai">Get Devstral Small 2</a>
@@ -38,131 +38,254 @@ Whether you're a solo developer who wants to keep code off third-party servers, 
 
 ## Open Source vs Proprietary: How Close Is the Gap?
 
-Before diving into individual models, it's worth understanding where open source stands relative to the proprietary options you might already be using. The {{< link href="https://artificialanalysis.ai/leaderboards/models?is_open_weights=open_source" >}}Artificial Analysis Intelligence Index{{< /link >}} provides one of the most comprehensive composite rankings, scoring models across coding, agentic tasks, math, and scientific reasoning. Here's how the top open source models stack up against proprietary leaders.
+Before diving into individual models, it's worth understanding where open source stands relative to the proprietary options you might already be using. {{< link href="https://livebench.ai/#/?sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench{{< /link >}} is a contamination-free benchmark with 23 diverse tasks spanning Coding, Agentic Coding, Data Analysis, Language, Instruction Following, Math, and Reasoning. Questions refresh regularly and are delay-released to minimize training contamination, making it one of the most reliable benchmarks available. The scores below are sourced from LiveBench (March 2026 snapshot).
 
-### Artificial Analysis Intelligence Index - Open Source Rankings (March 2026)
+### LiveBench Agentic Coding Average (March 2026)
 
-<table style="width:100%;border-collapse:collapse;">
+<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
 <thead>
 <tr>
   <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Model</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Organization</th>
   <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Type</th>
-  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Intelligence Index</th>
-  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Parameters</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Agentic Coding Avg</th>
   <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Context Window</th>
 </tr>
 </thead>
 <tbody>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Gemini 3.1 Pro Preview</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">GPT-5.4 Thinking xHigh Effort</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">OpenAI</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Proprietary</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>57.0</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">-</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">1M</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">GPT-5.4 (xhigh)</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Proprietary</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">57.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">-</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>70.00</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">1.05M</td>
 </tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Claude Opus 4.6 (Max Effort)</td>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">GPT-5.3 Codex xHigh</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">OpenAI</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Proprietary</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">53.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">-</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">1M</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">66.67</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">400K</td>
 </tr>
 <tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM-5 (Reasoning)</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM-5</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Z.AI</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>50.0</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">744B</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>55.00</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">200K</td>
 </tr>
 <tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2.5 (Reasoning)</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>MiniMax M2.5</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">MiniMax</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>47.0</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">1T</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">51.67</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">200K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>MiniMax M2.7</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">MiniMax</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">50.00</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">205K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2.5 Thinking</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Moonshot AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">48.33</td>
   <td style="border:1px solid #ddd;padding:0.5em;">256K</td>
 </tr>
 <tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Qwen3.5 397B A17B (Reasoning)</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>DeepSeek V3.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">DeepSeek</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">45.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">397B</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">262K</td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Qwen3.5 27B (Reasoning)</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">42.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">27.8B</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">262K</td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>DeepSeek V3.2 (Reasoning)</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">42.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">685B</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">46.67</td>
   <td style="border:1px solid #ddd;padding:0.5em;">160K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Devstral 2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Mistral</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">43.33</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">256K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM-4.7</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Z.AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">41.67</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">200K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>DeepSeek V3.2 Thinking</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">DeepSeek</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">40.00</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">160K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2 Thinking</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Moonshot AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">38.33</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">256K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>MiMo V2 Pro</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Xiaomi</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">30.00</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">1M</td>
 </tr>
 </tbody>
 </table>
 
-The Intelligence Index uses a composite of benchmarks including Terminal-Bench Hard (agentic software engineering), SciCode (scientific coding), GPQA Diamond, and others. GLM-5 leads the open source pack at 50, compared to Gemini 3.1 Pro's 57.0 at the top of the proprietary leaderboard. That gap has been closing rapidly, and for many everyday coding tasks like completion, bug fixes, test generation, and refactoring, the practical difference is increasingly hard to notice.
+### LiveBench Coding Average (March 2026)
 
-Beyond the Intelligence Index, individual model announcements report scores on coding-specific benchmarks like SWE-bench Verified (real-world bug fixing) and HumanEval (code generation). We've included those self-reported numbers in each model's section below where available, as they provide useful context for coding-specific performance.
+<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
+<thead>
+<tr>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Model</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Organization</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Type</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Coding Avg</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Context Window</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.5em;">GPT-5.2 Codex</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">OpenAI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Proprietary</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>83.62</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">1.05M</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">GPT-5.1 Codex Max</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">OpenAI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Proprietary</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">81.38</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">1.05M</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2.5 Thinking</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Moonshot AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>77.86</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">256K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>DeepSeek V3.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">DeepSeek</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">75.69</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">160K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2 Instruct</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Moonshot AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">74.28</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">128K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM-5</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Z.AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">73.64</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">200K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM-4.7</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Z.AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">73.13</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">200K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>MiniMax M2.5</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">MiniMax</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">70.70</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">200K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>MiMo V2 Pro</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Xiaomi</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">68.85</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">1M</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2 Thinking</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Moonshot AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">67.44</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">256K</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Devstral 2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Mistral</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">66.79</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">256K</td>
+</tr>
+</tbody>
+</table>
+
+The LiveBench data shows that on agentic coding tasks, GLM-5 leads the open source pack at 55.00, followed by MiniMax M2.5 (51.67) and Kimi K2.5 Thinking (48.33). Proprietary models still hold a lead, with GPT-5.4 Thinking at 70.00. On standard coding tasks, the gap is much smaller. Kimi K2.5 Thinking scores 77.86 compared to GPT-5.1 Codex Max's 81.38, and several open source models cluster in the 70-78 range alongside proprietary options.
+
+> For the latest scores and full model list, visit the {{< link href="https://livebench.ai/#/?Coding=a&Agentic+Coding=a&Mathematics=a&IF=a&sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench leaderboard{{< /link >}} directly.
 
 ## Best Open Source LLMs for Coding
 
-### 1. GLM-5 (Zhipu AI)
+### 1. GLM-5 (Zhipu AI) - #1 Agentic Coding (55.00)
 
 {{< image "best_open_source_self_hosted_llms_for_coding/glm.webp" "GLM-5 Open Source LLM by Zhipu AI" >}}
 
-{{< link href="https://huggingface.co/zai-org/GLM-5" >}}GLM-5{{< /link >}} from Zhipu AI currently sits at the top of the open source coding leaderboard. Released in February 2026, it uses a Mixture of Experts architecture with 744 billion total parameters but only 40 billion active per token, spread across 256 experts with 8 active at any given time. It was trained on 28.5 trillion tokens and supports a 200K token context window.
+{{< link href="https://huggingface.co/zai-org/GLM-5" >}}GLM-5{{< /link >}} from Zhipu AI ranks #1 among open source models on LiveBench Agentic Coding with a score of 55.00, and scores 73.64 on LiveBench Coding Average. Released in February 2026, it uses a Mixture of Experts architecture with 744 billion total parameters but only 40 billion active per token, spread across 256 experts with 8 active at any given time. It was trained on 28.5 trillion tokens and supports a 200K token context window.
 
 What makes GLM-5 particularly noteworthy is its training infrastructure. The entire model was trained on 100,000 Huawei Ascend 910B chips rather than NVIDIA GPUs, making it a significant milestone for non-NVIDIA AI hardware. Zhipu also introduced a novel reinforcement learning infrastructure called "Slime" that reduced hallucination rates from 90% to 34%.
 
-On coding benchmarks, GLM-5 scores 90% on HumanEval and 77.8% on SWE-bench Verified according to Zhipu AI's official reports. On the Artificial Analysis Intelligence Index, it ranks #1 among all open source models with a score of 50. Its 200K context window is generous enough to handle analysis of large codebases in a single session.
+On coding benchmarks, GLM-5 scores 90% on HumanEval and 77.8% on SWE-bench Verified according to Zhipu AI's official reports. Its 200K context window is generous enough to handle analysis of large codebases in a single session.
 
 #### Key Specs
 
 - **Architecture:** MoE, 744B total / 40B active parameters
 - **Context Window:** 200K tokens
 - **License:** MIT (free commercial use)
-- **Intelligence Index:** 50.0 (#1 open source)
+- **LiveBench Agentic Coding Avg:** 55.00 (#1 open source)
+- **LiveBench Coding Avg:** 73.64
 - **SWE-bench Verified:** 77.8% (self-reported by Zhipu AI)
 - **HumanEval:** 90%
 - **Self-hosting:** Supported via vLLM and SGLang; weights available on Hugging Face and ModelScope
 
-### 2. Kimi K2.5 (Moonshot AI)
+### 2. Kimi K2.5 (Moonshot AI) - #1 Coding (77.86)
 
 {{< image "best_open_source_self_hosted_llms_for_coding/kimi.webp" "Kimi K2.5 Open Source LLM by Moonshot AI" >}}
 
-{{< link href="https://huggingface.co/moonshotai/Kimi-K2.5" >}}Kimi K2.5{{< /link >}} from Moonshot AI builds on the already impressive Kimi K2 foundation. The original K2, released in July 2025, was a 1 trillion parameter MoE model with 32B active parameters that scored 65.8% on SWE-bench Verified and pioneered the use of the MuonClip optimizer during training on 15.5 trillion tokens.
+{{< link href="https://huggingface.co/moonshotai/Kimi-K2.5" >}}Kimi K2.5{{< /link >}} from Moonshot AI ranks #1 among open source models on LiveBench Coding Average with a score of 77.86, and scores 48.33 on Agentic Coding. It builds on the already impressive Kimi K2 foundation. The original K2, released in July 2025, was a 1 trillion parameter MoE model with 32B active parameters that scored 65.8% on SWE-bench Verified and pioneered the use of the MuonClip optimizer during training on 15.5 trillion tokens.
 
 K2.5, released in January 2026, takes this further by adding native multimodal capabilities (text, vision, and video) trained on an additional 15 trillion multimodal tokens. Its standout feature is Agent Swarm, a capability that lets the model self-direct up to 100 sub-agents across 1,500 coordinated steps using Parallel-Agent Reinforcement Learning (PARL). This makes K2.5 uniquely powerful for complex agentic coding workflows where the model needs to plan, execute, and verify changes across an entire codebase.
 
-On benchmarks, Moonshot AI reports K2.5 delivers 76.8% on SWE-bench Verified, 99% on HumanEval, and 85% on LiveCodeBench. It scores 47 on the Artificial Analysis Intelligence Index, making it the #2 open source model overall. The 99% HumanEval score is the highest among any open source model, demonstrating exceptional raw code generation ability.
+On benchmarks, Moonshot AI reports K2.5 delivers 76.8% on SWE-bench Verified, 99% on HumanEval, and 85% on LiveCodeBench. The 99% HumanEval score is the highest among any open source model, demonstrating exceptional raw code generation ability.
 
 #### Key Specs
 
 - **Architecture:** MoE, ~1T total / 32B active parameters
 - **Context Window:** 128K (256K with updates)
 - **License:** Modified MIT (commercial use allowed)
-- **Intelligence Index:** 47.0 (#2 open source)
+- **LiveBench Coding Avg:** 77.86 (#1 open source)
+- **LiveBench Agentic Coding Avg:** 48.33
 - **SWE-bench Verified:** 76.8% (self-reported by Moonshot AI)
 - **HumanEval:** 99%
 - **Self-hosting:** Recommended via vLLM or SGLang; production requires 2x H100 80GB or 4x A100 80GB, 512GB RAM
 
-### 3. DeepSeek V3.2
+### 3. DeepSeek V3.2 - Coding 75.69, Agentic 46.67
 
 {{< image "best_open_source_self_hosted_llms_for_coding/deepseek.webp" "DeepSeek V3.2 Open Source LLM" >}}
 
-{{< link href="https://www.deepseek.com" >}}DeepSeek{{< /link >}} has consistently pushed the boundaries of what open source models can achieve for coding. The V3.2 release features 671 billion total parameters with 37 billion active, using a Mixture of Experts architecture and a 160K context window. It's released under the MIT license.
+{{< link href="https://www.deepseek.com" >}}DeepSeek{{< /link >}} has consistently pushed the boundaries of what open source models can achieve for coding. The V3.2 release scores 75.69 on LiveBench Coding Average and 46.67 on Agentic Coding, placing it among the top open source contenders. It features 671 billion total parameters with 37 billion active, using a Mixture of Experts architecture and a 160K context window. It's released under the MIT license.
 
 DeepSeek's lineage in code-specific models runs deep. The original DeepSeek Coder series (1B to 33B) was trained on 2 trillion tokens composed of 87% code and 13% natural language. DeepSeek Coder V2 expanded to support 338 programming languages. V3.2 combines these strengths into a general model that excels at coding, scoring 73.1% on SWE-bench Verified.
 
@@ -173,15 +296,16 @@ The model's API pricing is remarkably low at roughly $0.27 to $0.55 per million 
 - **Architecture:** MoE, 671B total / 37B active parameters
 - **Context Window:** 160K tokens
 - **License:** MIT
-- **Intelligence Index:** 41.0
+- **LiveBench Coding Avg:** 75.69
+- **LiveBench Agentic Coding Avg:** 46.67
 - **SWE-bench Verified:** 73.1% (self-reported by DeepSeek)
 - **Self-hosting:** Full model requires multi-GPU setup; smaller Coder variants run on consumer GPUs via Ollama
 
-### 4. Devstral 2 (Mistral AI)
+### 4. Devstral 2 (Mistral AI) - Coding 66.79, Agentic 43.33
 
 {{< image "best_open_source_self_hosted_llms_for_coding/mistral.webp" "Devstral 2 Open Source LLM by Mistral AI" >}}
 
-{{< link href="https://mistral.ai/news/devstral-2-vibe-cli" >}}Devstral 2{{< /link >}} from Mistral AI is a 123 billion parameter model specifically designed for agentic software engineering. Released in December 2025, it scores 72.2% on SWE-bench Verified with a 256K context window, making it one of the most capable code-focused models available. Mistral describes it as 7x more cost-efficient than Claude Sonnet and 5x smaller than DeepSeek V3.2 while remaining competitive in benchmarks.
+{{< link href="https://mistral.ai/news/devstral-2-vibe-cli" >}}Devstral 2{{< /link >}} from Mistral AI is a 123 billion parameter model specifically designed for agentic software engineering. It scores 66.79 on LiveBench Coding Average and 43.33 on Agentic Coding. Released in December 2025, it scores 72.2% on SWE-bench Verified with a 256K context window, making it one of the most capable code-focused models available. Mistral describes it as 7x more cost-efficient than Claude Sonnet and 5x smaller than DeepSeek V3.2 while remaining competitive in benchmarks.
 
 What makes the Devstral family compelling for self-hosting is the smaller sibling, **Devstral Small 2** (24B parameters), which scores an impressive 68% on SWE-bench Verified. That's remarkable for a model that runs on a single RTX 4090 or a Mac with 32GB of RAM. It also supports image inputs and comes with Apache 2.0 licensing, making it one of the most permissive options available.
 
@@ -192,6 +316,8 @@ Mistral also offers **Vibe CLI**, an open source terminal coding assistant power
 - **Parameters:** 123B
 - **Context Window:** 256K tokens
 - **License:** Modified MIT
+- **LiveBench Coding Avg:** 66.79
+- **LiveBench Agentic Coding Avg:** 43.33
 - **SWE-bench Verified:** 72.2% (self-reported by Mistral AI)
 - **Self-hosting:** Multi-GPU recommended for full model
 
@@ -203,7 +329,7 @@ Mistral also offers **Vibe CLI**, an open source terminal coding assistant power
 - **SWE-bench Verified:** 68.0% (self-reported by Mistral AI)
 - **Self-hosting:** Single RTX 4090 or Mac with 32GB RAM
 
-### 5. Qwen3-Coder (Alibaba)
+### 5. Qwen3-Coder (Alibaba) - Best Agentic CLI Tool
 
 {{< image "best_open_source_self_hosted_llms_for_coding/qwen_3_coder.webp" "Qwen3-Coder Open Source LLM by Alibaba" >}}
 
@@ -222,7 +348,7 @@ The broader Qwen ecosystem also includes **Qwen 2.5 Coder** (available in sizes 
 - **SWE-bench Verified:** 70.6% (Qwen3-Coder-Next, self-reported by Alibaba)
 - **Self-hosting:** Qwen 2.5 Coder 32B runs on consumer hardware via Ollama; larger variants require multi-GPU
 
-### 6. Llama 4 (Meta)
+### 6. Llama 4 (Meta) - Largest Context Window (10M)
 
 {{< image "best_open_source_self_hosted_llms_for_coding/mera_llama.webp" "Llama 4 Open Source LLM by Meta" >}}
 
@@ -239,7 +365,7 @@ The main caveat is licensing: Llama's license does not meet the OSI Open Source 
 - **License:** Llama Community License (restrictions for very large companies)
 - **Self-hosting:** Scout and Maverick available via Ollama, vLLM; smaller variants run on consumer hardware
 
-### 7. StarCoder 2 (BigCode / Hugging Face)
+### 7. StarCoder 2 (BigCode / Hugging Face) - Most Auditable Training Data
 
 {{< image "best_open_source_self_hosted_llms_for_coding/starcode2.webp" "StarCoder 2 Open Source LLM by BigCode" >}}
 
@@ -274,7 +400,7 @@ Several other open source models deserve recognition for specific strengths:
 
 {{< image "best_open_source_self_hosted_llms_for_coding/qwen.webp" "Qwen 3.5 Open Source LLM by Alibaba" >}}
 
-- {{< link href="https://github.com/QwenLM/Qwen3.5" >}}Qwen 3.5{{< /link >}} - Released February 2026 with a 397B MoE model, featuring unified vision-language capabilities and support for 201 languages. Ranked #3 open-weight model on the Artificial Analysis Intelligence Index.
+- {{< link href="https://github.com/QwenLM/Qwen3.5" >}}Qwen 3.5{{< /link >}} - Released February 2026 with a 397B MoE model, featuring unified vision-language capabilities and support for 201 languages. One of the top-ranked open-weight models across multiple benchmarks.
 
 ## How to Self-Host These Models Locally
 
@@ -285,7 +411,7 @@ Once you've picked a model, you need the right tools and hardware to run it. We'
 
 ## Quick Decision Guide
 
-<table style="width:100%;border-collapse:collapse;">
+<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
 <thead>
 <tr>
   <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Your Need</th>
