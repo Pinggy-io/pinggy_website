@@ -402,12 +402,58 @@ Several other open source models deserve recognition for specific strengths:
 
 - {{< link href="https://github.com/QwenLM/Qwen3.5" >}}Qwen 3.5{{< /link >}} - Released February 2026 with a 397B MoE model, featuring unified vision-language capabilities and support for 201 languages. One of the top-ranked open-weight models across multiple benchmarks.
 
+## How to Use These Models with a Coding Agent
+
+If you want a Claude Code or Aider-style workflow with self-hosted models, one of the easiest setups is **{{< link href="https://opencode.ai" >}}OpenCode{{< /link >}} + {{< link href="https://ollama.com" >}}Ollama{{< /link >}}**. This combination gives you a local coding agent with a simple terminal workflow and no cloud dependency.
+
+### Easiest Setup: OpenCode + Ollama
+
+If you're using Ollama's built-in Applications flow, the setup is even simpler. The current {{< link href="https://ollama.com/library/qwen3.5" >}}Qwen 3.5 Ollama page{{< /link >}} lists a direct OpenCode launch command.
+
+1. Install Ollama 
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+{{< image "best_open_source_self_hosted_llms_for_coding/install_ollama.webp" "install ollama" >}}
+
+2. Install Opencode
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+{{< image "best_open_source_self_hosted_llms_for_coding/install_opencode.webp" "install opencode" >}}
+
+3. Launch OpenCode directly through Ollama Applications
+
+```bash
+ollama launch opencode --model qwen3.5
+```
+
+{{< image "best_open_source_self_hosted_llms_for_coding/opencode.webp" "opencode" >}}
+
+4. Open your project and start working
+
+Once OpenCode starts, point it at your repository and use it like any other terminal coding agent for explaining code, refactoring files, writing tests, or implementing features.
+
+If you want a smaller local footprint, Ollama also provides smaller Qwen 3.5 tags such as `qwen3.5:4b`, `qwen3.5:9b`, and `qwen3.5:27b`.
+
+### Why This Setup Works Well
+
+- **Fastest setup path** because Ollama can launch OpenCode directly as an application
+- **Runs fully local** with no separate model gateway to configure
+- **Easy to scale up or down** by swapping the Ollama model tag based on your hardware
+
+
 ## How to Self-Host These Models Locally
 
 Once you've picked a model, you need the right tools and hardware to run it. We've covered this extensively in our previous guides:
 
 - {{< link href="/blog/how_to_self_host_any_llm_step_by_step_guide/" >}}How to Self-Host Any LLM - Step by Step Guide{{< /link >}} - A complete walkthrough covering installation, model download, quantization, GPU setup, and connecting to your development tools.
 - {{< link href="/blog/top_5_local_llm_tools_and_models/" >}}Top 5 Local LLM Tools and Models{{< /link >}} - A detailed comparison of Ollama, vLLM, llama.cpp, LM Studio, and other self-hosting tools with hardware requirements and performance benchmarks.
+
 
 ## Quick Decision Guide
 
