@@ -14,3 +14,13 @@ Create a tunnel using a single command.
 {{</ ssh_command >}}
 
 This command present user with a URL and a TCP port. Port allocation changes per connection. However, one can reserve a port on <https://dashboard.pinggy.io>
+
+## Specific SSH Guides
+
+If you want to SSH into a specific operating system, check out our step-by-step guides:
+
+- [SSH into Windows from anywhere](/docs/guides/ssh_windows/)
+- [SSH into Mac from anywhere](/docs/guides/ssh_mac/)
+- [SSH into Linux PC from anywhere](/docs/guides/ssh_linux/)
+- [SSH into IoT device from anywhere](/docs/guides/ssh_iot/)
+

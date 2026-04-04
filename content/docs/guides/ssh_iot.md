@@ -78,3 +78,14 @@ ssh -p 43142 username@myraspberrypi.a.pinggy.link
 ```
 
 Replace `username` with the username of your IoT device, and use the URL and port from the output of the tunneling command.
+
+---
+
+### Other SSH Guides
+
+If you are not using an IoT device, check out our other guides:
+
+- [SSH into Windows from anywhere](/docs/guides/ssh_windows/)
+- [SSH into Mac from anywhere](/docs/guides/ssh_mac/)
+- [SSH into Linux PC from anywhere](/docs/guides/ssh_linux/)
+
