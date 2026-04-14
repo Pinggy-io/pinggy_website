@@ -29,15 +29,14 @@ Generate an ssh key, if you don't have one already.
    - Use a text editor to create a shell script. For example, you can use `nano`:
 
      ```bash
-     sudo nano /usr/local/sbin/my-startup.sh
+     sudo nano /usr/local/sbin/pinggy-startup.sh
      ```
 
    - Paste your Pinggy command into the script. For example:
 
      ```bash
      #!/bin/sh
-     ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no
-     -o ServerAliveInterval=30 a.pinggy.io
+     ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 a.pinggy.io
      ```
 
    You can customize the command here:
@@ -50,7 +49,7 @@ Generate an ssh key, if you don't have one already.
 3. **Make the Script Executable:**
    - Run the following command to make your script executable:
      ```bash
-     sudo chmod +x /usr/local/sbin/my-startup.sh
+     sudo chmod +x /usr/local/sbin/pinggy-startup.sh
      ```
 
 ## Step 2: Create a Systemd Service
@@ -60,7 +59,7 @@ Generate an ssh key, if you don't have one already.
    - Use a text editor to create a systemd service file. For example:
 
      ```bash
-     sudo nano /etc/systemd/system/my-startup.service
+     sudo nano /etc/systemd/system/pinggy-startup.service
      ```
 
    - Paste the following content into the file:
@@ -68,9 +67,10 @@ Generate an ssh key, if you don't have one already.
      ```ini
      [Unit]
      Description=Pinggy Tunnel Startup
+     After=network.target
 
      [Service]
-     ExecStart=/usr/local/sbin/my-startup.sh
+     ExecStart=/usr/local/sbin/pinggy-startup.sh
      Restart=on-failure
      RestartSec=10s
 
@@ -84,7 +84,8 @@ Generate an ssh key, if you don't have one already.
    - Run the following commands to reload systemd and enable your service:
      ```bash
      sudo systemctl daemon-reload
-     sudo systemctl enable my-startup.service
+     sudo systemctl enable pinggy-startup.service
+     sudo systemctl start pinggy-startup.service
      ```
 
 ## Step 3: Verify and Monitor the Service
@@ -94,7 +95,7 @@ Generate an ssh key, if you don't have one already.
    - Run the following command to check the status of your service:
 
      ```bash
-     sudo systemctl status my-startup.service
+     sudo systemctl status pinggy-startup.service
      ```
 
    {{< figure src="/doc_img/linux_system_service_status.webp" alt="Linux System Service Status">}}
@@ -103,7 +104,7 @@ Generate an ssh key, if you don't have one already.
 
    - Use the following command to view the logs of your service:
      ```bash
-     sudo journalctl -u my-startup.service
+     sudo journalctl -u pinggy-startup.service
      ```
 
    {{< figure src="/doc_img/linux_logs.webp" alt="Linux Logs">}}
