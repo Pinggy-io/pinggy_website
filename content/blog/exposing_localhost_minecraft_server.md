@@ -27,6 +27,8 @@ In this guide, we'll walk through the process of exposing your localhost Minecra
 
 {{% /tldr %}}
 
+{{< iframe src="https://www.youtube.com/embed/jwHRK6rYDIs" title="How to Host a Minecraft Server for Friends Online (No Port Forwarding)" >}}
+
 ## Installing Minecraft Launcher
 
 To embark on your Minecraft adventure, the first step is to install the Minecraft Launcher. Follow these detailed instructions to ensure a smooth installation process.

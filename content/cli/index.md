@@ -96,7 +96,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.2/pinggy-win-x64.exe"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.4/pinggy-win-x64.exe"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -105,7 +105,7 @@
                   </li>
                   <li class="list-group-item">
                     <a
-                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.2/pinggy-win-arm64.exe"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.4/pinggy-win-arm64.exe"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -123,7 +123,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.2/pinggy-macos-arm64"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.4/pinggy-macos-arm64"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -133,7 +133,7 @@
                   </li>
                   <li class="list-group-item">
                     <a
-                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.2/pinggy-macos-x64"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.4/pinggy-macos-x64"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -153,7 +153,7 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a
-                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.2/pinggy-linux-x64"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.4/pinggy-linux-x64"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
@@ -162,7 +162,7 @@
                   </li>
                   <li class="list-group-item">
                     <a
-                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.2/pinggy-linux-arm64"
+                      href="https://github.com/Pinggy-io/cli-js/releases/download/v0.4.4/pinggy-linux-arm64"
                       target="_blank"
                       class="btn btn-primary"
                       style="background-color: rgba(70, 117, 199, 1)"
