@@ -1,7 +1,7 @@
 ---
 title: "Best Free & Open-Source AI Image Generators to Self-Host"
 description: "A guide to the most capable open-weights AI image generation models and tools available for self-hosting in 2026, including FLUX.2, HunyuanImage 3.0, and Qwen Image Max."
-date: 2026-04-21T14:15:25+05:30
+date: 2026-04-20T14:15:25+05:30
 draft: false
 tags: ["AI image generation", "self-hosted", "open-source", "FLUX.2", "HunyuanImage", "Qwen", "machine learning"]
 categories: ["Technology", "AI Tools", "Self-Hosting"]
@@ -42,7 +42,7 @@ This guide covers the most effective models and interfaces in 2026 for self-host
 
 ### 1. FLUX.2 (Black Forest Labs)
 
-{{< image "best_free_open_source_ai_image_generators/flux1.webp" "FLUX.2" >}}
+{{< image "best_free_open_source_ai_image_generators/flux2.webp" "FLUX.2 sample editing workflow" >}}
 
 FLUX.2 is the successor to the original FLUX.1 architecture that redefined open-weights quality. The 2026 iteration introduces native 4-megapixel resolution support and a significantly improved DiT (Diffusion Transformer) backbone.
 
@@ -53,7 +53,7 @@ A standout feature of FLUX.2 is its built-in **Multi-Reference Support**. This a
 
 ### 2. HunyuanImage 3.0 (Tencent)
 
-{{< image "best_free_open_source_ai_image_generators/deepfloyd_if.webp" "HunyuanImage 3.0" >}}
+{{< image "best_free_open_source_ai_image_generators/hunyuan.webp" "HunyuanImage 3.0 ai image samples" >}}
 
 Tencent's HunyuanImage 3.0 represents the largest scale available in the open-weights category. Utilizing a Mixture-of-Experts (MoE) architecture with 80 billion total parameters (of which roughly 13 billion are active during any single inference), it offers unparalleled "world knowledge" and reasoning.
 
@@ -64,7 +64,8 @@ HunyuanImage 3.0 can process ultra-long prompts (exceeding 1,000 characters), ma
 
 ### 3. Qwen Image Max 2512 (Alibaba)
 
-{{< image "best_free_open_source_ai_image_generators/stable_diffusion.webp" "Qwen Image Max" >}}
+{{< image "best_free_open_source_ai_image_generators/qwen.webp" "Qwen Image Max 2512 samples" >}}
+
 
 The Qwen Image Max 2512 update from Alibaba Tongyi focuses on solving two persistent challenges in AI generation: skin texture realism and text legibility. Unlike models that produce a "waxy" or overly smoothed "AI look," Qwen Image Max generates realistic micro-textures and imperfections.
 
@@ -75,12 +76,27 @@ Its text rendering capabilities are among the best in the industry, capable of g
 
 ### 4. FIBO (Bria AI)
 
+
+{{< image "best_free_open_source_ai_image_generators/fibo.webp" "Sample images of FIBO model" >}}
+
+
 FIBO (Foundation Image by Open-weights) by Bria AI introduces a unique approach to image generation. It is **JSON-native**, meaning it can interpret structured data to control specific parameters like camera focal length (e.g., "85mm"), lighting direction, and depth of field with mathematical precision.
 
 Furthermore, FIBO is trained exclusively on licensed and public domain data, providing a "legally safe" foundation for enterprise applications where copyright provenance is a requirement.
 
 *   **Best for:** Enterprise applications, precise architectural/product visualization, and legally-safe workflows.
 *   **Source:** {{< link href="https://huggingface.co/BriaAI/FIBO" >}}Bria AI on Hugging Face{{< /link >}}
+
+### 5. Stable Diffusion 3.5 (Stability AI)
+
+{{< image "best_free_open_source_ai_image_generators/stable_diffusion.webp" "Stable Diffusion 3.5" >}}
+
+Stable Diffusion 3.5 was once the gold standard for self-hosted image generation and remains a cornerstone of the open-weights community. This model strikes an impressive balance between quality, versatility, and resource efficiency, making it the go-to choice for developers and artists worldwide.
+
+What makes Stable Diffusion 3.5 exceptional is its extensive ecosystem. You’ll find countless fine-tuned models, LoRAs (Low-Rank Adaptations), and community extensions that can transform the base model into something highly specialized for your specific use case. Whether you’re generating photorealistic portraits, abstract art, or detailed illustrations, SD 3.5 consistently delivers results that rival commercial alternatives.
+
+*   **Best for:** General-purpose generation, creative experimentation, and leveraging the world's largest library of LoRAs.
+*   **Source:** {{< link href="https://huggingface.co/stabilityai/stable-diffusion-3.5-large" >}}Stability AI on Hugging Face{{< /link >}}
 
 ---
 
@@ -94,6 +110,10 @@ SwarmUI is designed for professional environments where efficiency and organizat
 *   **Source:** {{< link href="https://github.com/mcmonkeyprojects/SwarmUI" >}}SwarmUI GitHub{{< /link >}}
 
 ### 2. ComfyUI
+
+{{< image "best_free_open_source_ai_image_generators/comfyui.webp" "ComfyUI Screenshot" >}}
+
+
 ComfyUI remains the choice for power users. Its node-based interface allows for the creation of intricate "workflows"-visual representations of the generation pipeline. In 2026, ComfyUI is typically the first interface to support new experimental features like video diffusion or hybrid MoE pipelines.
 
 *   **Source:** {{< link href="https://github.com/Comfy-Org/ComfyUI" >}}GitHub - ComfyUI{{< /link >}}
