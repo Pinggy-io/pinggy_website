@@ -11,6 +11,9 @@ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dC
 outputs:
   - HTML
   - AMP
+aliases:
+  - /blog/best_playit_gg_alternatives_in_2025
+  - /blog/best_playit_gg_alternatives_in_2025/
 ---
 
 {{< image "best_playit_gg_alternatives/best_playit_gg_alternatives.webp" "best_playit_gg_alternatives" >}}

@@ -10,6 +10,9 @@ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dC
 outputs:
   - HTML
   - AMP
+aliases:
+   - /blog/top_5_local_llm_tools_and_models_2025
+   - /blog/top_5_local_llm_tools_and_models_2025/
 ---
 
 {{< image "top_5_local_llm_tools_and_models/top_5_local_llm_tools_and_models_banner.webp" "top 5 local llm tools and models 2026 banner" >}}
