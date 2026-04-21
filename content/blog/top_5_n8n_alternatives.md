@@ -11,6 +11,9 @@ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dC
 outputs:
   - HTML
   - AMP
+aliases:
+   - /blog/top_5_n8n_alternatives_in_2025
+   - /blog/top_5_n8n_alternatives_in_2025/
 ---
 
 {{< image "top_5_n8n_alternatives/n8n_alternatives.webp" "top 5 n8n alternatives in 2025" >}}

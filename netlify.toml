@@ -4,6 +4,66 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
+  from = "/blog/top_5_local_llm_tools_and_models_2025"
+  to = "/blog/top_5_local_llm_tools_and_models/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/top_5_local_llm_tools_and_models_2025/"
+  to = "/blog/top_5_local_llm_tools_and_models/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/best_playit_gg_alternatives_in_2025"
+  to = "/blog/best_playit_gg_alternatives/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/best_playit_gg_alternatives_in_2025/"
+  to = "/blog/best_playit_gg_alternatives/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/best_self_hosted_apps_in_2025"
+  to = "/blog/best_self_hosted_apps/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/best_self_hosted_apps_in_2025/"
+  to = "/blog/best_self_hosted_apps/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/top_5_best_self_hosted_vpns_2025"
+  to = "/blog/top_5_best_self_hosted_vpns/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/top_5_best_self_hosted_vpns_2025/"
+  to = "/blog/top_5_best_self_hosted_vpns/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/top_5_n8n_alternatives_in_2025"
+  to = "/blog/top_5_n8n_alternatives/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/top_5_n8n_alternatives_in_2025/"
+  to = "/blog/top_5_n8n_alternatives/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/404/"
   status = 404

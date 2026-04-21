@@ -10,6 +10,9 @@ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dC
 outputs:
   - HTML
   - AMP
+aliases:
+  - /blog/best_self_hosted_apps_in_2025
+  - /blog/best_self_hosted_apps_in_2025/
 ---
 {{< image "best_self_hosted_apps/best_self_hosted_apps.webp" "Best Self Hosted Apps in 2026" >}}
 

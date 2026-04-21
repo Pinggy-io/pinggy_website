@@ -11,6 +11,9 @@ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KeyJAY29udGV4dCI6IC
 outputs:
   - HTML
   - AMP
+aliases:
+  - /blog/top_5_best_self_hosted_vpns_2025
+  - /blog/top_5_best_self_hosted_vpns_2025/
 ---
 
 {{< image "top_5_best_self_hosted_vpns/self_hosted_vpn.webp" "Best Self-Hosted VPNs in 2025" >}}
