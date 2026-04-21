@@ -1,7 +1,8 @@
 ---
 title: "Best Free & Open-Source AI Image Generators to Self-Host"
 description: "A guide to the most capable open-weights AI image generation models and tools available for self-hosting in 2026, including FLUX.2, HunyuanImage 3.0, and Qwen Image Max."
-date: 2026-04-20T14:15:25+05:30
+date: 2025-08-28T14:15:25+05:30
+lastmod: 2026-04-20T14:15:25+05:30
 draft: false
 tags: ["AI image generation", "self-hosted", "open-source", "FLUX.2", "HunyuanImage", "Qwen", "machine learning"]
 categories: ["Technology", "AI Tools", "Self-Hosting"]
@@ -97,8 +98,6 @@ What makes Stable Diffusion 3.5 exceptional is its extensive ecosystem. You’ll
 
 *   **Best for:** General-purpose generation, creative experimentation, and leveraging the world's largest library of LoRAs.
 *   **Source:** {{< link href="https://huggingface.co/stabilityai/stable-diffusion-3.5-large" >}}Stability AI on Hugging Face{{< /link >}}
-
----
 
 ## Essential User Interfaces
 
