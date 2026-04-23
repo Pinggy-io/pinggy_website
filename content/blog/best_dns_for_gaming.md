@@ -1,8 +1,8 @@
 ---
 title: "Best DNS for Gaming in 2026"
-description: "Discover the best DNS for gaming in 2026 to reduce latency and improve performance. Explore top options like Cloudflare, Google DNS, and OpenDNS with setup guides."
+description: "Discover the best DNS for gaming in 2026 to reduce latency and improve performance. Explore top options like Cloudflare, Quad9, AdGuard, NextDNS, and Control D with setup guides."
 date: 2024-11-21T14:15:25+05:30
-lastmod: 2026-01-06T22:56:42+05:30
+lastmod: 2026-04-22T23:20:00+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
 tags: ["gaming", "dns", "internet", "guide"]
@@ -15,7 +15,7 @@ outputs:
 
 When it comes to online gaming, a stable and fast internet connection is crucial for an optimal experience. While many gamers focus on their ISP or router settings, an often-overlooked factor is the DNS ({{< link href="https://en.wikipedia.org/wiki/Domain_Name_System" >}}Domain Name System{{< /link >}} ). Choosing the best DNS for gaming can significantly reduce latency, improve connection reliability, and even prevent issues like DNS server errors.
 
-Thus, in this article, we will learn why DNS matter for gaming, the recommended DNS servers for gaming and how to set them up in a proper way.
+In this article, we will cover why DNS matters for gaming, the best DNS servers to test in 2026, and how to configure them correctly.
 
 
 
@@ -32,60 +32,74 @@ Thus, in this article, we will learn why DNS matter for gaming, the recommended 
 </thead>
 <tbody>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Cloudflare</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://1.1.1.1/" target="_blank">Cloudflare</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1.1.1.1<br>1.0.0.1</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Strong privacy, no logs. Fastest globally, privacy-focused.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very fast global anycast resolver with strong privacy posture.</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Google DNS</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://developers.google.com/speed/public-dns" target="_blank">Google Public DNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">8.8.8.8<br>8.8.4.4</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Good privacy, minimal logs. Widely supported, robust infra.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Widely supported, stable, and easy fallback for most regions.</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>OpenDNS</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://www.opendns.com/" target="_blank">OpenDNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">208.67.222.222<br>208.67.220.220</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Security filtering. Parental controls, phishing block.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Strong uptime with optional security and content filtering.</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Quad9</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://quad9.net/" target="_blank">Quad9</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">9.9.9.9<br>149.112.112.112</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Focus on security/privacy. Blocks malicious domains.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Security-first resolver with malware/phishing domain blocking.</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>DNS.Watch</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://dns.watch/" target="_blank">DNS.Watch</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">84.200.69.80<br>84.200.70.40</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Good</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">No logs, privacy-focused. Based in Germany, privacy-centric.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">No-logging resolver with DNSSEC and long-term community operation.</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>AdGuard DNS</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://adguard-dns.io/welcome.html" target="_blank">AdGuard DNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">94.140.14.14<br>94.140.15.15</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Low</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Ad-blocking at DNS level. Supports DoH, DoT, DoQ protocols.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">DNS-level ad/tracker blocking with DoH, DoT, and DoQ support.</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>NextDNS</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://controld.com/free-dns" target="_blank">Control D (Free DNS)</a></strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">76.76.2.0<br>76.76.10.0</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Newer public option with unfiltered and preset filtered profiles.</td>
+</tr>
+<tr>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://nextdns.io/" target="_blank">NextDNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Custom Config</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Highly customizable. AI-driven threat detection, real-time analytics.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Highly customizable DNS filtering with analytics and per-device profiles.</td>
 </tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Surfshark DNS</strong></td>
+<tr style="background:#f9fbfd;">
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://dns.surfsharkdns.com/" target="_blank">Surfshark DNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">194.169.169.169</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Privacy-focused, no tracking. Optimized for gaming consoles.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Simple privacy-focused resolver with encrypted DNS support.</td>
+</tr>
+<tr>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" target="_blank">Mullvad Encrypted DNS</a></strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">dns.mullvad.net<br>(DoH/DoT)</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Public encrypted DNS with no account required and optional filters.</td>
 </tr>
 </tbody>
 </table>
@@ -93,29 +107,30 @@ Thus, in this article, we will learn why DNS matter for gaming, the recommended 
 
 {{% tldr %}}
 
-1. **What is DNS and Why It Matters for Gaming?**
-   - DNS translates domain names into IP addresses, facilitating connections.
-   - A faster and reliable DNS reduces latency, enhances performance, and prevents lag during gaming.
-2. **Top DNS Options for Gaming**:
-   - <a href="https://www.cloudflare.com/en-gb/" target="_blank"> Cloudflare DNS (1.1.1.1)</a>: Fast, reliable, privacy-focused.
-   - <a href="https://en.wikipedia.org/wiki/Google_Public_DNS" target="_blank"> Google DNS (8.8.8.8)</a>: Trusted, secure, and widely supported.
-   - <a href="https://www.opendns.com" target="_blank"> OpenDNS (208.67.222.222)</a>: Reliable with added security features.
-   - <a href="https://www.quad9.net/" target="_blank"> Quad9 DNS (9.9.9.9)</a>: Strong focus on security with low latency.
-   - <a href="https://dns.watch/" target="_blank"> DNS.Watch (84.200.69.80)</a>: Privacy-centric with solid speed.
-   - <a href="https://www.comodo.com/secure-dns/" target="_blank"> Comodo Secure DNS (8.26.56.26)</a>: Security-focused with threat protection.
-   - <a href="https://adguard-dns.io/" target="_blank"> AdGuard DNS (94.140.14.14)</a>: Ad-blocking DNS with DoH/DoT support.
-   - <a href="https://nextdns.io/" target="_blank"> NextDNS</a>: Highly customizable with AI-driven threat detection.
-   - <a href="https://surfshark.com/" target="_blank"> Surfshark DNS (194.169.169.169)</a>: Privacy-focused, optimized for gaming consoles.
-
-
-3. **Setup Instructions**: Learn [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows, Mac, and Linux systems.
+1. **DNS can reduce connection overhead for gaming services**:
+   - DNS affects how quickly your system resolves game, login, voice, and CDN endpoints.
+   - It will not fix bad routing from your ISP, but it can improve consistency and startup speed.
+2. **Top DNS options to test in 2026**:
+   - <a href="https://1.1.1.1/" target="_blank">Cloudflare (1.1.1.1)</a>
+   - <a href="https://developers.google.com/speed/public-dns" target="_blank">Google Public DNS (8.8.8.8)</a>
+   - <a href="https://www.opendns.com/" target="_blank">OpenDNS (208.67.222.222)</a>
+   - <a href="https://quad9.net/" target="_blank">Quad9 (9.9.9.9)</a>
+   - <a href="https://dns.watch/" target="_blank">DNS.Watch (84.200.69.80)</a>
+   - <a href="https://controld.com/free-dns" target="_blank">Control D Free DNS (76.76.2.0)</a>
+   - <a href="https://adguard-dns.io/welcome.html" target="_blank">AdGuard DNS (94.140.14.14)</a>
+   - <a href="https://nextdns.io/" target="_blank">NextDNS (custom config)</a>
+   - <a href="https://dns.surfsharkdns.com/" target="_blank">Surfshark DNS (194.169.169.169)</a>
+   - <a href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" target="_blank">Mullvad Encrypted DNS</a>
+3. **Pick based on measured latency from your location**:
+   - Test 2-3 providers with ping and DNS benchmark tools, then keep the fastest stable one.
+4. **Setup instructions**: Follow [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows, macOS, Linux, or router-level DNS.
 
 {{% /tldr %}}
 
 
 ### What is DNS, and Why Does It Matter for Gaming?
 
-Domain Name System (DNS), also known as the 'phone book' of the Internet, is where web detials are stored for its site points. Without it, your device wouldn’t be able to connect to websites or online services. In place of needing to remember complex IP addresses such as `192.168.1.1`, DNS converts easy to remember domain names (e.g. `www.example.com`) into numerical IP addresses so computers can talk to one another. 
+The Domain Name System (DNS) is often called the phone book of the internet. Without it, your device cannot translate domains into IP addresses and connect to websites or online game services. Instead of remembering complex IPs like `192.168.1.1`, DNS lets you use readable names like `www.example.com`. 
 
 Whenever you type a URL into your browser, or connect to a server for gaming, your device makes a request to a DNS server to look up the host’s domain name and give it back a corresponding IP address. It happens behind the scenes and usually takes only milliseconds. But the little delays can mean big things to gamers.
 
@@ -132,10 +147,10 @@ In the context of gaming, a poor or unreliable DNS server can introduce issues s
 On the other hand, using a fast, reliable, and gaming-optimized DNS can:
 
 - Lower latency (decrease query response times).
-- This helps ensure that the connection is stable, that server addresses always resolve consistently.
-- Conceal protection from malicious attacks.
+- Improve connection stability by resolving server addresses consistently.
+- Add protection against malicious or spoofed domains.
 
-In the end, gaming DNS means better performance, lag-free experience, giving you the competitive edge in real-time multiplayer games.
+In practice, a good DNS can make game startup, matchmaking, updates, and voice/chat services feel more consistent.
 
 
 ### How to Choose the Best DNS for Gaming
@@ -143,7 +158,7 @@ In the end, gaming DNS means better performance, lag-free experience, giving you
 Selecting the best DNS server for gaming involves evaluating several critical factors. Here’s a detailed guide on what to consider:
 
 #### 1. Low Latency
-The amount of time taken by a data packet from your device till it reaches a server and back is latency. Low latency (or ping, a funny play on words) is indispensable in gaming, but it keeps people sane - or at least focused. Because milliseconds are of importance in competitive gaming, a faster hitting DNS server can shave off milliseconds which can make a difference.
+Latency is the time a packet needs to travel from your device to a server and back. In competitive games, even small delays matter, so choosing a nearby and fast DNS resolver can reduce lookup delays during login, matchmaking, and service handshakes.
 
 - **Why It Matters**: Faster DNS responses mean quicker connections to gaming servers, reducing lag.
 - **Tip**: Use tools like **Namebench** or **DNS Jumper** to measure latency for different DNS servers.
@@ -177,7 +192,7 @@ For a more comprehensive comparison:
 - {{< link href="https://www.sordum.org/7952/dns-jumper-v2-2/" >}}DNS Jumper{{< /link >}}: Allows you to test and switch DNS servers easily.
 
 #### 2. Reliability
-High availability and stability of the DNS server is required. The unconsequential tidings of intermittent connectivity issues that can ruin your gaming sessions are caused by unreliable DNS servers.
+High availability and stable uptime are essential. Unreliable DNS can cause intermittent failures when games try to resolve APIs, voice services, launchers, or matchmaking endpoints.
 
 - **Why It Matters**: A reliable DNS ensures consistent access to gaming servers without interruptions.
 - **What to Look For**: Check for uptime guarantees and global server infrastructure from your chosen DNS provider.
@@ -198,7 +213,7 @@ One of the key technologies ensuring secure DNS resolution is **DNSSEC (Domain N
 - **Top Picks**: DNS providers like **Quad9** and **Cloudflare DNS** prioritize security by supporting DNSSEC and providing additional features like malware and phishing protection, ensuring a safe gaming experience without sacrificing speed.
 
 #### 4. Customization Options
-When it comes to a DNS service for advanced gamers, they often seek out DNS services that offer content filtering or parental controls or custom routing options.
+Advanced users often prefer DNS services that support custom filtering, allowlists, blocklists, and profile-based settings.
 
 - **Why It Matters**: Customization lets you block unnecessary distractions or optimize routing for specific games.
 - **Examples**: OpenDNS allows for filtering and advanced controls, making it a great option for families or shared networks.
@@ -214,88 +229,97 @@ Global coverage is often achieved through a technique called {{< link href="http
 
 ### Top DNS Servers for Gaming
 
-Here are some of the best DNS servers that can help improve your gaming performance:
+Here are the best DNS servers to test for gaming performance in 2026:
 
 #### 1. Cloudflare DNS (1.1.1.1)
    - **Primary DNS**: 1.1.1.1
    - **Secondary DNS**: 1.0.0.1
-   - **Latency**: Very low, one of the fastest options available.
-   - **Reliability**: Highly reliable with a strong global infrastructure.
-   - **Features**: Cloudflare focuses on privacy and speed, offering a no-logs policy, and it’s built for speed, making it a top choice for gamers.
+   - **Latency**: Very low.
+   - **Reliability**: Excellent global anycast coverage.
+   - **Features**: Privacy-focused resolver with modern encrypted DNS options.
 
-   **Why it's great for gaming**:  {{< link href="https://www.cloudflare.com/en-gb/" >}}Cloudflare DNS{{< /link >}} is insanely fast, and always tests at near top tier in the benchmarks for low latency and high reliability. Also a plus for gamers concerned about data security, it's focused on privacy.
+   **Why it's great for gaming**: {{< link href="https://1.1.1.1/" >}}Cloudflare DNS{{< /link >}} consistently performs near the top in global DNS benchmarks and is a strong default for low-latency lookups.
 
-#### 2. Google DNS (8.8.8.8)
+#### 2. Google Public DNS (8.8.8.8)
    - **Primary DNS**: 8.8.8.8
    - **Secondary DNS**: 8.8.4.4
-   - **Latency**: Moderate, but still very good for gaming.
-   - **Reliability**: Extremely reliable with global servers.
-   - **Features**: Google DNS is known for its speed and security, with an excellent uptime record.
+   - **Latency**: Low.
+   - **Reliability**: Excellent and highly stable.
+   - **Features**: Massive global footprint with support for encrypted DNS.
 
-   **Why it's great for gaming**:  {{< link href="https://en.wikipedia.org/wiki/Google_Public_DNS" >}}Google DNS{{< /link >}} is a relatively new reliable option to minimize the connection interruptions and downtime in any online game in order to lower lag.
+   **Why it's great for gaming**: {{< link href="https://developers.google.com/speed/public-dns" >}}Google Public DNS{{< /link >}} is easy to deploy and usually delivers predictable performance across different regions.
 
 #### 3. OpenDNS (208.67.222.222)
    - **Primary DNS**: 208.67.222.222
    - **Secondary DNS**: 208.67.220.220
-   - **Latency**: Low latency, comparable to Cloudflare and Google DNS.
-   - **Reliability**: {{< link href="https://www.opendns.com" >}}OpenDNS{{< /link >}} is known for its stability and performance.
-   - **Features**: OpenDNS offers additional features like phishing protection and content filtering.
+   - **Latency**: Low.
+   - **Reliability**: Excellent.
+   - **Features**: Mature platform with optional phishing and content filtering.
 
-   **Why it's great for gaming**: If you want an even faster, more secure, and more filtered DNS than you already have (other than for families or gamers who may want a bit extra protection against evil sites), openDNS is well worth considering.
-   
+   **Why it's great for gaming**: {{< link href="https://www.opendns.com/" >}}OpenDNS{{< /link >}} is a dependable option if you want stable DNS plus optional safety controls on shared networks.
+
 #### 4. Quad9 DNS (9.9.9.9)
    - **Primary DNS**: 9.9.9.9
    - **Secondary DNS**: 149.112.112.112
-   - **Latency**: Slightly higher than Cloudflare and Google, but still great for gaming.
-   - **Reliability**: Very reliable, with servers in multiple countries.
-   - **Features**: {{< link href="https://www.quad9.net/" >}}Quad9 DNS {{< /link >}} emphasizes security by blocking access to known malicious websites and malware domains.
+   - **Latency**: Low.
+   - **Reliability**: Very good.
+   - **Features**: Security-focused resolver that blocks known malicious domains.
 
-   **Why it's great for gaming**: Quad9 stays focused on providing cybersecurity and privacy while maintaining a top-notch delivery and low latency for gamers.
+   **Why it's great for gaming**: {{< link href="https://quad9.net/" >}}Quad9 DNS{{< /link >}} is ideal for players who want strong DNS-layer threat blocking without giving up speed.
 
 #### 5. DNS.Watch (84.200.69.80)
    - **Primary DNS**: 84.200.69.80
    - **Secondary DNS**: 84.200.70.40
-   - **Latency**: Low latency and fast resolution times.
-   - **Reliability**: Reliable with a focus on privacy.
-   - **Features**: DNS.Watch is a no-logs DNS service based in Germany providing good privacy protections and low latency.
+   - **Latency**: Low.
+   - **Reliability**: Good.
+   - **Features**: No-logging DNS resolver with DNSSEC support.
 
-   **Why it's great for gaming**: While it’s not as widely known as some of the other options,{{< link href="https://dns.watch/" >}}DNS.Watch {{< /link >}} offers a good balance of speed, security, and privacy, making it a solid choice for gamers.
+   **Why it's great for gaming**: {{< link href="https://dns.watch/" >}}DNS.Watch{{< /link >}} is a privacy-friendly alternative for players who prefer simple, open public resolvers.
 
-#### 6. Comodo Secure DNS (8.26.56.26)
-   - **Primary DNS**: 8.26.56.26
-   - **Secondary DNS**: 8.20.247.20
-   - **Latency**: Moderate.
-   - **Reliability**: Good, with a focus on security and threat protection.
-   - **Features**: {{< link href="https://www.comodo.com/secure-dns/" >}}Comodo Secure DNS {{< /link >}}blocks malicious websites, phishing attempts, and other online threats.
+#### 6. Control D Free DNS (76.76.2.0)
+   - **Primary DNS**: 76.76.2.0
+   - **Secondary DNS**: 76.76.10.0
+   - **Latency**: Low.
+   - **Reliability**: Very good.
+   - **Features**: Free anycast resolver with optional preset filtering profiles (malware, ads, social, family).
 
-   **Why it's great for gaming**: If you're a gamer that values security even above performance (which is generally quite important for gaming at this time), Comodo Secure DNS is definitely worth considering.
+   **Why it's great for gaming**: {{< link href="https://controld.com/free-dns" >}}Control D Free DNS{{< /link >}} is a strong newer option in this 2026 update. You can keep an unfiltered profile for game compatibility or switch to security-focused profiles when needed.
 
 #### 7. AdGuard DNS (94.140.14.14)
    - **Primary DNS**: 94.140.14.14
    - **Secondary DNS**: 94.140.15.15
-   - **Latency**: Very low with strategically distributed servers.
-   - **Reliability**: Excellent with global server infrastructure.
-   - **Features**: {{% link href="https://adguard-dns.io/" %}}AdGuard DNS{{% /link %}} blocks ads, trackers, and malicious domains at the DNS level. Supports modern encrypted protocols including DNS over HTTPS (DoH), DNS over TLS (DoT), and DNS over QUIC (DoQ).
+   - **Latency**: Low.
+   - **Reliability**: Excellent.
+   - **Features**: DNS-level ad/tracker blocking with DoH, DoT, and DoQ support.
 
-   **Why it's great for gaming**: AdGuard DNS prevents ads from appearing in gaming dashboards and launchers, reducing bandwidth usage and improving loading times. The ad-blocking capabilities can lead to faster initial connections and reduced distractions. However, users should note that aggressive blocklists might occasionally interfere with specific gaming services, though these can be easily adjusted through custom settings.
+   **Why it's great for gaming**: {{% link href="https://adguard-dns.io/welcome.html" %}}AdGuard DNS{{% /link %}} can reduce unwanted ad and tracking lookups, but if a game launcher breaks, switch to its non-filtering endpoints.
 
 #### 8. NextDNS (Custom Configuration)
-   - **Primary DNS**: Requires custom configuration at nextdns.io
-   - **Secondary DNS**: Varies based on configuration
-   - **Latency**: Very low with global server network.
-   - **Reliability**: Excellent with cloud-based infrastructure.
-   - **Features**: {{% link href="https://nextdns.io/" %}}NextDNS{{% /link %}} offers highly customizable DNS filtering with granular control over blocklists, real-time analytics, AI-driven threat detection, and parental controls. Supports encrypted DNS protocols.
+   - **Primary DNS**: Custom endpoint generated at nextdns.io
+   - **Secondary DNS**: Depends on your configuration
+   - **Latency**: Very low.
+   - **Reliability**: Excellent.
+   - **Features**: Granular policy control, analytics, and encrypted DNS. Free tier includes up to 300,000 queries per month.
 
-   **Why it's great for gaming**: NextDNS is perfect for power users who want complete control over their DNS settings. The extensive customization allows you to fine-tune filtering rules to avoid interference with specific games while maintaining security. Users report consistent ping and stable performance across various games. The real-time analytics help identify and troubleshoot connection issues quickly.
+   **Why it's great for gaming**: {{% link href="https://nextdns.io/" %}}NextDNS{{% /link %}} is ideal for advanced users who want per-device tuning, detailed logging choices, and allowlists to avoid game service conflicts.
 
 #### 9. Surfshark DNS (194.169.169.169)
    - **Primary DNS**: 194.169.169.169
    - **Secondary DNS**: 2a09:a707:169:: (IPv6)
-   - **Latency**: Low with optimized routing.
-   - **Reliability**: Very good with privacy-focused infrastructure.
-   - **Features**: {{% link href="https://surfshark.com/" %}}Surfshark DNS{{% /link %}} is a free, privacy-focused DNS service that doesn't track user activity. It's specifically optimized for gaming consoles like Xbox and PlayStation.
+   - **Latency**: Low.
+   - **Reliability**: Very good.
+   - **Features**: Free privacy-focused DNS with DoH/DoT/DoQ support.
 
-   **Why it's great for gaming**: Surfshark DNS is particularly recommended for console gamers on Xbox and PlayStation. It provides fast and stable connections while prioritizing privacy. The service can suggest more efficient routes, potentially reducing latency for gaming sessions. It's completely free and doesn't require a Surfshark VPN subscription.
+   **Why it's great for gaming**: {{% link href="https://dns.surfsharkdns.com/" %}}Surfshark DNS{{% /link %}} is a simple drop-in option for players who want privacy and encrypted DNS without complex setup.
+
+#### 10. Mullvad Encrypted DNS (DoH/DoT)
+   - **Primary endpoint**: dns.mullvad.net
+   - **Filtered options**: adblock, base, extended, family, all
+   - **Latency**: Low.
+   - **Reliability**: Very good.
+   - **Features**: Public encrypted DNS service with no account required.
+
+   **Why it's great for gaming**: {{< link href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" >}}Mullvad Encrypted DNS{{< /link >}} is useful when you want encrypted DNS transport by default and optional filtering profiles.
 
 ### Select the Best DNS Server Based on Latency  
 
@@ -341,5 +365,5 @@ Changing your DNS is easy and can be done in just a few steps:
 
 ### Conclusion
 
-Although choosing best DNS for gaming may not seem much, it can make a difference in your online gaming experience. You have lots of great options, depending on which one of these - speed, security, privacy - you care more about. Reducing latency and improving performance can be done with Cloudflare, Google DNS, OpenDNS. Changing to a more reliable, faster DNS server will help you get a smoother, lag free gaming experience.
+Choosing the right DNS for gaming is a small change that can produce noticeable improvements in consistency. In 2026, Cloudflare, Google Public DNS, OpenDNS, Quad9, AdGuard, NextDNS, Control D, and other modern resolvers all provide strong options depending on whether you prioritize speed, privacy, security, or customization. Test a few from your location, keep the fastest stable one, and you should see smoother game service connectivity overall.
 
