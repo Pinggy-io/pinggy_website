@@ -46,9 +46,9 @@ If you are pairing hardware decisions with model decisions, it helps to start fr
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Tooling maturity depends on your model stack</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://docs.cloud.google.com/tpu/docs/v5e-inference" target="_blank">Google Cloud TPUs</a></strong></td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Serving at scale when you’re aligned with TPU runtimes</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Efficient XLA paths and strong pod scaling for supported models</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://docs.cloud.google.com/tpu/docs/v5e-inference" target="_blank">Google Cloud TPUs</a></strong> (v5e, v6e, <a href="https://cloud.google.com/blog/products/compute/tpu-8t-and-tpu-8i-technical-deep-dive" target="_blank">TPU 8i</a>)</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Serving at scale with aligned software stacks and reasoning workloads</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Efficient XLA paths, strong pod scaling, 3x SRAM on TPU 8i for long KV cache, Boardfly topology for MoE</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Less plug-and-play if you are CUDA-first</td>
 </tr>
 <tr>
@@ -72,7 +72,7 @@ If you are pairing hardware decisions with model decisions, it helps to start fr
 
 2. **If you are memory-bound on large models**: <a href="https://instinct.docs.amd.com/projects/system-acceptance/en/latest/gpus/mi300x.html" target="_blank">AMD Instinct MI300X</a> is compelling when raw HBM capacity per GPU reduces sharding complexity and improves real-world throughput.
 
-3. **If you want a TPU path for serving**: Google Cloud supports inference on <a href="https://docs.cloud.google.com/tpu/docs/v5e-inference" target="_blank">TPU v5e</a> and newer, including <a href="https://docs.cloud.google.com/tpu/docs/v6e-intro" target="_blank">TPU v6e (Trillium)</a>, and provides tutorials for running vLLM on TPUs.
+3. **If you want a TPU path for serving**: Google Cloud supports inference on <a href="https://docs.cloud.google.com/tpu/docs/v5e-inference" target="_blank">TPU v5e</a>, <a href="https://docs.cloud.google.com/tpu/docs/v6e-intro" target="_blank">TPU v6e (Trillium)</a>, and the latest <a href="https://cloud.google.com/blog/products/compute/tpu-8t-and-tpu-8i-technical-deep-dive" target="_blank">TPU 8i (8th generation)</a>, optimized for inference and reasoning. Google provides tutorials for running vLLM on TPUs.
 
 4. **If cost-per-inference is the main constraint**: <a href="https://aws.amazon.com/machine-learning/inferentia/" target="_blank">AWS Inferentia2</a> is designed for inference price/perf on EC2 when the Neuron ecosystem fits your model and framework.
 
@@ -172,11 +172,11 @@ The {{< link href="https://instinct.docs.amd.com/projects/system-acceptance/en/l
 
 AMD is also a reasonable choice if you are building on open frameworks and are willing to align around ROCm-compatible stacks. The evaluation question is straightforward: does MI300X allow you to simplify your topology, and does the software stack support your model and kernel mix well enough to deliver the promised performance?
 
-### Google Cloud TPUs (v5e, v6e / Trillium)
+### Google Cloud TPUs (v5e, v6e, TPU 8 / Trillium & 8th Gen)
 
 {{< image "fastest_ai_inference_hardware/google_tpu.webp" "Google Cloud TPU inference hardware" >}}
 
-TPUs are not just training hardware. Google Cloud supports inference on {{< link href="https://docs.cloud.google.com/tpu/docs/v5e-inference" >}}TPU v5e and newer{{< /link >}}, and v6e (Trillium) has explicit inference guidance and tutorials for serving LLMs using vLLM on TPUs. If you are already building with JAX/XLA, or you are comfortable with TPU runtimes, TPUs can be an efficient path for large-scale serving.
+TPUs are not just training hardware. Google Cloud supports inference on {{< link href="https://docs.cloud.google.com/tpu/docs/v5e-inference" >}}TPU v5e and newer{{< /link >}}, {{< link href="https://docs.cloud.google.com/tpu/docs/v6e-intro" >}}TPU v6e (Trillium){{< /link >}}, and the latest {{< link href="https://cloud.google.com/blog/products/compute/tpu-8t-and-tpu-8i-technical-deep-dive" >}}8th generation TPUs (TPU 8t and TPU 8i){{< /link >}}. TPU 8i is purpose-built for inference with 3x more on-chip SRAM for longer KV cache, a Collectives Acceleration Engine (CAE) for faster token sampling, and a Boardfly network topology that reduces all-to-all latency by 50% for MoE and reasoning models. If you are already building with JAX/XLA, or you are comfortable with TPU runtimes, TPUs can be an efficient path for large-scale serving.
 
 The main tradeoff is portability. TPUs are fantastic when your software stack is aligned, but they are less plug-and-play than GPUs for teams that live entirely in CUDA tooling and GPU-first serving frameworks.
 
