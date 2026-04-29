@@ -7,7 +7,7 @@ draft: false
 
 # Pinggy CLI
 
-Create secure, shareable tunnels to your localhost and manage them from the command line. Pinggy CLI supports HTTP(S), TCP, UDP, TLS, and TLSTCP tunnels.
+Create secure, shareable tunnels to your localhost and manage them from the command line. Pinggy CLI supports HTTP(S), TCP, UDP, TLS, and TLSTCP tunnels, and it can also be used for remote [Remote Devices](/docs/remote_devices/).
 
 <div>
   <img
@@ -18,26 +18,20 @@ Create secure, shareable tunnels to your localhost and manage them from the comm
   />
 </div>
 
-## Download
-
-You can download Pinggy CLI from {{< link href="/cli/" >}}here{{</ link >}}. Pinggy CLI is available for Windows, Mac, and Linux.
-
-## Requirements
-
-- Node.js 18+ recommended. The CLI uses modern ESM and WebSocket features.
-- A network connection that allows outgoing WebSocket and HTTPS traffic.
-
 ## Installation
 
-Global install is recommended for the system-wide `pinggy` command.
+Pinggy CLI is available for Windows, Mac, and Linux. Global install is recommended for the system-wide `pinggy` command.
 
-- Using npm:
+**Install using npm:**
 
 ```bash
 npm install -g pinggy
 ```
 
-After install, verify:
+**Or download Pinggy CLI from {{< link href="/cli/" >}}here{{</ link >}}.**
+
+
+After install, verify the command:
 
 ```bash
 pinggy --help
@@ -110,6 +104,51 @@ To start a TLS tunnel, use `--type tls` and specify a port using `-l`.
 ./pinggy --type tls -l 8000
 ```
 
+## Common workflows
+
+### Save a tunnel config
+
+```bash
+pinggy config save my-tunnel -l 3000 token@pro.pinggy.io
+```
+
+### Start a saved tunnel
+
+```bash
+pinggy start my-tunnel
+pinggy start my-tunnel -l 4000
+```
+
+### Start multiple tunnels or all auto-start tunnels
+
+```bash
+pinggy start tunnel1 tunnel2
+```
+
+### Mark a tunnel as auto-start
+
+```bash
+pinggy config save my-tunnel --auto -l 3000
+pinggy config auto my-tunnel
+```
+
+Start all tunnels that are set to auto start:
+```
+pinggy start --all
+```
+
+### Use remote management
+
+```bash
+pinggy --remote-management <API KEY>
+```
+
+Start remote management as well as start the tunnels set to auto start:
+
+```
+pinggy start --all --remote-management <API KEY>
+```
+
 ## Key features
 
 - HTTP, TCP, UDP, TLS, and TLSTCP tunnels to localhost
@@ -176,7 +215,7 @@ Basic syntax:
 pinggy [options] [user@domain]
 ```
 
-- `user@domain` is optional. Domain can be any valid domain supported by the service backend, for example `ap.example.com`.
+- `user@domain` is optional. Domain can be any valid domain supported by the service backend, for example `ap.free.pinggy.io`. And `user` is a combination of token and tunnel mode, like `token+tcp`.
 
 ### Options
 
