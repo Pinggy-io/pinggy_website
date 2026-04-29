@@ -1,27 +1,26 @@
 ---
 title: "Pinggy CLI"
-description: "Create secure, shareable tunnels to localhost and manage them from the command line."
+description: "Robust HTTP, TCP, UDP, or TLS tunnels to localhost for sharing your apps, websites, and games."
 date: 2026-04-29T00:00:00+05:30
 draft: false
 ---
 
 # Pinggy CLI
 
-Create secure, shareable tunnels to your localhost and manage them from the command line.
+Create secure, shareable tunnels to your localhost and manage them from the command line. Pinggy CLI supports HTTP(S), TCP, UDP, TLS, and TLSTCP tunnels.
 
-## Key features
+<div>
+  <img
+    src="/assets/cli_tui.png"
+    style="box-shadow: none;"
+    class="mt-2 py-2 img-fluid featureimage"
+    alt="Pinggy CLI TUI"
+  />
+</div>
 
-- HTTP, TCP, UDP, TLS, and TLSTCP tunnels to localhost
-- SSH-style and user-friendly flags
-- Web debugger for HTTP tunnels
-- Extended options for auth, header manipulation, IP allowlists, CORS handling, and more
-- Remote management via secure WebSocket connection, works with Pinggy Dashboard
-- Configurable logging to file and/or stdout
-- Save and load configuration files
-- Config store for saving, listing, updating, and starting named tunnel configs
-- Auto-start support for launching saved tunnels automatically
-- Simple file server mode for quickly sharing local files
-- Built-in TUI for viewing tunnel statistics, requests, and responses in real time
+## Download
+
+You can download Pinggy CLI from {{< link href="/cli/" >}}here{{</ link >}}. Pinggy CLI is available for Windows, Mac, and Linux.
 
 ## Requirements
 
@@ -44,35 +43,130 @@ After install, verify:
 pinggy --help
 ```
 
-## Quick start
+## Getting Started
 
-- Start a basic HTTP tunnel to `localhost:3000`:
-
-```bash
-pinggy -R0:localhost:3000
-```
-
-- Start a TCP tunnel, for example SSH on port 22:
+Before starting a tunnel, navigate to the directory where the Pinggy CLI is installed. You can start a tunnel by running:
 
 ```bash
-pinggy -R0:localhost:8000 tcp@free.pinggy.io
+./pinggy <options>
 ```
 
-- Start an HTTP tunnel with web debugger on `4300`:
+Pinggy CLI supports the same options as our SSH command. You can customize the command on our {{< link href="/" >}}home page{{</ link >}}.
+
+**Example:**
 
 ```bash
-pinggy -R0:localhost:8000 -L4300:localhost:4300
+./pinggy -p 443 -R0:localhost:3000 -L4300:localhost:4300
 ```
 
-- Use a token and a region or domain-like argument:
+This starts a tunnel that forwards connections to local port `3000`. It also starts the web debugger on port `4300`.
+
+Pinggy CLI also supports more user-friendly options to set up simple tunnels.
+
+**Example:**
 
 ```bash
-pinggy mytoken@a.example.com -p 3000
+./pinggy -l https://localhost:443
 ```
 
-For more info, read [docs](https://pinggy.io/docs/).
+This starts a tunnel that forwards connections to a local HTTPS server running on `localhost:443`.
 
-The CLI prints generated public URLs, HTTP, HTTPS, or TCP, and keeps running until you press `Ctrl+C`.
+### HTTP(S) Tunnel
+
+To share a local HTTP server running on port `8008`, use `-l http://localhost:8080`. You may add a token using `--token MYTOK`.
+
+```bash
+./pinggy -l http://localhost:8080
+./pinggy --token MYTOK -l http://localhost:8080
+```
+
+To share a local HTTPS server running on port `8443`, use `-l https://localhost:8443`.
+
+```bash
+./pinggy -l https://localhost:8443
+```
+
+### TCP Tunnel
+
+To start a TCP tunnel, use `--type tcp` and specify a port using `-l`.
+
+```bash
+./pinggy --type tcp -l 8000
+```
+
+### UDP Tunnel
+
+To start a UDP tunnel, use `--type udp` and specify a port using `-l`.
+
+```bash
+./pinggy --type udp -l 8000
+```
+
+### TLS Tunnel
+
+To start a TLS tunnel, use `--type tls` and specify a port using `-l`.
+
+```bash
+./pinggy --type tls -l 8000
+```
+
+## Key features
+
+- HTTP, TCP, UDP, TLS, and TLSTCP tunnels to localhost
+- SSH-style and user-friendly flags
+- Web debugger for HTTP tunnels
+- Extended options for auth, header manipulation, IP allowlists, CORS handling, and more
+- Remote management via secure WebSocket connection, works with Pinggy Dashboard
+- Configurable logging to file and/or stdout
+- Save and load configuration files
+- Config store for saving, listing, updating, and starting named tunnel configs
+- Auto-start support for launching saved tunnels automatically
+- Simple file server mode for quickly sharing local files
+- Built-in TUI for viewing tunnel statistics, requests, and responses in real time
+
+### Pinggy CLI specific options
+
+Pinggy's CLI allows you to configure the tunnel with various user-friendly options. Here is a list of options available for the Pinggy CLI:
+
+**Type**: `--type`
+
+Specify the type of tunnel you want to create. The available options are `http`, `tcp`, `tls`, `udp`, and `tlstcp`. If nothing is specified, the default type is `http`.
+
+```bash
+--type <type>
+```
+
+**Local Port**: `--localport` or `-l`
+
+Specify the local port along with host and protocol, if present, to forward the tunnel to. The default is `localhost`.
+
+```bash
+--localport <protocol><host>:<port>
+```
+
+For example:
+
+```bash
+--localport django_server:8000
+--localport https://my.domain:445
+-l 777
+```
+
+**Debugger Port**: `--debugger` or `-d`
+
+Specify the port on which the web debugger will run.
+
+```bash
+--debugger <port>
+```
+
+**Token**: `--token`
+
+Provide the token for authentication.
+
+```bash
+--token <token>
+```
 
 ## Usage
 
