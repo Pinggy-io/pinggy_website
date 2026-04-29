@@ -1,460 +1,347 @@
 ---
- title: "Pinggy CLI" 
- description: "Robust HTTP, TCP, UDP, or TLS tunnels to localhost for sharing your apps, websites and games."
- date: 2024-10-15T14:15:25+05:30 
- draft: false 
+title: "Pinggy CLI"
+description: "Create secure, shareable tunnels to localhost and manage them from the command line."
+date: 2026-04-29T00:00:00+05:30
+draft: false
 ---
 
 # Pinggy CLI
 
-Pinggy Command Line Tool provides more robust tunnels with quicker reconnections when your tunnels are interrupted. It supports HTTP(S), TCP, UDP, and TLS tunnels.
+Create secure, shareable tunnels to your localhost and manage them from the command line.
 
-<div>
-    <img
-    src="/assets/cli_tui.png" style="box-shadow: none;"
-    class="mt-2 py-2 img-fluid featureimage"
-    alt="Pinggy Dev/Test Environment Gateway"
-    />
-</div> 
+## Key features
 
-## Download
+- HTTP, TCP, UDP, TLS, and TLSTCP tunnels to localhost
+- SSH-style and user-friendly flags
+- Web debugger for HTTP tunnels
+- Extended options for auth, header manipulation, IP allowlists, CORS handling, and more
+- Remote management via secure WebSocket connection, works with Pinggy Dashboard
+- Configurable logging to file and/or stdout
+- Save and load configuration files
+- Config store for saving, listing, updating, and starting named tunnel configs
+- Auto-start support for launching saved tunnels automatically
+- Simple file server mode for quickly sharing local files
+- Built-in TUI for viewing tunnel statistics, requests, and responses in real time
 
-You can download Pinggy CLI from {{< link href="/cli/" >}}here{{</ link >}}. Pinggy CLI is available for Windows, Mac, and Linux.
+## Requirements
 
+- Node.js 18+ recommended. The CLI uses modern ESM and WebSocket features.
+- A network connection that allows outgoing WebSocket and HTTPS traffic.
 
-## Getting Started
+## Installation
 
-Before starting the tunnel, you need to navigate to the directory where the Pinggy CLI is installed. You can start the tunnel by running the following command:
+Global install is recommended for the system-wide `pinggy` command.
 
-```
-./pinggy <options>
-```
-
-**Pinggy CLI supports the same options supported by our SSH command. You can customize the command on our {{< link href="/" >}}home page{{</ link >}}.**
+- Using npm:
 
-**Example:**
-
-```
-./pinggy -p 443 -R0:localhost:3000 -L4300:localhost:4300
+```bash
+npm install -g pinggy
 ```
-
-This will start the tunnel that forwards connections to local port 3000. It also starts the web debugger on port 4300.
-
 
-**Pinggy CLI also supports more user friendly options to set up simple tunnels.**
+After install, verify:
 
-**Example:**
-
-```
-./pinggy -l https://localhost:443
+```bash
+pinggy --help
 ```
-
-This will start the tunnel that forwards connections to a local **HTTPS** server running on `localhost:443`.
-
 
-#### HTTP(S) Tunnel
+## Quick start
 
-
-**Example:** To share a local HTTP server running on port 8008, use the option `-l http://localhost:8080`. You may add a token using `--token MYTOK`
-
-```
-./pinggy -l http://localhost:8080
-```
+- Start a basic HTTP tunnel to `localhost:3000`:
 
+```bash
+pinggy -R0:localhost:3000
 ```
-./pinggy --token MYTOK -l http://localhost:8080
-```
 
-**Example with local HTTPS server:** To share a local HTTPS server running on port 8443, use the option `-l https://localhost:8443`
+- Start a TCP tunnel, for example SSH on port 22:
 
-```
-./pinggy -l https://localhost:8443
+```bash
+pinggy -R0:localhost:8000 tcp@free.pinggy.io
 ```
-
-
 
-#### TCP Tunnel
+- Start an HTTP tunnel with web debugger on `4300`:
 
-To start a tcp tunnel, use the option `--type tcp`, and specify a port using `-l`.
-
-**Example:**
-
+```bash
+pinggy -R0:localhost:8000 -L4300:localhost:4300
 ```
-./pinggy --type tcp -l 8000
-```
-
 
-#### UDP Tunnel
+- Use a token and a region or domain-like argument:
 
-To start a udp tunnel, use the option `--type udp`, and specify a port using `-l`.
-
-```
-./pinggy --type udp -l 8000
+```bash
+pinggy mytoken@a.example.com -p 3000
 ```
 
+For more info, read [docs](https://pinggy.io/docs/).
 
-#### TLS Tunnel
+The CLI prints generated public URLs, HTTP, HTTPS, or TCP, and keeps running until you press `Ctrl+C`.
 
-To start a tls tunnel, use the option `--type tls`, and specify a port using `-l`.
+## Usage
 
-**Example:**
+Basic syntax:
 
+```bash
+pinggy [options] [user@domain]
 ```
-./pinggy --type tls -l 8000
-```
-
 
+- `user@domain` is optional. Domain can be any valid domain supported by the service backend, for example `ap.example.com`.
 
+### Options
 
-### Pinggy CLI specific options
+The CLI supports both SSH-style flags and more descriptive long flags. Below is a consolidated list of public options. For the most up-to-date help, run `pinggy --help`.
 
+### Port Forwarding
 
-Pinggy's CLI allows you to configure the tunnel with various user friendly options. Here is a list of options available for the Pinggy CLI:
-
-**Type** : `--type`
-
-Specify the type of tunnel you want to create. The available options are `http`, `tcp`, `tls`, `udp` and `tlstcp`. If nothing is specified, the default type is `http`.
-
-```
---type <type>
-```
+| Flag | Description | Example |
+|------|-------------|---------|
+| `-R`, `--R` | Local port forwarding, SSH-style | `-R0:localhost:3000` |
+| `-L`, `--L` | Web debugger address, SSH-style | `-L4300:localhost:4300` |
 
-**Local Port** : `--localport` OR `-l`
+### Connection
 
-Specify the local port along with host and protocol(if present) to forward the tunnel to. The default is `localhost`.
+| Flag | Description | Example |
+|------|-------------|---------|
+| `-p`, `--server-port` | Pinggy server port, default `443` | `--server-port 8080` |
+| `--type` | Type of connection, for example `tcp` | `--type tcp` |
+| `-l`, `--localport` | Local endpoint `[protocol:][host:]port` | `--localport https://localhost:8000` |
+| `-d`, `--debugger` | Port for web debugger | `-d 4300` |
+| `--token` | Token for authentication | `--token abc123` |
+| `--force` | Forcefully close existing tunnels and establish a new tunnel | `--force` |
 
-```
---localport <protocol><host>:<port>
-```
+### Logging
 
-For example:
-```
---localport django_server:8000
+| Flag | Description |
+|------|-------------|
+| `--loglevel` | Logging level: `ERROR`, `INFO`, `DEBUG` |
+| `--logfile` | Path to log file |
+| `--v` | Print logs to stdout |
+| `--vv` | Detailed logs, Node.js SDK + Libpinggy |
+| `--vvv` | Enable logs from CLI, SDK, and Libpinggy |
 
---localport https://my.domain:445
+### Config
 
--l 777
-```
+| Flag | Description |
+|------|-------------|
+| `--saveconf <file>` | Create configuration file with provided options |
+| `--conf <file>` | Load configuration from file, CLI flags override |
 
-**Debugger Port** : `--debugger` OR `-d`
+### File server
 
-Specify the port on which the web debugger will run.
+| Flag | Description |
+|------|-------------|
+| `--serve <path>` | Serve files from a local directory via simple web server |
 
-```
---debugger <port>
-```
+### AutoReconnect
 
-**Token** : `--token`
+| Flag | Description |
+|------|-------------|
+| `--autoreconnect`, `-a` | Automatically reconnect tunnel on failure, enabled by default; pass `false` to disable |
 
-Provide the token for authentication.
+### Remote control
 
-```
---token <token>
-```
+| Flag | Description |
+|------|-------------|
+| `--remote-management <token>` | Enable remote tunnel management |
+| `--manage <addr>` | Remote management server, default `dashboard.pinggy.io` |
+| `--NoTui` | Disable TUI in remote management mode |
 
+### Misc
 
-## Saving and loading config
+| Flag | Description |
+|------|-------------|
+| `--version` | Print version and exit |
+| `-h`, `--help` | Show help and exit |
 
-Pinggy's CLI allows you to save commonly used settings as a json file, which can be reused later. This is useful when you have a long command with multiple options enabled or multiple configurations that you want to switch between.
+### Extended options
 
-#### Save configuration
+Extended options provide advanced controls. Specify them as positional values like `x:https` or `w:192.168.1.0/24` alongside other CLI flags.
 
+- `x:https` enforces HTTPS-only, HTTP redirected to HTTPS.
+- `x:passpreflight` or `x:allowpreflight` allows CORS preflight to pass unchanged.
+- `x:reverseproxy` disables built-in reverse-proxy header injection.
+- `x:xff` adds `X-Forwarded-For`.
+- `x:fullurl` or `x:fullrequesturl` includes the original request URL.
+- `w:<cidr>[,<cidr>...]` whitelists IPs, IPv4 CIDR.
+- `k:<token>` sets Bearer token(s) for auth, repeatable.
+- `b:<user:pass>` adds Basic Auth credentials, repeatable.
+- `a:<Key:Val>` adds a header.
+- `u:<Key:Val>` updates a header.
+- `r:<Key>` removes a header.
 
-To save a config as a file, first you need to type the command options in the CLI. Once you have entered all the options and arguments, you can save the configuration by adding `--saveconf <filename>` option to the command. You can store multiple configurations in different files and load them later.
+Examples:
 
-For example, to save a configuration as `django_server.json`, you can type:
+- Enforce HTTPS and XFF for local HTTPS server on `8443`:
 
-```
-./pinggy -p 443 -R0:localhost:8000 -L4300:localhost:4300 --saveconf django_server.json a.pinggy.io x:https
+```bash
+pinggy x:https x:xff -l https://localhost:8443
 ```
 
-This will save the configuration as `django_server.json` in the current directory.
+- Allow only a local subnet:
 
-Any header modifications, basic auth, bearer auth, and IP whitelist settings entered at the time of creating the config will also be saved in the configuration file.
+```bash
+pinggy w:192.168.1.0/24 -l 8080
+```
 
-You can also update the configuration file by running a different command with the `--saveconf <filename>` option again. This will overwrite the existing configuration file.
+To generate advanced CLI arguments, use [Configure from Pinggy.io](https://pinggy.io/).
 
-#### Load configuration
+## Remote management
 
-To load a configuration file, you can use the `--conf <filename>` option. 
+You can control tunnels remotely using a secure WebSocket connection.
 
-For example, to load the `django_server.json` configuration file, you can type:
+- Start remote management with a token:
 
-```
-./pinggy --conf django_server.json
+```bash
+pinggy --remote-management <API KEY>
 ```
 
-This will load the configuration from the `django_server.json` file and run the tunnel with those settings. You can type other commands along with `--conf <filename>` to override the settings from the configuration file.
+- Specify a management server, default is `wss://dashboard.pinggy.io`:
 
-### Example configuration
-
-```json
-{
-    "configname": "Tunnel to django server",
-    "type": "http",
-    "localaddress": "localhost:8000",
-    "serverport": 443,
-    "serveraddress": "a.pinggy.io",
-    "token": "",
-    "autoreconnect": true,
-    "statusCheckInterval": 20,
-    "tunnelTimeout": 20,
-    "force": true,
-    "ipwhitelist": null,
-    "basicauth": null,
-    "bearerauth": null,
-    "headermodification": null,
-    "webdebuggerport": 4300,
-    "xff": "",
-    "httpsOnly": true,
-    "fullRequestUrl": false,
-    "allowPreflight": false,
-    "reverseProxy": false
-}
+```bash
+pinggy --remote-management <API KEY> --manage wss://custom.example.com
 ```
-
-## All Options
-
-The following are the list of options from the ssh command of Pinggy that are also supported by the CLI.
-
-**Help** : `--help` OR `-h`
 
-Shows the list of options and arguments available for Pinggy CLI.
+## Logging
 
+You can control logs via CLI flags, which override environment variables. If `logfile` is provided, the log directory will be created if it does not exist.
 
-**Pinggy Server Port** : `-p`
+- To log to file and stdout at INFO level:
 
+```bash
+pinggy -p 3000 --logfile ~/.pinggy/pinggy.log --loglevel INFO --v
 ```
--p 443
-```
-Connect to Pinggy server on `443`.
-
 
-**Localport** : `-R`
-
-```
--R0:localhost:3000
-```
-Forward tunnel connections to local port `3000`.
+If you provide `--v`, `--vv`, or `--vvv` without specifying a log level, the default log level is INFO.
 
+## Saving and loading configuration
 
-**Web Debugger port** : `-L`
+- Save current options to a file:
 
-```
--L4300:localhost:4300
+```bash
+pinggy -p 443 -L4300:localhost:4300 -t -R0:127.0.0.1:8000 qr+force@free.pinggy.io x:noreverseproxy x:passpreflight x:xff --saveconf myconfig.json
 ```
-Will start web debugger on port `4300`.
 
+- Use a config as base and override with flags:
 
-**Save Configuration** : `--saveconf <filename>`
-
-```
-<previous options> --saveconf <filename>
+```bash
+pinggy --conf ./myconfig.json -p 8080
 ```
-Save the command as a configuration file. This configuration file can be later used to start a tunnel with the same settings.
 
+## Config management
 
-**Load Configuration** : `--conf <filename>`
+The CLI includes a built-in config store for saving, listing, and starting tunnel configurations. Configs are persisted as JSON files in your platform's config directory, `~/.config/pinggy/tunnels/` on Linux and macOS, `%APPDATA%/pinggy/tunnels/` on Windows.
 
-```
---conf <filename>
-```
-Load a previously saved configuration file. Other options can be entered to override the settings in this file.
-
-
-**Options** : `-o`
+### Save a tunnel config
 
+```bash
+pinggy config save my-tunnel -l 3000 token@pro.pinggy.io
 ```
--o <option>
-```
-
-Set additional options for the tunnel.
-
-
-**Version** : `--v`
 
-Display the version of Pinggy CLI.
+### Save with auto-start enabled
 
-
-**Log** : `--log`
-
-```
---log <filename>
+```bash
+pinggy config save my-tunnel --auto -l 3000
 ```
-Save the logs of the current session to a file.
-
-
-**Type of connection** : `type@a.pinggy.io`
-
-By default, the connection type is HTTP. You can change the connection type to TCP, TLS, UDP or TLSTCP.
-
-For each type of connection, the prefix is as follows:
 
-TCP : `tcp@`
+### List all saved configs
 
-TLS : `tls@`
-
-UDP : `udp@`
-
-TLSTCP : `tlstcp@`
-
-Example:
-
+```bash
+pinggy config list
 ```
-tcp@a.pinggy.io
-```
-
-
-**Region** :
-
-Automatic region allocation : ` a.pinggy.io`
 
-Asia : `ap.a.pinggy.io`
+### View details of a saved config
 
-Europe : `eu.a.pinggy.io`
-
-USA : `us.a.pinggy.io`
-
-
-**IP Whitelist** : `-w: <IP in CIDR format>`
-
-Both IPv4 and IPv6 addresses can be added to the whitelist. Multiple addresses can be added by separating them with a comma:
-
-```
--w:<IP 1 in CIDR format>,<IP 2 in CIDR format>
+```bash
+pinggy config show my-tunnel
+pinggy config show my-tunnel other-tunnel
 ```
-
-
-**Using Pinggy Token** :
 
-You can use your Pinggy token as follows:
+### Update a saved config
 
+```bash
+pinggy config update my-tunnel -l 4000
 ```
-<token>@a.pinggy.io
-```
 
-If you want to use a prefix or multiple prefixes, you can use the following format:
+### Enable or disable auto-start
 
-```
-<token>+<prefix1>+<prefix2>@a.pinggy.io
+```bash
+pinggy config auto my-tunnel
+pinggy config noauto my-tunnel
+pinggy config auto tunnel1 tunnel2
 ```
-
-
-**Basic Authentication** : `b:<username>:<password>`
 
-You can use basic authentication by adding the username and password to the argument.
+### Delete a saved config
 
-Multiple usernames and passwords can be added by repeating the argument:
-
-```
-b:<username1>:<password1> b:<username2>:<password2>
+```bash
+pinggy config delete my-tunnel
+pinggy config delete tunnel1 tunnel2
 ```
-
-
-**Key Authentication** : `k:<key>`
 
-You can use bearer token authentication by adding the key to the argument:
+### Shorthand: view config details
 
+```bash
+pinggy config my-tunnel
 ```
-k:<key>
-```
-
-**Header Manipulation** :
 
-***Add Header*** : `a:<header>:<value>`
+Configs can be looked up by name, exact match, or by `configId` prefix, partial match.
 
-You can add headers to the requests by using this argument.
+## Starting saved tunnels
 
-Example:
+### Start a saved tunnel
 
+```bash
+pinggy start my-tunnel
 ```
-a:header1:value1 a:header2:value2
-```
-
-***Remove Header*** : `r:<header>`
 
-You can remove headers from the requests by using this argument.
+### Start with runtime overrides
 
-Example:
-
-```
-r:header1 r:header2
+```bash
+pinggy start my-tunnel -l 4000
 ```
-
-***Update Header*** : `u:<header>:<value>`
-
-You can update headers in the requests by using this argument.
 
-Example:
+### Start multiple tunnels
 
+```bash
+pinggy start tunnel1 tunnel2
 ```
-u:header1:value1 u:header2:value2
-```
-
-**HTTPS only** : `x:https` OR `x:httpsonly`
-
-This argument will only allow HTTPS requests through the tunnel. HTTP requests will be redirected to HTTPS.
-
-
-**No Reverse Proxy** : `x:noreverseproxy`
-
-By default Pinggy acts as a reverse proxy for HTTP(S) tunnels. This means it adds `X-Forwarded-For`, `X-Forwarded-Proto`, `X-Forwarded-Host`, and `Forwarded` headers in the http requests.
-
-The argument `x:noreverseproxy` will disbale the reverse proxy mode, and Pinggy will not add these headers.
-
 
-**TLS connection** : `x:localserverTls:<local server name(SNI)>`
+### Start all auto-start tunnels
 
-This argument will set up a TLS connection for the specified local server name running locally.
-
-Example:
-
+```bash
+pinggy start --all
 ```
-x:localserverTls:localhost
-```
-
-**X-Forwarded-For** : `x:xff[:<header name>]`
 
-X-Forwarded-For is a mechanism to finding out the source of the connection. You can use this argument to add the X-Forwarded-For header to the request.
+### Start with remote management
 
-Example:
-
-```
-x:xff:my_header
+```bash
+pinggy start --all --remote-management <API_KEY>
+pinggy start tunnel1 tunnel2 --remote-management <API_KEY>
 ```
-
-**Original Request URL** : `x:fullurl` OR `x:origurl`
-
-This argument will add the original request URL to the request headers.
 
+### Start with logging enabled
 
-**Pass CORS Preflight** : `x:passpreflight`
-
-Pinggy by default processes the request and response headers. However, it might be a problem for preflight requests. Pinggy can detect preflight requests and pass them without modification. You can use this argument to pass preflight requests.
-
+```bash
+pinggy start my-tunnel --vvv
+pinggy start --all --logfile /tmp/pinggy.log --loglevel DEBUG
+```
 
-**QR code** : `qr@a.pinggy.io`
+> Note: Runtime overrides, `-l`, `--type`, `--token`, and similar options, can only be used when starting a single tunnel. For multiple tunnels, update the saved config first with `pinggy config update`.
 
-You can generate a QR code for the connection.
+## File server mode
 
-Unicode QR is generated using the `qr@` prefix.
+Serve a local directory quickly over a tunnel:
 
-ASCII QR is generated using the `aqr@` prefix.
+```bash
+pinggy --serve /path/to/files
+```
 
-Along with token, you can use this as:
+Optionally combine with other flags, auth, IP whitelist, as needed.
 
-```
-<token>+qr@a.pinggy.io
-```
+## Signals and shutdown
 
-**Force disconnect and connect new tunnel** : `force@a.pinggy.io`
+Press `Ctrl+C` to stop. The CLI traps `SIGINT` and gracefully stops active tunnels before exiting.
 
-By default, trying to connect to establish a tunnel with a token which is already in use by another active tunnel will produce the error “Login is not allowed: A tunnel with the same token `<token>` is already active.”
+## Versioning
 
-If you want to programatically disconnect an existing tunnel to forcefully create a new one, you may use the force option.
+This package follows semantic versioning. See `package.json` for the current version.
 
-Example with token:
+## License
 
-```
-<token>+force@a.pinggy.io
-```
+Apache License Version 2.0
