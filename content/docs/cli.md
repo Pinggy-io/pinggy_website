@@ -470,11 +470,3 @@ Optionally combine with other flags, auth, IP whitelist, as needed.
 ## Signals and shutdown
 
 Press `Ctrl+C` to stop. The CLI traps `SIGINT` and gracefully stops active tunnels before exiting.
-
-## Versioning
-
-This package follows semantic versioning. See `package.json` for the current version.
-
-## License
-
-Apache License Version 2.0
