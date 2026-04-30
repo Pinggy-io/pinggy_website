@@ -41,7 +41,7 @@ Looking for the best way to share your localhost? Here’s a side-by-side compar
     <td><span class="tag-partial">Limited</span> Only subdomains (app.example.com). No root/apex domains (example.com).</td>
     </tr>
     <tr>
-    <td><b>Multiple Forwardings ⭐</b></td>
+    <td><b>Wildcard Domains ⭐</b></td>
     <td><span class="tag-yes">Yes</span> <a href="/docs/http_tunnels/multi_port_forwarding/" target="_blank" class="ms-1"><i class="bi bi-arrow-up-right-square"></i></a></td>
     <td><span class="tag-yes">Yes</span></td>
     </tr>
