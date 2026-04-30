@@ -10,7 +10,31 @@ og_image: "/doc_img/multiple_forwardings.png"
 
 Pinggy can map more than one forwarding to the same tunnel. That means one session can route different hostnames to different local services, and the forwarding entries can mix tunnel types such as HTTP, TCP, UDP, TLS, and TLSTCP.
 
-{{< figure src="/doc_img/multiple_forwardings.png" alt="Multiple forwardings routing different tunnel types to different local services" >}}
+<img src="/doc_img/multiple_forwardings.svg" alt="Multiple forwardings routing different tunnel types to different local services" style="maxWidth: 4000px; width: 100%" />
+
+## Example
+
+Suppose you have a wildcard domain `*.example.com` with persistent TCP port `34567` configured with a token `TOKEN`. Now you want one tunnel to route:
+
+- HTTP(S): `app.example.com` to `localhost:3000`
+- HTTP(S): `backend.example.com` to `localhost:8080`
+- TCP: `ssh.example.com:34567` to `localhost:22`
+- everything else to `localhost:80`
+
+The same idea in SSH syntax looks like this:
+
+```bash
+ssh -p 443 \
+    -R http//app.example.com:1:localhost:3000 \
+    -R http//backend.example.com:1:localhost:8080 \
+    -R tcp//ssh.example.com/34567:1:localhost:22 \
+    -R 1:localhost:80 \
+    TOKEN@pro.pinggy.io
+```
+
+The first forwarding is the default route. The named entries take priority when their listen address matches.
+
+The domain can be configured from {{< link href="https://dashboard.pinggy.io/domains" >}}https://dashboard.pinggy.io/domains{{< /link >}}.
 
 ## Why this helps
 
@@ -23,48 +47,6 @@ Multiple forwardings are useful when you want one tunnel to handle a few related
 
 If you are routing by subdomain, set up a wildcard custom domain first. The [custom domain guide](/docs/custom_domain/) walks through that setup.
 
-## Configuration model
-
-In Pinggy's config model, `forwarding` can be a single string or a list of forwarding objects. For multiple forwardings, a list is usually the clearest choice.
-
-```jsonc
-{
-  "version": "1.0",
-  "name": "workspace services",
-  "configId": "workspace-services",
-  "serverAddress": "free.pinggy.io:443",
-  "token": "tkn",
-  "forwarding": [
-    {
-      "type": "http",
-      "listenAddress": "",
-      "address": "http://localhost:80"
-    },
-    {
-      "type": "http",
-      "listenAddress": "app.example.com",
-      "address": "http://localhost:3000"
-    },
-    {
-      "type": "tcp",
-      "listenAddress": "ssh.example.com",
-      "address": "localhost:22"
-    },
-    {
-      "type": "udp",
-      "listenAddress": "udp.example.com",
-      "address": "localhost:9999"
-    }
-  ]
-}
-```
-
-Each forwarding entry has three important fields:
-
-- `type` chooses the tunnel type. Supported values are `http`, `tcp`, `tls`, `udp`, and `tlstcp`.
-- `listenAddress` is the public route. Leave it empty for the default forwarding.
-- `address` is the local target in `[protocol://]host:port` form. If the protocol is `https`, Pinggy treats the local server as TLS-backed.
-
 ## Listen address format
 
 The listen address follows this pattern:
@@ -73,13 +55,13 @@ The listen address follows this pattern:
 [schema//]hostname[/port][@name]
 ```
 
-Examples:
 
 | Example | Meaning |
 |---------|---------|
 | `example.com` | Assumes HTTP forwarding |
 | `tls//example.com` | Uses TLS forwarding and ignores the port |
-| `tcp//abc/15678` | TCP forwarding, hostname is ignored |
+| `tcp//abc.example.com/15678` | TCP forwarding, hostname is ignored |
+| `tcp//anything/15678` | TCP forwarding, hostname is ignored |
 | `tlstcp//abc.example.com/15421` | TLSTCP forwarding, port is ignored |
 
 When you use a custom domain, the hostname portion lets Pinggy route traffic to the right local service. The optional schema controls which tunnel type should handle that forwarding.
@@ -111,5 +93,4 @@ In this example:
 
 - Use a default forwarding as your fallback route, then add more specific entries for named hosts.
 - Keep HTTP services, internal APIs, and TCP services together when that makes the workflow simpler.
-- Use the config model when you want the same routing setup in the dashboard, CLI, or SDKs.
-- If you only need one route, a single forwarding still works as before. Multiple forwardings are just an extension of that same model.
+- If you only need one route, a single forwarding still works as before. Multiple forwardings are just an extension of that same SSH pattern.
