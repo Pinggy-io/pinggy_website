@@ -13,6 +13,8 @@ outputs:
 
 {{< image "self_hosting_openclaw_ai_agent/self_hosting_openclaw_ai_agent_banner.webp" "Self-Hosting OpenClaw AI Agent" >}}
 
+{{< iframe src="https://www.youtube.com/embed/mQy2-z8WtVE" title="Self-Host Your Own AI Discord Bot (OpenClaw-Style) with Ollama, Docker & Pinggy" >}}
+
 {{< link href="https://openclaw.ai/" >}}OpenClaw{{< /link >}} (formerly known as Clawdbot and Moltbot) is the open-source personal AI assistant that took the developer community by storm, becoming one of the fastest-growing GitHub repositories ever with over 100,000 stars. Unlike traditional chatbots that just respond to prompts, OpenClaw is an AI agent that can actually execute tasks: browse the web, manage files, run terminal commands, send messages, and remember everything about you indefinitely.
 
 In this guide, we'll walk through self-hosting OpenClaw on your own machine and setting up Discord integration so you can interact with your AI agent through Discord DMs or server channels.

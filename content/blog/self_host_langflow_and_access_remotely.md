@@ -13,6 +13,8 @@ outputs:
 
 {{< image "langflow_self_host/langflow_self_host_banner.webp" "How to Self-Host Langflow and Access It Remotely" >}}
 
+{{< iframe src="https://www.youtube.com/embed/TvB37TSWujg" title="Run Langflow Anywhere - Self-Host Locally & Access Remotely with Pinggy" >}}
+
 Building custom AI agents used to require deep knowledge of LangChain internals, prompt engineering, and API wiring. {{< link href="https://github.com/langflow-ai/langflow" >}}Langflow{{< /link >}} changes that by giving you a visual drag-and-drop canvas where you can compose AI workflows from components LLMs, vector stores, tools, memory, APIs and instantly deploy them as REST endpoints. It runs entirely on your own machine, so your data never leaves your infrastructure.
 
 The catch with any self-hosted tool is remote access. Once Langflow is running on your laptop or home server, you can only reach it on your local network. This guide shows you how to install Langflow, run it locally, and then expose it to the internet using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} so you can share your agent with teammates, test it from your phone, or integrate it into external services.

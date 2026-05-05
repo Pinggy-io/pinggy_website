@@ -13,6 +13,8 @@ outputs:
 
 {{< image "remotely_manage_claude_code_from_phone/remotely_manage_claude_code_from_phone_banner.webp" "Remotely Manage Claude Code and Other Coding Agents from Your Phone" >}}
 
+{{< iframe src="https://www.youtube.com/embed/3uyS88lgXiI" title="Control Claude Code from Your Phone - Run AI Coding Agents Remotely with Pinggy" >}}
+
 AI coding agents like {{< link href="https://docs.anthropic.com/en/docs/claude-code" >}}Claude Code{{< /link >}}, {{< link href="https://docs.cursor.com/cli" >}}Cursor CLI{{< /link >}}, and {{< link href="https://openai.com/index/introducing-codex/" >}}OpenAI Codex{{< /link >}} have fundamentally changed how developers write software. You can kick off a complex refactoring task, generate an entire feature branch, or debug a stubborn production issue all from a single terminal prompt. But there's a catch: these tools are tied to your workstation. Step away from your desk, and you lose visibility into what your agent is doing, whether it's finished, or if it needs your input.
 
 This is a real problem. Coding agents can take minutes sometimes longer to complete tasks. During that time, you might be grabbing coffee, commuting, or simply away from your laptop. What if you could check in on your agent, respond to its questions, review file changes, and even start new tasks, all from your phone?
