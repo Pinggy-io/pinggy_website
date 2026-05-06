@@ -1,2 +1,6 @@
-{{ define "main" }} {{ .Content}} {{ end }} {{ define "pagespecificjs" }} {{ end
-}}
+{{ define "main" }}
+<article data-pagefind-body data-pagefind-meta="title:{{ .Title }}">
+  {{ .Content }}
+</article>
+{{ end }}
+{{ define "pagespecificjs" }}{{ end }}
