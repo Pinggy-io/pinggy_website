@@ -54,6 +54,8 @@ Hosting your own Minecraft server is far more flexible than relying on Minecraft
 
 ## How to Set Up Port Forwarding for Minecraft
 
+{{< iframe src="https://www.youtube.com/embed/jwHRK6rYDIs" title="Minecraft Port Forwarding" >}}
+
 Follow these steps to set up port forwarding for your Minecraft server:
 
 ### 1. Set Up Your Minecraft Server
