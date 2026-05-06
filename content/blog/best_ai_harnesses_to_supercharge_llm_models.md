@@ -171,32 +171,6 @@ Standalone and host harnesses give you a stable control plane across many model 
 
 {{< link href="https://openrouter.ai/apps" >}}OpenRouter Apps{{< /link >}} is the practical app-layer extension of that host model. As of May 5, 2026, top coding harnesses include {{< link href="https://openclaw.ai/" >}}OpenClaw{{< /link >}} and {{< link href="https://hermes-agent.nousresearch.com/" >}}Hermes Agent{{< /link >}}.
 
-{{< image "best_ai_harnesses_to_supercharge_llm_models/descript.webp" "Descript creative harness interface" >}}
-For creative workflows, top harnesses include {{< link href="https://descript.com/" >}}Descript{{< /link >}}, {{< link href="https://vidmuse.ai/" >}}VidMuse{{< /link >}}, {{< link href="https://novelcrafter.com/" >}}novelcrafter{{< /link >}}, and {{< link href="https://www.coffeecatai.com/" >}}CoffeeCat AI Image Generator{{< /link >}}.
-
-<!-- 
-{{< image "best_ai_harnesses_to_supercharge_llm_models/vidmuse.webp" "VidMuse creative harness interface" >}}
-
-{{< image "best_ai_harnesses_to_supercharge_llm_models/novelcrafter.webp" "novelcrafter creative harness interface" >}}
-
-{{< image "best_ai_harnesses_to_supercharge_llm_models/coffeecat.webp" "CoffeeCat AI Image Generator creative harness interface" >}} -->
-
-{{< image "best_ai_harnesses_to_supercharge_llm_models/mira.webp" "Mira productivity harness interface" >}}
-For productivity workflows, top harnesses include {{< link href="https://openclaw.ai/" >}}OpenClaw{{< /link >}}, {{< link href="https://hermes-agent.nousresearch.com/" >}}Hermes Agent{{< /link >}}, {{< link href="https://mira.tg/" >}}Mira{{< /link >}}, and {{< link href="https://extra.email/" >}}extra.email{{< /link >}}.
-
-
-<!-- {{< image "best_ai_harnesses_to_supercharge_llm_models/extra.webp" "extra.email productivity harness interface" >}} -->
-
-{{< image "best_ai_harnesses_to_supercharge_llm_models/janitar.webp" "Janitor AI entertainment harness interface" >}}
-For entertainment workflows, top harnesses include {{< link href="https://janitorai.com/" >}}Janitor AI{{< /link >}}, {{< link href="https://www.isekai.world/" >}}ISEKAI ZERO{{< /link >}}, {{< link href="https://sillytavern.app/" >}}SillyTavern{{< /link >}}, and {{< link href="https://www.hammerai.com/" >}}HammerAI{{< /link >}}.
-
-
-<!-- {{< image "best_ai_harnesses_to_supercharge_llm_models/isekalzero.webp" "ISEKAI ZERO entertainment harness interface" >}}
-
-{{< image "best_ai_harnesses_to_supercharge_llm_models/silly_tavern.webp" "SillyTavern entertainment harness interface" >}}
-
-{{< image "best_ai_harnesses_to_supercharge_llm_models/hammer_ai.webp" "HammerAI entertainment harness interface" >}} -->
-
 ## Evaluation and Fitness Harnesses
 
 Evaluation harnesses are not the runtime. They are the quality layer around it tools that measure whether your agent produces correct outputs, catch regressions between releases, and gate deployments in CI. Adding evaluation infrastructure early is the highest-leverage change most teams can make after getting a working agent loop.
@@ -214,6 +188,19 @@ Evaluation harnesses are not the runtime. They are the quality layer around it t
 {{< image "best_ai_harnesses_to_supercharge_llm_models/braintrust.webp" "Braintrust evaluation harness interface" >}}
 {{< link href="https://www.braintrust.dev/docs" >}}Braintrust{{< /link >}} covers the full evaluation lifecycle: pre-deployment testing, production monitoring, team collaboration on evaluation datasets, and automated release enforcement. It is the strongest independent option for teams that are not LangChain-native but want a mature eval platform with CI integration built in.
 
+
+## Other Harnesses: Creative, Productivity, and Entertainment
+
+Some harnesses are domain-specific and optimized for creator workflows, assistant-style productivity, or interactive chat experiences.
+
+{{< image "best_ai_harnesses_to_supercharge_llm_models/descript.webp" "Descript creative harness interface" >}}
+For creative workflows, top harnesses include {{< link href="https://descript.com/" >}}Descript{{< /link >}}, {{< link href="https://vidmuse.ai/" >}}VidMuse{{< /link >}}, {{< link href="https://novelcrafter.com/" >}}novelcrafter{{< /link >}}, and {{< link href="https://www.coffeecatai.com/" >}}CoffeeCat AI Image Generator{{< /link >}}.
+
+{{< image "best_ai_harnesses_to_supercharge_llm_models/mira.webp" "Mira productivity harness interface" >}}
+For productivity workflows, top harnesses include {{< link href="https://openclaw.ai/" >}}OpenClaw{{< /link >}}, {{< link href="https://hermes-agent.nousresearch.com/" >}}Hermes Agent{{< /link >}}, {{< link href="https://mira.tg/" >}}Mira{{< /link >}}, and {{< link href="https://extra.email/" >}}extra.email{{< /link >}}.
+
+{{< image "best_ai_harnesses_to_supercharge_llm_models/janitar.webp" "Janitor AI entertainment harness interface" >}}
+For entertainment workflows, top harnesses include {{< link href="https://janitorai.com/" >}}Janitor AI{{< /link >}}, {{< link href="https://www.isekai.world/" >}}ISEKAI ZERO{{< /link >}}, {{< link href="https://sillytavern.app/" >}}SillyTavern{{< /link >}}, and {{< link href="https://www.hammerai.com/" >}}HammerAI{{< /link >}}.
 
 ## Runnable Harness Example
 
