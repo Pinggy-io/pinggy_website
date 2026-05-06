@@ -14,6 +14,19 @@
   >
     <span class="fs-5" style="font-weight: 500">Documentation</span>
   </a>
+  {{ if not (hasSuffix .RelPermalink "/amp/") }}
+  <button
+    type="button"
+    id="docsearch-trigger"
+    class="btn btn-outline-secondary w-100 mb-3 text-start d-flex align-items-center"
+    data-bs-toggle="modal"
+    data-bs-target="#docsearch-modal"
+  >
+    <i class="bi bi-search me-2"></i>
+    <span class="flex-grow-1">Search docs</span>
+    <kbd class="docsearch-kbd-hint">⌘K</kbd>
+  </button>
+  {{ end }}
   <ul class="list-unstyled ps-0">
     <li class="mb-1 collapsabledoclink">
       <button
