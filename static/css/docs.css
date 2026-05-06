@@ -154,3 +154,155 @@ blockquote {
   border-left: rgb(237, 237, 237) 3px solid;
   padding-left: 0.8rem;
 }
+
+/* ---------- Docs search ---------- */
+
+#docsearch-trigger {
+  font-size: 0.9rem;
+  color: #6c757d;
+  background: #fff;
+}
+#docsearch-trigger:hover {
+  background: #f5f7fa;
+}
+.docsearch-kbd-hint {
+  font-size: 0.7rem;
+  color: #6c757d;
+  background: #f1f3f5;
+  border: 1px solid #d6d8db;
+  border-radius: 3px;
+  padding: 0 0.35rem;
+}
+
+/* Lift above the docs sidebar (z-index: 9999 on mobile, see customization.css). */
+#docsearch-modal {
+  z-index: 10001;
+}
+.modal-backdrop.show {
+  z-index: 10000;
+}
+.docsearch-dialog {
+  max-width: 640px;
+  margin-top: 5vh;
+}
+.docsearch-content {
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.docsearch-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e6e8eb;
+  background: #fff;
+}
+.docsearch-input-icon {
+  color: #9aa0a6;
+  font-size: 1.1rem;
+  margin-right: 0.6rem;
+}
+.docsearch-input {
+  flex-grow: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 1.05rem;
+  color: #1f2328;
+}
+.docsearch-input::placeholder {
+  color: #9aa0a6;
+}
+.docsearch-esc-hint {
+  font-size: 0.7rem;
+  color: #6c757d;
+  background: #f1f3f5;
+  border: 1px solid #d6d8db;
+  border-radius: 3px;
+  padding: 0.05rem 0.4rem;
+}
+
+.docsearch-results {
+  max-height: 60vh;
+  overflow-y: auto;
+  background: #fff;
+}
+.docsearch-result {
+  display: block;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #f1f3f5;
+  text-decoration: none;
+  color: inherit;
+}
+.docsearch-result:hover,
+.docsearch-result.is-active {
+  background: #f5f7fa;
+}
+.docsearch-result-title {
+  font-weight: 600;
+  color: #1f2328;
+  font-size: 0.95rem;
+}
+.docsearch-result-crumb {
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-transform: capitalize;
+  margin-top: 0.1rem;
+}
+.docsearch-result-excerpt {
+  font-size: 0.85rem;
+  color: #495057;
+  margin-top: 0.3rem;
+  line-height: 1.4;
+}
+.docsearch-result-excerpt mark {
+  background: #fff3bf;
+  color: inherit;
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+
+.docsearch-empty {
+  padding: 1.5rem 1rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.docsearch-empty-error {
+  color: #c92a2a;
+}
+
+.docsearch-footer {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #e6e8eb;
+  background: #fafbfc;
+  font-size: 0.72rem;
+  color: #6c757d;
+}
+.docsearch-footer kbd {
+  background: #fff;
+  border: 1px solid #d6d8db;
+  border-radius: 3px;
+  padding: 0 0.3rem;
+  font-size: 0.7rem;
+  color: #495057;
+  margin-right: 0.15rem;
+}
+
+@media (max-width: 575.98px) {
+  .docsearch-dialog {
+    margin: 0;
+    max-width: 100%;
+    height: 100vh;
+  }
+  .docsearch-content {
+    border-radius: 0;
+    height: 100vh;
+  }
+  .docsearch-results {
+    max-height: calc(100vh - 110px);
+  }
+}
