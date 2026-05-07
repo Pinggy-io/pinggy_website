@@ -14,6 +14,19 @@
   >
     <span class="fs-5" style="font-weight: 500">Documentation</span>
   </a>
+  {{ if not (hasSuffix .RelPermalink "/amp/") }}
+  <button
+    type="button"
+    id="docsearch-trigger"
+    class="btn btn-outline-secondary w-100 mb-3 text-start d-flex align-items-center"
+    data-bs-toggle="modal"
+    data-bs-target="#docsearch-modal"
+  >
+    <i class="bi bi-search me-2"></i>
+    <span class="flex-grow-1">Search docs</span>
+    <kbd class="docsearch-kbd-hint">⌘K</kbd>
+  </button>
+  {{ end }}
   <ul class="list-unstyled ps-0">
     <li class="mb-1 collapsabledoclink">
       <button
@@ -58,11 +71,6 @@
           <li class="doclink">
             <a href="/docs/http_tunnels/web_debugger/" class="link-dark rounded"
               >Web Debugger</a
-            >
-          </li>
-          <li class="doclink">
-            <a href="/docs/http_tunnels/multi_port_forwarding/" class="link-dark rounded"
-              >Multi-port Forwarding</a
             >
           </li>
           <li class="doclink">
@@ -198,6 +206,11 @@
           </li>
         </ul>
       </div>
+    </li>
+    <li class="doclink">
+      <a href="/docs/http_tunnels/multi_port_forwarding/" class="btn btn-non-toggle"
+        >Multiple Forwardings</a
+      >
     </li>
     <li class="doclink">
       <a href="/docs/advanced/qr_code/" class="btn btn-non-toggle">QR Code</a>
@@ -363,6 +376,61 @@
               target="_blank"
               class="link-dark rounded"
               >Host a server on Android</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/apache_nginx/" class="link-dark rounded"
+              >Expose Apache or Nginx</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/traefik/" class="link-dark rounded"
+              >Use with Traefik</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/wireguard/" class="link-dark rounded"
+              >Access WireGuard server</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/pocketbase/" class="link-dark rounded"
+              >Expose PocketBase</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/ip_camera/" class="link-dark rounded"
+              >Access IP camera</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/keepass/" class="link-dark rounded"
+              >Sync KeePass database</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/rasa_chatbot/" class="link-dark rounded"
+              >Connect Rasa to Telegram</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/netdata/" class="link-dark rounded"
+              >Expose Netdata dashboard</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/stripe_webhook/" class="link-dark rounded"
+              >Test Stripe webhooks</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/kubernetes/" class="link-dark rounded"
+              >Expose Kubernetes service</a
+            >
+          </li>
+          <li class="doclink">
+            <a href="/docs/guides/postgresql/" class="link-dark rounded"
+              >Expose PostgreSQL</a
             >
           </li>
         </ul>

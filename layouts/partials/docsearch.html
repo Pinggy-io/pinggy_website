@@ -1,0 +1,39 @@
+{{ if not (hasSuffix .RelPermalink "/amp/") }}
+<div
+  class="modal fade"
+  id="docsearch-modal"
+  tabindex="-1"
+  aria-labelledby="docsearch-modal-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable docsearch-dialog">
+    <div class="modal-content docsearch-content">
+      <div class="docsearch-input-wrap">
+        <i class="bi bi-search docsearch-input-icon"></i>
+        <input
+          type="search"
+          id="docsearch-input"
+          class="docsearch-input"
+          placeholder="Search the docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search documentation"
+        />
+        <kbd class="docsearch-esc-hint">esc</kbd>
+      </div>
+      <div id="docsearch-results" class="docsearch-results" role="listbox">
+        <div class="docsearch-empty docsearch-empty-initial">
+          Start typing to search the documentation.
+        </div>
+      </div>
+      <div class="docsearch-footer">
+        <span>
+          <kbd>↑</kbd><kbd>↓</kbd> navigate
+        </span>
+        <span><kbd>↵</kbd> open</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
