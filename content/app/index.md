@@ -18,7 +18,7 @@ title: "Pinggy App"
         </div>
         <div class="mt-3 text-muted small">
           <i class="bi bi-box-seam me-1"></i> Latest version:
-          <span style="color: #4589df; font-weight: 600">v1.2.0</span>
+          <span style="color: #4589df; font-weight: 600">v1.2.2</span>
         </div>
       </div>
       <div class="download border rounded">
@@ -69,13 +69,13 @@ title: "Pinggy App"
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Intel 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.2.0/mac/amd64/Pinggy-1.2.0-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.2/mac/amd64/Pinggy-1.2.2-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Apple Silicon</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.2.0/mac/arm64/Pinggy-1.2.0-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.2/mac/arm64/Pinggy-1.2.2-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
@@ -91,13 +91,13 @@ title: "Pinggy App"
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Download x86 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.2.0/windows/x64/Pinggy-1.2.0+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.2/windows/x64/Pinggy-1.2.2+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Download Arm 64 bit</span>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.2.0/windows/arm64/Pinggy-1.2.0+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.2/windows/arm64/Pinggy-1.2.2+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
@@ -107,13 +107,13 @@ title: "Pinggy App"
             <li class="list-group-item">
               <div class="d-flex justify-content-between align-items-center">
                 <span>Ubuntu (deb) x86 64 bit</span>
-                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.2.0/linux/x64/pinggyapp_1.2.0_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.2/linux/x64/pinggyapp_1.2.2_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
               </div>
             </li>
             <li class="list-group-item">
               <div class="d-flex justify-content-between align-items-center">
                 <span>Ubuntu (deb) arm 64 bit</span>
-                <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.2.0/linux/arm64/pinggyapp_1.2.0_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.2/linux/arm64/pinggyapp_1.2.2_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
               </div>
             </li>
           </ul>
@@ -235,19 +235,36 @@ title: "Pinggy App"
             <tbody>
               <tr>
                 <td class="ps-4">
+                  <span class="badge bg-light text-dark border">v1.2.0</span>
+                </td>
+                <td>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.0/mac/amd64/Pinggy-1.2.0-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.0/mac/arm64/Pinggy-1.2.0-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                </td>
+                <td>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.0/windows/x64/Pinggy-1.2.0+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.0/windows/arm64/Pinggy-1.2.0+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
+                </td>
+                <td class="pe-4">
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.0/linux/x64/pinggyapp_1.2.0_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.0/linux/arm64/pinggyapp_1.2.0_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="ps-4">
                   <span class="badge bg-light text-dark border">v1.1.9</span>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.9/mac/amd64/Pinggy-1.1.9-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.9/mac/arm64/Pinggy-1.1.9-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.9/mac/amd64/Pinggy-1.1.9-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.9/mac/arm64/Pinggy-1.1.9-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.9/windows/x64/Pinggy-1.1.9+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.9/windows/arm64/Pinggy-1.1.9+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.9/windows/x64/Pinggy-1.1.9+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.9/windows/arm64/Pinggy-1.1.9+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
                 <td class="pe-4">
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.9/linux/x64/pinggyapp_1.1.9_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.9/linux/arm64/pinggyapp_1.1.9_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.9/linux/x64/pinggyapp_1.1.9_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.9/linux/arm64/pinggyapp_1.1.9_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
               </tr>
               <tr>
@@ -255,16 +272,16 @@ title: "Pinggy App"
                   <span class="badge bg-light text-dark border">v1.1.7</span>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.7/mac/amd64/Pinggy-1.1.7-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.7/mac/arm64/Pinggy-1.1.7-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.7/mac/amd64/Pinggy-1.1.7-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.7/mac/arm64/Pinggy-1.1.7-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.7/windows/x64/Pinggy-1.1.7+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.7/windows/arm64/Pinggy-1.1.7+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.7/windows/x64/Pinggy-1.1.7+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.7/windows/arm64/Pinggy-1.1.7+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
                 <td class="pe-4">
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.7/linux/x64/pinggyapp_1.1.7_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.7/linux/arm64/pinggyapp_1.1.7_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.7/linux/x64/pinggyapp_1.1.7_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.7/linux/arm64/pinggyapp_1.1.7_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
               </tr>
               <tr>
@@ -272,16 +289,16 @@ title: "Pinggy App"
                   <span class="badge bg-light text-dark border">v1.1.5</span>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.5/mac/amd64/Pinggy-1.1.5-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.5/mac/arm64/Pinggy-1.1.5-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.5/mac/amd64/Pinggy-1.1.5-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.5/mac/arm64/Pinggy-1.1.5-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.5/windows/x64/Pinggy-1.1.5+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.5/windows/arm64/Pinggy-1.1.5+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.5/windows/x64/Pinggy-1.1.5+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.5/windows/arm64/Pinggy-1.1.5+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
                 <td class="pe-4">
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.5/linux/x64/pinggyapp_1.1.5_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.5/linux/arm64/pinggyapp_1.1.5_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.5/linux/x64/pinggyapp_1.1.5_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.5/linux/arm64/pinggyapp_1.1.5_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
               </tr>
               <tr>
@@ -289,16 +306,16 @@ title: "Pinggy App"
                   <span class="badge bg-light text-dark border">v1.1.1</span>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.1/mac/amd64/Pinggy-1.1.1-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.1/mac/arm64/Pinggy-1.1.1-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.1/mac/amd64/Pinggy-1.1.1-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.1/mac/arm64/Pinggy-1.1.1-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.1/windows/x64/Pinggy-1.1.1+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.1/windows/arm64/Pinggy-1.1.1+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.1/windows/x64/Pinggy-1.1.1+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.1/windows/arm64/Pinggy-1.1.1+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
                 <td class="pe-4">
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.1/linux/x64/pinggyapp_1.1.1_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.1.1/linux/arm64/pinggyapp_1.1.1_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.1/linux/x64/pinggyapp_1.1.1_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.1.1/linux/arm64/pinggyapp_1.1.1_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
               </tr>
               <tr>
@@ -306,16 +323,16 @@ title: "Pinggy App"
                   <span class="badge bg-light text-dark border">v1.0.9</span>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/mac/amd64/Pinggy-1.0.9-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/mac/arm64/Pinggy-1.0.9-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.0.9/mac/amd64/Pinggy-1.0.9-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.0.9/mac/arm64/Pinggy-1.0.9-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
                 </td>
                 <td>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/windows/x64/Pinggy-1.0.9+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/windows/arm64/Pinggy-1.0.9+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.0.9/windows/x64/Pinggy-1.0.9+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.0.9/windows/arm64/Pinggy-1.0.9+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
                 <td class="pe-4">
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/linux/x64/pinggyapp_1.0.9_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
-                  <a href="https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/app/v1.0.9/linux/arm64/pinggyapp_1.0.9_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.0.9/linux/x64/pinggyapp_1.0.9_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.0.9/linux/arm64/pinggyapp_1.0.9_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
                 </td>
               </tr>
             </tbody>
