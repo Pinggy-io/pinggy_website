@@ -245,6 +245,13 @@ a:hover {
     box-shadow var(--duration-fast) var(--ease-out);
 }
 
+.form-select {
+  padding-right: 2.25rem;
+  min-width: 5.5rem;
+  background-position: right 0.75rem center;
+  background-size: 14px 10px;
+}
+
 .form-control::placeholder {
   color: var(--ink-400);
 }
@@ -941,6 +948,7 @@ footer.bg-dark .border-color-subtlegray {
   width: 40px;
   height: 20px;
   vertical-align: middle;
+  margin-right: 10px;
 }
 
 .switch input {
