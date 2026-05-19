@@ -50,31 +50,4 @@
       </div>
     </div>
   </div>
-
-  <div class="row mt-4">
-    <div class="col-lg-12 col-md-12">
-      <div class="">
-        <div id="my-reform"></div>
-      </div>
-    </div>
-  </div>
 </div>
-<script>
-  window.Reform =
-    window.Reform ||
-    function () {
-      (Reform.q = Reform.q || []).push(arguments);
-    };
-</script>
-<script
-  id="reform-script"
-  async
-  src="https://embed.reform.app/v1/embed.js"
-></script>
-<script>
-  Reform("init", {
-    url: "https://forms.reform.app/DtpE3m/feedback/noRstj",
-    target: "#my-reform",
-    background: "default",
-  });
-</script>
