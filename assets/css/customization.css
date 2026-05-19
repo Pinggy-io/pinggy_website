@@ -673,10 +673,16 @@ pre > code {
   display: block;
   padding: 0;
   box-shadow: var(--shadow-xs);
-  border-bottom: 1px solid var(--ink-200);
-  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var(--ink-300);
+  background-color: rgba(255, 255, 255, 0.92);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   backdrop-filter: saturate(180%) blur(12px);
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .navbar {
+    background-color: #fff;
+  }
 }
 
 .navbar-expand-lg {
@@ -713,7 +719,7 @@ pre > code {
 }
 
 .nav-link span {
-  color: var(--ink-700);
+  color: var(--ink-900);
   font-weight: 500;
   font-size: 0.9375rem;
 }
