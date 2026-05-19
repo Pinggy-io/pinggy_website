@@ -803,6 +803,37 @@ pre > code {
   color: var(--ink-900);
 }
 
+/* Footer ----------------------------------------------- */
+footer.bg-dark h1,
+footer.bg-dark h2,
+footer.bg-dark h3,
+footer.bg-dark h4,
+footer.bg-dark h5,
+footer.bg-dark h6,
+footer.bg-dark .h1,
+footer.bg-dark .h2,
+footer.bg-dark .h3,
+footer.bg-dark .h4,
+footer.bg-dark .h5,
+footer.bg-dark .h6 {
+  color: #fff;
+  font-weight: 600;
+}
+
+footer.bg-dark a.link-light {
+  color: rgba(255, 255, 255, 0.78) !important;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+footer.bg-dark a.link-light:hover,
+footer.bg-dark a.link-light:focus {
+  color: #fff !important;
+}
+
+footer.bg-dark .border-color-subtlegray {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
 /* Big header --------------------------------- */
 
 #lead2 {
