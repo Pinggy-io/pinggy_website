@@ -5,11 +5,12 @@
     {{- partial "header.html" . -}} {{- with .OutputFormats.Get "AMP" }}
     <link rel="amphtml" href="{{ .RelPermalink | absURL }}" />
     {{- end }}
-    <link href="/css/blog.css?v=2" rel="stylesheet" />
+    <link href="/css/blog.css?v=5" rel="stylesheet" />
     {{- partial "seoblogs.html" . -}}
   </head>
 
   <body>
+    {{- partial "grid_canvas.html" . }}
     {{- partial "navbar.html" .}}
 
     <div class="container py-3 contentcontainer maincontent">

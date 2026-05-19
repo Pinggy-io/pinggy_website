@@ -1,26 +1,25 @@
 <style>
 .termgif-terminal {
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    border: 1px solid var(--ink-200, #e5e7eb);
+    border-radius: var(--radius-xl, 20px);
     padding: 0;
     max-width: 600px;
     min-height: 340px;
-    box-shadow: 0 8px 32px rgba(60,60,60,0.10), 0 1.5px 6px rgba(60,60,60,0.08);
+    box-shadow: var(--shadow-lg, 0 12px 32px -8px rgba(15,23,42,0.12), 0 4px 8px -4px rgba(15,23,42,0.06));
     margin: 0 auto;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: #0E1116;
 }
 .termgif-header {
     display: flex;
     align-items: center;
     padding: 0 16px;
-    height: 32px;
-    background: linear-gradient(180deg, #ECECEC 0%, #D8D8D8 100%);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    box-shadow: 0 1px 0 #B0B0B0;
+    height: 36px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--ink-200, #e5e7eb);
     position: relative;
 }
 .termgif-dots {
@@ -32,40 +31,40 @@
     transform: translateY(-50%);
 }
 .termgif-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    border: 1px solid #bbb;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    border: none;
+    box-shadow: none;
 }
-.termgif-dot.red { background-color: #FF5F56; border-color: #E0443E; }
-.termgif-dot.yellow { background-color: #FFBD2E; border-color: #DEA123; }
-.termgif-dot.green { background-color: #27C93F; border-color: #13A10E; }
+.termgif-dot.red { background-color: #FF5F57; }
+.termgif-dot.yellow { background-color: #FEBC2E; }
+.termgif-dot.green { background-color: #28C840; }
 .termgif-content {
-    padding: 18px 16px 10px 16px;
-    color: #F8F8F2;
-    font-size: 15px;
-    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+    padding: 20px 24px;
+    color: #E5E7EB;
+    font-size: 14px;
+    font-family: var(--font-mono, 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Consolas, monospace);
     background: none;
-    background-color: #272822;
+    background-color: #0E1116;
     min-height: 330px;
+    line-height: 1.7;
 }
 .termgif-step {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
-    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
-    font-size: 15px;
-    color: #F8F8F2;
-    letter-spacing: 0.5px;
-    line-height: 1.6;
-    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+    font-family: var(--font-mono, 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Consolas, monospace);
+    font-size: 14px;
+    color: #E5E7EB;
+    letter-spacing: 0;
+    line-height: 1.7;
 }
 @keyframes fadeIn {
     to { opacity: 1; }
 }
 .blink {
     animation: blink 1s step-end infinite;
-    color: #f1f1f1;
+    color: #e5e7eb;
 }
 @keyframes blink {
     50% { opacity: 0; }
@@ -461,7 +460,7 @@
             <div class="termgif-dot yellow"></div>
             <div class="termgif-dot green"></div>
             </div>
-            <span style="margin: 0 auto; font-size: 13px; color: #444; font-weight: 500; letter-spacing: 0.2px; position: absolute; left: 0; right: 0; text-align: center;">bash - pinggy</span>
+            <span style="margin: 0 auto; font-size: 13px; color: var(--ink-500, #6b7280); font-weight: 500; letter-spacing: 0; position: absolute; left: 0; right: 0; text-align: center;">bash - pinggy</span>
         </div>
         <div class="termgif-content" id="terminalContent">
         </div>

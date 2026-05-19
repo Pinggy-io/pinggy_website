@@ -7,6 +7,7 @@
   </head>
 
   <body>
+    {{- partial "grid_canvas.html" . }}
     {{- partial "navbar.html" .}} {{- block "main" . }}{{- end }} {{- partial
     "footer.html" . -}}
   </body>
