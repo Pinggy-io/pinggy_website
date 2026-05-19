@@ -268,12 +268,16 @@ a:hover {
   border-radius: var(--radius-md);
 }
 
-.input-group > :not(:last-child) {
+.input-group > :not(:last-child),
+.input-group > .input-group-prepend > .form-control,
+.input-group > .input-group-prepend > .form-select {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.input-group > :not(:first-child) {
+.input-group > :not(:first-child),
+.input-group > .input-group-append > .form-control,
+.input-group > .input-group-append > .form-select {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin-left: -1px;
