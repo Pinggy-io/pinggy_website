@@ -515,7 +515,7 @@ input[type="number"] {
 /* Sidebar  -------------------------- */
 
 .sidebar {
-  border-right: 1px solid #dfdfdf;
+  border-right: 1px solid var(--ink-200);
   width: 100%;
   padding-right: 1em;
   min-height: 100vh;
@@ -525,7 +525,9 @@ input[type="number"] {
   cursor: pointer;
   display: none;
   width: 2em;
-  background-color: rgb(248, 248, 248);
+  background-color: var(--ink-50);
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-md);
   position: fixed;
   top: 4.1em;
   left: 11px;
@@ -540,7 +542,9 @@ input[type="number"] {
   .sidebarcol {
     display: none;
     position: fixed;
-    background: white;
+    background: #fff;
+    border-right: 1px solid var(--ink-200);
+    box-shadow: var(--shadow-lg);
     top: 4.5em;
     bottom: 0;
     left: 0;
@@ -566,37 +570,43 @@ input[type="number"] {
 .btn-non-toggle {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
+  padding: 6px 10px;
+  width: 100%;
   font-weight: 500;
-  color: rgb(44, 44, 44);
+  font-size: 0.9375rem;
+  color: var(--ink-700);
   background-color: transparent;
   border: 0;
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
 }
 
 .btn-toggle:hover,
 .btn-non-toggle:hover,
 .btn-non-toggle:focus,
 .btn-toggle:focus {
-  color: rgb(44, 44, 44);
-  background-color: #d2f4ea;
+  color: var(--ink-900);
+  background-color: var(--ink-100);
 }
 
 li.doclink.active > a {
-  color: rgb(44, 44, 44);
-  background-color: #e9f1f7;
+  color: var(--brand-700);
+  background-color: var(--brand-50);
+  font-weight: 600;
 }
 
 .btn-toggle::after {
   width: 1.25em;
-  margin-left: 6px;
+  margin-left: auto;
   line-height: 0;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform 0.35s ease;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform var(--duration-slow) var(--ease-out);
   transform-origin: 0.5em 50%;
 }
 
 .btn-toggle[aria-expanded="true"] {
-  color: rgb(44, 44, 44);
+  color: var(--ink-900);
 }
 
 .btn-toggle[aria-expanded="true"]::after {
@@ -605,15 +615,21 @@ li.doclink.active > a {
 
 .btn-toggle-nav a {
   display: inline-flex;
-  padding: 0.1875rem 0.5rem;
-  margin-top: 0.125rem;
+  padding: 5px 10px;
+  margin-top: 2px;
   margin-left: 1.25rem;
   text-decoration: none;
+  color: var(--ink-500);
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
 }
 
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
-  background-color: #e4e4e4;
+  background-color: var(--ink-100);
+  color: var(--ink-900);
 }
 
 .scrollarea {
