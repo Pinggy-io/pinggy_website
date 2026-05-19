@@ -21,6 +21,10 @@
   if (typeof window === "undefined" || typeof document === "undefined") return;
 
   function init() {
+    // Skip on small screens — CSS hides the canvas at <768px and there's
+    // no point running the draw loop or attaching listeners.
+    if (window.innerWidth < 768) return;
+
     var canvas = document.getElementById("grid-canvas");
     if (!canvas) return;
     var ctx = canvas.getContext("2d");
@@ -36,7 +40,7 @@
     var BASE_RGB = "15, 23, 42";          // ink-950
     var BASE_ALPHA = 0.07;
 
-    var PULSE_SPAWN_MS = 750;             // avg spawn interval
+    var PULSE_SPAWN_MS = 520;             // avg spawn interval
     var PULSE_MAX = 5;
     var PULSE_TAIL_MIN = 130;             // visible tail length
     var PULSE_TAIL_MAX = 230;
@@ -341,6 +345,24 @@
 
     if (!noHover) {
       window.addEventListener("mousemove", onMove, { passive: true });
+    }
+
+    // Pre-populate pulses so the page loads with the effect already
+    // visible — otherwise the first ones don't appear for ~500ms+ and
+    // the hero feels static on initial paint.
+    if (!reducedMotion) {
+      var seedNow = performance.now();
+      for (var i = 0; i < PULSE_MAX - 1; i++) {
+        spawnPulse();
+        var seeded = pulses[pulses.length - 1];
+        if (seeded) {
+          // Backdate to a random point in the pulse's lifetime so the
+          // seeded pulses are at varied stages (some just starting,
+          // some halfway, some near death).
+          seeded.birth = seedNow - Math.random() * seeded.duration * 0.75;
+        }
+      }
+      lastSpawn = seedNow;
     }
 
     requestFrame();
