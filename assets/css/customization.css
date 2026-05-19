@@ -110,21 +110,43 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--ink-700);
-  background-color: var(--ink-50);
+  background-color: transparent;
+  /* Body bg-image layers paint ABOVE the grid canvas (in-flow content
+     paints after negative z-index). Use these to tone the canvas down
+     and fade it out earlier in the viewport. The homepage hero uses a
+     gentle wash; docs.css and blog.css override more aggressively. */
   background-image:
-    radial-gradient(
-      ellipse 80% 50% at 50% -10%,
-      rgba(91, 134, 229, 0.08),
-      transparent 60%
-    ),
     linear-gradient(
       to bottom,
-      rgba(247, 248, 250, 0.65),
-      rgba(247, 248, 250, 0.9) 65%
+      rgba(247, 248, 250, 0.2) 0%,
+      rgba(247, 248, 250, 0.55) 45%,
+      rgba(247, 248, 250, 0.92) 80%,
+      rgba(247, 248, 250, 1) 100%
     ),
-    url("../assets/header_grid2.png");
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-attachment: fixed, fixed, fixed;
+    radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgba(91, 134, 229, 0.06),
+      transparent 60%
+    );
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+}
+
+/* Background grid canvas — fills the viewport, sits behind all in-flow
+   content (cards mask it with their opaque white backgrounds). Body
+   background-color must be transparent so this layer is visible.
+   --canvas-opacity is updated by /js/cursorglow.js on scroll to fade
+   the grid out as the user scrolls past the hero. */
+.grid-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+  opacity: var(--canvas-opacity, 1);
+  will-change: opacity;
 }
 
 /* ---- Typography ------------------------------------------ */
@@ -900,8 +922,7 @@ footer.bg-dark .border-color-subtlegray {
   border: 1px solid var(--ink-200);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
-  padding: 28px;
-  padding-top: 28px;
+  padding: 12px;
 }
 
 #bigcodecolumn h2,

@@ -12,10 +12,11 @@
 {{ $doc := resources.Get "/js/doc.js" }}
 {{ $quickstart := resources.Get "/js/quickstartsearch.js"}}
 {{ $docsearch := resources.Get "/js/docsearch.js" }}
+{{ $cursorglow := resources.Get "/js/cursorglow.js" }}
 
 {{ $js := slice $jquery $alpine $bootstrap
 $getos $typewriter $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc
-$quickstart $docsearch | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
+$quickstart $docsearch $cursorglow | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
 
 <script
   src="{{ $js.RelPermalink }}"
