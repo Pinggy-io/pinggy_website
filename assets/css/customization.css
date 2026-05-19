@@ -668,25 +668,21 @@ pre > code {
 }
 
 /* Navbar --------------------------------- */
-.navbar {
+.navbar.navbar-expand-lg {
   font-size: 1rem;
   display: block;
   padding: 0;
   box-shadow: var(--shadow-xs);
   border-bottom: 1px solid var(--ink-300);
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.95) !important;
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   backdrop-filter: saturate(180%) blur(12px);
 }
 
 @supports not (backdrop-filter: blur(12px)) {
-  .navbar {
-    background-color: #fff;
+  .navbar.navbar-expand-lg {
+    background-color: #fff !important;
   }
-}
-
-.navbar-expand-lg {
-  background-color: transparent !important;
 }
 
 .navbar .container {
