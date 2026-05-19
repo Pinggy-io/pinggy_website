@@ -17,8 +17,10 @@ title: "Pinggy - Simple Localhost Tunnels"
     })"
 >
   <div class="container">
-    <div class="alert alert-info p-1 text-center" role="alert">
-      You can now use Pinggy <b>Node.js SDK</b> and <b>Python SDK</b> to create tunnels programmatically! <a href="/docs/" target="_blank">Learn more.</a> 🤯
+    <div class="text-center">
+      <div class="alert alert-info" role="alert">
+        You can now use Pinggy <b>Node.js SDK</b> and <b>Python SDK</b> to create tunnels programmatically. <a href="/docs/" target="_blank">Learn more →</a>
+      </div>
     </div>
     <div class="row justify-content-evenly">
       <div class="col-lg-5">
@@ -55,14 +57,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 Please enter a valid email
               </div>
               <button
-                style="
-                  border-color: rgb(71, 117, 198);
-                  background-color: rgba(70, 117, 199, 1);
-                  padding: 0.6em 1em;
-                  box-shadow: 0 0 4px 0px #a3599b8c;
-                  font-weight: 500;
-                "
-                class="btn btn-secondary"
+                class="btn btn-pinggy-blue"
                 type="button"
                 id="button-addon2"
                 onclick="starttrial()"

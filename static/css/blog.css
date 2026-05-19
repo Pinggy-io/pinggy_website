@@ -6,9 +6,19 @@
 
 body {
   font-family: Uncut Sans, sans-serif;
-  background-image: linear-gradient(to bottom, #effaff8c, #ffffff 11em),
-    url(../assets/header_grid2.png);
-  background-repeat: repeat;
+  background-color: transparent;
+  /* Blog: matches docs canvas fade — hint of grid at the very top, fully
+     washed out by ~55% of the viewport. */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(247, 248, 250, 0.5) 0%,
+      rgba(247, 248, 250, 0.9) 25%,
+      rgba(247, 248, 250, 1) 55%
+    ),
+    linear-gradient(to bottom, #effaff8c, transparent 11em);
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
 }
 
 .blogcontent {
