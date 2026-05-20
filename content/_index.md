@@ -737,7 +737,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                       </p>
                     </div>
                   </div>
-                  <div class="seat-selector mt-3">
+                  <div class="seat-selector mt-2">
                     <span class="seat-selector__label">Seats</span>
                     <div class="input-group seat-spinner">
                       <button
