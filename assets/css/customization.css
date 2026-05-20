@@ -44,6 +44,7 @@
 
   /* Motion */
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.6, 1);
   --duration-fast: 120ms;
   --duration-base: 180ms;
   --duration-slow: 240ms;
@@ -834,6 +835,63 @@ pre > code {
   background-color: rgba(255, 255, 255, 0.95) !important;
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   backdrop-filter: saturate(180%) blur(12px);
+}
+
+/* Brand-tinted comet that travels along the bottom edge of the navbar.
+   Mirrors the additive grid pulses in assets/js/cursorglow.js — same
+   brand-500 RGB (91, 134, 229), similar lifecycle (~5.5s, slow fade
+   in/out). The comet is a no-repeat background gradient sized to 25%
+   of the navbar; animating background-position-x slides it across and
+   naturally clips it to the navbar bounds (no overflow:hidden needed,
+   so dropdowns stay visible). drop-shadow gives the additive bloom. */
+.navbar.navbar-expand-lg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  pointer-events: none;
+  background-image: linear-gradient(
+    90deg,
+    rgba(91, 134, 229, 0) 0%,
+    rgba(91, 134, 229, 0.2) 30%,
+    rgba(91, 134, 229, 0.95) 50%,
+    rgba(91, 134, 229, 0.2) 70%,
+    rgba(91, 134, 229, 0) 100%
+  );
+  background-size: 25% 100%;
+  background-repeat: no-repeat;
+  background-position-x: 0%;
+  filter: drop-shadow(0 0 5px rgba(91, 134, 229, 0.55))
+          drop-shadow(0 0 12px rgba(91, 134, 229, 0.25));
+  opacity: 0;
+  animation: navbarPulse 5.5s var(--ease-in-out) infinite;
+  animation-delay: -2.75s;
+}
+
+@keyframes navbarPulse {
+  0% {
+    background-position-x: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    background-position-x: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar.navbar-expand-lg::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 @supports not (backdrop-filter: blur(12px)) {
