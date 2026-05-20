@@ -237,11 +237,11 @@ title: "Pinggy - Simple Localhost Tunnels"
 {{% terminal_animation %}}
 
 
-<!-- Features -->
-<section class="pt-5" id="features">
-  <div class="container my-5">
-    <div class="row justify-content-evenly">
-      <div class="col-lg-6 mb-5 mb-lg-0">
+<!-- Feature: sharing -->
+<section class="py-5" id="feature-share">
+  <div class="container">
+    <div class="row align-items-center justify-content-evenly g-4 g-lg-5">
+      <div class="col-lg-6">
         <div class="videocontainer ratio ratio-16x9">
           <video
             preload="none"
@@ -253,65 +253,47 @@ title: "Pinggy - Simple Localhost Tunnels"
           </video>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div
-          class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-        >
+      <div class="col-lg-5">
+        <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
           <i class="bi bi-collection"></i>
         </div>
-        <h2 class="h3 fw-bolder">Share your websites and apps in seconds!</h2>
-        <ul class="list-unstyled text-muted">
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Skip uploading to cloud
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> No need to download any
-            tool
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Link your own domain
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Basic Authentication
-          </li>
+        <h2 class="fw-bold mb-3">Share your websites and apps in seconds.</h2>
+        <ul class="list-unstyled featurelist mb-4">
+          <li><i class="bi bi-check2-circle me-2"></i>Skip uploading to the cloud.</li>
+          <li><i class="bi bi-check2-circle me-2"></i>No tool to download.</li>
+          <li><i class="bi bi-check2-circle me-2"></i>Link your own domain.</li>
+          <li><i class="bi bi-check2-circle me-2"></i>Basic authentication built in.</li>
         </ul>
-        <a class="btn btn-pinggy-blue me-2" href="/quickstart/">Quickstart</a>
-        <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
-          Learn more <i class="bi bi-arrow-right"></i>
-        </a>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <a class="btn btn-pinggy-blue" href="/quickstart/">Quickstart</a>
+          <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
+            Learn more <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="pt-5 mt-5" id="features">
-  <div class="container my-5">
-    <div class="row justify-content-evenly">
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div
-          class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-        >
+<!-- Feature: debug -->
+<section class="py-5" id="feature-debug">
+  <div class="container">
+    <div class="row align-items-center justify-content-evenly g-4 g-lg-5">
+      <div class="col-lg-5 order-lg-1">
+        <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
           <i class="bi bi-bug"></i>
         </div>
-        <h2 class="h3 fw-bolder">Debug on the go!</h2>
-        <ul class="list-unstyled text-muted">
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Debug HTTP / HTTPS requests
-            live
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> No need to download any
-            tool
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Replay requests
-          </li>
+        <h2 class="fw-bold mb-3">Debug on the go.</h2>
+        <ul class="list-unstyled featurelist mb-4">
+          <li><i class="bi bi-check2-circle me-2"></i>Inspect HTTP / HTTPS requests live.</li>
+          <li><i class="bi bi-check2-circle me-2"></i>No tool to download.</li>
+          <li><i class="bi bi-check2-circle me-2"></i>Replay any request.</li>
         </ul>
         <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
           Learn more <i class="bi bi-arrow-right"></i>
         </a>
       </div>
-      <div class="col-lg-6 mb-5 mb-lg-0">
+      <div class="col-lg-6 order-lg-2">
         <img
           src="/assets/webdebugger.webp"
           class="img-fluid featureimage"
@@ -322,23 +304,24 @@ title: "Pinggy - Simple Localhost Tunnels"
   </div>
 </section>
 
-<section class="pt-5 mt-5" id="features">
-  <div class="container my-5">
-    <div class="row justify-content-evenly">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <div id="carouselTUI" class="carousel slide" data-bs-ride="carousel">
+<!-- Feature: terminal interface -->
+<section class="py-5" id="feature-tui">
+  <div class="container">
+    <div class="row align-items-center justify-content-evenly g-4 g-lg-5">
+      <div class="col-lg-6">
+        <div id="carouselTUI" class="carousel slide featureimage" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="2000">
               <img
                 src="/assets/tui1.webp"
-                class="d-block w-100 img-fluid featureimage"
+                class="d-block w-100 img-fluid"
                 alt="Pinggy terminal user interface (TUI) screenshot showing list of requests"
               />
             </div>
             <div class="carousel-item" data-bs-interval="2000">
               <img
                 src="/assets/tui2.webp"
-                class="d-block w-100 img-fluid featureimage"
+                class="d-block w-100 img-fluid"
                 alt="Pinggy terminal user interface (TUI) screenshot showing request and response headers of an HTTP request"
               />
             </div>
@@ -363,24 +346,15 @@ title: "Pinggy - Simple Localhost Tunnels"
           </button>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div
-          class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-        >
+      <div class="col-lg-5">
+        <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
           <i class="bi bi-terminal"></i>
         </div>
-        <h2 class="h3 fw-bolder">Rich Terminal Interface</h2>
-        <ul class="list-unstyled text-muted">
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Live request logs
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> View request / response
-            headers
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Stats on bandwidth and more
-          </li>
+        <h2 class="fw-bold mb-3">Rich terminal interface.</h2>
+        <ul class="list-unstyled featurelist mb-4">
+          <li><i class="bi bi-check2-circle me-2"></i>Live request logs.</li>
+          <li><i class="bi bi-check2-circle me-2"></i>View request and response headers.</li>
+          <li><i class="bi bi-check2-circle me-2"></i>Stats on bandwidth and more.</li>
         </ul>
         <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
           Learn more <i class="bi bi-arrow-right"></i>
@@ -466,136 +440,100 @@ title: "Pinggy - Simple Localhost Tunnels"
 </section>
 
 <!-- Features section-->
-<section class="py-5 border-bottom" id="features">
-  <div class="container my-5">
-    <div class="my-3 row justify-content-center">
-      <div class="col-lg-12">
-        <h2 class="mb-5 text-center">Features</h2>
-      </div>
+<section class="py-5" id="features-grid">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold mb-1">Features</h2>
+      <p class="text-secondary mb-0">Everything you need to ship and debug tunnels.</p>
     </div>
-    <div class="row">
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-window-stack"></i>
           </div>
-          <h2 class="h3 fw-bolder">No downloads</h2>
-          <h2 class="h6 fw-light">Runs everywhere</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>Windows</b> <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>Mac</b> <br /><i class="bi bi-check2-circle me-2"></i
-            ><b>Linux</b><br />
-            <i class="bi bi-check2-circle me-2"></i><b>Docker</b>
-          </p>
+          <h3 class="h4 fw-bold mb-1">No downloads</h3>
+          <p class="text-secondary small mb-3">Runs everywhere</p>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Windows</strong></li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Mac</strong></li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Linux</strong></li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Docker</strong></li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-hdd-network"></i>
           </div>
-          <h2 class="h3 fw-bolder">Multiple Protocols</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>HTTPS</b> tunnels with
-            built-in Let's Encrypt certificates for web applications. <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>TCP</b> tunnels for other applications. <br />
-            <i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>UDP</b> tunnels.<br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>TLS</b> tunnels for end-to-end encryption.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Multiple Protocols</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>HTTPS</strong> tunnels with built-in Let's Encrypt certificates.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>TCP</strong> tunnels for other applications.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>UDP</strong> tunnels.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>TLS</strong> tunnels for end-to-end encryption.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-link-45deg"></i>
           </div>
-          <h2 class="h3 fw-bolder">Instant Domains</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>Subdomain</b>: Custom persistent subdomains. <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>Custom domain</b>: Bring your own domains with built-in HTTPS
-            certificates.<br />
-            <i class="bi bi-check2-circle me-2"></i>
-            <b>Wildcard domains</b>: Use <code>*.yourdomain.com</code> to route different subdomains to different ports.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Instant Domains</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Subdomain</strong>: custom persistent subdomains.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Custom domain</strong>: bring your own with built-in HTTPS.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Wildcard domains</strong>: <code>*.yourdomain.com</code> routes different subdomains to different ports.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-shield-lock"></i>
           </div>
-          <h2 class="h3 fw-bolder">Access Control</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i
-            ><b>Password</b> authentication with HTTP Basic authentication.
-            <br /><i class="bi bi-check2-circle me-2"></i><b>Bearer token</b> /
-            key based authentication. <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>IP whitelisting</b> for restricted access.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Access Control</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Password</strong> authentication with HTTP Basic auth.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Bearer token</strong> / key based authentication.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>IP whitelisting</strong> for restricted access.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-bug"></i>
           </div>
-          <h2 class="h3 fw-bolder">Inspect & Debug</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>Live debugger</b>:
-            Inspect HTTP requests on the fly. View requests, responses, headers,
-            etc. <br /><i class="bi bi-check2-circle me-2"></i
-            ><b>Header manipulation</b>: Change HTTP request headers before they
-            arrive at your server.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Inspect & Debug</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Live debugger</strong>: inspect HTTP requests, responses, and headers on the fly.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Header manipulation</strong>: change HTTP request headers before they reach your server.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-globe-americas"></i>
           </div>
-          <h2 class="h3 fw-bolder">Multiple Regions</h2>
-          <h2 class="h4 fw-light">Fast Tunnels</h2>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <p id="loc1">
-                  <i class="bi bi-check2-circle me-2"></i><b>USA</b> <br />
-                  <i class="bi bi-check2-circle me-2"></i><b>Europe</b> <br />
-                  <i class="bi bi-check2-circle me-2"></i><b>Asia</b>
-                </p>
-              </div>
-              <div class="col-md-6">
-                <p id="loc2">
-                  <i class="bi bi-check2-circle me-2"></i><b>Brazil</b> <br />
-                  <i class="bi bi-check2-circle me-2"></i><b>Australia</b>
-                </p>
-              </div>
+          <h3 class="h4 fw-bold mb-1">Multiple Regions</h3>
+          <p class="text-secondary small mb-3">Fast tunnels worldwide</p>
+          <div class="row g-1">
+            <div class="col-6">
+              <ul class="list-unstyled featurelist mb-0" id="loc1">
+                <li><i class="bi bi-check2-circle me-2"></i><strong>USA</strong></li>
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Europe</strong></li>
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Asia</strong></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled featurelist mb-0" id="loc2">
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Brazil</strong></li>
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Australia</strong></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -737,7 +675,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                       </p>
                     </div>
                   </div>
-                  <div class="seat-selector mt-3">
+                  <div class="seat-selector mt-2">
                     <span class="seat-selector__label">Seats</span>
                     <div class="input-group seat-spinner">
                       <button
