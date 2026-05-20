@@ -898,6 +898,18 @@ footer.bg-dark .border-color-subtlegray {
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
+/* Footer column separators: only show between side-by-side columns */
+@media (max-width: 767.98px) {
+  .footer-cols > .footer-col {
+    border-right: 0 !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .footer-cols > .footer-col:nth-child(2n) {
+    border-right: 0 !important;
+  }
+}
+
 /* Big header --------------------------------- */
 
 #lead2 {
