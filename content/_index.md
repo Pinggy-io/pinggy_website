@@ -466,136 +466,100 @@ title: "Pinggy - Simple Localhost Tunnels"
 </section>
 
 <!-- Features section-->
-<section class="py-5 border-bottom" id="features">
-  <div class="container my-5">
-    <div class="my-3 row justify-content-center">
-      <div class="col-lg-12">
-        <h2 class="mb-5 text-center">Features</h2>
-      </div>
+<section class="py-5" id="features-grid">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold mb-1">Features</h2>
+      <p class="text-secondary mb-0">Everything you need to ship and debug tunnels.</p>
     </div>
-    <div class="row">
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-window-stack"></i>
           </div>
-          <h2 class="h3 fw-bolder">No downloads</h2>
-          <h2 class="h6 fw-light">Runs everywhere</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>Windows</b> <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>Mac</b> <br /><i class="bi bi-check2-circle me-2"></i
-            ><b>Linux</b><br />
-            <i class="bi bi-check2-circle me-2"></i><b>Docker</b>
-          </p>
+          <h3 class="h4 fw-bold mb-1">No downloads</h3>
+          <p class="text-secondary small mb-3">Runs everywhere</p>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Windows</strong></li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Mac</strong></li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Linux</strong></li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Docker</strong></li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-hdd-network"></i>
           </div>
-          <h2 class="h3 fw-bolder">Multiple Protocols</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>HTTPS</b> tunnels with
-            built-in Let's Encrypt certificates for web applications. <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>TCP</b> tunnels for other applications. <br />
-            <i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>UDP</b> tunnels.<br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>TLS</b> tunnels for end-to-end encryption.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Multiple Protocols</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>HTTPS</strong> tunnels with built-in Let's Encrypt certificates.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>TCP</strong> tunnels for other applications.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>UDP</strong> tunnels.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>TLS</strong> tunnels for end-to-end encryption.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-link-45deg"></i>
           </div>
-          <h2 class="h3 fw-bolder">Instant Domains</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>Subdomain</b>: Custom persistent subdomains. <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>Custom domain</b>: Bring your own domains with built-in HTTPS
-            certificates.<br />
-            <i class="bi bi-check2-circle me-2"></i>
-            <b>Wildcard domains</b>: Use <code>*.yourdomain.com</code> to route different subdomains to different ports.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Instant Domains</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Subdomain</strong>: custom persistent subdomains.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Custom domain</strong>: bring your own with built-in HTTPS.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Wildcard domains</strong>: <code>*.yourdomain.com</code> routes different subdomains to different ports.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-shield-lock"></i>
           </div>
-          <h2 class="h3 fw-bolder">Access Control</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i
-            ><b>Password</b> authentication with HTTP Basic authentication.
-            <br /><i class="bi bi-check2-circle me-2"></i><b>Bearer token</b> /
-            key based authentication. <br /><i
-              class="bi bi-check2-circle me-2"
-            ></i
-            ><b>IP whitelisting</b> for restricted access.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Access Control</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Password</strong> authentication with HTTP Basic auth.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Bearer token</strong> / key based authentication.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>IP whitelisting</strong> for restricted access.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-bug"></i>
           </div>
-          <h2 class="h3 fw-bolder">Inspect & Debug</h2>
-          <p>
-            <i class="bi bi-check2-circle me-2"></i><b>Live debugger</b>:
-            Inspect HTTP requests on the fly. View requests, responses, headers,
-            etc. <br /><i class="bi bi-check2-circle me-2"></i
-            ><b>Header manipulation</b>: Change HTTP request headers before they
-            arrive at your server.
-          </p>
+          <h3 class="h4 fw-bold mb-3">Inspect & Debug</h3>
+          <ul class="list-unstyled featurelist mb-0">
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Live debugger</strong>: inspect HTTP requests, responses, and headers on the fly.</li>
+            <li><i class="bi bi-check2-circle me-2"></i><strong>Header manipulation</strong>: change HTTP request headers before they reach your server.</li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="card featurecard p-4">
-          <div
-            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
-          >
+      <div class="col">
+        <div class="card featurecard h-100">
+          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
             <i class="bi bi-globe-americas"></i>
           </div>
-          <h2 class="h3 fw-bolder">Multiple Regions</h2>
-          <h2 class="h4 fw-light">Fast Tunnels</h2>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <p id="loc1">
-                  <i class="bi bi-check2-circle me-2"></i><b>USA</b> <br />
-                  <i class="bi bi-check2-circle me-2"></i><b>Europe</b> <br />
-                  <i class="bi bi-check2-circle me-2"></i><b>Asia</b>
-                </p>
-              </div>
-              <div class="col-md-6">
-                <p id="loc2">
-                  <i class="bi bi-check2-circle me-2"></i><b>Brazil</b> <br />
-                  <i class="bi bi-check2-circle me-2"></i><b>Australia</b>
-                </p>
-              </div>
+          <h3 class="h4 fw-bold mb-1">Multiple Regions</h3>
+          <p class="text-secondary small mb-3">Fast tunnels worldwide</p>
+          <div class="row g-1">
+            <div class="col-6">
+              <ul class="list-unstyled featurelist mb-0" id="loc1">
+                <li><i class="bi bi-check2-circle me-2"></i><strong>USA</strong></li>
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Europe</strong></li>
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Asia</strong></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled featurelist mb-0" id="loc2">
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Brazil</strong></li>
+                <li><i class="bi bi-check2-circle me-2"></i><strong>Australia</strong></li>
+              </ul>
             </div>
           </div>
         </div>

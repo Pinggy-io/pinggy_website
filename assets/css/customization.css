@@ -628,7 +628,7 @@ input[type="number"] {
   background-color: #fff;
   border: 1px solid var(--ink-200);
   box-shadow: var(--shadow-sm);
-  padding: 28px;
+  padding: 20px;
   transition: box-shadow var(--duration-base) var(--ease-out),
     transform var(--duration-base) var(--ease-out);
 }
@@ -637,12 +637,35 @@ input[type="number"] {
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
-.featurecard b {
+.featurecard h3 {
+  color: var(--ink-900);
+}
+.featurecard b,
+.featurecard strong {
   font-weight: 600;
+  color: var(--ink-900);
 }
 .featurecard p {
   margin-bottom: 0;
+  color: var(--ink-500);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.featurelist li {
   color: var(--ink-700);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  padding: 0.2rem 0;
+}
+.featurelist li .bi-check2-circle {
+  color: var(--brand-600);
+}
+.featurecard code {
+  font-size: 0.85em;
+  background-color: var(--ink-100);
+  color: var(--ink-900);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
 }
 
 /* Sidebar  -------------------------- */
