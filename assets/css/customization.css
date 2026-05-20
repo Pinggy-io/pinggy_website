@@ -289,9 +289,33 @@ a:hover {
    .input-group. Match heights with a tighter padding. */
 .seat-spinner {
   align-items: stretch;
+  max-width: 9rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 .seat-spinner .form-control {
-  padding: 0.375rem 0.5rem;
+  padding: 0.375rem 0.25rem;
+  max-width: 3.5rem;
+  font-weight: 600;
+  border-color: var(--ink-300);
+}
+.seat-spinner .btn {
+  padding: 0.375rem 0.7rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  border-color: var(--ink-300);
+  color: var(--ink-800);
+  background-color: #fff;
+}
+.seat-spinner .btn:hover {
+  background-color: var(--ink-100);
+  color: var(--ink-900);
+}
+.seat-spinner .btn:focus-visible {
+  box-shadow: var(--shadow-focus);
+  outline: none;
+  z-index: 2;
 }
 
 /* Compare-page header selector — sits in an ad-hoc flex row next to a
@@ -526,6 +550,25 @@ input[type="number"] {
 
 .pinggy-link {
   color: var(--brand-600);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.pinggy-link:hover,
+.pinggy-link:focus {
+  color: var(--brand-700);
+}
+
+.pinggy-link > i {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.pinggy-link:hover > i,
+.pinggy-link:focus > i {
+  transform: translateX(2px);
 }
 
 .pinggy-link :hover {
@@ -1002,6 +1045,117 @@ footer.bg-dark .border-color-subtlegray {
 
 .pricecard {
   height: 100%;
+  border: 1px solid var(--ink-200);
+  background-color: #fff;
+  transition: transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.pricecard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.pricecard .card-header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--ink-200);
+}
+
+.pricecard--featured {
+  position: relative;
+  border-color: var(--ink-900);
+}
+
+@media (min-width: 768px) {
+  .pricecard--featured {
+    transform: translateY(-12px);
+  }
+  .pricecard--featured:hover {
+    transform: translateY(-14px);
+  }
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--brand-600);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+
+.pricing-toggle {
+  gap: 4px;
+  margin-bottom: 3rem !important;
+}
+
+.pricing-toggle__savings {
+  color: var(--brand-600);
+  background: var(--brand-50, #eaf1ff);
+  border-radius: var(--radius-pill);
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.pricing-price-block {
+  min-height: 5rem;
+  text-align: center;
+}
+
+.pricing-card-title {
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+  font-size: 1.85rem;
+}
+
+.pricing-features {
+  margin: 0;
+  padding: 0;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.22rem 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ink-800);
+  line-height: 1.4;
+}
+
+.pricing-check {
+  color: var(--brand-600);
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.pricing-check--featured {
+  color: var(--brand-600);
+}
+
+.seat-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.seat-selector__label {
+  font-size: 0.875rem;
+  color: var(--ink-700);
+  font-weight: 500;
 }
 
 /* ----------  Toggle button ------------- */

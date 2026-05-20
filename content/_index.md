@@ -275,17 +275,9 @@ title: "Pinggy - Simple Localhost Tunnels"
             <i class="bi bi-check2-circle me-2"></i> Basic Authentication
           </li>
         </ul>
-        <a href="/quickstart/"
-          ><button
-            class="btn btn-primary me-2"
-            style="background-color: rgba(70, 117, 199, 1)"
-          >
-            Quickstart
-          </button></a
-        >
-        <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
-          Learn more
-          <i class="bi bi-arrow-up-right-square"></i>
+        <a class="btn btn-pinggy-blue me-2" href="/quickstart/">Quickstart</a>
+        <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
+          Learn more <i class="bi bi-arrow-right"></i>
         </a>
       </div>
     </div>
@@ -315,9 +307,8 @@ title: "Pinggy - Simple Localhost Tunnels"
             <i class="bi bi-check2-circle me-2"></i> Replay requests
           </li>
         </ul>
-        <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
-          Learn more
-          <i class="bi bi-arrow-up-right-square"></i>
+        <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
+          Learn more <i class="bi bi-arrow-right"></i>
         </a>
       </div>
       <div class="col-lg-6 mb-5 mb-lg-0">
@@ -391,9 +382,8 @@ title: "Pinggy - Simple Localhost Tunnels"
             <i class="bi bi-check2-circle me-2"></i> Stats on bandwidth and more
           </li>
         </ul>
-        <a class="text-decoration-none pinggy-link" href="/docs/http_tunnels/">
-          Learn more
-          <i class="bi bi-arrow-up-right-square"></i>
+        <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
+          Learn more <i class="bi bi-arrow-right"></i>
         </a>
       </div>
     </div>
@@ -446,9 +436,8 @@ title: "Pinggy - Simple Localhost Tunnels"
             <i class="bi bi-check2-circle me-2"></i> Auto start tunnels on boot
           </li>
         </ul>
-        <a class="text-decoration-none pinggy-link" href="/app/">
-          Learn more
-          <i class="bi bi-arrow-up-right-square"></i>
+        <a class="pinggy-link text-decoration-none" href="/app/">
+          Learn more <i class="bi bi-arrow-right"></i>
         </a>
         <h2 class="h3 fw-bolder mt-5">Command Line App</h2>
         <ul class="list-unstyled text-muted">
@@ -459,9 +448,8 @@ title: "Pinggy - Simple Localhost Tunnels"
             <i class="bi bi-check2-circle me-2"></i> JSON configuration
           </li>
         </ul>
-        <a class="text-decoration-none pinggy-link" href="/cli/">
-          Learn more
-          <i class="bi bi-arrow-up-right-square"></i>
+        <a class="pinggy-link text-decoration-none" href="/cli/">
+          Learn more <i class="bi bi-arrow-right"></i>
         </a>
       </div>
       <div class="col-lg-6 mb-5 mb-lg-0">
@@ -631,63 +619,70 @@ title: "Pinggy - Simple Localhost Tunnels"
           </p>
         </div>
         <main>
-          <div class="row justify-content-center text-left">
-            <div class="mb-3 col-md-9">
-              <label
-                class="toggler toggler--is-active align-middle"
-                id="filt-monthly"
-                >Monthly</label
-              >
-              <label
-                class="switch"
-                aria-label="Toggle between monthly and yearly plans"
-              >
-                <input id="toggleswitch" type="checkbox" checked="" />
-                <span class="slider round"></span>
-              </label>
-              <label class="toggler align-middle" id="filt-hourly">Yearly</label
-              ><span
-                class="align-middle"
-                style="color: rgba(50, 87, 149, 1); font-size: 0.8em"
-              >
-                (Save upto 17%)</span
-              >
-            </div>
+          <div class="pricing-toggle d-flex justify-content-center align-items-center flex-wrap mb-4">
+            <label
+              class="toggler toggler--is-active align-middle mb-0"
+              id="filt-monthly"
+              >Monthly</label
+            >
+            <label
+              class="switch mx-2"
+              aria-label="Toggle between monthly and yearly plans"
+            >
+              <input id="toggleswitch" type="checkbox" checked="" />
+              <span class="slider round"></span>
+            </label>
+            <label class="toggler align-middle mb-0" id="filt-hourly"
+              >Yearly</label
+            >
+            <span class="pricing-toggle__savings ms-2">Save up to 17%</span>
           </div>
           <div
-            class="row row-cols-1 row-cols-md-4 mb-3 text-center justify-content-center"
+            class="row row-cols-1 row-cols-md-3 g-4 mb-3 align-items-stretch justify-content-center pricing-grid"
           >
-            <div class="col mb-4">
-              <div class="pricecard card rounded-3 shadow-sm">
+            <div class="col">
+              <div class="pricecard card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
                   <h4 class="my-0 fw-normal">Free</h4>
                 </div>
                 <div class="card-body d-flex flex-column">
-                  <div>
+                  <div class="pricing-price-block">
                     <h1 class="card-title pricing-card-title">
-                      <span x-text="$store.location.currency"></span> 0<small class="text-muted fw-light">/month</small>
+                      <span x-text="$store.location.currency"></span> 0<small
+                        class="text-muted fw-light"
+                        >/month</small
+                      >
                     </h1>
-                    <span class="text-muted fw-light">Free for life</span>
+                    <p class="text-muted fw-light mb-0">Free for life</p>
                   </div>
-                  <ul class="list-unstyled mt-3 mb-4 list-group text-left">
-                    <li class="list-group-item p-2">
-                      Single command tunneling
+                  <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Single command tunneling</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      HTTP(S), TCP, UDP, TLS tunnels
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>HTTP(S), TCP, UDP, TLS tunnels</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      Live header manipulation
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Live header manipulation</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      Request-response inspection & replays
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Request-response inspection &amp; replays</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>60 minutes tunnel timeout</b>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>60 minutes tunnel timeout</span>
                     </li>
-                    <li class="list-group-item p-2">Random subdomains</li>
-                    <li class="list-group-item p-2">
-                      Unlimited Data Transfer
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Random subdomains</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Unlimited Data Transfer</span>
                     </li>
                   </ul>
                   <a class="mt-auto" href="https://dashboard.pinggy.io/"
@@ -701,22 +696,58 @@ title: "Pinggy - Simple Localhost Tunnels"
                 </div>
               </div>
             </div>
-            <div x-data="{ seatVal: 1 }" class="col mb-4">
-              <div class="pricecard card rounded-3 shadow-sm">
-                <div class="card-header py-3">
+            <div x-data="{ seatVal: 1 }" class="col">
+              <div
+                class="pricecard pricecard--featured card rounded-3 shadow h-100"
+              >
+                <div class="pricing-badge">Most Popular</div>
+                <div class="card-header py-3 text-white bg-gray border-gray">
                   <h4 class="my-0 fw-normal">Pro</h4>
                 </div>
                 <div class="card-body d-flex flex-column">
-                  <div style="max-width: 140px; margin: 0 auto">
-                    <div class="input-group seat-spinner">
-                      <span class="input-group-btn">
-                        <button
-                          @click="seatVal = Math.max(1, parseInt(seatVal) - 1)"
-                          class="btn btn-outline-dark"
+                  <div class="pricing-price-block">
+                    <div class="yearly">
+                      <h1 class="card-title pricing-card-title">
+                        <span x-text="$store.location.currency"></span>
+                        <span
+                          x-text="$store.location.currency === 'INR' ? (204.89 * seatVal).toFixed(2) : (2.50 * seatVal).toFixed(2)"
+                          id="yearprice"
+                        ></span
+                        ><small class="text-muted fw-light">/month</small>
+                      </h1>
+                      <p class="text-muted fw-light mb-0">
+                        billed annually<span x-show="seatVal > 1">
+                          · <span x-text="seatVal"></span> seats</span
                         >
-                          -
-                        </button>
-                      </span>
+                      </p>
+                    </div>
+                    <div class="monthly">
+                      <h1 class="card-title pricing-card-title">
+                        <span x-text="$store.location.currency"></span>
+                        <span
+                          x-text="$store.location.currency === 'INR' ? (245.87 * seatVal).toFixed(2) : (3.00 * seatVal).toFixed(2)"
+                          id="monthprice"
+                        ></span
+                        ><small class="text-muted fw-light">/month</small>
+                      </h1>
+                      <p class="text-muted fw-light mb-0">
+                        billed monthly<span x-show="seatVal > 1">
+                          · <span x-text="seatVal"></span> seats</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="seat-selector mt-3">
+                    <span class="seat-selector__label">Seats</span>
+                    <div class="input-group seat-spinner">
+                      <button
+                        type="button"
+                        @click="seatVal = Math.max(1, parseInt(seatVal) - 1)"
+                        class="btn btn-outline-secondary"
+                        aria-label="Decrease seats"
+                      >
+                        −
+                      </button>
                       <input
                         type="number"
                         x-model="seatVal"
@@ -725,99 +756,116 @@ title: "Pinggy - Simple Localhost Tunnels"
                         x-on:input="seatVal = isNaN(parseFloat(seatVal)) 
                                                     || seatVal < 1 ? 1 : seatVal"
                       />
-                      <span class="input-group-btn">
-                        <button
-                          @click="seatVal = parseInt(seatVal) + 1"
-                          class="btn btn-outline-dark"
-                        >
-                          +
-                        </button>
-                      </span>
+                      <button
+                        type="button"
+                        @click="seatVal = parseInt(seatVal) + 1"
+                        class="btn btn-outline-secondary"
+                        aria-label="Increase seats"
+                      >
+                        +
+                      </button>
                     </div>
-                    <span>Seats</span>
-                  </div>
-                  <div class="yearly">
-                    <h1 class="card-title pricing-card-title">
-                      <span x-text="$store.location.currency"></span> <span
-                        x-text="$store.location.currency === 'INR' ? (204.89 * seatVal).toFixed(2) : (2.50 * seatVal).toFixed(2)"
-                        id="yearprice"
-                      ></span
-                      ><small class="text-muted fw-light">/month</small>
-                    </h1>
-                    <span class="text-muted fw-light">(billed annually)</span>
-                  </div>
-                  <div class="monthly">
-                    <h1 class="card-title pricing-card-title">
-                      <span x-text="$store.location.currency"></span> <span
-                        x-text="$store.location.currency === 'INR' ? (245.87 * seatVal).toFixed(2) : (3.00 * seatVal).toFixed(2)"
-                        id="monthprice"
-                      ></span
-                      ><small class="text-muted fw-light">/month</small>
-                    </h1>
-                    <span class="text-muted fw-light">(billed monthly)</span>
                   </div>
                   <template x-if="seatVal > 20">
                     <div class="alert alert-info text-center my-2" role="alert">
-                      <a href="/contact_us/" target="_blank"><b>Contact us</b></a> to get volume discounts!
+                      <a href="/contact_us/" target="_blank"
+                        ><b>Contact us</b></a
+                      >
+                      to get volume discounts!
                     </div>
                   </template>
-                  <ul class="list-unstyled mt-3 mb-4 text-left list-group">
-                    <li class="list-group-item p-2 bg-light">
-                      Everything in Free plan
+                  <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span>Everything in Free plan</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span
                         ><span x-text="seatVal"></span> Persistent tunnel<span
                           x-show="seatVal > 1"
                           >s</span
-                        ></b
+                        ></span
                       >
                     </li>
-                    <li class="list-group-item p-2">
-                      <b
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span
                         ><span x-text="seatVal"></span> Custom subdomain<span
                           x-show="seatVal > 1"
                           >s</span
-                        ></b
+                        ></span
                       >
                     </li>
-                    <li class="list-group-item p-2">
-                      <b
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span
                         ><span x-text="seatVal"></span> Custom domain<span
                           x-show="seatVal > 1"
                           >s</span
-                        ></b
+                        ></span
                       >
                     </li>
-                    <li class="list-group-item p-2">
-                      <b
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span
                         ><span x-text="seatVal"></span> Persistent TCP/UDP port<span
                           x-show="seatVal > 1"
                           >s</span
-                        ></b
+                        ></span
                       >
                     </li>
-                    <li class="list-group-item p-2">
-                      <b
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span
                         ><span x-text="seatVal"></span> Team<span
                           x-show="seatVal > 1"
                           >s</span
-                        ></b
-                      > <a href="/docs/teams/" target="_blank" class="link-dark">
-                          <i class="bi bi-info-circle"></i>
-                        </a>
+                        >
+                        <a
+                          href="/docs/teams/"
+                          target="_blank"
+                          class="link-dark"
+                          aria-label="About Teams"
+                          ><i class="bi bi-info-circle"></i
+                        ></a>
+                      </span>
                     </li>
-                    <li class="list-group-item p-2">
-                      Remote Device Management
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span>Remote Device Management</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>Wildcard Domain Support</b>
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span>Wildcard Domain Support</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>Unlimited Data Transfer</b>
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span>Unlimited Data Transfer</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      Priority mail / Discord support
+                    <li>
+                      <i
+                        class="bi bi-check2-circle pricing-check pricing-check--featured"
+                      ></i>
+                      <span>Priority mail / Discord support</span>
                     </li>
                   </ul>
                   <a
@@ -840,56 +888,80 @@ title: "Pinggy - Simple Localhost Tunnels"
                 </div>
               </div>
             </div>
-            <div class="col mb-4">
-              <div class="pricecard card rounded-3 shadow-sm border-gray">
-                <div class="card-header py-3 text-white bg-gray border-gray">
+            <div class="col">
+              <div class="pricecard card rounded-3 shadow-sm h-100">
+                <div class="card-header py-3">
                   <h4 class="my-0 fw-normal">Enterprise</h4>
                 </div>
                 <div class="card-body d-flex flex-column">
-                  <div>
+                  <div class="pricing-price-block">
+                    <h1 class="card-title pricing-card-title">Custom</h1>
+                    <p class="text-muted fw-light mb-1">
+                      For teams that need dedicated infrastructure
+                    </p>
                     <a
-                      href="/contact_us/"
-                      class="text-decoration-none text-dark"
+                      href="mailto:contact@pinggy.io"
+                      class="pinggy-link small text-decoration-none"
+                      >contact@pinggy.io</a
                     >
-                      <h1 class="card-title pricing-card-title">Contact Us</h1>
-                    </a>
-                    <span class="text-muted fw-light">contact@pinggy.io</span>
                   </div>
-                  <ul class="list-unstyled mt-3 mb-4 list-group text-left">
-                    <li class="list-group-item p-2 bg-light">
-                      <b>Dedicated Servers</b> / On Premise
+                  <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Dedicated Servers / On Premise</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>Unlimited persistent tunnels</b>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Unlimited persistent tunnels</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>Unlimited custom subdomains</b>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Unlimited custom subdomains</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>Unlimited custom domains</b>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Unlimited custom domains</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>Unlimited persistent TCP/UDP ports</b>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Unlimited persistent TCP/UDP ports</span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>Unlimited Teams</b>
-                        <a href="/docs/teams/" target="_blank" class="link-dark">
-                          <i class="bi bi-info-circle"></i>
-                        </a>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span
+                        >Unlimited Teams
+                        <a
+                          href="/docs/teams/"
+                          target="_blank"
+                          class="link-dark"
+                          aria-label="About Teams"
+                          ><i class="bi bi-info-circle"></i
+                        ></a>
+                      </span>
                     </li>
-                    <li class="list-group-item p-2">
-                      <b>API to monitor and manage tunnels</b>
-                        <a href="/docs/api/api/" target="_blank" class="link-dark">
-                          <i class="bi bi-info-circle"></i>
-                        </a>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span
+                        >API to monitor and manage tunnels
+                        <a
+                          href="/docs/api/api/"
+                          target="_blank"
+                          class="link-dark"
+                          aria-label="About the API"
+                          ><i class="bi bi-info-circle"></i
+                        ></a>
+                      </span>
                     </li>
-                    <li class="list-group-item p-2">Priority Discord & Call Support</li>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span>Priority Discord &amp; Call Support</span>
+                    </li>
                   </ul>
                   <a
-                    class="mt-auto w-100 btn btn-lg btn-pinggy"
+                    class="mt-auto w-100 btn btn-lg btn-outline-pinggy"
                     id="checkout-and-portal-button-1"
                     href="/contact_us/"
-                    >Contact Us</a
+                    >Contact Sales</a
                   >
                 </div>
               </div>
