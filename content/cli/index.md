@@ -50,10 +50,21 @@
           <pre>ssh -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre>
           <b>Just replace <kbd>ssh</kbd> with the CLI binary:</b>
           <pre>
-./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre
-          >
+./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre>
         </div>
-        <h2 class="h3">Visit <a href="/docs/cli/">Pinggy CLI documentation</a> to learn more.</h2>
+        <div class="mt-5 d-flex flex-wrap align-items-center gap-3">
+          <a
+            href="/docs/cli/"
+            class="d-inline-flex align-items-center gap-2"
+            style="background-color: #3B6FE0; color: #fff; font-weight: 600; font-size: 16px; padding: 14px 24px; border-radius: 10px; text-decoration: none; transition: background-color 120ms cubic-bezier(0.4, 0, 0.2, 1);"
+            onmouseover="this.style.backgroundColor='#2F58B8'"
+            onmouseout="this.style.backgroundColor='#3B6FE0'"
+          >
+            Visit the Pinggy CLI documentation
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <span style="color: #6B7280; font-size: 15px;">Commands, flags, and full reference</span>
+        </div>
       </div>
     </div>
   </div>
