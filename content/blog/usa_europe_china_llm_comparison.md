@@ -216,10 +216,10 @@ While proprietary models grab the headlines, the real revolution is happening in
 </table>
 
 **USA (gpt-oss):** The release of **gpt-oss-120b** (1353) marks a confusing but significant moment. While not the top scorer, its ecosystem integration is unmatched, though many developers are still debating its true "open" nature.
-*   **China (Qwen3):** Alibaba has stunned the research community. **qwen3-235b-instruct** (1422) isn't just "good for open source"—it is actively contending with proprietary models. It is currently the highest-performing open-weights model in the world.
+*   **China (Qwen3):** Alibaba has stunned the research community. **qwen3-235b-instruct** (1422) isn't just "good for open source"-it is actively contending with proprietary models. It is currently the highest-performing open-weights model in the world.
 *   **Europe (Mistral):** Mistral continues to dominate the "efficiency" metric. **mistral-large-3** (1413) punches way above its weight class, outperforming many larger models on coding benchmarks like DevQualityEval.
 
-This shift has created a "barbell" in the market: developers are either flocking to the absolute smartest API models (Gemini 3 Pro) or running highly capable open-weight models (Qwen/Mistral) locally. The middle ground—proprietary models that aren’t SOTA—is rapidly disappearing as open-source alternatives eat their lunch.
+This shift has created a "barbell" in the market: developers are either flocking to the absolute smartest API models (Gemini 3 Pro) or running highly capable open-weight models (Qwen/Mistral) locally. The middle ground-proprietary models that aren’t SOTA-is rapidly disappearing as open-source alternatives eat their lunch.
 
 ## Image & Video: The Creative Frontier
 

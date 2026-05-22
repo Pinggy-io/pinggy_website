@@ -72,7 +72,7 @@ Development teams at companies like {{< link href="https://sourcegraph.com/" >}}
 
 ## The Workforce Transformation Underway
 
-The impact on human employment is both immediate and profound. These aren't just theoretical changes—companies are actively replacing human workers with AI agents that handle the same workload at a fraction of the cost.
+The impact on human employment is both immediate and profound. These aren't just theoretical changes-companies are actively replacing human workers with AI agents that handle the same workload at a fraction of the cost.
 
 ### Jobs Being Displaced
 Several roles are experiencing significant automation:
@@ -146,7 +146,7 @@ The most successful organizations are adopting hybrid workforce models where AI 
 
 ## The New Reality of Work
 
-The integration of AI agents with MCP servers represents a fundamental transformation of how work gets done. This isn't just another technological advancement—it's a complete reshaping of the employment landscape. Companies like Block, with their commitment to {{< link href="https://github.com/modelcontextprotocol" >}}open-source technologies{{< /link >}}, are leading this transformation by implementing MCP powered systems that remove the burden of mechanical tasks so people can focus on creative work.
+The integration of AI agents with MCP servers represents a fundamental transformation of how work gets done. This isn't just another technological advancement-it's a complete reshaping of the employment landscape. Companies like Block, with their commitment to {{< link href="https://github.com/modelcontextprotocol" >}}open-source technologies{{< /link >}}, are leading this transformation by implementing MCP powered systems that remove the burden of mechanical tasks so people can focus on creative work.
 
 The transition brings both challenges and opportunities. While workforce displacement is a real concern, the technology also creates possibilities for increased efficiency, innovation, and human potential. The key lies in understanding that AI agents aren't simply replacing humans, but rather changing the nature of work itself.
 
@@ -156,4 +156,4 @@ The future workforce will be defined by collaboration between humans and AI, lev
 
 MCP-powered AI agents are reshaping the workplace by enabling seamless integration with enterprise tools and handling complex workflows previously requiring human expertise. While this creates workforce displacement challenges, it also opens opportunities for humans to focus on creative and strategic work that complements AI capabilities.
 
-The MCP revolution isn't just about replacing workers—it's about reimagining work in an AI-augmented world.
+The MCP revolution isn't just about replacing workers-it's about reimagining work in an AI-augmented world.

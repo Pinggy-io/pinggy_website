@@ -277,7 +277,7 @@ Free to use.
 
 ## 7. localhost.run
 
-{{< link href="https://localhost.run/" >}}localhost.run{{< /link >}} is a simple and effective tunneling service that uses SSH to expose local applications to the internet. Unlike other alternatives, localhost.run doesn’t require you to install any additional software—just an SSH command to create a public tunnel. This clientless approach makes localhost.run an attractive option for users who want quick, one-time access to local services. It supports both HTTP and HTTPS and works across various operating systems as long as SSH is available. While it lacks more advanced features like traffic monitoring or custom domains, localhost.run’s minimalist approach is perfect for those who need to share local services temporarily without a lot of configuration or overhead. It’s often used for one-off demos or quick access to webhooks and testing environments.
+{{< link href="https://localhost.run/" >}}localhost.run{{< /link >}} is a simple and effective tunneling service that uses SSH to expose local applications to the internet. Unlike other alternatives, localhost.run doesn’t require you to install any additional software-just an SSH command to create a public tunnel. This clientless approach makes localhost.run an attractive option for users who want quick, one-time access to local services. It supports both HTTP and HTTPS and works across various operating systems as long as SSH is available. While it lacks more advanced features like traffic monitoring or custom domains, localhost.run’s minimalist approach is perfect for those who need to share local services temporarily without a lot of configuration or overhead. It’s often used for one-off demos or quick access to webhooks and testing environments.
 
 {{< image "best_cloudflare_tunnel_alternatives/localhost.run.webp" "localhost.run screenshot" >}}
 
@@ -425,6 +425,6 @@ Free and open-source.
 
 ## Conclusion
 
-Choosing the right tunneling solution depends on your needs—whether it's simplicity, security, or domain management. Cloudflare Tunnel is ideal for those seeking robust security and scalability but may lack flexibility for some users.
+Choosing the right tunneling solution depends on your needs-whether it's simplicity, security, or domain management. Cloudflare Tunnel is ideal for those seeking robust security and scalability but may lack flexibility for some users.
 Pinggy stands out as the top choice, offering a perfect blend of simplicity, affordability, and useful features like collaborative capabilities, TCP/UDP support, and easy QR code sharing, making it especially suited for small teams and developers.
 Other options like Ngrok, Tailscale, and LocalXpose are worth considering based on your specific requirements for security or advanced features. This guide helps you find the best tool for your tunneling needs.

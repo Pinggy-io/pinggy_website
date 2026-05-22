@@ -379,8 +379,8 @@ Qwen Code excels at understanding complex code patterns, generating high-quality
 Qwen Code is completely free and open-source under the Apache 2.0 license. You only need to provide your own compute resources for running the model locally.
 
 ## Conclusion
-Alright, so 2026 is wild for AI coding tools. There’s basically something for everyone now. If you’re into editors, Cursor, Windsurf, Copilot, Augment Code, Tabnine, Supermaven, Cline, and Qodo are all solid picks—just plug them into your workflow and you’re good. Prefer living in the terminal? Aider, Goose, and Gemini CLI have you covered.
+Alright, so 2026 is wild for AI coding tools. There’s basically something for everyone now. If you’re into editors, Cursor, Windsurf, Copilot, Augment Code, Tabnine, Supermaven, Cline, and Qodo are all solid picks-just plug them into your workflow and you’re good. Prefer living in the terminal? Aider, Goose, and Gemini CLI have you covered.
 
 Wanna keep your code private or just like open-source stuff? Check out Continue.dev, Qwen-Code, or anything built on Codex. They’re pretty chill for folks who don’t want to send their code to the cloud. Kilo Code is nice too if you want something super lightweight and not bloated.
 
-Honestly, just mix and match depending on what you’re working on. Most devs I know use Copilot for everyday stuff, Cursor when things get hairy, and maybe Aider for those git-heavy terminal sessions. AI is everywhere now—if you’re not using at least one of these, you’re probably missing out.
+Honestly, just mix and match depending on what you’re working on. Most devs I know use Copilot for everyday stuff, Cursor when things get hairy, and maybe Aider for those git-heavy terminal sessions. AI is everywhere now-if you’re not using at least one of these, you’re probably missing out.

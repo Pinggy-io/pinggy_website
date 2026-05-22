@@ -12,9 +12,9 @@ outputs:
   - AMP
 ---
 
-In today’s AI-driven world, deploying large language models (LLMs) like Meta’s Llama 3, Google’s Gemma, or Mistral locally offers unparalleled control over data privacy and customization. However, sharing these tools securely over the internet unlocks collaborative potential—whether you’re a developer showcasing a prototype, a researcher collaborating with peers, or a business integrating AI into customer-facing apps.  
+In today’s AI-driven world, deploying large language models (LLMs) like Meta’s Llama 3, Google’s Gemma, or Mistral locally offers unparalleled control over data privacy and customization. However, sharing these tools securely over the internet unlocks collaborative potential-whether you’re a developer showcasing a prototype, a researcher collaborating with peers, or a business integrating AI into customer-facing apps.  
 
-This comprehensive guide will walk you through exposing {{< link href="https://ollama.com/" >}} Ollama’s API {{< /link >}} and {{< link href="https://github.com/open-webui/open-webui" >}} Open WebUI {{< /link >}} online using [Pinggy](https://pinggy.io/), a powerful tunneling service. You’ll learn to turn your local AI setup into a globally accessible resource—no cloud servers or complex configurations required.  
+This comprehensive guide will walk you through exposing {{< link href="https://ollama.com/" >}} Ollama’s API {{< /link >}} and {{< link href="https://github.com/open-webui/open-webui" >}} Open WebUI {{< /link >}} online using [Pinggy](https://pinggy.io/), a powerful tunneling service. You’ll learn to turn your local AI setup into a globally accessible resource-no cloud servers or complex configurations required.  
 
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/pinggy.png" "How to Easily Share Ollama API and Open WebUI Online" >}}
 

@@ -87,7 +87,7 @@ Whether you're a senior engineer who lives in the terminal, a DevOps professiona
 
 ### Why Use CLI Coding Agents and How to Choose the Right One
 
-CLI coding agents represent a paradigm shift from simple code completion to fully agentic workflows. These tools don't just suggest code—they plan, execute, debug, and deploy entire features while you maintain control from your terminal. For developers who prefer keyboard-driven workflows, CLI agents offer unmatched speed and efficiency.
+CLI coding agents represent a paradigm shift from simple code completion to fully agentic workflows. These tools don't just suggest code-they plan, execute, debug, and deploy entire features while you maintain control from your terminal. For developers who prefer keyboard-driven workflows, CLI agents offer unmatched speed and efficiency.
 
 The key advantages of CLI coding agents include **terminal-native integration** (no context switching between IDE and terminal), **Git-first workflows** (automatic commits with descriptive messages), **autonomous capabilities** (multi-file editing and complex refactoring), **privacy control** (support for local models via Ollama), and **flexibility** (switch between multiple AI models mid-session).
 
@@ -182,7 +182,7 @@ Gemini CLI is free to use with Google's generous free tier for Gemini models. Pa
 
 {{< link href="https://opencode.ai" >}}OpenCode{{< /link >}} is a powerful, open-source AI coding agent built specifically for the terminal, offering developers maximum flexibility and privacy through its provider-agnostic architecture. What makes OpenCode truly unique is its support for over 75 different LLM providers, including Claude, GPT-5, Gemini, and local models via Ollama.
 
-OpenCode's key advantage is its freedom from vendor lock-in. You can switch between different AI models mid-session while maintaining context, allowing you to use the best model for each specific task. This flexibility extends to privacy as well—run everything locally with Ollama models or use cloud providers as needed.
+OpenCode's key advantage is its freedom from vendor lock-in. You can switch between different AI models mid-session while maintaining context, allowing you to use the best model for each specific task. This flexibility extends to privacy as well-run everything locally with Ollama models or use cloud providers as needed.
 
 The tool features a responsive, native, and themeable terminal UI built with Bubble Tea, providing a smooth and interactive experience. It automatically integrates with Language Server Protocols (LSPs) for code intelligence features like syntax highlighting, autocompletion, and error detection across complex projects.
 
@@ -262,7 +262,7 @@ Successfully incorporating CLI coding agents into your development process requi
 
 **Choose Your Primary Agent**: Start with one tool that matches your workflow. If you're Git-heavy, begin with Aider. For maximum flexibility, try OpenCode. For complex reasoning, use Claude Code. Master one tool before adding others to your workflow.
 
-**Set Up Model Access**: Most CLI agents require API keys for cloud models or local model installation via Ollama. Configure your preferred models and test them with simple tasks before tackling complex projects. Consider cost implications—local models are free but require more compute power.
+**Set Up Model Access**: Most CLI agents require API keys for cloud models or local model installation via Ollama. Configure your preferred models and test them with simple tasks before tackling complex projects. Consider cost implications-local models are free but require more compute power.
 
 **Integrate with Git**: CLI agents work best with Git workflows. Use tools like Aider that automatically commit changes, or configure your agent to work within your existing Git practices. Always review AI-generated commits before pushing to remote repositories.
 

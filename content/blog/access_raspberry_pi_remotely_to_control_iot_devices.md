@@ -296,7 +296,7 @@ Right now the web application can be accessed only from a local network because 
 
 Once you have remote access set up, keeping an eye on your Pi's performance becomes crucial. Is your IoT project consuming too much CPU? Running out of memory? A quick health check can save you from mysterious crashes and performance issues.
 
-`htop` is like Task Manager for Linux—it shows you exactly what's happening with your Pi's resources in real-time.
+`htop` is like Task Manager for Linux-it shows you exactly what's happening with your Pi's resources in real-time.
 
 #### Installing htop on Raspberry Pi
 
@@ -329,7 +329,7 @@ By incorporating HTOP into your remote management toolkit, you can proactively a
 
 ## Monitoring Raspberry Pi System Metrics
 
-Tools like htop let you check CPU, memory, and process usage in real time via SSH. However, if you want quick or programmatic access to these metrics without manually logging in, you can run an API (e.g., FastAPI + psutil) to serve system stats (CPU, RAM, disk usage) over HTTP. By tunneling this local API through Pinggy, you can securely reach it from anywhere—no NAT configurations required.
+Tools like htop let you check CPU, memory, and process usage in real time via SSH. However, if you want quick or programmatic access to these metrics without manually logging in, you can run an API (e.g., FastAPI + psutil) to serve system stats (CPU, RAM, disk usage) over HTTP. By tunneling this local API through Pinggy, you can securely reach it from anywhere-no NAT configurations required.
 
 See our *[Remote System Monitoring with FastAPI and Pinggy article](https://pinggy.io/blog/remote_system_monitoring_with_fastapi_and_pinggy/)* for a ready-to-use example. The corresponding source code is available on {{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub{{< /link >}}. Once your app is running (typically on port 8000), create a tunnel:
 
@@ -340,7 +340,7 @@ ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI:" portstring="FastAPI Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
-[Pinggy](https://pinggy.io) provides a public URL—anyone with that URL (and any auth you set up) can view metrics remotely. For interactive CLI monitoring, stick to htop via SSH; for automated or on-the-fly checks, use the FastAPI endpoints.
+[Pinggy](https://pinggy.io) provides a public URL-anyone with that URL (and any auth you set up) can view metrics remotely. For interactive CLI monitoring, stick to htop via SSH; for automated or on-the-fly checks, use the FastAPI endpoints.
 
 ## Tips
 

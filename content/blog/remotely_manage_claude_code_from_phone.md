@@ -64,9 +64,9 @@ The architecture is straightforward. Claude Code UI sits as a lightweight layer 
 
 Claude Code UI isn't limited to a single tool. It supports three major CLI-based coding agents:
 
-- **Claude Code** — Anthropic's official CLI for Claude, the most popular agentic coding tool in 2026
-- **Cursor CLI** — The command-line interface for Cursor's AI-powered editor
-- **OpenAI Codex** — OpenAI's coding agent that runs in your terminal
+- **Claude Code** - Anthropic's official CLI for Claude, the most popular agentic coding tool in 2026
+- **Cursor CLI** - The command-line interface for Cursor's AI-powered editor
+- **OpenAI Codex** - OpenAI's coding agent that runs in your terminal
 
 You can switch between agents or manage sessions for all three simultaneously through the same interface.
 
@@ -156,9 +156,9 @@ Navigate to **Settings** and then select the **Agents** tab.
 
 Here you'll see options to connect all three supported agents:
 
-- **Claude Code** — Click **Login** and authenticate with your Anthropic account using email or OAuth
-- **Cursor CLI** — Click **Login** and sign in with your Cursor account
-- **OpenAI Codex** — Click **Login** and authenticate with your OpenAI account
+- **Claude Code** - Click **Login** and authenticate with your Anthropic account using email or OAuth
+- **Cursor CLI** - Click **Login** and sign in with your Cursor account
+- **OpenAI Codex** - Click **Login** and authenticate with your OpenAI account
 
 {{< image "remotely_manage_claude_code_from_phone/choose_your_ai_assistant.webp" "Choose Your AI Assistant" >}}
 
@@ -172,8 +172,8 @@ Now that your agents are connected, create your first project. Click the **+** b
 
 You'll see a form with the following fields:
 
-- **Workspace Path** — The local directory path for your project (e.g., `/home/user/my-project`)
-- **GitHub URL** (Optional) — A GitHub repository URL if you want to clone a remote project
+- **Workspace Path** - The local directory path for your project (e.g., `/home/user/my-project`)
+- **GitHub URL** (Optional) - A GitHub repository URL if you want to clone a remote project
 
 {{< image "remotely_manage_claude_code_from_phone/add_workspace_path.webp" "Add Workspace Path and GitHub URL" >}}
 
@@ -183,9 +183,9 @@ Fill in the workspace path, optionally add a GitHub URL, and click **Create Proj
 
 With your project created, you can now interact with your coding agent through two interfaces:
 
-**Chat** — Use the chat interface to send prompts to your selected agent. Ask it to refactor code, generate new features, debug issues, or explain what a piece of code does. Responses stream in real time over WebSockets, so you see output as it's generated.
+**Chat** - Use the chat interface to send prompts to your selected agent. Ask it to refactor code, generate new features, debug issues, or explain what a piece of code does. Responses stream in real time over WebSockets, so you see output as it's generated.
 
-**Shell** — Switch to the integrated shell terminal for direct CLI access to your coding agent. This gives you the full power of Claude Code, Cursor CLI, or Codex in a browser tab — useful when you need more control or want to run specific commands.
+**Shell** - Switch to the integrated shell terminal for direct CLI access to your coding agent. This gives you the full power of Claude Code, Cursor CLI, or Codex in a browser tab - useful when you need more control or want to run specific commands.
 
 {{< image "remotely_manage_claude_code_from_phone/claudecodeui_shell_localhost.webp" "Claude Code UI Shell on Localhost" >}}
 

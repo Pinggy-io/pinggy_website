@@ -1,4 +1,4 @@
-# Pinggy — Design Language
+# Pinggy - Design Language
 
 The visual system for every Pinggy surface. Clean, calm, modern. One accent, one type stack, one shadow ramp, one neutral ramp. Use this document when designing or styling any UI in the product.
 
@@ -6,10 +6,10 @@ The visual system for every Pinggy surface. Clean, calm, modern. One accent, one
 
 ## 1. Principles
 
-1. **Calm hierarchy.** One element looks most important per region. Establish hierarchy with weight and size — not color. Reserve color for action.
+1. **Calm hierarchy.** One element looks most important per region. Establish hierarchy with weight and size - not color. Reserve color for action.
 2. **Quiet surfaces.** Backgrounds fade behind content; they don't compete.
 3. **Sharp typography.** Tighter tracking on display text, looser tracking on small text, consistent line-heights.
-4. **One accent, used sparingly.** Blue is for primary action and links — not decoration.
+4. **One accent, used sparingly.** Blue is for primary action and links - not decoration.
 5. **Soft, single-layer shadows.** Cards rest on the page; they don't levitate. No multi-color glows.
 6. **Motion is invisible until needed.** Transitions soften state changes; they don't draw attention.
 
@@ -175,7 +175,7 @@ Use multiples of `4px` only.
 
 ### 7.2 Info banner
 
-- Pill-shaped, centered, max-width `fit-content`, inside the section container — not full bleed.
+- Pill-shaped, centered, max-width `fit-content`, inside the section container - not full bleed.
 - Background `--brand-50`, border `1px solid --brand-100`, radius `--radius-pill`, padding `8px 16px`.
 - Text: `--ink-700`, `14px`, weight 500. Bold product names use `--ink-900`.
 - Links: `--brand-700` with an inline `→` arrow.
@@ -298,7 +298,7 @@ Use multiples of `4px` only.
 - **Shadow / elevation changes**: `--duration-slow --ease-out`.
 - **Toggles / switches**: `--duration-slow --ease-out`.
 - **Marquees**: linear, gradient mask edges blended into `--ink-50`.
-- **Hero entrance** (optional): fade + 8px translate-up on headline / sub / lead / form — stagger `0 / 60 / 120 / 180ms`, duration `400ms ease-out`. Honor `prefers-reduced-motion: reduce`.
+- **Hero entrance** (optional): fade + 8px translate-up on headline / sub / lead / form - stagger `0 / 60 / 120 / 180ms`, duration `400ms ease-out`. Honor `prefers-reduced-motion: reduce`.
 
 ### Forbidden
 

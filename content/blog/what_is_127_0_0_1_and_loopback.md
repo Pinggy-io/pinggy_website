@@ -198,4 +198,4 @@ This creates a secure tunnel that allows external access to your local developme
 
 ## Conclusion
 
-`127.0.0.1` (loopback) is a core part of networking, enabling secure and reliable local communication. It’s essential for development, testing, and debugging tasks like running servers, connecting to databases, or checking APIs. More than just an IP, it’s your computer’s way of talking to itself—understanding it helps you build and troubleshoot applications effectively.
+`127.0.0.1` (loopback) is a core part of networking, enabling secure and reliable local communication. It’s essential for development, testing, and debugging tasks like running servers, connecting to databases, or checking APIs. More than just an IP, it’s your computer’s way of talking to itself-understanding it helps you build and troubleshoot applications effectively.

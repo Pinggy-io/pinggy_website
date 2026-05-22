@@ -103,7 +103,7 @@ https://abc123xyz.a.pinggy.link
 
 #### How to Share with Players:
 
-Copy one of these provided URLs and share it directly with your Foundry VTT players. They can now instantly access your Foundry session from anywhere on the web—no additional setup required!
+Copy one of these provided URLs and share it directly with your Foundry VTT players. They can now instantly access your Foundry session from anywhere on the web-no additional setup required!
 
 ## Advanced Features for Enhanced Management and Security (Optional, Recommended)
 
@@ -155,7 +155,7 @@ If you're looking to host your Foundry sessions regularly or professionally, Pin
 
 ## Conclusion
 
-Hosting your {{< link href="https://foundryvtt.com/" >}}Foundry Virtual Tabletop{{< /link >}} (VTT) games online should never become a complicated ordeal. Thanks to [Pinggy](https://pinggy.io), we've seen how effortless it can be to securely expose your local Foundry instance using just a simple SSH command—no software installations, no port forwarding, and no complicated network setups required.
+Hosting your {{< link href="https://foundryvtt.com/" >}}Foundry Virtual Tabletop{{< /link >}} (VTT) games online should never become a complicated ordeal. Thanks to [Pinggy](https://pinggy.io), we've seen how effortless it can be to securely expose your local Foundry instance using just a simple SSH command-no software installations, no port forwarding, and no complicated network setups required.
 
 With Pinggy, you benefit from:
 

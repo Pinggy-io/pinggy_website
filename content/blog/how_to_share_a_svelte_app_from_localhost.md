@@ -42,7 +42,7 @@ Access your Svelte app via the provided Pinggy public URL (e.g., `https://your-a
 {{< link href="https://svelte.dev/" >}}Svelte{{< /link >}} is an innovative, open-source JavaScript framework that shifts much of the work from runtime to compile time. Unlike traditional frameworks like React or Vue, Svelte compiles your code into vanilla JavaScript, resulting in:
 
 - **Zero Runtime Overhead**: Faster load times and better performance.
-- **Reactive by Default**: No need for complex state management libraries—reactivity is built-in.
+- **Reactive by Default**: No need for complex state management libraries-reactivity is built-in.
 - **Simpler Syntax**: Less boilerplate, making it easier to write and maintain code.
 - **Small Bundle Sizes**: Efficient output for lightweight applications.
 - **Seamless Animation & Stores**: Built-in tools for smooth UI transitions and state management.
@@ -150,5 +150,5 @@ To learn more about these features, refer to [Pinggy's official documentation](h
 
 ## Conclusion
 
-Using [Pinggy](https://pinggy.io) to share your [Svelte](https://svelte.dev/) app lets you skip complex deployments while keeping your work secure via SSH tunneling. With a few commands, your local app becomes globally accessible—perfect for demos, reviews, or testing. When it’s time for production, Svelte’s lightweight output pairs seamlessly with platforms like {{< link href="https://vercel.com/" >}}Vercel{{< /link >}} or {{< link href="https://netlify.com/" >}}Netlify{{< /link >}}.
+Using [Pinggy](https://pinggy.io) to share your [Svelte](https://svelte.dev/) app lets you skip complex deployments while keeping your work secure via SSH tunneling. With a few commands, your local app becomes globally accessible-perfect for demos, reviews, or testing. When it’s time for production, Svelte’s lightweight output pairs seamlessly with platforms like {{< link href="https://vercel.com/" >}}Vercel{{< /link >}} or {{< link href="https://netlify.com/" >}}Netlify{{< /link >}}.
 

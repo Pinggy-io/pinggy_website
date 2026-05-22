@@ -139,7 +139,7 @@ title: "Pinggy - Simple Localhost Tunnels"
               </div>
             </div>
             <div class="alert alert-warning mt-3 mb-0" x-show="$store.advModal.getError()" x-text="$store.advModal.getError()" role="alert">
-              A simple warning alert—check it out!
+              A simple warning alert-check it out!
             </div>
           </div>
           <div id="finalcommand" class="border-top mt-3 px-4 py-3">

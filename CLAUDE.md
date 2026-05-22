@@ -34,14 +34,14 @@ assets/
   images/           Pipeline-processed images
 static/             Files served as-is (favicons, robots.txt, downloadable binaries)
 config.yaml         Hugo config (baseURL, taxonomies, output formats incl. AMP)
-public/             Build output — do not edit by hand
-old_files/          Archive — ignore unless explicitly asked
+public/             Build output - do not edit by hand
+old_files/          Archive - ignore unless explicitly asked
 ```
 
 Key conventions:
 
 - **Tokens live in `assets/css/customization.css`** under `:root`. Add new styles there, not in `style.css` (vendored).
-- **Shortcodes** in `layouts/shortcodes/*.html` are reused across pages — edits propagate. Most have an `.amp.html` twin for the AMP build.
+- **Shortcodes** in `layouts/shortcodes/*.html` are reused across pages - edits propagate. Most have an `.amp.html` twin for the AMP build.
 - **Alpine.js** powers interactive widgets (tunnel config, seat selector, pricing toggle). Look for `x-data` / `x-model` bindings before refactoring HTML structure; existing IDs (`#bigcodecolumn`, `#finalcommand`, `#portcommand`, `#trynow`, etc.) are wired up in `assets/js/*.js`.
 - **Bootstrap 5** classes are used throughout. Prefer existing utility classes; reach for custom CSS only when a token-level rule is needed.
 - **AMP**: pages emit both HTML and AMP. When adding shortcodes that touch markup, add or update the matching `*.amp.html`.
@@ -49,5 +49,24 @@ Key conventions:
 ## Working conventions
 
 - Editing existing files is preferred over creating new ones; existing IDs and class names are referenced by JS and should be preserved unless a rename is intentional.
-- Don't commit anything in `public/` or `resources/` — they're build artifacts.
+- Don't commit anything in `public/` or `resources/` - they're build artifacts.
 - Don't add documentation or planning files unless asked.
+- **Last-updated dates**: when updating a blog post or any page, set `lastmod` (and any matching `dateModified` in JSON-LD / schema blocks) to **one day before today's date**, not today. Keep the existing time and timezone offset.
+
+## Writing style
+
+- **Never use em-dashes (`—`, U+2014).** This applies everywhere in the repo: blog posts, page content, shortcodes, CSS/JS comments, code strings, commit messages - no exceptions. Use a regular hyphen `-` instead (with surrounding spaces for parenthetical breaks: ` - `). En-dashes (`–`) are also off-limits; stick to ASCII `-`.
+
+### Blog voice
+
+Write like a seasoned developer talking shop, the kind of post that does well on Hacker News - friendly, plainspoken, technically honest. The reader is curious and reasonably technical, but not necessarily an expert in this specific topic.
+
+- **Lead with the concrete thing.** Open on the finding, the command, the bug, the version. No throat-clearing ("In today's fast-paced world..."), no rhetorical questions.
+- **Be technically correct.** Real version numbers, exact flags, actual error messages, real file paths. If you're not sure, check or say so; don't fudge.
+- **Cut marketing words.** Avoid *seamless, powerful, robust, leverage, revolutionary, cutting-edge, unleash, supercharge, game-changer, blazing-fast, effortless*. If a sentence still works after deleting the adjective, delete it.
+- **Explain the unfamiliar, skip the obvious.** Give a one-line take on a tool or concept the average dev might not know; don't re-explain HTTP, SSH, or `npm install`. Link out for deeper background.
+- **Show tradeoffs.** Mention what doesn't work, what's annoying, what you'd skip. Honest beats enthusiastic.
+- **Nice flow, mixed rhythm.** Short sentences alongside longer ones. Active voice. Contractions and first person ("I tried...", "we found...") are fine. Not too formal, not chatty for the sake of it.
+- **Concrete over abstract.** "Took 12s down to 2s on a 50k-row table" beats "significantly faster". Numbers, before/after snippets, real terminal output.
+- **Headings are signposts, not clickbait.** `## Why the default port is 5173`, not `## The SHOCKING truth about Vite`.
+- **Code blocks earn their place.** Show the command or the diff; don't paste 80 lines of boilerplate. Annotate with `# comment` only when the line isn't self-explanatory.

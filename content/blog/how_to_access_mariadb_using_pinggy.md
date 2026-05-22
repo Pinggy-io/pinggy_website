@@ -119,7 +119,7 @@ You can now connect to MariaDB remotely using the public endpoint provided by Pi
 
 1. **Bypassing NAT and CGNAT**: Pinggy's tunneling allows seamless remote access without dealing with network configuration headaches.
 2. **Firewall Compatibility**: Because Pinggy uses SSH over port 443, it works even in networks with strict firewall rules.
-3. **Ease of Use**: No need for advanced setups—Pinggy's lightweight command gets you connected in minutes.
+3. **Ease of Use**: No need for advanced setups-Pinggy's lightweight command gets you connected in minutes.
 
 ## Conclusion
 

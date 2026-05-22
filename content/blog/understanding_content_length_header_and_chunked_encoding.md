@@ -75,7 +75,7 @@ This approach works perfectly for static content, files with known sizes, or any
 
 ### Key Characteristics of Content-Length
 
-**Accuracy is Critical**: If the Content-Length value doesn't match the actual body size, problems occur. A value too small causes truncation—the client stops reading before receiving all data. A value too large causes the connection to hang, as the client waits for bytes that never arrive.
+**Accuracy is Critical**: If the Content-Length value doesn't match the actual body size, problems occur. A value too small causes truncation-the client stops reading before receiving all data. A value too large causes the connection to hang, as the client waits for bytes that never arrive.
 
 **Single Value Only**: Unlike some headers that accept multiple values, Content-Length must specify exactly one decimal number. Values like `Content-Length: 100, 200` are invalid and should trigger an error.
 
