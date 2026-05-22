@@ -12,7 +12,7 @@
 ---
 
 
-Want your {{< link href="https://telegram.org/blog/bot-revolution" >}}Telegram bot{{< /link >}} to respond instantly to users? That’s where webhooks come in. While long polling is fine for testing, webhooks are faster and better for real-time updates—especially in production. In this guide, you’ll learn how to set up and test Telegram bot webhooks using [Pinggy](https://pinggy.io), a super easy tool that gives your local server a public URL with just one command. No downloads, no headaches.
+Want your {{< link href="https://telegram.org/blog/bot-revolution" >}}Telegram bot{{< /link >}} to respond instantly to users? That’s where webhooks come in. While long polling is fine for testing, webhooks are faster and better for real-time updates-especially in production. In this guide, you’ll learn how to set up and test Telegram bot webhooks using [Pinggy](https://pinggy.io), a super easy tool that gives your local server a public URL with just one command. No downloads, no headaches.
 
 {{< image "how_to_set_up_and_test_telegram_bot_webhook/telegram_bot_thumbnail.webp" "Set Up and Test Telegram Bot Webhook" >}}
 

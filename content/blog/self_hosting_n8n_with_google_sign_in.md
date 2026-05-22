@@ -81,7 +81,7 @@ This command downloads and installs n8n along with all its dependencies. The glo
 
 **Alternative**: If you prefer not to install n8n globally, you can use `npx n8n start` instead, which will download and run n8n without installing it permanently on your system. This approach is particularly useful for testing or one-time usage.
 
-At this point, we have n8n ready to run but we won't start it yet—we need to set up the public tunnel first to get the proper `WEBHOOK_URL`.
+At this point, we have n8n ready to run but we won't start it yet-we need to set up the public tunnel first to get the proper `WEBHOOK_URL`.
 
 ## Step 2: Creating an HTTPS Tunnel with Pinggy
 
@@ -101,7 +101,7 @@ This command creates a secure tunnel from Pinggy's servers to your local port 56
 
 {{< image "self_hosting_n8n_with_google_sign_in/pinggy_public_url.webp" "Pinggy tunnel creating public HTTPS URL" >}}
 
-Copy this URL carefully—you'll need it for the next step. Keep this terminal window open throughout the entire process, as closing it will terminate the tunnel and break your OAuth setup.
+Copy this URL carefully-you'll need it for the next step. Keep this terminal window open throughout the entire process, as closing it will terminate the tunnel and break your OAuth setup.
 
 ## Step 3: Starting n8n with WEBHOOK_URL
 
@@ -131,7 +131,7 @@ Once logged in, click "Create workflow" to start building your first automation.
 
 {{< image "self_hosting_n8n_with_google_sign_in/google_drive_n8n.webp" "Searching for Google Drive node in n8n" >}}
 
-After selecting your Google service node, you'll see a "Credential to connect with" dropdown. Click "Create New" to set up new credentials. This is where the magic happens—n8n will show you the exact redirect URL you need for Google OAuth configuration.
+After selecting your Google service node, you'll see a "Credential to connect with" dropdown. Click "Create New" to set up new credentials. This is where the magic happens-n8n will show you the exact redirect URL you need for Google OAuth configuration.
 
 {{< image "self_hosting_n8n_with_google_sign_in/create_new_credential.webp" "Credential New Credential button in n8n" >}}
 
@@ -145,7 +145,7 @@ https://mysite.a.pinggy.link/rest/oauth2-credential/callback
 
 {{< image "self_hosting_n8n_with_google_sign_in/copy_redirect_url.webp" "Copy the redirect URL" >}}
 
-Keep this URL handy—you'll need it in the next step when configuring Google Cloud Console.
+Keep this URL handy-you'll need it in the next step when configuring Google Cloud Console.
 
 ## Step 5: Setting Up Google Cloud Console
 
@@ -153,7 +153,7 @@ Now that you have the redirect URL from n8n, it's time to configure Google Cloud
 
 ### Creating a New Project
 
-Navigate to {{< link href="https://console.cloud.google.com/" >}}Google Cloud Console{{< /link >}} and sign in with your Google account. On the main dashboard, you'll see "Quick access" section where you can find "APIs & Services"—click on it, or use the search bar to find it.
+Navigate to {{< link href="https://console.cloud.google.com/" >}}Google Cloud Console{{< /link >}} and sign in with your Google account. On the main dashboard, you'll see "Quick access" section where you can find "APIs & Services"-click on it, or use the search bar to find it.
 
 If you don't have an existing project suitable for this integration, create a new one by clicking "Select a project" at the top, then "New Project." Give your project a meaningful name like "n8n-oauth-integration" and click "Create."
 

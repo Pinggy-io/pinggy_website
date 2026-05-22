@@ -153,7 +153,7 @@ Peers exchange their public coordinates via an out-of-band signaling channel (We
 
 3. Connection established! Both NATs now have bidirectional state entries.
 
-The key insight is that packets don't need to be related — they just need to create the right firewall state entries.
+The key insight is that packets don't need to be related - they just need to create the right firewall state entries.
 
 #### TCP Hole Punching: Simultaneous Open
 
@@ -219,7 +219,7 @@ The algorithm is elegantly simple: **try everything at once, and pick the best t
 
 #### Candidate Gathering
 
-The ICE agent gathers "candidates" — potential addresses where it can receive traffic:
+The ICE agent gathers "candidates" - potential addresses where it can receive traffic:
 
 1. **Host Candidate**: Physical interface IP (e.g., 192.168.1.5). Lowest latency, free. Used for local peers.
 

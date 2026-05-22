@@ -159,7 +159,7 @@ Rancher provides a unified control plane for Kubernetes clusters, whether they a
 
 {{< image "top_open_source multi_cloud_management_platforms/spacelift.webp" "Spacelift Multi-Cloud IaC Platform" >}}
 
-Spacelift supports multi-IaC, multi-cloud orchestration across Terraform, OpenTofu, Pulumi, CloudFormation, Kubernetes, Terragrunt, and more—letting teams standardize workflows across AWS, Azure, and Google Cloud. The platform's policy-as-code capabilities using Open Policy Agent (OPA/Rego) enforce fine-grained guardrails on plans, applies, and workflows, with an official example library.
+Spacelift supports multi-IaC, multi-cloud orchestration across Terraform, OpenTofu, Pulumi, CloudFormation, Kubernetes, Terragrunt, and more-letting teams standardize workflows across AWS, Azure, and Google Cloud. The platform's policy-as-code capabilities using Open Policy Agent (OPA/Rego) enforce fine-grained guardrails on plans, applies, and workflows, with an official example library.
 
 Key features include drift detection that continuously checks actual state versus desired state, GitOps integration with GitHub, GitLab, Bitbucket, and Azure DevOps that triggers runs from code changes, and short-lived cloud credentials (OIDC) that exchange tokens to avoid long-lived static keys. For organizations seeking a modern, security-first approach to multi-cloud IaC management, Spacelift provides enterprise-grade capabilities with a free tier available.
 
@@ -313,4 +313,4 @@ Advanced observability features, such as distributed tracing and anomaly detecti
 
 ## Conclusion
 
-Open-source multi-cloud platforms like Apache CloudStack, Kubernetes, Terraform, ManageIQ, and OpenStack offer cost-effective solutions for managing diverse cloud environments. When selecting a platform, prioritize your needs for orchestration, cost management, security, and monitoring. Despite integration complexity, these solutions deliver flexibility, cost savings, and vendor independence—enabling organizations to build efficient multi-cloud environments without expensive licensing fees.
+Open-source multi-cloud platforms like Apache CloudStack, Kubernetes, Terraform, ManageIQ, and OpenStack offer cost-effective solutions for managing diverse cloud environments. When selecting a platform, prioritize your needs for orchestration, cost management, security, and monitoring. Despite integration complexity, these solutions deliver flexibility, cost savings, and vendor independence-enabling organizations to build efficient multi-cloud environments without expensive licensing fees.

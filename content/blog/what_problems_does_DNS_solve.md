@@ -126,7 +126,7 @@ Email authentication is a **critical component** of **secure email communication
 
 #### How DNS Solves It:
 
-All three protocols—**SPF**, **DKIM**, and **DMARC**—are implemented using **DNS TXT records**. These records are **publicly accessible**, allowing mail servers to authenticate emails based on the information stored in the domain’s **DNS**. Properly configured **DNS records** ensure that **legitimate emails** are delivered successfully and protect the domain from being misused by **spammers** and **phishers**.
+All three protocols-**SPF**, **DKIM**, and **DMARC**-are implemented using **DNS TXT records**. These records are **publicly accessible**, allowing mail servers to authenticate emails based on the information stored in the domain’s **DNS**. Properly configured **DNS records** ensure that **legitimate emails** are delivered successfully and protect the domain from being misused by **spammers** and **phishers**.
 
 By leveraging DNS for email authentication, domains can enhance **security**, improve **email deliverability**, and maintain their **reputation**. This **seamless process** happens **behind the scenes**, making email communication both **reliable** and **secure**.
 

@@ -40,7 +40,7 @@ SSH, or Secure Shell, is a protocol designed to secure data transmission over un
 - **Integrity** : Ensures data hasn’t been tampered with using cryptographic hash functions.
 - **Port Forwarding**: Allows secure tunneling of network services.
 
-SSH is crucial for securely replacing outdated, insecure protocols like Telnet, ensuring privacy and compliance with security standards—especially essential for organizations managing sensitive data.
+SSH is crucial for securely replacing outdated, insecure protocols like Telnet, ensuring privacy and compliance with security standards-especially essential for organizations managing sensitive data.
 
 ## What is a Jump Host?
 

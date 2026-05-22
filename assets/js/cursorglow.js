@@ -21,7 +21,7 @@
   if (typeof window === "undefined" || typeof document === "undefined") return;
 
   function init() {
-    // Skip on small screens — CSS hides the canvas at <768px and there's
+    // Skip on small screens - CSS hides the canvas at <768px and there's
     // no point running the draw loop or attaching listeners.
     if (window.innerWidth < 768) return;
 
@@ -109,7 +109,7 @@
         Math.random() * (PULSE_DURATION_MAX - PULSE_DURATION_MIN);
 
       // Spawn head somewhere in-view. For vertical pulses, constrain to the
-      // upper portion of the viewport — the canvas's vertical fade erases
+      // upper portion of the viewport - the canvas's vertical fade erases
       // anything below ~80%, so a pulse spawned in the lower half would be
       // invisible. Horizontal pulses don't need this (their line row is
       // already biased toward the top via lineIndex).
@@ -253,7 +253,7 @@
         ctx.restore();
       }
 
-      // 3) Vertical fade — keep grid emphasized in upper portion of viewport
+      // 3) Vertical fade - keep grid emphasized in upper portion of viewport
       ctx.save();
       ctx.globalCompositeOperation = "destination-out";
       var fade = ctx.createLinearGradient(0, 0, 0, height);
@@ -348,7 +348,7 @@
     }
 
     // Pre-populate pulses so the page loads with the effect already
-    // visible — otherwise the first ones don't appear for ~500ms+ and
+    // visible - otherwise the first ones don't appear for ~500ms+ and
     // the hero feels static on initial paint.
     if (!reducedMotion) {
       var seedNow = performance.now();

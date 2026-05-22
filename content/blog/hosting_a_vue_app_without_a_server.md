@@ -13,7 +13,7 @@ outputs:
 
 {{< image "hosting_a_vue_app_without_a_server/host_vue_app_without_server.webp" "Hosting a Vue App Without a Server Using Pinggy" >}}
 
-Making your {{< link href="https://vuejs.org/" >}}Vue.js{{< /link >}} app accessible on the internet doesn’t have to be complicated. If you’re new to Vue.js, it’s a progressive {{< link href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries" >}} JavaScript framework {{< /link >}} that makes building interactive user interfaces and single-page applications a breeze. Whether you’re working on a personal project, sharing progress with teammates, or testing your app on real devices, getting it online securely can feel like a challenge—especially if setting up servers isn’t your thing.  
+Making your {{< link href="https://vuejs.org/" >}}Vue.js{{< /link >}} app accessible on the internet doesn’t have to be complicated. If you’re new to Vue.js, it’s a progressive {{< link href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries" >}} JavaScript framework {{< /link >}} that makes building interactive user interfaces and single-page applications a breeze. Whether you’re working on a personal project, sharing progress with teammates, or testing your app on real devices, getting it online securely can feel like a challenge-especially if setting up servers isn’t your thing.  
 That’s where [Pinggy](https://pinggy.io) comes in. With Pinggy, you can host your locally running Vue.js app on the web without any server setup or complicated steps. It’s simple, secure, and works seamlessly, just like popular tools such as {{< link href="https://ngrok.com/" >}}Ngrok{{< /link >}}.  
 In this blog, we’ll show you how to use Pinggy to quickly share your Vue.js app with anyone, anywhere. Whether you’re showcasing a project or collaborating with others, Pinggy makes it easy to get your app online in no time.
 
@@ -48,7 +48,7 @@ In this blog, we’ll show you how to use Pinggy to quickly share your Vue.js ap
 [Pinggy](https://pinggy.io) is a secure, developer-friendly tunneling solution that allows you to expose your local web apps, APIs, and services to the internet. It simplifies the process of sharing local projects without requiring server setups or complex configurations.
 
 ### Key Features of Pinggy:
-- **Ease of Use**: No complex setup—just run a simple command.  
+- **Ease of Use**: No complex setup-just run a simple command.  
 - **Secure Tunnels**: Uses SSH for secure data transmission.  
 - **Customization**: Add custom domains or password protection.  
 

@@ -30,7 +30,7 @@ Simply replace <kbd>8000</kbd> with your desired port number. For additional fea
 **Local Tunnel - Quick Overview**
 
 * Exposes local services to the internet via a secure, generated URL (HTTP/TCP/UDP).
-* Bypasses NAT/CGNAT and firewalls using SSH—no extra downloads.
+* Bypasses NAT/CGNAT and firewalls using SSH-no extra downloads.
 
 **Why use it**
 

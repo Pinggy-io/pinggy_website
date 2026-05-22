@@ -37,7 +37,7 @@ By default, Pinggy ignores the provided remote port and assigns a domain name an
 Pinggy supports two types of reverse forwarding:
 
 1. **Default Forwarding:**
-   By default, Pinggy requires a single port to forward incoming requests—this is known as *default forwarding*. In this case, users should **not** provide any `remote_address`. Pinggy will forward all requests that do not match any *domain forwarding* rules.
+   By default, Pinggy requires a single port to forward incoming requests-this is known as *default forwarding*. In this case, users should **not** provide any `remote_address`. Pinggy will forward all requests that do not match any *domain forwarding* rules.
    - Only **one** *default forwarding* is allowed per session.
    - Providing multiple *default forwardings* is **not supported**, and the behavior is undefined.
 
