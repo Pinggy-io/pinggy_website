@@ -133,7 +133,7 @@ body {
   background-attachment: fixed, fixed;
 }
 
-/* Background grid canvas — fills the viewport, sits behind all in-flow
+/* Background grid canvas - fills the viewport, sits behind all in-flow
    content (cards mask it with their opaque white backgrounds). Body
    background-color must be transparent so this layer is visible.
    --canvas-opacity is updated by /js/cursorglow.js on scroll to fade
@@ -150,7 +150,7 @@ body {
   will-change: opacity;
 }
 
-/* Skip the canvas grid on small screens — no hover affordance, viewport
+/* Skip the canvas grid on small screens - no hover affordance, viewport
    is too narrow for the effect to read, and it saves the JS/draw cost
    on the lowest-power devices. */
 @media (max-width: 767.98px) {
@@ -284,7 +284,7 @@ a:hover {
   background-size: 14px 10px;
 }
 
-/* Pricing seat selector (-/+/number) — the generic .form-control
+/* Pricing seat selector (-/+/number) - the generic .form-control
    padding above makes the number input taller than the adjacent
    .btn-outline-dark controls, breaking alignment inside the
    .input-group. Match heights with a tighter padding. */
@@ -340,7 +340,7 @@ a:hover {
   position: relative;
 }
 
-/* Compare-page header selector — sits in an ad-hoc flex row next to a
+/* Compare-page header selector - sits in an ad-hoc flex row next to a
    .input-group-text "Pinggy vs" label. The generic .form-select vertical
    padding makes it taller than the label; match Bootstrap's default
    input-group-text padding (0.375rem) so they read as one joined
@@ -838,7 +838,7 @@ pre > code {
 }
 
 /* Brand-tinted comet that travels along the bottom edge of the navbar.
-   Mirrors the additive grid pulses in assets/js/cursorglow.js — same
+   Mirrors the additive grid pulses in assets/js/cursorglow.js - same
    brand-500 RGB (91, 134, 229), similar lifecycle (~5.5s, slow fade
    in/out). The comet is a no-repeat background gradient sized to 25%
    of the navbar; animating background-position-x slides it across and

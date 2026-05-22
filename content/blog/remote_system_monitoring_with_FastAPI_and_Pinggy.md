@@ -12,7 +12,7 @@
 ---
 
 Monitoring system metrics is essential for developers to ensure their applications run smoothly, optimize resource usage and quickly detect performance issues or bottlenecks. 
-In this article, we’ll look at how to remotely monitor your system’s performance metrics—specifically CPU, RAM, memory and disk usage—using FastAPI and Pinggy. 
+In this article, we’ll look at how to remotely monitor your system’s performance metrics-specifically CPU, RAM, memory and disk usage-using FastAPI and Pinggy. 
 To accomplish this, we’ll use the {{< link href="https://pypi.org/project/psutil/" >}}psutil{{< /link >}} library, which provides easy access to real-time system resource data.
 To expose this data, we first need to start a server and FastAPI is an ideal choice for this purpose. 
 {{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} is a modern, high-performance web framework for building APIs with Python, known for its speed and ease of setup. 

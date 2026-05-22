@@ -49,7 +49,7 @@ Localhost is far more than just a convenient term, - it’s a reserved domain na
   The mapping of “localhost” is built into every operating system’s configuration, ensuring that regardless of your device or platform, “localhost” always serves as a direct communication channel to the local machine.
 
 **Key Point:**  
-Localhost is typically mapped to the IP address **127.0.0.1** for IPv4 or **::1** for IPv6. This mapping is hardcoded into your system’s hosts file—a simple text file that instructs the OS to resolve the name “localhost” without needing to consult external DNS servers.
+Localhost is typically mapped to the IP address **127.0.0.1** for IPv4 or **::1** for IPv6. This mapping is hardcoded into your system’s hosts file-a simple text file that instructs the OS to resolve the name “localhost” without needing to consult external DNS servers.
 
 
 ## Why Is Localhost Important?

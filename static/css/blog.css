@@ -7,7 +7,7 @@
 body {
   font-family: Uncut Sans, sans-serif;
   background-color: transparent;
-  /* Blog: matches docs canvas visibility — hint of grid at the very top,
+  /* Blog: matches docs canvas visibility - hint of grid at the very top,
      fully washed out by ~55% of the viewport. Decorative cyan header
      wash dropped (was making the canvas dimmer than docs). */
   background-image: linear-gradient(

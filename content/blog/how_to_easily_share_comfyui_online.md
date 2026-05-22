@@ -47,7 +47,7 @@ In this guide, we'll walk through how to use Pinggy to make your ComfyUI instanc
 {{< image "how_to_easily_share_comfy_ui_online/comfyui_zoomed_view.webp" "Zoomed-in view of ComfyUI" >}}
 
 ## What is Pinggy?
-Pinggy is a tunneling solution similar to Ngrok, which lets you expose your local network to the internet securely. It’s easy to use, and you don’t need extensive configuration—perfect for accessing local applications, web UIs, or APIs from remote locations.
+Pinggy is a tunneling solution similar to Ngrok, which lets you expose your local network to the internet securely. It’s easy to use, and you don’t need extensive configuration-perfect for accessing local applications, web UIs, or APIs from remote locations.
 
 ## Prerequisites
 Before we begin, make sure you have:

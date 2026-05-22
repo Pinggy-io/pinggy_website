@@ -157,7 +157,7 @@ The broader impact extends to millions of smaller businesses: e-commerce sites l
 
 ### Global Impact
 
-Cloudflare operates data centers in **over 300 cities** worldwide. The outage affected all regions simultaneously—North America, Europe, Asia, Africa, and South America—highlighting the systemic nature of the problem.
+Cloudflare operates data centers in **over 300 cities** worldwide. The outage affected all regions simultaneously-North America, Europe, Asia, Africa, and South America-highlighting the systemic nature of the problem.
 
 ## Cloudflare's Response and Remediation
 
@@ -204,7 +204,7 @@ This outage raises important questions about centralization and systemic risk.
 
 ### Key Takeaways
 
-**Single Point of Failure**: {{< link href="https://chat.openai.com/" >}}ChatGPT{{< /link >}}, {{< link href="https://www.spotify.com/" >}}Spotify{{< /link >}}, {{< link href="https://x.com/" >}}X{{< /link >}}, and {{< link href="https://www.canva.com/" >}}Canva{{< /link >}}—operated by completely different companies—all failed simultaneously due to shared Cloudflare dependency.
+**Single Point of Failure**: {{< link href="https://chat.openai.com/" >}}ChatGPT{{< /link >}}, {{< link href="https://www.spotify.com/" >}}Spotify{{< /link >}}, {{< link href="https://x.com/" >}}X{{< /link >}}, and {{< link href="https://www.canva.com/" >}}Canva{{< /link >}}-operated by completely different companies-all failed simultaneously due to shared Cloudflare dependency.
 
 **Multi-Cloud Strategies**: Organizations need failover capabilities and parallel infrastructure with alternative CDN providers, though this adds cost and complexity.
 

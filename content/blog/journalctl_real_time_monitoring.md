@@ -70,7 +70,7 @@ journalctl -f -p err
 
 ## Streaming Live Logs with `journalctl -f` and Filtering by Service (`-u`)
 
-Let's start with the basics. When you run `journalctl -f`, you're telling systemd to show you logs as they happen—like watching a live feed of everything your system is doing.
+Let's start with the basics. When you run `journalctl -f`, you're telling systemd to show you logs as they happen-like watching a live feed of everything your system is doing.
 
 ### Basic Real-Time Monitoring
 
@@ -80,7 +80,7 @@ journalctl -f
 
 {{< image "journalctl_tail/journalctl_f_command.webp" "journalctl -f" >}}
 
-This streams new journal entries continuously until you hit `Ctrl+C` to stop it. You'll see everything—kernel messages, service logs, authentication attempts, the works. It's particularly handy when you're:
+This streams new journal entries continuously until you hit `Ctrl+C` to stop it. You'll see everything-kernel messages, service logs, authentication attempts, the works. It's particularly handy when you're:
 
 - Restarting a service and want to catch any startup errors immediately
 - Running system updates and watching for issues
@@ -89,7 +89,7 @@ This streams new journal entries continuously until you hit `Ctrl+C` to stop it.
 
 ### Filtering by Service
 
-Now, watching *everything* can get overwhelming fast. That's where the `-u` flag comes in—it lets you focus on just one service:
+Now, watching *everything* can get overwhelming fast. That's where the `-u` flag comes in-it lets you focus on just one service:
 
 ```bash
 # Monitor the SSH service in real-time
@@ -125,11 +125,11 @@ sudo systemctl restart nginx
 
 {{< image "journalctl_tail/nginx_restart_journalctl_command.webp" "Monitoring a Service During Restart" >}}
 
-In terminal 1, you'll see exactly what happens during the restart—whether nginx reloads cleanly, if there are any config syntax errors, or if it fails to bind to a port. No more guessing, no more checking `systemctl status` after the fact and wondering what went wrong.
+In terminal 1, you'll see exactly what happens during the restart-whether nginx reloads cleanly, if there are any config syntax errors, or if it fails to bind to a port. No more guessing, no more checking `systemctl status` after the fact and wondering what went wrong.
 
 ## Basic Log Viewing: Filtering by Time (`--since`) and Limiting Output (`-n`)
 
-Sometimes you don't need to see everything from the beginning of time—you just want logs from the last hour or since you deployed that change this morning. That's where time filtering becomes incredibly useful.
+Sometimes you don't need to see everything from the beginning of time-you just want logs from the last hour or since you deployed that change this morning. That's where time filtering becomes incredibly useful.
 
 ### Time-Based Filtering
 
@@ -165,7 +165,7 @@ The `-n 20` gives you a bit of context before the live stream starts, while `--n
 
 ### Combining Time Filters with Service Filters
 
-Now here's where it gets really powerful—you can stack these filters together:
+Now here's where it gets really powerful-you can stack these filters together:
 
 ```bash
 # Show nginx logs since the last boot and continue monitoring
@@ -233,7 +233,7 @@ The `-v` flag inverts the match, showing everything *except* what you specify. G
 journalctl -f | grep --color -E "Failed password|authentication failure|invalid user"
 ```
 
-This is one of those commands you'll want to keep handy. It watches for various authentication failure patterns across all services—perfect for security monitoring or debugging login issues.
+This is one of those commands you'll want to keep handy. It watches for various authentication failure patterns across all services-perfect for security monitoring or debugging login issues.
 
 ## Monitoring Multiple Services Simultaneously
 
@@ -287,7 +287,7 @@ journalctl -u nginx -u php-fpm -u redis -u postgres -f
 
 {{< image "journalctl_tail/journalctl_u_nginx_u_php_fpm_u_redis_u_postgres_f.webp" "Monitor the entire web application stack in real-time" >}}
 
-This is what I call "full-stack monitoring" in the terminal. You see requests hitting nginx, php-fpm processing them, redis caching data, and postgres handling queries—all in one unified timeline. When performance issues crop up, you can pinpoint exactly which layer is the bottleneck.
+This is what I call "full-stack monitoring" in the terminal. You see requests hitting nginx, php-fpm processing them, redis caching data, and postgres handling queries-all in one unified timeline. When performance issues crop up, you can pinpoint exactly which layer is the bottleneck.
 
 ## Highlighting Logs from Multiple Services
 
@@ -314,11 +314,11 @@ journalctl -u nginx -u mysql -f | ccze -A
 
 {{< image "journalctl_tail/journalctl_u_nginx_u_mysql_f_ccze_a.webp" "Using the `ccze` Tool" >}}
 
-The `ccze` tool automatically colorizes different log elements—timestamps, service names, error levels, IP addresses, etc. It's like syntax highlighting for logs. The `-A` flag preserves ANSI color codes.
+The `ccze` tool automatically colorizes different log elements-timestamps, service names, error levels, IP addresses, etc. It's like syntax highlighting for logs. The `-A` flag preserves ANSI color codes.
 
 ### Service-Specific Terminals
 
-Sometimes the best solution is the simplest—just use separate terminal windows:
+Sometimes the best solution is the simplest-just use separate terminal windows:
 
 ```bash
 # Terminal 1
@@ -332,7 +332,7 @@ Arrange them side-by-side or use a terminal multiplexer like tmux. You get compl
 
 ## Exploring Output Formats: JSON and Beyond
 
-Journalctl isn't just for human eyeballs—it can output logs in formats perfect for scripts, monitoring tools, or data pipelines.
+Journalctl isn't just for human eyeballs-it can output logs in formats perfect for scripts, monitoring tools, or data pipelines.
 
 ### JSON Output for Programmatic Processing
 
@@ -369,7 +369,7 @@ journalctl -f -o cat
 
 {{< image "journalctl_tail/journalctl_f_o_short.webp" "Short output format " >}}
 
-The `verbose` format shows you *everything*—every field journald captured. It's overwhelming but sometimes you need that level of detail. The `cat` format strips away all metadata and just shows messages, which is great for piping to other tools.
+The `verbose` format shows you *everything*-every field journald captured. It's overwhelming but sometimes you need that level of detail. The `cat` format strips away all metadata and just shows messages, which is great for piping to other tools.
 
 ### Customizing Timestamp Format
 
@@ -425,4 +425,4 @@ Real-time log monitoring with `journalctl -f` is an essential skill for Linux sy
 - Customize your view with highlighting and formatting
 - Export logs to dashboards for long-term monitoring and analysis
 
-The ability to effectively monitor logs in real-time can drastically reduce troubleshooting time and help maintain system stability. Remember that different situations call for different monitoring approaches—sometimes a simple `journalctl -f` is sufficient, while complex issues might require sophisticated filtering and visualization.
+The ability to effectively monitor logs in real-time can drastically reduce troubleshooting time and help maintain system stability. Remember that different situations call for different monitoring approaches-sometimes a simple `journalctl -f` is sufficient, while complex issues might require sophisticated filtering and visualization.
