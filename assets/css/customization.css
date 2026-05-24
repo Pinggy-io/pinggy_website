@@ -121,14 +121,15 @@ body {
    until the next input event. A position:fixed element is promoted to
    its own GPU layer and is cheap to keep in view.
 
-   Sits above the grid canvas's html bg (z=auto) and below the canvas
-   (z=-1) and in-flow content (z=auto). docs.css and blog.css override
-   just the background-image to wash out the canvas more aggressively. */
+   Layered ABOVE the grid canvas (canvas z=-2, wash z=-1): in the
+   negative-z paint step, less-negative paints later, so the wash tones
+   the grid down. Still below in-flow content (z=auto). docs.css and
+   blog.css override just the background-image to wash more aggressively. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
   background-image:
     linear-gradient(
@@ -146,16 +147,16 @@ body::before {
 }
 
 /* Background grid canvas - fills the viewport, sits behind all in-flow
-   content (cards mask it with their opaque white backgrounds). Body
-   background-color must be transparent so this layer is visible.
-   --canvas-opacity is updated by /js/cursorglow.js on scroll to fade
-   the grid out as the user scrolls past the hero. */
+   content (cards mask it with their opaque white backgrounds) and
+   beneath the body::before wash that tones it down. Body bg-color must
+   be transparent so this layer is visible. --canvas-opacity is updated
+   by /js/cursorglow.js on scroll to fade the grid out past the hero. */
 .grid-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   display: block;
   opacity: var(--canvas-opacity, 1);
