@@ -7,17 +7,20 @@
 body {
   font-family: Uncut Sans, sans-serif;
   background-color: transparent;
-  /* Blog: matches docs canvas visibility - hint of grid at the very top,
-     fully washed out by ~55% of the viewport. Decorative cyan header
-     wash dropped (was making the canvas dimmer than docs). */
+}
+
+/* Blog: matches docs canvas visibility - hint of grid at the very top,
+   fully washed out by ~55% of the viewport. Decorative cyan header
+   wash dropped (was making the canvas dimmer than docs). Overrides
+   customization.css's body::before background-image; other props
+   (position:fixed, inset, z-index, pointer-events, content) cascade. */
+body::before {
   background-image: linear-gradient(
     to bottom,
     rgba(247, 248, 250, 0.3) 0%,
     rgba(247, 248, 250, 0.75) 30%,
     rgba(247, 248, 250, 1) 65%
   );
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .blogcontent {

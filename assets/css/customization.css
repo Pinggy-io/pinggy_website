@@ -112,10 +112,24 @@ body {
   font-family: var(--font-sans);
   color: var(--ink-700);
   background-color: transparent;
-  /* Body bg-image layers paint ABOVE the grid canvas (in-flow content
-     paints after negative z-index). Use these to tone the canvas down
-     and fade it out earlier in the viewport. The homepage hero uses a
-     gentle wash; docs.css and blog.css override more aggressively. */
+}
+
+/* Page bg wash. Hosted on a position:fixed pseudo-element instead of
+   background-attachment:fixed on body: Firefox repaints the fixed body
+   bg on every scroll event, and combined with the navbar backdrop-filter
+   the compositor backlogs on fast scroll, dropping the hero's paint
+   until the next input event. A position:fixed element is promoted to
+   its own GPU layer and is cheap to keep in view.
+
+   Sits above the grid canvas's html bg (z=auto) and below the canvas
+   (z=-1) and in-flow content (z=auto). docs.css and blog.css override
+   just the background-image to wash out the canvas more aggressively. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
   background-image:
     linear-gradient(
       to bottom,
@@ -129,8 +143,6 @@ body {
       rgba(91, 134, 229, 0.06),
       transparent 60%
     );
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, fixed;
 }
 
 /* Background grid canvas - fills the viewport, sits behind all in-flow
@@ -863,11 +875,19 @@ pre > code {
   background-size: 25% 100%;
   background-repeat: no-repeat;
   background-position-x: 0%;
+  /* opacity() in the filter list (not the opacity property) is what the
+     scroll-past-hero fade rides on: the animation drives `opacity` per
+     cycle, and filter:opacity() multiplies the rendered visibility, so
+     the two compose. Both lists below must keep the same function
+     shape (drop-shadow, drop-shadow, opacity) so filter interpolation
+     can smooth the transition; mismatched shapes snap. */
   filter: drop-shadow(0 0 5px rgba(91, 134, 229, 0.55))
-          drop-shadow(0 0 12px rgba(91, 134, 229, 0.25));
+          drop-shadow(0 0 12px rgba(91, 134, 229, 0.25))
+          opacity(1);
   opacity: 0;
   animation: navbarPulse 5.5s var(--ease-in-out) infinite;
   animation-delay: -2.75s;
+  transition: filter 500ms var(--ease-out);
 }
 
 @keyframes navbarPulse {
@@ -892,6 +912,16 @@ pre > code {
     animation: none;
     opacity: 0;
   }
+}
+
+/* Past the hero the pulse is pure decoration. Fading the filter's
+   opacity() multiplier to 0 hides it smoothly in both directions
+   without snapping the animation phase. body.is-scrolled is toggled
+   by the inline script in layouts/partials/navbar.html past ~200px. */
+body.is-scrolled .navbar.navbar-expand-lg::after {
+  filter: drop-shadow(0 0 5px rgba(91, 134, 229, 0.55))
+          drop-shadow(0 0 12px rgba(91, 134, 229, 0.25))
+          opacity(0);
 }
 
 @supports not (backdrop-filter: blur(12px)) {

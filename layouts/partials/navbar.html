@@ -136,3 +136,31 @@
     </div>
   </div>
 </nav>
+<script>
+  // Toggle body.is-scrolled past the hero so customization.css can fade
+  // out the navbar's decorative pulse animation (it's pure top-of-page
+  // ambience and competes for attention with content lower on the page).
+  // The fade rides on filter:opacity() multiplied with the keyframed
+  // opacity, so the underlying animation keeps phase and the pulse
+  // fades back in cleanly when the user scrolls back up.
+  (function () {
+    var THRESHOLD = 200;
+    var scrolled = false;
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var next = window.scrollY > THRESHOLD;
+      if (next !== scrolled) {
+        scrolled = next;
+        document.body.classList.toggle("is-scrolled", scrolled);
+      }
+    }
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  })();
+</script>
