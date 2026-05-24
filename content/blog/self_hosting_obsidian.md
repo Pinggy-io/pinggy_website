@@ -2,7 +2,7 @@
 title: "Self-hosting Obsidian"
 description: "Complete guide to self-hosting Obsidian sync using Docker, CouchDB, and Pinggy tunnel. No paid Obsidian Sync, full control, and all the fun of building your own sync server!"
 date: 2025-09-14T14:30:00+05:30
-lastmod: 2026-03-04T14:30:00+05:30
+lastmod: 2026-05-23T14:30:00+05:30
 draft: false
 og_image: "images/self_hosting_obsidian/self_hosting_obsidian_complete_guide.webp"
 tags: ["obsidian", "self-hosted", "docker", "couchdb", "livesync", "pinggy", "ngrok"]
@@ -14,9 +14,9 @@ outputs:
 
 {{< image "self_hosting_obsidian/self_hosting_obsidian_complete_guide.webp" "Self-hosting Obsidian" >}}
 
-Obsidian has become one of the most popular note-taking apps for developers, writers, and knowledge workers but its official Sync service costs $5/month. If you’d rather keep that money and own your data entirely, self-hosting is the way to go. In this guide, I’ll show you how to set up your own Obsidian sync server using Docker, {{< link href="https://couchdb.apache.org/" >}}CouchDB{{< /link >}} for real-time replication, and {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} for secure remote access all at virtually zero cost.
+Obsidian Sync costs $5/month. You can replace it with a {{< link href="https://couchdb.apache.org/" >}}CouchDB{{< /link >}} container, the Self-hosted LiveSync community plugin, and a tunnel to reach the database from outside your home network. I run mine in Docker with {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} as the tunnel; total monthly cost is zero. This post walks through the setup, end to end.
 
-What makes this approach powerful is the Obsidian LiveSync plugin, which delivers instant, conflict-free synchronization that rivals (and often outperforms) the paid service. I’ve stress-tested this setup with large vault reorganizations, simultaneous edits from multiple devices, and heavy daily use it handles everything without breaking a sweat. Because the entire stack runs inside Docker containers, you get a portable, reproducible setup that works identically on Windows, macOS, and Linux. Follow along, and you’ll have your own private sync server up and running in under an hour.
+LiveSync does most of the heavy lifting. It speaks CouchDB's replication protocol directly, so edits propagate in a second or two and conflicts get resolved on the client without manual merges. I've used it through large vault reorganizations and concurrent edits across desktop and mobile and haven't lost a note. The Docker side keeps the install identical on Windows, macOS, and Linux. Plan on 30 to 60 minutes start to finish.
 
 {{% tldr %}}
 **What You'll Build:**
@@ -34,30 +34,33 @@ What makes this approach powerful is the Obsidian LiveSync plugin, which deliver
 
 ## Why I Built My Own Sync Server
 
-My Obsidian vault holds thousands of interconnected notes project documentation, code snippets, research material, journal entries, and everything in between. When your entire second brain lives inside one app, trusting a third-party cloud with that data feels risky. The \$5/month Obsidian Sync subscription wasn’t just about cost; it was about control. After experiencing a couple of frustrating sync conflicts that resulted in lost edits, I decided to take matters into my own hands.
+My vault is a few thousand notes - project docs, code snippets, research, journal entries, the usual mix. Putting all of that on someone else's servers started to feel like a single point of failure I hadn't thought hard enough about. The \$5/month wasn't really the issue; control was. Two annoying sync conflicts (and one lost edit) later, I went looking for an alternative.
 
-Here’s what pushed me to self-host:
+What pushed me to self-host:
 
-* **Data privacy**: My vault contains sensitive client projects and personal notes that I’d rather keep off third-party servers
-* **Cost savings**: \$48/year may seem small, but a free alternative that works better is hard to ignore
-* **Deeper understanding**: Building my own sync taught me how real-time database replication actually works under the hood
-* **Reliability on my terms**: I control the uptime, the backups, and the performance no dependency on someone else’s infrastructure
-* **Flexibility**: I can tweak every aspect of the setup to match my exact workflow
+* **Privacy**: my vault has client work and personal notes I'd rather not park on someone else's servers.
+* **Cost**: \$48/year isn't a lot, but the self-hosted option turned out to be better, not just cheaper.
+* **Understanding**: setting it up taught me how CouchDB's replication actually works, which I'd been hand-waving past for years.
+* **Reliability**: I own the uptime, the backups, and the recovery plan. No third party can change the terms on me.
+* **Flexibility**: I can tweak any layer of the stack without waiting for someone to ship a feature.
 
-After evaluating several options from Git-based sync to Syncthing I landed on CouchDB paired with the Obsidian LiveSync plugin. Add Docker for containerization and Pinggy for secure tunneling, and you get a stack that’s lightweight, maintainable, and genuinely more reliable than most paid sync services.
+I tried a couple of other approaches before settling on this one. Git-based sync (commit notes, push, pull) gets noisy fast and produces merge conflicts on mobile. Syncthing handles arbitrary files well but doesn't know what a note is, so partial syncs leave Obsidian in odd intermediate states. CouchDB plus LiveSync was the first combination that just behaved.
 
-## What We're Building
-The architecture behind this self-hosted sync setup is straightforward yet powerful. Three core components work together: **{{< link href="https://couchdb.apache.org/" >}}CouchDB{{< /link >}}** serves as the real-time database engine its built-in replication protocol is specifically designed for synchronizing data across distributed systems, which makes it a perfect fit for note syncing. **Docker** wraps everything in containers, ensuring your setup behaves identically whether you're running it on a Windows desktop, a Mac laptop, or a Linux server.
+## What we're building
+Four pieces, all open source except Pinggy:
 
-The **LiveSync plugin** acts as the bridge between Obsidian and CouchDB. It handles all the synchronization logic behind the scenes detecting changes, resolving conflicts intelligently, and pushing updates instantly to every connected device. Unlike Git-based sync solutions that require manual commits and often produce merge conflicts, LiveSync operates in real time with zero user intervention. Finally, **{{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}** provides secure HTTPS tunneling so you can access your CouchDB instance from anywhere no port forwarding, no static IP, and no DNS configuration needed.
+- **{{< link href="https://couchdb.apache.org/" >}}CouchDB{{< /link >}}** is the database. Its replication protocol is what makes the whole thing work; nodes and CouchDB-compatible clients (like LiveSync) reconcile by trading document revisions, not by diffing files.
+- **Docker** keeps the install reproducible across Windows, macOS, and Linux. The CouchDB side is one `docker-compose.yml`.
+- **Self-hosted LiveSync** is the Obsidian community plugin that talks to CouchDB. It watches the vault for changes and pushes them upstream within a second or two.
+- **{{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}** is an SSH-based tunnel that gives the CouchDB container a public HTTPS URL. Saves you from router port-forwarding and dynamic-DNS plumbing.
 
-## Prerequisites and System Requirements
+## Prerequisites and system requirements
 
-The beauty of a Docker-based setup is that the system requirements are minimal. As long as your machine can run Docker, you’re good to go there’s no need for a powerful server or any special hardware.
+System requirements are whatever Docker needs to run. CouchDB itself is light on resources, so a modest box - old laptop, cheap VPS, home server, Raspberry Pi - is plenty.
 
-You’ll need **Docker** installed on your system. Docker Desktop is the easiest option for Windows and macOS users, while Linux users can install Docker Engine directly from the official repository. If you already have Docker running for other projects, you’re one step ahead.
+You'll need **Docker** on whichever machine will host CouchDB. Docker Desktop is the easiest install on Windows and macOS; on Linux, Docker Engine from the official repository is the cleanest path. If you already have Docker running for other projects, you're set.
 
-You’ll also need **Obsidian** installed on every device you plan to sync. The LiveSync plugin supports all platforms where Obsidian runs that includes desktop (Windows, macOS, Linux) as well as mobile (iOS and Android). This means your notes stay perfectly in sync whether you’re at your desk or on the go.
+You'll also need **Obsidian** on every device you want to sync. LiveSync works wherever Obsidian works: Windows, macOS, Linux, iOS, and Android.
 ## Step 1: Installing Docker
 
 Docker is the foundation of our setup, providing containerization that makes deployment consistent across different operating systems. The installation process varies by platform, so I'll cover all three major operating systems.
@@ -69,10 +72,12 @@ Download Docker Desktop from {{< link href="https://www.docker.com/products/dock
 ```powershell
 # Verify Docker installation
 docker --version
-docker-compose --version
+docker compose version
 ```
 
 After installation, Docker Desktop should show a green status indicator in your system tray. If you encounter issues, make sure virtualization is enabled in your BIOS settings.
+
+Note: the legacy `docker-compose` (V1, with the hyphen) binary was retired in 2023. Compose V2 ships as a Docker CLI plugin and is invoked as `docker compose` (with a space). Docker Desktop installs it by default.
 
 
 
@@ -83,7 +88,7 @@ Download Docker Desktop for Mac from the official website. The installer works o
 ```bash
 # Verify Docker installation
 docker --version
-docker-compose --version
+docker compose version
 ```
 
 ### Linux Installation
@@ -146,8 +151,6 @@ touch docker-compose.yml
 Now edit the `docker-compose.yml` file with your preferred text editor and add the following configuration:
 
 ```yaml
-version: '3.8'
-
 services:
   couchdb:
     image: couchdb:latest
@@ -162,16 +165,9 @@ services:
     ports:
       - 5984:5984
     restart: unless-stopped
-
-volumes:
-  couchdb-data:
-  couchdb-config:
-
-networks:
-  obsidian-network:
-    driver: bridge
-
 ```
+
+The top-level `version:` field that older guides put at the top of the file is no longer required and Compose V2 prints a deprecation warning if you include it. The Compose schema is inferred from the CLI version now.
 
 Replace the default password (`112` in the example above) with a strong, secure password. This will be your CouchDB admin password, so make it both secure and memorable.
 
@@ -197,7 +193,7 @@ docker compose logs couchdb
 {{< image "self_hosting_obsidian/showing_dokcer_container_running.webp" "Docker containers running" >}}
 
 
-After a few moments, CouchDB should be running and accessible at `http://localhost:5984`. You can verify this by opening the URL in your browser – you should see a JSON response welcoming you to CouchDB.
+After a few moments, CouchDB should be running and accessible at `http://localhost:5984`. Open the URL in your browser to verify - you should see a JSON response welcoming you to CouchDB.
 
 {{< image "self_hosting_obsidian/couchdb_running_in_local_host_5984.webp" "CouchDB running at localhost:5984" >}}
 
@@ -263,9 +259,11 @@ https://abc123.a.pinggy.io
 
 Copy this URL - you'll need it for configuring Obsidian LiveSync.
 
+If you'd rather start the tunnel from a script or a long-running service (instead of leaving an SSH session open), Pinggy now ships official {{< link href="https://pinggy.io/docs/" >}}Node.js and Python SDKs{{< /link >}}. Both wrap the same protocol the SSH command above uses, so you can spin the tunnel up and tear it down programmatically from inside your own automation. Useful if you want the tunnel to come up alongside the CouchDB container on boot rather than as a separate manual step.
+
 ## Step 5: Installing Obsidian and Configuring LiveSync
 
-Now comes the exciting part – downloading Obsidian, setting it up, and connecting it to your self-hosted CouchDB instance using the LiveSync plugin.
+With the database and tunnel running, the rest is on the Obsidian side: install the app, enable the LiveSync plugin, and point it at the tunnel URL.
 
 ### Downloading and Installing Obsidian
 
@@ -395,7 +393,11 @@ The plugin will automatically configure all the connection settings and begin sy
 
 {{< image "self_hosting_obsidian/data_sync_between_two_device.webp" "Data sync between two devices" >}}
 
-## Conclusion
-With Docker, CouchDB, Pinggy, and the LiveSync plugin working together, you now have a fully private, zero-cost alternative to Obsidian Sync that you control end to end. The entire setup takes under an hour, runs quietly in the background, and keeps your notes synchronized across every device desktop and mobile alike.
+## Wrapping up
+What you end up with: a CouchDB container, a Pinggy tunnel, and the LiveSync plugin keeping your vault in sync across whatever devices you've got. Day-to-day maintenance is mostly leaving it alone; the container's restart policy handles reboots.
 
-Beyond saving \$48/year, the real benefit is ownership. Your notes never leave infrastructure you control, sync conflicts become a thing of the past, and you’re free to customize the setup as your needs evolve. Whether you’re a developer managing technical documentation, a student organizing research, or anyone who takes their notes seriously self-hosting Obsidian sync is one of the most practical DIY projects you can complete in an afternoon.
+A few things worth flagging for anyone setting this up:
+
+- The tunnel URL needs to stay reachable. The free Pinggy tier rotates the URL when the session ends, so for a permanent setup, run it on a Pro plan with a persistent URL or a custom domain. Otherwise you'll be updating LiveSync's settings every time the tunnel restarts.
+- Back up the CouchDB data directory. The whole point of self-hosting is owning the failure mode too. Snapshot `./couchdb-data` to whatever you already trust for backups.
+- LiveSync's end-to-end encryption is worth enabling even though the tunnel is already HTTPS. It means the CouchDB instance never sees plaintext notes, which is the right default once the data leaves your machine at all.
