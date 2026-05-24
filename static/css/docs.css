@@ -7,9 +7,14 @@ body {
   font-family: var(--font-sans);
   color: var(--ink-700);
   background-color: transparent;
-  /* Docs pages: canvas is barely a hint at the very top, fully washed
-     out by ~30% of the viewport. The page is content-heavy and the
-     grid shouldn't compete with text. */
+}
+
+/* Docs pages: canvas is barely a hint at the very top, fully washed
+   out by ~30% of the viewport. The page is content-heavy and the
+   grid shouldn't compete with text. Overrides customization.css's
+   body::before background-image; other props (position:fixed, inset,
+   z-index, pointer-events, content) cascade from there. */
+body::before {
   background-image:
     linear-gradient(
       to bottom,
@@ -22,8 +27,6 @@ body {
       rgba(91, 134, 229, 0.04),
       transparent 60%
     );
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, fixed;
 }
 
 .contentcontainer {

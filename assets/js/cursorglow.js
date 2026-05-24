@@ -64,6 +64,9 @@
     var lastSpawn = 0;
     var rafId = null;
     var root = document.documentElement;
+    // Mirrors --canvas-opacity; the draw loop self-suspends at 0 to save
+    // GPU when the canvas is fully faded out past the hero.
+    var canvasOpacity = 1;
 
     // --- sizing --------------------------------------------------------
     function resize() {
@@ -291,13 +294,16 @@
 
       draw(now);
 
-      // Always loop unless reduced motion + no cursor activity + no pulses
+      // Always loop unless reduced motion + no cursor activity + no pulses.
+      // Also bail entirely when canvasOpacity is 0 (scrolled past hero):
+      // the canvas isn't visible, so don't burn GPU. onScroll restarts
+      // the loop when opacity climbs back above 0.
       var cursorSettling =
         targetX !== undefined &&
         (Math.abs(targetX - currentX) > 0.3 ||
           Math.abs(targetY - currentY) > 0.3);
 
-      if (!reducedMotion || pulses.length || cursorSettling) {
+      if (canvasOpacity > 0 && (!reducedMotion || pulses.length || cursorSettling)) {
         requestFrame();
       }
     }
@@ -334,6 +340,11 @@
         // smoothstep
         op = op * op * (3 - 2 * op);
         root.style.setProperty("--canvas-opacity", op.toFixed(3));
+        var wasSuspended = canvasOpacity <= 0;
+        canvasOpacity = op;
+        // Restart the draw loop if the canvas just became visible again
+        // (the tick loop self-suspends when opacity hits 0).
+        if (wasSuspended && op > 0) requestFrame();
       });
     }
 

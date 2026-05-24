@@ -11,7 +11,7 @@ outputs:
   - HTML
   - AMP
 ---
-{{< image "top_cli_based_ai_coding_agents/cli_coding_agents.webp" "cli coding agents banner" >}}
+{{< image "top_cli_based_ai_coding_agents/cli_coding_agents.png" "cli coding agents banner" >}}
 
 The CLI coding agent space has churned hard in the first half of 2026. Google retired Gemini CLI at I/O on May 19 and replaced it with **Antigravity CLI** (free/Pro/Ultra users have until **June 18, 2026** before Gemini CLI stops serving requests). OpenAI shipped a Codex refresh on **GPT-5.5** that several recent rankings now put at #1. Cursor launched a real **Cursor CLI** in January with a Cloud Handoff feature you don't see elsewhere. Claude Code moved to **Opus 4.7**. And `sst/opencode` crossed **150K GitHub stars** and ~6.5M monthly active developers, becoming the de facto open-source choice.
 
