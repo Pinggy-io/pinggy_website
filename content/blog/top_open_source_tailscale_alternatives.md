@@ -1,12 +1,12 @@
 ---
  title: "Top Open Source Tailscale Alternatives in 2026" 
- description: "Discover the top open source Tailscale alternatives in 2026. Explore Headscale, NetBird, Nebula, Firezone, Octelium, and more. Compare features, self-hosting options, and ease of use in this comprehensive guide."
+ description: "Discover the top open source Tailscale alternatives in 2026. Explore NetBird, Headscale, Nebula, Defguard, Firezone, Octelium, and more. Compare features, self-hosting options, and ease of use."
  date: 2025-07-13T14:15:25+05:30
- lastmod: 2026-01-13T14:00:00+05:30
+ lastmod: 2026-05-23T14:00:00+05:30
  draft: false 
  tags: ["guide", "comparison", "open-source"]
  og_image: "images/top_open_source_tailscale_alternatives/top_open_source_tailscale_alternatives_banner.webp"
- schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiVG9wIE9wZW4gU291cmNlIFRhaWxzY2FsZSBBbHRlcm5hdGl2ZXMgaW4gMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogIkRpc2NvdmVyIHRoZSB0b3Agb3BlbiBzb3VyY2UgVGFpbHNjYWxlIGFsdGVybmF0aXZlcyBpbiAyMDI2LiBFeHBsb3JlIEhlYWRzY2FsZSwgTmV0QmlyZCwgTmVidWxhLCBhbmQgbW9yZS4gQ29tcGFyZSBmZWF0dXJlcywgc2VsZi1ob3N0aW5nIG9wdGlvbnMsIGFuZCBlYXNlIG9mIHVzZSBpbiB0aGlzIGNvbXByZWhlbnNpdmUgZ3VpZGUuIiwKICAiZGF0ZVB1Ymxpc2hlZCI6ICIyMDI1LTAxLTE0VDE0OjE1OjI1KzA1OjMwIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjYtMDEtMTNUMTQ6MTU6MjUrMDU6MzAiLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvdG9wX29wZW5fc291cmNlX3RhaWxzY2FsZV9hbHRlcm5hdGl2ZXMvdG9wX29wZW5fc291cmNlX3RhaWxzY2FsZV9hbHRlcm5hdGl2ZXNfYmFubmVyLndlYnAiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJHdWlkZXMiLAogICAgIkNvbXBhcmlzb25zIgogIF0sCiAgImtleXdvcmRzIjogWwogICAgIlRhaWxzY2FsZSBhbHRlcm5hdGl2ZXMiLAogICAgIm9wZW4gc291cmNlIFZQTiIsCiAgICAibWVzaCBuZXR3b3JraW5nIiwKICAgICJIZWFkc2NhbGUiLAogICAgIk5ldEJpcmQiLAogICAgIk5lYnVsYSIsCiAgICAiV2lyZUd1YXJkIiwKIkZpcmV6b25lIiwKIk9jdGVsaXVtIgogIF0KfQo8L3NjcmlwdD4="
+ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiVG9wIE9wZW4gU291cmNlIFRhaWxzY2FsZSBBbHRlcm5hdGl2ZXMgaW4gMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogIkRpc2NvdmVyIHRoZSB0b3Agb3BlbiBzb3VyY2UgVGFpbHNjYWxlIGFsdGVybmF0aXZlcyBpbiAyMDI2LiBFeHBsb3JlIE5ldEJpcmQsIEhlYWRzY2FsZSwgTmVidWxhLCBEZWZndWFyZCwgRmlyZXpvbmUsIE9jdGVsaXVtLCBhbmQgbW9yZS4gQ29tcGFyZSBmZWF0dXJlcywgc2VsZi1ob3N0aW5nIG9wdGlvbnMsIGFuZCBlYXNlIG9mIHVzZS4iLAogICJkYXRlUHVibGlzaGVkIjogIjIwMjUtMDEtMTRUMTQ6MTU6MjUrMDU6MzAiLAogICJkYXRlTW9kaWZpZWQiOiAiMjAyNi0wNS0yM1QxNDowMDowMCswNTozMCIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy90b3Bfb3Blbl9zb3VyY2VfdGFpbHNjYWxlX2FsdGVybmF0aXZlcy90b3Bfb3Blbl9zb3VyY2VfdGFpbHNjYWxlX2FsdGVybmF0aXZlc19iYW5uZXIud2VicCIsCiAgImFydGljbGVTZWN0aW9uIjogWwogICAgIlRlY2hub2xvZ3kiLAogICAgIkd1aWRlcyIsCiAgICAiQ29tcGFyaXNvbnMiCiAgXSwKICAia2V5d29yZHMiOiBbCiAgICAiVGFpbHNjYWxlIGFsdGVybmF0aXZlcyIsCiAgICAib3BlbiBzb3VyY2UgVlBOIiwKICAgICJtZXNoIG5ldHdvcmtpbmciLAogICAgIkhlYWRzY2FsZSIsCiAgICAiTmV0QmlyZCIsCiAgICAiTmVidWxhIiwKICAgICJXaXJlR3VhcmQiLAogICAgIkZpcmV6b25lIiwKICAgICJPY3RlbGl1bSIsCiAgICAiRGVmZ3VhcmQiCiAgXQp9Cjwvc2NyaXB0Pgo="
  outputs:
   - HTML
   - AMP
@@ -14,398 +14,432 @@
 
 {{< image "top_open_source_tailscale_alternatives/top_open_source_tailscale_alternatives_banner.webp" "top open source tailscale alternatives" >}}
 
-{{< link href="https://tailscale.com" >}}Tailscale{{< /link >}} is a popular mesh VPN service that makes it easy to connect devices securely across networks. Built on WireGuard, it provides zero-configuration networking with features like automatic NAT traversal, device authentication, and centralized management. While Tailscale offers excellent user experience and robust features, many developers and organizations prefer open source alternatives for greater control, privacy, and cost-effectiveness.
+{{< link href="https://tailscale.com" >}}Tailscale{{< /link >}} solves a real problem: getting your laptop, a VPS, a home server, and a friend's machine onto the same flat network without hand-rolling WireGuard configs or punching holes in firewalls. The control plane handles key distribution, NAT traversal, and identity, and the clients Just Work. The catch is that the coordination server is closed source, the per-user pricing climbs past the free tier of 3 users, and your device metadata sits on someone else's infrastructure.
 
-In this article, we'll explore the **top open source Tailscale alternatives in 2026**, covering their features, installation process, self-hosting capabilities, and use cases to help you choose the best solution for your mesh networking needs.
+If any of that bothers you - vendor lock-in, compliance, cost at scale, or just wanting to run your own thing - there are now a dozen-plus open source projects that cover the same ground. Some are drop-in replacements for the coordination server. Some are full mesh VPNs built from scratch. A few take the zero-trust route and skip the network-layer VPN model entirely.
 
+Here are the ten worth considering in 2026, ordered by how broadly they fit common use cases. All version numbers, install commands, and prices reflect releases as of May 2026.
 
 {{% tldr %}}
-<a href="https://headscale.net/" target="_blank">Headscale</a> - Drop-in replacement for Tailscale's control server that works with official Tailscale clients, providing complete privacy and control over your mesh network infrastructure.
+<a href="https://netbird.io/" target="_blank">NetBird</a> - Fully open source mesh VPN with a polished web UI, SSO, and built-in DNS. The most "Tailscale-like" project that does not depend on Tailscale.
 
-<a href="https://netbird.io/" target="_blank">NetBird</a> - Fully open source mesh VPN with modern web interface, SSO integration, built-in DNS management, and comprehensive access controls for teams.
+<a href="https://headscale.net/" target="_blank">Headscale</a> - Drop-in coordination server that works with the official Tailscale clients. Use it when you want Tailscale's UX without Tailscale's servers.
 
-<a href="https://github.com/slackhq/nebula" target="_blank">Nebula</a> - High-performance overlay networking tool by Slack with certificate-based authentication, proven scalability, and built-in firewall capabilities.
+<a href="https://github.com/slackhq/nebula" target="_blank">Nebula</a> - Slack's overlay network. Certificate-based, fast, scales to tens of thousands of hosts. Steeper config curve.
 
-<a href="https://github.com/tonarino/innernet" target="_blank">Innernet</a> - Rust-based mesh VPN using traditional networking concepts like CIDRs and subnets, with hierarchical network organization and invitation system.
+<a href="https://defguard.net/" target="_blank">Defguard</a> - Rust-based WireGuard manager with built-in MFA at the protocol level and full self-hosting support.
 
-<a href="https://www.netmaker.org/" target="_blank">Netmaker</a> - Comprehensive WireGuard-based mesh networking platform with advanced features like load balancing, site-to-site connectivity, and enterprise management.
+<a href="https://www.netmaker.org/" target="_blank">Netmaker</a> - WireGuard-based mesh with site-to-site routing, relays, and a web UI. Open source core, paid features for larger fleets.
 
-<a href="https://openziti.io/" target="_blank">OpenZiti</a> - Zero-trust networking platform with application-level security controls, eliminating open ports and providing identity-based authentication.
+<a href="https://openziti.io/" target="_blank">OpenZiti</a> - Application-layer zero-trust. No open ports, identity-based auth, SDK for embedding into apps. Different paradigm from a VPN.
 
-<a href="https://zerotier.com/" target="_blank">ZeroTier</a> - Mature network virtualization platform with self-hosted controller option, excellent cross-platform support, and bridge/routing capabilities.
+<a href="https://zerotier.com/" target="_blank">ZeroTier</a> - Mature L2 network virtualization. Self-hostable controller, broad platform support, recent free-tier cuts.
 
-<a href="https://www.wireguard.com/" target="_blank">WireGuard</a> - Extremely fast and lightweight VPN protocol built into Linux kernel, serving as the foundation for many mesh VPN solutions with maximum flexibility.
+<a href="https://www.wireguard.com/" target="_blank">WireGuard</a> - The protocol everything else builds on. Roll-your-own mesh if you want full control.
 
-<a href="https://www.firezone.dev/" target="_blank">Firezone</a> - Enterprise-ready zero-trust access platform built on WireGuard with peer-to-peer connections, SSO integration, and granular access policies for organizations.
+<a href="https://www.firezone.dev/" target="_blank">Firezone</a> - WireGuard-based zero-trust access with SSO and policy. Open source, but the control plane is hosted-only for production.
 
-<a href="https://octelium.com/" target="_blank">Octelium</a> - Modern zero-trust platform providing secure access for humans, workloads, and AI agents with policy-as-code, secretless authentication, and Kubernetes-native architecture.
+<a href="https://octelium.com/" target="_blank">Octelium</a> - Kubernetes-native zero-trust platform with policy-as-code, support for clientless and client-based access, and an explicit focus on AI agent workloads.
+
+<a href="https://github.com/tonarino/innernet" target="_blank">Innernet</a> - Rust-based, CIDR-first mesh. Comfortable if you think in subnets. Slower release cadence than the rest.
 {{% /tldr %}}
 
-## Overview of Tailscale
+## What Tailscale gives you, and where it pinches
 
-Before exploring the alternatives, let's understand what makes Tailscale popular and why you might want an open source alternative.
+Tailscale layers a coordination server on top of WireGuard. The server hands out keys, tracks devices, and runs DERP relays for when peers cannot reach each other directly. Magic DNS, ACLs, exit nodes, and subnet routers are all built on that base.
 
-Tailscale creates a secure mesh network using WireGuard as the underlying protocol. It handles complex networking tasks like NAT traversal, key distribution, and device discovery automatically. The service includes features like Magic DNS, subnet routing, and exit nodes, making it easy to connect devices across different networks securely.
+What people end up wanting an alternative for:
 
-#### Pros of Tailscale
+- **Hosted coordination.** Your device list and ACLs live on Tailscale's servers. For some compliance regimes that is a non-starter.
+- **Pricing past the free tier.** The free Personal plan tops out at 3 users and 100 devices. Beyond that you are on per-user pricing.
+- **The control plane is closed source.** The clients are open. The server you cannot self-host without a third-party reimplementation.
+- **Feature gating.** SSO, ACL groups, and some routing features sit behind paid plans.
 
-Tailscale offers zero-configuration setup with automatic device discovery, making it incredibly easy to get started. Built on the secure and fast WireGuard protocol, it provides excellent NAT traversal capabilities and cross-platform support across Windows, macOS, Linux, iOS, and Android. The Magic DNS feature makes device naming intuitive, while access control lists (ACLs) provide fine-grained permissions and exit nodes enable internet routing.
+None of this means Tailscale is bad - it is the smoothest experience by a comfortable margin. But if you only need a subset of what it does, or you want to own the whole stack, the alternatives below will get you there.
 
-#### Cons of Tailscale
+## 1. NetBird
 
-The main concerns with Tailscale include its proprietary control plane which creates potential vendor lock-in, limited customization options, and pricing that can become expensive for larger teams. There's also dependency on Tailscale's infrastructure and privacy concerns with the centralized coordination server.
-
-## 1. Headscale
-
-{{< link href="https://headscale.net/" >}}Headscale{{< /link >}} is an open source implementation of the Tailscale control server. It's designed to be a drop-in replacement for Tailscale's coordination server, allowing you to use the official Tailscale clients while maintaining full control over your infrastructure.
+{{< link href="https://netbird.io/" >}}NetBird{{< /link >}} is the closest thing to a full open source replacement for Tailscale. Both the clients and the management server are open source (BSD-3), there is a web UI for ACLs and groups, SSO with the usual providers, and the project has had a steady release cadence since 2022. Current release is v0.71.4 (May 2026).
 
 #### Uses
 
-Headscale is perfect for organizations that want Tailscale's user experience but need complete control over their coordination server. It's ideal for privacy-conscious users and those with compliance requirements.
+Teams that want one open source project that covers clients, control plane, web UI, SSO, and policy - without paying for a SaaS or stitching together two projects.
 
-#### Pros of Headscale
+#### Pros
 
-Headscale's biggest advantage is its compatibility with official Tailscale clients, making migration seamless. The self-hosted control plane provides complete privacy and supports most Tailscale features including Magic DNS. With active development and community support, it offers easy migration from Tailscale without vendor lock-in concerns, and it's completely free to use and modify.
+NetBird ships everything: native clients for Windows, macOS, Linux, iOS, and Android; a self-hostable management server; a web dashboard; SSO via Keycloak, Auth0, Okta, Google, Entra ID; built-in DNS; STUN/TURN with a public relay or your own coturn. Docker Compose and Helm charts work out of the box. The peer-to-peer connections use WireGuard, with QUIC-based relay fallback. Activity logs and posture checks are in the open source build.
 
-#### Cons of Headscale
+#### Cons
 
-The main drawbacks include requiring server setup and maintenance, with some advanced Tailscale features potentially unavailable. The web interface is less polished compared to Tailscale, and manual certificate management is required.
+Setup is more involved than running a single binary - the default self-hosted deploy spins up several containers (signal, management, dashboard, coturn). Some posture-check refinements and audit features only matter in the cloud Business plan. Community is smaller than Tailscale's but growing fast.
 
-#### Installation Process
-
-Install Headscale on your server:
+#### Installation
 
 ```bash
-# Download and install Headscale
-wget https://github.com/juanfont/headscale/releases/download/v0.26.1/headscale_0.26.1_linux_amd64
-chmod +x headscale_linux_amd64
-sudo mv headscale_linux_amd64 /usr/local/bin/headscale
+# Self-hosted with Docker Compose
+curl -fsSL https://github.com/netbirdio/netbird/releases/latest/download/getting-started-with-zitadel.sh -o install.sh
+chmod +x install.sh
+sudo ./install.sh
+```
 
-# Create configuration
-sudo mkdir -p /etc/headscale
-sudo headscale config generate > /etc/headscale/config.yaml
+The script wires up the management server, dashboard, and a Zitadel IdP. For Linux clients:
+
+```bash
+curl -fsSL https://pkgs.netbird.io/install.sh | sh
+netbird up --management-url https://your-server.example.com:33073
 ```
 
 #### Pricing
 
-Headscale is completely free and open source.
-
-{{< image "top_open_source_tailscale_alternatives/headscale.webp" "Headscale - Open source Tailscale control server" >}}
-
-## 2. NetBird
-
-{{< link href="https://netbird.io/" >}}NetBird{{< /link >}} is a modern, open source alternative that focuses on simplicity and security. It provides a complete mesh networking solution with its own clients and management interface, built from the ground up as an open source project.
-
-#### Uses
-
-NetBird is excellent for teams that want a fully open source mesh VPN with modern features like SSO integration, DNS management, and comprehensive access controls.
-
-#### Pros of NetBird
-
-NetBird stands out as a fully open source solution including both clients and server components. It features a modern web-based management interface with SSO integration for popular identity providers and built-in DNS management. The platform provides automatic NAT traversal with STUN/TURN servers, cross-platform native clients, and excellent Docker and Kubernetes support, along with comprehensive activity monitoring and logging.
-
-#### Cons of NetBird
-
-Being a newer project, NetBird has a smaller community compared to established alternatives. It requires more setup compared to hosted solutions and has limited third-party integrations.
-
-#### Installation Process
-
-Deploy NetBird using Docker Compose:
-
-```bash
-# Clone the repository
-git clone https://github.com/netbirdio/netbird.git
-cd netbird
-
-# Start with Docker Compose
-docker-compose up -d
-```
-
-#### Pricing
-
-NetBird offers both open source self-hosted version (free) and managed cloud service with {{< link href="https://netbird.io/pricing" >}}paid plans {{< /link >}}starting at $5 per month.
+Self-hosted is free. {{< link href="https://netbird.io/pricing" >}}Cloud plans{{< /link >}} are Free (up to 5 users, 100 machines), Team at $5/user/month, Business at $10/user/month, and custom Enterprise.
 
 {{< image "top_open_source_tailscale_alternatives/netbird.webp" "NetBird - Modern open source mesh VPN" >}}
 
-## 3. Nebula
+## 2. Headscale
 
-{{< link href="https://github.com/slackhq/nebula" >}}Nebula{{< /link >}} is an open source overlay networking tool created by Slack. It focuses on performance, security, and scalability, making it suitable for large-scale deployments and high-performance requirements.
+{{< link href="https://headscale.net/" >}}Headscale{{< /link >}} is an open source reimplementation of Tailscale's coordination server. The official Tailscale clients connect to it without modification. If you already use Tailscale and want to keep the client experience but own the server, this is the path. Current release is v0.28.0 (Feb 2026).
 
 #### Uses
 
-Nebula is ideal for organizations that need high-performance mesh networking with fine-grained security controls and can handle more complex configuration.
+Privacy-conscious teams, regulated environments, or anyone with an existing Tailscale workflow that wants to drop the dependency on Tailscale's coordination servers.
 
-#### Pros of Nebula
+#### Pros
 
-Nebula delivers excellent performance and low latency with strong security through certificate-based authentication. It's highly configurable and flexible, proven at scale through Slack's internal usage. The platform is lightweight and efficient, supporting complex network topologies with built-in firewall capabilities.
+The biggest selling point is that you keep using the official Tailscale apps - same UI, same `tailscale up`, same Magic DNS, same exit nodes. Migration is mostly a matter of pointing clients at a different login server. Headscale handles ACLs (Tailscale's HuJSON policy format), pre-auth keys, and DERP. The 0.28.0 release tightened up the gRPC API, added a `headscale auth` command group, and made policy testing first-class.
 
-#### Cons of Nebula
+#### Cons
 
-Nebula has a steeper learning curve and requires manual certificate management. It lacks a built-in web interface, requires more networking knowledge, and has limited automatic discovery features compared to more user-friendly alternatives.
+You are running someone else's server reimplementation, so the feature set trails Tailscale's by a quarter or two. Some Tailscale features (Funnel, Taildrop in some configs, SSH session recording) are not available. There is no first-party web UI - most users run a community UI like {{< link href="https://github.com/tale/headplane" >}}Headplane{{< /link >}} or {{< link href="https://github.com/GoodiesHQ/headscale-admin" >}}headscale-admin{{< /link >}}. You handle TLS, backups, and upgrades yourself, and 0.28.0 specifically dropped direct-upgrade support from pre-0.25 databases.
 
-#### Installation Process
-
-Install Nebula on your devices:
+#### Installation
 
 ```bash
-# Download Nebula
+# Download the v0.28.0 Linux amd64 binary
+wget https://github.com/juanfont/headscale/releases/download/v0.28.0/headscale_0.28.0_linux_amd64
+chmod +x headscale_0.28.0_linux_amd64
+sudo mv headscale_0.28.0_linux_amd64 /usr/local/bin/headscale
+
+# Generate a starter config
+sudo mkdir -p /etc/headscale
+sudo headscale generate config > /etc/headscale/config.yaml
+```
+
+On Debian/Ubuntu the `.deb` package is usually less painful than the raw binary.
+
+#### Pricing
+
+Free and open source (BSD-3).
+
+{{< image "top_open_source_tailscale_alternatives/headscale.webp" "Headscale - Open source Tailscale control server" >}}
+
+## 3. Nebula
+
+{{< link href="https://github.com/slackhq/nebula" >}}Nebula{{< /link >}} is the overlay network Slack built to connect its own infrastructure. It is not WireGuard - it uses its own Noise-based protocol - and it leans hard on PKI: every node has a certificate signed by a CA you control. Current release is v1.10.3 (Feb 2026).
+
+#### Uses
+
+Large fleets, multi-region infra, anywhere you want fine-grained host-to-host firewalls baked into the overlay itself. Slack runs it across tens of thousands of hosts, which is the bar most other projects on this list have not had to clear.
+
+#### Pros
+
+Fast and lean: a single Go binary, no kernel module, runs in containers. The certificate model gives you cryptographically verified host identity and group-based firewall rules ("only nodes in `role:db` accept connections from `role:app` on 5432"). Lighthouses (Nebula's term for coordination nodes) handle NAT traversal but do not see any traffic. Battle-tested at Slack scale.
+
+#### Cons
+
+No web UI. You write YAML configs and shell out for `nebula-cert` to issue certificates. Adding a host is "generate a cert, ship the config, restart the service" - fine for IaC, painful if you want users self-onboarding from a dashboard. No SSO integration. If you want a friendlier wrapper, look at {{< link href="https://defined.net" >}}Defined Networking{{< /link >}}, the commercial managed-Nebula service from the original authors.
+
+#### Installation
+
+```bash
+# Download the latest release
 wget https://github.com/slackhq/nebula/releases/latest/download/nebula-linux-amd64.tar.gz
 tar -xzf nebula-linux-amd64.tar.gz
 
-# Generate certificates and configure
+# Bootstrap a CA and one host certificate
 ./nebula-cert ca -name "MyOrg"
 ./nebula-cert sign -name "node1" -ip "192.168.100.1/24"
 ```
 
 #### Pricing
 
-Nebula is completely free and open source.
+Free and open source (MIT).
 
 {{< image "top_open_source_tailscale_alternatives/nebula.webp" "Nebula - High-performance overlay networking" >}}
 
-## 4. Innernet
+## 4. Defguard
 
-{{< link href="https://github.com/tonarino/innernet" >}}Innernet{{< /link >}} is a Rust-based mesh VPN that takes advantage of existing networking concepts like CIDRs and routing tables. It provides a more traditional networking approach while maintaining modern security practices.
+{{< link href="https://defguard.net/" >}}Defguard{{< /link >}} is a Rust-based WireGuard management platform that has been gaining traction since its 2.0 release. The thing that sets it apart: it is the only WireGuard implementation that supports MFA at the protocol level, not just at a portal in front of the VPN. Current release is v2.0.1 (May 2026).
 
 #### Uses
 
-Innernet is perfect for network administrators who prefer traditional networking concepts and want fine-grained control over IP allocation and routing.
+Organizations that already standardize on WireGuard and want SSO, MFA, and an admin UI without giving up self-hosting in production. Replaces a typical OpenVPN-plus-IdP setup.
 
-#### Pros of Innernet
+#### Pros
 
-Innernet uses familiar networking concepts like CIDRs and subnets, making it intuitive for network administrators. Written in Rust for performance and safety, it offers hierarchical network organization with a built-in invitation system. The platform provides cross-platform support while remaining lightweight and fast.
+True MFA on the WireGuard tunnel itself, not just at a login portal. Built-in SSO (the Defguard server is an OpenID provider) and integrations with Google, Microsoft, Okta, LDAP, JumpCloud. Multi-location, multi-gateway, built-in firewall rules. Apache 2.0 across server, gateway, and clients. The 2.0 line redesigned the UI and added HA-friendly architecture. Self-hosting is fully supported - the docs treat it as a first-class deployment path.
 
-#### Cons of Innernet
+#### Cons
 
-Innernet has a smaller community and ecosystem with less documentation compared to alternatives. It requires understanding of networking concepts and lacks a web interface, making it less accessible to non-technical users.
+It is a WireGuard manager, not a full mesh - traffic goes through gateways you deploy, not directly peer-to-peer in the Tailscale sense. Some Enterprise tier features (advanced behavior analysis, premium support) sit behind a paid license. Mobile clients are newer and less polished than the desktop ones.
 
-#### Installation Process
-
-Install Innernet server and client:
+#### Installation
 
 ```bash
-# Install from source
-cargo install innernet
-cargo install innernet-server
-
-# Initialize server
-sudo innernet-server new mynetwork
+# One-line install with the official script
+curl -fsSL https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh \
+  | bash -s -- --domain vpn.example.com
 ```
+
+The script generates secrets, writes a `docker-compose.yaml`, and brings up the core, gateway, and proxy services.
 
 #### Pricing
 
-Innernet is completely free and open source.
-
-
-{{< image "top_open_source_tailscale_alternatives/innernet.webp" "Innernet - Rust-based mesh VPN" >}}
+Open source tier is free with no user cap. {{< link href="https://defguard.net/pricing/" >}}Business{{< /link >}} adds enterprise features (free up to 10 users, paid above), and Enterprise is custom.
 
 ## 5. Netmaker
 
-{{< link href="https://www.netmaker.org/" >}}Netmaker{{< /link >}} is a comprehensive mesh networking platform that combines WireGuard with advanced networking features. It provides both open source and enterprise versions with extensive management capabilities.
+{{< link href="https://www.netmaker.org/" >}}Netmaker{{< /link >}} is a WireGuard-based mesh that focuses on site-to-site networking, multi-cloud, and Kubernetes connectivity rather than just user devices. Current release is v1.5.1 (Mar 2026).
 
 #### Uses
 
-Netmaker is suitable for organizations that need enterprise-grade mesh networking with advanced features like site-to-site connectivity, load balancing, and comprehensive monitoring.
+Connecting cloud VPCs, edge locations, and on-prem networks into one routable mesh. Less "give my developers SSH access to a jumphost", more "stitch three Kubernetes clusters and a datacenter together".
 
-#### Pros of Netmaker
+#### Pros
 
-Netmaker provides advanced networking features including load balancing and failover capabilities. It offers a comprehensive web-based management interface with site-to-site VPN capabilities and excellent Kubernetes integration. The platform supports multi-cloud deployments with professional support available, OAuth integration, and detailed network monitoring and analytics.
+Web UI for networks, hosts, ACLs, and relays. Site-to-site and egress routing are first-class - you can designate a host as a gateway for an entire subnet. OAuth integration. Helm chart for Kubernetes. The community edition is Apache 2.0; the SaaS and self-hosted Pro/Business tiers add traffic relays, audit logs, posture checks, and SCIM.
 
-#### Cons of Netmaker
+#### Cons
 
-Netmaker involves more complex setup and configuration, being resource intensive compared to simpler alternatives. Some features require an enterprise license, and it has a steeper learning curve for users new to advanced networking concepts.
+The split between Community, Pro, Business, and Enterprise is more aggressive than NetBird's - several features many people would consider table stakes (advanced user management, HA routing) require Pro or above. The quick-install script does a lot of magic; for production you will want to deploy manually or via Helm.
 
-#### Installation Process
-
-Deploy Netmaker using the quick install script:
+#### Installation
 
 ```bash
-# Quick install script
-curl -sfL https://raw.githubusercontent.com/gravitl/netmaker/master/scripts/nm-quick.sh | sudo bash
+# Quick-install (community edition)
+sudo wget -qO /root/nm-quick.sh https://raw.githubusercontent.com/gravitl/netmaker/master/scripts/nm-quick.sh \
+  && sudo chmod +x /root/nm-quick.sh \
+  && sudo /root/nm-quick.sh
 ```
 
 #### Pricing
 
-Netmaker offers open source version (free) and {{< link href="https://www.netmaker.io/pricing" >}}pro plans {{< /link >}} starting at $5 per connection per month.
-
+Community is free. {{< link href="https://www.netmaker.io/pricing" >}}Professional{{< /link >}} starts at $2 per active connection per month, Business at $4. Enterprise is custom.
 
 {{< image "top_open_source_tailscale_alternatives/netmaker.webp" "Netmaker - Enterprise mesh networking platform" >}}
 
 ## 6. OpenZiti
 
-{{< link href="https://openziti.io/" >}}OpenZiti{{< /link >}} is a zero-trust networking platform that provides secure connectivity without traditional VPN limitations. It focuses on application-level security and zero-trust principles.
+{{< link href="https://openziti.io/" >}}OpenZiti{{< /link >}} is not a VPN. It is an application-layer zero-trust overlay where services advertise themselves into a fabric and identities authorize connections by policy. There are no listening ports on protected hosts - the SDK or tunneler dials out to a router. Current release is v2.0.0 (May 2026), a significant break from the 1.x line.
 
 #### Uses
 
-OpenZiti is ideal for organizations implementing zero-trust architecture and need application-level security controls rather than traditional network-level VPN.
+Teams ready to commit to zero-trust as a model, not just a buzzword. Particularly strong when you can embed the OpenZiti SDK into your application and skip the tunneler entirely - the service literally has no public IP or port.
 
-#### Pros of OpenZiti
+#### Pros
 
-OpenZiti implements a true zero-trust networking model with application-level security controls. It eliminates the need for open ports or exposed services while providing fine-grained access policies. The platform includes an SDK for application integration, delivers high performance and scalability, and uses identity-based authentication.
+Identity-based auth at the application level, with fine-grained policies. Services are unreachable unless an identity is enrolled and authorized - this eliminates a large class of internet-facing attack surface. 2.0 made HA controllers production-ready, swapped session storage for JWTs (removing a controller bottleneck), added OIDC enrollment, and laid the groundwork for deprecating legacy APIs in 3.0. SDKs for Go, Java, C, Python, Swift, and others.
 
-#### Cons of OpenZiti
+#### Cons
 
-OpenZiti has a complex architecture and setup process. It requires application integration for full benefits, has a steeper learning curve, and represents a different paradigm from traditional VPNs, which can be challenging for teams used to conventional networking approaches.
+The mental model is different. If your team thinks in "I want my laptop to ping that EC2 instance", OpenZiti will feel over-engineered. Real benefits come from embedding the SDK or running the tunneler everywhere - half-deployment is awkward. The 2.0 upgrade requires going through latest 1.x first; legacy sessions are deprecated.
 
-#### Installation Process
-
-Install OpenZiti using the quickstart:
+#### Installation
 
 ```bash
-# Download and run quickstart
-bash <(curl -s https://get.openziti.io/quick/ziti-cli-functions.sh)
-expressInstall
+# Quickstart (single-node, for evaluation)
+curl -sS https://get.openziti.io/install.bash | sudo bash -s openziti
+ziti edge quickstart
 ```
+
+For production, use the official Helm charts.
 
 #### Pricing
 
-OpenZiti is open source and free to use.
+Free and open source (Apache 2.0). NetFoundry sells managed deployments on top.
 
 {{< image "top_open_source_tailscale_alternatives/openziti.webp" "OpenZiti - Zero-trust networking platform" >}}
 
 ## 7. ZeroTier
 
-{{< link href="https://zerotier.com/" >}}ZeroTier{{< /link >}} offers both hosted and open source self-hosted options. While primarily a commercial service, ZeroTier One (the client) is open source, and you can self-host the network controller.
+{{< link href="https://zerotier.com/" >}}ZeroTier{{< /link >}} virtualizes an Ethernet layer across the internet. Devices on the same ZeroTier network behave as if they are on the same LAN, including broadcast and multicast. The clients are open source (BSL since 2.0); the controller is open source too but the SaaS dashboard is not. Current client release is 1.16.0 (Sep 2025).
 
 #### Uses
 
-ZeroTier is perfect for users who want the simplicity of a hosted service with the option to self-host the controller for privacy and control.
+Anywhere you need actual Layer 2 semantics - game servers that rely on LAN discovery, legacy applications that broadcast for peers, simple home labs. Also useful when you want a managed service but reserve the option to self-host the controller.
 
-#### Pros of ZeroTier
+#### Pros
 
-ZeroTier offers easy setup and configuration on a mature and stable platform. It provides a self-hosted controller option with excellent cross-platform support and good documentation backed by an active community. The platform includes network virtualization features with bridge and routing capabilities.
+Mature - ZeroTier predates Tailscale by years. Cross-platform support is excellent (Windows, macOS, Linux, BSD, iOS, Android, embedded). The self-hostable `ztncui` and `ZeroTierOne` controller binary let you run the whole stack. Bridging, routing, and rules engine are powerful.
 
-#### Cons of ZeroTier
+#### Cons
 
-The controller software is not fully open source, and the self-hosted version has limited customization options. Performance may vary compared to WireGuard-based solutions, particularly in high-throughput scenarios.
+ZeroTier moved to a usage-based "ZeroTier Essential" pricing model in 2024 and tightened the free tier - new free accounts now cap at 10 devices and 3 networks, where it used to be 25/free network. Performance is generally below WireGuard-based options because of the L2 emulation overhead. The official UI is not open source even though the daemon and controller are.
 
-#### Installation Process
-
-For self-hosted controller:
+#### Installation
 
 ```bash
-# Install ZeroTier controller
-git clone https://github.com/zerotier/ZeroTierOne.git
-cd ZeroTierOne
-make
+# Self-hosted controller (open source path)
+curl -s https://install.zerotier.com | sudo bash
+sudo zerotier-cli set-local-controller-enabled true
+
+# UI (community project)
+git clone https://github.com/key-networks/ztncui.git
+cd ztncui && npm install && npm start
 ```
 
 #### Pricing
 
-ZeroTier offers free tier for up to 10 devices, with {{< link href="https://www.zerotier.com/pricing" >}} paid plans {{< /link >}} for larger networks.
+Free tier: 10 devices, 3 networks (new accounts). {{< link href="https://www.zerotier.com/pricing" >}}Paid plans{{< /link >}} are usage-based above the free allowance.
 
 {{< image "top_open_source_tailscale_alternatives/zerotier.webp" "ZeroTier - Network virtualization platform" >}}
 
 ## 8. WireGuard
 
-{{< link href="https://www.wireguard.com/" >}}WireGuard{{< /link >}} is the underlying protocol used by many mesh VPN solutions. While not a mesh VPN itself, it can be configured manually or with tools to create mesh networks.
+{{< link href="https://www.wireguard.com/" >}}WireGuard{{< /link >}} is the protocol most of the above are built on. It is not a mesh in itself - it is a point-to-point tunnel - but if you want maximum control with no extra moving parts, you can roll your own mesh on top with a config-management tool or a small script.
 
 #### Uses
 
-WireGuard is ideal for users who want maximum control and are comfortable with manual configuration, or as a building block for custom mesh solutions.
+Site-to-site VPNs, single-tunnel server access, anywhere a small number of well-known peers do not need a discovery service. Also a sensible building block if you want to write your own controller.
 
-#### Pros of WireGuard
+#### Pros
 
-WireGuard is extremely fast and lightweight with a simple and auditable codebase. Built into the Linux kernel, it provides maximum flexibility and control without vendor dependencies and has an excellent security track record.
+In the Linux kernel since 5.6 (Mar 2020), so no userspace daemon needed on Linux servers. ~4000 lines of kernel code, easy to audit. Fast, stable, and ubiquitous - wg-quick is in every distro's repos. Cross-platform clients are well-maintained.
 
-#### Cons of WireGuard
+#### Cons
 
-WireGuard requires manual configuration and lacks automatic peer discovery. It involves complex key management, has no built-in management interface, and requires significant networking expertise to implement effectively.
+No peer discovery, no key rotation, no UI. Every peer relationship is a manual config edit on both sides. Anything past three or four nodes becomes a config-management problem. NAT traversal needs an external helper (a public relay or `PersistentKeepalive` plus a reachable endpoint). If you find yourself writing scripts to manage peers, you probably want one of the projects above.
 
-#### Installation Process
-
-Install WireGuard and configure manually:
+#### Installation
 
 ```bash
-# Install WireGuard
 sudo apt install wireguard
 
 # Generate keys
-wg genkey | tee privatekey | wg pubkey > publickey
+wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey
 
-# Configure interface
+# After writing /etc/wireguard/wg0.conf
 sudo wg-quick up wg0
+sudo systemctl enable wg-quick@wg0
 ```
 
 #### Pricing
 
-WireGuard is completely free and open source.
-
+Free, GPL-2.0.
 
 {{< image "top_open_source_tailscale_alternatives/wireguard.webp" "WireGuard - Fast and secure VPN protocol" >}}
 
 ## 9. Firezone
 
-{{< link href="https://www.firezone.dev/" >}}Firezone{{< /link >}} is an enterprise-ready zero-trust access platform built on WireGuard. It provides a fast, flexible VPN replacement with peer-to-peer connections that eliminate traditional VPN bottlenecks and deliver performance up to 3-4 times faster than OpenVPN.
+{{< link href="https://www.firezone.dev/" >}}Firezone{{< /link >}} is a zero-trust access platform built on WireGuard, focused on replacing traditional remote-access VPNs with policy-driven per-resource access. After the 1.0 rewrite the architecture splits into a hosted control plane and self-hostable gateways. Current gateway release is 1.5.2 (Apr 2026), with matching 1.5.x clients.
 
 #### Uses
 
-Firezone is ideal for organizations that need zero-trust network access with granular policy controls, SSO integration, and scalable access management for both small teams and large enterprises.
+Teams replacing a corporate VPN (OpenVPN, AnyConnect, or similar) and wanting SSO, per-resource policies, and audit logs - while accepting that the policy server lives in Firezone's cloud.
 
-#### Pros of Firezone
+#### Pros
 
-Firezone offers exceptional performance with peer-to-peer WireGuard connections reaching up to 5 Gbps throughput. It features automatic load balancing and failover with multiple gateways, comprehensive SSO integration with Google Workspace, Okta, and Entra ID. The platform provides granular access policies for individual applications or entire subnets, cross-platform clients for all major operating systems, and is fully open source under Apache 2.0 license.
+Performance is genuinely good: peer-to-peer WireGuard connections through self-hosted gateways, with automatic failover. SSO with Google Workspace, Okta, Entra ID. Policies are per-resource, not per-network. Apache 2.0 across all components. Clients for every major OS, including a `headless-client` for servers.
 
-#### Cons of Firezone
+#### Cons
 
-Firezone's control plane requires their managed cloud service for production use, as self-hosting is only officially supported for educational or hobby purposes. Some enterprise features like directory sync require paid plans, and the internal APIs are rapidly changing.
+This is the important caveat for an open source roundup: Firezone's docs explicitly say the control plane is not supported for production self-hosting. Quoting their FAQ - "Firezone provides no support or documentation for self-hosted deployments, and in general only recommends it for hobby or educational purposes." You can read the source, but if you want Firezone in production you are paying for the SaaS. Internal APIs are still changing release-to-release.
 
-#### Installation Process
-
-Deploy Firezone gateways with a simple token:
+#### Installation
 
 ```bash
-# Set up the gateway
-FIREZONE_TOKEN=<your-token> ./firezone-gateway
-
-# Or use Docker
-docker run -e FIREZONE_TOKEN=<your-token> firezone/gateway
+# Deploy a gateway with the token issued by your Firezone account
+docker run -d --restart=always \
+  --cap-add=NET_ADMIN \
+  -e FIREZONE_TOKEN=<your-token> \
+  -e FIREZONE_NAME=$(hostname) \
+  ghcr.io/firezone/gateway:1
 ```
 
 #### Pricing
 
-Firezone offers a free Starter tier for up to 6 users, Team plans at $5/user/month, and custom Enterprise pricing with directory sync and priority support.
+Starter is free for up to 6 users. Team and Enterprise tiers exist with per-seat pricing; current rates are on {{< link href="https://www.firezone.dev/pricing" >}}the pricing page{{< /link >}} (the public Team rate has shifted a few times since the 1.0 rewrite).
 
 {{< image "top_open_source_tailscale_alternatives/firezone.webp" "Firezone - Zero-trust access platform" >}}
 
 ## 10. Octelium
 
-{{< link href="https://octelium.com/" >}}Octelium{{< /link >}} is a modern, open source zero-trust platform designed for secure access to hybrid infrastructure. It provides unified access for humans, workloads, and AI agents to internal resources, microservices, IoT devices, and SaaS applications.
+{{< link href="https://octelium.com/" >}}Octelium{{< /link >}} is a Kubernetes-native zero-trust platform that handles both client-based (WireGuard/QUIC) and clientless (BeyondCorp-style reverse proxy) access in one control plane. It is one of the newer entries on this list - notably active, with v0.33.0 released the same day this post was last updated. Current release is v0.33.0 (May 2026).
 
 #### Uses
 
-Octelium is perfect for organizations implementing comprehensive zero-trust architecture with dynamic, identity-based access control, secretless authentication, and support for modern workloads including AI agents and containerized applications.
+Teams that already run Kubernetes and want a single zero-trust layer for human users, machine workloads, and increasingly, autonomous agents that need scoped access to internal APIs.
 
-#### Pros of Octelium
+#### Pros
 
-Octelium offers a unified architecture supporting both WireGuard/QUIC client-based access and clientless BeyondCorp-style access. It features secretless authentication that eliminates sharing API keys and credentials, dynamic per-request access control using ABAC and policy-as-code, and is built on Kubernetes for seamless horizontal scalability. The platform includes OpenTelemetry-native observability, SSO integration with any OIDC or SAML 2.0 provider, and is completely free and open source.
+Unified architecture: WireGuard/QUIC tunnels for full-VPN-style access alongside clientless HTTPS/SSH/Kubernetes proxying via the same policies. ABAC and policy-as-code (CEL expressions) evaluated per-request. Secretless auth means apps do not hold API keys - Octelium injects credentials at proxy time. OIDC and SAML SSO. Built on Kubernetes from day one, so HA and horizontal scale come for free. OpenTelemetry-native logs and traces.
 
-#### Cons of Octelium
+#### Cons
 
-Being a newer project, Octelium has a smaller community and ecosystem. It requires Kubernetes for deployment, which may add complexity for smaller teams. The platform's advanced features require understanding of zero-trust concepts and policy-as-code approaches.
+Requires Kubernetes. If you do not already run k8s, that is a heavy prerequisite for a VPN replacement. The project is young, the API still moves, and the community is small compared to NetBird or ZeroTier. Documentation is improving but expect to read source occasionally.
 
-#### Installation Process
-
-Deploy Octelium using the CLI:
+#### Installation
 
 ```bash
-# Install Octelium CLI
-curl -sSL https://octelium.com/install.sh | bash
+# Install the CLI
+curl -fsSL https://octelium.com/install.sh | bash
 
-# Apply configuration
-octeliumctl apply -f config.yaml
+# Deploy into a cluster you already have kubectl access to
+octeliumctl init --domain octelium.example.com
 ```
 
 #### Pricing
 
-Octelium is completely free and open source software.
+Free and open source (Apache 2.0).
 
 {{< image "top_open_source_tailscale_alternatives/octelium.webp" "Octelium - Zero-trust platform for modern infrastructure" >}}
 
-## Conclusion
+## 11. Innernet
 
-The choice of open source Tailscale alternative depends on your specific needs, technical expertise, and infrastructure requirements. **Headscale** offers the easiest migration path for existing Tailscale users, while **NetBird** provides a modern, full-featured alternative built from the ground up as open source.
+{{< link href="https://github.com/tonarino/innernet" >}}Innernet{{< /link >}} is a Rust-based mesh VPN from the team at Tonari that thinks in CIDRs rather than in flat device lists. Networks have hierarchical subnets, and joining the mesh is done via signed invitations rather than a login flow. Current release is v1.7.1 (Nov 2025).
 
-For high-performance requirements, **Nebula** is an excellent choice, proven at scale by Slack. **Netmaker** suits organizations needing enterprise features, while **OpenZiti** is ideal for implementing zero-trust architecture. **Firezone** stands out for teams wanting a polished zero-trust platform with excellent SSO integration and enterprise-grade features, while **Octelium** is perfect for modern infrastructure with its Kubernetes-native design and support for AI workloads.
+#### Uses
 
-Consider factors like ease of setup, maintenance requirements, feature set, and community support when making your decision. Most of these solutions offer significant advantages over proprietary alternatives, including better privacy, no vendor lock-in, and the ability to customize the solution to your specific needs.
+Small-to-medium teams whose admins are comfortable with traditional networking, who like the idea of explicit subnetting, and who want a single static binary with no external dependencies.
+
+#### Pros
+
+Small, focused, fast. Written in Rust on top of WireGuard. The invitation model (`innernet-server add-peer` produces a one-time-use file) is a clean security primitive. No external database - server state is in a SQLite file. CIDR-aware ACLs map well to traditional firewall thinking.
+
+#### Cons
+
+The lowest release velocity on this list - v1.7.1 in November 2025 was the most recent tagged release as of May 2026. No web UI. No SSO. Configuration is CLI-only. If you want any of those, look at NetBird or Defguard instead.
+
+#### Installation
+
+```bash
+# Build from source (cargo install pulls server and client)
+cargo install --git https://github.com/tonarino/innernet innernet-server
+cargo install --git https://github.com/tonarino/innernet innernet
+
+# Initialize a network
+sudo innernet-server new
+```
+
+Pre-built `.deb` and `.rpm` packages are on the GitHub releases page.
+
+#### Pricing
+
+Free and open source (MIT).
+
+{{< image "top_open_source_tailscale_alternatives/innernet.webp" "Innernet - Rust-based mesh VPN" >}}
+
+## Picking one
+
+A short decision tree, by what you actually need to do:
+
+- **"I want Tailscale, but on my servers."** Headscale. Keeps the clients, drops the dependency. Add Headplane for a UI.
+- **"I want a fully open source Tailscale-equivalent, end to end."** NetBird. One project, clients and server, SSO included, active development.
+- **"I'm replacing OpenVPN for employees and need MFA + SSO."** Defguard if you want self-hosting in production. Firezone if you are fine with their SaaS control plane.
+- **"I run a large fleet and want PKI-based host-to-host auth."** Nebula.
+- **"I need to stitch cloud VPCs and on-prem networks together."** Netmaker.
+- **"I want zero-trust at the application layer, not the network layer."** OpenZiti (mature) or Octelium (newer, Kubernetes-first).
+- **"I need actual Layer 2 (broadcast, multicast)."** ZeroTier.
+- **"It's two or three servers and I just want WireGuard."** WireGuard. Skip the rest.
+- **"I want a tiny Rust binary and I think in subnets."** Innernet.
+
+The genuinely hard tradeoff in this space is operational. Tailscale's offer is "we run the boring parts". Every project here trades some of that convenience for control, cost, or both. Pick the one whose ops burden matches your team, not the one with the longest feature list.

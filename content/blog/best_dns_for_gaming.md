@@ -2,7 +2,7 @@
 title: "Best DNS for Gaming in 2026"
 description: "Discover the best DNS for gaming in 2026 to reduce latency and improve performance. Explore top options like Cloudflare, Quad9, AdGuard, NextDNS, and Control D with setup guides."
 date: 2024-11-21T14:15:25+05:30
-lastmod: 2026-04-22T23:20:00+05:30
+lastmod: 2026-05-23T23:20:00+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
 tags: ["gaming", "dns", "internet", "guide"]
@@ -13,9 +13,9 @@ outputs:
 ---
 {{< image "best_dns_for_gaming/dns_for_gaming.webp" "Best DNS for Gaming" >}}
 
-When it comes to online gaming, a stable and fast internet connection is crucial for an optimal experience. While many gamers focus on their ISP or router settings, an often-overlooked factor is the DNS ({{< link href="https://en.wikipedia.org/wiki/Domain_Name_System" >}}Domain Name System{{< /link >}} ). Choosing the best DNS for gaming can significantly reduce latency, improve connection reliability, and even prevent issues like DNS server errors.
+Changing your DNS resolver will not lower your in-game ping. Once a match starts, your client is already talking to the game server by IP, so DNS is out of the path. What DNS does affect: launcher startup, login, matchmaking lookups, voice and chat endpoints, CDN selection for patches, and the occasional region-routing decision via EDNS Client Subnet. A faster, more reliable resolver can make those steps feel snappier and less flaky, which is usually what people are reaching for when they say a "gaming DNS" feels better.
 
-In this article, we will cover why DNS matters for gaming, the best DNS servers to test in 2026, and how to configure them correctly.
+This post lists the resolvers worth testing in 2026, how to actually measure them from your location, and the current setup steps for Windows 11, macOS, Linux, and routers. DNS ({{< link href="https://en.wikipedia.org/wiki/Domain_Name_System" >}}Domain Name System{{< /link >}}) is the layer that turns names like `login.example.com` into IPs.
 
 
 
@@ -101,17 +101,24 @@ In this article, we will cover why DNS matters for gaming, the best DNS servers 
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Public encrypted DNS with no account required and optional filters.</td>
 </tr>
+<tr style="background:#f9fbfd;">
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://joindns4.eu/for-public" target="_blank">DNS4EU</a></strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">86.54.11.100 (unfiltered)<br>86.54.11.1 (protective)</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low in EU</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Good</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">EU-funded public resolver launched June 2025; five filter variants, GDPR-aligned.</td>
+</tr>
 </tbody>
 </table>
 
 
 {{% tldr %}}
 
-1. **DNS can reduce connection overhead for gaming services**:
-   - DNS affects how quickly your system resolves game, login, voice, and CDN endpoints.
-   - It will not fix bad routing from your ISP, but it can improve consistency and startup speed.
-2. **Top DNS options to test in 2026**:
-   - <a href="https://1.1.1.1/" target="_blank">Cloudflare (1.1.1.1)</a>
+1. **DNS does not lower in-game ping**:
+   - Once you're in a match, traffic goes to the game server's IP directly. DNS is not in the loop.
+   - DNS affects launcher startup, login, matchmaking, voice, and patch CDN lookups - so a faster resolver makes those feel more consistent.
+2. **Resolvers worth testing in 2026**:
+   - <a href="https://1.1.1.1/" target="_blank">Cloudflare (1.1.1.1)</a>, plus 1.1.1.2 (malware) and 1.1.1.3 (malware + adult)
    - <a href="https://developers.google.com/speed/public-dns" target="_blank">Google Public DNS (8.8.8.8)</a>
    - <a href="https://www.opendns.com/" target="_blank">OpenDNS (208.67.222.222)</a>
    - <a href="https://quad9.net/" target="_blank">Quad9 (9.9.9.9)</a>
@@ -121,47 +128,40 @@ In this article, we will cover why DNS matters for gaming, the best DNS servers 
    - <a href="https://nextdns.io/" target="_blank">NextDNS (custom config)</a>
    - <a href="https://dns.surfsharkdns.com/" target="_blank">Surfshark DNS (194.169.169.169)</a>
    - <a href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" target="_blank">Mullvad Encrypted DNS</a>
+   - <a href="https://joindns4.eu/for-public" target="_blank">DNS4EU (86.54.11.100)</a> - new EU-operated resolver
 3. **Pick based on measured latency from your location**:
-   - Test 2-3 providers with ping and DNS benchmark tools, then keep the fastest stable one.
-4. **Setup instructions**: Follow [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows, macOS, Linux, or router-level DNS.
+   - Test 2-3 providers with ping and a DNS benchmark, then keep the fastest stable one.
+4. **Setup instructions**: Follow [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows 11, macOS, Linux, or your router.
 
 {{% /tldr %}}
 
 
 ### What is DNS, and Why Does It Matter for Gaming?
 
-The Domain Name System (DNS) is often called the phone book of the internet. Without it, your device cannot translate domains into IP addresses and connect to websites or online game services. Instead of remembering complex IPs like `192.168.1.1`, DNS lets you use readable names like `www.example.com`. 
+DNS translates names (`login.example.com`) into IP addresses (`192.0.2.10`). Every time a launcher boots, an account service logs in, matchmaking spins up, voice chat connects, or a patch downloads from a CDN, a DNS lookup happens first. After that handshake, the actual game traffic is between your machine and the server IP - DNS is no longer involved.
 
-Whenever you type a URL into your browser, or connect to a server for gaming, your device makes a request to a DNS server to look up the host’s domain name and give it back a corresponding IP address. It happens behind the scenes and usually takes only milliseconds. But the little delays can mean big things to gamers.
+So what does a slow or flaky resolver actually cost you?
 
-In the context of gaming, a poor or unreliable DNS server can introduce issues such as:
+1. **Slower service startup**: DNS lookups for launchers, login, and matchmaking add a few hundred milliseconds to a few seconds at the start. A faster resolver shortens that.
 
-1. **Increased Latency**: The time it takes for your device to query a DNS server and retrieve the IP address can affect your ping or latency. High latency leads to lag, making real-time actions in games less responsive.
-   
-2. **Connection Failures**: Some DNS servers may experience downtime or errors, causing delays or failures when trying to connect to gaming servers.
+2. **Connection hiccups**: Resolvers with intermittent outages or stale caches can make logins time out or send your client to a stale endpoint. ISP-default DNS is often the culprit here.
 
-3. **Poor Server Routing**: A suboptimal DNS can direct your traffic through slower routes, increasing response times between your device and the gaming server.
+3. **Suboptimal CDN steering**: Many game CDNs and matchmakers route by your resolver's IP (or via EDNS Client Subnet). A nearby, well-peered resolver can land you on a closer download mirror or matchmaking pop. This affects patch speed and login latency, not in-game ping.
 
-4. **Security Vulnerabilities**: Without proper protections, DNS servers can be vulnerable to attacks like DNS spoofing, potentially exposing your data to threats.
+4. **DNS-layer attacks**: Spoofed or poisoned responses can point a launcher at a malicious endpoint. DNSSEC-validating resolvers and encrypted DNS (DoH/DoT/DoQ) close most of that gap.
 
-On the other hand, using a fast, reliable, and gaming-optimized DNS can:
-
-- Lower latency (decrease query response times).
-- Improve connection stability by resolving server addresses consistently.
-- Add protection against malicious or spoofed domains.
-
-In practice, a good DNS can make game startup, matchmaking, updates, and voice/chat services feel more consistent.
+What DNS will not do: lower the ping you see in-game. That number is fixed by your physical route to the game server. If your in-match ping is bad, look at routing, your ISP, Wi-Fi vs. Ethernet, or the server region - not your DNS.
 
 
 ### How to Choose the Best DNS for Gaming
 
-Selecting the best DNS server for gaming involves evaluating several critical factors. Here’s a detailed guide on what to consider:
+A few things matter more than the rest.
 
-#### 1. Low Latency
-Latency is the time a packet needs to travel from your device to a server and back. In competitive games, even small delays matter, so choosing a nearby and fast DNS resolver can reduce lookup delays during login, matchmaking, and service handshakes.
+#### 1. Lookup latency from your location
+Latency is the round-trip time for a query and response. The cheapest win is picking a resolver with a point-of-presence near you. A resolver that's great in Frankfurt may be mediocre from Mumbai.
 
-- **Why It Matters**: Faster DNS responses mean quicker connections to gaming servers, reducing lag.
-- **Tip**: Use tools like **Namebench** or **DNS Jumper** to measure latency for different DNS servers.
+- **What it actually helps**: faster service handshakes during login, matchmaking, and patch starts.
+- **Tools to use in 2026**: `ping` for a quick check; {{< link href="https://www.grc.com/dns/benchmark.htm" >}}GRC DNS Benchmark{{< /link >}} on Windows (still actively maintained), {{< link href="https://github.com/mrwiora/NAMEinator" >}}NAMEinator{{< /link >}} (the maintained namebench successor), or `dnsperf` on Linux. Google's original Namebench has been archived since 2010 - skip it.
 
 ##### Steps to Test Latency Using `ping`:
 
@@ -187,9 +187,11 @@ ping 1.1.1.1
 
 ###### Tools to Automate Latency Testing
 
-For a more comprehensive comparison:
-- {{< link href="https://code.google.com/archive/p/namebench/" >}}Namebench{{< /link >}}: Tests multiple DNS servers for latency and recommends the fastest.
-- {{< link href="https://www.sordum.org/7952/dns-jumper-v2-2/" >}}DNS Jumper{{< /link >}}: Allows you to test and switch DNS servers easily.
+For a fuller benchmark across many resolvers:
+- {{< link href="https://www.grc.com/dns/benchmark.htm" >}}GRC DNS Benchmark{{< /link >}}: free Windows tool (runs under Wine on Linux/macOS) that tests dozens of resolvers and surfaces cached vs. uncached times.
+- {{< link href="https://github.com/mrwiora/NAMEinator" >}}NAMEinator{{< /link >}}: an actively maintained fork of the original namebench, runs on Windows and Linux from the CLI.
+- {{< link href="https://www.sordum.org/7952/dns-jumper-v2-2/" >}}DNS Jumper{{< /link >}}: portable Windows utility to test and switch DNS servers.
+- `dnsperf` (Linux): scripted benchmarking against arbitrary resolvers and query sets.
 
 #### 2. Reliability
 High availability and stable uptime are essential. Unreliable DNS can cause intermittent failures when games try to resolve APIs, voice services, launchers, or matchmaking endpoints.
@@ -199,7 +201,7 @@ High availability and stable uptime are essential. Unreliable DNS can cause inte
 
 
 #### 3. Security
-Security is often overlooked in the world of online gaming, but it is crucial. DNS providers offer many security features, such as blocking malicious domains, phishing protection, and encrypted DNS queries. 
+Most gamers ignore DNS-layer security, which is fine until a launcher gets pointed at a phishing endpoint. Decent public resolvers cover the basics: encrypted DNS (DoH/DoT/DoQ), DNSSEC validation, and optional blocking of known malicious domains.
 
 One of the key technologies ensuring secure DNS resolution is **DNSSEC (Domain Name System Security Extensions)**. DNSSEC protects gamers by ensuring the authenticity and integrity of DNS data. It prevents attackers from redirecting you to malicious websites through DNS spoofing or man-in-the-middle attacks. DNSSEC uses cryptographic signatures to verify that the DNS responses you receive are legitimate and haven't been tampered with. 
 
@@ -210,7 +212,7 @@ One of the key technologies ensuring secure DNS resolution is **DNSSEC (Domain N
 
 - **Why It Matters**: Prevents DNS spoofing, man-in-the-middle attacks, and other threats that could compromise your connection or gaming accounts.
 
-- **Top Picks**: DNS providers like **Quad9** and **Cloudflare DNS** prioritize security by supporting DNSSEC and providing additional features like malware and phishing protection, ensuring a safe gaming experience without sacrificing speed.
+- **Top Picks**: Quad9 validates DNSSEC and blocks known-malicious domains by default. Cloudflare 1.1.1.2 / 1.1.1.3 add malware (and optionally adult) blocking on the same fast anycast network as 1.1.1.1.
 
 #### 4. Customization Options
 Advanced users often prefer DNS services that support custom filtering, allowlists, blocklists, and profile-based settings.
@@ -234,11 +236,12 @@ Here are the best DNS servers to test for gaming performance in 2026:
 #### 1. Cloudflare DNS (1.1.1.1)
    - **Primary DNS**: 1.1.1.1
    - **Secondary DNS**: 1.0.0.1
-   - **Latency**: Very low.
-   - **Reliability**: Excellent global anycast coverage.
-   - **Features**: Privacy-focused resolver with modern encrypted DNS options.
+   - **Family variants**: 1.1.1.2 / 1.0.0.2 (malware blocking), 1.1.1.3 / 1.0.0.3 (malware + adult content)
+   - **Latency**: Very low on Cloudflare's global anycast.
+   - **Reliability**: Excellent. Cloudflare publishes status at status.cloudflare.com.
+   - **Features**: Encrypted DNS (DoH, DoT), DNSSEC validation, no logging of identifying data.
 
-   **Why it's great for gaming**: {{< link href="https://1.1.1.1/" >}}Cloudflare DNS{{< /link >}} consistently performs near the top in global DNS benchmarks and is a strong default for low-latency lookups.
+   **Why it's worth trying**: {{< link href="https://1.1.1.1/" >}}Cloudflare DNS{{< /link >}} consistently lands near the top of global DNS benchmarks and is a sensible default for low-latency lookups. If you want passive protection on a family network, swap 1.1.1.1 for 1.1.1.2 (or 1.1.1.3) - same performance, just with malware/adult filtering bolted on.
 
 #### 2. Google Public DNS (8.8.8.8)
    - **Primary DNS**: 8.8.8.8
@@ -319,7 +322,19 @@ Here are the best DNS servers to test for gaming performance in 2026:
    - **Reliability**: Very good.
    - **Features**: Public encrypted DNS service with no account required.
 
-   **Why it's great for gaming**: {{< link href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" >}}Mullvad Encrypted DNS{{< /link >}} is useful when you want encrypted DNS transport by default and optional filtering profiles.
+   **Why it's worth trying**: {{< link href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" >}}Mullvad Encrypted DNS{{< /link >}} is useful when you want encrypted DNS transport by default and optional filtering profiles.
+
+#### 11. DNS4EU (86.54.11.100)
+   - **Unfiltered**: 86.54.11.100
+   - **Protective (malware blocking)**: 86.54.11.1
+   - **Protective + ad blocking**: 86.54.11.13
+   - **Protective + child protection**: 86.54.11.12
+   - **DoH endpoint**: `https://unfiltered.joindns4.eu/dns-query`
+   - **Latency**: Low for users in Europe; less competitive outside the EU.
+   - **Reliability**: Good. Operated by a consortium led by Whalebone, funded by the EU Commission; launched June 2025.
+   - **Features**: GDPR-aligned operation, five filter variants, IPv4/IPv6, DoH/DoT.
+
+   **Why it's worth trying**: {{< link href="https://joindns4.eu/for-public" >}}DNS4EU{{< /link >}} is the newest meaningful entrant in the public resolver space. For EU-based players who'd rather keep DNS traffic on European infrastructure, it's a credible alternative to Cloudflare and Google. Outside the EU it's usually slower than the global anycast resolvers, so test before committing.
 
 ### Select the Best DNS Server Based on Latency  
 
@@ -335,35 +350,34 @@ Here’s an example of the result output after running the script:
 
 Changing your DNS is easy and can be done in just a few steps:
 
-1. **Windows**:
-   - Open the Control Panel and go to **Network and Sharing Center**.
-   - Click on **Change Adapter Settings**.
-   - Right-click on your network connection and select **Properties**.
-   - In the list of items, select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
-   - Select **Use the following DNS server addresses** and enter the DNS server addresses for your preferred DNS provider.
-   - Click **OK** to save the settings.
+1. **Windows 11 (22H2 / 23H2 / 24H2)**:
+   - Open **Settings** > **Network & internet**.
+   - Click your active connection (**Wi-Fi** or **Ethernet**), then click the adapter to open its properties.
+   - Under **DNS server assignment**, click **Edit**.
+   - Switch from **Automatic (DHCP)** to **Manual**, toggle **IPv4** on, and enter your preferred and alternate DNS addresses. Optionally set **DNS over HTTPS** to **On (automatic template)** for encrypted DNS - supported natively since Windows 11 22H2 and improved in 24H2.
+   - Click **Save**. (The old Control Panel > Network and Sharing Center path still works on Windows 11, but Microsoft is steering everything through Settings now.)
 
-2. **Mac**:
-   - Go to **System Preferences** > **Network**.
-   - Select your network connection and click **Advanced**.
-   - Go to the **DNS** tab and click the **+** button to add the DNS server addresses.
-   - Click **OK** and then **Apply** to save your settings.
+2. **macOS (Sequoia 15 / Tahoe 16)**:
+   - Open **System Settings** (not the old System Preferences) > **Network**.
+   - Select your active service (Wi-Fi or Ethernet), then click **Details...**.
+   - Choose **DNS** in the sidebar.
+   - Click **+** under **DNS Servers** and enter each address. Remove the greyed-out DHCP-pushed addresses if you want yours to take precedence.
+   - Click **OK**. macOS applies the change immediately; flush the cache with `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder` if you want it to take effect for already-resolved names.
 
-3. **Ubuntu Linux**:  
-   - Open **Settings** and go to **Network**.  
-   - Select your active network connection (Wi-Fi or Wired) and click the **gear icon** to edit it.  
-   - Go to the **IPv4 Settings** or **IPv6 Settings** tab.  
-   - Change the **DNS method** to **Automatic (Only addresses)** or **Manual**.  
-   - Enter the DNS server addresses for your preferred provider in the **DNS** field.  
-   - Click **Apply** and reconnect to the network to activate the changes.  
+3. **Ubuntu Linux (GNOME)**:
+   - Open **Settings** > **Network**.
+   - Click the gear icon next to your active Wi-Fi or wired connection.
+   - Go to the **IPv4** (or **IPv6**) tab.
+   - Turn **Automatic** off for DNS, then enter your DNS server addresses in the **DNS** field (comma-separated).
+   - Click **Apply** and toggle the connection off/on to pick up the change. On systemd-resolved systems, `resolvectl status` will confirm the active resolver.
 
-4. **Router**:  
-   - Log in to your router’s admin page (usually `192.168.1.1` or `192.168.0.1`).  
-   - Find the **DNS settings** under the **Network** or **Internet** section.  
-   - Enter the DNS addresses for your chosen DNS provider.  
-   - Save and reboot your router.  
+4. **Router (whole-home)**:
+   - Log in to your router's admin page (commonly `192.168.1.1` or `192.168.0.1`).
+   - Find DNS settings under **WAN**, **Internet**, or **DHCP** (the location varies by vendor).
+   - Enter your chosen DNS addresses, save, and reboot if the router prompts you.
+   - Heads up: some ISP-supplied routers ignore your DNS overrides or transparently redirect port 53. If your changes don't seem to take effect, test with `dig @1.1.1.1 example.com` from a client and compare to `dig example.com`.
 
 ### Conclusion
 
-Choosing the right DNS for gaming is a small change that can produce noticeable improvements in consistency. In 2026, Cloudflare, Google Public DNS, OpenDNS, Quad9, AdGuard, NextDNS, Control D, and other modern resolvers all provide strong options depending on whether you prioritize speed, privacy, security, or customization. Test a few from your location, keep the fastest stable one, and you should see smoother game service connectivity overall.
+Switching DNS will not lower your in-game ping. It can make launchers boot faster, logins less flaky, patches grab from a closer mirror, and the whole pre-game pipeline feel more consistent - which is usually what "gaming DNS" tweaks are actually solving for. In 2026, the safe defaults are Cloudflare (1.1.1.1), Google (8.8.8.8), and Quad9 (9.9.9.9) on global anycast; Control D and NextDNS if you want filtering and per-device profiles; AdGuard or Mullvad for encrypted DNS by default; and DNS4EU if you'd rather stay on EU-operated infrastructure. Benchmark two or three from your own connection, pick the fastest one that stays up, and move on - this is not a setting worth obsessing over.
 
