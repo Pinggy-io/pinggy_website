@@ -1,10 +1,11 @@
 ---
- title: "Remote Desktop for Raspberry Pi and other IoT devices" 
- description: "Quick guide to remotely access your Raspberry Pi desktop using Remote Desktop Protocol (RDP). Set up RDP server and create Pinggy TCP tunnel for remote access."
+ title: "Remote Desktop for Raspberry Pi and other IoT devices"
+ description: "How to reach your Raspberry Pi desktop from anywhere over RDP using xrdp on the Pi and a Pinggy TCP tunnel. Includes the Wayland/labwc gotcha on current Raspberry Pi OS and how to work around it."
  date: 2023-08-11T14:15:25+05:30
- draft: false 
+ lastmod: 2026-05-23T14:15:25+05:30
+ draft: false
  og_image: "images/pirdp/pirdp.webp"
- tags: ["guide", "tcp"]
+ tags: ["guide", "tcp", "raspberry pi", "rdp"]
  outputs:
   - HTML
   - AMP
@@ -12,29 +13,36 @@
 
 {{< image "pirdp/pirdp.webp" "Remote Desktop for Raspberry Pi and other IoT devices" >}}
 
-You remotely access your Raspberry Pi desktop from anywhere using _Remote Desktop Protocol_ (RDP). Even if your Pi is outside your local network, you can access it easily over the internet using Pinggy.
+RDP works on a Raspberry Pi the same way it works on Windows: install an RDP server (xrdp), connect from any RDP client. The catch is that the Pi sits behind NAT or CGNAT in nearly every realistic deployment, so the connection needs a tunnel. This post uses Pinggy as the tunnel.
+
+One thing to know up front: current Raspberry Pi OS (Bookworm, October 2023+) defaults to Wayland with the **labwc** compositor, and xrdp does not work with labwc. You'll need to switch the Pi back to X11 (one `raspi-config` setting) before xrdp will show you a desktop. Details below. If you don't want to mess with compositors at all, **Raspberry Pi Connect** is the official Pi-team alternative and works without any tunnel - there's a note on it at the end.
 
 {{% tldr %}}
 
-1. **Step 1.** Run these commands on your Raspberry Pi:
+1. **Step 1.** On the Pi, switch the session back to X11 if you're on a current Pi OS:
+   ```
+   sudo raspi-config nonint do_wayland W1
+   sudo reboot
+   ```
+2. **Step 2.** Install and start xrdp:
    ```
    sudo apt update
    sudo apt install xrdp
-   sudo systemctl start xrdp
+   sudo systemctl enable --now xrdp
    ```
-2. **Step 2.** Run this command to get a public URL to your Raspberry Pi:
+3. **Step 3.** Open a Pinggy TCP tunnel to port 3389:
 
    ```
-   ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
+   ssh -p 443 -R0:127.0.0.1:3389 tcp@free.pinggy.io
    ```
 
-   You will get a URL and port in the output such as:<br>
+   You'll get a URL and port like:<br>
    tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
-3. **Step 3.** Open _Remote Desktop Connection_ application on your Windows / _Microsoft Remote Desktop_ on Mac. Enter the URL:Port to connect.<br>
+4. **Step 4.** Open **Windows App** on macOS/iOS/Android (the September 2024 rebrand of "Microsoft Remote Desktop"), or **Remote Desktop Connection** (`mstsc.exe`) on Windows. Enter `host:port` to connect.<br>
    Example: `tljocjkijs.a.pinggy.link:40527`
 
-4. Sign in to https://dashboard.pinggy.io to get your ongoing tunnel URLs from the dashboard.
+5. Sign in to https://dashboard.pinggy.io for an access token; persistent tunnel URLs show up in the dashboard.
 
 {{% /tldr %}}
 
@@ -42,56 +50,81 @@ You remotely access your Raspberry Pi desktop from anywhere using _Remote Deskto
 
 {{< iframe src="https://www.youtube.com/embed/HvI7FJngFDw" title="YouTube video player" >}}
 
-The Remote Desktop Protocol (RDP) enables users to connect to and control Raspberry Pi or similar devices via a network connection. However, this is only possible if the device is on the local network (LAN) or has a public IP address. Often, Raspberry Pi and similar devices are located behind NAT or CGNAT, as well as firewalls, lacking a public IP address. In such situations, Pinggy.io can be employed to access your device over the internet, providing a public address without requiring software installation. Through the Pinggy TCP tunnel, you can access your RDP-enabled device over the internet, circumventing NAT and firewalls.
+Reaching a Raspberry Pi by RDP only works if you can route to it on layer 3, and in 2026 that's the harder part of the problem. Home ISPs put the Pi behind NAT; cellular and many enterprise networks put it behind CGNAT (which port forwarding can't escape). Pinggy gives you a TCP tunnel from the Pi out to a public hostname, so the RDP client connects to that hostname instead of trying to find the Pi directly.
 
-The above video shows you the steps. Below is an outline of how to remotely access your Raspberry Pi like device from anywhere over the internet.
+The video above walks through it. The steps below give the same flow with the gotchas spelled out.
 
-## Step 1. Install RDP server
+## Step 1. Switch the Pi back to X11 (current Pi OS only)
 
-On your device install an RDP server such as _xrdp_. On your Raspberry Pi, you can install xrdp using the following commands in the terminal:
+xrdp doesn't work with **labwc**, the Wayland compositor that became the default in Raspberry Pi OS Bookworm (and the only supported Wayland compositor since the Pi team dropped Wayfire). On a current Raspberry Pi OS install, opening an RDP session will give you a black or empty screen until you switch to X11.
+
+```bash
+sudo raspi-config nonint do_wayland W1
+sudo reboot
+```
+
+`W1` is the X11 option; you can verify in the GUI under **Raspberry Pi Configuration > Display > Wayland**. If you're running an older Pi OS that still defaults to X11, or you're on a non-Pi IoT device, skip this step.
+
+## Step 2. Install the RDP server
+
+On the Pi (or any Debian-based IoT device), install `xrdp` and enable it as a service:
 
 ```bash
 sudo apt update
 sudo apt install xrdp
-sudo systemctl start xrdp
+sudo systemctl enable --now xrdp
 ```
 
-## Step 2. Start Pinggy TCP tunnel
+`enable --now` both starts the service and sets it to come up on boot. Verify it's listening with `ss -tlnp | grep 3389`.
 
-To get a public URL to access your Raspberry Pi over the internet bypassing NAT and firewall, you need to start a Pinggy tunnel. Just copy and paste the following command to start a tunnel.
+## Step 3. Start a Pinggy TCP tunnel
+
+To expose port 3389 over the public internet, start a Pinggy TCP tunnel from the Pi:
 
 ```
-ssh -p 443 -R0:localhost:3389 tcp@a.pinggy.io
+ssh -p 443 -R0:127.0.0.1:3389 tcp@free.pinggy.io
 ```
 
 {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to the RDP server:" portstring="RDP server Port" localport="3389" webdebugenabled=false keepalive=true tryYourselfText="You can customize the command here:" >}}
 {{< /pinggytunnel >}}
 
-## Step 3. Obtain the Public URL
+## Step 4. Note the public URL
 
-After running the tunneling command, you will receive a public URL in the following format:
+Once the SSH tunnel is up you'll see a URL like:
+
 tcp://<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>:<span style="background: #e9ecff">40527</span>
 
-Make note of this URL (<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>) and port (<span style="background: #e9ecff">40527</span>) as they will be used to establish an RDP connection to your Raspberry Pi or other IoT device.
+The hostname (<span style="background: #fff0f0">tljocjkijs.a.pinggy.link</span>) and port (<span style="background: #e9ecff">40527</span>) are what you'll feed to the RDP client.
 
-To avoid copying the URL, you can sign in to https://dashboard.pinggy.io to get an access token. When you start a tunnel using your access token, you can find ongoing tunnel URLs from the dashboard.
+If you'd rather not copy the URL each time, sign in to https://dashboard.pinggy.io for an access token. Tunnels started with that token show up in the dashboard with a persistent name.
 
 {{< image "iot/url.webp"  "Ongoing tunnel URLs" >}}
 
-## Step 4. Connect to remote desktop
+## Step 5. Connect from the RDP client
 
-Open _Remote Desktop Connection_ application on your Windows / _Microsoft Remote Desktop_ on Mac. Enter the URL:Port to connect.
+On Windows, use **Remote Desktop Connection** (`mstsc.exe`, still bundled). On macOS, iOS, iPadOS, Android, ChromeOS, and the web, the client is now **Windows App** - Microsoft renamed the old "Microsoft Remote Desktop" app to Windows App across all non-Windows platforms in September 2024. Same client under the hood.
+
+Enter `hostname:port` (e.g. `tljocjkijs.a.pinggy.link:40527`) as the PC name, then the Pi user credentials.
 
 {{< image "pirdp/rdp.webp" "Remote Desktop Connection" >}}
 
 ## Tips
 
-Pinggy free tunnels expire after 60 minutes, and the URLs change after reconnection. To avoid this, sign in to https://dashboard.pinggy.io and get an access token. Then run the tunnel in auto-reconnection mode.
+**Free tunnels expire after 60 minutes** and the URL changes on reconnect. For a setup you can leave running, get an access token from https://dashboard.pinggy.io and run the tunnel in auto-reconnect mode:
 
 ```bash
 while true; do
-    ssh -p 443 -o ServerAliveInterval=30 -R0:localhost:3389 tcp@a.pinggy.io;
-sleep 10; done
+    ssh -p 443 -o ServerAliveInterval=30 -R0:127.0.0.1:3389 tcp@free.pinggy.io;
+    sleep 10;
+done
 ```
 
-From the Pinggy dashboard you will be able to see the list of your active tunnels.
+The Pinggy dashboard lists all active tunnels for the account, so you can see the current URL without scraping it from the SSH output.
+
+**Lock the Pi user before exposing RDP to the public internet.** A Pinggy URL is reachable by anyone on the internet who knows it, and xrdp authenticates against the Pi's PAM stack, which means the default `pi` user is a brute-force target. At minimum, set a long password and disable the `pi` user if you don't use it. For anything beyond a quick test, layer the tunnel inside a VPN or zero-trust mesh (Tailscale, Twingate, Cloudflare Access).
+
+## Alternative: Raspberry Pi Connect
+
+If the xrdp + Wayland dance is more friction than you want, **{{< link href="https://www.raspberrypi.com/software/connect/" >}}Raspberry Pi Connect{{< /link >}}** is the Pi team's own remote-access tool, launched in 2024. It uses WebRTC instead of RDP, runs through any browser, traverses NAT and CGNAT without a tunnel, and works on Wayland out of the box (no compositor switch needed). It's free for individual makers. The 2026 release added remote OTA updates so you can patch a Pi without opening an interactive session.
+
+For an RDP workflow that integrates with existing Windows tooling, xrdp + Pinggy is still the right answer. For "I just need a screen to my Pi," Connect is now the path of least resistance.
