@@ -1,4 +1,13 @@
 {{ define "main" }}
+{{/* Posts always come from the /blog section. This template renders both
+     /blog/ (default, recently updated or new first, by lastmod) and
+     /blog/new/ (newest first, by publish date). The "new" page sets
+     `sort: new` in its front matter. */}}
+{{ $blog := .Site.GetPage "/blog" }}
+{{ $newPage := .Site.GetPage "/blog/new" }}
+{{ $isNew := eq .Params.sort "new" }}
+{{ $posts := $blog.RegularPages }}
+{{ $posts = cond $isNew ($posts.ByDate.Reverse) ($posts.ByLastmod.Reverse) }}
 <main>
   <div
     class="row justify-content-center"
@@ -11,39 +20,87 @@
       <hr />
       <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
       {{.Content}}
-      <ul class="m-0 p-0">
-        <!-- orders content according to the "date" field in front matter -->
-        {{ range .Paginator.Pages.ByDate.Reverse }}
-        <article>
-          <!-- this <div> includes the title summary -->
-          <div>
-            <a
-              href="{{ .RelPermalink }}"
-              class="text-decoration-none text-dark"
-            >
-              <h1 class="h2">{{ .Title }}</h1>
-            </a>
-            <div class="d-flex flex-row">
-              <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time><br />
-              <div class="ms-2">
-                {{ range (.GetTerms "tags") }}
-                <span class="badge bg-secondary">{{ .LinkTitle }}</span>
-                {{ end }}
-              </div>
-            </div>
-            <div class="my-2">{{ .Summary }}</div>
-          </div>
-          {{ if .Truncated }}
-          <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-          <div>
-            <a href="{{ .RelPermalink }}" class="text-dark">Read More…</a>
-          </div>
+
+      <!-- Sort toggle. Each option is a real URL: /blog/ (recently updated
+           or new) and /blog/new/ (newest by publish date). -->
+      <div
+        class="blog-sort-row d-flex align-items-center justify-content-between flex-wrap"
+      >
+        <span class="blog-sort-label">Sort by</span>
+        <div
+          class="blog-sort"
+          role="group"
+          aria-label="Sort posts"
+          data-active="{{ cond $isNew "new" "updated" }}"
+        >
+          <span class="blog-sort__thumb" aria-hidden="true"></span>
+          <a
+            href="{{ with $blog }}{{ .RelPermalink }}{{ else }}/blog/{{ end }}"
+            class="blog-sort__btn{{ if not $isNew }} is-active{{ end }}"
+            {{ if not $isNew }}aria-current="page"{{ end }}
+            >Recently updated</a
+          >
+          <a
+            href="{{ with $newPage }}{{ .RelPermalink }}{{ else }}/blog/new/{{ end }}"
+            class="blog-sort__btn{{ if $isNew }} is-active{{ end }}"
+            {{ if $isNew }}aria-current="page"{{ end }}
+            >Newest</a
+          >
+        </div>
+      </div>
+
+      <div id="bloglist">
+        {{ range $posts }}
+        {{/* Thumbnail: og_image is the source. Asset paths (images/...) are
+             resized through the pipeline; absolute static paths (/assets/...,
+             /blog_img/...) are used as-is. Posts with no image get a
+             placeholder so every card keeps the same shape. */}}
+        {{ $thumb := "" }}
+        {{ with .Params.og_image }}
+          {{ $res := resources.Get . }}
+          {{ if $res }}
+            {{ $thumb = ($res.Fill "320x200 webp q80").RelPermalink }}
+          {{ else }}
+            {{ $thumb = . | relURL }}
           {{ end }}
-        </article>
-        <hr />
         {{ end }}
-      </ul>
-      {{ template "_internal/pagination.html" . }}
+        <article class="blog-card">
+          <a
+            href="{{ .RelPermalink }}"
+            class="blog-card__media"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            {{ with $thumb }}
+            <img
+              src="{{ . }}"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="180"
+              height="120"
+            />
+            {{ else }}
+            <span class="blog-card__placeholder"
+              ><i class="bi bi-link-45deg"></i
+            ></span>
+            {{ end }}
+          </a>
+          <div class="blog-card__body">
+            <a href="{{ .RelPermalink }}" class="blog-card__titlelink">
+              <h2 class="blog-card__title">{{ .Title }}</h2>
+            </a>
+            <div class="blog-card__meta">
+              <time>{{ if $isNew }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ else if .Lastmod.After .Date }}Updated {{ .Lastmod.Format "Mon, Jan 2, 2006" }}{{ else }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
+              {{ range first 3 (.GetTerms "tags") }}
+              <span class="blog-card__tag">{{ .LinkTitle }}</span>
+              {{ end }}
+            </div>
+            <p class="blog-card__excerpt">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+          </div>
+        </article>
+        {{ end }}
+      </div>
     </div>
   </div>
 </main>
