@@ -187,6 +187,14 @@ pre,
 samp,
 .font-mono {
   font-family: var(--font-mono);
+  /* Disable ligatures on all code, inline and block. Ligature fonts
+     (Geist Mono, JetBrains Mono) fuse sequences like <->, <--, and
+     --> into single arrow glyphs whose left edge overhangs the
+     previous character, so `client <-> pinggy` looks like the arrow
+     is touching the word, and ASCII diagrams lose their alignment.
+     Rendering code literally avoids both. */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
 }
 
 /* ---- Links ----------------------------------------------- */
