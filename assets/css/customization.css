@@ -187,6 +187,220 @@ pre,
 samp,
 .font-mono {
   font-family: var(--font-mono);
+  /* Disable ligatures on all code, inline and block. Ligature fonts
+     (Geist Mono, JetBrains Mono) fuse sequences like <->, <--, and
+     --> into single arrow glyphs whose left edge overhangs the
+     previous character, so `client <-> pinggy` looks like the arrow
+     is touching the word, and ASCII diagrams lose their alignment.
+     Rendering code literally avoids both. */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+}
+
+/* ---- Blog list: sort toggle + cards ---------------------- */
+.blog-sort-row {
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.blog-sort-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-500);
+}
+
+/* Segmented control. Calm neutral track with a white sliding thumb
+   marking the active option; color stays reserved for action, so the
+   selection reads through the thumb and text weight, not an accent
+   fill. Thumb follows the toggle-switch spec (white + --shadow-xs). */
+.blog-sort {
+  position: relative;
+  display: inline-flex;
+  padding: 3px;
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-pill);
+}
+
+.blog-sort__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.blog-sort[data-active="new"] .blog-sort__thumb {
+  transform: translateX(100%);
+}
+
+.blog-sort__btn {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 0;
+  border: none;
+  background: transparent;
+  color: var(--ink-500);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.blog-sort__btn:hover {
+  text-decoration: none;
+}
+
+.blog-sort__btn:hover:not(.is-active) {
+  color: var(--ink-700);
+}
+
+.blog-sort__btn.is-active {
+  color: var(--ink-900);
+}
+
+.blog-sort__btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.blog-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--ink-200);
+}
+
+.blog-card:last-child {
+  border-bottom: none;
+}
+
+/* Thumbnail / placeholder: every card keeps the same media box so the
+   list stays even whether or not a post has an image. */
+.blog-card__media {
+  flex: 0 0 auto;
+  display: block;
+  width: 180px;
+  height: 120px;
+  overflow: hidden;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-lg);
+  background: var(--ink-100);
+}
+
+.blog-card__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.blog-card__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--ink-300);
+  font-size: 32px;
+}
+
+.blog-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Title: capped at two lines so long headlines do not tower over the
+   thumbnail. */
+.blog-card__titlelink {
+  text-decoration: none;
+}
+
+.blog-card__title {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.blog-card__titlelink:hover .blog-card__title {
+  color: var(--brand-700);
+}
+
+.blog-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.8125rem;
+  color: var(--ink-500);
+}
+
+.blog-card__tag {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--ink-100);
+  color: var(--ink-700);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Excerpt: two lines, so every card is the same height and the text
+   block lines up with the thumbnail. */
+.blog-card__excerpt {
+  margin: 0;
+  color: var(--ink-500);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+@media (max-width: 575.98px) {
+  .blog-card {
+    gap: 14px;
+  }
+  .blog-card__media {
+    width: 116px;
+    height: 88px;
+    border-radius: var(--radius-md);
+  }
+  .blog-card__title {
+    font-size: 1.0625rem;
+  }
+  .blog-card__excerpt {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-sort__thumb {
+    transition: none;
+  }
 }
 
 /* ---- Links ----------------------------------------------- */

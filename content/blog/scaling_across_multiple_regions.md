@@ -1,8 +1,8 @@
 ---
  title: "Scaling across Multiple Regions" 
- description: "Explore how Pinggy scales across multiple regions to provide faster and more reliable tunnels. Learn about DNS management challenges and PowerDNS integration."
+ description: "How Pinggy serves tunnels from three regions: the core/edge split, self-hosted PowerDNS on Postgres with WAL streaming replication, and why anycast is still hard."
  date: 2023-09-08T14:15:25+05:30
- lastmod: 2023-09-08T14:15:25+05:30
+ lastmod: 2026-05-25T14:15:25+05:30
  draft: false
  og_image: "images/scaling_across_multiple_regions/end_to_end_flow.webp"
  tags: ["engineering", "update"]
@@ -13,7 +13,9 @@
 
 A user from South Korea brought to our attention that Pinggy works great for them, but it is **slow**. The answer to _"why"_ was obvious to us. Pinggy was hosting its servers in the USA, specifically in Ohio. One key goal of Pinggy is to provide not only tunnels but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the region nearest to where the user is creating the tunnel from (as the default behavior).
 
-Today, Pinggy is hosted across three regions: US, Europe, and Asia.
+Today, Pinggy is hosted across five regions: US, Europe, and Asia, Australia, and South America.
+
+Running servers in three (now five) regions is the easy part. The hard part is DNS. The moment a tunnel comes up in, say, Frankfurt, its domain has to point at the Frankfurt edge, and it has to do so fast enough that the very first visitor does not get a stale record from a minute ago or, worse, no record at all. That single requirement is what pushed us off a managed DNS provider and onto our own PowerDNS fleet. Most of this post is about that.
 
 To scale across multiple regions, we did the following:
 
@@ -36,7 +38,33 @@ This is followed by the response travelling the path `client -> pinggy -> visito
 
 Therefore, the entire journey is: `visitor -> pinggy -> client -> pinggy -> visitor`.
 
-One can already imagine the latency if both the _client_ and the _visitor_ are in South Korea while the Pinggy server is in USA. The round trip time (RTT) can be as high as 500 ms from the visitor to the client (see the diagram below).
+One can already imagine the latency if both the _client_ and the _visitor_ are in South Korea while the Pinggy server is in USA. The round trip time (RTT) can be as high as 500 ms from the visitor to the client.
+
+Here is the shape of the problem. Both the visitor and the client sit in Seoul, but the only Pinggy server is in Ohio:
+
+```
+   Both ends in Seoul. The only Pinggy server is in Ohio.
+
+       visitor (Seoul)                        client (Seoul)
+              \                                     /
+               \  ~90 ms one way          ~90 ms   /
+                \                                  /
+                 +---------> pinggy (Ohio) <------+
+                          ~6,500 miles each way
+
+   A request travels Seoul -> Ohio -> Seoul. The response then
+   travels Seoul -> Ohio -> Seoul again. Four Pacific crossings
+   for one round trip, and none of it makes the two machines in
+   Seoul any closer to each other.
+```
+
+For reference, rough round-trip times between the regions we care about:
+
+```
+   US-east  <->  EU-west          ~80 ms
+   US-east  <->  Asia-Pacific     ~150-180 ms
+   EU-west  <->  Asia-Pacific     ~230-260 ms
+```
 
 {{< image "scaling_across_multiple_regions/latency_map.webp" "Latency map" >}}
 
@@ -55,6 +83,19 @@ Multiple instances of the _edges_ are then deployed in multiple regions, all con
 As a result, the latency for creating a tunnel stays more or less the same, since when a client initiates a tunnel creation process, the requests flow through as follows: `client -> edge -> core`, instead of `client -> core` like before. Here the _edge_ is located very close to the user initiating the tunnel, and we can assume that they are practically co-located.
 
 Once the tunnel is live, the visitor traffic flows in a much more efficient path: `visitor -> edge -> client -> edge -> visitor`.
+
+The two phases use completely different paths:
+
+```
+   Tunnel setup (once per tunnel, touches the database):
+
+     client  -->  edge  -->  core  -->  database
+              ssh req     API call     read + write
+
+   Tunnel live (every visitor request, database not in the path):
+
+     visitor  <-->  edge  <-->  client
+```
 
 {{< image "scaling_across_multiple_regions/core_edge_map.webp" "Core and edge map" >}}
 
@@ -118,9 +159,58 @@ Fast updation of DNS records is an essential requirement for reliable Pinggy tun
 
 PowerDNS authoritative server allows us to manage our DNS zone. We are able to update records immediately and more importantly synchronously before the tunnel creation process is complete. We also set low TTLs as and when required. As a result, when the tunnel creation process is complete, the authoritative server already has all the records in place.
 
-Over the past couple of months, our PowerDNS instances have been working very well. Updates are fast, and we can also keep the SOA record TTL low. Notably, PowerDNS is very efficient and consumes very low memory and CPU resources.
+Today we run three PowerDNS instances, each backed by its own PostgreSQL database. The primary database lives in the USA next to the core and is the only one that takes writes. The databases behind the other two instances are read-only replicas, kept in sync through Postgres streaming replication (WAL streaming). When the core creates or updates a record during tunnel setup, it writes to the primary in the USA, and the two replicas catch up from the WAL stream. A visitor's DNS query is then answered by whichever instance is closest to them.
 
-However, one major problem we faced was no simple or reliable way of latency-aware routing. For that we had to again use Route 53 separately.
+The topology looks like this:
+
+```
+                        record writes (create / update)
+      core (US) ---------------------------+
+                                           v
+                                 +--------------------+
+                                 |  PowerDNS primary  |
+                                 |    Postgres (US)   |  <- only writer
+                                 +---------+----------+
+                                           |
+                         WAL stream (compressed), read-only
+                      +--------------------+--------------------+
+                      v                                         v
+            +--------------------+                   +--------------------+
+            |  PowerDNS replica  |                   |  PowerDNS replica  |
+            |    Postgres (EU)   |                   |    Postgres (AP)   |
+            +--------------------+                   +--------------------+
+                      ^                                         ^
+                      | DNS query                               | DNS query
+                 visitor (EU)                              visitor (AP)
+```
+
+We picked the Postgres backend over PowerDNS's zonefile mode on purpose. Records change constantly, a pair coming and going with every tunnel, and a relational store with real replication is far easier to reason about than shipping zone files around. PowerDNS reads straight from its local database, so a query served in Singapore never has to cross an ocean to get answered.
+
+### The lag race
+
+There is a subtle race hiding in that diagram. Writes go to the US primary, but reads are served from the nearest replica. Picture a client in Singapore: it sets up a tunnel through the Asia edge, the core writes the record to the primary in the US, and a moment later a visitor (also in Asia) looks the domain up against the Asia replica. If the WAL has not arrived yet, that first lookup misses.
+
+So the real constraint is not just "write the record before returning the URL." It is "get the record onto the replica the next visitor will hit, before they hit it." We attack this from two sides:
+
+- **WAL compression** on the primary. It cuts the volume shipped to the replicas, which keeps lag low without saturating the cross-region link. Fewer bytes on the wire means the Asia replica sees the change sooner.
+- **Batching record updates per zone** in the API. A single client action often touches several records in the same zone, so we group those writes into one transaction instead of firing one request per record. Fewer, larger transactions mean less WAL churn and fewer round trips to the database.
+
+And because a miss can still happen on a cold cache, we keep TTLs low, including the SOA negative-caching TTL, so a resolver that gets an early miss retries in seconds rather than caching the failure for minutes. Low TTLs cost us extra queries, but PowerDNS serves those cheaply and the reliability is worth it.
+
+### Splitting free and pro tunnels into separate zones
+
+We also keep **separate DNS zones for free and pro tunnels**. This one is not about latency, it is about reputation.
+
+```
+   free tunnels  -->  free zone   (high churn, the occasional abuser)
+   pro tunnels   -->  pro  zone   (kept clean, guarded reputation)
+```
+
+Free tunnels see a lot of throwaway traffic, and a small fraction of it gets used for phishing pages, malware drops, and other things that land on blocklists. When all of that shares one parent domain with paying customers, a single bad actor can get the whole domain flagged by a safe-browsing list or an email reputation service, and suddenly a legitimate pro tunnel is throwing browser warnings through no fault of its own. Splitting the zones contains the blast radius: abuse on the free zone stays on the free zone, and we can apply different policies, rate limits, and takedown response per zone.
+
+Over the past couple of years this setup has held up well. Updates are fast, the TTLs stay low, and PowerDNS itself is light on memory and CPU. We barely think about the DNS layer day to day, which is exactly what you want from it.
+
+However, one problem we have not fully solved is latency-aware routing for the client side. For that we still lean on Route 53 separately.
 
 ## Latency aware routing
 
@@ -135,6 +225,24 @@ For a client connecting from New York, the DNS resolution is:
 The same for a client from Japan is:
 <br>
 `a.pinggy.io --CNAME--> ap.a.pinggy.io`
+
+### The anycast question
+
+Route 53 latency records work, but they keep us dependent on a hosted DNS provider we would rather lean on less. The cleaner answer is anycast: announce the same IP from every region and let BGP route each client to the closest edge, with no latency lookup in the path.
+
+```
+   Today (unicast IPs + DNS latency routing):
+
+     client --> a.pinggy.io --(Route 53 picks region)--> nearest edge IP
+                one name, three different A records
+
+   With anycast (one IP, announced from every region):
+
+     client --> 203.0.113.1 --(BGP picks the nearest)--> nearest edge
+                same IP everywhere, no per-region DNS record
+```
+
+We have been chipping away at this and it is still hard. Anycast needs our own address space and BGP sessions with transit providers in each region. The routing is only as good as the upstream peering, and the path with the fewest AS hops is not always the lowest latency, so "nearest" by BGP can still be the wrong edge. Worst of all, an SSH tunnel is a long-lived TCP connection, and anycast makes no promise that every packet in a flow lands on the same node. A routing change mid-session can quietly move our packets to a different edge that has never heard of the connection, and the tunnel drops. Stateless request/response services tolerate this fine; a stateful TCP tunnel does not. So for now Route 53 latency routing stays, and anycast is still on the list.
 
 {{< image "scaling_across_multiple_regions/end_to_end_flow.webp" "End-to-end flow" >}}
 
@@ -151,6 +259,38 @@ The following end-to-end flow will help one to understand how the Pinggy _edge_,
 7. A visitor trying to access `androidblog.a.pinggy.io` resolves the domain name from our PowerDNS servers. PowerDNS responds with `ap.a.pinggy.io`.
 8. The visitor to client tunnel thus works as follows: `visitor <-> edge (Asia) <-> client`.
 
-## Conclusion
+As a sequence, with the client and the visitor both in Asia:
 
-We are still in our early stages of scaling Pinggy. Our first priority is always reliability, followed by performance. Therefore, we are focusing on improving the availability by having multiple instances and automatic failovers. Failovers for web applications are much simpler since it means routing HTTP requests to a different location. But if a pinggy _edge_ stops, the tunnel disconnects. Transferring a live SSH tunnel to a different server is a challenging and open research question. We leave that for the future. For now, we are focusing on trying to make the edges as resilient as possible.
+```
+  client       edge(AP)      core(US)      PowerDNS     visitor(AP)
+    |             |             |             |              |
+    | resolve a.pinggy.io via Route 53 -> ap.a.pinggy.io     |
+    |--ssh req -->|             |             |              |
+    |             |--auth/val-->|             |              |
+    |             |             |--write rec->|              |
+    |             |             |   (US primary, WAL -> AP)  |
+    |             |<--tunnel ok-|             |              |
+    |<--your URL--|             |             |              |
+    |             |             |             |<--resolve----|
+    |             |             |             |--ap.a...---->|
+    |             |<==== visitor <-> edge(AP) <-> client ====|
+```
+
+## A few things that took time to get right
+
+None of this worked on the first try. The pieces that cost us the most:
+
+- **Negative caching is sticky.** When a visitor hits a tunnel a beat too early and gets a miss, a recursive resolver can cache that NXDOMAIN for the SOA negative-caching TTL and keep returning it even after the record exists. Getting the SOA minimum TTL low mattered as much as getting the record TTLs low.
+- **Some resolvers ignore low TTLs.** A handful of public resolvers clamp TTLs to a floor of their own (often 30 to 60 seconds), so our 10-second TTL becomes their 30. There is no fix for this from our side. We just had to accept that a small fraction of visitors see slightly stale routing, and design the reconnect flow so it is not catastrophic when they do.
+- **Two DNS systems, two mental models.** Route 53 handles client-side latency routing and PowerDNS handles tunnel records. They fail differently, propagate differently, and are debugged with different tools. Keeping the boundary sharp (Route 53 decides which edge you connect to, PowerDNS decides where a tunnel lives) saved us a lot of confused on-call moments.
+- **Replication lag is invisible until it is not.** Lag sits at a few milliseconds for months and then a cross-region link hiccups and it spikes. We alert on replica lag directly rather than waiting for the symptom, because by the time visitor misses show up, users are already seeing broken tunnels.
+
+## What is next
+
+We are still early in scaling Pinggy, and the priority order has not changed: reliability first, performance second. A few things are on the bench:
+
+- **Anycast**, as above, to drop the Route 53 dependency for client routing and shave the DNS round trip out of tunnel setup.
+- **Failover for live tunnels.** Failover is easy for stateless web apps; you reroute HTTP requests and move on. It is hard for us, because an edge going down means every SSH tunnel pinned to it drops. Handing a live SSH tunnel off to another edge without the client noticing is an open problem, and we are not going to pretend we have solved it. For now we focus on making the edges themselves resilient and the reconnect fast.
+- **More regions**, which mostly means more replicas and more careful attention to the lag race above.
+
+If you run tunnels through Pinggy from far-flung places and see latency or reconnect behavior that surprises you, we would genuinely like to hear about it. The South Korea report that kicked all of this off was one email.

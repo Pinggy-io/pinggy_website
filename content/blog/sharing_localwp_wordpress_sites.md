@@ -4,7 +4,7 @@ description: "Easily share your Local WordPress sites online with Pinggy. Guide 
 date: 2024-11-01T10:00:00+05:30
 draft: false
 tags: ["WordPress", "Pinggy", "LocalWP", "guide", "tunneling", "remote access"]
-og_image: "/blog_img/wordpress_pinggy/share_wordpress_online.webp"
+og_image: "images/sharing_localwp_wordpress_sites/thumbnail.webp"
 outputs:
   - HTML
   - AMP

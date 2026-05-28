@@ -1,5 +1,6 @@
 .DS_Store
 public/**
+resources/
 .vscode
 unwanted_images
 .claude
