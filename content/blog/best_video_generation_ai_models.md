@@ -2,7 +2,7 @@
 title: "Best Video Generation AI Models in 2026"
 description: "Discover the best AI video generation models in 2026. Compare Google Veo 3.1, Runway Gen-4.5, Kling 2.6, Luma Ray3, Pika 2.5, and open-source options like Wan2.2 and LTX-2 for creating professional AI-generated videos."
 date: 2026-01-21T10:00:00+05:30
-lastmod: 2026-05-23T14:15:25+05:30
+lastmod: 2026-05-28T14:15:25+05:30
 draft: false
 og_image: "images/best_video_generation_ai_models/ai_video_generation_banner.webp"
 tags: ["AI video generation", "text-to-video", "Veo", "Runway", "generative AI", "video AI"]
@@ -372,6 +372,30 @@ A few models that don't compete head-on with the list above but solve adjacent p
 **{{< link href="https://www.d-id.com" >}}D-ID{{< /link >}}** - Digital humans and real-time streaming avatars. Strong API support; common pick for customer-service and interactive web apps.
 
 **OpenAI Sora 2 (deprecated)** - Sora 2 launched September 30, 2025 and was the best-in-class physics model at launch (gymnastics routines, paddleboard backflips, the famous cat-on-a-triple-axel demo). On April 26, 2026 OpenAI deprecated the Sora product. The Sora 2 models and Videos API are scheduled to shut down on September 24, 2026. If you have a Sora 2 pipeline today, you have ~4 months to migrate. Sora's residual influence pushed every lab to take physics seriously, but it's no longer an option to build on.
+
+### Invideo's AI Models
+
+Invideo's AI is becoming one of the most popular platforms for AI video creation because it combines several powerful AI tools and all available video models in one place. Instead of using separate apps for scripting, editing, voiceovers, and video generation, users can do everything directly inside invideo. The platform supports <a href="https://invideo.io/ai-models/" target="_blank">advanced AI models</a> like Kling, Veo, Runway, and Seedance, making it easier to create cinematic videos, social media reels, ads, and marketing content within minutes.
+
+{{< image "best_video_generation_ai_models/invideo.png" "Invideo provides all leading video gen models." >}}
+
+
+What makes invideo stand out is its beginner-friendly interface and fast workflow. Even users with no editing experience can generate professional-looking videos simply by entering a text prompt. The platform also includes AI voices, music generation, stock media, and smart editing features that save time during production. With access to hundreds of AI-powered tools and creative assets, invideo is a great choice for creators, filmmakers, marketers, businesses, and agencies looking to scale content creation quickly and efficiently.
+
+**Key Features**
+
+- Access to 200+ AI models, including Kling, Veo, Seedance, and Runway
+- AI video generation from a single text prompt
+- Built-in AI voiceovers, music, and sound generation
+- AI-powered video editing and automation workflows
+- Support for cinematic, social media, and marketing videos
+- Team collaboration and shared project workflows
+- Credit-based system for flexible AI model usage across tools
+
+**Invideo AI Models pricing**
+
+- Pricing is credit-based, meaning different AI models consume different numbers of credits depending on complexity, resolution, duration, and audio generation. 
+
 
 ### How to integrate AI video into a workflow
 
