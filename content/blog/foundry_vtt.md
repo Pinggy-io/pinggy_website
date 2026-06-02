@@ -5,7 +5,7 @@ date: 2025-04-08T14:00:00+05:30
 draft: false
 tags: ["Foundry VTT", "Pinggy", "Self-hosting", "Gaming", "Remote Hosting"]
 og_image: "images/foundry_vtt/banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlF1aWNrbHkgU2VsZi1Ib3N0IEZvdW5kcnkgVlRUIHdpdGggUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGVhc2lseSBob3N0aW5nIHlvdXIgRm91bmRyeSBWVFQgc2Vzc2lvbnMgb25saW5lIHVzaW5nIFBpbmdneSwgd2l0aCBubyBzb2Z0d2FyZSBpbnN0YWxsYXRpb24gb3IgY29tcGxleCBuZXR3b3JrIGNvbmZpZ3VyYXRpb24gcmVxdWlyZWQuIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkxhdW5jaCB5b3VyIEZvdW5kcnkgVmlydHVhbCBUYWJsZXRvcCBhcHBsaWNhdGlvbiBsb2NhbGx5IG9uIHlvdXIgY29tcHV0ZXIgYW5kIGVuc3VyZSBpdCBpcyBydW5uaW5nIG9uIDxwb3J0PiBFZy4zMDAwMCAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlZlcmlmeSBGb3VuZHJ5IFZUVCBpcyBydW5uaW5nIGJ5IG9wZW5pbmcgeW91ciBicm93c2VyIGF0IGh0dHA6Ly9sb2NhbGhvc3Q6MzAwMDAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIHNlY3VyZSBwdWJsaWMgVVJMIHVzaW5nIFBpbmdneSBieSBleGVjdXRpbmcgdGhlIGNvbW1hbmQ6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDozMDAwMCBhLnBpbmdneS5pby4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29weSB0aGUgcHVibGljIFVSTCBodHRwczovL2FiYzEyM3h5ei5hLnBpbmdneS5saW5rIGdlbmVyYXRlZCBieSBQaW5nZ3kgYW5kIHNoYXJlIGl0IHdpdGggeW91ciBwbGF5ZXJzIHRvIGpvaW4geW91ciBGb3VuZHJ5IFZUVCBnYW1lLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlF1aWNrbHkgU2VsZi1Ib3N0IEZvdW5kcnkgVlRUIHdpdGggUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGVhc2lseSBob3N0aW5nIHlvdXIgRm91bmRyeSBWVFQgc2Vzc2lvbnMgb25saW5lIHVzaW5nIFBpbmdneSwgd2l0aCBubyBzb2Z0d2FyZSBpbnN0YWxsYXRpb24gb3IgY29tcGxleCBuZXR3b3JrIGNvbmZpZ3VyYXRpb24gcmVxdWlyZWQuIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkxhdW5jaCB5b3VyIEZvdW5kcnkgVmlydHVhbCBUYWJsZXRvcCBhcHBsaWNhdGlvbiBsb2NhbGx5IG9uIHlvdXIgY29tcHV0ZXIgYW5kIGVuc3VyZSBpdCBpcyBydW5uaW5nIG9uIDxwb3J0PiBFZy4zMDAwMCAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlZlcmlmeSBGb3VuZHJ5IFZUVCBpcyBydW5uaW5nIGJ5IG9wZW5pbmcgeW91ciBicm93c2VyIGF0IGh0dHA6Ly9sb2NhbGhvc3Q6MzAwMDAuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIHNlY3VyZSBwdWJsaWMgVVJMIHVzaW5nIFBpbmdneSBieSBleGVjdXRpbmcgdGhlIGNvbW1hbmQ6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDozMDAwMCBmcmVlLnBpbmdneS5pby4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29weSB0aGUgcHVibGljIFVSTCBodHRwczovL2FiYzEyM3h5ei5hLnBpbmdneS5saW5rIGdlbmVyYXRlZCBieSBQaW5nZ3kgYW5kIHNoYXJlIGl0IHdpdGggeW91ciBwbGF5ZXJzIHRvIGpvaW4geW91ciBGb3VuZHJ5IFZUVCBnYW1lLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -32,7 +32,7 @@ In this comprehensive guide, I’ll provide detailed steps on how to effortlessl
 2. **Create a Tunnel with Pinggy**
    - Start the Pinggy SSH tunnel (no software installation required):
      ```bash
-     ssh -p 443 -R0:localhost:30000 a.pinggy.io
+     ssh -p 443 -R0:localhost:30000 free.pinggy.io
      ```
    - Share the provided public URL `https://abc123xyz.a.pinggy.link` from [Pinggy](https://pinggy.io) with your players to instantly connect to your Foundry session.
 {{% /tldr %}}
@@ -77,7 +77,7 @@ Next, you’ll create a public tunnel to your local Foundry VTT instance using P
 
 Open your terminal (macOS/Linux) or PowerShell (Windows) and run:
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:30000 a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:30000 free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
@@ -87,7 +87,7 @@ Open your terminal (macOS/Linux) or PowerShell (Windows) and run:
 
 - `-p 443`: Uses port 443 for SSH, ensuring compatibility through most firewalls.
 - `-R0:localhost:30000`: Requests Pinggy to forward connections from a random public URL to your local port `30000`.
-- `a.pinggy.io`: Connects to Pinggy's tunneling server.
+- `free.pinggy.io`: Connects to Pinggy's tunneling server.
 
 #### Example Output:
 
@@ -123,7 +123,7 @@ Pinggy provides an intuitive, web-based dashboard to monitor and manage your tun
 Use your Pinggy access token with your SSH command to link this tunnel directly to your Pinggy dashboard for convenient management:
 
 ```bash
-ssh -p 443 -R0:localhost:30000 -t yourAccessToken@a.pinggy.io
+ssh -p 443 -R0:localhost:30000 -t yourAccessToken@pro.pinggy.io
 ```
 
 **Replace** `yourAccessToken` with the actual token obtained from your dashboard.
@@ -139,7 +139,7 @@ To further secure your Foundry VTT session, Pinggy supports Basic Authentication
 Execute the following command to enable password-protected access to your Foundry VTT:
 
 ```bash
-ssh -p 443 -R0:localhost:30000 -t a.pinggy.io b:username:password
+ssh -p 443 -R0:localhost:30000 -t free.pinggy.io b:username:password
 ```
 
 - Replace `username` and `password` with your desired credentials.

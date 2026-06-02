@@ -22,7 +22,7 @@ Even if your device doesn't have a public IP address, Pinggy enables you to esta
 On your IoT device, open a terminal and run the following command:
 
 ```bash
-ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
 ```
 
 This command establishes a secure connection to the Pinggy server, creating a tunnel that forwards traffic from the server to your IoT device's SSH port (22).
@@ -60,7 +60,7 @@ b0b87d56T
 Then create a tunnel to your IoT device using your token:
 
 ```
-ssh -p 443 -R0:localhost:22 b0b87d56T+tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 b0b87d56T+tcp@pro.pinggy.io
 ```
 
 _Replace `b0b87d56T` with your own token from the dashboard._

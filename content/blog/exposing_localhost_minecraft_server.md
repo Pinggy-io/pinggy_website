@@ -20,7 +20,7 @@ In this guide, we'll walk through the process of exposing your localhost Minecra
 2. Note the port number. Example: **25565**.
 3. Open a terminal / cmd, and run the following command (replace 25565 with your port):
    ```bash
-   ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io
    ```
 4. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.link:40527`.
 5. Your friends can use the endpoint provided by Pinggy `tljocjkijs.a.pinggy.link:42289` to connect to your Local game server.
@@ -81,7 +81,7 @@ Now, let's use Pinggy to expose the server to the internet.
 1. Open a terminal and run the following command:
 
    ```bash
-   ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io
    ```
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start the tunnel" portstring="Server Port" localport="25565" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}

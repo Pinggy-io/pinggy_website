@@ -23,7 +23,7 @@ To allow SSH connections to your Mac, you must enable "Remote Login":
 Open the **Terminal** app on your Mac and run the following command to create a TCP tunnel to your SSH port:
 
 ```bash
-ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
 ```
 
 {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to SSH server:" portstring="SSH server Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
@@ -36,7 +36,7 @@ Pinggy will provide you with a public URL and port, for example:
 If you have a Pinggy account, you can use your token to get a persistent address. Find your token in the [Pinggy Dashboard](https://dashboard.pinggy.io).
 
 ```bash
-ssh -p 443 -R0:localhost:22 <token>+tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 <token>+tcp@pro.pinggy.io
 ```
 
 ## Step 3: Access your Mac remotely

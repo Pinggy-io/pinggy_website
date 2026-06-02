@@ -136,7 +136,7 @@ Secure tunneling is particularly useful for:
 To create a secure tunnel with Pinggy, you can use a simple command:
 
 ```
-ssh -p 443 -R0:localhost:8080 a.pinggy.io
+ssh -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 
 This command creates an encrypted tunnel to an application running on port 8080 on your local machine, making it securely accessible through a public URL without exposing your entire network.

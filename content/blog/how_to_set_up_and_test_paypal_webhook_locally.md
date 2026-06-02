@@ -27,7 +27,7 @@ Building a payment integration with {{< link href="https://www.paypal.com/" >}}P
 - Create webhook listener server (Node.js/Express) to receive events
 - Expose locally with Pinggy:
 ```bash
-ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io
 ```
 - Configure webhook URL in PayPal sandbox app settings
 - Test using <a href="https://developer.paypal.com/api/rest/webhooks/simulator/" target="_blank">PayPal Webhook Simulator</a>

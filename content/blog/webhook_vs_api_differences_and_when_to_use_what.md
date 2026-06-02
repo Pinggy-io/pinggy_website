@@ -326,7 +326,7 @@ Here's where things get tricky. Webhooks need a publicly accessible URL, but you
 
 ```bash
 # One command to rule them all
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
 Boom! You get a public URL that forwards to your local server. Now you can:

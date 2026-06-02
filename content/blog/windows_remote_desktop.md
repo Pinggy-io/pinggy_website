@@ -50,7 +50,7 @@ Pinggy replies with a public address like `tcp://kduyqzdhwu.a.free.pinggy.link:2
 That `host:port` is what you paste into the Remote Desktop client on the other end. Free tier tunnels rotate the address on reconnect; with a [Pinggy](https://pinggy.io) plan and an access token you get a persistent subdomain and can put the SSH command in a `while true` loop so it survives network blips:
 
 ```
-ssh -p 443 -R0:127.0.0.1:3389 yourtoken+tcp@a.pinggy.io
+ssh -p 443 -R0:127.0.0.1:3389 yourtoken+tcp@pro.pinggy.io
 ```
 
 You can also use Pinggy's TLS mode (port 443, SNI-based routing). The advantage is everything is encrypted on the wire before Pinggy sees it - Pinggy itself can't read RDP traffic. RDP also has its own TLS layer, so even plain TCP is already encrypted; TLS mode mostly buys you cleaner firewall traversal because outbound 443 is rarely blocked.

@@ -5,7 +5,7 @@ date: 2024-12-19T10:30:00+05:30
 draft: false
 og_image: "images/access_mariadb_using_pinggy/mariadb_pinggy.webp"
 tags: ["MariaDB", "Pinggy", "database", "guide", "networking"]
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBBY2Nlc3MgTWFyaWFEQiBVc2luZyBQaW5nZ3kiLAogICJkZXNjcmlwdGlvbiI6ICJTZXR1cCBhbmQgc2VjdXJlbHkgYWNjZXNzIE1hcmlhREIgZnJvbSBhbnl3aGVyZSB1c2luZyBQaW5nZ3kuIFRoaXMgc2ltcGxlIHN0ZXAgZ3VpZGUgaGVscHMgeW91IGJ5cGFzcyBOQVQsIENHTkFULCBhbmQgZmlyZXdhbGwgcmVzdHJpY3Rpb25zLiBMZWFybiBob3cgdG8gc2V0IHVwIE1hcmlhREIgaW4gRG9ja2VyLCBzdGFydCBhIFBpbmdneSBUQ1AgdHVubmVsLCBhbmQgY29ubmVjdCB2aWEgTWFyaWFEQiBjbGllbnQgb3IgREJlYXZlci4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvYWNjZXNzX21hcmlhZGJfdXNpbmdfcGluZ2d5L21hcmlhZGJfcGluZ2d5LndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgYSBNYXJpYURCIERvY2tlciBjb250YWluZXIgdXNpbmcgdGhlIGNvbW1hbmQ6IGRvY2tlciBydW4gLS1uYW1lIG1hcmlhZGItdGVzdCAtZSBNWVNRTF9ST09UX1BBU1NXT1JEPXlvdXJwYXNzd29yZCAtcCAzMzA2OjMzMDYgLWQgbWFyaWFkYiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcGVuIGEgUGluZ2d5IFRDUCB0dW5uZWwgb24gcG9ydCAzMzA2IHVzaW5nIHRoZSBjb21tYW5kOiBzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6MzMwNiB0Y3BAYS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVGVzdCB0aGUgY29ubmVjdGlvbiB1c2luZyB0aGUgTWFyaWFEQiBjbGllbnQgb3IgREJlYXZlciB3aXRoIHRoZSBQaW5nZ3ktZ2VuZXJhdGVkIGhvc3RuYW1lIGFuZCBwb3J0LiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBBY2Nlc3MgTWFyaWFEQiBVc2luZyBQaW5nZ3kiLAogICJkZXNjcmlwdGlvbiI6ICJTZXR1cCBhbmQgc2VjdXJlbHkgYWNjZXNzIE1hcmlhREIgZnJvbSBhbnl3aGVyZSB1c2luZyBQaW5nZ3kuIFRoaXMgc2ltcGxlIHN0ZXAgZ3VpZGUgaGVscHMgeW91IGJ5cGFzcyBOQVQsIENHTkFULCBhbmQgZmlyZXdhbGwgcmVzdHJpY3Rpb25zLiBMZWFybiBob3cgdG8gc2V0IHVwIE1hcmlhREIgaW4gRG9ja2VyLCBzdGFydCBhIFBpbmdneSBUQ1AgdHVubmVsLCBhbmQgY29ubmVjdCB2aWEgTWFyaWFEQiBjbGllbnQgb3IgREJlYXZlci4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvYWNjZXNzX21hcmlhZGJfdXNpbmdfcGluZ2d5L21hcmlhZGJfcGluZ2d5LndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgYSBNYXJpYURCIERvY2tlciBjb250YWluZXIgdXNpbmcgdGhlIGNvbW1hbmQ6IGRvY2tlciBydW4gLS1uYW1lIG1hcmlhZGItdGVzdCAtZSBNWVNRTF9ST09UX1BBU1NXT1JEPXlvdXJwYXNzd29yZCAtcCAzMzA2OjMzMDYgLWQgbWFyaWFkYiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcGVuIGEgUGluZ2d5IFRDUCB0dW5uZWwgb24gcG9ydCAzMzA2IHVzaW5nIHRoZSBjb21tYW5kOiBzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6MzMwNiB0Y3BAZnJlZS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVGVzdCB0aGUgY29ubmVjdGlvbiB1c2luZyB0aGUgTWFyaWFEQiBjbGllbnQgb3IgREJlYXZlciB3aXRoIHRoZSBQaW5nZ3ktZ2VuZXJhdGVkIGhvc3RuYW1lIGFuZCBwb3J0LiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
 outputs:
   - HTML
   - AMP
@@ -23,7 +23,7 @@ outputs:
      ```
 3. Start a Pinggy TCP tunnel on port `3306`:
      ```bash
-     ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io
+     ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io
      ```
    - [Pinggy](https://pinggy.io/) generates a public URL like `tcp://example.pinggy.io:48780`.
 5. Use the Pinggy-provided hostname and port to connect to MariaDB with tools like `mariadb` command, or <a href="https://dbeaver.io/" target="_blank" >DBeaver</a>.
@@ -86,7 +86,7 @@ If you are using a native or pre-existing installation of MariaDB, make sure it 
 ### Step 2: Start a Pinggy TCP Tunnel
 Create a Pinggy TCP tunnel to expose your local MariaDB instance securely. Run the following command:
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 {{< image "access_mariadb_using_pinggy/pinggy_command.webp" "Pinggy Command" >}}

@@ -142,7 +142,7 @@ Pinggy users may encounter this error when their tunnel URLs become inaccessible
 
 Restart your Pinggy tunnel using the same command if needed:
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 

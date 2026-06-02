@@ -36,7 +36,7 @@ Generate an ssh key, if you don't have one already.
 
      ```bash
      #!/bin/sh
-     ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 a.pinggy.io
+     ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 free.pinggy.io
      ```
 
    You can customize the command here:

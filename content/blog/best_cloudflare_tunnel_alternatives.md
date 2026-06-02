@@ -83,7 +83,7 @@ Pinggy is ideal for developers who need to share their development environments 
 To get how simple it is to open a tunnel, here is an example. If you want to share your React app running on `localhost:3000`, you can do so using pinggy with the command:
 
 ```
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
 #### Pricing of Pinggy

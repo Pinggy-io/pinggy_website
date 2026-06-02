@@ -22,7 +22,7 @@ Let's start with basic ssh options:
 Detailed usages are available on `ssh` man page at <https://man.openbsd.org/ssh>
 
 ```
-ssh -p443 -R0:<localhost>:<localport> [-R<domain>:0:<localhost>:<localport>[ -R<domain>:0:<localhost>:<localport>...]] [<token/keyword/tunneltype>@]a.pinggy.io <remote options>
+ssh -p443 -R0:<localhost>:<localport> [-R<domain>:0:<localhost>:<localport>[ -R<domain>:0:<localhost>:<localport>...]] [<token/keyword/tunneltype>@]free.pinggy.io <remote options>
 ```
 
 <table markdown="1">
@@ -117,12 +117,12 @@ A basic `http` tunnel can be started using
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> a.pinggy.io
+ssh -R0:localhost:<localport> free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> <token>@a.pinggy.io
+ssh -R0:localhost:<localport> <token>@pro.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -133,12 +133,12 @@ A basic `tcp` tunnel can be started using
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> tcp@a.pinggy.io
+ssh -R0:localhost:<localport> tcp@free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> <token>+tcp@a.pinggy.io
+ssh -R0:localhost:<localport> <token>+tcp@pro.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -150,12 +150,12 @@ Basic `tls` tunnel can be started using
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> tls@a.pinggy.io
+ssh -R0:localhost:<localport> tls@free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> <token>+tls@a.pinggy.io
+ssh -R0:localhost:<localport> <token>+tls@pro.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -169,12 +169,12 @@ Basic `tlstcp` tunnel can be started using
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> tlstcp@a.pinggy.io
+ssh -R0:localhost:<localport> tlstcp@free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> <token>+tlstcp@a.pinggy.io
+ssh -R0:localhost:<localport> <token>+tlstcp@pro.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -190,12 +190,12 @@ Pinggy provides an option to display a QR Code with the URL in the terminal. The
 {{< tabs >}}
 {{% tab name="Without Token" %}}
 ```
-ssh -R0:localhost:<localport> qr@a.pinggy.io
+ssh -R0:localhost:<localport> qr@free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:<localport> <token>+qr@a.pinggy.io
+ssh -R0:localhost:<localport> <token>+qr@pro.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -206,7 +206,7 @@ Pinggy by default tries to start a tunnel without any authentication. However, i
 #### 4. force
 Pinggy provides `force` keyword to forcefully disconnect existing tunnel with the same token before creating a new connection Use it as follows:
 ```
-ssh -R0:localhost:<localport> <token>+force@a.pinggy.io
+ssh -R0:localhost:<localport> <token>+force@pro.pinggy.io
 ```
 It is useful only with token based connection.
 
@@ -218,7 +218,7 @@ Let's assume that `*.example.com` is registered with the token `tkn`. We want to
 {{< tabs >}}
 {{% tab name="With Token" %}}
 ```
-ssh -R0:localhost:80 -Rregister.example.com:0:localhost:8080 tkn+qr@a.pinggy.io
+ssh -R0:localhost:80 -Rregister.example.com:0:localhost:8080 tkn+qr@pro.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
