@@ -101,7 +101,7 @@ ssh -p 443 -R 0:localhost:8080 -t qr@free.pinggy.io "u:Host:localhost:8080"
 ```
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io u:Host:localhost:8080\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io u:Host:localhost:8080\"}}}"
 {{</ ssh_command >}}
 
 ### Command Breakdown:

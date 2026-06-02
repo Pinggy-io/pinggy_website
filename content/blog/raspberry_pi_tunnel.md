@@ -113,7 +113,7 @@ HTTP tunnels are ideal when you want to access web-based services running on you
    ```
 
    {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@a.pinggy.io \"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"}}}"
    {{</ ssh_command >}}
 
 3. **Access your Pi remotely** using the public URL provided by Pinggy. The URL will look something like:

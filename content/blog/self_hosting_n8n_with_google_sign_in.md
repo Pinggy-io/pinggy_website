@@ -92,7 +92,7 @@ Before starting n8n, we need to create a public HTTPS URL that Google OAuth can 
 Run the following command in your terminal:
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5678 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5678 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5678 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 This command creates a secure tunnel from Pinggy's servers to your local port 5678 (where n8n will run). Within seconds, you'll see output showing your public HTTPS URL, something like 

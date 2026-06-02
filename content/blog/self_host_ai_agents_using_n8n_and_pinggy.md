@@ -173,7 +173,7 @@ ssh -p 443 -R0:localhost:5678 free.pinggy.io
 {{< image "self_host_ai_agents_using_n8n_and_pinggy/pinggy_command.webp" "Pinggy Command" >}}
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5678 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5678 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5678 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 This command will create a tunnel and provide you with a public URL (e.g., `https://abc123.pinggy.link`) that redirects to your local n8n instance.
@@ -193,7 +193,7 @@ For better security, add basic authentication to your tunnel:
 ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password
 ```
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"}}}"
 {{</ ssh_command >}}
 
 This adds an extra layer of protection, requiring users to enter credentials before accessing your n8n instance.

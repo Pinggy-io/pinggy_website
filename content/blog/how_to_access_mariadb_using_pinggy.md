@@ -87,7 +87,7 @@ If you are using a native or pre-existing installation of MariaDB, make sure it 
 Create a Pinggy TCP tunnel to expose your local MariaDB instance securely. Run the following command:
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3306 tcp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3306 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3306 tcp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3306 tcp@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 {{< image "access_mariadb_using_pinggy/pinggy_command.webp" "Pinggy Command" >}}
 {{< image "access_mariadb_using_pinggy/pinggy_url.webp" "Pinggy URL" >}}

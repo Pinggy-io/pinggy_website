@@ -10,7 +10,7 @@
 Create a tunnel using a single command.
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 tls@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 tls@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 tls@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 tls@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tls@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tls@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tls@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tls@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 tls@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 tls@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 tls@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 tls@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tls@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tls@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 tls@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 tls@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 TLS tunnel does not provide any port. It present with a unique domain and SSL/TLS connection to be made to that domain at TCP port 443.
