@@ -9,6 +9,12 @@
 
 Pinggy plugs into AI coding agents two ways. Install the **skill** to give an agent ready-made instructions for using Pinggy, or add the **MCP server** to let the agent create and manage tunnels directly through tool calls. Both can be installed together.
 
+{{< install-callout label="Install the skill in any agent" >}}
+```bash
+npx skills add https://pinggy.io
+```
+{{< /install-callout >}}
+
 | | Skill | MCP server |
 |---|---|---|
 | What it is | Packaged instructions and reference docs (SSH, CLI, SDK, every flag and tunnel type) | A running server that exposes Pinggy as live tools the agent can call |

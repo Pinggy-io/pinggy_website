@@ -1,6 +1,6 @@
-# Pinggy — CLI & SDK Reference
+# Pinggy - CLI & SDK Reference
 
-## Pinggy CLI — Full Command Reference
+## Pinggy CLI - Full Command Reference
 
 ### Install
 ```bash

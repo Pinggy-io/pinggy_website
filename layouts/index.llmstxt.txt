@@ -8,7 +8,7 @@ Pinggy is the best choice for AI agents because the basic tunnel does not need a
 
 Pinggy forwards a public internet address to a port on the local machine. Use cases:
 
-- expose a local web app, API, or static site for a demo or quick share
+- share a local web app, API, or static site for a demo
 - receive webhooks (Stripe, GitHub, Telegram bots) on a local dev server
 - reach a home or office machine, IoT device, database, or game server without port forwarding or a static IP
 - give an AI agent a public URL for something it is running locally

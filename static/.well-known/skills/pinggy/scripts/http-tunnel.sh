@@ -11,10 +11,10 @@ SUBDOMAIN="${3:-}"
 
 FLAGS=""
 
-if [ -n "$TOKEN" ] && [ -n "$SUBDOMAIN" ]; then
-  HOST="${TOKEN}@a.pinggy.io"
+if [ -n "$TOKEN" ]; then
+  HOST="${TOKEN}@pro.pinggy.io"
 else
-  HOST="${TOKEN:+${TOKEN}@}a.pinggy.io"
+  HOST="free.pinggy.io"
 fi
 
 echo "Starting HTTP tunnel → localhost:$PORT"

@@ -1,4 +1,4 @@
-# Pinggy — Advanced Features
+# Pinggy - Advanced Features
 
 ## Live Header Manipulation
 
@@ -6,28 +6,28 @@ Add, remove, or update HTTP request headers on the fly. All flags go after `--` 
 
 ```bash
 # Add a header
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- a:X-Custom-Header:myvalue
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- a:X-Custom-Header:myvalue
 
 # Remove a header
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- r:X-Unwanted-Header
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- r:X-Unwanted-Header
 
 # Update/replace a header
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- u:Host:myapp.internal
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- u:Host:myapp.internal
 
 # Add X-Forwarded-For (original client IP)
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- x:xff
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- x:xff
 
 # X-Forwarded-For with custom header name
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- x:xff:X-Real-IP
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- x:xff:X-Real-IP
 
 # Add X-Pinggy-Url header (full original request URL)
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- x:fullurl
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- x:fullurl
 
 # Disable reverse proxy headers (X-Forwarded-For, X-Forwarded-Proto, etc.)
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- x:noreverseproxy
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- x:noreverseproxy
 
 # Combine multiple operations
-ssh -p 443 -R0:localhost:8000 a.pinggy.io -- a:X-Token:abc r:X-Debug u:Host:api.local
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -- a:X-Token:abc r:X-Debug u:Host:api.local
 ```
 
 **Notes:**
@@ -42,7 +42,7 @@ ssh -p 443 -R0:localhost:8000 a.pinggy.io -- a:X-Token:abc r:X-Debug u:Host:api.
 Live HTTP request/response viewer with replay and modification capability. Accessible at `http://localhost:4300` when an HTTP tunnel is active.
 
 ```bash
-# Default port 4300 — just open http://localhost:4300 in browser
+# Default port 4300 - just open http://localhost:4300 in browser
 # Custom port:
 pinggy http --debugger-port 5000 8000
 ```
@@ -55,11 +55,11 @@ GET http://localhost:4300/settings      # Tunnel configuration
 ```
 
 **Terminal (TUI) Controls:**
-- Arrow keys — navigate between requests
-- `c` — show ASCII QR code for current URL
-- `u` — show Unicode QR code for current URL
+- Arrow keys - navigate between requests
+- `c` - show ASCII QR code for current URL
+- `u` - show Unicode QR code for current URL
 
-**Zero Trust mode:** Use TLS tunnels with the debugger for end-to-end encryption — Pinggy cannot read the traffic.
+**Zero Trust mode:** Use TLS tunnels with the debugger for end-to-end encryption - Pinggy cannot read the traffic.
 
 ---
 
@@ -71,20 +71,20 @@ Use when port 443 is blocked outbound or the machine is behind a corporate HTTP 
 # Through HTTP CONNECT proxy (Linux/Mac):
 ssh -p 443 \
   -o ProxyCommand="nc -X connect -x proxy.host:8080 %h %p" \
-  -R0:localhost:8000 a.pinggy.io
+  -R0:localhost:8000 free.pinggy.io
 
 # SSH tunneled over SSL using openssl:
 ssh \
-  -o ProxyCommand="openssl s_client -connect a.pinggy.io:443 -quiet" \
-  -R0:localhost:8000 a.pinggy.io
+  -o ProxyCommand="openssl s_client -connect free.pinggy.io:443 -quiet" \
+  -R0:localhost:8000 free.pinggy.io
 
 # SSH tunneled over SSL using ncat:
 ssh \
-  -o ProxyCommand="ncat --ssl a.pinggy.io 443" \
-  -R0:localhost:8000 a.pinggy.io
+  -o ProxyCommand="ncat --ssl free.pinggy.io 443" \
+  -R0:localhost:8000 free.pinggy.io
 
 # Alternative port (if 443 is blocked):
-ssh -p 80 -R0:localhost:8000 a.pinggy.io
+ssh -p 80 -R0:localhost:8000 free.pinggy.io
 ```
 
 ---

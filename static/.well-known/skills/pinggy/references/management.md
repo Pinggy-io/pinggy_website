@@ -1,4 +1,4 @@
-# Pinggy — Management, API, Teams & Pricing
+# Pinggy - Management, API, Teams & Pricing
 
 ## REST API (Pro / Enterprise)
 
@@ -58,60 +58,60 @@ Share tunnel access without sharing Pro tokens or passwords.
 | Automatic HTTPS certificate | ✓ | ✓ | ✓ |
 | Web debugger + live header manipulation | ✓ | ✓ | ✓ |
 | Unlimited data transfer | ✓ | ✓ | ✓ |
-| 60-minute tunnel timeout | ✓ (limit) | — | — |
-| Persistent tunnels (no timeout) | — | ✓ per seat | ✓ Unlimited |
-| Persistent custom subdomain | — | ✓ per seat | ✓ Unlimited |
-| Custom domains | — | ✓ per seat | ✓ Unlimited |
-| Persistent TCP/UDP ports | — | ✓ per seat | ✓ Unlimited |
-| Wildcard domains | — | ✓ | ✓ |
-| Teams / token sharing | — | ✓ per seat | ✓ Unlimited |
-| Remote device management | — | ✓ | ✓ |
-| REST API access | — | ✓ | ✓ Full |
-| Dedicated / on-premise server | — | — | ✓ |
-| Priority support (Discord + calls) | — | Email/Discord | ✓ |
+| 60-minute tunnel timeout | ✓ (limit) | - | - |
+| Persistent tunnels (no timeout) | - | ✓ per seat | ✓ Unlimited |
+| Persistent custom subdomain | - | ✓ per seat | ✓ Unlimited |
+| Custom domains | - | ✓ per seat | ✓ Unlimited |
+| Persistent TCP/UDP ports | - | ✓ per seat | ✓ Unlimited |
+| Wildcard domains | - | ✓ | ✓ |
+| Teams / token sharing | - | ✓ per seat | ✓ Unlimited |
+| Remote device management | - | ✓ | ✓ |
+| REST API access | - | ✓ | ✓ Full |
+| Dedicated / on-premise server | - | - | ✓ |
+| Priority support (Discord + calls) | - | Email/Discord | ✓ |
 
 Annual billing: $2.50/seat/month. Enterprise: contact sales.
 
 ---
 
-## Use Cases — Extended Reference
+## Use Cases - Extended Reference
 
 ### Ollama / Local LLM
 ```bash
-ssh -p 443 -R0:localhost:11434 a.pinggy.io
+ssh -p 443 -R0:localhost:11434 free.pinggy.io
 ```
 
 ### Jupyter Notebook
 ```bash
-ssh -p 443 -R0:localhost:8888 a.pinggy.io
+ssh -p 443 -R0:localhost:8888 free.pinggy.io
 ```
 
-### Minecraft — Java Edition (TCP)
+### Minecraft - Java Edition (TCP)
 ```bash
-ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io
 ```
 
-### Minecraft — Bedrock Edition (UDP)
+### Minecraft - Bedrock Edition (UDP)
 ```bash
 pinggy udp 19132
 ```
 
 ### Home Assistant
 ```bash
-ssh -p 443 -R0:localhost:8123 a.pinggy.io
+ssh -p 443 -R0:localhost:8123 free.pinggy.io
 ```
 
 ### PocketBase / Strapi / Ghost
 ```bash
-ssh -p 443 -R0:localhost:8090 a.pinggy.io    # PocketBase
-ssh -p 443 -R0:localhost:1337 a.pinggy.io    # Strapi
-ssh -p 443 -R0:localhost:2368 a.pinggy.io    # Ghost
+ssh -p 443 -R0:localhost:8090 free.pinggy.io    # PocketBase
+ssh -p 443 -R0:localhost:1337 free.pinggy.io    # Strapi
+ssh -p 443 -R0:localhost:2368 free.pinggy.io    # Ghost
 ```
 
 ### Kubernetes Service
 ```bash
 kubectl port-forward svc/my-service 8080:80
-ssh -p 443 -R0:localhost:8080 a.pinggy.io
+ssh -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 
 ### Wireguard VPN
@@ -121,29 +121,29 @@ pinggy udp 51820
 
 ### Remote Desktop (VNC)
 ```bash
-ssh -p 443 -R0:localhost:5900 tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:5900 tcp@free.pinggy.io
 ```
 
 ### PostgreSQL / MySQL / MongoDB
 ```bash
-ssh -p 443 -R0:localhost:5432 tcp@a.pinggy.io   # PostgreSQL
-ssh -p 443 -R0:localhost:3306 tcp@a.pinggy.io   # MySQL
-ssh -p 443 -R0:localhost:27017 tcp@a.pinggy.io  # MongoDB
+ssh -p 443 -R0:localhost:5432 tcp@free.pinggy.io   # PostgreSQL
+ssh -p 443 -R0:localhost:3306 tcp@free.pinggy.io   # MySQL
+ssh -p 443 -R0:localhost:27017 tcp@free.pinggy.io  # MongoDB
 ```
 
 ### Netdata Monitoring
 ```bash
-ssh -p 443 -R0:localhost:19999 a.pinggy.io
+ssh -p 443 -R0:localhost:19999 free.pinggy.io
 ```
 
 ### Portainer
 ```bash
-ssh -p 443 -R0:localhost:9000 a.pinggy.io
+ssh -p 443 -R0:localhost:9000 free.pinggy.io
 ```
 
 ### Traefik Dashboard
 ```bash
-ssh -p 443 -R0:localhost:8080 a.pinggy.io
+ssh -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 
 ---

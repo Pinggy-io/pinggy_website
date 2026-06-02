@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Auto-reconnecting tunnel — runs indefinitely until Ctrl+C.
+# Auto-reconnecting tunnel - runs indefinitely until Ctrl+C.
 # Usage: ./persistent-tunnel.sh <TYPE> <PORT> <TOKEN> [SUBDOMAIN]
 # Types: http | tcp | udp
 # Examples:
@@ -30,7 +30,7 @@ while true; do
         ARGS="http --token $TOKEN ${SUBDOMAIN:+--subdomain $SUBDOMAIN} $PORT"
         pinggy $ARGS
       else
-        HOST="${TOKEN}@a.pinggy.io"
+        HOST="${TOKEN}@pro.pinggy.io"
         ssh -p 443 -o ServerAliveInterval=60 -o StrictHostKeyChecking=no \
           -R "0:localhost:${PORT}" "$HOST"
       fi
@@ -40,7 +40,7 @@ while true; do
         pinggy tcp --token "$TOKEN" "$PORT"
       else
         ssh -p 443 -o ServerAliveInterval=60 -o StrictHostKeyChecking=no \
-          -R "0:localhost:${PORT}" "${TOKEN}@a.pinggy.io"
+          -R "0:localhost:${PORT}" "${TOKEN}@pro.pinggy.io"
       fi
       ;;
     udp)

@@ -1,4 +1,4 @@
-# Pinggy — Domains & URL Management
+# Pinggy - Domains & URL Management
 
 ## Free Plan (Random Subdomain)
 
@@ -12,7 +12,7 @@ Changes on every restart. Free plan tunnels expire after 60 minutes.
 ## Persistent Subdomain (Pro)
 
 ```bash
-ssh -p 443 -R0:localhost:8000 <token>@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 <token>@pro.pinggy.io
 # Same URL every restart: https://myapp.a.pinggy.link
 ```
 
@@ -29,7 +29,7 @@ Add a CNAME record:
 CNAME  app.example.com  →  <token>.a.pinggy.link
 ```
 
-Then tunnel normally — Pinggy issues HTTPS cert automatically.
+Then tunnel normally - Pinggy issues HTTPS cert automatically.
 
 ### Relay Method (for root/apex domains like `example.com`)
 
@@ -52,7 +52,7 @@ Route different subdomains to different local ports. Configure wildcard routing 
 
 ```bash
 # Start tunnel with wildcard domain token
-ssh -p 443 -R0:localhost:8000 <wildcard-token>@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 <wildcard-token>@pro.pinggy.io
 # api.example.com → port 3000, app.example.com → port 8000 (configured in dashboard)
 ```
 
@@ -68,7 +68,7 @@ ssh -p 443 \
   -R0:localhost:8000 \
   -R api.example.com:1:localhost:3000 \
   -R app.example.com:1:localhost:4000 \
-  <token>@a.pinggy.io
+  <token>@pro.pinggy.io
 ```
 
 **Format:** `-R <domain>:1:<forwardHost>:<forwardPort>`
@@ -81,12 +81,12 @@ Mix HTTP, TCP, TLS, and TLSTCP in one session. Use with wildcard tokens to route
 
 ```bash
 # Auto-display QR code at tunnel start (SSH):
-ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 
 # Auto-display ASCII QR:
-ssh -p 443 -R0:localhost:8000 aqr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 aqr@free.pinggy.io
 
-# After tunnel starts — press in terminal:
+# After tunnel starts - press in terminal:
 # 'c'  → ASCII QR code
 # 'u'  → Unicode QR code
 # Arrow keys → navigate between multiple tunnel URLs

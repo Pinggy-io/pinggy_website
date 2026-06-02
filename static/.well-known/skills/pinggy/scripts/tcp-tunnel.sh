@@ -8,14 +8,13 @@
 PORT="${1:?Usage: $0 <PORT> [TOKEN]}"
 TOKEN="${2:-}"
 
-HOST="${TOKEN:+${TOKEN}@}tcp@a.pinggy.io"
-# When no token: tcp@a.pinggy.io
-# With token:    mytoken@tcp@a.pinggy.io  — incorrect; handle properly:
+# When no token: tcp@free.pinggy.io
+# With token:    token@pro.pinggy.io (TCP requested via the remote spec)
 if [ -n "$TOKEN" ]; then
-  HOST="${TOKEN}@a.pinggy.io"
+  HOST="${TOKEN}@pro.pinggy.io"
   REMOTE="tcp:0:localhost:${PORT}"
 else
-  HOST="tcp@a.pinggy.io"
+  HOST="tcp@free.pinggy.io"
   REMOTE="0:localhost:${PORT}"
 fi
 
