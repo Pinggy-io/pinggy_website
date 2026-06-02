@@ -2,7 +2,7 @@
 title: "How to Easily Share LM studio API Online"
 description: "Learn how to share your LM Studio API online using Pinggy. Deploy and run AI models locally, then expose them securely to the internet."
 date: 2025-02-19T14:00:00+05:30
-lastmod: 2026-06-01T14:15:25+05:30
+lastmod: 2025-12-29T14:15:25+05:30
 draft: false
 tags: ["LM Studio", "Pinggy", "Self-Hosted AI", "LLM Deployment", "AI Tunneling"]
 og_image: "images/lm_studio/pinggy.png"

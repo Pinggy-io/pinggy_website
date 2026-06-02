@@ -2,7 +2,7 @@
 title: "Best Self Hosted Apps in 2026"
 description: "Discover the top self-hosted software of 2026, featuring innovative tools for documentation, media management, resource monitoring, and more. Explore detailed reviews, features, and release dates."
 date: 2025-01-20T14:15:25+05:30
-lastmod: 2026-06-01T14:15:25+05:30
+lastmod: 2026-05-24T14:15:25+05:30
 draft: false
 og_image: "images/best_self_hosted_apps/best_self_hosted_apps.webp"
 tags: ["self-hosted", "open-source", "software", "tools"]
