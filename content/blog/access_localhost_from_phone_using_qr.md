@@ -22,14 +22,14 @@
 2. Press **`Esc`** to hide QR code.
 3. Or use **`qr`** or **`aqr`** as username to always show QR in the terminal:
    ```
-   ssh -p443 -R0:localhost:8000 qr@a.pinggy.io
+   ssh -p443 -R0:localhost:8000 qr@free.pinggy.io
    ```
    ```
-   ssh -p443 -R0:localhost:8000 aqr@a.pinggy.io
+   ssh -p443 -R0:localhost:8000 aqr@free.pinggy.io
    ```
 4. You can pass your `token` along with `qr` by appending them with the `+` symbol:
    ```
-   ssh -p443 -R0:localhost:8000 token+qr@a.pinggy.io
+   ssh -p443 -R0:localhost:8000 token+qr@pro.pinggy.io
    ```
 
 {{% /tldr %}}
@@ -41,7 +41,7 @@ Pinggy can print QR codes for the tunnel URLs in ASCII or Unicode. The instructi
 Start a regular Pinggy tunnel:
 
 ```
-ssh -p 443 -R0:localhost:8000 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 free.pinggy.io
 ```
 
 Press **`c`** to show the QR Code. It will display the QR Code representing the tunnel URL in ASCII form as shown in the screenshot below.
@@ -67,13 +67,13 @@ Pinggy also supports keywords `qr` and `aqr` while creating a tunnel to always s
 {{< figure src="../../../doc_img/qrcode/qr-inline-unicode2.webp" alt="Always display QR-Code in TUI" >}}
 
 ```
-ssh -p443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p443 -R0:localhost:8000 qr@free.pinggy.io
 ```
 
 If one wants to pass some other keyword like a token, simply add it with a `+` symbol:
 
 ```
-ssh -p443 -R0:localhost:8000 qr+token@a.pinggy.io
+ssh -p443 -R0:localhost:8000 qr+token@pro.pinggy.io
 ```
 
 Here `qr` would produce QR code in Unicode while `aqr` would produce QR code in ASCII.

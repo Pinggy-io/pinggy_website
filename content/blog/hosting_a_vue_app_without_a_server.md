@@ -5,7 +5,7 @@ date: 2025-01-12T14:00:00+05:30
 draft: false
 tags: ["Vue.js", "Pinggy", "guide", "tunneling", "remote access"]
 og_image: "images/hosting_a_vue_app_without_a_server/host_vue_app_without_server.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvc3RpbmcgYSBWdWUuanMgQXBwIFdpdGhvdXQgYSBTZXJ2ZXIgVXNpbmcgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIHNlY3VyZWx5IGhvc3QgeW91ciBWdWUuanMgYXBwIG9ubGluZSB1c2luZyBQaW5nZ3kuIFRoaXMgZ3VpZGUgd2Fsa3MgeW91IHRocm91Z2ggcnVubmluZyB5b3VyIGFwcCBsb2NhbGx5IGFuZCBjcmVhdGluZyBhIHNlY3VyZSB0dW5uZWwgZm9yIHJlbW90ZSBhY2Nlc3MuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2hvc3RpbmdfYV92dWVfYXBwX3dpdGhvdXRfYV9zZXJ2ZXIvaG9zdF92dWVfYXBwX3dpdGhvdXRfc2VydmVyLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgbmV3IFZ1ZS5qcyBhcHAgYW5kIG5hdmlnYXRlIHRvIHRoZSBkaXJlY3RvcnkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlJ1biB0aGUgVnVlLmpzIGRldmVsb3BtZW50IHNlcnZlciB1c2luZyB0aGUgY29tbWFuZDogbnBtIHJ1biBkZXYuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIHR1bm5lbCB3aXRoIFBpbmdneSBieSBydW5uaW5nOiBzc2ggLXAgNDQzIC1SIDA6bG9jYWxob3N0OjgwODAgLXQgcXJAYS5waW5nZ3kuaW8gdTpIb3N0OmxvY2FsaG9zdDo4MDgwIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkFjY2VzcyB5b3VyIFZ1ZS5qcyBhcHAgdmlhIHRoZSBwdWJsaWMgVVJMIGdlbmVyYXRlZCBieSBQaW5nZ3kuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIk9wdGlvbmFsOiBDdXN0b21pemUgeW91ciBQaW5nZ3kgdHVubmVsIHdpdGggZmVhdHVyZXMgbGlrZSBjdXN0b20gZG9tYWlucyBvciBwYXNzd29yZCBwcm90ZWN0aW9uIGZvciBlbmhhbmNlZCBzZWN1cml0eS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvc3RpbmcgYSBWdWUuanMgQXBwIFdpdGhvdXQgYSBTZXJ2ZXIgVXNpbmcgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIHNlY3VyZWx5IGhvc3QgeW91ciBWdWUuanMgYXBwIG9ubGluZSB1c2luZyBQaW5nZ3kuIFRoaXMgZ3VpZGUgd2Fsa3MgeW91IHRocm91Z2ggcnVubmluZyB5b3VyIGFwcCBsb2NhbGx5IGFuZCBjcmVhdGluZyBhIHNlY3VyZSB0dW5uZWwgZm9yIHJlbW90ZSBhY2Nlc3MuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2hvc3RpbmdfYV92dWVfYXBwX3dpdGhvdXRfYV9zZXJ2ZXIvaG9zdF92dWVfYXBwX3dpdGhvdXRfc2VydmVyLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgbmV3IFZ1ZS5qcyBhcHAgYW5kIG5hdmlnYXRlIHRvIHRoZSBkaXJlY3RvcnkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlJ1biB0aGUgVnVlLmpzIGRldmVsb3BtZW50IHNlcnZlciB1c2luZyB0aGUgY29tbWFuZDogbnBtIHJ1biBkZXYuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNyZWF0ZSBhIHR1bm5lbCB3aXRoIFBpbmdneSBieSBydW5uaW5nOiBzc2ggLXAgNDQzIC1SIDA6bG9jYWxob3N0OjgwODAgLXQgcXJAZnJlZS5waW5nZ3kuaW8gdTpIb3N0OmxvY2FsaG9zdDo4MDgwIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkFjY2VzcyB5b3VyIFZ1ZS5qcyBhcHAgdmlhIHRoZSBwdWJsaWMgVVJMIGdlbmVyYXRlZCBieSBQaW5nZ3kuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIk9wdGlvbmFsOiBDdXN0b21pemUgeW91ciBQaW5nZ3kgdHVubmVsIHdpdGggZmVhdHVyZXMgbGlrZSBjdXN0b20gZG9tYWlucyBvciBwYXNzd29yZCBwcm90ZWN0aW9uIGZvciBlbmhhbmNlZCBzZWN1cml0eS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
@@ -31,7 +31,7 @@ In this blog, we’ll show you how to use Pinggy to quickly share your Vue.js ap
 2. **Create a Tunnel with Pinggy**  
    - Start an SSH tunnel:  
      ```bash
-     ssh -p 443 -R 0:localhost:8080 -t qr@a.pinggy.io "u:Host:localhost:8080"
+     ssh -p 443 -R 0:localhost:8080 -t qr@free.pinggy.io "u:Host:localhost:8080"
      ```
    - Access your Vue.js app via the public URL provided by [Pinggy](https://pinggy.io).
 
@@ -97,7 +97,7 @@ Now, let’s expose your locally hosted Vue.js app using Pinggy.
 ### Command to Create Tunnel:
 Run the following command in your terminal:  
 ```bash
-ssh -p 443 -R 0:localhost:8080 -t qr@a.pinggy.io "u:Host:localhost:8080"
+ssh -p 443 -R 0:localhost:8080 -t qr@free.pinggy.io "u:Host:localhost:8080"
 ```
 
 {{< ssh_command >}}
@@ -109,7 +109,7 @@ ssh -p 443 -R 0:localhost:8080 -t qr@a.pinggy.io "u:Host:localhost:8080"
 - **`-R0:localhost:8080`**: Maps your Vue.js app (running on port 8080) to a public URL.  
 - The **`-t`** option and **`"u:Host:localhost:8080"`** modifies the host header to ensure **`localhost:8080`** requests are correctly routed to your local app.
 - The **`qr`** the command displays the public URL as a QR code, making it easy to access your app on other devices.
-- **`qr@a.pinggy.io u:Host:localhost:8080`**: Specifies the Pinggy server.  
+- **`qr@free.pinggy.io u:Host:localhost:8080`**: Specifies the Pinggy server.  
 
 After running this command, Pinggy generates a public URL for your Vue.js app, such as:  
 ```
@@ -142,7 +142,7 @@ serve -s dist
 ```
 4. **Run the Pinggy command with port 3000:**
 ```bash
-ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io
 ```
 By serving your built Vue.js app through the serve package and using Pinggy’s HTTPS tunnel, you can avoid WebSocket issues when accessing your app via a public HTTPS URL.
 

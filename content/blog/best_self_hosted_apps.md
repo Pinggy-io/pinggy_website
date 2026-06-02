@@ -2,7 +2,7 @@
 title: "Best Self Hosted Apps in 2026"
 description: "Discover the top self-hosted software of 2026, featuring innovative tools for documentation, media management, resource monitoring, and more. Explore detailed reviews, features, and release dates."
 date: 2025-01-20T14:15:25+05:30
-lastmod: 2026-05-24T14:15:25+05:30
+lastmod: 2026-06-01T14:15:25+05:30
 draft: false
 og_image: "images/best_self_hosted_apps/best_self_hosted_apps.webp"
 tags: ["self-hosted", "open-source", "software", "tools"]
@@ -316,7 +316,7 @@ Most of this list runs on your home network or a box behind NAT, which is fine u
 You have a few options. Open a port and run a reverse proxy like GoDoxy with Pocket ID for auth - the most control, the most setup. Or use a tunnel, which needs no open ports and no public IP. To expose a local app (say one on port 8080) over a public HTTPS URL with [Pinggy](https://pinggy.io/), it's one SSH command:
 
 ```bash
-ssh -p 443 -R0:localhost:8080 a.pinggy.io
+ssh -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 
 That's handy for quick remote access, sharing a demo, or testing webhooks against a service running at home, without touching your router.

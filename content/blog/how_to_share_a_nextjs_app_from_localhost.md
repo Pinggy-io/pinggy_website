@@ -5,7 +5,7 @@ date: 2025-03-23T10:00:00+05:30
 draft: false
 tags: ["Next.js", "Pinggy", "guide", "tunneling", "remote access"]
 og_image: "images/how_to_share_a_nextjs_app_from_localhost/banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KICB7CiAgICAiQGNvbnRleHQiOiAiaHR0cHM6Ly9zY2hlbWEub3JnLyIsCiAgICAiQHR5cGUiOiAiSG93VG8iLAogICAgIm5hbWUiOiAiSG93IHRvIFNoYXJlIGEgTmV4dC5qcyBBcHAgZnJvbSBMb2NhbGhvc3QiLAogICAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWN1cmVseSBob3N0IHlvdXIgTmV4dC5qcyBhcHAgb25saW5lIHVzaW5nIFBpbmdneS4gVGhpcyBzdGVwLWJ5LXN0ZXAgZ3VpZGUgd2Fsa3MgeW91IHRocm91Z2ggcnVubmluZyB5b3VyIGFwcCBsb2NhbGx5IGFuZCBjcmVhdGluZyBhIHNlY3VyZSB0dW5uZWwgZm9yIHJlbW90ZSBhY2Nlc3MuIiwKICAgICJzdGVwIjogWwogICAgICB7IkB0eXBlIjoiSG93VG9TdGVwIiwibmFtZSI6IkNyZWF0ZSBhIE5leHQuanMgQXBwIiwidGV4dCI6Im5weCBjcmVhdGUtbmV4dC1hcHAgbXktYXBwIn0sCiAgICAgIHsiQHR5cGUiOiJIb3dUb1N0ZXAiLCJuYW1lIjoiUnVuIE5leHQuanMgTG9jYWxseSIsInRleHQiOiJucG0gcnVuIGRldiJ9LAogICAgICB7IkB0eXBlIjoiSG93VG9TdGVwIiwibmFtZSI6IkNyZWF0ZSBUdW5uZWwgd2l0aCBQaW5nZ3kiLCJ0ZXh0Ijoic3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMwMDAgYS5waW5nZ3kuaW8ifSwKICAgICAgeyJAdHlwZSI6Ikhvd1RvU3RlcCIsIm5hbWUiOiJBY2Nlc3MgVXNpbmcgUHVibGljIFVSTCAiLCJ0ZXh0IjoiVmlzaXQgVXNpbmcgUGluZ2d54oCRZ2VuZXJhdGVkIFVSTCBodHRwczovL3lvdXItYXBwLnBpbmdneS5saW5rIGluIHlvdXIgYnJvd3NlciJ9CiAgICBdCiAgfQogIDwvc2NyaXB0Pg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KICB7CiAgICAiQGNvbnRleHQiOiAiaHR0cHM6Ly9zY2hlbWEub3JnLyIsCiAgICAiQHR5cGUiOiAiSG93VG8iLAogICAgIm5hbWUiOiAiSG93IHRvIFNoYXJlIGEgTmV4dC5qcyBBcHAgZnJvbSBMb2NhbGhvc3QiLAogICAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWN1cmVseSBob3N0IHlvdXIgTmV4dC5qcyBhcHAgb25saW5lIHVzaW5nIFBpbmdneS4gVGhpcyBzdGVwLWJ5LXN0ZXAgZ3VpZGUgd2Fsa3MgeW91IHRocm91Z2ggcnVubmluZyB5b3VyIGFwcCBsb2NhbGx5IGFuZCBjcmVhdGluZyBhIHNlY3VyZSB0dW5uZWwgZm9yIHJlbW90ZSBhY2Nlc3MuIiwKICAgICJzdGVwIjogWwogICAgICB7IkB0eXBlIjoiSG93VG9TdGVwIiwibmFtZSI6IkNyZWF0ZSBhIE5leHQuanMgQXBwIiwidGV4dCI6Im5weCBjcmVhdGUtbmV4dC1hcHAgbXktYXBwIn0sCiAgICAgIHsiQHR5cGUiOiJIb3dUb1N0ZXAiLCJuYW1lIjoiUnVuIE5leHQuanMgTG9jYWxseSIsInRleHQiOiJucG0gcnVuIGRldiJ9LAogICAgICB7IkB0eXBlIjoiSG93VG9TdGVwIiwibmFtZSI6IkNyZWF0ZSBUdW5uZWwgd2l0aCBQaW5nZ3kiLCJ0ZXh0Ijoic3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMwMDAgZnJlZS5waW5nZ3kuaW8ifSwKICAgICAgeyJAdHlwZSI6Ikhvd1RvU3RlcCIsIm5hbWUiOiJBY2Nlc3MgVXNpbmcgUHVibGljIFVSTCAiLCJ0ZXh0IjoiVmlzaXQgVXNpbmcgUGluZ2d54oCRZ2VuZXJhdGVkIFVSTCBodHRwczovL3lvdXItYXBwLnBpbmdneS5saW5rIGluIHlvdXIgYnJvd3NlciJ9CiAgICBdCiAgfQogIDwvc2NyaXB0Pg=="
 outputs:
   - HTML
   - AMP
@@ -26,7 +26,7 @@ Hosting your {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} app on 
 2. **Create a Tunnel with Pinggy**
    - Start SSH tunnel:
      ```bash
-     ssh -p 443 -R0:localhost:3000 a.pinggy.io
+     ssh -p 443 -R0:localhost:3000 free.pinggy.io
      ```
     - Access your Next.js app via the provided [Pinggy](https://pinggy.io) public URL (e.g., `https://your-app.pinggy.link`).
 {{% /tldr %}}
@@ -83,17 +83,17 @@ Visit `http://localhost:3000` to confirm your app is live locally.
 Open a new terminal window and run:
 
 ```bash
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 ### Command Breakdown:
 - **`ssh -p 443`**: Establishes a secure connection to Pinggy’s server.
 - **`-R0:localhost:3000`**: Maps your local Nuxt.js app (running on port 3000) to Pinggy’s public URL.
-- **`a.pinggy.io`**: Specifies the Pinggy server.
+- **`free.pinggy.io`**: Specifies the Pinggy server.
 
 
 {{< image "how_to_share_a_nextjs_app_from_localhost/pinggy_command.webp" "pinggy ssh command" >}}

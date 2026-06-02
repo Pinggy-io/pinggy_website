@@ -426,7 +426,7 @@ This eliminates the need for complex server configurations or cloud services.
 Use the following SSH command to set up a tunnel to your local development server:
 
 ```bash
-ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 ```
 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI:" portstring="FastAPI Port" localport="8000" webdebugenabled=false keepalive=true >}}

@@ -37,7 +37,7 @@ sudo systemctl enable --now sshd
 Run the following command in your terminal to create a TCP tunnel:
 
 ```bash
-ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
 ```
 
 {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to SSH server:" portstring="SSH server Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
@@ -50,7 +50,7 @@ You will receive a public URL and port, such as:
 If you have a Pinggy account, you can use your token to get a persistent address. Find your token in the [Pinggy Dashboard](https://dashboard.pinggy.io).
 
 ```bash
-ssh -p 443 -R0:localhost:22 <token>+tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 <token>+tcp@pro.pinggy.io
 ```
 
 ## Step 3: Access your Linux machine remotely

@@ -5,7 +5,7 @@ date: 2025-01-02T14:00:00+05:30
 draft: false
 tags: ["Nuxt.js", "Pinggy", "guide", "tunneling", "remote access"]
 og_image: "images/hosting_a_nuxt_app_without_a_server/pinggy.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvc3RpbmcgYSBOdXh0IEFwcCBXaXRob3V0IGEgU2VydmVyIFVzaW5nIFBpbmdneSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWN1cmVseSBob3N0IHlvdXIgTnV4dC5qcyBhcHAgb25saW5lIHVzaW5nIFBpbmdneS4gVGhpcyBndWlkZSB3YWxrcyB5b3UgdGhyb3VnaCBydW5uaW5nIHlvdXIgYXBwIGxvY2FsbHkgYW5kIGNyZWF0aW5nIGEgc2VjdXJlIHR1bm5lbCBmb3IgcmVtb3RlIGFjY2Vzcy4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvaG9zdGluZ19hX251eHRfYXBwX3dpdGhvdXRfYV9zZXJ2ZXIvcGluZ2d5LndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgbmV3IE51eHQuanMgYXBwIGFuZCBuYXZpZ2F0ZSB0byB0aGUgZGlyZWN0b3J5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJSdW4gdGhlIE51eHQuanMgZGV2ZWxvcG1lbnQgc2VydmVyIHVzaW5nIHRoZSBjb21tYW5kOiBucG0gcnVuIGRldi4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgdHVubmVsIHdpdGggUGluZ2d5IGJ5IHJ1bm5pbmc6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDozMDAwIGEucGluZ2d5LmlvLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciBOdXh0LmpzIGFwcCB2aWEgdGhlIHB1YmxpYyBVUkwgZ2VuZXJhdGVkIGJ5IFBpbmdneS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiT3B0aW9uYWw6IEN1c3RvbWl6ZSB5b3VyIFBpbmdneSB0dW5uZWwgd2l0aCBmZWF0dXJlcyBsaWtlIGN1c3RvbSBkb21haW5zIG9yIHBhc3N3b3JkIHByb3RlY3Rpb24gZm9yIGVuaGFuY2VkIHNlY3VyaXR5LiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvc3RpbmcgYSBOdXh0IEFwcCBXaXRob3V0IGEgU2VydmVyIFVzaW5nIFBpbmdneSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBzZWN1cmVseSBob3N0IHlvdXIgTnV4dC5qcyBhcHAgb25saW5lIHVzaW5nIFBpbmdneS4gVGhpcyBndWlkZSB3YWxrcyB5b3UgdGhyb3VnaCBydW5uaW5nIHlvdXIgYXBwIGxvY2FsbHkgYW5kIGNyZWF0aW5nIGEgc2VjdXJlIHR1bm5lbCBmb3IgcmVtb3RlIGFjY2Vzcy4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvaG9zdGluZ19hX251eHRfYXBwX3dpdGhvdXRfYV9zZXJ2ZXIvcGluZ2d5LndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgbmV3IE51eHQuanMgYXBwIGFuZCBuYXZpZ2F0ZSB0byB0aGUgZGlyZWN0b3J5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJSdW4gdGhlIE51eHQuanMgZGV2ZWxvcG1lbnQgc2VydmVyIHVzaW5nIHRoZSBjb21tYW5kOiBucG0gcnVuIGRldi4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIGEgdHVubmVsIHdpdGggUGluZ2d5IGJ5IHJ1bm5pbmc6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDozMDAwIGZyZWUucGluZ2d5LmlvLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciBOdXh0LmpzIGFwcCB2aWEgdGhlIHB1YmxpYyBVUkwgZ2VuZXJhdGVkIGJ5IFBpbmdneS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiT3B0aW9uYWw6IEN1c3RvbWl6ZSB5b3VyIFBpbmdneSB0dW5uZWwgd2l0aCBmZWF0dXJlcyBsaWtlIGN1c3RvbSBkb21haW5zIG9yIHBhc3N3b3JkIHByb3RlY3Rpb24gZm9yIGVuaGFuY2VkIHNlY3VyaXR5LiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -29,7 +29,7 @@ Hosting your {{< link href="https://nuxt.com/" >}}Nuxt.Js{{< /link >}} app on th
 
    - Start SSH tunnel:
      ```bash
-     ssh -p 443 -R0:localhost:3000 a.pinggy.io
+     ssh -p 443 -R0:localhost:3000 free.pinggy.io
      ```
    - Access your Nuxt.js app via the provided [Pinggy](https://pinggy.io) public URL.
 
@@ -87,9 +87,9 @@ Now, let’s expose your locally hosted Nuxt.js app using [Pinggy](https://pingg
 ### Tunnel Creation Command:
 Open your terminal and run the following command:
 ```bash
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
@@ -100,7 +100,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 ### Command Breakdown:
 - **`ssh -p 443`**: Establishes a secure connection to Pinggy’s server.
 - **`-R0:localhost:3000`**: Maps your local Nuxt.js app (running on port 3000) to Pinggy’s public URL.
-- **`a.pinggy.io`**: Specifies the Pinggy server.
+- **`free.pinggy.io`**: Specifies the Pinggy server.
 
 After executing the command, Pinggy will generate a public URL for your Nuxt.js app. It might look something like this:
 ```

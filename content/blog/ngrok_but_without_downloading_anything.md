@@ -12,7 +12,7 @@
 Paste this command to get a tunnel to localhost, port 8000:
 
 ```
-ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 ```
 
 {{< video poster="/assets/tunnelvideothumb.jpg" src="/assets/qr.webm" >}}

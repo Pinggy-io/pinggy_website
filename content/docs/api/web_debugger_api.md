@@ -14,7 +14,7 @@ To access these APIs, the Web Debugger needs to be enabled. Example:
 
 
 ```bash
-ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 free.pinggy.io
 ```
 
 Here, the port `4300` can be changed to any port where the Web Debugger will be listening.

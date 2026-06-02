@@ -2,7 +2,7 @@
 title: "DNS_PROBE_FINISHED_NXDOMAIN: What it is and How to fix it"
 description: "Encountering the dns_probe_finished_nxdomain error? Learn what it means, why it happens, and how to resolve it with step-by-step solutions."
 date: 2024-11-11T10:00:00+00:00
-lastmod: 2025-08-07T14:15:25+05:30
+lastmod: 2026-06-01T14:15:25+05:30
 draft: false
 og_image: "images/dns_probe_finished_nxdomain/thumbnail.webp"
 tags: ["dns_probe_finished_nxdomain", "Network troubleshooting", "DNS troubleshooting"]
@@ -142,7 +142,7 @@ Pinggy users may encounter this error when their tunnel URLs become inaccessible
 
 Restart your Pinggy tunnel using the same command if needed:
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 

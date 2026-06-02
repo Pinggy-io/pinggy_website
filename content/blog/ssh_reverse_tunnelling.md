@@ -33,7 +33,7 @@ SSH reverse tunneling allows you to expose local services to the internet, bypas
    
 3. Quick tunneling with Pinggy:
    ```bash
-   ssh -p 443 -R0:localhost:3000 a.pinggy.io
+   ssh -p 443 -R0:localhost:3000 free.pinggy.io
    ```
 {{% /tldr %}}
 
@@ -312,7 +312,7 @@ Here’s how you can set up an SSH reverse tunnel with Pinggy:
 **Basic Tunnel Setup**: You can use the following command to create a reverse tunnel with Pinggy:
 
 ```
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
 1. This command does several parts:
@@ -325,7 +325,7 @@ ssh -p 443 -R0:localhost:3000 a.pinggy.io
 **Proxy and Firewall Compatibility**: If your network blocks traditional SSH traffic, Pinggy offers an {{< link href="/app/" >}}App{{< /link >}} that can create a tunnel over SSL. Additional tools like ncat and openssl to tunnel traffic through HTTPS or SSL, ensuring the tunnel remains operational even in restrictive environments. For example:
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" a.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" free.pinggy.io
 ```
 
 ## Conclusion

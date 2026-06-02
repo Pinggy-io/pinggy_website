@@ -5,8 +5,8 @@ date: 2024-10-28T01:15:25+05:30
 draft: false
 tags: ["ComfyUI","Pinggy","guide","tunneling","remote access"]
 og_image: "images/how_to_easily_share_comfy_ui_online/thumbnail.webp"
-lastmod: 2024-12-30T14:20:25+05:30
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBFYXNpbHkgU2hhcmUgQ29tZnlVSSBPbmxpbmUiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gc2hhcmUgeW91ciBDb21meVVJIHNldHVwIG9ubGluZSB3aXRoIFBpbmdneS4gVGhpcyBlYXN5IGd1aWRlIHdhbGtzIHlvdSB0aHJvdWdoIGVhY2ggc3RlcCB0byBzZWN1cmVseSBzaGFyZSBDb21meVVJIG92ZXIgdGhlIGludGVybmV0LCBtYWtpbmcgY29sbGFib3JhdGlvbiBhbmQgcmVtb3RlIGFjY2VzcyBzaW1wbGUhIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2hvd190b19lYXNpbHlfc2hhcmVfY29tZnlfdWlfb25saW5lL3RodW1ibmFpbC53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNsb25lIHRoZSBDb21meVVJIHJlcG9zaXRvcnkgYW5kIG5hdmlnYXRlIHRvIHRoZSBkaXJlY3RvcnkuIiwKICAgICAgInVybCI6ICJodHRwczovL2dpdGh1Yi5jb20vY29tZnlhbm9ueW1vdXMvQ29tZnlVSSIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIHRoZSByZXF1aXJlZCBkZXBlbmRlbmNpZXMgYnkgcnVubmluZzogcGlwIGluc3RhbGwgLXIgcmVxdWlyZW1lbnRzLnR4dC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgQ29tZnlVSSB1c2luZyB0aGUgY29tbWFuZDogcHl0aG9uMyBtYWluLnB5LiBDb21meVVJIHdpbGwgc3RhcnQgYXQgaHR0cDovL2xvY2FsaG9zdDo4MTg4LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDcmVhdGUgYSB0dW5uZWwgd2l0aCBQaW5nZ3kgYnkgcnVubmluZzogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjgxODggYS5waW5nZ3kuaW8uIiwKICAgICAgInVybCI6ICJodHRwczovL3BpbmdneS5pby9kb2NzLyIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciBDb21meVVJIGluc3RhbmNlIHZpYSB0aGUgcHVibGljIFVSTCBnZW5lcmF0ZWQgYnkgUGluZ2d5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcHRpb25hbDogQ3VzdG9taXplIHlvdXIgUGluZ2d5IHR1bm5lbCB3aXRoIGZlYXR1cmVzIGxpa2UgY3VzdG9tIGRvbWFpbnMgb3IgcGFzc3dvcmQgcHJvdGVjdGlvbiBmb3IgYWRkZWQgc2VjdXJpdHkuIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
+lastmod: 2026-06-01T14:20:25+05:30
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBFYXNpbHkgU2hhcmUgQ29tZnlVSSBPbmxpbmUiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gc2hhcmUgeW91ciBDb21meVVJIHNldHVwIG9ubGluZSB3aXRoIFBpbmdneS4gVGhpcyBlYXN5IGd1aWRlIHdhbGtzIHlvdSB0aHJvdWdoIGVhY2ggc3RlcCB0byBzZWN1cmVseSBzaGFyZSBDb21meVVJIG92ZXIgdGhlIGludGVybmV0LCBtYWtpbmcgY29sbGFib3JhdGlvbiBhbmQgcmVtb3RlIGFjY2VzcyBzaW1wbGUhIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2hvd190b19lYXNpbHlfc2hhcmVfY29tZnlfdWlfb25saW5lL3RodW1ibmFpbC53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNsb25lIHRoZSBDb21meVVJIHJlcG9zaXRvcnkgYW5kIG5hdmlnYXRlIHRvIHRoZSBkaXJlY3RvcnkuIiwKICAgICAgInVybCI6ICJodHRwczovL2dpdGh1Yi5jb20vY29tZnlhbm9ueW1vdXMvQ29tZnlVSSIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIHRoZSByZXF1aXJlZCBkZXBlbmRlbmNpZXMgYnkgcnVubmluZzogcGlwIGluc3RhbGwgLXIgcmVxdWlyZW1lbnRzLnR4dC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgQ29tZnlVSSB1c2luZyB0aGUgY29tbWFuZDogcHl0aG9uMyBtYWluLnB5LiBDb21meVVJIHdpbGwgc3RhcnQgYXQgaHR0cDovL2xvY2FsaG9zdDo4MTg4LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDcmVhdGUgYSB0dW5uZWwgd2l0aCBQaW5nZ3kgYnkgcnVubmluZzogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjgxODggZnJlZS5waW5nZ3kuaW8uIiwKICAgICAgInVybCI6ICJodHRwczovL3BpbmdneS5pby9kb2NzLyIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciBDb21meVVJIGluc3RhbmNlIHZpYSB0aGUgcHVibGljIFVSTCBnZW5lcmF0ZWQgYnkgUGluZ2d5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcHRpb25hbDogQ3VzdG9taXplIHlvdXIgUGluZ2d5IHR1bm5lbCB3aXRoIGZlYXR1cmVzIGxpa2UgY3VzdG9tIGRvbWFpbnMgb3IgcGFzc3dvcmQgcHJvdGVjdGlvbiBmb3IgYWRkZWQgc2VjdXJpdHkuIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
 outputs:
   - HTML
   - AMP
@@ -31,7 +31,7 @@ outputs:
 
    - Start SSH tunnel:
      ```bash
-     ssh -p 443 -R0:localhost:8188 a.pinggy.io
+     ssh -p 443 -R0:localhost:8188 free.pinggy.io
      ```
    - Access your ComfyUI via the provided URL.
 
@@ -84,7 +84,7 @@ To expose your locally hosted ComfyUI instance, use Pinggy's SSH tunneling comma
 
 Open a terminal and enter:
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8188 a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8188 free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8188 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8188 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8188 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
@@ -95,7 +95,7 @@ Replace `8188` if ComfyUI is running on a different port.
 ### Command Breakdown:
 - `ssh -p 443`: Establishes a secure connection to Pinggy’s server over port 443.
 - `-R0:localhost:8188`: Connects your localhost to Pinggy’s server, forwarding the ComfyUI server.
-- `a.pinggy.io`: Directs the command to Pinggy’s server.
+- `free.pinggy.io`: Directs the command to Pinggy’s server.
 
 After executing, Pinggy will generate a public URL for your ComfyUI instance, which might look like:
 ```

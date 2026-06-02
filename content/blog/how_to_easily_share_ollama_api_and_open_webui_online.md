@@ -2,11 +2,11 @@
 title: "How to Easily Share Ollama API and Open WebUI Online"
 description: "Learn to securely expose Ollama's API and Open WebUI interface using Pinggy tunneling. Complete guide to running AI models locally with remote access."
 date: 2025-01-26T14:00:00+05:30
-lastmod: 2025-02-07T14:15:25+05:30
+lastmod: 2026-06-01T14:15:25+05:30
 draft: false
 tags: ["Ollama", "Open WebUI", "Pinggy", "AI Deployment", "LLM Hosting"]
 og_image: "images/how_to_easily_share_ollama_api_and_open_webui_online/pinggy.png"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNoYXJpbmcgT2xsYW1hIEFQSSBhbmQgT3BlbiBXZWJVSSBPbmxpbmUiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gZXhwb3NlIGxvY2FsIEFJIG1vZGVscyB2aWEgT2xsYW1hJ3MgQVBJIGFuZCBPcGVuIFdlYlVJIHVzaW5nIFBpbmdneSB0dW5uZWxpbmciLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvaG93X3RvX2Vhc2lseV9zaGFyZV9vbGxhbWFfYXBpX2FuZF9vcGVuX3dlYnVpX29ubGluZS9waW5nZ3kucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgT2xsYW1hIGFuZCBkb3dubG9hZCBhbiBMTE0gbW9kZWwiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2V0dXAgT3BlbiBXZWJVSSB1c2luZyBEb2NrZXIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRXhwb3NlIE9sbGFtYSdzIEFQSSB2aWE6IHNzaCAtcCA0NDMgLVIgMDpsb2NhbGhvc3Q6MTE0MzQgLXQgcXJAYS5waW5nZ3kuaW8gXCJ1Okhvc3Q6bG9jYWxob3N0OjExNDM0XCIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2hhcmUgT3BlbiBXZWJVSSB3aXRoOiBzc2ggLXAgNDQzIC1SIDA6bG9jYWxob3N0OjMwMDAgYS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQWR2YW5jZWQgY29uZmlndXJhdGlvbjogQWRkIGF1dGhlbnRpY2F0aW9uLCB1c2UgY3VzdG9tIGRvbWFpbnMsIGFuZCBvcHRpbWl6ZSBwZXJmb3JtYW5jZSIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNoYXJpbmcgT2xsYW1hIEFQSSBhbmQgT3BlbiBXZWJVSSBPbmxpbmUiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gZXhwb3NlIGxvY2FsIEFJIG1vZGVscyB2aWEgT2xsYW1hJ3MgQVBJIGFuZCBPcGVuIFdlYlVJIHVzaW5nIFBpbmdneSB0dW5uZWxpbmciLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvaG93X3RvX2Vhc2lseV9zaGFyZV9vbGxhbWFfYXBpX2FuZF9vcGVuX3dlYnVpX29ubGluZS9waW5nZ3kucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgT2xsYW1hIGFuZCBkb3dubG9hZCBhbiBMTE0gbW9kZWwiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2V0dXAgT3BlbiBXZWJVSSB1c2luZyBEb2NrZXIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRXhwb3NlIE9sbGFtYSdzIEFQSSB2aWE6IHNzaCAtcCA0NDMgLVIgMDpsb2NhbGhvc3Q6MTE0MzQgLXQgcXJAZnJlZS5waW5nZ3kuaW8gXCJ1Okhvc3Q6bG9jYWxob3N0OjExNDM0XCIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2hhcmUgT3BlbiBXZWJVSSB3aXRoOiBzc2ggLXAgNDQzIC1SIDA6bG9jYWxob3N0OjMwMDAgZnJlZS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQWR2YW5jZWQgY29uZmlndXJhdGlvbjogQWRkIGF1dGhlbnRpY2F0aW9uLCB1c2UgY3VzdG9tIGRvbWFpbnMsIGFuZCBvcHRpbWl6ZSBwZXJmb3JtYW5jZSIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
 outputs:
   - HTML
   - AMP
@@ -30,7 +30,7 @@ This comprehensive guide will walk you through exposing {{< link href="https://o
 2. **Share Ollama API via Pinggy**  
    - Create a secure tunnel for port 11434:  
      ```bash
-     ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io "u:Host:localhost:11434"
+     ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io "u:Host:localhost:11434"
      ```
    - Access API via [Pinggy](https://pinggy.io) URL (e.g., `https://abc123.pinggy.link`).
 
@@ -43,7 +43,7 @@ This comprehensive guide will walk you through exposing {{< link href="https://o
 4. **Expose WebUI Online**  
    - Tunnel port 3000:  
      ```bash
-     ssh -p 443 -R0:localhost:3000 a.pinggy.io
+     ssh -p 443 -R0:localhost:3000 free.pinggy.io
      ```
    - Share the generated URL for ChatGPT-like access to your LLMs.
 
@@ -114,7 +114,7 @@ ollama serve  # Keep this terminal open
 ### Create a Public URL with Pinggy  
 Use this SSH command to tunnel Ollama’s API:  
 ```bash
-ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io "u:Host:localhost:11434"
+ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io "u:Host:localhost:11434"
 ```  
 
 {{< ssh_command >}}
@@ -125,7 +125,7 @@ ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io "u:Host:localhost:11434"
 **Command Breakdown**:  
 - `-p 443`: Connects via HTTPS for firewall compatibility.  
 - `-R0:localhost:11434`: Forwards Ollama’s port to Pinggy.  
-- `qr@a.pinggy.io`: Pinggy’s tunneling endpoint.  
+- `qr@free.pinggy.io`: Pinggy’s tunneling endpoint.  
 - `u:Host:localhost:11434`: Maps the tunnel to your local port.
 
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/pinggy_tunnel_command_for_model.webp" "pinggy command" >}}
@@ -154,9 +154,9 @@ To test the Ollama API using JavaScript, follow these simple steps:
 ### Expose Open WebUI via Pinggy  
 Run this command to share port `3000`:  
 ```bash
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```  
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 a.pinggy.io" >}}
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 free.pinggy.io" >}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
@@ -181,7 +181,7 @@ You’ll receive a URL like `https://xyz456.pinggy.link`.
   Secure your tunnel by appending a username and password to your SSH command:  
 
   ```bash
-  ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password
+  ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password
   ```  
 
 {{< ssh_command >}}
