@@ -24,5 +24,5 @@ The application will start at `http://localhost:3000` by default.
 Create a tunnel using the command:
 
 ```
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```

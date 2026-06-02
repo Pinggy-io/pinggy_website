@@ -37,7 +37,7 @@ Create a tunnel using the command:
 <br>
 
 ```
-ssh -p 443 -R0:localhost:8000 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 free.pinggy.io
 ```
 
 Access your files using the URLs given by Pinggy after the above command.

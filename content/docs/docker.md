@@ -15,17 +15,17 @@ Here is an example for starting a HTTP tunnel on port `8080` on localhost:
 {{< tabs >}}
 {{% tab name="Linux" %}}
 ```bash
-docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8080 a.pinggy.io
+docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="Mac" %}}
 ```bash
-docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 a.pinggy.io
+docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="Windows" %}}
 ```bash
-docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 a.pinggy.io
+docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -52,17 +52,17 @@ To enable the Web Debugger, you need to pass the option `-L0.0.0.0:4300:localhos
 {{< tabs >}}
 {{% tab name="Linux" %}}
 ```bash
-docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 a.pinggy.io
+docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="Mac" %}}
 ```bash
-docker run -p 4300:4300 -it pinggy/pinggy -p 443 -R0:localhost:8080 -L0.0.0.0:4300:localhost:4300 a.pinggy.io
+docker run -p 4300:4300 -it pinggy/pinggy -p 443 -R0:localhost:8080 -L0.0.0.0:4300:localhost:4300 free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="Windows" %}}
 ```bash
-docker run -p 4300:4300 -it pinggy/pinggy -p 443 -R0:localhost:8080 -L0.0.0.0:4300:localhost:4300 a.pinggy.io
+docker run -p 4300:4300 -it pinggy/pinggy -p 443 -R0:localhost:8080 -L0.0.0.0:4300:localhost:4300 free.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -77,17 +77,17 @@ A major advantage of using Pinggy through docker is the ability to create UDP tu
 {{< tabs >}}
 {{% tab name="Linux" %}}
 ```bash
-docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8080 udp@a.pinggy.io
+docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8080 udp@free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="Mac" %}}
 ```bash
-docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 udp@a.pinggy.io
+docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 udp@free.pinggy.io
 ```
 {{% /tab %}}
 {{% tab name="Windows" %}}
 ```bash
-docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 udp@a.pinggy.io
+docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 udp@free.pinggy.io
 ```
 {{% /tab %}}
 {{< /tabs >}}

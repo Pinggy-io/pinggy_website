@@ -19,7 +19,7 @@ In such cases, in order to terminate the tunnel, you can use the "Terminate" opt
 If you want to programatically disconnect an existing tunnel to forcefully create a new one, you may use the `force` option as follows.
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 force@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 force@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 force@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 force@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 force@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 force@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 force@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 force@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 force@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 force@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 force@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 
@@ -33,7 +33,7 @@ To disable reverse proxy mode, pass the argument `x:noreverseproxy`, and Pinggy 
 
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:noreverseproxy\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:noreverseproxy\"}}}"
 {{</ ssh_command >}}
 
 
@@ -44,13 +44,13 @@ To disable reverse proxy mode, pass the argument `x:noreverseproxy`, and Pinggy 
 
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff\"}}}"
 {{</ ssh_command >}}
 
 If you want to change the header name from `X-Forwarded-For` to something custom such as `Source-Address`, you can also do so using the argument: `x:xff:Source-Address`.
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:xff:Source-Address\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:xff:Source-Address\"}}}"
 {{</ ssh_command >}}
 
 
@@ -60,7 +60,7 @@ Some servers do not respond correctly if the Host header value does not match it
 
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t a.pinggy.io u:Host:example.com\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t free.pinggy.io u:Host:example.com\"}}}"
 {{</ ssh_command >}}
 
 Read more about [live header modification](../live_header/).
@@ -72,6 +72,6 @@ By default, enabling key authentication / password authentication will block all
 Pinggy allows users to manipulate headers via the command line. The syntax is as follows:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io x:passpreflight\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io x:passpreflight\"}}}"
 {{</ ssh_command >}}
 

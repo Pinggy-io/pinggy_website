@@ -22,7 +22,7 @@ Creating a local WordPress site is a routine for most developers, though sharing
 
 2. **Run Command**: Open terminal and run:
    ```bash
-   ssh -p 443 -L4300:localhost:4300 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -t -R0:your-subdomain.a.pinggy.link:80 <your-token>@a.pinggy.io
+   ssh -p 443 -L4300:localhost:4300 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -t -R0:your-subdomain.a.pinggy.link:80 <your-token>@pro.pinggy.io
    ```
 3. **Access Site**: Use the generated Pinggy URL to access your local WordPress site remotely.
 
@@ -69,7 +69,7 @@ Open **LocalWP by Flywheel** and select your WordPress site. Click the **"open S
 In the terminal, use the updated Pinggy command, which now includes a token from your [Subdomain](https://dashboard.pinggy.io/subdomains) setup. Replace `moksh.a.pinggy.link` with your chosen subdomain.
 
 ```bash
-ssh -p 443 -t -R0:moksh.a.pinggy.link:80 jYEfZnpL3zR@a.pinggy.io u:Host:moksh.a.pinggy.link
+ssh -p 443 -t -R0:moksh.a.pinggy.link:80 jYEfZnpL3zR@pro.pinggy.io u:Host:moksh.a.pinggy.link
 ```
 
 {{< pinggytunnel box="true" mode="http" tunnelstring="Paste this command to start a tunnel to LocalWP:" portstring="LocalWP Port" localport="80" webdebugenabled=false keepalive=true tryYourselfText="Customize your command:" >}}{{< /pinggytunnel >}}
@@ -82,7 +82,7 @@ This command establishes a secure SSL connection from your local server to Pingg
 - **-p 443**: Specifies port 443, commonly used for HTTPS, allowing secure tunneling over this port.
 - **-t**: Forces a pseudo-terminal, enabling interactive command execution if needed during the connection.
 - **-R0:moksh.a.pinggy.link:80**: Sets up reverse tunneling from your Pinggy subdomain (`moksh.a.pinggy.link`) on port 80, allowing the LocalWP site to be accessed through this subdomain.
-- **jYEfZnpL3zR&#64;a.pinggy.io**: Your unique Pinggy authentication token (replace with your actual token), required to authorize the tunnel connection.
+- **jYEfZnpL3zR&#64;pro.pinggy.io**: Your unique Pinggy authentication token (replace with your actual token), required to authorize the tunnel connection.
 - **u:Host:moksh.a.pinggy.link**: Sets the host header on the remote Pinggy server to align with your local setup, ensuring requests are directed correctly to the LocalWP site.
 
 ## Finalizing Your Remote Access

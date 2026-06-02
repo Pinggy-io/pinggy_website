@@ -23,14 +23,14 @@ On can share the urls to friend, and they would get to see the shared directory.
 {{% tab name="webfs+bash" %}}
 
 ```
-webfs -F -p8080 & ssh -p443 -R0:localhost:8080 a.pinggy.io
+webfs -F -p8080 & ssh -p443 -R0:localhost:8080 free.pinggy.io
 ```
 
 {{% /tab %}}
 {{% tab name="python+bash" %}}
 
 ```
-python -mhttp.server 8080 & ssh -p443 -R0:localhost:8080 a.pinggy.io
+python -mhttp.server 8080 & ssh -p443 -R0:localhost:8080 free.pinggy.io
 ```
 
 {{% /tab %}}

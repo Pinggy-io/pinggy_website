@@ -14,7 +14,7 @@ To access these APIs, the Web Debugger needs to be enabled. Example:
 
 
 ```bash
-ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 a.pinggy.io
+ssh -p 443 -R0:localhost:8000 -L4300:localhost:4300 free.pinggy.io
 ```
 
 Here, the port `4300` can be changed to any port where the Web Debugger will be listening.
@@ -46,7 +46,7 @@ Pinggy supports [whitelisting IP addresses](/docs/http_tunnels/ip_whitelist/) to
 
 
 ```bash
-ssh -p 443 -L4300:localhost:4300 -t -R0:localhost:8000 tcp@a.pinggy.io \"w:2205:213:9013:a835:e552:ccf2:398f:1234/128,56.3.51.0/24\"
+ssh -p 443 -L4300:localhost:4300 -t -R0:localhost:8000 tcp@free.pinggy.io \"w:2205:213:9013:a835:e552:ccf2:398f:1234/128,56.3.51.0/24\"
 ```
 
 To get the list of whitelisted IP addresses, simply send a GET request to `http://localhost:4300/ipwhitelist`

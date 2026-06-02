@@ -101,7 +101,7 @@ php -S 0.0.0.0:8080             # PHP's built-in server
 Now open a Pinggy tunnel that forwards public HTTPS traffic to that local port:
 
 ```bash
-ssh -p 443 -R0:localhost:8080 a.pinggy.io
+ssh -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 
 You'll get back a URL like `https://ranxyzxxxx.a.free.pinggy.link`. Anyone with that link can hit the page running on your phone. On the free plan the tunnel lasts 60 minutes, then you reconnect and get a fresh URL.
@@ -137,7 +137,7 @@ Enter the domain you want to use. Pinggy returns a CNAME record; add it to your 
 Once the domain is wired up, include your Pinggy access token in the tunnel command:
 
 ```bash
-ssh -p 443 -R0:localhost:8080 <your-pinggy-token>@a.pinggy.io
+ssh -p 443 -R0:localhost:8080 <your-pinggy-token>@pro.pinggy.io
 ```
 
 The same command also pins your URL on a paid plan, so reconnects keep the same hostname.

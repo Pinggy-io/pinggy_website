@@ -19,7 +19,7 @@ You can access your Internet of Things (IoT), devices remotely and manage our de
 
 1. Run this command on your IoT device such as Raspberry Pi:
    ```
-   ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
    ```
 2. This command creates a TCP tunnel and it will output a public URL like `tcp://tljocjkijs.a.pinggy.link:40527`.
 3. Use the SSH command with the URL and port to connect to your IoT device:
@@ -53,7 +53,7 @@ With Pinggy.io you can access IoT devices, including Raspberry Pi, Banana Pi, Or
 On your IoT device, open a terminal or SSH client and run the following command to create a tunnel to port 22 (SSH):
 
 ```
-ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
 ```
 
 This command establishes a secure connection to the Pinggy.io server, creating a tunnel that forwards traffic from the server's port 22 to your IoT device's port 22.
@@ -96,7 +96,7 @@ On the Pinggy dashboard you'll find your access token, which is a unique identif
 On your IoT device, open a terminal or SSH client and run the following command to create a tunnel to port 22 (SSH) using your access token:
 
 ```
-ssh -p 443 -R0:localhost:22 access_token+tcp@a.pinggy.io
+ssh -p 443 -R0:localhost:22 access_token+tcp@pro.pinggy.io
 ```
 
 Replace `access_token` with your own access token obtained from pinggy dashboard.

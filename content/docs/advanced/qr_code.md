@@ -39,7 +39,7 @@ Pinggy also supports keywords `qr` and `aqr` while creating tunnel to print QR i
 This keyword needs to be passed with the username as following:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 qr@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 qr@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 Here `qr` would produce QR code in unicode while `aqr` would produce QR code in ASCII.

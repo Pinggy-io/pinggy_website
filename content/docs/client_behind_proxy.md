@@ -18,19 +18,19 @@ These tricks are operating system-dependent, as they require the availability of
 The `ssh` command from OpenSSH comes with a special option called `Proxy-Command` which can be used to use another command to set up the connection with a server. For example, we can connect to our server using the `nc` command like this:
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="nc %h %p" a.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="nc %h %p" free.pinggy.io
 ```
 
 This command is the same as
 
 ```
-ssh -p443 -R0:localhost:4000 a.pinggy.io
+ssh -p443 -R0:localhost:4000 free.pinggy.io
 ```
 
 The `nc` command also allows connecting through an HTTP proxy with the option `-X` and `-x`. Using the following command, one can connect to our server via a proxy at `192.168.2.2` running on port `3128`.
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="nc -X connect -x 192.168.2.2:3128 %h %p" a.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="nc -X connect -x 192.168.2.2:3128 %h %p" free.pinggy.io
 ```
 
 It might happen that `nc` command does not work for you. Many other tools exist for the same task. Please note, it is absolutely fine to use any other tool, as the traffic going through these tools is encrypted and the tool cannot decrypt it.
@@ -38,7 +38,7 @@ It might happen that `nc` command does not work for you. Many other tools exist 
 The tools `ncat` and `corkscrew` are similar. However, `ncat` has more useful functions. Here goes the same example with `ncat`.
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" a.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" free.pinggy.io
 ```
 
 ## Start a tunnel behind a firewall that does not allow anything but SSL.
@@ -50,11 +50,11 @@ Although SSH uses an encrypted channel, it is not SSL. So, if a firewall does no
 We support `ssh-over-ssl` tunneling. You can pass the entire `ssh` traffic to the Pinggy server over an SSL tunnel with the help of `ncat` or `openssl` command. Here's how you can do it:
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="openssl s_client -quiet -connect %h:%p" a.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="openssl s_client -quiet -connect %h:%p" free.pinggy.io
 ```
 
 ```
-ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --ssl %h %p" a.pinggy.io
+ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --ssl %h %p" free.pinggy.io
 ```
 
 ## Start a tunnel from a network behind an HTTP proxy that does not allow not SSL connection
@@ -64,11 +64,11 @@ ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --ssl %h %p" a.pinggy.io
 The `ncat` and `openssl` commands can connect to SSL via HTTP proxy. So, these two commands can be used to connect to the Pinggy server in SSH-over-SSL mode via an HTTP proxy. The following command would do that:
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="openssl s_client -quiet -proxy 192.168.2.2:3128 -connect %h:%p" a.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="openssl s_client -quiet -proxy 192.168.2.2:3128 -connect %h:%p" free.pinggy.io
 ```
 
 ```
-ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 --ssl %h %p" a.pinggy.io
+ssh -p7878 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 --ssl %h %p" free.pinggy.io
 ```
 
 ## Windows

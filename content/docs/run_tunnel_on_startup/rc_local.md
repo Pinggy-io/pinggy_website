@@ -31,12 +31,12 @@ It's best practice to put your tunnel command in a separate script file rather t
    ```bash
    #!/bin/bash
    # Run Pinggy tunnel in the background
-   ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 a.pinggy.io >> /var/log/pinggy.log 2>&1 &
+   ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 free.pinggy.io >> /var/log/pinggy.log 2>&1 &
    ```
 
    **Note:** If you want to run the tunnel as a specific user instead of root, you can use `su`:
    ```bash
-   su - yourusername -c 'ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 a.pinggy.io' >> /var/log/pinggy.log 2>&1 &
+   su - yourusername -c 'ssh -p 443 -R0:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 free.pinggy.io' >> /var/log/pinggy.log 2>&1 &
    ```
 
    You can customize the command here:
