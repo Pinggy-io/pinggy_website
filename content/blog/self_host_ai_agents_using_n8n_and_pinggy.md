@@ -5,7 +5,7 @@ date: 2025-06-07T14:00:00+05:30
 draft: false
 tags: ["n8n", "AI", "Self-Hosted", "Pinggy", "Ollama", "Qdrant", "Local LLM"]
 og_image: "images/self_host_ai_agents_using_n8n_and_pinggy/n8n_ai_starter_kit_pinggy.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtSG9zdCBBSSBBZ2VudHMgVXNpbmcgbjhuIGFuZCBQaW5nZ3kiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gc2VsZi1ob3N0IG44bidzIEFJIFN0YXJ0ZXIgS2l0IGFuZCBhY2Nlc3MgeW91ciBBSSB3b3JrZmxvd3MgcmVtb3RlbHkgd2l0aCBQaW5nZ3kuIEEgc3RlcC1ieS1zdGVwIGd1aWRlIHRvIGNyZWF0aW5nIHByaXZhY3ktZm9jdXNlZCBBSSBzb2x1dGlvbnMgd2l0aCBsb2NhbCBMTE1zLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9zZWxmX2hvc3RfYWlfYWdlbnRzX3VzaW5nX244bl9hbmRfcGluZ2d5L244bl9haV9zdGFydGVyX2tpdF9waW5nZ3kud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIERvY2tlciBhbmQgRG9ja2VyIENvbXBvc2Ugb24geW91ciBzeXN0ZW0iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ2xvbmUgdGhlIG44biBBSSBTdGFydGVyIEtpdCByZXBvc2l0b3J5OiBnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL244bi1pby9zZWxmLWhvc3RlZC1haS1zdGFydGVyLWtpdC5naXQiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiTmF2aWdhdGUgaW50byB0aGUgY2xvbmVkIGZvbGRlciBhbmQgbGF1bmNoIGNvbnRhaW5lcnM6IGRvY2tlciBjb21wb3NlIC0tcHJvZmlsZSBjcHUgdXAiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQWNjZXNzIHlvdXIgbjhuIGluc3RhbmNlIGF0IGh0dHA6Ly9sb2NhbGhvc3Q6NTY3OCBhbmQgc2V0IHVwIHRoZSBpbmNsdWRlZCBBSSB3b3JrZmxvdyIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFeHBvc2UgeW91ciBuOG4gaW5zdGFuY2UgdXNpbmcgUGluZ2d5OiBzc2ggLXAgNDQzIC1SIDA6bG9jYWxob3N0OjU2NzggYS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2VjdXJlIHlvdXIgZXhwb3NlZCBuOG4gaW5zdGFuY2UgdXNpbmcgUGluZ2d5J3MgYXV0aGVudGljYXRpb24gYW5kIGFjY2VzcyBjb250cm9sIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtSG9zdCBBSSBBZ2VudHMgVXNpbmcgbjhuIGFuZCBQaW5nZ3kiLAogICJkZXNjcmlwdGlvbiI6ICJMZWFybiBob3cgdG8gc2VsZi1ob3N0IG44bidzIEFJIFN0YXJ0ZXIgS2l0IGFuZCBhY2Nlc3MgeW91ciBBSSB3b3JrZmxvd3MgcmVtb3RlbHkgd2l0aCBQaW5nZ3kuIEEgc3RlcC1ieS1zdGVwIGd1aWRlIHRvIGNyZWF0aW5nIHByaXZhY3ktZm9jdXNlZCBBSSBzb2x1dGlvbnMgd2l0aCBsb2NhbCBMTE1zLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9zZWxmX2hvc3RfYWlfYWdlbnRzX3VzaW5nX244bl9hbmRfcGluZ2d5L244bl9haV9zdGFydGVyX2tpdF9waW5nZ3kud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIERvY2tlciBhbmQgRG9ja2VyIENvbXBvc2Ugb24geW91ciBzeXN0ZW0iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ2xvbmUgdGhlIG44biBBSSBTdGFydGVyIEtpdCByZXBvc2l0b3J5OiBnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL244bi1pby9zZWxmLWhvc3RlZC1haS1zdGFydGVyLWtpdC5naXQiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiTmF2aWdhdGUgaW50byB0aGUgY2xvbmVkIGZvbGRlciBhbmQgbGF1bmNoIGNvbnRhaW5lcnM6IGRvY2tlciBjb21wb3NlIC0tcHJvZmlsZSBjcHUgdXAiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQWNjZXNzIHlvdXIgbjhuIGluc3RhbmNlIGF0IGh0dHA6Ly9sb2NhbGhvc3Q6NTY3OCBhbmQgc2V0IHVwIHRoZSBpbmNsdWRlZCBBSSB3b3JrZmxvdyIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFeHBvc2UgeW91ciBuOG4gaW5zdGFuY2UgdXNpbmcgUGluZ2d5OiBzc2ggLXAgNDQzIC1SIDA6bG9jYWxob3N0OjU2NzggZnJlZS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2VjdXJlIHlvdXIgZXhwb3NlZCBuOG4gaW5zdGFuY2UgdXNpbmcgUGluZ2d5J3MgYXV0aGVudGljYXRpb24gYW5kIGFjY2VzcyBjb250cm9sIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
 outputs:
   - HTML
   - AMP
@@ -48,13 +48,13 @@ In today's AI landscape, running powerful AI agents locally offers significant a
    - Basic HTTP tunnel:
 
      ```bash
-     ssh -p 443 -R0:localhost:5678 a.pinggy.io
+     ssh -p 443 -R0:localhost:5678 free.pinggy.io
      ```
 
    - With authentication:
 
      ```bash
-     ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password
+     ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password
      ```
 
    - Access your AI workflows remotely via the generated Pinggy URL
@@ -167,13 +167,13 @@ While your n8n instance works perfectly on your local network, you might want to
 To expose your n8n instance with a simple HTTP tunnel, run:
 
 ```bash
-ssh -p 443 -R0:localhost:5678 a.pinggy.io
+ssh -p 443 -R0:localhost:5678 free.pinggy.io
 ```
 
 {{< image "self_host_ai_agents_using_n8n_and_pinggy/pinggy_command.webp" "Pinggy Command" >}}
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5678 a.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5678 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 a.pinggy.io\"}}}"
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5678 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5678 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 This command will create a tunnel and provide you with a public URL (e.g., `https://abc123.pinggy.link`) that redirects to your local n8n instance.
@@ -190,10 +190,10 @@ This command will create a tunnel and provide you with a public URL (e.g., `http
 For better security, add basic authentication to your tunnel:
 
 ```bash
-ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password
+ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password
 ```
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t a.pinggy.io b:username:password\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:5678 -t free.pinggy.io b:username:password\"}}}"
 {{</ ssh_command >}}
 
 This adds an extra layer of protection, requiring users to enter credentials before accessing your n8n instance.

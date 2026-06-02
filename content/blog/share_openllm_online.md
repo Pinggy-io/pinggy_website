@@ -5,7 +5,7 @@ date: 2025-02-04T14:00:00+05:30
 draft: false
 tags: ["OpenLLM", "Pinggy", "Self-Hosted AI", "LLM Deployment", "AI Tunneling"]
 og_image: "images/share_openllm_online/thumbnail_image.png"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtSG9zdCBMYXJnZSBMYW5ndWFnZSBNb2RlbHMgKExMTXMpIHdpdGggT3BlbkxMTSBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIGRlcGxveSBMTE1zIGxvY2FsbHkgdXNpbmcgT3BlbkxMTSBhbmQgc2VjdXJlbHkgZXhwb3NlIHRoZW0gb25saW5lIHZpYSBQaW5nZ3kgdHVubmVsaW5nLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9zaGFyZV9vcGVubGxtX29ubGluZS90aHVtYm5haWxfaW1hZ2UucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogInBpcCBpbnN0YWxsIG9wZW5sbG0gYW5kIGRlcGxveSBhIG1vZGVsLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTdGFydCBhIG1vZGVsIHNlcnZlciB1c2luZyBPcGVuTExNLCBlLmcuLCAnb3BlbmxsbSBzZXJ2ZSBsbGFtYTMuMjoxYi1pbnN0cnVjdC1nZ21sLWZwMTYtbGludXgnLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDcmVhdGUgYSBzZWN1cmUgdHVubmVsIHdpdGggUGluZ2d5OiAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMwMDAgYS5waW5nZ3kuaW8nLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciBMTE0gQVBJIGFuZCBPcGVuIFdlYlVJIHZpYSB0aGUgZ2VuZXJhdGVkIFBpbmdneSBwdWJsaWMgVVJMLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFbmhhbmNlIHNlY3VyaXR5IGJ5IGFkZGluZyBhdXRoZW50aWNhdGlvbiBhbmQgc2V0dGluZyB1cCBhIGN1c3RvbSBkb21haW4uIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNlbGYtSG9zdCBMYXJnZSBMYW5ndWFnZSBNb2RlbHMgKExMTXMpIHdpdGggT3BlbkxMTSBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIGRlcGxveSBMTE1zIGxvY2FsbHkgdXNpbmcgT3BlbkxMTSBhbmQgc2VjdXJlbHkgZXhwb3NlIHRoZW0gb25saW5lIHZpYSBQaW5nZ3kgdHVubmVsaW5nLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9zaGFyZV9vcGVubGxtX29ubGluZS90aHVtYm5haWxfaW1hZ2UucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogInBpcCBpbnN0YWxsIG9wZW5sbG0gYW5kIGRlcGxveSBhIG1vZGVsLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTdGFydCBhIG1vZGVsIHNlcnZlciB1c2luZyBPcGVuTExNLCBlLmcuLCAnb3BlbmxsbSBzZXJ2ZSBsbGFtYTMuMjoxYi1pbnN0cnVjdC1nZ21sLWZwMTYtbGludXgnLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDcmVhdGUgYSBzZWN1cmUgdHVubmVsIHdpdGggUGluZ2d5OiAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjMwMDAgZnJlZS5waW5nZ3kuaW8nLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciBMTE0gQVBJIGFuZCBPcGVuIFdlYlVJIHZpYSB0aGUgZ2VuZXJhdGVkIFBpbmdneSBwdWJsaWMgVVJMLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFbmhhbmNlIHNlY3VyaXR5IGJ5IGFkZGluZyBhdXRoZW50aWNhdGlvbiBhbmQgc2V0dGluZyB1cCBhIGN1c3RvbSBkb21haW4uIgogICAgfQogIF0KfQo8L3NjcmlwdD4="
 outputs:
   - HTML
   - AMP
@@ -27,7 +27,7 @@ In the era of generative AI, self-hosting large language models (LLMs) gives dev
 2. **Expose API via Pinggy**  
    Tunnel port `3000`:  
    ```bash
-   ssh -p 443 -R0:localhost:3000 a.pinggy.io
+   ssh -p 443 -R0:localhost:3000 free.pinggy.io
    ```
    - Share the generated URL for ChatGPT-like access to your LLMs.
 
@@ -81,17 +81,17 @@ Available models include:
 ### Create Secure Tunnel
 While OpenLLM runs on port `3000`:
 ```bash
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 a.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 a.pinggy.io\"}}}"
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 **Command Breakdown**:  
 - `-p 443`: Connects via HTTPS for firewall compatibility.  
 - `-R0:localhost:3000`: Forwards Ollama’s port to Pinggy.  
-- `qr@a.pinggy.io`: Pinggy’s tunneling endpoint.  
+- `qr@free.pinggy.io`: Pinggy’s tunneling endpoint.  
 
 {{< image "share_openllm_online/pinggy_tunnel_command.webp" "Pinggy Command" >}}
 
@@ -123,10 +123,10 @@ You'll receive a public URL like `https://xyz123.pinggy.link`.
   Secure your tunnel by appending a username and password to your SSH command:  
 
   ```bash
-  ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password
+  ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password
   ```  
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t a.pinggy.io b:username:password\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 ./pinggy.exe -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 -t free.pinggy.io b:username:password\"}}}"
 {{</ ssh_command >}}
 
   You can also configure multiple username-password pairs for enhanced access control. For more details, refer to the [official documentation](https://pinggy.io/docs/http_tunnels/basic_auth/).
@@ -164,7 +164,7 @@ Researchers can securely share access to proprietary models with peers without e
 - Use Pinggy's TCP mode for unstable networks:
   ```bash
   while true; do 
-    ssh -p 443 -o StrictHostKeyChecking=no -R0:localhost:3000 a.pinggy.io; 
+    ssh -p 443 -o StrictHostKeyChecking=no -R0:localhost:3000 free.pinggy.io; 
   sleep 10; done
   ```
   *Note: This command requires [Pinggy Pro](https://pinggy.io/#prices)*.

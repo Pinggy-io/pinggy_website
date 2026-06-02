@@ -176,7 +176,7 @@ Here's how to set it up:
 2. With your Minecraft server running, execute this command:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:25565 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:25565 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:25565 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:25565 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:25565 tcp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:25565 tcp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:25565 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:25565 tcp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:25565 tcp@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 This creates a TCP tunnel from Pinggy's servers to your Minecraft server. Pinggy will provide you with a hostname and port that your friends can use to connect to your server.

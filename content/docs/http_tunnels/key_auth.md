@@ -14,13 +14,13 @@ Key-based authentication involves visitors providing an 'Authorization' header w
 Start tunnel with key authentication as follows:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\"}}}"
 {{</ ssh_command >}}
 
 Like basic authentication, one can set multiple keys as well.
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key1 k:key2\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key1 k:key2\"}}}"
 {{</ ssh_command >}}
 
 You can customize the command here:
@@ -48,5 +48,5 @@ Just pass the optional `x:passpreflight` argument at the end of the command the 
 
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t a.pinggy.io k:key\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io k:key x:passpreflight\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 -t free.pinggy.io k:key x:passpreflight\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io k:key x:passpreflight\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 -t free.pinggy.io k:key x:passpreflight\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key x:passpreflight\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key x:passpreflight\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 -t free.pinggy.io k:key\"}}}"
 {{</ ssh_command >}}

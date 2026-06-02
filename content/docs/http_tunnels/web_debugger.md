@@ -24,7 +24,7 @@ To enable the Web Debugger, you need to configure a tunnel with the Web Debugger
    Use the Pinggy CLI or SSH command to start a tunnel and specify the Web Debugger port (e.g., `4300`). For example:
 
    ```bash
-   ssh -p 443 -R0:localhost:8080 -L4300:localhost:4300 a.pinggy.io
+   ssh -p 443 -R0:localhost:8080 -L4300:localhost:4300 free.pinggy.io
    ```
 
    Here, `-L4300:localhost:4300` specifies that the Web Debugger will be accessible on port `4300`.
@@ -40,7 +40,7 @@ To enable the Web Debugger, you need to configure a tunnel with the Web Debugger
    Alternatively, you can use the Pinggy CLI to start a tunnel with the Web Debugger enabled:
 
    ```bash
-   ./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 a.pinggy.io
+   ./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 free.pinggy.io
    ```
 
 4. **Programmatic Access with APIs**:

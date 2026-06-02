@@ -137,7 +137,7 @@ If you're working with UDP, you eventually hit the question of how to reach a lo
 Run this in your terminal:
 
 {{< ssh_command clionly="true">}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 Replace `8000` with the UDP port your service listens on. The command opens an SSH-encrypted tunnel to your local UDP service and hands you a public endpoint that forwards traffic to it, working through CG-NAT and corporate firewalls without any port forwarding on your end.

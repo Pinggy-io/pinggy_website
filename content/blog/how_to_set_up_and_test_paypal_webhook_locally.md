@@ -27,7 +27,7 @@ Building a payment integration with {{< link href="https://www.paypal.com/" >}}P
 - Create webhook listener server (Node.js/Express) to receive events
 - Expose locally with Pinggy:
 ```bash
-ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io
 ```
 - Configure webhook URL in PayPal sandbox app settings
 - Test using <a href="https://developer.paypal.com/api/rest/webhooks/simulator/" target="_blank">PayPal Webhook Simulator</a>
@@ -159,7 +159,7 @@ PayPal requires a publicly accessible HTTPS URL to send webhook events. During l
 Open a new terminal window and run:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 qr@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 qr@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 {{< image "how_to_set_up_and_test_paypal_webhook_locally/pinggy_command.webp" "Pinggy Command" >}}

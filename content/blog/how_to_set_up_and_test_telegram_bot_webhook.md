@@ -28,7 +28,7 @@ Want your {{< link href="https://telegram.org/blog/bot-revolution" >}}Telegram b
 - Create webhook server (Python/Flask) to receive JSON updates
 - Expose locally with Pinggy: 
 ```bash
-ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 ```
 - Register webhook: 
 ```bash
@@ -130,11 +130,11 @@ For Telegram to send webhooks to your server, it needs a public URL. During deve
 1. Open your terminal and run:
 
    ```
-   ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+   ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
    ```
 
    {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 qr@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 qr@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 {{< image "how_to_set_up_and_test_telegram_bot_webhook/pinggy_tunnel_command.webp" "pinggy command" >}}

@@ -18,7 +18,7 @@ Traffic inspection involves capturing and analyzing network packets to gain insi
 To get started, simply visit {{< link href="https://pinggy.io/" >}}pinggy.io{{< /link >}} and initiate a tunnel with this command-
 
 ```
-ssh -p 443 -R0:localhost:8888  -L4300:localhost:4300 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 a.pinggy.io
+ssh -p 443 -R0:localhost:8888  -L4300:localhost:4300 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 free.pinggy.io
 ```
 
 Once the tunnel is established, you can access the web debugger through the default URL: {{< link href="http://localhost:4300" >}}localhost:4300{{< /link >}}. Make sure the Web Debugger toggle is switched ON.

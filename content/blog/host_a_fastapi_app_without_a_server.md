@@ -40,7 +40,7 @@ FastAPI, true to its name, is among the fastest frameworks for building APIs. It
 3. **Step 3.** Run this command to get a public URL to your FastAPI:
 
    ```
-   ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+   ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
    ```
 
    You will get a URL and port in the output such as:<br>
@@ -166,7 +166,7 @@ Use the following command to set up a tunnel to your local development server:
 
 
 ```bash
-ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 ```
 
 
@@ -254,7 +254,7 @@ uvicorn main:app --host localhost --port 8080
 Use the following command to set up a tunnel to your local development server:
 
 ```bash
-ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 ```
 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to ASGI server:" portstring="ASGI server Port" localport="8000" webdebugenabled=false keepalive=true >}}

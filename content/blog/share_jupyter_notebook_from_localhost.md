@@ -30,7 +30,7 @@ Through this guide you will be able to:
 3. Keep the last terminal running. In a separate terminal, start Pinggy tunnel:
 
    ```
-   ssh -p 443 -R0:localhost:8888 -t a.pinggy.io "a:Host:localhost:8888" "u:Origin:http://localhost:8888"
+   ssh -p 443 -R0:localhost:8888 -t free.pinggy.io "a:Host:localhost:8888" "u:Origin:http://localhost:8888"
    ```
 
    Replace **8888** with the port where your Jupyter notebook is running. _Put a random password if asked._
@@ -77,13 +77,13 @@ Pinggy simplifies the process of sharing your Jupyter Notebooks by providing a s
 2.  Using pinggy you just need to add one live header modification to share it. Use this single command to share it:
 
     ```
-    ssh -p 443 -R0:localhost:8888 -t a.pinggy.io "a:Host:localhost:8888" "u:Origin:http://localhost:8888"
+    ssh -p 443 -R0:localhost:8888 -t free.pinggy.io "a:Host:localhost:8888" "u:Origin:http://localhost:8888"
     ```
 
     **In this command, replace `8888` with your output port number on which your Jupyter Notebook server is running, if it differs.**
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"ssh -p 443 -R0:localhost:8888 -t a.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"ssh -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\",\"cmd\":\"ssh -p 443 -R0:localhost:8888 -t free.pinggy.io \\\"a:Host:localhost:8888\\\" \\\"u:Origin:http://localhost:8888\\\"\"}}}"
 {{</ ssh_command >}}
 
 3.  After executing the command, you will receive a Pinggy URL that can be used to access your shared Jupyter Notebook. The URL will look similar to the following: https://ranlkfsbjkxry.a.pinggy.link

@@ -21,7 +21,7 @@
 2. Paste the following command in the terminal (replace `22` with the port you want to forward):
 
    ```
-   ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
    ```
 
 3. After running the tunneling command, you will receive a public URL in the following format:
@@ -69,7 +69,7 @@ Using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} you can easily fo
 
 1. Select a port and start an HTTP tunnel to that port by running the following command. Replace `8000` with your port.
    ```
-   ssh -p 443 -R0:localhost:8000 qr@a.pinggy.io
+   ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
    ```
 2. Observe the public URL given by Pinggy and use it to access your service.
 
@@ -85,7 +85,7 @@ Using {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} you can easily fo
 1. Create a TCP tunnel by running the following command in the terminal (replace `22` with your port):
 
    ```
-   ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
    ```
 
    {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a TCP tunnel:" portstring="TCP Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="You can customize the command with more options:" >}}

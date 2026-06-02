@@ -14,7 +14,7 @@ Step 1. [Download the Pinggy CLI](/cli/).
 Step 2. Start the UDP tunnel using the CLI with the following command: 
 
 {{< ssh_command clionly="true">}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 This command present user with a URL and a UDP port. Port allocation changes per connection. However, Pro users can reserve a persistent port on <https://dashboard.pinggy.io>

@@ -5,7 +5,7 @@ date: 2025-04-29T14:00:00+05:30
 draft: false
 tags: ["DeepSeek", "DeepSeek-R1", "Ollama", "Self-Hosted AI", "LLM Deployment", "AI Models"]
 og_image: "images/run_deepseek_locally/deepseek_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiUnVuIERlZXBTZWVrIEFJIExvY2FsbHkgVXNpbmcgT2xsYW1hIiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIHJ1biBEZWVwU2VlayBBSSBtb2RlbHMgbG9jYWxseSBmb3IgcHJpdmFjeS1mb2N1c2VkIEFJIGRldmVsb3BtZW50IiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL3J1bl9kZWVwc2Vla19sb2NhbGx5L2RlZXBzZWVrX2Jhbm5lci53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIGFuZCBpbnN0YWxsIE9sbGFtYSBmcm9tIGh0dHBzOi8vb2xsYW1hLmNvbS9kb3dubG9hZCBmb3IgeW91ciBvcGVyYXRpbmcgc3lzdGVtIChXaW5kb3dzLCBtYWNPUywgb3IgTGludXgpLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcGVuIGEgdGVybWluYWwgYW5kIHB1bGwgdGhlIERlZXBTZWVrIGJhc2UgbW9kZWwgdXNpbmcgdGhlIGNvbW1hbmQ6ICdvbGxhbWEgcHVsbCBkZWVwc2Vlay1yMToxLjViJy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVG8gdXNlIGEgbGFyZ2VyIG1vZGVsLCBydW46ICdvbGxhbWEgcHVsbCBkZWVwc2Vlay1jb2Rlcjo2LjdiJy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgdGhlIG1vZGVsIGxvY2FsbHkgdXNpbmc6IG9sbGFtYSBydW4gZGVlcHNlZWstcjE6MS41Yicgb3IgJ29sbGFtYSBwdWxsIGRlZXBzZWVrLXIxOjEuNWInLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFeHBvc2UgdGhlIE9sbGFtYSBBUEkgb24gdGhlIGludGVybmV0IHVzaW5nIFBpbmdneSB3aXRoIHRoZSBjb21tYW5kOiAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjExNDM0IC10IHFyQGEucGluZ2d5LmlvIHU6SG9zdDpsb2NhbGhvc3Q6MTE0MzQnLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJZb3UgY2FuIG5vdyBzZW5kIHJlcXVlc3RzIHRvIHRoZSBPbGxhbWEgQVBJIHZpYSB0aGUgUGluZ2d5IHB1YmxpYyBVUkwgb3IgaW50ZWdyYXRlIGl0IHdpdGggeW91ciB0b29scyBzZWN1cmVseS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiUnVuIERlZXBTZWVrIEFJIExvY2FsbHkgVXNpbmcgT2xsYW1hIiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIHJ1biBEZWVwU2VlayBBSSBtb2RlbHMgbG9jYWxseSBmb3IgcHJpdmFjeS1mb2N1c2VkIEFJIGRldmVsb3BtZW50IiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL3J1bl9kZWVwc2Vla19sb2NhbGx5L2RlZXBzZWVrX2Jhbm5lci53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIGFuZCBpbnN0YWxsIE9sbGFtYSBmcm9tIGh0dHBzOi8vb2xsYW1hLmNvbS9kb3dubG9hZCBmb3IgeW91ciBvcGVyYXRpbmcgc3lzdGVtIChXaW5kb3dzLCBtYWNPUywgb3IgTGludXgpLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcGVuIGEgdGVybWluYWwgYW5kIHB1bGwgdGhlIERlZXBTZWVrIGJhc2UgbW9kZWwgdXNpbmcgdGhlIGNvbW1hbmQ6ICdvbGxhbWEgcHVsbCBkZWVwc2Vlay1yMToxLjViJy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiVG8gdXNlIGEgbGFyZ2VyIG1vZGVsLCBydW46ICdvbGxhbWEgcHVsbCBkZWVwc2Vlay1jb2Rlcjo2LjdiJy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgdGhlIG1vZGVsIGxvY2FsbHkgdXNpbmc6IG9sbGFtYSBydW4gZGVlcHNlZWstcjE6MS41Yicgb3IgJ29sbGFtYSBwdWxsIGRlZXBzZWVrLXIxOjEuNWInLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJFeHBvc2UgdGhlIE9sbGFtYSBBUEkgb24gdGhlIGludGVybmV0IHVzaW5nIFBpbmdneSB3aXRoIHRoZSBjb21tYW5kOiAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjExNDM0IC10IHFyQGZyZWUucGluZ2d5LmlvIHU6SG9zdDpsb2NhbGhvc3Q6MTE0MzQnLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJZb3UgY2FuIG5vdyBzZW5kIHJlcXVlc3RzIHRvIHRoZSBPbGxhbWEgQVBJIHZpYSB0aGUgUGluZ2d5IHB1YmxpYyBVUkwgb3IgaW50ZWdyYXRlIGl0IHdpdGggeW91ciB0b29scyBzZWN1cmVseS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
 outputs:
   - HTML
   - AMP
@@ -34,7 +34,7 @@ In today's AI landscape, running powerful language models locally gives you priv
    ```
 4. **Share API Online with Pinggy** (Optional)  
    ```bash
-   ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io "u:Host:localhost:11434"
+   ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io "u:Host:localhost:11434"
    ```
 
 {{% /tldr %}}
@@ -180,17 +180,17 @@ If you want to share your DeepSeek-R1 model with others or access it remotely, y
 
 2. **Create a public tunnel**:
    ```bash
-   ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io "u:Host:localhost:11434"
+   ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io "u:Host:localhost:11434"
    ```
    
    {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\",\"cmd\":\"./pinggy -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 -t qr@a.pinggy.io u:Host:localhost:11434\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\",\"cmd\":\"./pinggy -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 -t qr@free.pinggy.io u:Host:localhost:11434\"}}}"
 {{</ ssh_command >}}
 
 **Command Breakdown**:  
 - `-p 443`: Connects via HTTPS for firewall compatibility.  
 - `-R0:localhost:11434`: Forwards Ollama's port to Pinggy.  
-- `qr@a.pinggy.io`: Pinggy's tunneling endpoint.  
+- `qr@free.pinggy.io`: Pinggy's tunneling endpoint.  
 - `u:Host:localhost:11434`: Maps the tunnel to your local port.
 
 {{< image "how_to_easily_share_ollama_api_and_open_webui_online/pinggy_tunnel_command_for_model.webp" "pinggy command" >}}

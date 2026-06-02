@@ -35,7 +35,7 @@ SSH reverse tunneling allows you to expose local services to the internet, bypas
    
 3. Quick tunneling with Pinggy:
    ```bash
-   ssh -p 443 -R0:localhost:3000 a.pinggy.io
+   ssh -p 443 -R0:localhost:3000 free.pinggy.io
    ```
 {{% /tldr %}}
 
@@ -295,7 +295,7 @@ Each method has its trade-offs depending on your needs, but SSH reverse tunnelin
 [Pinggy](https://pinggy.io) runs the public-facing SSH server so you don’t have to. Instead of provisioning a VPS and maintaining `sshd_config`, you point a single command at `a.pinggy.io` and get a public URL back immediately:
 
 ```
-ssh -p 443 -R0:localhost:3000 a.pinggy.io
+ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
 The `-p 443` keeps the connection alive on networks that block port 22. The `R0` tells the server to assign a port dynamically. Pinggy responds with a URL like `https://yourapp.a.pinggy.link` that routes directly to `localhost:3000` on your machine. Share that URL and any request to it transits back through the tunnel to your local service.
@@ -303,7 +303,7 @@ The `-p 443` keeps the connection alive on networks that block port 22. The `R0`
 If your network runs traffic through an HTTP proxy, you can route the SSH connection through it using `ncat`:
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" a.pinggy.io
+ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" free.pinggy.io
 ```
 
 For networks where even that is blocked, the Pinggy {{< link href="/app/" >}}App{{< /link >}} can establish the tunnel over SSL without a separate SSH client.

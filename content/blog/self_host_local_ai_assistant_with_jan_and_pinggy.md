@@ -5,7 +5,7 @@ date: 2025-06-19T14:00:00+05:30
 draft: false
 tags: ["Jan", "Pinggy", "Self-Hosted AI", "Local AI", "AI Assistant", "Privacy", "Jan.ai"]
 og_image: "images/self_host_local_ai_assistant_with_jan_and_pinggy/jan_banner.png"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiU2VsZi1ob3N0IExvY2FsIEFJIEFzc2lzdGFudCB3aXRoIEphbiBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIHJ1biBKYW4sIGEgQ2hhdEdQVCBhbHRlcm5hdGl2ZSwgbG9jYWxseSBhbmQgc2hhcmUgaXQgb25saW5lIHVzaW5nIFBpbmdneS4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvc2VsZl9ob3N0X2xvY2FsX2FpX2Fzc2lzdGFudF93aXRoX2phbl9hbmRfcGluZ2d5L2phbl9iYW5uZXIucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIGFuZCBpbnN0YWxsIEphbiBmcm9tIGphbi5haSIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJEb3dubG9hZCBhbiBBSSBtb2RlbCBmcm9tIHRoZSBIdWJUYWIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgY2hhdHRpbmcgaW4gdGhlIE5ldyBDaGF0IHRhYiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTaGFyZSBvbmxpbmUgd2l0aCBQaW5nZ3kgdXNpbmc6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoxMzM3IC10IHFyQGEucGluZ2d5LmlvIHU6SG9zdDpsb2NhbGhvc3Q6MTMzNyIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiU2VsZi1ob3N0IExvY2FsIEFJIEFzc2lzdGFudCB3aXRoIEphbiBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IHRvIHJ1biBKYW4sIGEgQ2hhdEdQVCBhbHRlcm5hdGl2ZSwgbG9jYWxseSBhbmQgc2hhcmUgaXQgb25saW5lIHVzaW5nIFBpbmdneS4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvc2VsZl9ob3N0X2xvY2FsX2FpX2Fzc2lzdGFudF93aXRoX2phbl9hbmRfcGluZ2d5L2phbl9iYW5uZXIucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIGFuZCBpbnN0YWxsIEphbiBmcm9tIGphbi5haSIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJEb3dubG9hZCBhbiBBSSBtb2RlbCBmcm9tIHRoZSBIdWJUYWIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU3RhcnQgY2hhdHRpbmcgaW4gdGhlIE5ldyBDaGF0IHRhYiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTaGFyZSBvbmxpbmUgd2l0aCBQaW5nZ3kgdXNpbmc6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoxMzM3IC10IHFyQGZyZWUucGluZ2d5LmlvIHU6SG9zdDpsb2NhbGhvc3Q6MTMzNyIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -34,7 +34,7 @@ Running your own AI assistant locally means keeping full control over your conve
 
 4. **Share Online with Pinggy** 
    ```bash
-   ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io "u:Host:localhost:1337"
+   ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io "u:Host:localhost:1337"
    ```
 
 {{% /tldr %}}
@@ -126,13 +126,13 @@ If you want to access your Jan assistant from other devices or share it with tea
 1. **Keep Jan running** on your computer
 2. **Open a terminal** and run this command:
    ```bash
-   ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io "u:Host:localhost:1337"
+   ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io "u:Host:localhost:1337"
    ```
 
 {{< image "self_host_local_ai_assistant_with_jan_and_pinggy/pinggy_tunnel_command.webp" "Pinggy tunnel command for Jan" >}}
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"}}}"
 {{</ ssh_command >}}
 
 3. **Share the public URL** that Pinggy generates (something like `https://abc123.pinggy.link`)
@@ -153,11 +153,11 @@ When sharing your Jan instance online, consider these security measures:
 ### Add Basic Authentication
 Protect your tunnel with a username and password:
 ```bash
-ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password
+ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password
 ```
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"}}}"
 {{</ ssh_command >}}
 
 ### Custom Domains
