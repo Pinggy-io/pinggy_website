@@ -289,7 +289,7 @@ If the client you are connecting from and the host where the container is runnin
 - **Create a TCP Tunnel:** Once registered, run the following command to create a tunnel:
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io">}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 The command above simply sets up a tunnel from your system SSH Port (22) out to public internet through Pinggy.
@@ -399,7 +399,7 @@ service ssh start
 Exposes port 22 (SSH port on the container) using Pinggy. The command will forward the connection to the host machine's SSH server:
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io">}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 {{< image "ssh_into_docker_container/create_a_tunnel_using_pinggy.webp" "Start SSH Service" >}}

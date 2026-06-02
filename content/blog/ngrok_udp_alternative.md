@@ -99,7 +99,7 @@ Unlike HTTP or TCP tunnels, Pinggy does not provide an SSH command option for UD
 Once downloaded, open your terminal and run the following command (replace **8000** with your desired port):
 
 {{< ssh_command clionly="true">}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 This will establish a secure UDP tunnel that forwards traffic from your local machine to an externally accessible endpoint.

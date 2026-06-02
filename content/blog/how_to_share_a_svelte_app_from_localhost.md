@@ -30,7 +30,7 @@ npm run dev
 Start SSH tunnel:
 
 ```bash
-ssh -p 443 -R0:localhost:5173 -t qr@a.pinggy.io \"u:Host:localhost:5173\"
+ssh -p 443 -R0:localhost:5173 -t qr@free.pinggy.io \"u:Host:localhost:5173\"
 ```
 
 Access your Svelte app via the provided Pinggy public URL (e.g., `https://your-app.pinggy.link`).
@@ -88,12 +88,12 @@ Visit `http://localhost:5173` to verify your app is running locally.
 Open a new terminal window and run:
 
 ```bash
-ssh -p 443 -R0:localhost:5173 -t qr@a.pinggy.io \"u:Host:localhost:5173\"
+ssh -p 443 -R0:localhost:5173 -t qr@free.pinggy.io \"u:Host:localhost:5173\"
 ```
 
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 -t qr@a.pinggy.io u:Host:localhost:5173\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 -t qr@free.pinggy.io u:Host:localhost:5173\"}}}"
 {{</ ssh_command >}}
 
 {{< image "how_to_share_a_svelte_app_from_localhost/pinggy_command.webp" "Pinggy command" >}}

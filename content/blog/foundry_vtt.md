@@ -78,7 +78,7 @@ Next, you’ll create a public tunnel to your local Foundry VTT instance using P
 Open your terminal (macOS/Linux) or PowerShell (Windows) and run:
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:30000 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:30000 a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:30000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:30000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:30000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:30000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:30000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:30000 free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 {{< image "foundry_vtt/pinggy_command.webp" "Pinggy Command" >}}

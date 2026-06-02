@@ -132,7 +132,7 @@ If you want to access your Jan assistant from other devices or share it with tea
 {{< image "self_host_local_ai_assistant_with_jan_and_pinggy/pinggy_tunnel_command.webp" "Pinggy tunnel command for Jan" >}}
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@a.pinggy.io u:Host:localhost:1337\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t qr@free.pinggy.io u:Host:localhost:1337\"}}}"
 {{</ ssh_command >}}
 
 3. **Share the public URL** that Pinggy generates (something like `https://abc123.pinggy.link`)
@@ -157,7 +157,7 @@ ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password
 ```
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t a.pinggy.io b:username:password\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 -t free.pinggy.io b:username:password\"}}}"
 {{</ ssh_command >}}
 
 ### Custom Domains

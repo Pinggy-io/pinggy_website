@@ -46,7 +46,7 @@ Pinggy supports [whitelisting IP addresses](/docs/http_tunnels/ip_whitelist/) to
 
 
 ```bash
-ssh -p 443 -L4300:localhost:4300 -t -R0:localhost:8000 tcp@a.pinggy.io \"w:2205:213:9013:a835:e552:ccf2:398f:1234/128,56.3.51.0/24\"
+ssh -p 443 -L4300:localhost:4300 -t -R0:localhost:8000 tcp@free.pinggy.io \"w:2205:213:9013:a835:e552:ccf2:398f:1234/128,56.3.51.0/24\"
 ```
 
 To get the list of whitelisted IP addresses, simply send a GET request to `http://localhost:4300/ipwhitelist`

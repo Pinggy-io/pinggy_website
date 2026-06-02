@@ -159,7 +159,7 @@ PayPal requires a publicly accessible HTTPS URL to send webhook events. During l
 Open a new terminal window and run:
 
 {{< ssh_command >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 qr@a.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@a.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 qr@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 qr@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
 {{< image "how_to_set_up_and_test_paypal_webhook_locally/pinggy_command.webp" "Pinggy Command" >}}
