@@ -28,7 +28,7 @@ pagination:
   pagerSize: 10
 
 outputs:
-  home: ["HTML", "AMP"]
+  home: ["HTML", "AMP", "llmstxt"]
   page: ["HTML", "AMP"]
 
 outputFormats:
@@ -42,6 +42,18 @@ outputFormats:
     mediaType: "text/html"
     path: "amp"
     permalinkable: true
+
+  Markdown:
+    mediaType: "text/markdown"
+    baseName: "index"
+    isPlainText: true
+    path: ""
+
+  llmstxt:
+    mediaType: "text/plain"
+    baseName: "llms"
+    isPlainText: true
+    rel: "alternate"
 
 menus:
   main:
