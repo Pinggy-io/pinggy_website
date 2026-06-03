@@ -126,6 +126,16 @@ You can access your localhost service using these URLs.
 
 With Pinggy Pro you can customize these urls by logging in to  <a href="https://dashboard.pinggy.io" target="_blank">dashboard.pinggy.io</a>.
 
+#### Using Pinggy with an AI agent
+
+If you work with an AI coding agent, install the Pinggy skill and let the agent set up tunnels for you. Just describe what you need in plain language, for example:
+
+- "Share my dev server on port 3000."
+- "Open a TCP tunnel to localhost:22."
+- "Share my ~/Downloads folder over the internet."
+
+See the <a href="/docs/ai_agents/">Use Pinggy with AI Agents</a> guide to install the skill or the MCP server, with the full tool reference and more example prompts.
+
 #### Quickstart Recipes
 
 View our <a href="/quickstart/" target="_blank"><button type="button" class="btn btn-dark">Quickstart Recipes</button></a> to find the Pinggy configuration for your favourite app / service.

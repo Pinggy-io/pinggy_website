@@ -8,47 +8,67 @@ npm install -g pinggy
 ```
 
 ### Commands
+
+The CLI takes the same flags as the SSH command. Pick the protocol with `--type` (default `http`) and the local port with `-l` / `--localport`; or use the raw `-R0:localhost:<PORT>` forward with a `tcp@` / `udp@` / `tls@` / `tlstcp@` host prefix.
+
 ```bash
-pinggy http   [OPTIONS] <PORT>    # HTTP(S) tunnel
-pinggy tcp    [OPTIONS] <PORT>    # TCP tunnel
-pinggy udp    [OPTIONS] <PORT>    # UDP tunnel
-pinggy tls    [OPTIONS] <PORT>    # TLS end-to-end encrypted tunnel
-pinggy tlstcp [OPTIONS] <PORT>    # TLSTCP (TCP + TLS wrapper)
+pinggy -p 443 -R0:localhost:8000                  # HTTP(S), the default type
+pinggy --type tcp    -l 8000                       # TCP
+pinggy --type udp    -l 8000                       # UDP
+pinggy --type tls    -l 8000                       # TLS, end-to-end encrypted
+pinggy --type tlstcp -l 8000                       # TLSTCP (TCP + TLS wrapper)
 ```
 
-### All Options
+Add `--notui` for plain stdout logs (the right choice for agents and scripts) and `--token <TOKEN>` for a Pro tunnel.
+
+### Options
 
 | Flag | Description |
 |------|-------------|
+| `--type <http\|tcp\|udp\|tls\|tlstcp>` | Tunnel type (default `http`) |
+| `-l`, `--localport <[proto://][host:]port>` | Local endpoint to forward |
+| `-p`, `--server-port <PORT>` | Pinggy server port (default `443`) |
 | `--token <TOKEN>` | Pro account token |
-| `--subdomain <NAME>` | Persistent subdomain name |
-| `--domain <DOMAIN>` | Custom domain |
-| `--region <REGION>` | `us` / `eu` / `ap` / `br` / `au` |
-| `--basic-auth <user:pass>` | Enable Basic authentication |
-| `--key-auth <key>` | Enable Bearer token authentication |
-| `--ip-whitelist <CIDR>` | Restrict access by IP (CIDR notation) |
-| `--debugger-port <PORT>` | Web debugger port (default: 4300) |
-| `--add-header <Name:Value>` | Add request header |
-| `--remove-header <Name>` | Remove request header |
-| `--update-header <Name:Value>` | Update/replace request header |
-| `--xff` | Add X-Forwarded-For header |
-| `--https-redirect` | Force HTTP → HTTPS redirect |
-| `--no-reverse-proxy` | Disable reverse proxy headers |
-| `--pass-preflight` | Allow CORS preflight bypass |
-| `--local-tls` | Local server uses TLS/HTTPS |
-| `--local-tls-sni <SNI>` | Custom SNI for local TLS |
-| `--serve <PATH>` | Serve directory as file server |
-| `--config <FILE>` | Load JSON configuration file |
-| `--log-file <PATH>` | Write logs to file |
-| `--log-level <LEVEL>` | `ERROR` / `INFO` / `DEBUG` |
-| `--v` / `--vv` / `--vvv` | Verbosity levels |
+| `-d`, `--debugger <PORT>` | Web debugger port (default `4300`) |
+| `-R0:localhost:<PORT>` | SSH-style local forward |
+| `-L<PORT>:localhost:4300` | SSH-style web debugger forward |
+| `--force` | Close any existing tunnel and start a new one |
+| `--serve <PATH>` | Serve a directory as a simple file server |
+| `--saveconf <FILE>` / `--conf <FILE>` | Save / load a JSON config file |
+| `--logfile <PATH>` | Write logs to a file |
+| `--loglevel <ERROR\|INFO\|DEBUG>` | Log level |
+| `--v` / `--vv` / `--vvv` | Verbosity (stdout logs) |
+| `--autoreconnect`, `-a` | Auto-reconnect on failure (on by default) |
+| `--remote-management <TOKEN>` | Enable remote tunnel management |
+| `--notui` | Plain stdout logs, no TUI |
 
-### Service Management
+Extended options are positional values placed after the host, exactly as in the SSH command:
+
+| Option | Purpose |
+|--------|---------|
+| `x:https` | Force HTTPS redirect |
+| `x:xff` | Add X-Forwarded-For |
+| `x:fullurl` | Add the original request URL header |
+| `x:passpreflight` | Allow CORS preflight to pass |
+| `x:noreverseproxy` | Disable reverse-proxy headers |
+| `x:localServerTls[:sni]` | Local server uses TLS |
+| `w:<cidr>[,<cidr>]` | IP whitelist |
+| `k:<key>` | Bearer key auth (repeatable) |
+| `b:<user:pass>` | Basic auth (repeatable) |
+| `a:<Name:Value>` / `u:<Name:Value>` / `r:<Name>` | Add / update / remove a header |
+
+### Config store and auto-start
 ```bash
-pinggy install-service     # Auto-start on system boot
-pinggy remove-service      # Remove system service
-pinggy remote-agent --token <TOKEN>   # Start remote management agent
+pinggy config save my-tunnel -l 3000 token@pro.pinggy.io   # save a named config
+pinggy config save my-tunnel --auto -l 3000                # save and mark for auto-start
+pinggy config list                                         # list saved configs
+pinggy config update my-tunnel -l 4000                     # update a saved config
+pinggy start my-tunnel                                     # start a saved config
+pinggy start --all                                         # start all auto-start tunnels
+pinggy --remote-management <API_KEY>                       # control tunnels remotely
 ```
+
+To launch a tunnel on system boot, create a systemd service that runs the `pinggy` command - see https://pinggy.io/docs/run_tunnel_on_startup/.
 
 ---
 
@@ -113,17 +133,17 @@ const tunnel = await pinggy.createTunnel({
 # Pull image
 docker pull pinggy/pinggy
 
-# Linux (--net=host routes localhost to host machine)
-docker run --net=host -it pinggy/pinggy http 8000
+# Linux (--net=host routes localhost to the host machine)
+docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8000 free.pinggy.io
 
-# Mac / Windows (auto-routes localhost → host.docker.internal)
-docker run -it pinggy/pinggy http 8000
+# Mac / Windows (localhost is auto-mapped to host.docker.internal)
+docker run -it pinggy/pinggy -p 443 -R0:localhost:8000 free.pinggy.io
 
-# With token
-docker run -it pinggy/pinggy http --token <TOKEN> --subdomain myapp 8000
+# With a Pro token (persistent subdomain is the one assigned to the token in the dashboard)
+docker run -it pinggy/pinggy -p 443 -R0:localhost:8000 <token>@pro.pinggy.io
 
 # TCP tunnel
-docker run --net=host -it pinggy/pinggy tcp 22
+docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io
 ```
 
 ---
@@ -151,7 +171,7 @@ Create `tunnel.json`:
 ```
 
 ```bash
-pinggy --config tunnel.json
+pinggy --conf tunnel.json
 ```
 
 Multiple tunnel configs can be defined for different environments and loaded by name.

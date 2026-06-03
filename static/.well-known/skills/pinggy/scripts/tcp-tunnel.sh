@@ -9,14 +9,13 @@ PORT="${1:?Usage: $0 <PORT> [TOKEN]}"
 TOKEN="${2:-}"
 
 # When no token: tcp@free.pinggy.io
-# With token:    token@pro.pinggy.io (TCP requested via the remote spec)
+# With token:    <token>+tcp@pro.pinggy.io (token and tunnel mode combined in the user)
 if [ -n "$TOKEN" ]; then
-  HOST="${TOKEN}@pro.pinggy.io"
-  REMOTE="tcp:0:localhost:${PORT}"
+  HOST="${TOKEN}+tcp@pro.pinggy.io"
 else
   HOST="tcp@free.pinggy.io"
-  REMOTE="0:localhost:${PORT}"
 fi
+REMOTE="0:localhost:${PORT}"
 
 echo "Starting TCP tunnel → localhost:$PORT"
 echo ""

@@ -31,4 +31,4 @@ echo ""
 echo "Verifying installation..."
 pinggy --version || true
 echo ""
-echo "Run a test tunnel: pinggy http 8000"
+echo "Run a test tunnel: pinggy -p 443 -R0:localhost:8000 --notui"

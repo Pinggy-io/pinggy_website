@@ -24,6 +24,24 @@ npx skills add https://pinggy.io
 
 If unsure, start with the skill. Add the MCP server when the agent should run tunnels on its own.
 
+## Install the Pinggy skill
+
+Skills are packaged instructions an agent loads on demand. The Pinggy skill is published under the [Agent Skills](https://github.com/vercel-labs/skills) standard at `https://pinggy.io/.well-known/skills/`. The `skills` CLI fetches the manifest, downloads the skill files, and drops them into the agent's skills directory. The only prerequisite is Node.js.
+
+#### npx (any agent)
+
+```bash
+npx skills add https://pinggy.io
+```
+
+#### Claude Code and Cursor
+
+The same command works. The CLI detects the agent and writes the skill to its skills directory, for example `~/.claude/skills/pinggy/` for Claude Code.
+
+#### Manual
+
+Download the files listed in `https://pinggy.io/.well-known/skills/index.json` from `https://pinggy.io/.well-known/skills/pinggy/` and place `SKILL.md` (with the `scripts/` and `references/` folders) in the agent's skills directory.
+
 ## Install the Pinggy MCP server
 
 The MCP (Model Context Protocol) server lets agents like Claude Code, Claude Desktop, and Cursor create and control Pinggy tunnels in natural language.
@@ -134,24 +152,6 @@ Edit `~/.codeium/windsurf/mcp_config.json`:
 ```
 
 Restart Windsurf after saving.
-
-## Install the Pinggy skill
-
-Skills are packaged instructions an agent loads on demand. The Pinggy skill is published under the [Agent Skills](https://github.com/vercel-labs/skills) standard at `https://pinggy.io/.well-known/skills/`. The `skills` CLI fetches the manifest, downloads the skill files, and drops them into the agent's skills directory. The only prerequisite is Node.js.
-
-#### npx (any agent)
-
-```bash
-npx skills add https://pinggy.io
-```
-
-#### Claude Code and Cursor
-
-The same command works. The CLI detects the agent and writes the skill to its skills directory, for example `~/.claude/skills/pinggy/` for Claude Code.
-
-#### Manual
-
-Download the files listed in `https://pinggy.io/.well-known/skills/index.json` from `https://pinggy.io/.well-known/skills/pinggy/` and place `SKILL.md` (with the `scripts/` and `references/` folders) in the agent's skills directory.
 
 ## What you can do
 

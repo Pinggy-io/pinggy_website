@@ -44,14 +44,13 @@ Live HTTP request/response viewer with replay and modification capability. Acces
 ```bash
 # Default port 4300 - just open http://localhost:4300 in browser
 # Custom port:
-pinggy http --debugger-port 5000 8000
+pinggy -p 443 -R0:localhost:8000 -d 5000
 ```
 
 **Debugger API endpoints:**
 ```bash
 GET http://localhost:4300/urls          # Active tunnel URLs
 GET http://localhost:4300/ipwhitelist   # Current IP whitelist
-GET http://localhost:4300/settings      # Tunnel configuration
 ```
 
 **Terminal (TUI) Controls:**
@@ -94,32 +93,32 @@ ssh -p 80 -R0:localhost:8000 free.pinggy.io
 Instantly share a local directory as a public HTTP file server.
 
 ```bash
-pinggy http --serve /path/to/files 8000
-# Shorthand:
-./pinggy --serve /path/to/directory
+pinggy --serve /path/to/files
 ```
 
 No cloud upload needed. Files accessible at the generated HTTPS URL.
 
 ---
 
-## Auto-Start on Boot (Pinggy CLI)
+## Auto-Start on Boot
+
+Save a tunnel config, mark it for auto-start, then start all auto-start tunnels:
 
 ```bash
-pinggy install-service    # Register as system service
-pinggy remove-service     # Remove system service
+pinggy config save my-tunnel --auto -l 8000 token@pro.pinggy.io
+pinggy start --all
 ```
 
-Works on Windows, Mac, and Linux. Service restarts automatically on reboot.
+To launch a tunnel when the machine boots, run a `pinggy` command from a systemd service (or rc.local / Task Scheduler). See https://pinggy.io/docs/run_tunnel_on_startup/.
 
 ---
 
 ## Remote Management Agent
 
-Start the Pinggy remote agent on a device to manage it from the dashboard.
+Enable remote management on a device to control its tunnels from the dashboard.
 
 ```bash
-pinggy remote-agent --token <TOKEN>
+pinggy --remote-management <TOKEN>
 ```
 
 Manage from: https://dashboard.pinggy.io/activedevices
@@ -150,7 +149,7 @@ Save tunnel configuration as a reusable JSON file.
 ```
 
 ```bash
-pinggy --config tunnel.json
+pinggy --conf tunnel.json
 ```
 
 ---
@@ -158,8 +157,8 @@ pinggy --config tunnel.json
 ## Logging (Pinggy CLI)
 
 ```bash
---log-file /path/to/file.log    # Write logs to file
---log-level ERROR|INFO|DEBUG    # Set log verbosity
+--logfile /path/to/file.log     # Write logs to file
+--loglevel ERROR|INFO|DEBUG     # Set log verbosity
 --v                             # Verbose
 --vv                            # More verbose
 --vvv                           # Maximum verbosity

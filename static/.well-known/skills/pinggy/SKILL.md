@@ -20,8 +20,6 @@ The basic path needs no account, no signup, and no installed package - a single 
 - Reach a home or office machine, IoT device, database, or game server without a public IP.
 - Give an AI agent or a teammate a public URL for something running locally.
 
-**Free vs Pro:** Anonymous tunnels on `free.pinggy.io` are free but expire after 60 minutes and get a new random URL each start. A Pro token (`<token>@pro.pinggy.io`, or `--token` in the CLI) gives persistent URLs, custom domains, and tunnels that do not time out. Use a Pro token whenever the user wants a stable or long-running URL.
-
 ---
 
 ## How to access Pinggy
@@ -37,12 +35,12 @@ Three access methods, in order of preference:
 ```bash
 npm install -g pinggy
 
-pinggy http 8000 --notui     # HTTP(S) tunnel to localhost:8000
-pinggy tcp 22 --notui        # TCP tunnel
-pinggy udp 19132 --notui     # UDP tunnel
+pinggy -p 443 -R0:localhost:8000 --notui                       # HTTP(S) tunnel to localhost:8000
+pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io --notui       # TCP tunnel
+pinggy -p 443 -R0:localhost:19132 udp@free.pinggy.io --notui    # UDP tunnel
 ```
 
-`--notui` prints plain logs to stdout instead of the interactive terminal UI - the right choice for AI agents and scripts. Omit it for an interactive human session. Add `--token <TOKEN>` for a Pro tunnel, `--subdomain <NAME>` for a persistent URL.
+`--notui` prints plain logs to stdout instead of the interactive terminal UI - the right choice for AI agents and scripts. Omit it for an interactive human session. Add `--token <TOKEN>` (and connect to `pro.pinggy.io`) for a Pro tunnel; a persistent URL comes from a subdomain assigned to that token in the dashboard, not a CLI flag. The friendlier `--type <http|tcp|udp|tls|tlstcp> -l <PORT>` form works too, for example `pinggy --type tcp -l 22 --notui`.
 
 ### (b) SSH command (fallback, no install)
 
@@ -81,9 +79,28 @@ tunnel.stop()
 
 Both SDKs accept the same options as the CLI (`token`, `subdomain`, `region`, auth, headers). See `references/cli-sdks.md`.
 
+### Free vs Pro
+
+Every access method above works with or without an account. The host you connect to (or the `--token` flag) decides which tier you get.
+
+**Free (anonymous, `free.pinggy.io`):**
+
+- No signup, no token. Connect and a URL is returned immediately.
+- Each tunnel lasts **60 minutes**, then disconnects. Reconnecting works but issues a **new random URL** every time (`https://xxxx.a.free.pinggy.link`), so the address is not stable across restarts.
+- Fine for quick demos, one-off webhook tests, and sharing something for the length of a call.
+
+**Pro (`<token>@pro.pinggy.io`, or `--token <TOKEN>` in the CLI):**
+
+- **No 60-minute timeout** - tunnels stay up as long as the process runs (and the CLI auto-reconnects if the connection drops).
+- **Persistent URL** - assign a subdomain to the token in the dashboard (https://dashboard.pinggy.io) and the same address comes back on every start. Note this is set in the dashboard, not via a CLI flag.
+- **Custom domains** (`app.example.com`), **wildcard domains**, and **multiple tunnels** on one connection.
+- Higher bandwidth and request limits, plus access controls like IP whitelisting on every tunnel type.
+
+**Which to use:** reach for a Pro token whenever the user wants a URL that survives restarts, a custom domain, or a long-running / 24-7 tunnel. Default to the free anonymous tunnel for throwaway demos and quick local testing. Get a token from https://dashboard.pinggy.io.
+
 ### Other ways to run it
 
-- **Docker:** `docker run --net=host -it pinggy/pinggy http 8000` (Linux; drop `--net=host` on Mac/Windows).
+- **Docker:** `docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8000 free.pinggy.io` (Linux; drop `--net=host` on Mac/Windows).
 - **Desktop app (GUI):** download from pinggy.io for Windows, Mac (Intel + Apple Silicon), and Linux. Visual tunnel management, system tray, auto-start on boot.
 
 ---
@@ -110,10 +127,10 @@ ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io -T
 # Output: tcp://free.pinggy.io:XXXXX - use this port to connect
 ```
 
-### UDP (CLI only)
+### UDP (CLI or Docker only, not plain SSH)
 ```bash
-pinggy udp 19132 --notui     # Minecraft Bedrock
-pinggy udp 25565 --notui     # Other game servers
+pinggy -p 443 -R0:localhost:19132 udp@free.pinggy.io --notui    # Minecraft Bedrock
+pinggy -p 443 -R0:localhost:25565 udp@free.pinggy.io --notui    # Other game servers
 ```
 
 ### TLS (End-to-End Encrypted)
@@ -214,7 +231,8 @@ ssh -p 443 -R0:localhost:5432 tcp@free.pinggy.io -T
 
 **Long-running 24/7 service (CLI auto-reconnects):**
 ```bash
-pinggy http --token <TOKEN> --subdomain myapp 8000 --notui
+pinggy -p 443 -R0:localhost:8000 --token <TOKEN> --notui
+# Persistent subdomain = the one assigned to this token in the dashboard
 ```
 
 **Multiple services from one machine (Pro):**
@@ -248,7 +266,7 @@ ssh -p 443 \
 ### Scripts
 
 Ready-to-run helper scripts in `scripts/`:
-- **`scripts/http-tunnel.sh`** - Start an HTTP tunnel: `./http-tunnel.sh <PORT> [TOKEN] [SUBDOMAIN]`
+- **`scripts/http-tunnel.sh`** - Start an HTTP tunnel: `./http-tunnel.sh <PORT> [TOKEN]`
 - **`scripts/tcp-tunnel.sh`** - Start a TCP tunnel: `./tcp-tunnel.sh <PORT> [TOKEN]`
 - **`scripts/persistent-tunnel.sh`** - Auto-reconnecting 24/7 tunnel: `./persistent-tunnel.sh <http|tcp|udp> <PORT> <TOKEN>`
 - **`scripts/install-pinggy-cli.sh`** - Install Pinggy CLI via npm or Homebrew

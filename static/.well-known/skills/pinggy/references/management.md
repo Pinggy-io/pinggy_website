@@ -24,7 +24,7 @@ Manage tunnels on remote machines without direct SSH access.
 
 ```bash
 # Run on the remote device:
-pinggy remote-agent --token <TOKEN>
+pinggy --remote-management <TOKEN>
 ```
 
 Dashboard: https://dashboard.pinggy.io/activedevices
@@ -93,7 +93,7 @@ ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io
 
 ### Minecraft - Bedrock Edition (UDP)
 ```bash
-pinggy udp 19132
+pinggy -p 443 -R0:localhost:19132 udp@free.pinggy.io
 ```
 
 ### Home Assistant
@@ -116,7 +116,7 @@ ssh -p 443 -R0:localhost:8080 free.pinggy.io
 
 ### Wireguard VPN
 ```bash
-pinggy udp 51820
+pinggy -p 443 -R0:localhost:51820 udp@free.pinggy.io
 ```
 
 ### Remote Desktop (VNC)
