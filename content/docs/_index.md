@@ -3,6 +3,13 @@
  description: "Start using Pinggy in three simple steps. Host websites, receive webhooks, share files, and connect to your localhost remotely with ease."
  date: 2023-01-10T14:15:25+05:30 
  draft: false 
+ cascade:
+   - target:
+       kind: page
+     outputs: ["HTML", "AMP", "Markdown"]
+   - target:
+       kind: section
+     outputs: ["HTML", "RSS", "Markdown"]
 ---
 
 # Pinggy - Quickstart
