@@ -1,7 +1,8 @@
 ---
-title: "What Are Skills in AI Agents? Top 10 Skills You Must Know in 2026"
-description: "Discover what AI agent skills are, how they work, and the top 10 must-know skills for developers. Learn how to install and use skills in Claude Code, Cursor, Codex CLI, and other AI coding agents."
+title: "What Are Skills in AI Agents? Top 14 Skills You Must Know in 2026"
+description: "Discover what AI agent skills are, how they work, and the top 14 must-know skills for developers - including Grill Me, Caveman, TDD, and Graphify. Learn how to install and use skills in Claude Code, Cursor, Codex CLI, and other AI coding agents."
 date: 2026-02-14T14:15:25+05:30
+lastmod: 2026-06-03T14:15:25+05:30
 draft: false
 og_image: "images/ai_agent_skills/ai_agent_skills_banner.webp"
 tags: ["AI agents", "agent skills", "Claude Code", "AI coding", "developer tools", "skills.sh"]
@@ -17,7 +18,7 @@ AI agents have become indispensable for software development, but a general-purp
 
 Skills are a new open standard for packaging reusable expertise into modular units that any compatible AI agent can discover, load, and apply on demand. Think of them as plugins for your agent's brain: instead of repeating the same long prompt every time you want your AI to follow your team's React conventions or generate a proper Dockerfile, you install a skill once and the agent applies it automatically whenever relevant.
 
-In this guide, we will explain what skills are, how they work under the hood, and walk through the **top 10 AI agent skills every developer should know in 2026**.
+In this guide, we will explain what skills are, how they work under the hood, and walk through the **top 14 AI agent skills every developer should know in 2026**.
 
 ### Comparison Table for Top AI Agent Skills
 
@@ -26,70 +27,94 @@ In this guide, we will explain what skills are, how they work under the hood, an
 <tr>
   <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Skill</th>
   <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Best For</th>
-  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Installs</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">GitHub Stars</th>
   <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Key Strength</th>
 </tr>
 </thead>
 <tbody>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Superpowers</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/obra/superpowers" target="_blank">Superpowers</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Full dev workflow enforcement</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">50K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">217K+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Plan-before-code with TDD</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Vercel React Best Practices</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/vercel-labs/agent-skills" target="_blank">Vercel React Best Practices</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">React & Next.js performance</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">131K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">27.5K+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Official Vercel patterns</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Web Design Guidelines</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/vercel-labs/agent-skills" target="_blank">Web Design Guidelines</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Frontend UI/UX standards</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">98K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">27.5K+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Consistent design systems</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Document Skills (PDF, DOCX)</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/anthropics/skills" target="_blank">Document Skills (PDF, DOCX)</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Document generation</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Official</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">146k+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Production-grade doc handling</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Webapp Testing (Playwright)</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/anthropics/skills" target="_blank">Webapp Testing (Playwright)</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Automated browser testing</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Official</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">146k+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Visual testing with screenshots</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>MCP Server Builder</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/anthropics/skills" target="_blank">MCP Server Builder</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Building tool integrations</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Official</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">146k+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">MCP protocol scaffolding</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Supabase Skills</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/supabase/agent-skills" target="_blank">Supabase Skills</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Backend with Supabase</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1.3K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">2.2K+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Postgres, RLS, Edge Functions</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Remotion Best Practices</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/remotion-dev/skills" target="_blank">Remotion Best Practices</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Programmatic video</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">89K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">3.4K+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">React-based video creation</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Trail of Bits Security</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/trailofbits/skills" target="_blank">Trail of Bits Security</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Security auditing</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Community</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">5.5K+</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Vulnerability detection</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Connect (Cross-Service)</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://skills.sh" target="_blank">Connect (Cross-Service)</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Multi-service automation</td>
-  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Community</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">N/A (skills.sh)</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Gmail, Slack, GitHub, Notion</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/mattpocock/skills" target="_blank">Grill Me</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Pre-code project planning</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">116K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Relentless decision-tree questioning</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/JuliusBrussee/caveman" target="_blank">Caveman</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Token optimization</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">68K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">~65% output token reduction</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/mattpocock/skills" target="_blank">TDD (mattpocock)</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Test-driven development</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">116K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Red-green-refactor loop enforcement</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/safishamsi/graphify" target="_blank">Graphify</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Codebase understanding</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">58.8K+</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Knowledge graph from any codebase</td>
 </tr>
 </tbody>
 </table>
@@ -102,7 +127,7 @@ In this guide, we will explain what skills are, how they work under the hood, an
    - Skills are an open standard supported by Claude Code, Cursor, Codex CLI, Gemini CLI, and 20+ other AI agents
    - They follow a progressive disclosure architecture: only metadata loads upfront, full instructions load when relevant
 
-2. **Top 10 Must-Know Skills**:
+2. **Top 14 Must-Know Skills**:
    - <a href="https://github.com/obra/superpowers" target="_blank">Superpowers</a>: Enforces plan-before-code workflow with TDD and systematic debugging
    - <a href="https://github.com/vercel-labs/agent-skills" target="_blank">Vercel React Best Practices</a>: Official React/Next.js performance patterns from Vercel Engineering
    - <a href="https://github.com/vercel-labs/agent-skills" target="_blank">Web Design Guidelines</a>: Consistent UI/UX standards for frontend development
@@ -113,6 +138,10 @@ In this guide, we will explain what skills are, how they work under the hood, an
    - <a href="https://github.com/remotion-dev/skills" target="_blank">Remotion Best Practices</a>: React-based programmatic video generation
    - <a href="https://github.com/trailofbits/skills" target="_blank">Trail of Bits Security</a>: Security auditing and vulnerability detection
    - <a href="https://skills.sh" target="_blank">Connect (Cross-Service Automation)</a>: Automate workflows across Gmail, Slack, GitHub, Notion, and 1000+ services
+   - <a href="https://github.com/mattpocock/skills" target="_blank">Grill Me</a>: Matt Pocock's structured questioning skill that stress-tests your plan through 16-50 targeted questions before writing a line of code
+   - <a href="https://github.com/JuliusBrussee/caveman" target="_blank">Caveman</a>: Cuts agent response tokens by ~65% using compressed caveman-speak while keeping code blocks fully intact
+   - <a href="https://github.com/mattpocock/skills" target="_blank">TDD</a>: Enforces a strict red-green-refactor loop so the agent always writes a failing test before any implementation code
+   - <a href="https://github.com/safishamsi/graphify" target="_blank">Graphify</a>: Turns any codebase into a queryable knowledge graph with 71.5x fewer tokens per query than raw file context
 
 3. **How to Get Started**: Browse <a href="https://skills.sh" target="_blank">skills.sh</a> (57,000+ skills), install with `npx skillsadd owner/repo`, or create your own with a `SKILL.md` file
 
@@ -216,7 +245,7 @@ npx skillsadd vercel-labs/agent-skills
 
 In Claude Code specifically, you can also install skills through the plugin system or by manually placing `SKILL.md` files in the appropriate directory. Once installed, skills are either auto-invoked (the agent detects when they are relevant) or user-invoked through slash commands like `/skill-name`.
 
-### Top 10 AI Agent Skills Every Developer Should Know
+### Top 14 AI Agent Skills Every Developer Should Know
 
 Now that you understand what skills are and how they work, let's explore the ten most impactful skills available in the ecosystem today. These range from development workflow enforcers to framework-specific best practices and cross-service automation tools.
 
@@ -437,21 +466,124 @@ For developers who frequently context-switch between coding and coordination tas
 
 Available through the skills.sh registry and community marketplaces.
 
+#### 11. Grill Me
+
+{{< link href="https://github.com/mattpocock/skills" >}}Grill Me{{< /link >}} from Matt Pocock's viral skills collection solves one of the most reliable causes of wasted AI effort: starting to code before you actually understand what you are building. Instead of letting the agent dive straight into implementation, Grill Me puts you in the hot seat first - subjecting your plan to a systematic round of questioning that forces every ambiguity to be resolved before a single line of code is written.
+
+When you invoke `/grill-me`, the agent maps out your project's entire decision tree - covering architecture choices, data models, UX flows, and edge cases - then walks down each branch with targeted questions, one at a time. It offers recommended answers to guide the discussion and resolves dependencies between decisions iteratively. In practice, sessions run 16 to 50 questions. Some users have described it as the single highest-ROI change they have made to their agent workflow this year. The mattpocock/skills repository, which includes Grill Me, crossed 101K GitHub stars in under 90 days from its February 2026 release - one of the fastest growth rates for any developer tool repository this year.
+
+The mechanism is simple but effective: by forcing shared understanding before code, Grill Me eliminates the gap between what you meant and what the agent built. You spend 10 minutes answering questions up front and save hours of revision cycles later.
+
+**Key Features**:
+
+- Systematic decision-tree questioning before any implementation starts
+- One question at a time with recommended answers to guide the discussion
+- Covers architecture, data models, UX flows, and edge cases in full
+- Resolves inter-dependencies between decisions iteratively
+- Sessions typically run 16-50 questions depending on project complexity
+- Works across Claude Code, Cursor, Codex CLI, and 40+ other compatible agents
+
+**Installation**:
+
+```bash
+npx skillsadd mattpocock/skills
+```
+
+Invoke with `/grill-me` when starting any non-trivial feature or project.
+
+#### 12. Caveman
+
+The {{< link href="https://github.com/JuliusBrussee/caveman" >}}Caveman{{< /link >}} skill by Julius Brussee tackles a different problem: the verbosity of AI responses. By default, language models produce polished prose for every reply, even when you just need a quick status update or a one-line explanation. Caveman switches the agent's communication mode to something like "write test. run test. red. now fix." - short, direct, stripped of filler.
+
+The practical impact is measurable. Real benchmarks across 10 prompts showed an average 65% reduction in output tokens, with individual sessions ranging from 22% to 87% fewer tokens. This matters for cost and speed when running agents at scale. A March 2026 research paper that tested 31 LLM models on 1,485 problems found that imposing brevity constraints actually improved accuracy by 26 percentage points on problems where verbosity had been causing errors. Forcing conciseness also forces clarity.
+
+Caveman only affects prose. Code blocks are left exactly as generated - no truncation, no modification. The skill ships with multiple intensity levels (`lite`, `full` as default, and `ultra`) for different situations, plus a `wenyan` series that models the brevity of classical Chinese writing if you want to go further.
+
+**Key Features**:
+
+- ~65% average reduction in output token usage across typical sessions (range: 22-87%)
+- Code blocks remain fully intact - only prose communication is compressed
+- Intensity levels: `lite`, `full` (default), `ultra`, and `wenyan-lite/full/ultra` variants
+- No accuracy trade-off - brevity constraints often improve response precision
+- Cross-platform support: Claude Code, Cursor, Cline, Copilot, Gemini CLI, and 40+ agents
+- Particularly useful in cost-sensitive or high-throughput agentic pipelines
+
+**Installation**:
+
+```bash
+npx skillsadd JuliusBrussee/caveman
+```
+
+Invoke with `/caveman` or configure it to activate automatically. Use `ultra` mode when token budget is the primary constraint.
+
+#### 13. TDD
+
+The {{< link href="https://github.com/mattpocock/skills" >}}TDD skill{{< /link >}}, also from Matt Pocock's collection, enforces one of software engineering's most valuable disciplines at the agent level: write a failing test first, then write the code that makes it pass. Without this skill, AI agents have a strong tendency to skip straight to implementation, treat tests as an afterthought, and produce tests that are brittle because they target implementation details rather than observable behavior.
+
+The skill enforces a strict red-green-refactor loop. The agent must produce a failing test first (red), implement just enough code to make it pass (green), then clean up (refactor) - one vertical slice at a time. It specifically requires testing through public interfaces, which prevents the common pattern of AI-written tests that break during refactoring simply because the internal structure changed.
+
+TDD pairs naturally with Grill Me: use Grill Me to nail down what you are building before writing any code, then activate TDD to build it with discipline. Combined, they represent the most structured engineering workflow currently available in the AI skills ecosystem. For teams where AI-generated code has been technically correct but hard to maintain or extend, this combination addresses the root cause directly.
+
+**Key Features**:
+
+- Strict red-green-refactor loop enforced at the agent level
+- Tests must be written and run before any implementation code is produced
+- Vertical slice approach: one test-implementation cycle at a time
+- Behavior-driven tests through public interfaces, not implementation details
+- Prevents brittle tests that break on refactoring without behavioral changes
+- Natural companion to Grill Me for end-to-end disciplined development
+
+**Installation**:
+
+```bash
+npx skillsadd mattpocock/skills
+```
+
+Invoke with `/tdd` when starting any feature that has behavioral requirements to verify.
+
+#### 14. Graphify
+
+{{< link href="https://github.com/safishamsi/graphify" >}}Graphify{{< /link >}} solves a problem that becomes acute the moment your codebase grows past a few files: AI agents do not understand your project's structure - they read one file at a time and miss the relationships between them. Graphify fixes this by turning your entire codebase into a queryable knowledge graph that the agent can navigate structurally rather than file-by-file.
+
+When you run `/graphify .`, the skill reads your codebase, extracts concepts and relationships using tree-sitter AST parsing (locally, with no external API calls), and produces three outputs: an interactive HTML visualization of the graph, a markdown report highlighting key concepts and surprising cross-module connections, and a JSON graph for programmatic queries. The result is that your agent can answer questions about your codebase's architecture, dependencies, and coupling patterns in a single query rather than reading dozens of files. Graphify claims 71.5x fewer tokens per query compared to passing raw file context, which matters significantly for larger projects.
+
+The skill supports 33 programming languages including Python, JavaScript, TypeScript, Go, Rust, Java, C, C++, Ruby, and more. It also handles non-code inputs: PDFs, markdown docs, images, screenshots, whiteboard photos, and even video - all processed through your agent's model API for semantic extraction. Graphify identifies "god nodes" (the most-connected concepts in your codebase) and flags cross-module relationships that are easy to miss during manual code review. All inferred relationships carry confidence tags (`EXTRACTED`, `INFERRED`, `AMBIGUOUS`) so you know what the agent is certain about versus what it is guessing.
+
+**Key Features**:
+
+- Converts any folder of code, docs, PDFs, images, and videos into an interconnected knowledge graph
+- 71.5x token reduction per query compared to passing raw file context
+- Local AST parsing via tree-sitter - no API calls for code extraction
+- Generates HTML visualization, markdown report, and JSON graph as output
+- Supports 33 programming languages including Python, TypeScript, Go, Rust, and Java
+- Identifies "god nodes" and cross-module relationships that are hard to spot manually
+- Confidence tags on all inferred relationships (`EXTRACTED`, `INFERRED`, `AMBIGUOUS`)
+- Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot CLI, Aider, and more
+
+**Installation**:
+
+```bash
+uv tool install graphifyy
+graphify install
+```
+
+Then invoke with `/graphify .` inside your project directory.
+
 ### Skills Registries and Marketplaces
 
 The skills ecosystem has matured rapidly, and several registries now make it easy to discover, evaluate, and install skills.
 
+{{< image "ai_agent_skills/skill_sh.webp" "Skills.sh Registry" >}}
 **{{< link href="https://skills.sh" >}}skills.sh{{< /link >}}** is the primary registry, maintained by Vercel, with over 57,000 indexed skills. It features leaderboards sorted by all-time installs, trending (24 hours), and hot skills. Every skill page shows install counts, platform compatibility, and a direct installation command.
 
-{{< image "ai_agent_skills/skill_sh.webp" "Skills.sh Registry" >}}
-
-**{{< link href="https://github.com/anthropics/skills" >}}Anthropic official repository{{< /link >}}** on GitHub (69,000+ stars) contains reference implementations and the production-grade skills that power Claude's capabilities. This is the best source for understanding how high-quality skills should be structured.
 
 {{< image "ai_agent_skills/anthropic_skills.webp" "Anthropic official repository" >}}
+**{{< link href="https://github.com/anthropics/skills" >}}Anthropic official repository{{< /link >}}** on GitHub (69,000+ stars) contains reference implementations and the production-grade skills that power Claude's capabilities. This is the best source for understanding how high-quality skills should be structured.
 
-**{{< link href="https://skillhub.club" >}}SkillHub{{< /link >}}** takes a different approach by using AI to evaluate and score skills across five quality dimensions, helping you identify the best options among similar skills. **SkillsMP** (skillsmp.com) offers smart search with category filtering and quality indicators. Community-curated collections like **awesome-agent-skills** on GitHub provide hand-picked recommendations organized by category.
 
 {{< image "ai_agent_skills/skill_hub.webp" "SkillHub" >}}
+**{{< link href="https://skillhub.club" >}}SkillHub{{< /link >}}** takes a different approach by using AI to evaluate and score skills across five quality dimensions, helping you identify the best options among similar skills. **SkillsMP** (skillsmp.com) offers smart search with category filtering and quality indicators. Community-curated collections like **awesome-agent-skills** on GitHub provide hand-picked recommendations organized by category.
+
 
 
 ### How to Create Your Own Skills
@@ -508,4 +640,6 @@ AI agent skills represent a fundamental shift in how we interact with coding ass
 
 The ecosystem has grown from a Claude Code-specific feature to an open standard adopted by every major AI coding tool. With over 57,000 skills available across registries like skills.sh, there is likely a skill for whatever framework, workflow, or toolchain you use. And if there is not, creating one is as simple as writing a markdown file.
 
-Start by installing two or three skills that match your primary workflow, whether that is the Vercel React skill for frontend work, Supabase skills for backend development, or Superpowers for disciplined development practices. Once you experience the difference between a generic agent and a skilled one, you will never go back.
+Start by installing two or three skills that match your primary workflow. If you build React or Next.js apps, start with the Vercel React skill. If backend development is your focus, start with Supabase. If you want to fix how your agent thinks before it codes, Superpowers or Grill Me are the highest-leverage starting points. And if token costs or verbosity are getting in the way, Caveman is a one-command fix.
+
+The most impactful combination many developers have settled on in 2026: Grill Me to resolve ambiguity before writing anything, TDD to enforce test-first discipline, and Caveman to cut the noise out of the responses in between. Once you experience the difference between a generic agent and a skilled one, you will not want to go back.
