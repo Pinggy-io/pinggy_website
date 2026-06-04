@@ -199,14 +199,14 @@ Works for all tunnel types (HTTP, TCP, UDP, TLS).
 
 ## Regions
 
-| Region | Host |
-|--------|------|
-| Default | `free.pinggy.io` |
-| USA | `us.free.pinggy.io` |
-| Europe | `eu.free.pinggy.io` |
-| Asia | `ap.free.pinggy.io` |
-| Brazil | `br.free.pinggy.io` |
-| Australia | `au.free.pinggy.io` |
+| Region | Free Host | Pro Host |
+|--------|-----------|----------|
+| Default | `free.pinggy.io` | `pro.pinggy.io` |
+| USA | `us.free.pinggy.io` | `us.pro.pinggy.io` |
+| Europe | `eu.free.pinggy.io` | `eu.pro.pinggy.io` |
+| Asia | `ap.free.pinggy.io` | `ap.pro.pinggy.io` |
+| Brazil | `br.free.pinggy.io` | `br.pro.pinggy.io` |
+| Australia | `au.free.pinggy.io` | `au.pro.pinggy.io` |
 
 ---
 
