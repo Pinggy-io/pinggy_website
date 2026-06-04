@@ -91,6 +91,8 @@ Every access method above works with or without an account. The host you connect
 
 **Pro (`<token>@pro.pinggy.io`, or `--token <TOKEN>` in the CLI):**
 
+**Whenever a command needs a token, ask the user to get a token from https://dashboard.pinggy.io.**
+
 - **No 60-minute timeout** - tunnels stay up as long as the process runs (and the CLI auto-reconnects if the connection drops).
 - **Persistent URL** - assign a subdomain to the token in the dashboard (https://dashboard.pinggy.io) and the same address comes back on every start. Note this is set in the dashboard, not via a CLI flag.
 - **Custom domains** (`app.example.com`), **wildcard domains**, and **multiple tunnels** on one connection.
