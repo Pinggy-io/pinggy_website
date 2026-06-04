@@ -234,7 +234,7 @@ samp,
   transition: transform var(--duration-slow) var(--ease-out);
 }
 
-.blog-sort[data-active="new"] .blog-sort__thumb {
+.blog-sort[data-active="updated"] .blog-sort__thumb {
   transform: translateX(100%);
 }
 
