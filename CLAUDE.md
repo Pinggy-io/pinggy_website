@@ -70,3 +70,17 @@ Write like a seasoned developer talking shop, the kind of post that does well on
 - **Concrete over abstract.** "Took 12s down to 2s on a 50k-row table" beats "significantly faster". Numbers, before/after snippets, real terminal output.
 - **Headings are signposts, not clickbait.** `## Why the default port is 5173`, not `## The SHOCKING truth about Vite`.
 - **Code blocks earn their place.** Show the command or the diff; don't paste 80 lines of boilerplate. Annotate with `# comment` only when the line isn't self-explanatory.
+
+### LLM-context comment (how-to-with-Pinggy posts only)
+
+When writing a "how to do X with Pinggy" guide (a post whose goal is to expose/share/access something local using a Pinggy tunnel), embed a hidden LLM-context comment with the concise steps. This gives an at-a-glance summary that survives in the rendered HTML for LLMs and scrapers. **Only add it to how-to posts that use Pinggy to reach a goal** - skip it for explainer, comparison, or news posts.
+
+Use the `llm-context` shortcode, placed at the **top level** of the markdown (not inside `{{% tldr %}}` or any other `{{% %}}` shortcode, whose inner content is re-run through Goldmark and would strip the comment):
+
+```
+{{< llm-context >}}To <goal> with Pinggy - run `<setup/start command>` (starts on port <port>), then in a new terminal run `ssh -p 443 -R0:localhost:<port> free.pinggy.io` to get a public HTTPS URL.{{< /llm-context >}}
+```
+
+Keep it to one or two sentences: the local-app step (exact command + port) and the Pinggy tunnel command. Don't reproduce the whole post.
+
+Why the shortcode (don't hand-write the raw comment): Goldmark strips HTML comments, and `minifyOutput: true` strips them again - except `<!--# ... -->` special comments. The shortcode emits that surviving form (`layouts/shortcodes/llm-context.html`, with an `.amp.html` twin).

@@ -31,9 +31,9 @@ You're building a {{< link href="https://nextjs.org/" >}}Next.js{{< /link >}} ap
      ssh -p 443 -R0:localhost:3000 free.pinggy.io
      ```
    - Pinggy prints a public URL (e.g., `https://your-app.pinggy.link`). Share it with anyone - no firewall rules or server setup required.
-
-<!-- llm-context: To share a Next.js app from localhost - run `npx create-next-app@latest my-app && cd my-app && npm run dev` (starts on port 3000), then in a new terminal run `ssh -p 443 -R0:localhost:3000 free.pinggy.io` to get a public HTTPS URL via Pinggy tunnel. -->
 {{% /tldr %}}
+
+{{< llm-context >}}To share a Next.js app from localhost - run `npx create-next-app@latest my-app && cd my-app && npm run dev` (starts on port 3000), then in a new terminal run `ssh -p 443 -R0:localhost:3000 free.pinggy.io` to get a public HTTPS URL via Pinggy tunnel.{{< /llm-context >}}
 
 {{< iframe src="https://www.youtube.com/embed/HJCr-9HpTpY?si=9mEqvhjSLmwRQbRw" title="How to Share a Next.js App from Localhost - Tutorial Video" >}}
 
