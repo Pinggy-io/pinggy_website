@@ -1,0 +1,20 @@
+{
+  "skills": [
+    {
+      "name": "pinggy",
+      "description": "This skill should be used when the user asks to \"expose localhost\", \"share local server\", \"create a tunnel\", \"test webhooks locally\", \"use Pinggy\", \"access remote device\", \"forward a port\", \"set up ngrok alternative\", \"make localhost public\", \"persistent subdomain\", \"custom domain tunnel\", \"TCP tunnel\", \"UDP tunnel\", \"TLS tunnel\", or mentions Pinggy. Covers all Pinggy tunnel types, access methods, authentication, domains, SDKs, and advanced features.",
+      "files": [
+        "SKILL.md",
+        "scripts/install-pinggy-cli.sh",
+        "scripts/get-tunnel-url.sh",
+        "scripts/persistent-tunnel.sh",
+        "scripts/http-tunnel.sh",
+        "scripts/tcp-tunnel.sh",
+        "references/advanced.md",
+        "references/domains.md",
+        "references/cli-sdks.md",
+        "references/management.md"
+      ]
+    }
+  ]
+}

@@ -118,13 +118,29 @@ The above step will provide you http and https URLs as follows:
 
 ```
 // You can access local server via following URL(s):
-http://uljtt-30-47-152-61.a.free.pinggy.link
-https://uljtt-30-47-152-61.a.free.pinggy.link
+http://uljtt-30-47-152-61.run.pinggy-free.link
+https://uljtt-30-47-152-61.run.pinggy-free.link
 ```
 
 You can access your localhost service using these URLs.
 
 With Pinggy Pro you can customize these urls by logging in to  <a href="https://dashboard.pinggy.io" target="_blank">dashboard.pinggy.io</a>.
+
+#### Using Pinggy with an AI agent
+
+Install the Pinggy **skill**:
+
+```bash
+npx skills add https://pinggy.io
+```
+
+Describe what you need in plain language, for example:
+
+```
+Share my dev server on port 3000 using Pinggy.
+```
+
+See the <a href="/docs/ai_agents/">Use Pinggy with AI Agents</a> guide for the full tool reference and more example prompts.
 
 #### Quickstart Recipes
 

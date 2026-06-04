@@ -1,0 +1,6 @@
+<div style="background-color:#eef3fe;border:1px solid #dce6fc;border-left:3px solid #3b6fe0;border-radius:14px;padding:1rem 1.25rem;margin:1.25rem 0;">
+{{- with .Get "label" }}
+<p style="margin:0 0 0.5rem;font-size:0.8125rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#2f58b8;">{{ . }}</p>
+{{- end }}
+{{ .Inner | markdownify }}
+</div>

@@ -446,6 +446,30 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ---- Install callout (highlighted quick-start command) --- */
+.install-callout {
+  background-color: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-left: 3px solid var(--brand-600);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.install-callout > p:first-child {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-700);
+}
+
+.install-callout pre,
+.install-callout .chroma {
+  margin-bottom: 0;
+}
+
 /* ---- Hero entrance animation ----------------------------- */
 @keyframes heroFadeUp {
   from {
