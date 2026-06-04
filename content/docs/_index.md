@@ -118,8 +118,8 @@ The above step will provide you http and https URLs as follows:
 
 ```
 // You can access local server via following URL(s):
-http://uljtt-30-47-152-61.a.free.pinggy.link
-https://uljtt-30-47-152-61.a.free.pinggy.link
+http://uljtt-30-47-152-61.run.pinggy-free.link
+https://uljtt-30-47-152-61.run.pinggy-free.link
 ```
 
 You can access your localhost service using these URLs.
@@ -128,13 +128,19 @@ With Pinggy Pro you can customize these urls by logging in to  <a href="https://
 
 #### Using Pinggy with an AI agent
 
-If you work with an AI coding agent, install the Pinggy skill and let the agent set up tunnels for you. Just describe what you need in plain language, for example:
+Install the Pinggy **skill**:
 
-- "Share my dev server on port 3000."
-- "Open a TCP tunnel to localhost:22."
-- "Share my ~/Downloads folder over the internet."
+```bash
+npx skills add https://pinggy.io
+```
 
-See the <a href="/docs/ai_agents/">Use Pinggy with AI Agents</a> guide to install the skill or the MCP server, with the full tool reference and more example prompts.
+Describe what you need in plain language, for example:
+
+```
+Share my dev server on port 3000 using Pinggy.
+```
+
+See the <a href="/docs/ai_agents/">Use Pinggy with AI Agents</a> guide for the full tool reference and more example prompts.
 
 #### Quickstart Recipes
 

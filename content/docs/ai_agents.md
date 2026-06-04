@@ -26,7 +26,7 @@ If unsure, start with the skill. Add the MCP server when the agent should run tu
 
 ## Install the Pinggy skill
 
-Skills are packaged instructions an agent loads on demand. The Pinggy skill is published under the [Agent Skills](https://github.com/vercel-labs/skills) standard at `https://pinggy.io/.well-known/skills/`. The `skills` CLI fetches the manifest, downloads the skill files, and drops them into the agent's skills directory. The only prerequisite is Node.js.
+Skills are packaged instructions an agent loads on demand. The Pinggy skill is published under the {{< link href="https://github.com/vercel-labs/skills" >}}Agent Skills{{< /link >}} standard at `https://pinggy.io/.well-known/skills/`. The `skills` CLI fetches the manifest, downloads the skill files, and drops them into the agent's skills directory. The only prerequisite is Node.js.
 
 #### npx (any agent)
 
@@ -164,19 +164,6 @@ Once the MCP server is installed, ask the agent in plain language:
 - "List my active tunnels."
 - "Only allow traffic from 1.2.3.4 to my tunnel."
 - "Stop the tunnel."
-
-## MCP tool reference
-
-The server exposes these tools. The agent picks them based on the request, so they are rarely called by name.
-
-| Group | Tools |
-|---|---|
-| Authentication | `authenticate`, `check_authentication`, `get_profile`, `logout` |
-| Tunnels | `start_tunnel`, `stop_tunnel`, `list_tunnels`, `get_tunnel_info` |
-| File sharing | `share_directory`, `stop_file_share`, `list_file_shares` |
-| Token management | `add_token`, `remove_token`, `list_tokens`, `update_token` |
-
-`start_tunnel` supports HTTP, TCP, TLS, and UDP, plus IP whitelisting, header rewriting, the web debugger, and local TLS. Login uses the OAuth 2.0 device flow (open a URL in the browser, no token copy-pasting), and tunnels run anonymously by default. Tunnels live inside the MCP server process, so they stop when the AI client restarts.
 
 ## Plain-text docs for LLMs
 

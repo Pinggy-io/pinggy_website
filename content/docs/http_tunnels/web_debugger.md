@@ -49,8 +49,8 @@ To enable the Web Debugger, you need to configure a tunnel with the Web Debugger
    ```json
    {
      "urls": [
-       "http://rnckk-23.4.5.6.a.free.pinggy.link",
-       "https://rnckk-23.4.5.6.a.free.pinggy.link"
+       "http://rnckk-23.4.5.6.run.pinggy-free.link",
+       "https://rnckk-23.4.5.6.run.pinggy-free.link"
      ]
    }
    ```

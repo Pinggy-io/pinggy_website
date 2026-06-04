@@ -5,9 +5,11 @@
  draft: false 
 ---
 
-# Accessing Free Tunnel URLs: the Browser Screening Page
+# Browser Screening Page for Free Tunnels
 
-When you open a free Pinggy tunnel URL (a `*.free.pinggy.link` address) in a web browser, Pinggy shows a one-time screening page before the site loads:
+When you open a **free** Pinggy tunnel URL (a `*.run.pinggy-free.link` address) in a web browser, Pinggy shows a one-time screening page before the site loads. 
+
+> **Note that for Pro tunnels, no screening page is shown**.
 
 {{< figure src="/doc_img/browser_screening.png" alt="Pinggy browser screening page for free tunnels" >}}
 
@@ -19,7 +21,7 @@ The screening page is served only to browsers. Requests from `curl`, `wget`, HTT
 
 ```bash
 # Reaches your service directly, no screening page
-curl https://abcd-12-34-56-78.a.free.pinggy.link/api/health
+curl https://abcd-12-34-56-78.run.pinggy-free.link/api/health
 ```
 
 ## Bypassing it for browser-like clients
@@ -31,7 +33,7 @@ If your client does send a browser `User-Agent` but you still want to skip the p
 Set the `X-Pinggy-No-Screen` request header to any value:
 
 ```bash
-curl -H "X-Pinggy-No-Screen: 1" https://abcd-12-34-56-78.a.free.pinggy.link/
+curl -H "X-Pinggy-No-Screen: 1" https://abcd-12-34-56-78.run.pinggy-free.link/
 ```
 
 ### Use a custom User-Agent
@@ -39,7 +41,7 @@ curl -H "X-Pinggy-No-Screen: 1" https://abcd-12-34-56-78.a.free.pinggy.link/
 Any custom or non-standard `User-Agent` skips the screening page:
 
 ```bash
-curl -A "my-app/1.0" https://abcd-12-34-56-78.a.free.pinggy.link/
+curl -A "my-app/1.0" https://abcd-12-34-56-78.run.pinggy-free.link/
 ```
 
 ## Removing it entirely
