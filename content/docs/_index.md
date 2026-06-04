@@ -6,7 +6,7 @@
  cascade:
    - target:
        kind: page
-     outputs: ["HTML", "AMP", "Markdown"]
+     outputs: ["HTML", "Markdown"]
    - target:
        kind: section
      outputs: ["HTML", "RSS", "Markdown"]

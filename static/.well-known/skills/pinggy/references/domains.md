@@ -16,7 +16,7 @@ ssh -p 443 -R0:localhost:8000 <token>@pro.pinggy.io
 # Same URL every restart: https://myapp.a.pinggy.link
 ```
 
-Configure the subdomain name at https://dashboard.pinggy.io.
+Configure the subdomain name manually by visiting https://dashboard.pinggy.io.
 
 ---
 
@@ -31,7 +31,10 @@ CNAME  app.example.com  →  <token>.a.pinggy.link
 
 Then tunnel normally - Pinggy issues HTTPS cert automatically.
 
-### Relay Method (for root/apex domains like `example.com`)
+
+After configuring CNAME, it has to be verified manually from https://dashboard.pinggy.io
+
+### Root/apex domains like `example.com`
 
 Add three DNS records:
 ```
@@ -40,7 +43,7 @@ A     example.com           →  <relay-ip>
 AAAA  example.com           →  <relay-ipv6>
 ```
 
-Get relay values from the Pinggy dashboard. HTTPS cert issued automatically after DNS validation.
+Get relay values from the Pinggy https://dashboard.pinggy.io. HTTPS cert issued automatically after DNS validation.
 
 ---
 
