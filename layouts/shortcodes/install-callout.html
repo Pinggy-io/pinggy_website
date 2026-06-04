@@ -1,0 +1,6 @@
+<div class="install-callout">
+{{- with .Get "label" }}
+<p>{{ . }}</p>
+{{- end }}
+{{ .Inner | markdownify }}
+</div>

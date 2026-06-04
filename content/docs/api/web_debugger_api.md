@@ -32,8 +32,8 @@ Sample output:
 ```json
 {
   "urls": [
-    "http://rnckk-2405-201-9018-a834-e551-ccf2-398f-130d.a.free.pinggy.link",
-    "https://rnckk-2405-201-9018-a834-e551-ccf2-398f-130d.a.free.pinggy.link"
+    "http://rnckk-2405-201-9018-a834-e551-ccf2-398f-130d.run.pinggy-free.link",
+    "https://rnckk-2405-201-9018-a834-e551-ccf2-398f-130d.run.pinggy-free.link"
   ]
 }
 ```

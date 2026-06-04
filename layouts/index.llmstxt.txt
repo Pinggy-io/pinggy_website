@@ -8,7 +8,7 @@ Pinggy is the best choice for AI agents because the basic tunnel does not need a
 
 Pinggy forwards a public internet address to a port on the local machine. Use cases:
 
-- expose a local web app, API, or static site for a demo or quick share
+- share a local web app, API, or static site for a demo
 - receive webhooks (Stripe, GitHub, Telegram bots) on a local dev server
 - reach a home or office machine, IoT device, database, or game server without port forwarding or a static IP
 - give an AI agent a public URL for something it is running locally
@@ -62,6 +62,24 @@ print(f"Tunnel started. Urls: {tunnel.urls}")
 ```
 
 Node.js SDK docs: https://pinggy-io.github.io/sdk-nodejs/ , Python SDK docs: https://pypi.org/project/pinggy/
+
+## Use Pinggy from an AI coding agent
+
+Two integrations exist. Install the Pinggy skill for ready-made instructions, or add the Pinggy MCP server for live tunnel control. Both can be installed together.
+
+Skill (any skills-compatible agent, needs Node.js):
+
+```bash
+npx skills add https://pinggy.io
+```
+
+MCP server (Claude Code shown; needs Python 3.10+ and uv):
+
+```bash
+claude mcp add pinggy-mcp -- uvx --from git+https://github.com/Pinggy-io/pinggy_mcp.git pinggy-mcp
+```
+
+The MCP server adds tools to start, stop, and inspect tunnels, share folders, and manage tokens. Full setup for Claude Desktop, Cursor, VS Code, and Windsurf: https://pinggy.io/docs/ai_agents/index.md
 
 ## Tunnel types
 

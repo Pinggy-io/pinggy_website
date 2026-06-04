@@ -8,7 +8,7 @@
 
 # Persistent Subdomain
 
-Pinggy assigns random URLs for **free** tunnels, such as `rnskg-21-24-129-38.a.free.pinggy.link`.
+Pinggy assigns random URLs for **free** tunnels, such as `rnskg-21-24-129-38.run.pinggy-free.link`.
 
 If you want a URL that does not change every time you create a new tunnel, you need to <a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a>.
 
