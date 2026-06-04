@@ -1,13 +1,14 @@
 {{ define "main" }}
 {{/* Posts always come from the /blog section. This template renders both
-     /blog/ (default, recently updated or new first, by lastmod) and
-     /blog/new/ (newest first, by publish date). The "new" page sets
-     `sort: new` in its front matter. */}}
+     /blog/ (default, newest first, by publish date) and
+     /blog/updated/ (recently updated first, by lastmod). The "updated" page
+     sets `sort: updated` in its front matter. */}}
 {{ $blog := .Site.GetPage "/blog" }}
-{{ $newPage := .Site.GetPage "/blog/new" }}
-{{ $isNew := eq .Params.sort "new" }}
+{{ $updatedPage := .Site.GetPage "/blog/updated" }}
+{{ $isUpdated := eq .Params.sort "updated" }}
+{{ $isNew := not $isUpdated }}
 {{ $posts := $blog.RegularPages }}
-{{ $posts = cond $isNew ($posts.ByDate.Reverse) ($posts.ByLastmod.Reverse) }}
+{{ $posts = cond $isUpdated ($posts.ByLastmod.Reverse) ($posts.ByDate.Reverse) }}
 <main>
   <div
     class="row justify-content-center"
@@ -21,8 +22,8 @@
       <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
       {{.Content}}
 
-      <!-- Sort toggle. Each option is a real URL: /blog/ (recently updated
-           or new) and /blog/new/ (newest by publish date). -->
+      <!-- Sort toggle. Each option is a real URL: /blog/ (newest by publish
+           date) and /blog/updated/ (recently updated by lastmod). -->
       <div
         class="blog-sort-row d-flex align-items-center justify-content-between flex-wrap"
       >
@@ -36,15 +37,15 @@
           <span class="blog-sort__thumb" aria-hidden="true"></span>
           <a
             href="{{ with $blog }}{{ .RelPermalink }}{{ else }}/blog/{{ end }}"
-            class="blog-sort__btn{{ if not $isNew }} is-active{{ end }}"
-            {{ if not $isNew }}aria-current="page"{{ end }}
-            >Recently updated</a
-          >
-          <a
-            href="{{ with $newPage }}{{ .RelPermalink }}{{ else }}/blog/new/{{ end }}"
             class="blog-sort__btn{{ if $isNew }} is-active{{ end }}"
             {{ if $isNew }}aria-current="page"{{ end }}
             >Newest</a
+          >
+          <a
+            href="{{ with $updatedPage }}{{ .RelPermalink }}{{ else }}/blog/updated/{{ end }}"
+            class="blog-sort__btn{{ if $isUpdated }} is-active{{ end }}"
+            {{ if $isUpdated }}aria-current="page"{{ end }}
+            >Recently updated</a
           >
         </div>
       </div>

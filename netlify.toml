@@ -5,7 +5,6 @@ publish = "public"
 [context.production.environment]
 HUGO_VERSION = "0.122.0"
 HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
   from = "/blog/top_5_local_llm_tools_and_models_2025"
