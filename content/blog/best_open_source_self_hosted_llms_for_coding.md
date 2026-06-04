@@ -1,12 +1,12 @@
 ---
 title: "Best Open Source Self-Hosted LLMs for Coding in 2026"
-description: "Discover the best open source LLMs for coding and development that you can self-host. Compare GLM-5.1, DeepSeek-V4, Kimi K2.6, Qwen3.6, Devstral, and more with benchmarks, hardware requirements, and deployment guides."
+description: "Discover the best open source LLMs for coding and development that you can self-host. Compare GLM-5.1, DeepSeek-V4, Kimi K2.6, Qwen3.6, Devstral, MiMo-V2.5-Pro, and more with benchmarks, hardware requirements, and deployment guides."
 date: 2026-03-26T14:15:25+05:30
-lastmod: 2026-05-12T10:00:00+05:30
+lastmod: 2026-06-03T10:00:00+05:30
 draft: false
-tags: ["open source LLM", "self-hosted AI", "coding LLM", "GLM-5.1", "DeepSeek-V4", "Qwen3.6", "Kimi K2.6", "Devstral", "local AI"]
+tags: ["open source LLM", "self-hosted AI", "coding LLM", "GLM-5.1", "DeepSeek-V4", "Qwen3.6", "Kimi K2.6", "Devstral", "MiMo-V2.5-Pro", "local AI"]
 og_image: "images/best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIENob29zZSBhbmQgU2VsZi1Ib3N0IE9wZW4gU291cmNlIExMTXMgZm9yIENvZGluZyIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byBzZWxlY3RpbmcgYW5kIHNlbGYtaG9zdGluZyB0aGUgYmVzdCBvcGVuIHNvdXJjZSBsYXJnZSBsYW5ndWFnZSBtb2RlbHMgZm9yIHNvZnR3YXJlIGRldmVsb3BtZW50LCBpbmNsdWRpbmcgbW9kZWwgY29tcGFyaXNvbiwgaGFyZHdhcmUgcmVxdWlyZW1lbnRzLCBhbmQgZGVwbG95bWVudCB0b29scy4iLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQXNzZXNzIFlvdXIgSGFyZHdhcmUgYW5kIFJlcXVpcmVtZW50cyIsCiAgICAgICJ0ZXh0IjogIkRldGVybWluZSB5b3VyIGF2YWlsYWJsZSBoYXJkd2FyZSAoR1BVIFZSQU0sIHN5c3RlbSBSQU0sIHN0b3JhZ2UpIGFuZCBjb2RpbmcgbmVlZHMuIEZvciBjb25zdW1lciBHUFVzIHdpdGggOC0xNkdCIFZSQU0sIGNvbnNpZGVyIG1vZGVscyBsaWtlIERldnN0cmFsIFNtYWxsIDIgKDI0Qikgb3IgUXdlbiAyLjUgQ29kZXIgMzJCLiBGb3IgZW50ZXJwcmlzZSBzZXR1cHMgd2l0aCA4MEdCKyBWUkFNLCBleHBsb3JlIGxhcmdlciBtb2RlbHMgbGlrZSBHTE0tNSBvciBLaW1pIEsyLjUuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNob29zZSBZb3VyIE1vZGVsIEJhc2VkIG9uIFVzZSBDYXNlIiwKICAgICAgInRleHQiOiAiU2VsZWN0IGEgbW9kZWwgdGhhdCBmaXRzIHlvdXIgY29kaW5nIHdvcmtmbG93LiBGb3IgZ2VuZXJhbCBjb2RlIGdlbmVyYXRpb24sIEdMTS01IG9yIEtpbWkgSzIuNSBvZmZlciB0aGUgYmVzdCBiZW5jaG1hcmtzLiBGb3IgbGlnaHR3ZWlnaHQgbG9jYWwgdXNlLCBEZXZzdHJhbCBTbWFsbCAyIG9yIFlpLUNvZGVyIDlCIHJ1biBvbiBjb25zdW1lciBoYXJkd2FyZS4gRm9yIGFnZW50aWMgd29ya2Zsb3dzLCBRd2VuMy1Db2RlciBvciBLaW1pIEsyLjUgd2l0aCBhZ2VudCBzd2FybSBzdXBwb3J0IGFyZSBpZGVhbC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW5zdGFsbCBhIFNlbGYtSG9zdGluZyBUb29sIiwKICAgICAgInRleHQiOiAiU2V0IHVwIGEgZGVwbG95bWVudCB0b29sIGxpa2UgT2xsYW1hIGZvciBxdWljayBsb2NhbCBwcm90b3R5cGluZywgdkxMTSBmb3IgcHJvZHVjdGlvbiBzZXJ2aW5nIHdpdGggaGlnaCBjb25jdXJyZW5jeSwgb3IgbGxhbWEuY3BwIGZvciBtYXhpbXVtIGNvbnRyb2wgYW5kIENQVSBpbmZlcmVuY2UuIEZvciBhIEdVSSBleHBlcmllbmNlLCB1c2UgTE0gU3R1ZGlvIG9yIE9wZW4gV2ViVUkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRvd25sb2FkIGFuZCBSdW4gdGhlIE1vZGVsIiwKICAgICAgInRleHQiOiAiUHVsbCB5b3VyIGNob3NlbiBtb2RlbCB1c2luZyB0aGUgc2VsZWN0ZWQgdG9vbC4gRm9yIGV4YW1wbGUsIHJ1biBvbGxhbWEgcHVsbCBxd2VuMi41LWNvZGVyOjMyYiB3aXRoIE9sbGFtYSwgb3IgZG93bmxvYWQgd2VpZ2h0cyBmcm9tIEh1Z2dpbmcgRmFjZSBmb3IgdkxMTS4gQXBwbHkgNC1iaXQgcXVhbnRpemF0aW9uIChRNF9LX00pIHRvIHJlZHVjZSBtZW1vcnkgdXNhZ2Ugd2hpbGUgbWFpbnRhaW5pbmcgcXVhbGl0eS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW50ZWdyYXRlIHdpdGggWW91ciBEZXZlbG9wbWVudCBXb3JrZmxvdyIsCiAgICAgICJ0ZXh0IjogIkNvbm5lY3QgeW91ciBzZWxmLWhvc3RlZCBtb2RlbCB0byBjb2RpbmcgdG9vbHMgbGlrZSBDb250aW51ZS5kZXYsIEFpZGVyLCBvciBhbnkgT3BlbkFJLWNvbXBhdGlibGUgY2xpZW50LiBNb3N0IHNlbGYtaG9zdGluZyB0b29scyBleHBvc2UgYW4gT3BlbkFJLWNvbXBhdGlibGUgQVBJIGVuZHBvaW50LCBtYWtpbmcgaW50ZWdyYXRpb24gc3RyYWlnaHRmb3J3YXJkIHdpdGggZXhpc3RpbmcgZGV2ZWxvcG1lbnQgd29ya2Zsb3dzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIENob29zZSBhbmQgU2VsZi1Ib3N0IE9wZW4gU291cmNlIExMTXMgZm9yIENvZGluZyIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byBzZWxlY3RpbmcgYW5kIHNlbGYtaG9zdGluZyB0aGUgYmVzdCBvcGVuIHNvdXJjZSBsYXJnZSBsYW5ndWFnZSBtb2RlbHMgZm9yIHNvZnR3YXJlIGRldmVsb3BtZW50LCBpbmNsdWRpbmcgbW9kZWwgY29tcGFyaXNvbiwgaGFyZHdhcmUgcmVxdWlyZW1lbnRzLCBhbmQgZGVwbG95bWVudCB0b29scy4iLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQXNzZXNzIFlvdXIgSGFyZHdhcmUgYW5kIFJlcXVpcmVtZW50cyIsCiAgICAgICJ0ZXh0IjogIkRldGVybWluZSB5b3VyIGF2YWlsYWJsZSBoYXJkd2FyZSAoR1BVIFZSQU0sIHN5c3RlbSBSQU0sIHN0b3JhZ2UpIGFuZCBjb2RpbmcgbmVlZHMuIEZvciBjb25zdW1lciBHUFVzIHdpdGggOC0xNkdCIFZSQU0sIGNvbnNpZGVyIG1vZGVscyBsaWtlIERldnN0cmFsIFNtYWxsIDIgKDI0Qikgb3IgUXdlbiAzLjYgMjdCLiBGb3IgZW50ZXJwcmlzZSBzZXR1cHMgd2l0aCA4MEdCKyBWUkFNLCBleHBsb3JlIGxhcmdlciBtb2RlbHMgbGlrZSBLaW1pIEsyLjYsIEdMTS01LjEsIG9yIE1pTW8tVjIuNS1Qcm8uIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNob29zZSBZb3VyIE1vZGVsIEJhc2VkIG9uIFVzZSBDYXNlIiwKICAgICAgInRleHQiOiAiU2VsZWN0IGEgbW9kZWwgdGhhdCBmaXRzIHlvdXIgY29kaW5nIHdvcmtmbG93LiBGb3IgZ2VuZXJhbCBjb2RlIGdlbmVyYXRpb24sIEtpbWkgSzIuNiBvciBHTE0tNS4xIGxlYWQgdGhlIG9wZW4tc291cmNlIExpdmVCZW5jaCByYW5raW5ncy4gRm9yIGxpZ2h0d2VpZ2h0IGxvY2FsIHVzZSwgRGV2c3RyYWwgU21hbGwgMiBvciBZaS1Db2RlciA5QiBydW4gb24gY29uc3VtZXIgaGFyZHdhcmUuIEZvciBhZ2VudGljIHdvcmtmbG93cywgS2ltaSBLMi42LCBNaU1vLVYyLjUtUHJvLCBvciBHTE0tNS4xIHdpdGggbG9uZy1ob3Jpem9uIGV4ZWN1dGlvbiBzdXBwb3J0IGFyZSBpZGVhbC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW5zdGFsbCBhIFNlbGYtSG9zdGluZyBUb29sIiwKICAgICAgInRleHQiOiAiU2V0IHVwIGEgZGVwbG95bWVudCB0b29sIGxpa2UgT2xsYW1hIGZvciBxdWljayBsb2NhbCBwcm90b3R5cGluZywgdkxMTSBmb3IgcHJvZHVjdGlvbiBzZXJ2aW5nIHdpdGggaGlnaCBjb25jdXJyZW5jeSwgb3IgbGxhbWEuY3BwIGZvciBtYXhpbXVtIGNvbnRyb2wgYW5kIENQVSBpbmZlcmVuY2UuIEZvciBhIEdVSSBleHBlcmllbmNlLCB1c2UgTE0gU3R1ZGlvIG9yIE9wZW4gV2ViVUkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRvd25sb2FkIGFuZCBSdW4gdGhlIE1vZGVsIiwKICAgICAgInRleHQiOiAiUHVsbCB5b3VyIGNob3NlbiBtb2RlbCB1c2luZyB0aGUgc2VsZWN0ZWQgdG9vbC4gRm9yIGV4YW1wbGUsIHJ1biBvbGxhbWEgcHVsbCBxd2VuMy42OjI3YiB3aXRoIE9sbGFtYSwgb3IgZG93bmxvYWQgd2VpZ2h0cyBmcm9tIEh1Z2dpbmcgRmFjZSBmb3IgdkxMTS4gQXBwbHkgNC1iaXQgcXVhbnRpemF0aW9uIChRNF9LX00pIHRvIHJlZHVjZSBtZW1vcnkgdXNhZ2Ugd2hpbGUgbWFpbnRhaW5pbmcgcXVhbGl0eS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW50ZWdyYXRlIHdpdGggWW91ciBEZXZlbG9wbWVudCBXb3JrZmxvdyIsCiAgICAgICJ0ZXh0IjogIkNvbm5lY3QgeW91ciBzZWxmLWhvc3RlZCBtb2RlbCB0byBjb2RpbmcgdG9vbHMgbGlrZSBDb250aW51ZS5kZXYsIEFpZGVyLCBvciBhbnkgT3BlbkFJLWNvbXBhdGlibGUgY2xpZW50LiBNb3N0IHNlbGYtaG9zdGluZyB0b29scyBleHBvc2UgYW4gT3BlbkFJLWNvbXBhdGlibGUgQVBJIGVuZHBvaW50LCBtYWtpbmcgaW50ZWdyYXRpb24gc3RyYWlnaHRmb3J3YXJkIHdpdGggZXhpc3RpbmcgZGV2ZWxvcG1lbnQgd29ya2Zsb3dzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
 outputs:
   - HTML
   - AMP
@@ -14,7 +14,7 @@ outputs:
 
 {{< image "best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp" "Best Open Source Self-Hosted LLMs for Coding in 2026" >}}
 
-The gap between proprietary and open source AI models for coding is narrowing fast. A year ago, self-hosting an LLM for development meant settling for significantly worse performance than cloud-based alternatives like GPT-4 or Claude. In 2026, the best open source models are closing in on proprietary leaders across benchmarks like {{< link href="https://livebench.ai/#/?sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench{{< /link >}}, and some even outperform them on specific tasks like code generation and completion.
+The gap between proprietary and open source AI models for coding is narrowing fast. A year ago, self-hosting an LLM for development meant settling for significantly worse performance than cloud-based alternatives like GPT-5.4 or Claude. In 2026, the best open source models are closing in on proprietary leaders across benchmarks like {{< link href="https://livebench.ai/#/?sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench{{< /link >}}, and some even outperform them on specific tasks like code generation and completion.
 
 Whether you're a solo developer who wants to keep code off third-party servers, a startup looking to cut API costs, or an enterprise with strict data compliance requirements, self-hosted open source LLMs have become a genuinely viable option for professional software development. In this guide, we'll cover the best open source models you can self-host for coding, the tools to deploy them, and the hardware you need to get started.
 
@@ -28,6 +28,7 @@ Whether you're a solo developer who wants to keep code off third-party servers, 
 5. **Qwen 3.6 27B** - LiveBench Coding **71.78**, Agentic Coding **50.00** - <a target="_blank" href="https://github.com/QwenLM/Qwen3.6">Get Qwen 3.6 27B</a>
 6. **MiniMax M2.5** - LiveBench Coding **70.70**, Agentic Coding **51.67** - <a target="_blank" href="https://huggingface.co/MiniMaxAI">Get MiniMax M2.5</a>
 7. **Devstral 2** - LiveBench Coding **66.79**, Agentic Coding **43.33** - <a target="_blank" href="https://huggingface.co/mistralai">Get Devstral 2</a>
+8. **MiMo-V2.5-Pro** - LiveBench score not yet available - <a target="_blank" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro">Get MiMo-V2.5-Pro</a>
 
 **Best Self-Hosting Tools:**
 - <a target="_blank" href="https://ollama.com">Ollama</a> - Easiest way to get started locally
@@ -209,9 +210,9 @@ On this May 12, 2026 snapshot, **Kimi K2.6 Thinking** is the strongest open-sour
 
 ## Best Open Source LLMs for Coding
 
-### New in April-May 2026: GLM-5.1, DeepSeek-V4, Qwen3.6, and Kimi K2.6
+### New in April-June 2026: GLM-5.1, DeepSeek-V4, Qwen3.6, Kimi K2.6, and MiMo-V2.5-Pro
 
-Four major open-weight coding releases landed after this guide was originally published.
+Five major open-weight coding releases landed after this guide was originally published.
 
 #### GLM-5.1 (Z.AI)
 
@@ -228,6 +229,10 @@ The official {{< link href="https://github.com/QwenLM/Qwen3.6" >}}Qwen3.6 reposi
 #### Kimi K2.6 (Moonshot AI)
 
 Moonshot lists Kimi K2.6 in its latest research feed on **April 20, 2026**, and the official model card reports major coding-agent gains over K2.5. A full profile is included below in section #2.
+
+#### MiMo-V2.5-Pro (Xiaomi)
+
+Xiaomi released {{< link href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro" >}}MiMo-V2.5-Pro{{< /link >}} on **April 22, 2026**. It's a 1.02T total / 42B active MoE model with a 1M token context window under MIT licensing. MiMo-V2.5-Pro is not currently listed on the LiveBench leaderboard; available vendor-reported scores include **78.9% SWE-Bench Verified** and **68.4% TerminalBench 2.0**. A full profile is included below in section #5.
 
 ### 1. GLM-5 / GLM-5.1 (Zhipu AI) - Top-Tier Agentic Baseline
 
@@ -321,7 +326,30 @@ Mistral also offers **Vibe CLI**, an open source terminal coding assistant power
 - **SWE-bench Verified:** 68.0% (self-reported by Mistral AI)
 - **Self-hosting:** Single RTX 4090 or Mac with 32GB RAM
 
-### 5. Qwen3-Coder (Alibaba) - Best Agentic CLI Tool
+### 5. MiMo-V2.5-Pro (Xiaomi) - 78.9% SWE-Bench, 68.4% TerminalBench
+
+{{< image "best_open_source_self_hosted_llms_for_coding/mimo.webp" "MiMo-V2.5-Pro Open Source LLM by Xiaomi" >}}
+
+{{< link href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro" >}}MiMo-V2.5-Pro{{< /link >}} is Xiaomi's latest open-weight model, released on **April 22, 2026**. It's a 1.02T total parameter MoE model with 42B active parameters and a 1M token context window - broadly comparable in scale to DeepSeek-V4 Pro. Weights are on Hugging Face and ModelScope under the MIT license.
+
+MiMo-V2.5-Pro is not currently listed on the LiveBench leaderboard, so a direct side-by-side comparison with the other models in this guide isn't possible yet. On {{< link href="https://mimo.xiaomi.com/mimo-v2-5-pro" >}}vendor-reported benchmarks{{< /link >}}, it posts **78.9% on SWE-Bench Verified** and **68.4% on TerminalBench 2.0**. The TerminalBench score is the highest in this guide, slightly ahead of Kimi K2.6's 66.7. These are self-reported numbers from Xiaomi; treat them as directional until LiveBench or independent evaluations confirm them.
+
+The architecture uses a hybrid attention design that interleaves local sliding window attention with global attention at a 6:1 ratio, which Xiaomi says cuts KV-cache memory usage by roughly 7x compared to full attention at long contexts. Three lightweight Multi-Token Prediction modules enable a 3x inference speedup. For self-hosting, SGLang is the recommended inference engine; the model requires a significant multi-GPU setup similar to other ~1T MoE models in this guide.
+
+Xiaomi describes MiMo-V2.5-Pro as a major step forward from MiMo-V2-Pro for agentic and software engineering tasks, with support for workflows involving more than 1,000 sequential tool calls.
+
+#### Key Specs
+
+- **Architecture:** MoE, 1.02T total / 42B active parameters
+- **Context Window:** 1M tokens
+- **License:** MIT
+- **SWE-Bench Verified:** 78.9% ({{< link href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro" >}}self-reported by Xiaomi{{< /link >}})
+- **TerminalBench 2.0:** 68.4% ({{< link href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro" >}}self-reported by Xiaomi{{< /link >}})
+- **LiveBench Coding Avg:** Not listed on LiveBench
+- **LiveBench Agentic Coding Avg:** Not listed on LiveBench
+- **Self-hosting:** SGLang or vLLM; multi-GPU setup required (similar footprint to DeepSeek V4 Pro)
+
+### 6. Qwen3-Coder (Alibaba) - Best Agentic CLI Tool
 
 {{< image "best_open_source_self_hosted_llms_for_coding/qwen_3_coder.webp" "Qwen3-Coder Open Source LLM by Alibaba" >}}
 
@@ -340,7 +368,7 @@ The broader Qwen ecosystem also includes **Qwen 2.5 Coder** (available in sizes 
 - **SWE-bench Verified:** 70.6% (Qwen3-Coder-Next, self-reported by Alibaba)
 - **Self-hosting:** Qwen 2.5 Coder 32B runs on consumer hardware via Ollama; larger variants require multi-GPU
 
-### 6. Llama 4 (Meta) - Largest Context Window (10M)
+### 7. Llama 4 (Meta) - Largest Context Window (10M)
 
 {{< image "best_open_source_self_hosted_llms_for_coding/mera_llama.webp" "Llama 4 Open Source LLM by Meta" >}}
 
@@ -357,7 +385,7 @@ The main caveat is licensing: Llama's license does not meet the OSI Open Source 
 - **License:** Llama Community License (restrictions for very large companies)
 - **Self-hosting:** Scout and Maverick available via Ollama, vLLM; smaller variants run on consumer hardware
 
-### 7. StarCoder 2 (BigCode / Hugging Face) - Most Auditable Training Data
+### 8. StarCoder 2 (BigCode / Hugging Face) - Most Auditable Training Data
 
 {{< image "best_open_source_self_hosted_llms_for_coding/starcode2.webp" "StarCoder 2 Open Source LLM by BigCode" >}}
 
@@ -493,8 +521,8 @@ Once you've picked a model, you need the right tools and hardware to run it. We'
 
 ## Conclusion
 
-The open source LLM landscape for coding has matured dramatically, and the May 12, 2026 LiveBench snapshot tightened the race again. Kimi K2.6 Thinking currently leads this guide's open-source set on both Coding (78.57) and Agentic Coding (58.33), with GLM 5.1 and DeepSeek V4 Pro close behind on agentic work.
+The open source LLM landscape for coding has matured dramatically, and the May 12, 2026 LiveBench snapshot tightened the race again. Kimi K2.6 Thinking currently leads this guide's open-source set on both Coding (78.57) and Agentic Coding (58.33), with GLM 5.1 and DeepSeek V4 Pro close behind on agentic work. MiMo-V2.5-Pro (Xiaomi) is a notable addition - not yet on LiveBench, but vendor-reported SWE-Bench and TerminalBench numbers put it in the same tier as the top models here.
 
-For most developers, the practical recommendation is to start with Qwen 3.6 27B or Devstral Small 2 on local hardware, then move to Kimi K2.6, GLM 5.1, or DeepSeek V4 Pro if you need top-tier agentic performance and have enterprise GPUs. DeepSeek V3.2 remains a strong cost-to-quality baseline.
+For most developers, the practical recommendation is to start with Qwen 3.6 27B or Devstral Small 2 on local hardware, then move to Kimi K2.6, GLM 5.1, DeepSeek V4 Pro, or MiMo-V2.5-Pro if you need top-tier agentic performance and have enterprise GPUs. DeepSeek V3.2 remains a strong cost-to-quality baseline.
 
 The 44% of organizations that cite data privacy as their top concern with LLM adoption now have no reason to hold back. Self-hosted open source models are production-ready for coding, and the gap with proprietary alternatives continues to shrink with each new release.
