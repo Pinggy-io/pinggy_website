@@ -1,37 +1,94 @@
 {{ define "main" }}
+<div class="bp">
+  <div class="bp-progress"><div class="bp-progress__fill" id="bp-progress-fill"></div></div>
 
-<h1 class="display-6 mb-4" id="blogtitle">{{.Title}}</h1>
+  <main class="bp-wrap bp-article">
+    <header class="bp-head">
+      {{/* Eyebrow: explicit `eyebrow` front matter, else first category, else first tag, else section. */}}
+      {{ $eyebrow := .Params.eyebrow }}
+      {{ if not $eyebrow }}{{ with .Params.categories }}{{ $eyebrow = index . 0 }}{{ end }}{{ end }}
+      {{ if not $eyebrow }}{{ with .Params.tags }}{{ $eyebrow = index . 0 }}{{ end }}{{ end }}
+      {{ if not $eyebrow }}{{ $eyebrow = (.Section | title) }}{{ end }}
+      <div class="bp-eyebrow">{{ $eyebrow }}</div>
 
-<div class="row justify-content-center">
-  <div class="col-12 col-md-12 blogbody">
-    <div class="row">
-      <div class="col col-12 col-lg-6">
-        {{ if ne .Lastmod .Date }}
-        <span class="date-info italic">
-          <br />
-          Updated on {{ .Lastmod.Format "Jan 2, 2006" }}</span
-        >
-        {{ else }}
-        <i class="bi bi-calendar4-event me-1"></i
-        ><span>{{ .Date.Format "Jan 2, 2006" }}</span>
+      <h1 class="bp-title">{{ .Title }}</h1>
+
+      <div class="bp-meta">
+        <span class="bp-mi">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 3v3M16 3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          {{ if .Lastmod.After .Date }}Updated {{ .Lastmod.Format "January 2, 2006" }}{{ else }}{{ .Date.Format "January 2, 2006" }}{{ end }}
+        </span>
+        <span class="bp-dot"></span>
+        <span class="bp-mi">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {{ .ReadingTime }} min read
+        </span>
+        <span class="bp-dot"></span>
+        <span class="bp-mi">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-10a4.2 4.2 0 017-3.1A4.2 4.2 0 0119 11c0 4.8-7 10-7 10z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          {{ .Params.author | default "Pinggy Blog" }}
+        </span>
+      </div>
+
+      {{ with .GetTerms "tags" }}
+      <ul class="bp-tags">
+        {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
         {{ end }}
-        <span class="text-end">
-          <span class="mx-2">·</span> {{ .ReadingTime }} min{{ if (ne
-          .ReadingTime 1) }}s{{ end }} read</span
-        >
-        <div class="mt-1">
-          {{ range (.GetTerms "tags") }}
-          <span class="badge bg-secondary">{{ .LinkTitle }}</span>
-          {{ end }}
+      </ul>
+      {{ end }}
+
+      <div class="bp-actions">
+        <span class="bp-label">Share</span>
+        <div class="bp-share">
+          {{ $u := .Permalink }}{{ $t := .Title }}
+          <a href="https://twitter.com/share?url={{ $u }}&text={{ $t }}" aria-label="Share on X" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 3h3.3l-7.2 8.2L23 21h-6.6l-5.2-6.8L5.3 21H2l7.7-8.8L1.5 3h6.8l4.7 6.2L18.2 3zm-1.2 16h1.8L7.1 4.9H5.2L17 19z"/></svg></a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $u }}&title={{ $t }}" aria-label="Share on LinkedIn" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.4H3.6V20h3.3V8.4zM5.2 3.2A1.9 1.9 0 105.2 7a1.9 1.9 0 000-3.8zM20.4 20v-6.4c0-3.4-1.8-5-4.2-5-1.9 0-2.8 1.1-3.2 1.8V8.4H9.7V20H13v-6.1c0-1.6.3-3.1 2.3-3.1s2 1.8 2 3.2V20h3.1z"/></svg></a>
+          <a href="https://www.facebook.com/sharer.php?u={{ $u }}" aria-label="Share on Facebook" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a>
+          <a href="mailto:?subject={{ $t }}&body={{ $u }}" aria-label="Share via email"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
+          <a href="#" id="bp-copylink" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12a3 3 0 003 3h4a3 3 0 100-6h-2M15 12a3 3 0 00-3-3H8a3 3 0 100 6h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></a>
         </div>
       </div>
-      <div class="col col-12 col-lg-6">
-        {{ partial "share-buttons.html" . }}
-      </div>
-    </div>
-  </div>
 
-  <hr class="mt-3" />
-  <div class="col-12 col-lg-12 blogbody">{{ .Content}}</div>
+      <hr class="bp-headrule">
+    </header>
+
+    {{/* Featured image: opt-in via `image:` front matter so existing posts that
+         already place a lead image with {{< image >}} don't get a duplicate.
+         Resolves an assets/images/* path through the pipeline, else uses the
+         value as a URL. */}}
+    {{ with .Params.image }}
+    {{ $img := . | relURL }}
+    {{ $res := resources.GetMatch (printf "images/%s" .) }}
+    {{ if $res }}{{ $img = $res.RelPermalink }}{{ end }}
+    <figure class="bp-hero">
+      <div class="bp-hero__frame">
+        <img src="{{ $img }}" alt="{{ $.Title }}" loading="lazy"
+             onload="this.closest('.bp-hero__frame').classList.add('is-loaded')">
+        <div class="bp-hero__ph">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="9.5" r="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M4 17l4.5-4.5L13 17M11 15l3-3 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>featured&nbsp;image</span>
+        </div>
+      </div>
+      {{ with $.Params.imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+    {{ end }}
+
+    <article class="bp-prose" id="bp-prose">
+      {{/* "In this article" TOC is opt-in: set `toc: true` in a post's front
+           matter to show it. Off by default. */}}
+      {{ if .Params.toc }}
+      <nav class="bp-toc" id="bp-toc" aria-label="Table of contents" hidden>
+        <div class="bp-toc__title">In this article</div>
+        <ol id="bp-toc-list"></ol>
+      </nav>
+      {{ end }}
+      {{ .Content }}
+    </article>
+  </main>
 </div>
-{{ end }} {{ define "pagespecificjs" }} {{ end }}
+{{ end }}
+
+{{ define "pagespecificjs" }}
+<script src="/js/blog.js" defer></script>
+{{ end }}

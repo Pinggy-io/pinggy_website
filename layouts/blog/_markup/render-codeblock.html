@@ -1,0 +1,16 @@
+{{/* Blog-only code block render hook (scoped to the blog section so docs and
+     other sections keep their own code styling). Wraps Chroma output in the
+     dark terminal card defined in blog.css. */}}
+{{ $lang := .Type | default "text" }}
+{{ $hl := transform.HighlightCodeBlock . }}
+<div class="bp-code" data-code>
+  <div class="bp-code__bar">
+    <span class="bp-code__dots"><i></i><i></i><i></i></span>
+    <span class="bp-code__lang">{{ $lang }}</span>
+    <button class="bp-code__copy" type="button" aria-label="Copy code">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 15V5a2 2 0 012-2h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Copy
+    </button>
+  </div>
+  {{ $hl.Wrapped }}
+</div>
