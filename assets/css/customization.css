@@ -1744,12 +1744,15 @@ pre {
 }
 
 .pgf__logo {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: 24px;
-  letter-spacing: -0.02em;
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+}
+.pgf__logo img {
+  height: 32px;
+  width: auto;
+  /* Render the wordmark light for the dark footer (no white asset exists). */
+  filter: brightness(0) invert(1);
 }
 
 .pgf__tag {

@@ -3,7 +3,9 @@
   <div class="pgf__inner">
 
     <div class="pgf__brand">
-      <a class="pgf__logo" href="{{ "/" | relURL }}">{{ site.Title | default "Pinggy" }}</a>
+      <a class="pgf__logo" href="{{ "/" | relURL }}" aria-label="{{ site.Title | default "Pinggy" }}">
+        <img src="/assets/pinggy_logo.webp" alt="{{ site.Title | default "Pinggy" }}" width="80" height="32" loading="lazy" />
+      </a>
       <p class="pgf__tag">Instantly share your localhost over secure public URLs - no signup, no config.</p>
       <div class="pgf__social">
         <a href="https://www.linkedin.com/company/pinggy/" aria-label="LinkedIn" rel="noopener" target="_blank">

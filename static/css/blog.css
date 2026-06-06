@@ -7,15 +7,19 @@
    redesign rules are scoped to the single-post wrapper).
    ============================================================================ */
 
-/* Blog canvas: hint of the grid at the very top, washed out by ~65% down.
-   Overrides customization.css's body::before background-image. */
+/* Blog page background color: #fbfaf8 (warm off-white). The grid canvas and
+   the wash animation are kept; only the colour changes. html provides the base
+   colour (overrides customization.css's --ink-50), body stays transparent so
+   the grid canvas shows through, and the wash gradient is retinted to #fbfaf8
+   so it fades to the same colour. blog.css loads only on blog pages. */
+html { background: #fbfaf8; }
 body { background-color: transparent; }
 body::before {
   background-image: linear-gradient(
     to bottom,
-    rgba(247, 248, 250, 0.3) 0%,
-    rgba(247, 248, 250, 0.75) 30%,
-    rgba(247, 248, 250, 1) 65%
+    rgba(251, 250, 248, 0.3) 0%,
+    rgba(251, 250, 248, 0.75) 30%,
+    rgba(251, 250, 248, 1) 65%
   );
 }
 
@@ -24,6 +28,9 @@ body::before {
 .blogpost .container.maincontent { max-width: none; padding-left: 0; padding-right: 0; }
 .blogpost .maincontent > .row { margin-left: 0; margin-right: 0; }
 .blogpost .blogcontent { max-width: none; padding-left: 0; padding-right: 0; font-family: inherit; }
+/* Tighten the space between the article and the footer (the footer's site-wide
+   72px top margin is too much under a post). Scoped to blog pages. */
+.blogpost .pgf { margin-top: 28px; }
 
 /* ---------------------------------------------------------------------------
    Design tokens (scoped to the post)
@@ -100,7 +107,7 @@ body::before {
 /* Only set vertical padding here so .bp-wrap's horizontal gutter survives
    (a `padding` shorthand would reset left/right to 0 and let content hit the
    viewport edge on mobile). */
-.bp-article { padding-top: clamp(14px, 2.4vw, 28px); padding-bottom: 64px; }
+.bp-article { padding-top: clamp(14px, 2.4vw, 28px); padding-bottom: 20px; }
 
 /* ---------------------------------------------------------------------------
    Article header
@@ -229,7 +236,7 @@ body::before {
    inherit the full article rhythm (big heading gap, list gaps, 2em code gaps).
    --------------------------------------------------------------------------- */
 .bp-prose .bp-summary { max-width: var(--measure); margin: 1.8em auto !important; padding: 16px 20px 14px !important; background: var(--accent-soft); border: 1px solid var(--accent-soft-border); border-radius: var(--radius); }
-.bp-prose .bp-summary > h2 { margin: 0 0 0.45em !important; padding-top: 0 !important; border-top: 0 !important; font-family: var(--ui); font-weight: 800; font-size: 1.15em !important; line-height: 1.2; color: var(--ink); }
+.bp-prose .bp-summary > h2 { margin: 0 0 0.45em !important; padding-top: 0 !important; border-top: 0 !important; font-family: var(--ui); font-weight: 800; font-size: 1em !important; line-height: 1.3; color: var(--ink); }
 .bp-prose .bp-summary > h2::before { display: none !important; }
 .bp-prose .bp-summary p { margin: 0 0 0.35em !important; }
 .bp-prose .bp-summary p + p { margin-top: 0 !important; }
