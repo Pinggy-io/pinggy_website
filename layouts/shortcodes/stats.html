@@ -1,0 +1,8 @@
+{{/* Stat highlights. Usage (one row of up to 3):
+     {{< stats >}}
+       {{< stat n="1.4" unit="B" k="Total raised to date" >}}
+       {{< stat n="13" unit="x" k="Valuation multiple" >}}
+       {{< stat n="40" unit="%" k="YoY revenue growth" >}}
+     {{< /stats >}}
+     The unit (B / % / x) is colored with the accent. */}}
+<div class="bp-statgrid">{{ .Inner }}</div>
