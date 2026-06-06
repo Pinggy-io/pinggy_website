@@ -15,6 +15,10 @@ Guidance for Claude when working in this repository.
 
 If a request needs something the guidelines don't cover, propose an addition to `DESIGN_GUIDELINES.md` rather than one-off CSS.
 
+### Blog post exception (typography)
+
+The **blog post template only** (`layouts/blog/single.html` + `static/css/blog.css`, scoped under `.bp`) deliberately departs from the site type/color system. It uses three Google-loaded families - **Plus Jakarta Sans** (structure: headings, labels, UI, numbers), **Source Sans 3** (body copy), and **JetBrains Mono** (code) - and a brighter blue accent **`#2563eb`** (`--accent`, with `#1d4ed8` / `#eef2fe` / `#d6e0fb` support shades). These tokens live on the `.bp` wrapper and are namespaced `bp-*`, so they do not leak to the navbar, footer, blog list, or any other page. This exception is scoped to the reading experience of a single article; everywhere else (including the shared footer) still uses the `--brand-*`/`--ink-*` tokens and Uncut Sans/Inter.
+
 ## Code structure
 
 Hugo static site. Build with `make build`; serve locally with `make serve` (or `hugo server`).
