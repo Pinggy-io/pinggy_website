@@ -311,9 +311,31 @@ body::before {
 .bp-code__copy:hover { color: #fff; border-color: #3a4a66; background: #16213a; }
 .bp-code__copy.copied { color: #28c840; border-color: #1d3a25; background: #11251a; }
 .bp-code__copy svg { width: 12px; height: 12px; }
-.bp-code .chroma, .bp-code pre { margin: 0; background: transparent !important; }
-.bp-code pre { padding: 16px 18px; overflow-x: auto; font-family: var(--mono); font-size: 13.5px; line-height: 1.7; color: var(--code-ink, #e7ecf5); }
-.bp-code pre code { font-family: inherit; background: none; border: 0; padding: 0; white-space: pre; color: var(--code-ink, #e7ecf5); }
+/* Neutralize Chroma's own surface (wrapper + pre) so it inherits the dark card
+   instead of painting a light background / border / radius frame inside it.
+   syntax.css gives .chroma a light background; customization.css styles
+   .highlight - both are killed here. Scoped to .bp-code (block code only), so
+   the inline-code chip is unaffected. */
+.bp-code .highlight,
+.bp-code .chroma,
+.bp-code pre.chroma {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+/* The <pre> is the single padded surface; no border/background of its own. */
+.bp-code pre {
+  background: transparent !important;
+  border: 0 !important;
+  margin: 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-family: var(--mono); font-size: 13.5px; line-height: 1.7;
+  color: var(--code-ink, #e7ecf5);
+}
+.bp-code pre code { font-family: inherit; background: none !important; border: 0; padding: 0; white-space: pre; color: var(--code-ink, #e7ecf5); }
 /* Base: paint every token light on the dark card with an explicit value (not
    `inherit`, and with a literal fallback), then re-apply accents below. This
    overrides the light Chroma theme in syntax.css for tokens our palette does
