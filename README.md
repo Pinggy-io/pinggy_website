@@ -26,3 +26,31 @@ This are static pages which are outside the scope of dashboard.pinggy.io
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jupyter Notebook:" portstring="Jupyter Notebook Port" localport="1313" webdebugenabled=true keepalive=false webdebugport="8080" headermodifications=`[{"mode":"a", "headername":"Custom", "headerval": "abc"}]` >}}
 {{< /pinggytunnel >}}
 ```
+
+## Blog post front matter
+
+These optional fields control the redesigned blog post template (`layouts/blog/single.html`).
+
+### Table of contents ("In this article")
+
+The "In this article" box is hidden by default. To show it on a post, add `toc: true` to that post's front matter:
+
+```yaml
+---
+title: "My Post Title"
+toc: true
+---
+```
+
+When enabled, the box is built automatically from the post's `##` (h2) headings. It still hides itself if the post has fewer than two h2 sections, so a one-section post will not show a stub.
+
+### Other optional fields
+
+| Field | Purpose |
+| --- | --- |
+| `toc` | `true` shows the "In this article" table of contents (default: off). |
+| `image` | Featured hero image at the top of the post. A path under `assets/images/...` is resized through the pipeline; an absolute URL is used as-is. Omit it and no hero is shown. |
+| `imageCaption` | Caption text under the featured hero image. |
+| `eyebrow` | Small uppercase kicker above the title. Falls back to the first category, then the first tag, then "Blog". |
+| `author` | Name shown in the meta row (default: "Pinggy Blog"). |
+| `schemahowto` | Base64-encoded `<script type="application/ld+json">` block (typically a HowTo schema) injected into the page head for SEO. Decoded via `base64Decode` in `layouts/partials/seoblogs.html`. |

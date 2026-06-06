@@ -1,0 +1,6 @@
+{{/* A single stat card. Used inside {{< stats >}} ... {{< /stats >}}.
+     n=number, unit=accent-colored suffix (B/%/x), k=label. */}}
+<div class="bp-stat">
+  <div class="bp-n">{{ .Get "n" }}{{ with .Get "unit" }}<span>{{ . }}</span>{{ end }}</div>
+  <div class="bp-k">{{ .Get "k" | default (.Get "label") }}</div>
+</div>

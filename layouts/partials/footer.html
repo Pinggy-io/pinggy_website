@@ -1,63 +1,71 @@
 <!-- Footer-->
-<footer class="pt-5 pb-4 bg-dark">
-  <div class="container text-white">
-    <div class="row footer-cols">
+<footer class="pgf">
+  <div class="pgf__inner">
 
-      <div class="col-lg-3 col-md-6 mb-2 footer-col border-end border-color-subtlegray">
-        <h5 class="mb-2">Product</h5>
-        <ul class="list-unstyled">
-          <li class="mb-1"><a href="/app/" target="_blank" class="link-light text-decoration-none">Pinggy App</a></li>
-          <li class="mb-1"><a href="/cli/" target="_blank" class="link-light text-decoration-none">Pinggy CLI</a></li>
-          <li class="mb-1"><a href="/docs/" target="_blank" class="link-light text-decoration-none">Pinggy SSH</a></li>
-          <li class="mb-1"><a href="/#prices" target="_blank" class="link-light text-decoration-none">Pricing</a></li>
-        </ul>
+    <div class="pgf__brand">
+      <a class="pgf__logo" href="{{ "/" | relURL }}" aria-label="{{ site.Title | default "Pinggy" }}">
+        <img src="/assets/pinggy_logo.webp" alt="{{ site.Title | default "Pinggy" }}" width="80" height="32" loading="lazy" />
+      </a>
+      <p class="pgf__tag">Instantly share your localhost over secure public URLs - no signup, no config.</p>
+      <div class="pgf__social">
+        <a href="https://www.linkedin.com/company/pinggy/" aria-label="LinkedIn" rel="noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.4H3.6V20h3.3V8.4zM5.2 3.2A1.9 1.9 0 105.2 7a1.9 1.9 0 000-3.8zM20.4 20v-6.4c0-3.4-1.8-5-4.2-5-1.9 0-2.8 1.1-3.2 1.8V8.4H9.7V20H13v-6.1c0-1.6.3-3.1 2.3-3.1s2 1.8 2 3.2V20h3.1z"/></svg>
+        </a>
+        <a href="https://x.com/pinggyio" aria-label="X" rel="noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 3h3.3l-7.2 8.2L23 21h-6.6l-5.2-6.8L5.3 21H2l7.7-8.8L1.5 3h6.8l4.7 6.2L18.2 3z"/></svg>
+        </a>
+        <a href="https://discord.com/invite/KX5DpTs3xx" aria-label="Discord" rel="noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0015.4 3l-.3.5c1.7.4 2.5.9 3.4 1.6a13.3 13.3 0 00-10.9 0c.9-.7 1.9-1.3 3.4-1.6L10.6 3a19.8 19.8 0 00-4.9 1.4C2.5 9 1.6 13.6 2 18.1A19.9 19.9 0 008 21l.6-1c-1-.3-1.9-.7-2.7-1.3l.6-.4a14.2 14.2 0 0012.2 0l.6.4c-.8.6-1.7 1-2.7 1.3l.6 1a19.9 19.9 0 005.9-2.9c.5-5.2-.8-9.7-2.8-13.7zM9.3 15.4c-1 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9 1.7.9 1.7 1.9-.7 1.9-1.7 1.9zm5.4 0c-1 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9 1.7.9 1.7 1.9-.7 1.9-1.7 1.9z"/></svg>
+        </a>
+        <a href="https://forum.pinggy.io/" aria-label="Pinggy Community Forum" rel="noopener" target="_blank">
+          <span class="pgf__forum-icon" aria-hidden="true"></span>
+        </a>
       </div>
-
-      <div class="col-lg-3 col-md-6 mb-2 footer-col border-end border-color-subtlegray">
-        <h5 class="mb-2">Comparisons</h5>
-        <ul class="list-unstyled">
-          <li class="mb-1"><a class="link-light text-decoration-none" href="/compare/pinggy-vs-ngrok/" target="_blank">Pinggy vs Ngrok</a></li>
-          <li class="mb-1"><a class="link-light text-decoration-none" href="/compare/pinggy-vs-localxpose/" target="_blank">Pinggy vs Localxpose</a></li>
-          <li class="mb-1"><a class="link-light text-decoration-none" href="/compare/pinggy-vs-localtunnel/" target="_blank">Pinggy vs LocalTunnel</a></li>
-          <li class="mb-1"><a class="link-light text-decoration-none" href="/compare/pinggy-vs-cloudflare-tunnel/" target="_blank">Pinggy vs Cloudflare</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-2 footer-col border-end border-color-subtlegray">
-        <h5 class="mb-2">Company</h5>
-        <ul class="list-unstyled">
-          <li class="mb-1"><a href="/about/" target="_blank" class="link-light text-decoration-none">About Us</a></li>
-          <li class="mb-1"><a href="/contact_us/" target="_blank" class="link-light text-decoration-none">Contact Us</a></li>
-          <li class="mb-1"><a href="/terms_of_service/" target="_blank" class="link-light text-decoration-none">Terms of Service</a></li>
-          <li class="mb-1"><a href="/privacy_policy/" target="_blank" class="link-light text-decoration-none">Privacy Policy</a></li>
-        </ul>
-        <div class="d-flex gap-3 mt-3">
-          <a href="https://www.linkedin.com/company/pinggy/" target="_blank" class="link-light text-decoration-none"><i class="bi bi-linkedin" style="font-size: 1.4em;"></i></a>
-          <a href="https://x.com/pinggyio" target="_blank" class="link-light text-decoration-none"><i class="bi bi-twitter" style="font-size: 1.4em;"></i></a>
-          <a href="https://discord.com/invite/KX5DpTs3xx" target="_blank" class="link-light text-decoration-none"><i class="bi bi-discord" style="font-size: 1.4em;"></i></a>
-          <a href="https://forum.pinggy.io/" target="_blank" class="link-light text-decoration-none"><img src="/assets/pinggy_forum_logo.png" alt="Pinggy Community Forum Logo" style="width: 1.4em; filter: invert(1); vertical-align: middle;" /></a>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-2 footer-col border-color-subtlegray">
-        <h5 class="mb-2">Resources</h5>
-        <ul class="list-unstyled">
-          <li class="mb-1"><a href="/docs/" target="_blank" class="link-light text-decoration-none">Documentation</a></li>
-          <li class="mb-1"><a href="/quickstart/" target="_blank" class="link-light text-decoration-none">Quickstart Recipes</a></li>
-          <li class="mb-1"><a href="/blog/" target="_blank" class="link-light text-decoration-none">Blog</a></li>
-          <li class="mb-1"><a href="/tools/" target="_blank" class="link-light text-decoration-none">Tools</a></li>
-          <li class="mb-1"><a href="/know_your_port/" target="_blank" class="link-light text-decoration-none">Know Your Ports</a></li>
-          <li class="mb-1"><a href="/llms.txt" target="_blank" class="link-light text-decoration-none">llms.txt</a></li>
-        </ul>
-      </div>
-
     </div>
 
-    <div class="text-center pt-4 mt-1 border-top border-color-subtlegray">
-      <p class="m-0 text-white" id="copyrighttext">
-          Copyright &copy; Pinggy 2025
-      </p>
-    </div>
+    <nav class="pgf__col" aria-label="Product">
+      <h4 class="pgf__h">Product</h4>
+      <ul>
+        <li><a href="/app/">Pinggy App</a></li>
+        <li><a href="/cli/">Pinggy CLI</a></li>
+        <li><a href="/docs/">Pinggy SSH</a></li>
+        <li><a href="/#prices">Pricing</a></li>
+      </ul>
+    </nav>
+
+    <nav class="pgf__col" aria-label="Comparisons">
+      <h4 class="pgf__h">Comparisons</h4>
+      <ul>
+        <li><a href="/compare/pinggy-vs-ngrok/">Pinggy vs Ngrok</a></li>
+        <li><a href="/compare/pinggy-vs-localxpose/">Pinggy vs Localxpose</a></li>
+        <li><a href="/compare/pinggy-vs-localtunnel/">Pinggy vs LocalTunnel</a></li>
+        <li><a href="/compare/pinggy-vs-cloudflare-tunnel/">Pinggy vs Cloudflare</a></li>
+      </ul>
+    </nav>
+
+    <nav class="pgf__col" aria-label="Resources">
+      <h4 class="pgf__h">Resources</h4>
+      <ul>
+        <li><a href="/docs/">Documentation</a></li>
+        <li><a href="/quickstart/">Quickstart Recipes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/know_your_port/">Know Your Ports</a></li>
+        <li><a href="/llms.txt">llms.txt</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <div class="pgf__bar">
+    <span>Copyright &copy; {{ site.Title | default "Pinggy" }} {{ now.Year }}</span>
+    <nav class="pgf__legal" aria-label="Company">
+      <a href="/about/">About Us</a>
+      <a href="/contact_us/">Contact Us</a>
+      <a href="/terms_of_service/">Terms of Service</a>
+      <a href="/privacy_policy/">Privacy Policy</a>
+    </nav>
+    <span>Made for developers, everywhere.</span>
   </div>
 </footer>
 
@@ -73,9 +81,3 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
 /></noscript>
-
-<script>
-  var date = new Date();
-  document.getElementById("copyrighttext").innerHTML =
-    "Copyright&copy;&nbsp;&nbsp; Pinggy &nbsp;&nbsp;" + date.getFullYear();
-</script>

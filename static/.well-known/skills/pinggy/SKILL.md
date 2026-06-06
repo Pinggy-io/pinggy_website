@@ -54,7 +54,7 @@ ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 free.pinggy.io -T
 ssh -p 443 -R0:localhost:8000 <token>@pro.pinggy.io -T
 ```
 
-Output gives two URLs: `http://xxxx.a.free.pinggy.link` and `https://xxxx.a.free.pinggy.link`. The `-T` flag disables the pseudo-terminal for clean, parseable output - use it for agents and scripts. A password is asked only when the system has no SSH keys; create one with `ssh-keygen` to skip the prompt.
+Output gives two URLs: `http://xxxx.run.pinggy-free.link` and `https://xxxx.run.pinggy-free.link`. The `-T` flag disables the pseudo-terminal for clean, parseable output - use it for agents and scripts. A password is asked only when the system has no SSH keys; create one with `ssh-keygen` to skip the prompt.
 
 ### (c) SDK (programmatic)
 
@@ -64,7 +64,7 @@ import { pinggy } from "@pinggy/pinggy";
 
 const tunnel = await pinggy.createTunnel({ forwarding: "localhost:3000" });
 await tunnel.start();
-console.log(await tunnel.urls());   // ['https://xxxx.a.free.pinggy.link']
+console.log(await tunnel.urls());   // ['https://xxxx.run.pinggy-free.link']
 await tunnel.stop();
 ```
 
@@ -73,11 +73,11 @@ Python (`pip install pinggy`):
 import pinggy
 
 tunnel = pinggy.start_tunnel(forwardto="localhost:8000")
-print(tunnel.urls)   # ['https://xxxx.a.free.pinggy.link']
+print(tunnel.urls)   # ['https://xxxx.run.pinggy-free.link']
 tunnel.stop()
 ```
 
-Both SDKs accept the same options as the CLI (`token`, `subdomain`, `region`, auth, headers). See `references/cli-sdks.md`.
+Both SDKs accept the same options as the CLI (`token`, `subdomain`, `region`, auth, headers). See the CLI reference: https://pinggy.io/docs/cli/index.md
 
 ### Free vs Pro
 
@@ -86,7 +86,7 @@ Every access method above works with or without an account. The host you connect
 **Free (anonymous, `free.pinggy.io`):**
 
 - No signup, no token. Connect and a URL is returned immediately.
-- Each tunnel lasts **60 minutes**, then disconnects. Reconnecting works but issues a **new random URL** every time (`https://xxxx.a.free.pinggy.link`), so the address is not stable across restarts.
+- Each tunnel lasts **60 minutes**, then disconnects. Reconnecting works but issues a **new random URL** every time (`https://xxxx.run.pinggy-free.link`), so the address is not stable across restarts.
 - Fine for quick demos, one-off webhook tests, and sharing something for the length of a call.
 
 **Pro (`<token>@pro.pinggy.io`, or `--token <TOKEN>` in the CLI):**
@@ -199,14 +199,14 @@ Works for all tunnel types (HTTP, TCP, UDP, TLS).
 
 ## Regions
 
-| Region | Host |
-|--------|------|
-| Default | `free.pinggy.io` |
-| USA | `us.free.pinggy.io` |
-| Europe | `eu.free.pinggy.io` |
-| Asia | `ap.free.pinggy.io` |
-| Brazil | `br.free.pinggy.io` |
-| Australia | `au.free.pinggy.io` |
+| Region | Free Host | Pro Host |
+|--------|-----------|----------|
+| Default | `free.pinggy.io` | `pro.pinggy.io` |
+| USA | `us.free.pinggy.io` | `us.pro.pinggy.io` |
+| Europe | `eu.free.pinggy.io` | `eu.pro.pinggy.io` |
+| Asia | `ap.free.pinggy.io` | `ap.pro.pinggy.io` |
+| Brazil | `br.free.pinggy.io` | `br.pro.pinggy.io` |
+| Australia | `au.free.pinggy.io` | `au.pro.pinggy.io` |
 
 ---
 
@@ -253,7 +253,7 @@ ssh -p 443 \
 | Problem | Fix |
 |---------|-----|
 | Tunnel drops frequently | Add `-o ServerAliveInterval=60`, or use the CLI (auto-reconnect built-in) |
-| Behind corporate firewall | Use `openssl s_client` or `ncat --ssl` as ProxyCommand - see `references/advanced.md` |
+| Behind corporate firewall | Use `openssl s_client` or `ncat --ssl` as ProxyCommand - see https://pinggy.io/docs/client_behind_proxy/index.md |
 | CORS errors from local API | Add `x:passpreflight` flag |
 | Wrong Host header to app | Add `u:Host:localhost` flag |
 | App needs client IP | Add `x:xff` flag |
@@ -276,18 +276,11 @@ Ready-to-run helper scripts in `scripts/`:
 
 Run scripts directly or instruct the agent to execute them. All scripts require `bash`.
 
-### Reference Files (bundled with this skill)
-
-- **`references/domains.md`** - Custom domains, persistent subdomains, wildcard domains, multi-port forwarding, relay setup
-- **`references/advanced.md`** - Live header manipulation, web debugger API, QR codes, proxy/firewall traversal, JSON config, logging
-- **`references/cli-sdks.md`** - Full CLI flag reference, Python/Node.js SDKs, Docker, JSON config files
-- **`references/management.md`** - Remote device management, REST API, Teams, pricing summary, all use cases, Pinggy vs alternatives
-
 ### Documentation Pages (fetch for full detail)
 
 Each link returns clean Markdown - fetch any of them for a deeper explanation.
 
-- CLI: https://pinggy.io/docs/cli/index.md
+- CLI (full flag reference, config store, Docker): https://pinggy.io/docs/cli/index.md
 - HTTP tunnels: https://pinggy.io/docs/http_tunnels/index.md
 - TCP tunnels: https://pinggy.io/docs/tcp_tunnels/index.md
 - UDP tunnels: https://pinggy.io/docs/udp_tunnels/index.md
@@ -296,6 +289,13 @@ Each link returns clean Markdown - fetch any of them for a deeper explanation.
 - Usage examples: https://pinggy.io/docs/usages/index.md
 - Custom domains: https://pinggy.io/docs/custom_domain/index.md
 - Persistent subdomain: https://pinggy.io/docs/persistent_subdomain/index.md
+- Live header manipulation: https://pinggy.io/docs/advanced/live_header/index.md
+- Advanced options (JSON config, logging, proxy traversal): https://pinggy.io/docs/advanced/advanced_options/index.md
+- Behind a proxy / firewall: https://pinggy.io/docs/client_behind_proxy/index.md
+- Run tunnel on startup: https://pinggy.io/docs/run_tunnel_on_startup/index.md
+- Relays (self-hosted / custom domain): https://pinggy.io/docs/relays/index.md
+- Remote device management: https://pinggy.io/docs/remote_devices/index.md
+- Teams: https://pinggy.io/docs/teams/index.md
 - Node.js SDK: https://pinggy-io.github.io/sdk-nodejs/
 - Python SDK (PyPI): https://pypi.org/project/pinggy/
 - Web debugger / HTTP API: https://pinggy.io/docs/api/web_debugger_api/index.md

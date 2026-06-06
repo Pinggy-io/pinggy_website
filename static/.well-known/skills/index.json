@@ -9,11 +9,7 @@
         "scripts/get-tunnel-url.sh",
         "scripts/persistent-tunnel.sh",
         "scripts/http-tunnel.sh",
-        "scripts/tcp-tunnel.sh",
-        "references/advanced.md",
-        "references/domains.md",
-        "references/cli-sdks.md",
-        "references/management.md"
+        "scripts/tcp-tunnel.sh"
       ]
     }
   ]
