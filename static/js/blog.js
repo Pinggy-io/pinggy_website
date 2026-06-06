@@ -53,4 +53,62 @@
     e.preventDefault();
     if (navigator.clipboard) navigator.clipboard.writeText(location.href);
   });
+
+  // 5) Collapse the tag row to a single line with a "+N" reveal chip.
+  var tagList = document.querySelector('.bp-tags');
+  if (tagList) {
+    var items = Array.prototype.slice.call(tagList.querySelectorAll('li:not(.bp-tags__more)'));
+    if (items.length > 1) {
+      var moreLi = document.createElement('li');
+      moreLi.className = 'bp-tags__more';
+      var moreBtn = document.createElement('button');
+      moreBtn.type = 'button';
+      moreBtn.className = 'bp-tags__morebtn';
+      moreLi.appendChild(moreBtn);
+
+      var expanded = false;
+
+      function layoutTags() {
+        // reset to measure natural single-row fit
+        items.forEach(function (li) { li.classList.remove('is-hidden'); });
+        if (moreLi.parentNode) moreLi.parentNode.removeChild(moreLi);
+        if (expanded) return; // showing everything, no chip
+
+        var firstTop = items[0].offsetTop;
+        var firstOverflow = -1;
+        for (var i = 1; i < items.length; i++) {
+          if (items[i].offsetTop > firstTop) { firstOverflow = i; break; }
+        }
+        if (firstOverflow === -1) return; // all tags fit on one row
+
+        for (var j = firstOverflow; j < items.length; j++) items[j].classList.add('is-hidden');
+        tagList.appendChild(moreLi);
+        var visible = firstOverflow;
+        // make room for the chip itself if it pushed to a second row
+        while (visible > 1 && moreLi.offsetTop > firstTop) {
+          visible--;
+          items[visible].classList.add('is-hidden');
+        }
+        var hidden = items.length - visible;
+        moreBtn.textContent = '+' + hidden;
+        moreBtn.setAttribute('aria-label', 'Show ' + hidden + ' more tags');
+        moreBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      moreBtn.addEventListener('click', function () {
+        expanded = true;
+        tagList.classList.add('is-expanded');
+        layoutTags();
+      });
+
+      layoutTags();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutTags);
+      var rtid;
+      window.addEventListener('resize', function () {
+        if (expanded) return;
+        clearTimeout(rtid);
+        rtid = setTimeout(layoutTags, 150);
+      });
+    }
+  }
 })();

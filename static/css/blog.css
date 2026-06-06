@@ -144,6 +144,15 @@ body::before {
   border: 1px solid var(--rule); padding: 6px 13px; border-radius: 999px; transition: all 0.15s;
 }
 .bp-tags a:hover { color: var(--accent-strong); border-color: var(--accent-soft-border); background: var(--accent-soft); }
+/* Single-row tags with a "+N" reveal chip (collapse handled in blog.js). */
+.bp-tags li.is-hidden { display: none; }
+.bp-tags__more { display: flex; }
+.bp-tags__morebtn {
+  font-family: var(--ui); font-weight: 600; font-size: 13px; line-height: 1; white-space: nowrap; cursor: pointer;
+  color: var(--accent-strong); background: var(--accent-soft);
+  border: 1px solid var(--accent-soft-border); padding: 6px 13px; border-radius: 999px; transition: all 0.15s;
+}
+.bp-tags__morebtn:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
 
 .bp-actions { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 28px 0 0; }
 .bp-actions .bp-label { font-family: var(--ui); font-size: 13px; font-weight: 600; color: var(--faint); letter-spacing: 0.02em; }
@@ -209,7 +218,10 @@ body::before {
 
 .bp-prose :not(pre) > code {
   font-family: var(--mono); font-size: 0.86em; background: var(--accent-soft); color: var(--accent-strong);
-  border: 1px solid var(--accent-soft-border); padding: 0.12em 0.4em; border-radius: 6px; white-space: nowrap;
+  border: 1px solid var(--accent-soft-border); padding: 0.12em 0.4em; border-radius: 6px;
+  /* Allow long inline snippets (URLs, env vars) to wrap instead of overflowing
+     the column and causing horizontal scroll on mobile. */
+  white-space: normal; overflow-wrap: anywhere;
 }
 
 .bp-prose blockquote { margin: 1.4em auto; padding: 6px 0 6px 26px; border-left: 3px solid var(--accent); font-style: italic; color: var(--ink-2); font-size: calc(var(--read-size) + 2px); line-height: 1.55; }

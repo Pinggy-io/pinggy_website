@@ -1753,6 +1753,8 @@ pre {
   width: auto;
   /* Render the wordmark light for the dark footer (no white asset exists). */
   filter: brightness(0) invert(1);
+  /* Nudge left to align the wordmark's visual edge with the text below it. */
+  transform: translate(-7px, 0px);
 }
 
 .pgf__tag {
