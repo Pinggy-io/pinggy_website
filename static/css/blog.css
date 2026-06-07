@@ -299,7 +299,11 @@ body::before {
 /* ---------------------------------------------------------------------------
    Code blocks (dark terminal card)
    --------------------------------------------------------------------------- */
-.bp-code { max-width: var(--measure) !important; margin: 1.5em auto !important; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--code-rule); background: var(--code-bg); box-shadow: var(--bp-shadow-md); }
+.bp-code { max-width: var(--measure) !important; margin: 1.5em auto !important; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--code-rule); background: var(--code-bg); box-shadow: var(--bp-shadow-md); color: var(--code-ink, #e7ecf5); }
+/* Plain (non-Chroma) blocks - e.g. ```text or a bare ``` fence - render as
+   <pre><code> with no token spans, so they must inherit the light card colour
+   (otherwise they fall back to the dark --body text = invisible on the card). */
+.bp-code pre, .bp-code pre code { color: var(--code-ink, #e7ecf5); }
 .bp-code__bar { display: flex; align-items: center; gap: 9px; padding: 6px 14px; background: #0a111e; border-bottom: 1px solid var(--code-rule); }
 .bp-code__dots { display: flex; gap: 6px; }
 .bp-code__dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
