@@ -2,6 +2,7 @@
 title: "Self-Host Open Notebook: Run Your Own Private NotebookLM Alternative"
 description: "Open Notebook is an open-source NotebookLM alternative with multi-model support, custom podcasts, and a REST API - all running on your own machine. Learn how to set it up with Docker and make it accessible from anywhere with Pinggy."
 date: 2026-06-06T11:00:00+05:30
+lastmod: 2026-06-06T11:00:00+05:30
 draft: false
 tags: ["NotebookLM", "Open Notebook", "self-hosted", "AI tools", "Pinggy", "Docker", "privacy", "knowledge management"]
 categories: ["Technology", "AI Tools", "Self-Hosted"]
@@ -104,11 +105,7 @@ Open Notebook requires an `OPEN_NOTEBOOK_ENCRYPTION_KEY` to encrypt stored crede
 export OPEN_NOTEBOOK_ENCRYPTION_KEY=$(openssl rand -hex 32)
 ```
 
-Or add it directly to a `.env` file in the same directory:
-
-```
-OPEN_NOTEBOOK_ENCRYPTION_KEY=your-32-char-or-longer-random-string
-```
+Or add it directly to a `.env` file in the same directory: `OPEN_NOTEBOOK_ENCRYPTION_KEY=your-32-char-or-longer-random-string`.
 
 ### Step 3: Start the stack
 
@@ -149,11 +146,7 @@ In a new terminal window, run:
 ssh -p 443 -R0:localhost:8502 free.pinggy.io
 ```
 
-Pinggy prints a public URL, something like:
-
-```
-https://rAnDoMsTrInG.a.pinggy.link
-```
+Pinggy prints a public URL, something like `https://rAnDoMsTrInG.a.pinggy.link`.
 
 That URL is live immediately. Open it on your phone or share it with a teammate - they can access your Open Notebook instance exactly as if they were on your local network.
 
