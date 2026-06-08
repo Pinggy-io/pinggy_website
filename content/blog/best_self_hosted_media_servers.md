@@ -395,8 +395,6 @@ Hardware requirements scale with what you run. A Raspberry Pi 4 with 4 GB RAM ca
 
 ## Conclusion
 
-The self-hosted media server ecosystem in 2026 is mature, well-documented, and genuinely good. Jellyfin is a credible Netflix replacement for anyone with a local video library. Navidrome is the most practical Spotify alternative that doesn't require cloud infrastructure. Immich has closed the gap with Google Photos to the point where the main friction is the initial migration, not the day-to-day experience.
+Jellyfin, Navidrome, and Immich are all Docker-deployable, actively maintained, and free. If you already have a NAS or home server, the marginal cost to add a full streaming stack is zero - and your library doesn't disappear when a licensing deal falls through. The main friction is the initial setup and migration, not the ongoing experience.
 
-The common thread is that all of these are Docker-deployable, actively maintained, and free to run on hardware you already own. If you're already paying for a NAS or a home server, the marginal cost to add a full streaming stack is essentially zero. And unlike subscriptions, your media library doesn't change when a licensing deal expires.
-
-For remote access without the complexity of port forwarding or reverse proxy setup, {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} makes any of these accessible from anywhere in one command.
+For remote access without port forwarding or a reverse proxy, {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} makes any of these reachable from anywhere in one command.
