@@ -203,15 +203,14 @@ body::before {
 
 .bp-prose h2, .bp-prose h3 { font-family: var(--ui); color: var(--ink); letter-spacing: -0.02em; scroll-margin-top: 90px; text-align: left; }
 .bp-prose h2 { font-weight: 800; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.15; margin: 1.6em auto 0.5em; }
-.bp-prose h2::before { content: ""; display: block; width: 34px; height: 3px; border-radius: 3px; background: var(--accent); margin-bottom: 0.45em; }
 .bp-prose h3 { font-weight: 700; font-size: clamp(20px, 2.4vw, 23px); line-height: 1.25; margin: 1.4em auto 0.4em; color: var(--ink-2); }
 
 .bp-prose ul, .bp-prose ol { margin: 0 auto 1.05em; padding-left: 0; color: var(--body); list-style: none; }
-.bp-prose li { margin: 0 0 0.32em; padding-left: 1.7em; position: relative; }
-.bp-prose ul > li::before { content: ""; position: absolute; left: 0.35em; top: 0.62em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.bp-prose li { margin: 0 0 0.32em; padding-left: 1.2em; position: relative; }
+.bp-prose ul > li::before { content: ""; position: absolute; left: 0.2em; top: 0.62em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
 .bp-prose ol { counter-reset: li; }
 .bp-prose ol > li { counter-increment: li; }
-.bp-prose ol > li::before { content: counter(li); position: absolute; left: 0; top: 0.05em; font-family: var(--ui); font-weight: 700; font-size: 0.82em; color: var(--accent); width: 1.5em; text-align: left; }
+.bp-prose ol > li::before { content: counter(li) "."; position: absolute; left: 0; top: 0.05em; font-family: var(--ui); font-weight: 700; font-size: 0.82em; color: var(--accent); width: 1.1em; text-align: right; }
 .bp-prose li > ul, .bp-prose li > ol { margin: 0.32em auto 0.4em; }
 .bp-prose li > strong:first-child { color: var(--ink); }
 .bp-prose strong { color: var(--ink); font-weight: 700; }
@@ -301,9 +300,11 @@ body::before {
    --------------------------------------------------------------------------- */
 .bp-code { max-width: var(--measure) !important; margin: 1.5em auto !important; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--code-rule); background: var(--code-bg); box-shadow: var(--bp-shadow-md); color: var(--code-ink, #e7ecf5); }
 /* Plain (non-Chroma) blocks - e.g. ```text or a bare ``` fence - render as
-   <pre><code> with no token spans, so they must inherit the light card colour
-   (otherwise they fall back to the dark --body text = invisible on the card). */
-.bp-code pre, .bp-code pre code { color: var(--code-ink, #e7ecf5); }
+   <pre><code> with no token spans, so the text sits directly on the <code>.
+   customization.css sets `pre > code { color: var(--ink-700) !important }`,
+   which would paint that text dark = invisible on the card, so we force the
+   light card colour with !important here too. */
+.bp-code pre, .bp-code pre code { color: var(--code-ink, #e7ecf5) !important; }
 .bp-code__bar { display: flex; align-items: center; gap: 9px; padding: 6px 14px; background: #0a111e; border-bottom: 1px solid var(--code-rule); }
 .bp-code__dots { display: flex; gap: 6px; }
 .bp-code__dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
@@ -339,7 +340,7 @@ body::before {
   font-family: var(--mono); font-size: 13.5px; line-height: 1.7;
   color: var(--code-ink, #e7ecf5);
 }
-.bp-code pre code { font-family: inherit; background: none !important; border: 0; padding: 0; white-space: pre; color: var(--code-ink, #e7ecf5); }
+.bp-code pre code { font-family: inherit; background: none !important; border: 0; padding: 0; white-space: pre; color: var(--code-ink, #e7ecf5) !important; }
 /* Base: paint every token light on the dark card with an explicit value (not
    `inherit`, and with a literal fallback), then re-apply accents below. This
    overrides the light Chroma theme in syntax.css for tokens our palette does
