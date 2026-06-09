@@ -68,14 +68,14 @@ title: "Pinggy App"
             <ul class="list-group">
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
-                  <span>Intel 64 bit</span>
-                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.3/mac/amd64/Pinggy-1.2.3-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <span>Apple Silicon</span>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.3/mac/arm64/Pinggy-1.2.3-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
-                  <span>Apple Silicon</span>
-                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.3/mac/arm64/Pinggy-1.2.3-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <span>Intel 64 bit</span>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.3/mac/amd64/Pinggy-1.2.3-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
