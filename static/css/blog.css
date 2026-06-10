@@ -292,8 +292,6 @@ body::before {
 .bp-prose tbody tr:nth-child(even) { background: var(--bg-tint); }
 .bp-prose tbody td:first-child { font-weight: 700; color: var(--ink); }
 .bp-prose tbody tr:hover { background: var(--accent-soft); }
-.bp-prose tbody tr:last-child { background: var(--accent-soft); font-weight: 700; }
-.bp-prose tbody tr:last-child td { color: var(--ink); border-top: 2px solid var(--accent-soft-border); }
 
 /* ---------------------------------------------------------------------------
    Code blocks (dark terminal card)

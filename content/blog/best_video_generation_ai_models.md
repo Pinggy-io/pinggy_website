@@ -2,7 +2,7 @@
 title: "Best Video Generation AI Models in 2026"
 description: "Discover the best AI video generation models in 2026. Compare Google Veo 3.1, Runway Gen-4.5, Kling 2.6, Luma Ray3, Pika 2.5, and open-source options like Wan2.2 and LTX-2 for creating professional AI-generated videos."
 date: 2026-01-21T10:00:00+05:30
-lastmod: 2026-05-28T14:15:25+05:30
+lastmod: 2026-06-09T14:15:25+05:30
 draft: false
 og_image: "images/best_video_generation_ai_models/ai_video_generation_banner.webp"
 tags: ["AI video generation", "text-to-video", "Veo", "Runway", "generative AI", "video AI"]
@@ -372,6 +372,24 @@ A few models that don't compete head-on with the list above but solve adjacent p
 **{{< link href="https://www.d-id.com" >}}D-ID{{< /link >}}** - Digital humans and real-time streaming avatars. Strong API support; common pick for customer-service and interactive web apps.
 
 **OpenAI Sora 2 (deprecated)** - Sora 2 launched September 30, 2025 and was the best-in-class physics model at launch (gymnastics routines, paddleboard backflips, the famous cat-on-a-triple-axel demo). On April 26, 2026 OpenAI deprecated the Sora product. The Sora 2 models and Videos API are scheduled to shut down on September 24, 2026. If you have a Sora 2 pipeline today, you have ~4 months to migrate. Sora's residual influence pushed every lab to take physics seriously, but it's no longer an option to build on.
+
+### VideoDubber - AI video generation with translation and dubbing
+
+Most of the models above generate video in one language. If you're shipping the same creative to YouTube, ads, or training content across markets, you still need a localization step after generation - and that's usually a separate tool and a separate bill.
+
+<a href="https://videodubber.ai/" target="_blank">VideoDubber</a> bundles the generator and the translator into one plan. Generate a clip, then dub it into the target language with synced subtitles, voiceover, and optional voice cloning. It covers 150+ languages, exports MP4 plus SRT/VTT, and ships a browser-based subtitle editor for fixing transcripts before re-export.
+
+**Key Features**
+
+- One-click dubbing into 150+ languages
+- Built-in AI video generator with visual-style and music selection
+- Voice cloning and multi-speaker support on all plans
+- Subtitle editor with unlimited re-exports on paid tiers
+- MP4 + SRT/VTT export
+
+**VideoDubber pricing**
+
+From $9/month for 30 translation minutes, with a free trial on every plan. If multilingual distribution is the goal, having translation sit inside the <a href="https://videodubber.ai/ai-video-generator/" target="_blank">generation workflow</a> is the practical part - no second tool, no separate export-import loop.
 
 ### Invideo's AI Models
 
