@@ -36,7 +36,7 @@ The good news is that the tooling to address this has matured significantly. The
 
 **Context management and architecture summaries:**
 - `/compact` in Claude Code - Built-in context compaction that summarizes conversation history in place
-- Tokalator - VS Code extension with slash commands for context budgeting and compaction
+- <a href="https://tokalator.wiki/" target="_blank">Tokalator</a> - VS Code extension with slash commands for context budgeting and compaction
 
 **API-level optimization:**
 - Prompt caching (`cache_control` breakpoints) - 90% discount on cached input tokens; single largest cost lever for repeated system prompts
@@ -120,7 +120,7 @@ Even with good retrieval, long agent sessions accumulate context. The transcript
 
 **CLAUDE.md and system prompt hygiene** is a related lever. Every byte in your project-level CLAUDE.md file gets included in every request. A well-structured CLAUDE.md with focused, minimal guidance does less damage than one that has grown organically to include every edge case and convention ever discussed. Keeping these files under 5,000 tokens is a practical target; anything beyond that should probably be in a referenced document rather than inlined.
 
-**Tokalator** is a VS Code extension and context engineering toolkit (introduced in a 2025 research paper on context engineering for coding assistants) that approaches this more systematically. It provides 11 slash commands for managing token budgets: explicit budget caps, context prioritization, compaction triggers, and usage monitoring visible in real time inside the editor. If you are building agent workflows where token budget management needs to be explicit and observable, Tokalator adds that layer without requiring changes to the model calls themselves.
+{{< link href="https://tokalator.wiki/" >}}Tokalator{{< /link >}} is a VS Code extension and context engineering toolkit (introduced in a 2025 research paper on context engineering for coding assistants) that approaches this more systematically. It provides 11 slash commands for managing token budgets: explicit budget caps, context prioritization, compaction triggers, and usage monitoring visible in real time inside the editor. If you are building agent workflows where token budget management needs to be explicit and observable, Tokalator adds that layer without requiring changes to the model calls themselves.
 
 ## Prompt Caching: The Highest-Leverage API Feature
 
