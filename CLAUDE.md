@@ -60,6 +60,7 @@ Key conventions:
 ## Writing style
 
 - **Never use em-dashes (`—`, U+2014).** This applies everywhere in the repo: blog posts, page content, shortcodes, CSS/JS comments, code strings, commit messages - no exceptions. Use a regular hyphen `-` instead (with surrounding spaces for parenthetical breaks: ` - `). En-dashes (`–`) are also off-limits; stick to ASCII `-`.
+- **Links leaving pinggy.io open in a new page.** Any URL pointing outside the `pinggy.io` domain (a different site) must open in a new tab. Markdown's `[text](url)` syntax can't set this, so write the link as an HTML anchor with `target="_blank"`: `<a href="https://example.com" target="_blank">text</a>`. Goldmark runs with `unsafe: true`, so inline HTML renders fine. Links to `pinggy.io` (and its subdomains) and internal/relative links stay as normal Markdown in the same tab.
 
 ### Blog voice
 
