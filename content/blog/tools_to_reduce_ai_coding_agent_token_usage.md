@@ -1,9 +1,9 @@
 ---
-title: "7 Open Source Tools to Slash AI Coding Agent Token Usage in 2026"
-description: "AI coding agents burn tokens fast. Here are the best open source tools - Graphify, Caveman, RAG pipelines, Continue.dev, and more - to cut context costs without losing quality."
+title: "8 Open Source Tools to Slash AI Coding Agent Token Usage in 2026"
+description: "AI coding agents burn tokens fast. Here are the best open source tools - Headroom, Graphify, Caveman, RAG pipelines, Continue.dev, and more - to cut context costs without losing quality."
 date: 2026-06-11T14:15:25+05:30
 draft: false
-tags: ["AI coding agents", "token optimization", "Graphify", "Caveman", "RAG", "Claude Code", "LLM cost reduction", "open source AI"]
+tags: ["AI coding agents", "token optimization", "Headroom", "Graphify", "Caveman", "RAG", "Claude Code", "LLM cost reduction", "open source AI"]
 categories: ["AI Tools", "Development", "Cost Optimization"]
 og_image: "images/tools_to_reduce_ai_coding_agent_token_usage/tools_to_reduce_ai_coding_agent_token_usage_banner.webp"
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIE9wdGltaXplIEFJIENvZGluZyBBZ2VudCBUb2tlbiBVc2FnZSIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byByZWR1Y2luZyBBSSBjb2RpbmcgYWdlbnQgdG9rZW4gY29uc3VtcHRpb24gdXNpbmcgb3BlbiBzb3VyY2UgdG9vbHMgbGlrZSBHcmFwaGlmeSwgQ2F2ZW1hbiwgUkFHLWJhc2VkIGNvbnRleHQgcmV0cmlldmFsLCBhbmQgcHJvbXB0IGNhY2hpbmcuIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlByb2ZpbGUgWW91ciBUb2tlbiBVc2FnZSBGaXJzdCIsCiAgICAgICJ0ZXh0IjogIk1lYXN1cmUgd2hlcmUgdG9rZW5zIGFyZSBnb2luZyBiZWZvcmUgb3B0aW1pemluZy4gVXNlIExhbmdmdXNlLCBIZWxpY29uZSwgb3IgeW91ciBwcm92aWRlcidzIG5hdGl2ZSBkYXNoYm9hcmQgdG8gaWRlbnRpZnkgd2hpY2ggcHJvbXB0cywgdG9vbCBkZXNjcmlwdGlvbnMsIGFuZCBjb250ZXh0IHdpbmRvd3MgY29uc3VtZSB0aGUgbW9zdCB0b2tlbnMuIFJlLXNlbnQgY29udmVyc2F0aW9uIGhpc3RvcnkgdHlwaWNhbGx5IGFjY291bnRzIGZvciA1MC02MCUgb2YgdG90YWwgYWdlbnQgc3BlbmQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkJ1aWxkIGEgQ29kZWJhc2UgS25vd2xlZGdlIEdyYXBoIHdpdGggR3JhcGhpZnkiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIEdyYXBoaWZ5IChnaXRodWIuY29tL3NhZmlzaGFtc2kvZ3JhcGhpZnkpIGFuZCBydW4gaXQgYWdhaW5zdCB5b3VyIHJlcG9zaXRvcnkuIEl0IGJ1aWxkcyBhIHF1ZXJ5YWJsZSBrbm93bGVkZ2UgZ3JhcGggZnJvbSB5b3VyIGNvZGUgc28gdGhlIGFnZW50IHJldHJpZXZlcyByZWxldmFudCBjb250ZXh0IHRocm91Z2ggdGFyZ2V0ZWQgcXVlcmllcyBpbnN0ZWFkIG9mIGxvYWRpbmcgZW50aXJlIGZpbGVzLCByZWR1Y2luZyB0b2tlbnMgcGVyIHRhc2sgc2lnbmlmaWNhbnRseS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ29tcHJlc3MgQWdlbnQgT3V0cHV0IHdpdGggQ2F2ZW1hbiIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgdGhlIENhdmVtYW4gc2tpbGwgKGdpdGh1Yi5jb20vSnVsaXVzQnJ1c3NlZS9jYXZlbWFuKSBpbiBDbGF1ZGUgQ29kZS4gSXQgcmV3cml0ZXMgdmVyYm9zZSBhZ2VudCByZXNwb25zZXMgaW50byB0ZXJzZSwgaW5mb3JtYXRpb24tZGVuc2Ugb3V0cHV0IHdpdGhvdXQgbG9zaW5nIHRlY2huaWNhbCBhY2N1cmFjeS4gVXNlcnMgcmVwb3J0IDY1JSBhdmVyYWdlIG91dHB1dCB0b2tlbiByZWR1Y3Rpb24sIHdpdGggc29tZSByZXNwb25zZXMgZHJvcHBpbmcgYnkgb3ZlciA4MCUuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkFkZCBSQUctQmFzZWQgQ29udGV4dCBSZXRyaWV2YWwiLAogICAgICAidGV4dCI6ICJVc2UgYSBSQUcgcGlwZWxpbmUgdG8gcmV0cmlldmUgb25seSB0aGUgcmVsZXZhbnQgY29kZSBzbmlwcGV0cyBhbmQgZG9jdW1lbnRhdGlvbiBmb3IgZWFjaCBxdWVyeSBpbnN0ZWFkIG9mIGxvYWRpbmcgZW50aXJlIGZpbGVzIG9yIGRpcmVjdG9yeSB0cmVlcy4gVG9vbHMgbGlrZSBDb250aW51ZS5kZXYgYW5kIEFueXRoaW5nTExNIHN1cHBvcnQgUkFHIG92ZXIgbG9jYWwgY29kZWJhc2VzLiBTZW1hbnRpYyByZXRyaWV2YWwgY2FuIHJlZHVjZSBwZXItcXVlcnkgY29udGV4dCBieSA2MC04MCUgb24gbGFyZ2UgcmVwb3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkFwcGx5IENvbnRleHQgSHlnaWVuZSBhbmQgUHJvbXB0IENhY2hpbmciLAogICAgICAidGV4dCI6ICJVc2UgL2NsZWFyIGJldHdlZW4gdW5yZWxhdGVkIHRhc2tzIGFuZCAvY29tcGFjdCBhdCBwaGFzZSBib3VuZGFyaWVzLiBLZWVwIHN5c3RlbSBwcm9tcHQgZmlsZXMgdW5kZXIgNSwwMDAgdG9rZW5zLiBFbmFibGUgcHJvbXB0IGNhY2hpbmcgd2l0aCBjYWNoZV9jb250cm9sIGJyZWFrcG9pbnRzIG9uIHN0YXRpYyBwcm9tcHQgc2VjdGlvbnMgLSBjYWNoZWQgdG9rZW5zIGNvc3QgOTAlIGxlc3MgYW5kIHRoaXMgc2luZ2xlIGNoYW5nZSBvZnRlbiBoYXMgdGhlIGxhcmdlc3QgaW1wYWN0IG9uIHRvdGFsIHNwZW5kLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
@@ -12,7 +12,7 @@ outputs:
   - AMP
 ---
 
-{{< image "tools_to_reduce_ai_coding_agent_token_usage/tools_to_reduce_ai_coding_agent_token_usage_banner.webp" "7 Open Source Tools to Slash AI Coding Agent Token Usage in 2026" >}}
+{{< image "tools_to_reduce_ai_coding_agent_token_usage/tools_to_reduce_ai_coding_agent_token_usage_banner.webp" "8 Open Source Tools to Slash AI Coding Agent Token Usage in 2026" >}}
 
 Every AI coding agent session that feels "reasonable" is quietly burning through your token budget. What looks like a single task - "refactor this authentication module" - might involve 20 tool calls, each one re-sending the full conversation history plus whatever file contents got loaded along the way. An agentic loop that costs you 50,000 tokens in the first message routinely compounds to 500,000 tokens by the time it wraps up.
 
@@ -26,6 +26,9 @@ The good news is that the tooling to address this has matured significantly. The
 
 **Graph-based codebase understanding:**
 - <a href="https://github.com/safishamsi/graphify" target="_blank">Graphify</a> - Converts your codebase into a queryable knowledge graph so agents retrieve targeted context instead of reading entire files
+
+**Context compression layer:**
+- <a href="https://github.com/chopratejas/headroom" target="_blank">Headroom</a> - Drop-in compression layer for tool outputs, logs, files, and RAG chunks; 60-95% fewer tokens with reversible compression. Ships as a library, proxy, and MCP server
 
 **Output compression skills:**
 - <a href="https://github.com/JuliusBrussee/caveman" target="_blank">Caveman</a> - Claude Code skill that rewrites verbose agent responses into terse output; reported 65% average output token reduction
@@ -95,6 +98,40 @@ Caveman comes with multiple compression levels - `lite` for light trimming, `ful
 The commands are straightforward. `/caveman-commit` writes minimal commit messages. `/caveman-review` gives one-line PR feedback. `/caveman-compress` rewrites a memory file or CLAUDE.md section into a smaller form. The skill also ships as an MCP middleware wrapper that can compress tool descriptions before they reach the model.
 
 One important limitation: Caveman only reduces output tokens, not input tokens. It does not affect what the agent reads - only what it writes back. For workloads where input tokens dominate (large file reads, long conversation histories), Caveman alone will not solve the problem. It works best combined with the input-side tools covered in the next sections.
+
+## Headroom: A Compression Layer for Everything the LLM Reads
+
+
+{{< image "tools_to_reduce_ai_coding_agent_token_usage/headroom.webp" "Headroom" >}}
+
+<a href="https://github.com/chopratejas/headroom" target="_blank">Headroom</a> (Apache 2.0, 30.7k GitHub stars) addresses input token bloat at the source. It sits between your agent and the LLM provider as a context optimization layer, compressing tool outputs, system logs, files, and RAG chunks before they ever reach the model. The claimed reduction is 60-95% on real workloads, and benchmarks on code search, incident debugging, and issue triage show 47-92% in practice with no meaningful accuracy drop.
+
+The reason it can compress that aggressively without losing information is reversible compression (CCR): the original content is cached locally, and the model can retrieve it on demand when it needs full fidelity. What gets sent to the LLM is a dense representation; the original is never discarded.
+
+Headroom ships in three modes so you can integrate it without rewriting anything. The proxy mode is the easiest - point your existing OpenAI-compatible client at `localhost:8787` and all traffic is compressed transparently:
+
+```bash
+pip install "headroom-ai[all]"
+
+# Wrap a specific agent directly
+headroom wrap claude    # Claude Code
+headroom wrap aider    # Aider
+
+# Or run as a transparent proxy for any OpenAI-compatible client
+headroom proxy --port 8787
+```
+
+In Python:
+
+```python
+from headroom import compress
+
+compressed = compress(messages, model="claude-sonnet-4-6")
+```
+
+Under the hood, Headroom uses three content-aware algorithms: **SmartCrusher** for JSON and nested structured data, **CodeCompressor** for AST-aware code compression across Python, JavaScript, Go, Rust, Java, and C++, and **Kompress-base**, a HuggingFace model trained on agentic traces that handles prose and log output. Each type of content gets a compression strategy matched to its structure rather than a generic text-shrinking pass.
+
+Two features stand out beyond basic compression. The cross-agent memory store deduplicates context across agent sessions - if two steps read the same file, it is only counted once. And `CacheAligner` stabilizes prompt prefixes to maximize provider-side KV cache hits, which stacks with Anthropic's prompt caching discount. Run `headroom perf` after a day of usage to see the actual token savings on your own workloads.
 
 ## RAG-Based Context Retrieval
 
@@ -186,7 +223,7 @@ Running all of these simultaneously is possible, but starting with the highest-l
 
 For most developers using Claude Code or a similar agent daily, the immediate wins are `/compact` and `/clear` discipline (free, no setup), keeping CLAUDE.md files trim (free, no setup), and prompt caching on any system prompts you control (90% discount with a few lines of code). These three together can reduce a typical agent bill by 40-60% without touching any external tooling.
 
-The next tier adds Graphify if you work with large or unfamiliar codebases (graph-based retrieval replaces exploratory file reads), Caveman if your agent outputs tend to be verbose (compresses what feeds back into future context), and Continue.dev's RAG if you need fine-grained retrieval over your specific codebase.
+The next tier adds Headroom if you are dealing with verbose tool outputs or large RAG chunks (it compresses everything before it hits the model and stacks with prompt caching via CacheAligner), Graphify if you work with large or unfamiliar codebases (graph-based retrieval replaces exploratory file reads), Caveman if your agent outputs tend to be verbose (compresses what feeds back into future context), and Continue.dev's RAG if you need fine-grained retrieval over your specific codebase.
 
 Model routing via LiteLLM and semantic tool selection are most impactful for production pipelines where agent loops run hundreds or thousands of times - the setup cost is higher but the per-request savings compound. For personal development workflows, the first tier is usually enough.
 
@@ -194,6 +231,6 @@ The tools are not mutually exclusive. Graphify and RAG complement each other: Gr
 
 ## Conclusion
 
-Most of the token spend in an AI coding agent session comes from three things: re-sent conversation history, broad file reads, and verbose output feeding back into future steps. The tools here address each category - Graphify and RAG on the input side, Caveman on output, `/compact` and prompt caching on conversation state. All of them are open source and stackable. Start with the ones that match where your costs are actually going.
+Most of the token spend in an AI coding agent session comes from three things: re-sent conversation history, broad file reads, and verbose output feeding back into future steps. The tools here address each category - Headroom and RAG on the input side, Graphify for codebase navigation, Caveman on output, `/compact` and prompt caching on conversation state. All of them are open source and stackable. Start with the ones that match where your costs are actually going.
 
 For a deeper look at the models powering these agents, see our guide on {{< link href="/blog/best_open_source_self_hosted_llms_for_coding/" >}}best open source self-hosted LLMs for coding{{< /link >}}.
