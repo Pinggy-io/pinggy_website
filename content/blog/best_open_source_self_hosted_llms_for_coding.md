@@ -1,10 +1,10 @@
 ---
 title: "Best Open Source Self-Hosted LLMs for Coding in 2026"
-description: "Discover the best open source LLMs for coding and development that you can self-host. Compare GLM-5.1, DeepSeek-V4, Kimi K2.6, Qwen3.6, Devstral, MiMo-V2.5-Pro, and more with benchmarks, hardware requirements, and deployment guides."
+description: "Discover the best open source LLMs for coding and development that you can self-host. Compare GLM-5.2, GLM-5.1, DeepSeek-V4, Kimi K2.6, Qwen3.6, Devstral, MiMo-V2.5-Pro, and more with benchmarks, hardware requirements, and deployment guides."
 date: 2026-03-26T14:15:25+05:30
-lastmod: 2026-06-03T10:00:00+05:30
+lastmod: 2026-06-18T10:00:00+05:30
 draft: false
-tags: ["open source LLM", "self-hosted AI", "coding LLM", "GLM-5.1", "DeepSeek-V4", "Qwen3.6", "Kimi K2.6", "Devstral", "MiMo-V2.5-Pro", "local AI"]
+tags: ["open source LLM", "self-hosted AI", "coding LLM", "GLM-5.2", "GLM-5.1", "DeepSeek-V4", "Qwen3.6", "Kimi K2.6", "Devstral", "MiMo-V2.5-Pro", "local AI"]
 og_image: "images/best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp"
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIENob29zZSBhbmQgU2VsZi1Ib3N0IE9wZW4gU291cmNlIExMTXMgZm9yIENvZGluZyIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byBzZWxlY3RpbmcgYW5kIHNlbGYtaG9zdGluZyB0aGUgYmVzdCBvcGVuIHNvdXJjZSBsYXJnZSBsYW5ndWFnZSBtb2RlbHMgZm9yIHNvZnR3YXJlIGRldmVsb3BtZW50LCBpbmNsdWRpbmcgbW9kZWwgY29tcGFyaXNvbiwgaGFyZHdhcmUgcmVxdWlyZW1lbnRzLCBhbmQgZGVwbG95bWVudCB0b29scy4iLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQXNzZXNzIFlvdXIgSGFyZHdhcmUgYW5kIFJlcXVpcmVtZW50cyIsCiAgICAgICJ0ZXh0IjogIkRldGVybWluZSB5b3VyIGF2YWlsYWJsZSBoYXJkd2FyZSAoR1BVIFZSQU0sIHN5c3RlbSBSQU0sIHN0b3JhZ2UpIGFuZCBjb2RpbmcgbmVlZHMuIEZvciBjb25zdW1lciBHUFVzIHdpdGggOC0xNkdCIFZSQU0sIGNvbnNpZGVyIG1vZGVscyBsaWtlIERldnN0cmFsIFNtYWxsIDIgKDI0Qikgb3IgUXdlbiAzLjYgMjdCLiBGb3IgZW50ZXJwcmlzZSBzZXR1cHMgd2l0aCA4MEdCKyBWUkFNLCBleHBsb3JlIGxhcmdlciBtb2RlbHMgbGlrZSBLaW1pIEsyLjYsIEdMTS01LjEsIG9yIE1pTW8tVjIuNS1Qcm8uIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNob29zZSBZb3VyIE1vZGVsIEJhc2VkIG9uIFVzZSBDYXNlIiwKICAgICAgInRleHQiOiAiU2VsZWN0IGEgbW9kZWwgdGhhdCBmaXRzIHlvdXIgY29kaW5nIHdvcmtmbG93LiBGb3IgZ2VuZXJhbCBjb2RlIGdlbmVyYXRpb24sIEtpbWkgSzIuNiBvciBHTE0tNS4xIGxlYWQgdGhlIG9wZW4tc291cmNlIExpdmVCZW5jaCByYW5raW5ncy4gRm9yIGxpZ2h0d2VpZ2h0IGxvY2FsIHVzZSwgRGV2c3RyYWwgU21hbGwgMiBvciBZaS1Db2RlciA5QiBydW4gb24gY29uc3VtZXIgaGFyZHdhcmUuIEZvciBhZ2VudGljIHdvcmtmbG93cywgS2ltaSBLMi42LCBNaU1vLVYyLjUtUHJvLCBvciBHTE0tNS4xIHdpdGggbG9uZy1ob3Jpem9uIGV4ZWN1dGlvbiBzdXBwb3J0IGFyZSBpZGVhbC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW5zdGFsbCBhIFNlbGYtSG9zdGluZyBUb29sIiwKICAgICAgInRleHQiOiAiU2V0IHVwIGEgZGVwbG95bWVudCB0b29sIGxpa2UgT2xsYW1hIGZvciBxdWljayBsb2NhbCBwcm90b3R5cGluZywgdkxMTSBmb3IgcHJvZHVjdGlvbiBzZXJ2aW5nIHdpdGggaGlnaCBjb25jdXJyZW5jeSwgb3IgbGxhbWEuY3BwIGZvciBtYXhpbXVtIGNvbnRyb2wgYW5kIENQVSBpbmZlcmVuY2UuIEZvciBhIEdVSSBleHBlcmllbmNlLCB1c2UgTE0gU3R1ZGlvIG9yIE9wZW4gV2ViVUkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRvd25sb2FkIGFuZCBSdW4gdGhlIE1vZGVsIiwKICAgICAgInRleHQiOiAiUHVsbCB5b3VyIGNob3NlbiBtb2RlbCB1c2luZyB0aGUgc2VsZWN0ZWQgdG9vbC4gRm9yIGV4YW1wbGUsIHJ1biBvbGxhbWEgcHVsbCBxd2VuMy42OjI3YiB3aXRoIE9sbGFtYSwgb3IgZG93bmxvYWQgd2VpZ2h0cyBmcm9tIEh1Z2dpbmcgRmFjZSBmb3IgdkxMTS4gQXBwbHkgNC1iaXQgcXVhbnRpemF0aW9uIChRNF9LX00pIHRvIHJlZHVjZSBtZW1vcnkgdXNhZ2Ugd2hpbGUgbWFpbnRhaW5pbmcgcXVhbGl0eS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW50ZWdyYXRlIHdpdGggWW91ciBEZXZlbG9wbWVudCBXb3JrZmxvdyIsCiAgICAgICJ0ZXh0IjogIkNvbm5lY3QgeW91ciBzZWxmLWhvc3RlZCBtb2RlbCB0byBjb2RpbmcgdG9vbHMgbGlrZSBDb250aW51ZS5kZXYsIEFpZGVyLCBvciBhbnkgT3BlbkFJLWNvbXBhdGlibGUgY2xpZW50LiBNb3N0IHNlbGYtaG9zdGluZyB0b29scyBleHBvc2UgYW4gT3BlbkFJLWNvbXBhdGlibGUgQVBJIGVuZHBvaW50LCBtYWtpbmcgaW50ZWdyYXRpb24gc3RyYWlnaHRmb3J3YXJkIHdpdGggZXhpc3RpbmcgZGV2ZWxvcG1lbnQgd29ya2Zsb3dzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
 outputs:
@@ -21,14 +21,15 @@ Whether you're a solo developer who wants to keep code off third-party servers, 
 {{% tldr %}}
 
 **Top Open Source LLMs for Coding (Self-Hostable):**
-1. **Kimi K2.6 Thinking** - LiveBench Coding **78.57**, Agentic Coding **58.33** - <a target="_blank" href="https://huggingface.co/moonshotai/Kimi-K2.6">Get Kimi K2.6</a>
-2. **GLM 5.1** - LiveBench Coding **75.37**, Agentic Coding **55.00** - <a target="_blank" href="https://huggingface.co/zai-org/GLM-5.1">Get GLM-5.1</a>
-3. **DeepSeek V4 Pro** - LiveBench Coding **69.99**, Agentic Coding **56.67** - <a target="_blank" href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro">Get DeepSeek-V4-Pro</a>
-4. **DeepSeek V3.2** - LiveBench Coding **75.69**, Agentic Coding **46.67** - <a target="_blank" href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2">Get DeepSeek V3.2</a>
-5. **Qwen 3.6 27B** - LiveBench Coding **71.78**, Agentic Coding **50.00** - <a target="_blank" href="https://github.com/QwenLM/Qwen3.6">Get Qwen 3.6 27B</a>
-6. **MiniMax M2.5** - LiveBench Coding **70.70**, Agentic Coding **51.67** - <a target="_blank" href="https://huggingface.co/MiniMaxAI">Get MiniMax M2.5</a>
-7. **Devstral 2** - LiveBench Coding **66.79**, Agentic Coding **43.33** - <a target="_blank" href="https://huggingface.co/mistralai">Get Devstral 2</a>
-8. **MiMo-V2.5-Pro** - LiveBench score not yet available - <a target="_blank" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro">Get MiMo-V2.5-Pro</a>
+1. **GLM 5.2** - LiveBench Coding **79.65**, Agentic Coding **73.33** - <a target="_blank" href="https://huggingface.co/zai-org/GLM-5.2">Get GLM-5.2</a>
+2. **Kimi K2.6 Thinking** - LiveBench Coding **78.57**, Agentic Coding **58.33** - <a target="_blank" href="https://huggingface.co/moonshotai/Kimi-K2.6">Get Kimi K2.6</a>
+3. **GLM 5.1** - LiveBench Coding **75.37**, Agentic Coding **55.00** - <a target="_blank" href="https://huggingface.co/zai-org/GLM-5.1">Get GLM-5.1</a>
+4. **DeepSeek V4 Pro** - LiveBench Coding **69.99**, Agentic Coding **56.67** - <a target="_blank" href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro">Get DeepSeek-V4-Pro</a>
+5. **DeepSeek V3.2** - LiveBench Coding **75.69**, Agentic Coding **46.67** - <a target="_blank" href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2">Get DeepSeek V3.2</a>
+6. **Qwen 3.6 27B** - LiveBench Coding **71.78**, Agentic Coding **50.00** - <a target="_blank" href="https://github.com/QwenLM/Qwen3.6">Get Qwen 3.6 27B</a>
+7. **MiniMax M2.5** - LiveBench Coding **70.70**, Agentic Coding **51.67** - <a target="_blank" href="https://huggingface.co/MiniMaxAI">Get MiniMax M2.5</a>
+8. **Devstral 2** - LiveBench Coding **66.79**, Agentic Coding **43.33** - <a target="_blank" href="https://huggingface.co/mistralai">Get Devstral 2</a>
+9. **MiMo-V2.5-Pro** - LiveBench score not yet available - <a target="_blank" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro">Get MiMo-V2.5-Pro</a>
 
 **Best Self-Hosting Tools:**
 - <a target="_blank" href="https://ollama.com">Ollama</a> - Easiest way to get started locally
@@ -40,9 +41,9 @@ Whether you're a solo developer who wants to keep code off third-party servers, 
 
 ## Open Source vs Proprietary: How Close Is the Gap?
 
-Before diving into individual models, it's worth understanding where open source stands relative to proprietary options. {{< link href="https://livebench.ai/#/?sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench{{< /link >}} is contamination-aware and tracks coding, agentic coding, reasoning, math, data analysis, language, and instruction following. The snapshot below is updated to **May 12, 2026** using the latest scores.
+Before diving into individual models, it's worth understanding where open source stands relative to proprietary options. {{< link href="https://livebench.ai/#/?sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench{{< /link >}} is contamination-aware and tracks coding, agentic coding, reasoning, math, data analysis, language, and instruction following. The snapshot below is updated to **June 2026** using the latest scores.
 
-### LiveBench Agentic Coding Average (May 12, 2026 Snapshot)
+### LiveBench Agentic Coding Average (June 2026 Update)
 
 <table style="width:100%;border-collapse:collapse;table-layout:fixed;">
 <thead>
@@ -54,11 +55,17 @@ Before diving into individual models, it's worth understanding where open source
 </tr>
 </thead>
 <tbody>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM 5.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Z.AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>73.33</strong></td>
+</tr>
 <tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.5em;">GPT-5.4 Thinking xHigh Effort</td>
   <td style="border:1px solid #ddd;padding:0.5em;">OpenAI</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Proprietary</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>70.00</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">70.00</td>
 </tr>
 <tr>
   <td style="border:1px solid #ddd;padding:0.5em;">GPT-5.3 Codex xHigh</td>
@@ -123,7 +130,7 @@ Before diving into individual models, it's worth understanding where open source
 </tbody>
 </table>
 
-### LiveBench Coding Average (May 12, 2026 Snapshot)
+### LiveBench Coding Average (June 2026 Update)
 
 <table style="width:100%;border-collapse:collapse;table-layout:fixed;">
 <thead>
@@ -148,10 +155,16 @@ Before diving into individual models, it's worth understanding where open source
   <td style="border:1px solid #ddd;padding:0.5em;">82.47</td>
 </tr>
 <tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM 5.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Z.AI</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>79.65</strong></td>
+</tr>
+<tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2.6 Thinking</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Moonshot AI</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Open Source</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>78.57</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">78.57</td>
 </tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K2.5 Thinking</strong></td>
@@ -204,15 +217,19 @@ Before diving into individual models, it's worth understanding where open source
 </tbody>
 </table>
 
-On this May 12, 2026 snapshot, **Kimi K2.6 Thinking** is the strongest open-source entry across both key coding metrics in this guide: **78.57 Coding Avg** and **58.33 Agentic Coding Avg**. **DeepSeek V4 Pro** and **GLM 5.1** remain close on agentic coding, while **DeepSeek V3.2** still holds a strong coding score.
+**GLM-5.2** now leads this guide's open-source set across both metrics: **79.65 Coding Avg** and a remarkable **73.33 Agentic Coding Avg** - which also beats the proprietary GPT-5.4 Thinking xHigh Effort (70.00) in that column. **Kimi K2.6 Thinking** remains the second-strongest on coding (78.57) and was the previous open-source leader before GLM-5.2 landed.
 
 > For the latest scores and full model list, visit the {{< link href="https://livebench.ai/#/?Coding=a&Agentic+Coding=a&Mathematics=a&IF=a&sort=Agentic+Coding+Average&highunseenbias=true" >}}LiveBench leaderboard{{< /link >}} directly.
 
 ## Best Open Source LLMs for Coding
 
-### New in April-June 2026: GLM-5.1, DeepSeek-V4, Qwen3.6, Kimi K2.6, and MiMo-V2.5-Pro
+### New in April-June 2026: GLM-5.2, GLM-5.1, DeepSeek-V4, Qwen3.6, Kimi K2.6, and MiMo-V2.5-Pro
 
-Five major open-weight coding releases landed after this guide was originally published.
+Six major open-weight coding releases landed after this guide was originally published.
+
+#### GLM-5.2 (Z.AI)
+
+{{< link href="https://huggingface.co/zai-org/GLM-5.2" >}}GLM-5.2{{< /link >}} is Z.AI's latest flagship open-weight model, released in June 2026. At **753B total / 40B active parameters** and a **1M context window** (5x the 200K in GLM-5.1), it is a substantial jump from its predecessor. On LiveBench, it scores **79.65 Coding Avg** and **73.33 Agentic Coding Avg** - the highest open-source scores on both metrics in this guide, and the agentic coding score also beats every proprietary model in the table. On SWE-Bench Pro it posts **62.1** (above GPT-5.5's 58.6 and GLM-5.1's 58.4) and **81.0 on Terminal-Bench 2.1** (up from GLM-5.1's 63.5). On the <a target="_blank" href="https://artificialanalysis.ai/models?intelligence=coding-index">Artificial Analysis coding index</a>, GLM-5.2 (max) ranks as the highest open-weights model. MIT license; weights on Hugging Face. A full profile is in section #1 below.
 
 #### GLM-5.1 (Z.AI)
 
@@ -234,17 +251,32 @@ Moonshot lists Kimi K2.6 in its latest research feed on **April 20, 2026**, and 
 
 Xiaomi released {{< link href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro" >}}MiMo-V2.5-Pro{{< /link >}} on **April 22, 2026**. It's a 1.02T total / 42B active MoE model with a 1M token context window under MIT licensing. MiMo-V2.5-Pro is not currently listed on the LiveBench leaderboard; available vendor-reported scores include **78.9% SWE-Bench Verified** and **68.4% TerminalBench 2.0**. A full profile is included below in section #5.
 
-### 1. GLM-5 / GLM-5.1 (Zhipu AI) - Top-Tier Agentic Baseline
+### 1. GLM-5 / GLM-5.1 / GLM-5.2 (Z.AI) - Leading Open-Source Coding Family
 
-{{< image "best_open_source_self_hosted_llms_for_coding/glm.webp" "GLM-5 Open Source LLM by Zhipu AI" >}}
+{{< image "best_open_source_self_hosted_llms_for_coding/glm.webp" "GLM-5.2 Open Source LLM by Z.AI" >}}
 
-{{< link href="https://huggingface.co/zai-org/GLM-5" >}}GLM-5{{< /link >}} and {{< link href="https://huggingface.co/zai-org/GLM-5.1" >}}GLM-5.1{{< /link >}} remain strong open-source options for long-context coding and agentic tasks. On the May 12, 2026 LiveBench snapshot, both score **55.00** on Agentic Coding, while Coding Average is **73.64 (GLM-5)** and **75.37 (GLM-5.1)**. The family uses a large MoE architecture with 200K context support.
+The GLM-5 family from Z.AI has become the most competitive open-source option for long-horizon coding tasks. The newest release, {{< link href="https://huggingface.co/zai-org/GLM-5.2" >}}GLM-5.2{{< /link >}} (June 2026), extends its predecessor's 200K context to a full **1M tokens** and is the first open-weight model to beat GPT-5.5 on SWE-Bench Pro. {{< link href="https://huggingface.co/zai-org/GLM-5" >}}GLM-5{{< /link >}} and {{< link href="https://huggingface.co/zai-org/GLM-5.1" >}}GLM-5.1{{< /link >}} remain strong LiveBench-listed options for teams that have benchmarked those specific versions.
 
-What makes GLM-5 particularly noteworthy is its training infrastructure. The entire model was trained on 100,000 Huawei Ascend 910B chips rather than NVIDIA GPUs, making it a significant milestone for non-NVIDIA AI hardware. Zhipu also introduced a novel reinforcement learning infrastructure called "Slime" that reduced hallucination rates from 90% to 34%.
+What makes this family particularly noteworthy is its training infrastructure. The GLM-5 generation was trained on 100,000 Huawei Ascend 910B chips rather than NVIDIA GPUs - a significant milestone for non-NVIDIA AI hardware. Z.AI also introduced a novel reinforcement learning infrastructure called "Slime" that reduced hallucination rates from 90% to 34%, and GLM-5.2 adds anti-hack mechanisms in RL training specifically for coding agents.
 
-On coding benchmarks, GLM-5 scores 90% on HumanEval and 77.8% on SWE-bench Verified according to Zhipu AI's official reports. Its 200K context window is generous enough to handle analysis of large codebases in a single session.
+GLM-5.2's architecture introduces **IndexShare**, which reuses the sparse attention indexer across every four sparse attention layers - cutting per-token FLOPs by 2.9x at 1M context length without sacrificing quality. An improved MTP layer increases speculative decoding acceptance length by up to 20%. It also adds two selectable thinking modes: **Max** for maximum reasoning depth and **High** for a better latency/quality tradeoff.
 
-#### Key Specs
+On coding benchmarks, GLM-5.2 scores **79.65 Coding Avg** and **73.33 Agentic Coding Avg** on LiveBench - the highest open-source results in this guide on both metrics, and the agentic coding score beats every proprietary model in the table. On SWE-Bench Pro it posts **62.1** (above GPT-5.5's 58.6 and GLM-5.1's 58.4), **81.0 on Terminal-Bench 2.1** (vs GLM-5.1's 63.5), **74.4 on FrontierSWE** (vs Claude Opus 4.8's 75.1 and GPT-5.5's 72.6), and **76.8 on MCP-Atlas** (vs GPT-5.5's 75.3). On the <a target="_blank" href="https://artificialanalysis.ai/models?intelligence=coding-index">Artificial Analysis coding intelligence index</a>, GLM-5.2 (max) ranks as the highest open-weights model.
+
+#### Key Specs - GLM-5.2 (June 2026)
+
+- **Architecture:** MoE, 753B total / 40B active parameters
+- **Context Window:** 1M tokens
+- **License:** MIT
+- **SWE-Bench Pro:** 62.1 (self-reported by Z.AI; beats GPT-5.5 at 58.6)
+- **Terminal-Bench 2.1:** 81.0 (self-reported by Z.AI)
+- **FrontierSWE:** 74.4 (self-reported by Z.AI)
+- **MCP-Atlas:** 76.8 (self-reported by Z.AI)
+- **LiveBench Coding Avg:** 79.65
+- **LiveBench Agentic Coding Avg:** 73.33 (highest open-source in this guide; beats GPT-5.4 Thinking xHigh at 70.00)
+- **Self-hosting:** vLLM (v0.23.0+), SGLang (v0.5.13.post1+), KTransformers, Transformers; weights on Hugging Face and ModelScope; multi-GPU required
+
+#### Key Specs - GLM-5 / GLM-5.1
 
 - **Architecture:** MoE, 744B total / 40B active parameters
 - **Context Window:** 200K tokens
@@ -521,8 +553,8 @@ Once you've picked a model, you need the right tools and hardware to run it. We'
 
 ## Conclusion
 
-The open source LLM landscape for coding has matured dramatically, and the May 12, 2026 LiveBench snapshot tightened the race again. Kimi K2.6 Thinking currently leads this guide's open-source set on both Coding (78.57) and Agentic Coding (58.33), with GLM 5.1 and DeepSeek V4 Pro close behind on agentic work. MiMo-V2.5-Pro (Xiaomi) is a notable addition - not yet on LiveBench, but vendor-reported SWE-Bench and TerminalBench numbers put it in the same tier as the top models here.
+The open source LLM landscape for coding has matured dramatically, and GLM-5.2 just raised the bar again. On LiveBench, it scores **79.65 Coding Avg** and **73.33 Agentic Coding Avg** - the strongest open-source results in this guide on both metrics, and the agentic coding number actually beats every proprietary model in the table. Kimi K2.6 Thinking (78.57 coding, 58.33 agentic) held the open-source lead until GLM-5.2 landed. GLM 5.1, DeepSeek V4 Pro, and MiMo-V2.5-Pro round out the top tier.
 
-For most developers, the practical recommendation is to start with Qwen 3.6 27B or Devstral Small 2 on local hardware, then move to Kimi K2.6, GLM 5.1, DeepSeek V4 Pro, or MiMo-V2.5-Pro if you need top-tier agentic performance and have enterprise GPUs. DeepSeek V3.2 remains a strong cost-to-quality baseline.
+For most developers, the practical recommendation is to start with Qwen 3.6 27B or Devstral Small 2 on local hardware, then move to GLM-5.2, Kimi K2.6, DeepSeek V4 Pro, or MiMo-V2.5-Pro if you need top-tier agentic performance and have enterprise GPUs. DeepSeek V3.2 remains a strong cost-to-quality baseline.
 
 The 44% of organizations that cite data privacy as their top concern with LLM adoption now have no reason to hold back. Self-hosted open source models are production-ready for coding, and the gap with proprietary alternatives continues to shrink with each new release.
