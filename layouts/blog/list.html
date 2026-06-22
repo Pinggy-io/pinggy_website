@@ -50,8 +50,9 @@
         </div>
       </div>
 
+      {{ $paginator := .Paginate $posts }}
       <div id="bloglist">
-        {{ range $posts }}
+        {{ range $paginator.Pages }}
         {{/* Thumbnail: og_image is the source. Asset paths (images/...) are
              resized through the pipeline; absolute static paths (/assets/...,
              /blog_img/...) are used as-is. Posts with no image get a
@@ -102,6 +103,7 @@
         </article>
         {{ end }}
       </div>
+      {{ template "_internal/pagination.html" . }}
     </div>
   </div>
 </main>

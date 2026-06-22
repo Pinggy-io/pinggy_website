@@ -15,6 +15,10 @@ Guidance for Claude when working in this repository.
 
 If a request needs something the guidelines don't cover, propose an addition to `DESIGN_GUIDELINES.md` rather than one-off CSS.
 
+### Blog post exception (typography)
+
+The **blog post template only** (`layouts/blog/single.html` + `static/css/blog.css`, scoped under `.bp`) deliberately departs from the site type/color system. It uses three Google-loaded families - **Plus Jakarta Sans** (structure: headings, labels, UI, numbers), **Source Sans 3** (body copy), and **JetBrains Mono** (code) - and a brighter blue accent **`#2563eb`** (`--accent`, with `#1d4ed8` / `#eef2fe` / `#d6e0fb` support shades). These tokens live on the `.bp` wrapper and are namespaced `bp-*`, so they do not leak to the navbar, footer, blog list, or any other page. This exception is scoped to the reading experience of a single article; everywhere else (including the shared footer) still uses the `--brand-*`/`--ink-*` tokens and Uncut Sans/Inter.
+
 ## Code structure
 
 Hugo static site. Build with `make build`; serve locally with `make serve` (or `hugo server`).
@@ -56,6 +60,7 @@ Key conventions:
 ## Writing style
 
 - **Never use em-dashes (`—`, U+2014).** This applies everywhere in the repo: blog posts, page content, shortcodes, CSS/JS comments, code strings, commit messages - no exceptions. Use a regular hyphen `-` instead (with surrounding spaces for parenthetical breaks: ` - `). En-dashes (`–`) are also off-limits; stick to ASCII `-`.
+- **Links leaving pinggy.io open in a new page.** Any URL pointing outside the `pinggy.io` domain (a different site) must open in a new tab. Markdown's `[text](url)` syntax can't set this, so write the link as an HTML anchor with `target="_blank"`: `<a href="https://example.com" target="_blank">text</a>`. Goldmark runs with `unsafe: true`, so inline HTML renders fine. Links to `pinggy.io` (and its subdomains) and internal/relative links stay as normal Markdown in the same tab.
 
 ### Blog voice
 
@@ -70,6 +75,7 @@ Write like a seasoned developer talking shop, the kind of post that does well on
 - **Concrete over abstract.** "Took 12s down to 2s on a 50k-row table" beats "significantly faster". Numbers, before/after snippets, real terminal output.
 - **Headings are signposts, not clickbait.** `## Why the default port is 5173`, not `## The SHOCKING truth about Vite`.
 - **Code blocks earn their place.** Show the command or the diff; don't paste 80 lines of boilerplate. Annotate with `# comment` only when the line isn't self-explanatory.
+- **Inline code for short plain-text snippets.** A single short line of unhighlighted plain text - a URL, an env var assignment, a filename, a value - should be inline code (single backticks), not a fenced code block. Fenced blocks (which render as the dark terminal card) are for multi-line commands/output or syntax-highlighted code. Avoid bare ` ``` ` / ` ```text ` fences for one-liners: `https://abc123.a.pinggy.link` reads better inline than as a one-line terminal card.
 
 ### LLM-context comment (how-to-with-Pinggy posts only)
 

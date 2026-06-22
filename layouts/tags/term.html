@@ -1,0 +1,80 @@
+{{ define "main" }}
+{{/* Tag term pages (/tags/<tag>/) reuse the /blog list look: the same
+     .blog-card markup (styled globally in customization.css) plus pagination,
+     instead of the bare _default/list.html. */}}
+{{ $posts := .Pages.ByDate.Reverse }}
+{{/* .contentcontainer adds the top margin that clears the fixed-top navbar
+     (the same offset /blog gets from its baseof wrapper). */}}
+<main class="contentcontainer">
+  <div
+    class="row justify-content-center"
+    style="max-width: 800px; margin: 0 auto"
+  >
+    <div class="col-12 col-md-12">
+      <header>
+        <h1 class="display-4">{{ .Title | humanize }}</h1>
+        <p class="lead text-muted mb-0">
+          Blog posts tagged &ldquo;{{ .Title }}&rdquo;
+        </p>
+      </header>
+      <hr />
+      {{ .Content }}
+
+      {{ $paginator := .Paginate $posts }}
+      <div id="bloglist">
+        {{ range $paginator.Pages }}
+        {{/* Thumbnail: og_image is the source. Asset paths (images/...) are
+             resized through the pipeline; absolute static paths are used as-is.
+             Posts with no image get a placeholder so every card keeps the same
+             shape. (Mirrors layouts/blog/list.html.) */}}
+        {{ $thumb := "" }}
+        {{ with .Params.og_image }}
+          {{ $res := resources.Get . }}
+          {{ if $res }}
+            {{ $thumb = ($res.Fill "320x200 webp q80").RelPermalink }}
+          {{ else }}
+            {{ $thumb = . | relURL }}
+          {{ end }}
+        {{ end }}
+        <article class="blog-card">
+          <a
+            href="{{ .RelPermalink }}"
+            class="blog-card__media"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            {{ with $thumb }}
+            <img
+              src="{{ . }}"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="180"
+              height="120"
+            />
+            {{ else }}
+            <span class="blog-card__placeholder"
+              ><i class="bi bi-link-45deg"></i
+            ></span>
+            {{ end }}
+          </a>
+          <div class="blog-card__body">
+            <a href="{{ .RelPermalink }}" class="blog-card__titlelink">
+              <h2 class="blog-card__title">{{ .Title }}</h2>
+            </a>
+            <div class="blog-card__meta">
+              <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+              {{ range first 3 (.GetTerms "tags") }}
+              <span class="blog-card__tag">{{ .LinkTitle }}</span>
+              {{ end }}
+            </div>
+            <p class="blog-card__excerpt">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </div>
+</main>
+{{ end }}

@@ -2,6 +2,7 @@
  title: "Pinggy Command Line Tool"
  description: "Pinggy CLI Tool provides more stable tunnels with quicker reconnections. Use Pinggy secure tunnel for dev/test environments to effortlessly test and preview applications and APIs."
  date: 2024-04-14T01:15:25+05:30
+ lastmod: 2026-06-08T01:15:25+05:30
  draft: false 
 ---
 
@@ -51,6 +52,28 @@
           <b>Just replace <kbd>ssh</kbd> with the CLI binary:</b>
           <pre>
 ./pinggy -p 443 -R0:localhost:8080 -L4300:localhost:4300 TOKEN@a.pinggy.io</pre>
+        </div>
+        <div class="card featurecard p-4 mt-4">
+          <div
+            class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3"
+          >
+            <i class="bi bi-hdd-stack"></i>
+          </div>
+          <h2 class="h3 fw-bolder">Run tunnels in the background</h2>
+          <b
+            >Every tunnel runs in a background daemon, so you can detach and
+            manage it later:</b
+          >
+          <pre>
+# start a saved tunnel detached, then close the terminal
+pinggy -l https://localhost:8000 --b
+
+
+pinggy ps
+pinggy stop my-tunnel
+pinggy attach my-tunnel</pre>
+          <b>Keep tunnels running across reboots with a system service:</b>
+          <pre>pinggy daemon service-install</pre>
         </div>
         <div class="mt-5 d-flex flex-wrap align-items-center gap-3">
           <a

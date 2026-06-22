@@ -104,7 +104,7 @@ Pinggy provides a secure and reliable method to remotely access your IoT devices
 
 2. After running the tunneling command, you will receive a public URL in the following format: `tcp://rnrwn-14-139-241-214.a.free.pinggy.link:43141`
 
-{{< image "iot/public_url.webp" "Public URL" >}}
+    {{< image "iot/public_url.webp" "Public URL" >}}
 
 3. Now, you can use the public URL to connect to your Raspberry Pi from anywhere in the world. Open a terminal on your laptop or PC and run the following command:
 
@@ -143,9 +143,9 @@ VNC traditionally runs on port 5901, but again, we'll bypass the port forwarding
    vncserver
    ```
 
-On running the command for the first time, you will be asked to set new VNC password for accessing the Raspberry Pi using TightVNC.
+   On running the command for the first time, you will be asked to set new VNC password for accessing the Raspberry Pi using TightVNC.
 
-{{< image "iot/tightvnc_server.webp" "TightVNC Server" >}}
+   {{< image "iot/tightvnc_server.webp" "TightVNC Server" >}}
 
 3. After setting the password, you will receive a message with the following information:
 

@@ -1,0 +1,12 @@
+{{/* Summary callout. Usage:
+     {{< callout title="Summary" >}}
+     ...markdown...
+     {{< /callout >}}
+     Use `.sub` paragraphs via **bold** sub-labels in the inner markdown. */}}
+<section class="bp-callout">
+  <h2>
+    <span class="bp-callout__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6h14M5 10h14M5 14h9M5 18h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    {{ .Get "title" | default "Summary" }}
+  </h2>
+  {{ .Inner | markdownify }}
+</section>
