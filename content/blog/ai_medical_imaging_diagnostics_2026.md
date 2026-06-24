@@ -114,9 +114,15 @@ About 95-97% of clearances use the 510(k) pathway (demonstrating substantial equ
 
 ## FDA-Cleared Radiology AI Tools Deployed in Hospitals
 
+{{< image "ai_medical_imaging_diagnostics_2026/aidoc.webp" "Aidoc clinical AI platform deployed across nearly 2,000 hospitals" >}}
+
 <a href="https://www.aidoc.com" target="_blank"><strong>Aidoc</strong></a> is the most-deployed pure-play radiology AI vendor. It now holds more than 31 FDA-cleared tools and runs across nearly 2,000 hospitals, processing 60 million patient cases per year. In January 2026, it received <a href="https://www.aidoc.com/about/news/aidoc-secures-fda-clearance-for-healthcares-first-comprehensive-foundation-model-ai/" target="_blank">FDA clearance for the first foundation model-powered clinical AI device</a> - a single body CT triage solution covering 14 conditions (aortic dissection, appendicitis, bowel obstruction, spleen injury, and 10 others) with mean sensitivity of 97% and mean specificity of 98% in the pivotal study. In April 2026, it <a href="https://www.aidoc.com/about/news/aidoc-raises-150-million-series-e-led-by-goldman-sachs-to-scale-clinical-ai-for-earlier-safer-diagnoses/" target="_blank">raised a $150M Series E led by Goldman Sachs</a>, with Nvidia's VC arm NVentures among the investors, bringing total funding past $500M.
 
+
+{{< image "ai_medical_imaging_diagnostics_2026/vix_ai.webp" "Viz.ai AI-powered care coordination platform for stroke and critical care" >}}
+
 <a href="https://www.viz.ai" target="_blank"><strong>Viz.ai</strong></a> focuses on time-critical conditions where minutes matter. Its core product - large vessel occlusion stroke detection from CT angiography with real-time smartphone alerts to stroke teams - is now deployed at 1,700+ hospitals across 50+ cleared algorithms. In a multicenter trial presented at ISC 2025 (474 patients), Viz.ai's system cut LVO stroke diagnosis time by 44%, reduced time-to-treatment by 31 minutes, and reduced 90-day disability by 40%. In June 2025, it received FDA clearance for Viz Subdural Plus, the first tool to automatically quantify subdural hemorrhage volume, thickness, and midline shift from non-contrast CT.
+
 
 Both companies illustrate what successful medical AI deployment looks like in 2026: narrow, well-defined clinical problems, prospective outcome data, and tight EHR integration that puts alerts in front of the right clinician immediately.
 
