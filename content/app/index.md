@@ -18,7 +18,7 @@ title: "Pinggy App"
         </div>
         <div class="mt-3 text-muted small">
           <i class="bi bi-box-seam me-1"></i> Latest version:
-          <span style="color: #4589df; font-weight: 600">v1.2.6</span>
+          <span style="color: #4589df; font-weight: 600">v1.2.9</span>
         </div>
       </div>
       <div class="download border rounded">
@@ -69,13 +69,13 @@ title: "Pinggy App"
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Apple Silicon</span>
-                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/mac/arm64/Pinggy-1.2.6-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.9/mac/arm64/Pinggy-1.2.9-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Intel 64 bit</span>
-                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/mac/amd64/Pinggy-1.2.6-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.9/mac/amd64/Pinggy-1.2.9-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
@@ -91,13 +91,13 @@ title: "Pinggy App"
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Download x86 64 bit</span>
-                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/windows/x64/Pinggy-1.2.6+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.9/windows/x64/Pinggy-1.2.9+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
               <li class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Download Arm 64 bit</span>
-                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/windows/arm64/Pinggy-1.2.6+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.9/windows/arm64/Pinggy-1.2.9+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
                 </div>
               </li>
             </ul>
@@ -107,13 +107,13 @@ title: "Pinggy App"
             <li class="list-group-item">
               <div class="d-flex justify-content-between align-items-center">
                 <span>Ubuntu (deb) x86 64 bit</span>
-                <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/linux/x64/pinggyapp_1.2.6_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.9/linux/x64/pinggyapp_1.2.9_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
               </div>
             </li>
             <li class="list-group-item">
               <div class="d-flex justify-content-between align-items-center">
                 <span>Ubuntu (deb) arm 64 bit</span>
-                <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/linux/arm64/pinggyapp_1.2.6_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.9/linux/arm64/pinggyapp_1.2.9_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
               </div>
             </li>
           </ul>
@@ -233,6 +233,23 @@ title: "Pinggy App"
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td class="ps-4">
+                  <span class="badge bg-light text-dark border">v1.2.6</span>
+                </td>
+                <td>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/mac/amd64/Pinggy-1.2.6-x64.dmg" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/mac/arm64/Pinggy-1.2.6-arm64.dmg" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                </td>
+                <td>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/windows/x64/Pinggy-1.2.6+Setup.exe" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/windows/arm64/Pinggy-1.2.6+Setup.exe" class="pinggy-link text-decoration-none">ARM64</a>
+                </td>
+                <td class="pe-4">
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/linux/x64/pinggyapp_1.2.6_amd64.deb" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="https://djmq1sj6bh3a5.cloudfront.net/app/v1.2.6/linux/arm64/pinggyapp_1.2.6_arm64.deb" class="pinggy-link text-decoration-none">ARM64</a>
+                </td>
+              </tr>
               <tr>
                 <td class="ps-4">
                   <span class="badge bg-light text-dark border">v1.2.3</span>
