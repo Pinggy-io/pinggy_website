@@ -15,6 +15,8 @@ Create a tunnel using a single command.
 
 This command present user with a URL and a TCP port. Port allocation changes per connection. However, one can reserve a port on <https://dashboard.pinggy.io>
 
+To pass the client's original IP address to your upstream service, see the [HAProxy PROXY Protocol](/docs/tcp_tunnels/haproxy/) guide.
+
 ## Specific SSH Guides
 
 If you want to SSH into a specific operating system, check out our step-by-step guides:
