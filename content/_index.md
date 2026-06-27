@@ -19,7 +19,7 @@ title: "Pinggy - Simple Localhost Tunnels"
   <div class="container">
     <div class="text-center">
       <div class="alert alert-info" role="alert">
-        You can now use Pinggy <b>Node.js SDK</b> and <b>Python SDK</b> to create tunnels programmatically. <a href="/docs/" target="_blank">Learn more →</a>
+The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify, and replay your tunnel traffic right in the browser. <a href="/docs/http_tunnels/web_debugger/" target="_blank">Learn more →</a>
       </div>
     </div>
     <div class="row justify-content-evenly">
