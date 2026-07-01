@@ -28,7 +28,7 @@ That's the kind of bug report that makes the rounds fast, and it did, HN thread 
 
 ## What's Actually in the Repo
 
-<a href="https://github.com/interviewstreet/hiring-agent" target="_blank">interviewstreet/hiring-agent</a> is a Python 3.11 command-line tool, MIT-licensed, that had picked up thousands of stars within days of release. There's no web server, no dashboard, no API. You run it against a PDF and it prints a score:
+{{< link href="https://github.com/interviewstreet/hiring-agent" >}}interviewstreet/hiring-agent{{< /link >}} is a Python 3.11 command-line tool, MIT-licensed, that had picked up thousands of stars within days of release. There's no web server, no dashboard, no API. You run it against a PDF and it prints a score:
 
 ```bash
 git clone https://github.com/interviewstreet/hiring-agent
@@ -39,7 +39,7 @@ cp .env.example .env   # set LLM_PROVIDER to ollama or gemini
 python score.py /path/to/resume.pdf
 ```
 
-You point it at either a local <a href="https://ollama.com/" target="_blank">Ollama</a> model (`gemma3:4b` by default) or Google Gemini's API. Under the hood it runs five stages:
+You point it at either a local {{< link href="https://ollama.com/" >}}Ollama{{< /link >}} model (`gemma3:4b` by default) or Google Gemini's API. Under the hood it runs five stages:
 
 {{< image "hackerrank_open_source_ats_inconsistent_scoring/pipeline_diagram.webp" "Diagram of HackerRank's hiring-agent pipeline: PDF to Markdown, LLM section parsing, GitHub enrichment, LLM evaluation, and final score, with the two LLM stages flagged as non-deterministic" >}}
 
@@ -49,7 +49,7 @@ It's a reasonable design for a "look, here's exactly how we grade you" transpare
 
 ## Same PDF, Different Grade Every Time
 
-That 100-run test, documented by <a href="https://danunparsed.com/p/hackerrank-open-source-ats" target="_blank">Dan Unparsed</a>, is the cleanest demonstration of the issue: one resume file, unchanged, fed through the CLI over and over. First run: 90. Second: 74. Third: 88. Fourth: 83. By run 100, the full spread was 66 to 99, a 33-point band on a tool whose entire pitch is a single objective number.
+That 100-run test, documented by {{< link href="https://danunparsed.com/p/hackerrank-open-source-ats" >}}Dan Unparsed{{< /link >}}, is the cleanest demonstration of the issue: one resume file, unchanged, fed through the CLI over and over. First run: 90. Second: 74. Third: 88. Fourth: 83. By run 100, the full spread was 66 to 99, a 33-point band on a tool whose entire pitch is a single objective number.
 
 Do the arithmetic on that. If a company sets its ATS cutoff at 85 (a completely normal thing to do with any scoring tool), the same candidate with the same resume clears the bar roughly 35% of the time and gets auto-rejected the other 65%. Nothing about the candidate changed between those runs. The dice did.
 
@@ -65,7 +65,7 @@ We've written before about why this kind of instability is normal for LLM-based 
 
 ## It Gets Worse: You Can Just Tell It What Score You Want
 
-Reproducibility is the headline bug. There's a second issue filed against the repo that's arguably more serious: <a href="https://github.com/interviewstreet/hiring-agent/issues/273" target="_blank">issue #273</a>, "Hidden PDF text poisons resume extraction and inflates hiring scores."
+Reproducibility is the headline bug. There's a second issue filed against the repo that's arguably more serious: {{< link href="https://github.com/interviewstreet/hiring-agent/issues/273" >}}issue #273{{< /link >}}, "Hidden PDF text poisons resume extraction and inflates hiring scores."
 
 The attack is simple and doesn't need any special tooling beyond a PDF editor. PyMuPDF extracts every character in a PDF regardless of whether a human can see it, including text colored to match the page background. Nothing downstream checks whether extracted text was actually visible. So a resume can carry an invisible block claiming a Google internship, a Meta internship, and Google Summer of Code participation, and the LLM sections parser treats it exactly like the visible bullet points.
 
@@ -113,7 +113,7 @@ The practical effect: an engineer with fifteen years of closed-source, unglamoro
 
 ## The Upside of Open-Sourcing a Flawed Tool
 
-Credit where it's due: none of this would be visible if HackerRank had kept the scoring logic behind an API. Because the code is public, anyone can read the prompts, reproduce the bug, and file a PoC instead of speculating about what a black-box ATS might be doing to their application. Within days, forks like <a href="https://github.com/todddong/hackerrank-resume-ats" target="_blank">hackerrank-resume-ats</a> and hosted tools built on the same rubric popped up, letting candidates check their own resume against the exact scoring logic before they submit it anywhere.
+Credit where it's due: none of this would be visible if HackerRank had kept the scoring logic behind an API. Because the code is public, anyone can read the prompts, reproduce the bug, and file a PoC instead of speculating about what a black-box ATS might be doing to their application. Within days, forks like {{< link href="https://github.com/todddong/hackerrank-resume-ats" >}}hackerrank-resume-ats{{< /link >}} and hosted tools built on the same rubric popped up, letting candidates check their own resume against the exact scoring logic before they submit it anywhere.
 
 That's the actual silver lining here, and it's a fairly HN-flavored one: an AI system making consequential decisions about people is defensible in proportion to how inspectable it is. A closed ATS with the same bugs would just be a company quietly rejecting qualified candidates and calling it "the algorithm." An open one gets audited by whoever's curious enough to clone it and loop `score.py` a hundred times.
 
