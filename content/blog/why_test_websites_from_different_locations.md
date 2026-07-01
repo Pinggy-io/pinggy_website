@@ -50,8 +50,6 @@ Localization involves adapting your web application to appear native to users fr
 
 Geolocation testing allows you to assess how your website performs across varying internet bandwidths, ensuring an optimal user experience regardless of the user's location and internet speed. Combined with cross browser testing, it helps identify browser-specific performance issues that may become more noticeable under slower network conditions.
 
-{{< image "why_test_websites_from_different_locations/image2.png" "Checking website content across locations" >}}
-
 **Read more:** [Completely Automate Penetration Testing with AI](https://pinggy.io/blog/automate_penetration_testing_with_ai/)
 
 ## Understanding Geolocation Testing and Its Significance
@@ -79,8 +77,6 @@ Advertisements, a billion-dollar industry, benefit from geolocation testing to e
 ### 4. Security Measures
 
 Geolocation testing becomes crucial when security depends on the user's location. For instance, applications like Google Pay use geolocation to detect and prevent fraudulent transactions, showcasing the critical role of geolocation testing in ensuring robust security measures.
-
-{{< image "why_test_websites_from_different_locations/image3.png" "Reviewing website behavior from different regions" >}}
 
 ## Conclusion
 
