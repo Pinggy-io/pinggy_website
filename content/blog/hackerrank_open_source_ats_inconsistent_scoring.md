@@ -2,7 +2,7 @@
 title: "HackerRank Open-Sourced Its ATS. The Score Depends on the Roll of the Dice"
 description: "HackerRank open-sourced its AI hiring agent and the same resume scores differently every run, from 66 to 99. Here's how the pipeline works, why it's non-deterministic, and how hidden PDF text can inflate a score."
 date: 2026-07-01T11:00:00+05:30
-lastmod: 2026-06-30T11:00:00+05:30
+lastmod: 2026-07-01T11:00:00+05:30
 draft: false
 tags: ["HackerRank", "AI hiring", "ATS", "resume screening", "LLM non-determinism", "open source", "hiring-agent", "prompt injection"]
 categories: ["Technology", "AI", "Developer Tools"]
@@ -14,7 +14,7 @@ outputs:
 
 {{< image "hackerrank_open_source_ats_inconsistent_scoring/banner.webp" "Same resume submitted four times to HackerRank's open-source hiring agent, returning four different scores: 90, 74, 88, and 83" >}}
 
-HackerRank open-sourced the AI agent behind its resume screening, and within days someone had run the exact same PDF through it 100 times. The scores came back anywhere from 66 to 99. Not close to 66 to 99, spread across the whole range, on one resume, with nothing changed between runs.
+HackerRank open-sourced the AI agent behind its resume screening, and within days someone had run the exact same PDF through it 100 times. The scores came back anywhere from 66 to 99, spread across the whole range rather than clustered near one value, on one resume, with nothing changed between runs.
 
 That's the kind of bug report that makes the rounds fast, and it did, HN thread and all. But the reproducibility problem is only half the story. A second, separate issue filed against the same repo shows you can quietly lift your score by padding a PDF with text nobody sees.
 
@@ -39,6 +39,9 @@ cp .env.example .env   # set LLM_PROVIDER to ollama or gemini
 python score.py /path/to/resume.pdf
 ```
 
+
+{{< image "hackerrank_open_source_ats_inconsistent_scoring/code.webp" "What's Actually in the Repo" >}}
+
 You point it at either a local {{< link href="https://ollama.com/" >}}Ollama{{< /link >}} model (`gemma3:4b` by default) or Google Gemini's API. Under the hood it runs five stages:
 
 {{< image "hackerrank_open_source_ats_inconsistent_scoring/pipeline_diagram.webp" "Diagram of HackerRank's hiring-agent pipeline: PDF to Markdown, LLM section parsing, GitHub enrichment, LLM evaluation, and final score, with the two LLM stages flagged as non-deterministic" >}}
@@ -49,7 +52,7 @@ It's a reasonable design for a "look, here's exactly how we grade you" transpare
 
 ## Same PDF, Different Grade Every Time
 
-That 100-run test, documented by {{< link href="https://danunparsed.com/p/hackerrank-open-source-ats" >}}Dan Unparsed{{< /link >}}, is the cleanest demonstration of the issue: one resume file, unchanged, fed through the CLI over and over. First run: 90. Second: 74. Third: 88. Fourth: 83. By run 100, the full spread was 66 to 99, a 33-point band on a tool whose entire pitch is a single objective number.
+That 100-run test, documented by Dan Kinsky on {{< link href="https://danunparsed.com/p/hackerrank-open-source-ats" >}}Dan Unparsed{{< /link >}}, is the cleanest demonstration of the issue: one resume file, unchanged, fed through the CLI over and over. First run: 90. Second: 74. Third: 88. Fourth: 83. By run 100, the full spread was 66 to 99, a 33-point band on a tool whose entire pitch is a single objective number.
 
 Do the arithmetic on that. If a company sets its ATS cutoff at 85 (a completely normal thing to do with any scoring tool), the same candidate with the same resume clears the bar roughly 35% of the time and gets auto-rejected the other 65%. Nothing about the candidate changed between those runs. The dice did.
 
@@ -77,37 +80,12 @@ This is the same class of problem as prompt injection against any LLM-backed pip
 
 Set the bugs aside and there's a design choice in the rubric itself that's drawn plenty of criticism: `open_source` and `self_projects` together make up 65% of the score, leaving `production` experience and `technical_skills` to split the remaining 35%.
 
-<table style="width:100%;border-collapse:collapse;">
-<thead>
-<tr>
-  <th style="border:1px solid #ddd;padding:0.45em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Category</th>
-  <th style="border:1px solid #ddd;padding:0.45em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Weight</th>
-  <th style="border:1px solid #ddd;padding:0.45em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Run-to-run stability</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.45em;">Open source contributions</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">Part of 65%</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">Volatile, subjective judgment call</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.45em;">Self / personal projects</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">Part of 65%</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">Volatile, subjective judgment call</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.45em;">Production experience</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">Part of 35%</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">More stable, but still LLM-judged</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.45em;">Technical skills</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">Part of 35%</td>
-  <td style="border:1px solid #ddd;padding:0.45em;">Stable, closer to a checklist</td>
-</tr>
-</tbody>
-</table>
+| Category | Weight | Run-to-run stability |
+|---|---|---|
+| Open source contributions | Part of 65% | Volatile, subjective judgment call |
+| Self / personal projects | Part of 65% | Volatile, subjective judgment call |
+| Production experience | Part of 35% | More stable, but still LLM-judged |
+| Technical skills | Part of 35% | Stable, closer to a checklist |
 
 The practical effect: an engineer with fifteen years of closed-source, unglamorous production work, banking systems, internal tooling, whatever never touches a public GitHub repo, is scored mostly on a category that structurally can't reflect their actual experience. Meanwhile a candidate with a handful of polished weekend projects and an active GitHub profile clears most of the rubric before "production" is even weighed. That tradeoff might be defensible for a junior-hire pipeline built around portfolio signal. It's a much harder sell as a general-purpose ATS filter, which is closer to how it's being marketed.
 
@@ -117,7 +95,7 @@ Credit where it's due: none of this would be visible if HackerRank had kept the 
 
 That's the actual silver lining here, and it's a fairly HN-flavored one: an AI system making consequential decisions about people is defensible in proportion to how inspectable it is. A closed ATS with the same bugs would just be a company quietly rejecting qualified candidates and calling it "the algorithm." An open one gets audited by whoever's curious enough to clone it and loop `score.py` a hundred times.
 
-## The Takeaway
+## Conclusion
 
 Two things are true at once here. First, if you're building or buying an LLM-based screening tool, treat the score like a noisy estimate, not a ground truth, and never wire a hard numeric cutoff directly to it without accounting for the variance, the same resume clearing or failing a cutoff by chance is not a hypothetical, it's measured behavior in this exact repo. Second, if you're on the other side of that pipeline, it's worth remembering that a document scored by an LLM is a document an LLM can be manipulated by. Prompt injection through invisible PDF text sounds like a novelty exploit until you realize it's currently sitting in a repo with thousands of stars, scoring real applications.
 
