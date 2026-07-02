@@ -1,5 +1,5 @@
 ---
-title: "Webhooks Explained: A Developer's Complete Guide to Real-Time HTTP Event Callbacks"
+title: "What Is a Webhook? A Developer's Complete Guide to Real-Time HTTP Event Callbacks"
 description: "A technical deep-dive into webhooks: what they are, how they work, how to build a secure receiver with HMAC signature validation, handle retries idempotently, and test locally during development."
 date: 2026-06-29T14:00:00+05:30
 lastmod: 2026-06-30T14:00:00+05:30
@@ -13,7 +13,7 @@ outputs:
   - AMP
 ---
 
-{{< image "webhooks_explained/webhooks_explained_banner.webp" "Webhooks Explained: A Developer's Complete Guide to Real-Time HTTP Event Callbacks" >}}
+{{< image "webhooks_explained/webhooks_explained_banner.webp" "What Is a Webhook? A Developer's Complete Guide to Real-Time HTTP Event Callbacks" >}}
 A webhook is an HTTP POST request that one server sends to another as soon as something happens. The term was coined by Jeff Lindsay in 2007, and the pattern has become one of the most common primitives in modern software integration. If you have ever configured GitHub to trigger a CI build when you push code, or watched a Stripe payment update your database the moment a charge succeeds, you have been on the receiving end of a webhook.
 
 The idea is simple: instead of your application periodically asking another service "did anything happen?", the other service calls your application the instant something does. That shift from polling to push changes everything about how you design integrations - latency drops from minutes to milliseconds, server load shrinks dramatically, and your code reflects what actually happened rather than what you managed to detect.
