@@ -1,0 +1,3 @@
+# Rendered outputs - only the .py scripts belong in git.
+*.png
+*.webp
