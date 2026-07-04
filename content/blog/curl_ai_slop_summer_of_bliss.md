@@ -2,7 +2,7 @@
 title: "curl's Summer of Bliss: Why It Stopped Taking Bug Reports in July 2026"
 description: "curl is refusing all vulnerability reports for the month of July 2026 after AI-generated 'slop' reports pushed its confirmed-vulnerability rate below 5%. Here's the timeline, the numbers, and why this is bigger than one project."
 date: 2026-07-02T10:00:00+05:30
-lastmod: 2026-07-01T10:00:00+05:30
+lastmod: 2026-07-03T10:00:00+05:30
 draft: false
 tags: ["curl", "open source", "AI slop", "bug bounty", "vulnerability disclosure", "HackerOne", "Daniel Stenberg", "cybersecurity", "maintainer burnout"]
 categories: ["Technology", "Security", "Open Source"]
@@ -22,7 +22,7 @@ This isn't a stunt. It's the next step in a fight that's been going on for over 
 1. **What's happening**: curl accepts zero vulnerability reports from July 1 to August 3, 2026 - no HackerOne, no email, no exceptions.
 2. **Why**: the confirmed-vulnerability rate on curl's reports fell from a historical ~15% to under 5% as AI-generated "slop" reports flooded in. By mid-2025, Stenberg estimated roughly 20% of submissions were outright fabricated.
 3. **The bounty is already gone**: curl shut down its paid HackerOne bug bounty entirely on January 31, 2026, after nearly seven years and 87 confirmed vulnerabilities, because the incentive was attracting more fake reports than real ones.
-4. **curl isn't the outlier**: HackerOne's own Internet Bug Bounty program paused in April 2026, and Axios reported open source maintainers broadly getting hundreds of AI-generated reports where they used to get a handful a week.
+4. **curl isn't the outlier**: HackerOne's own Internet Bug Bounty program paused new submissions on March 27, 2026, and Axios reported open source maintainers broadly getting hundreds of AI-generated reports where they used to get a handful a week.
 5. **The real lesson**: AI made the cost of *writing* a plausible vulnerability report close to zero, but the cost of *triaging* one is still a human reading it carefully. That asymmetry is what actually broke.
 {{% /tldr %}}
 
@@ -30,7 +30,7 @@ This isn't a stunt. It's the next step in a fight that's been going on for over 
 
 For years, curl's HackerOne bug bounty ran on a simple ratio: roughly 15% of submitted reports turned out to be real, confirmed vulnerabilities. That's a normal hit rate for a security program with any public visibility - most reports are duplicates, non-issues, or honest misunderstandings of what counts as a vulnerability.
 
-Starting in 2025, that ratio collapsed. Confirmed reports dropped below 5%. As Stenberg put it, "not even one in twenty was real." By July 2025, he estimated around 20% of all submissions were what he calls AI slop: reports that read like a real CVE writeup, cite a function that doesn't exist, describe a bug that was patched years ago, or reference a code path curl has never had. Submission volume kept climbing too - by mid-2025 it was running at roughly eight times curl's normal rate, and by the time the "summer of bliss" was announced in June 2026, it had reached four to five times 2024 levels and around double the already-elevated 2025 rate. More than one report a day, for a security team of seven volunteers.
+Starting in 2025, that ratio collapsed. Confirmed reports dropped below 5%. As Stenberg put it, "not even one in twenty was real." By July 2025, he estimated around 20% of all submissions were what he calls AI slop: reports that read like a real CVE writeup, cite a function that doesn't exist, describe a bug that was patched years ago, or reference a code path curl has never had. By that point curl was averaging around two security reports a week, already well above historical norms, with spam spikes hitting eight times that in a single week. By the time the "summer of bliss" was announced in June 2026, the sustained rate had roughly doubled again from that already-elevated 2025 baseline. More than one report a day, for a security team of seven volunteers.
 
 The pattern is consistent with how these reports get made. A large language model given the curl source and told to "find a vulnerability" will produce something that looks exactly like a real disclosure: a CVE-style title, a plausible-sounding root cause, a "proof of concept," a severity rating. What it often won't produce is a bug that actually exists. LLMs are good at pattern-matching the *shape* of a security report and bad at verifying the underlying claim against real code, which is exactly the part that used to be expensive enough to keep low-effort submissions out.
 
@@ -50,7 +50,7 @@ curl's bug bounty had run since April 2019, funded through HackerOne and the Int
 
 On January 31, 2026, that program ended. Stenberg's reasoning, in the blog post announcing it: "We are just a small single open source project with a small number of active maintainers. It is not in our power to change how all these people and their slop machines work." Removing the cash reward was meant to remove the incentive to spam the inbox - if there's no bounty, there's no reason to farm reports with an LLM and hope one sticks.
 
-It helped, but not enough. curl briefly moved intake to GitHub's security advisory workflow, then went back to using HackerOne in late February 2026 purely as an intake and triage tool, with no payment attached. Report volume kept rising anyway. That's the part worth sitting with: killing the financial incentive slowed things down, but it didn't stop the flood, because for a lot of the AI-slop volume there was never a financial incentive in the first place - just a prompt, a script, and someone running it against every prominent open source repo they can find, maybe hoping for reputation, a resume line, or nothing coherent at all.
+It helped, but not enough. curl briefly moved intake to GitHub's security advisory workflow, then switched back to HackerOne on March 1, 2026, purely as an intake and triage tool, with no payment attached. Report volume kept rising anyway. That's the part worth sitting with: killing the financial incentive slowed things down, but it didn't stop the flood, because for a lot of the AI-slop volume there was never a financial incentive in the first place - just a prompt, a script, and someone running it against every prominent open source repo they can find, maybe hoping for reputation, a resume line, or nothing coherent at all.
 
 ## What "closed for the month" actually means
 
@@ -66,7 +66,7 @@ There's an obvious risk here, and Stenberg knows it: a genuine zero-day could la
 
 It's tempting to read this as one famous, over-scrutinized project's problem. It isn't. curl is just the project with a maintainer who blogs about it in detail and a project popular enough that the story travels.
 
-HackerOne's own Internet Bug Bounty program - the umbrella funding that backed curl's bounty alongside a handful of other critical infrastructure projects - paused in April 2026 while the platform reworked how the program handles submissions. Axios reported in March 2026 that AI agents are flooding open source maintainers broadly: projects that used to get two or three bug reports a week, or one a month if they were less popular, are now getting hundreds of reports arriving at once. Sonatype's 2026 State of the Software Supply Chain report found the global CVE count has doubled in five years, with the count of *unscored* CVEs - the ones nobody has triaged enough to rate - growing 37x. AI-generated submissions aren't the whole story there, but they're accelerating it.
+HackerOne's own Internet Bug Bounty program - the umbrella funding that backed curl's bounty alongside a handful of other critical infrastructure projects - paused new submissions on March 27, 2026, for the opposite-sounding but related reason: AI is now so good at *finding* real bugs that remediation, not discovery, became the bottleneck. HackerOne pointed to Claude turning up 22 Firefox vulnerabilities in two weeks, 14 of them high-severity, as the kind of result that broke the program's assumption that payouts should reward discovery over fixing. Axios reported in March 2026 that AI agents are flooding open source maintainers broadly: projects that used to get two or three bug reports a week, or one a month if they were less popular, are now getting hundreds of reports arriving at once. Sonatype's 2026 State of the Software Supply Chain report found the global CVE count has doubled in five years, with the count of *unscored* CVEs - the ones nobody has triaged enough to rate - growing 37x. AI-generated submissions aren't the whole story there, but they're accelerating it.
 
 The same week curl's "summer of bliss" post was making the rounds, a different piece was doing similar numbers on Hacker News: Andrew Nesbitt's satirical "Incident Report: CVE-2026-LGTM," a fictional account of a malicious package sailing past seven independent AI-powered security gates, each failing in a different way - one fooled by a prompt injected into a README, two AI reviewers stuck in a 340-comment disagreement loop, an autonomous remediation agent deleting the wrong files and causing the actual outage. It's satire, but it's satire that landed because it's obviously extrapolating from things that are already happening: AI systems reviewing AI-generated code and AI-generated reports, with the human verification step quietly getting squeezed out of the loop on both sides at once.
 
@@ -78,13 +78,9 @@ LLMs didn't make that filter worse. They removed it. Generating a report that ha
 
 curl's response - kill the bounty, then take a scheduled month completely off - is a maintainer-level fix for a structural problem. It buys breathing room; it doesn't solve the underlying arithmetic. The projects watching this closely are the ones that haven't been hit yet but can see the volume trend in Sonatype's numbers and Axios's reporting and know it's coming for them too. If you maintain anything with more than a handful of users, the practical takeaway isn't "expect AI slop in your bug tracker" - it's "have a plan for what you do when triage cost exceeds triage capacity," because the honest answer right now, for one of the most widely deployed pieces of software on the internet, is a five-week auto-reply.
 
-curl's security reports resume August 3, 2026, at 09:00 CEST. Whatever's waiting in that queue, real or not, gets read then.
+## Conclusion
 
----
+curl's security reports resume August 3, 2026, at 09:00 CEST. Whatever's waiting in that queue when it reopens, real or not, gets read then.
 
-**Further reading:**
-- <a href="https://hackerone.com/curl" target="_blank">curl bug bounty program - HackerOne</a> - official reporting channel
-- <a href="https://www.bleepingcomputer.com/news/security/curl-ending-bug-bounty-program-after-flood-of-ai-slop-reports/" target="_blank">Curl ending bug bounty program after flood of AI slop reports</a> - BleepingComputer
-- <a href="https://www.theregister.com/2026/01/21/curl_ends_bug_bounty/" target="_blank">Curl shutters bug bounty program to stop AI slop</a> - The Register
-- <a href="https://www.axios.com/2026/03/10/ai-agents-spam-the-volunteers-securing-open-source-software" target="_blank">AI agents are flooding open-source maintainers with security reports</a> - Axios
-- <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" target="_blank">Incident Report: CVE-2026-LGTM</a> - Andrew Nesbitt
+The month off doesn't fix what caused it, and Stenberg isn't claiming it does. Banning accounts didn't stop the slop. Killing the $100,000-plus bounty didn't stop the slop. The only lever left for a seven-person volunteer team was refusing to look at the queue at all for five weeks. That's not a curl-specific quirk - HackerOne pausing its own Internet Bug Bounty and Axios's reporting on maintainers broadly getting hit by the same flood say this is a pattern, not an incident. If you maintain anything people can file bugs against, the question worth answering before it happens to you isn't whether you'll get AI slop, it's what you do the week your triage queue stops being something one person can get through before lunch.
+
