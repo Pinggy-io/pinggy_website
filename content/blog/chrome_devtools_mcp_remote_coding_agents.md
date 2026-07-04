@@ -16,12 +16,12 @@ outputs:
 
 {{< llm-context >}}To let a remote coding agent's chrome-devtools-mcp reach your local dev server with Pinggy - run your app locally (e.g. on port 3000), then in a new terminal run `ssh -p 443 -R0:localhost:3000 free.pinggy.io` to get a public HTTPS URL, and point the agent's navigate_page tool at that URL instead of localhost.{{< /llm-context >}}
 
-`chrome-devtools-mcp` is sitting in GitHub's daily trending list right now, and it's not another wrapper project - it's built and maintained by the Chrome DevTools team itself. It turns an MCP-compatible coding agent (Claude Code, Cursor, Copilot, Gemini CLI, and a dozen others) into something that can open a real Chrome browser, click through your app, read the console, capture a performance trace, and diff two heap snapshots, instead of guessing what your frontend is doing from source code alone.
+{{< link href="https://github.com/ChromeDevTools/chrome-devtools-mcp" >}}chrome-devtools-mcp{{< /link >}} is sitting in GitHub's daily trending list right now, and it's not another wrapper project - it's built and maintained by the Chrome DevTools team itself. It turns an MCP-compatible coding agent (Claude Code, Cursor, Copilot, Gemini CLI, and a dozen others) into something that can open a real Chrome browser, click through your app, read the console, capture a performance trace, and diff two heap snapshots, instead of guessing what your frontend is doing from source code alone.
 
-It's a genuinely useful tool. It's also easy to run into a wall with the moment your agent and your browser aren't on the same machine - which is increasingly often, now that coding agents run in cloud sandboxes, devcontainers, and CI runners as much as on a laptop. This post covers what the tool actually does, why the localhost problem shows up, and two ways to fix it with a Pinggy tunnel.
+It's a genuinely useful tool. It's also easy to run into a wall the moment your agent and your browser aren't on the same machine - which is increasingly common, now that coding agents run in cloud sandboxes, devcontainers, and CI runners as much as on a laptop. This post covers what the tool actually does, why the localhost problem shows up, and two ways to fix it with a Pinggy tunnel.
 
 {{% tldr %}}
-1. Install `chrome-devtools-mcp` in your MCP client config:
+1. Install <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank">chrome-devtools-mcp</a> in your MCP client config:
    ```json
    { "mcpServers": { "chrome-devtools": { "command": "npx", "args": ["-y", "chrome-devtools-mcp@latest"] } } }
    ```
@@ -48,7 +48,7 @@ The setup is one line in your MCP client config:
 }
 ```
 
-That's it - no API key, no separate service to run. The `npx` command downloads the server, launches a managed Chrome instance, and exposes it as 51 tools across eight categories, according to the project's own tool reference:
+That's it - no API key, no separate service to run. The `npx` command downloads the server, launches a managed Chrome instance, and exposes it as 51 tools across eight categories, according to the project's own {{< link href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/tool-reference.md" >}}tool reference{{< /link >}}:
 
 - **Input automation** - click, drag, fill forms, hover, type, upload files
 - **Navigation** - open tabs, switch between them, wait for content to appear
@@ -156,6 +156,8 @@ Point that headless instance at a Pinggy-tunneled preview URL (Fix 1) if the app
 - **CI checks on every deploy:** headless Chrome inside the CI job, pointed at a tunneled or real preview URL.
 
 None of this is unique to Pinggy - any tunnel that can forward a TCP or HTTP port would do the underlying job. The reason it's a five-second setup rather than a fifteen-minute one is that Pinggy runs over plain SSH on port 443, needs no account or client install for the free tier, and gives you a real public URL immediately: `ssh -p 443 -R0:localhost:PORT free.pinggy.io` and you're done.
+
+If you're building your own tools for agents to call rather than just pointing them at a browser, the same tunnel pattern applies - see [exposing a local MCP server with Pinggy](/blog/expose_mcp_server_with_pinggy/) for the equivalent setup on the tool-calling side.
 
 ## Conclusion
 
