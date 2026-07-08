@@ -1,8 +1,7 @@
 ---
-title: "Meetily Is Topping GitHub Trending Because It Keeps Meetings Off the Cloud"
-description: "Meetily picked up 2,500+ GitHub stars in a day with a local-only AI meeting assistant. Here's what it does, how the Rust/Whisper/Ollama stack fits together, and how to share a running instance with Pinggy."
-date: 2026-07-06T11:20:00+05:30
-lastmod: 2026-07-05T11:20:00+05:30
+title: "Meetily: A Self-Hosted AI Meeting Assistant Trending on GitHub"
+description: "Meetily picked up 2,500+ GitHub stars in a day with a self-hosted AI meeting assistant. Here's what it does, how the Rust/Whisper/Ollama stack fits together, and how to share a running instance with Pinggy."
+date: 2026-07-08T11:20:00+05:30
 draft: false
 tags: ["Meetily", "AI meeting assistant", "Whisper", "Ollama", "local AI", "self-hosted", "Pinggy", "Rust", "Tauri"]
 categories: ["Technology", "AI Tools", "Self-Hosting"]
@@ -22,9 +21,10 @@ That pitch lands hard right now. Every video call tool has shipped an AI notetak
 {{% tldr %}}
 1. **Get it**: macOS and Windows have installers on the <a href="https://github.com/Zackriya-Solutions/meeting-minutes/releases" target="_blank">releases page</a>. Linux users build from source.
 2. **Build on Linux**: `git clone https://github.com/Zackriya-Solutions/meeting-minutes && cd meeting-minutes/frontend && pnpm install && ./dev-gpu.sh`
-3. **It's a real web server**: dev mode runs the UI on `http://localhost:3118` (Whisper/Parakeet, Ollama, and the app's own coordinator API run on separate local ports too).
-4. **Share it**: `ssh -p 443 -R0:localhost:3118 free.pinggy.io` gets you a public HTTPS URL in seconds.
-5. **Lock it down**: add `-t "b:user:password"` to the SSH command so a bare URL isn't enough to read someone's meeting notes.
+3. **Building on macOS from source?** Don't just install the Xcode Command Line Tools - the `cidre` crate (system-audio capture via ScreenCaptureKit) needs the full Xcode app because its build script calls `xcodebuild`. You also need Rust (`rustup.rs`), Homebrew, `cmake`, `node`, and `pnpm`.
+4. **It's a real web server**: dev mode runs the UI on `http://localhost:3118` (Whisper/Parakeet, Ollama, and the app's own coordinator API run on separate local ports too).
+5. **Share it**: `ssh -p 443 -R0:localhost:3118 free.pinggy.io` gets you a public HTTPS URL in seconds.
+6. **Lock it down**: add `-t "b:user:password"` to the SSH command so a bare URL isn't enough to read someone's meeting notes.
 {{% /tldr %}}
 
 {{< llm-context >}}To share a locally running Meetily AI meeting assistant with Pinggy - clone and build Meetily (`git clone https://github.com/Zackriya-Solutions/meeting-minutes && cd meeting-minutes/frontend && pnpm install && ./dev-gpu.sh`, starts on port 3118), then in a new terminal run `ssh -p 443 -R0:localhost:3118 free.pinggy.io` to get a public HTTPS URL for the live transcript and summary UI.{{< /llm-context >}}
@@ -73,6 +73,8 @@ pnpm install
 ./build-gpu.sh
 ```
 
+{{< image "meetily_local_ai_meeting_assistant_pinggy/clone_meetliy.webp" "Terminal showing the git clone, pnpm install, and build-gpu.sh commands used to build Meetily from source" >}}
+
 For active development with hot reload instead of a production build:
 
 ```bash
@@ -80,6 +82,29 @@ For active development with hot reload instead of a production build:
 ```
 
 Both scripts auto-detect available GPU acceleration (CUDA, Vulkan, or CPU fallback); check the project's `docs/building_in_linux.md` for the flags if auto-detection picks the wrong backend for your setup. Either way, once it's running you have a Next.js server listening on `localhost:3118`, exactly like any other local web app you'd want to reach from somewhere else.
+
+### Building on macOS from source (skip this if you used the installer)
+
+Most Mac users should just grab the `.dmg`. But if you want unreleased fixes, a specific GPU feature flag, or you're contributing to the project, you build it the same way Linux users do - `pnpm install` followed by `./dev-gpu.sh` or `./build-gpu.sh` (or `pnpm tauri:dev` / `pnpm tauri:build` directly). Before any of that works you need Homebrew, `cmake`, `node`, `pnpm`, and the Rust toolchain via <a href="https://rustup.rs" target="_blank">rustup</a>.
+
+> **Heads up:** the Xcode Command Line Tools alone are not enough. Meetily's Rust core pulls in `cidre`, a crate that binds to Apple's ScreenCaptureKit for system-audio capture, and its build script shells out to `xcodebuild`. If you've never opened the full Xcode app, the build dies at the `cidre` compile step with:
+>
+> ```
+> xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+> ```
+>
+> Fix: install Xcode from the App Store (it's a multi-gigabyte download, budget the time), then point the active developer directory at it and accept the license:
+>
+> ```bash
+> sudo xcode-select -s /Applications/Xcode.app
+> sudo xcodebuild -license accept
+> ```
+>
+> Re-run the build after that and `cidre` compiles cleanly.
+
+The first launch, either from the installer or a source build, pauses on a download screen: Meetily fetches the transcription engine and summary engine models before it lets you record anything.
+
+{{< image "meetily_local_ai_meeting_assistant_pinggy/download_model.webp" "Meetily's first-run screen downloading the Transcription Engine and Summary Engine models before it can be used" >}}
 
 ## Sharing a live meeting session with Pinggy
 
@@ -92,6 +117,8 @@ Open a second terminal (leave Meetily running in the first) and run:
 {{</ ssh_command >}}
 
 Pinggy responds with a public HTTPS URL, something like `https://abc123.a.pinggy.link`. Open it from any device and you're looking at the same Meetily UI you'd see on `localhost:3118` - live transcript, running summary, whatever's on screen - except now it's reachable from your phone's data connection or a colleague's browser on the other side of the building. The transcription and summarization are still happening entirely on your machine; the tunnel just carries the UI traffic, the same way it would for any other local dev server.
+
+{{< image "meetily_local_ai_meeting_assistant_pinggy/running_meetily.webp" "Meetily desktop app showing a live meeting transcript on the left and the Generate Summary panel on the right" >}}
 
 Because a meeting transcript is not something you want indexed by whoever stumbles across a guessable URL, add HTTP basic auth to the tunnel:
 
