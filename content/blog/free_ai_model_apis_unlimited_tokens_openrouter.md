@@ -1,48 +1,89 @@
 ---
-title: "Free AI Model APIs with 'Unlimited' Tokens: What OpenRouter Actually Gives You in 2026"
-description: "A technical guide to OpenRouter's free LLM API tier in 2026 - real rate limits, the current free model catalog (Nemotron 3 Ultra, Owl Alpha, Tencent Hy3), code examples, and how the $10 credit threshold works."
-date: 2026-07-09T11:30:00+05:30
+title: "How to get Free AI Model APIs with 'Unlimited' Tokens"
+description: "How to get free access to AI model APIs on OpenRouter in 2026 - real rate limits, the current free model catalog (Nemotron 3 Ultra, Owl Alpha, Tencent Hy3), code examples, and how the $10 credit threshold works."
+date: 2026-07-10T11:30:00+05:30
 draft: false
 tags: ["OpenRouter", "free AI API", "free LLM", "AI model API", "Nemotron", "Owl Alpha", "LLM router"]
 categories: ["AI", "Development", "APIs"]
 og_image: "images/free_ai_model_apis_unlimited_tokens_openrouter/free_ai_model_apis_unlimited_tokens_openrouter_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIEdldCBGcmVlIEFjY2VzcyB0byBBSSBNb2RlbCBBUElzIG9uIE9wZW5Sb3V0ZXIiLAogICJkZXNjcmlwdGlvbiI6ICJTdGVwLWJ5LXN0ZXAgZ3VpZGUgdG8gc2lnbmluZyB1cCBmb3IgT3BlblJvdXRlciwgZ2VuZXJhdGluZyBhbiBBUEkga2V5LCBhbmQgY2FsbGluZyBmcmVlIExMTSBtb2RlbHMgd2l0aCBubyBwZXItdG9rZW4gY29zdC4iLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ3JlYXRlIGFuIE9wZW5Sb3V0ZXIgYWNjb3VudCBhbmQgQVBJIGtleSIsCiAgICAgICJ0ZXh0IjogIlNpZ24gdXAgYXQgb3BlbnJvdXRlci5haSB3aXRoIGVtYWlsIG9yIEdpdEh1YiwgdGhlbiBnZW5lcmF0ZSBhbiBBUEkga2V5IGZyb20gdGhlIEtleXMgcGFnZSBpbiBhY2NvdW50IHNldHRpbmdzLiBObyBjcmVkaXQgY2FyZCBpcyByZXF1aXJlZCB0byBzdGFydCB1c2luZyBmcmVlIG1vZGVscy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiUGljayBhIGZyZWUgbW9kZWwiLAogICAgICAidGV4dCI6ICJCcm93c2UgdGhlIEZyZWUgTW9kZWxzIGNvbGxlY3Rpb24gb24gT3BlblJvdXRlciBhbmQgY2hvb3NlIGEgbW9kZWwgd2hvc2UgSUQgZW5kcyBpbiA6ZnJlZSwgc3VjaCBhcyBhIE5lbW90cm9uLCBHZW1tYSwgZ3B0LW9zcywgb3IgUXdlbjMgQ29kZXIgbW9kZWwuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNhbGwgdGhlIE9wZW5BSS1jb21wYXRpYmxlIGVuZHBvaW50IiwKICAgICAgInRleHQiOiAiU2VuZCBhIHJlcXVlc3QgdG8gaHR0cHM6Ly9vcGVucm91dGVyLmFpL2FwaS92MS9jaGF0L2NvbXBsZXRpb25zIHdpdGggdGhlIEFQSSBrZXkgaW4gdGhlIEF1dGhvcml6YXRpb24gaGVhZGVyIGFuZCB0aGUgY2hvc2VuIG1vZGVsIElEIGluIHRoZSByZXF1ZXN0IGJvZHkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkFkZCBmYWxsYmFjayBtb2RlbHMiLAogICAgICAidGV4dCI6ICJMaXN0IHR3byBvciB0aHJlZSBmcmVlIG1vZGVscyBpbiB0aGUgbW9kZWxzIGFycmF5IHNvIE9wZW5Sb3V0ZXIgYXV0b21hdGljYWxseSByZXRyaWVzIGEgZGlmZmVyZW50IG1vZGVsIGlmIHRoZSBmaXJzdCBvbmUgaXMgcmF0ZSBsaW1pdGVkIG9yIHVuYXZhaWxhYmxlLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJBZGQgY3JlZGl0cyBmb3IgaGlnaGVyIGxpbWl0cyIsCiAgICAgICJ0ZXh0IjogIlB1cmNoYXNlIGF0IGxlYXN0IDEwIFVTRCBpbiBPcGVuUm91dGVyIGNyZWRpdHMgdG8gcGVybWFuZW50bHkgcmFpc2UgdGhlIGRhaWx5IGZyZWUtbW9kZWwgcmVxdWVzdCBsaW1pdCBmcm9tIDUwIHRvIDEwMDAgcmVxdWVzdHMgcGVyIGRheS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIEdldCBGcmVlIEFJIE1vZGVsIEFQSXMgd2l0aCBVbmxpbWl0ZWQgVG9rZW5zIiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIHNpZ25pbmcgdXAgZm9yIE9wZW5Sb3V0ZXIsIGdlbmVyYXRpbmcgYW4gQVBJIGtleSwgYW5kIGNhbGxpbmcgZnJlZSBMTE0gbW9kZWxzIHdpdGggbm8gcGVyLXRva2VuIGNvc3QuIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNyZWF0ZSBhbiBPcGVuUm91dGVyIGFjY291bnQgYW5kIEFQSSBrZXkiLAogICAgICAidGV4dCI6ICJTaWduIHVwIGF0IG9wZW5yb3V0ZXIuYWkgd2l0aCBlbWFpbCBvciBHaXRIdWIsIHRoZW4gZ2VuZXJhdGUgYW4gQVBJIGtleSBmcm9tIHRoZSBLZXlzIHBhZ2UgaW4gYWNjb3VudCBzZXR0aW5ncy4gTm8gY3JlZGl0IGNhcmQgaXMgcmVxdWlyZWQgdG8gc3RhcnQgdXNpbmcgZnJlZSBtb2RlbHMuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlBpY2sgYSBmcmVlIG1vZGVsIiwKICAgICAgInRleHQiOiAiQnJvd3NlIHRoZSBGcmVlIE1vZGVscyBjb2xsZWN0aW9uIG9uIE9wZW5Sb3V0ZXIgYW5kIGNob29zZSBhIG1vZGVsIHdob3NlIElEIGVuZHMgaW4gOmZyZWUsIHN1Y2ggYXMgYSBOZW1vdHJvbiwgR2VtbWEsIGdwdC1vc3MsIG9yIFF3ZW4zIENvZGVyIG1vZGVsLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJDYWxsIHRoZSBPcGVuQUktY29tcGF0aWJsZSBlbmRwb2ludCIsCiAgICAgICJ0ZXh0IjogIlNlbmQgYSByZXF1ZXN0IHRvIGh0dHBzOi8vb3BlbnJvdXRlci5haS9hcGkvdjEvY2hhdC9jb21wbGV0aW9ucyB3aXRoIHRoZSBBUEkga2V5IGluIHRoZSBBdXRob3JpemF0aW9uIGhlYWRlciBhbmQgdGhlIGNob3NlbiBtb2RlbCBJRCBpbiB0aGUgcmVxdWVzdCBib2R5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJBZGQgZmFsbGJhY2sgbW9kZWxzIiwKICAgICAgInRleHQiOiAiTGlzdCB0d28gb3IgdGhyZWUgZnJlZSBtb2RlbHMgaW4gdGhlIG1vZGVscyBhcnJheSBzbyBPcGVuUm91dGVyIGF1dG9tYXRpY2FsbHkgcmV0cmllcyBhIGRpZmZlcmVudCBtb2RlbCBpZiB0aGUgZmlyc3Qgb25lIGlzIHJhdGUgbGltaXRlZCBvciB1bmF2YWlsYWJsZS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQWRkIGNyZWRpdHMgZm9yIGhpZ2hlciBsaW1pdHMiLAogICAgICAidGV4dCI6ICJQdXJjaGFzZSBhdCBsZWFzdCAxMCBVU0QgaW4gT3BlblJvdXRlciBjcmVkaXRzIHRvIHBlcm1hbmVudGx5IHJhaXNlIHRoZSBkYWlseSBmcmVlLW1vZGVsIHJlcXVlc3QgbGltaXQgZnJvbSA1MCB0byAxMDAwIHJlcXVlc3RzIHBlciBkYXkuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "free_ai_model_apis_unlimited_tokens_openrouter/free_ai_model_apis_unlimited_tokens_openrouter_banner.webp" "Free AI model APIs with unlimited tokens - what OpenRouter actually gives you in 2026" >}}
+{{< image "free_ai_model_apis_unlimited_tokens_openrouter/free_ai_model_apis_unlimited_tokens_openrouter_banner.webp" "How to get free AI model APIs with unlimited tokens using OpenRouter in 2026" >}}
 
-Search "free AI API unlimited tokens" and you'll find a pile of posts promising exactly that. The honest version is less exciting but more useful: {{< link href="https://openrouter.ai" >}}OpenRouter{{< /link >}} gives you free, no-credit-card access to dozens of large language models with **zero cost per token** - but "unlimited" isn't the right word. You get 20 requests per minute and either 50 or 1,000 requests per day depending on whether you've ever bought credits. No token cap, but a very real request cap.
+Frontier LLM API pricing keeps climbing at the top end - a model like Claude Opus 4.8 runs $5 per million input tokens and $25 per million output tokens, and that adds up fast once you're calling it in a loop. Search "free AI API unlimited tokens" and you'll find a pile of posts promising a way around that entirely. The honest version is less exciting but more useful: {{< link href="https://openrouter.ai" >}}OpenRouter{{< /link >}} gives you free, no-credit-card access to dozens of large language models with **zero cost per token** - but "unlimited" isn't the right word. You get 20 requests per minute and either 50 or 1,000 requests per day depending on whether you've ever bought credits. No token cap, but a very real request cap.
 
 That distinction matters if you're building anything real on top of this. This guide walks through exactly how OpenRouter's free tier works in mid-2026, which models are actually free right now, how to call them, and the gotchas - like free models rotating out with almost no notice - that trip up people who read a six-month-old blog post and assume the model list hasn't changed.
 
+Here's the current free lineup at a glance before we get into the mechanics:
+
+<table style="width:100%;border-collapse:collapse;">
+<thead>
+<tr>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Model</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Size</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Context</th>
+  <th style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free" target="_blank">NVIDIA Nemotron 3 Ultra</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">550B / 55B active MoE</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1M tokens</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">General reasoning, agent orchestration</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://openrouter.ai/openrouter/owl-alpha" target="_blank">Owl Alpha</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Undisclosed (stealth)</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1M tokens</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Agentic/tool-use workloads (temporary)</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://openrouter.ai/tencent/hy3:free" target="_blank">Tencent Hy3</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">295B / 21B active MoE</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">262K tokens</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">General use, free only through July 21, 2026</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://openrouter.ai/qwen/qwen3-coder:free" target="_blank">Qwen3 Coder</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">480B / 35B active MoE</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">1M tokens</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Agentic coding, tool calling</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://openrouter.ai/openai/gpt-oss-120b:free" target="_blank">OpenAI gpt-oss-120b/20b</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">117B / 5.1B active MoE (120b)</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">131K tokens</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Open-weight reasoning, self-hostable</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://openrouter.ai/google/gemma-4-31b-it:free" target="_blank">Google Gemma 4</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">31B dense / 26B-A4B MoE</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">256K tokens</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Multimodal (text, image, video)</td>
+</tr>
+</tbody>
+</table>
+
+That table covers the six worth knowing individually - the full catalog runs to about 25 models, and we get to the rest further down.
+
 {{% tldr %}}
 
-**What "free" means on OpenRouter**: Free models (IDs ending in `:free`) cost <a href="https://openrouter.ai/pricing" target="_blank">$0 per input and output token</a>. The catch is a request-based rate limit, not a token limit: **20 requests/minute** always, plus **50 requests/day** on an unfunded account or **1,000 requests/day** once you've purchased $10 or more in credits at any point (the higher limit sticks even if your balance later drops).
+**What "free" means on OpenRouter**: Free models (IDs ending in `:free`) cost <a href="https://openrouter.ai/pricing" target="_blank">$0 per input and output token</a>. The catch is a request-based rate limit, not a token limit: **20 requests/minute** always, plus **50 requests/day** on an unfunded account or **1,000 requests/day** once you've purchased $10 or more in credits at any point (the higher limit sticks even if your balance later drops). 1,000 requests/day is practical for most tasks - personal projects, prototyping, and even light agentic workflows fit comfortably under that ceiling.
 
 **Getting started**: Create an account at <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai/keys</a> (email or GitHub, no card needed), generate an API key, and call the OpenAI-compatible endpoint at `https://openrouter.ai/api/v1/chat/completions` with any model ID ending in `:free`. Minimum credit purchase is $5; $10+ unlocks the 1,000/day tier.
 
-**Free models worth knowing right now** (July 2026, verify current status before you rely on one):
-- <a href="https://huggingface.co/nvidia" target="_blank">NVIDIA Nemotron 3 Ultra</a> (550B/55B active MoE, 1M context) - free, general reasoning and agent orchestration
-- <a href="https://openrouter.ai/openrouter/owl-alpha" target="_blank">Owl Alpha</a> - a free "stealth" prerelease checkpoint from an undisclosed lab, tuned for agentic/tool-use workloads
-- <a href="https://openrouter.ai/tencent/hy3:free" target="_blank">Tencent Hy3</a> (295B/21B active MoE) - free only through July 21, 2026, a good example of how fast the free roster turns over
-- <a href="https://openrouter.ai/qwen/qwen3-coder:free" target="_blank">Qwen3 Coder</a> (480B/35B active, 1M context) - Alibaba's agentic coding model, still free
-- <a href="https://openrouter.ai/openai/gpt-oss-120b:free" target="_blank">OpenAI gpt-oss-120b/20b</a> - OpenAI's own open-weight models, free via OpenRouter
-- <a href="https://openrouter.ai/google/gemma-4-31b-it:free" target="_blank">Google Gemma 4</a> (31B dense and 26B-A4B MoE variants) - free, multimodal, 256K context
+**Free models worth knowing right now** (July 2026, verify current status before you rely on one): see the table at the top of this post for the six models worth calling out by name - Nemotron 3 Ultra, Owl Alpha, Tencent Hy3, Qwen3 Coder, gpt-oss, and Gemma 4 - plus roughly 19 more in the full <a href="https://openrouter.ai/collections/free-models" target="_blank">Free Models collection</a>.
 
 **The reliability tip**: free models get rate limited hard during peak hours and rotate out without warning. Use OpenRouter's `models` array to list 2-3 free fallbacks in one request instead of hardcoding a single model ID.
 
 {{% /tldr %}}
 
-## What OpenRouter Actually Is
-
-{{< image "free_ai_model_apis_unlimited_tokens_openrouter/openrouter.webp" "OpenRouter unified API interface for LLMs homepage" >}}
-
-{{< link href="https://openrouter.ai" >}}OpenRouter{{< /link >}} is a unified API gateway that sits in front of hundreds of AI models from dozens of providers - OpenAI, Anthropic, Google, Meta, Alibaba, DeepSeek, Mistral, and many smaller labs - behind a single, OpenAI-compatible endpoint. Instead of juggling separate SDKs and API keys for every provider, you send one request format to `https://openrouter.ai/api/v1/chat/completions` and swap models by changing a string.
-
-We've covered OpenRouter's paid side and its alternatives in more depth in our {{< link href="/blog/best_ai_llm_routers_openrouter_alternatives/" >}}AI LLM routers comparison{{< /link >}}. This guide is narrower: it's specifically about the free tier - what it costs (nothing, in dollars), what it actually limits (requests, not tokens), and which models are on it right now.
+These free models aren't limited to raw API calls either - open source coding agents like <a href="https://opencode.ai" target="_blank">OpenCode</a> support OpenRouter as a built-in provider, so you can point an agentic coding session at `qwen/qwen3-coder:free` or any other free model and run real tool-calling workflows without paying for inference. We've covered OpenRouter's paid side and its alternatives in more depth in our {{< link href="/blog/best_ai_llm_routers_openrouter_alternatives/" >}}AI LLM routers comparison{{< /link >}}. This guide is narrower: it's specifically about the free tier - what it costs (nothing, in dollars), what it actually limits (requests, not tokens), and which models are on it right now.
 
 ## The Free Tier: Rate Limits, Not Token Limits
 
