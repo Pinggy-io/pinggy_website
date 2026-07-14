@@ -93,6 +93,76 @@ docker run -it pinggy/pinggy -p 443 -R0:localhost:8080 udp@free.pinggy.io
 {{< /tabs >}}
 
 
+## Docker Compose
+
+If you already run your app with Docker Compose, you can add Pinggy as another service and expose the app without touching the host network. Both containers share the Compose network, so the tunnel reaches your app by its service name instead of `localhost`.
+
+Here is a complete example that serves a static site with Nginx and exposes it over a public HTTPS URL:
+
+```yaml
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+
+  tunnel:
+    image: pinggy/pinggy
+    command: -p 443 -R0:web:80 free.pinggy.io
+    depends_on:
+      - web
+    stdin_open: true
+    tty: true
+```
+
+A few things to note:
+
+- `-R0:web:80` forwards to the `web` service on port `80`. Use the service name, not `localhost` or `host.docker.internal`, because Compose puts both containers on the same network.
+- `stdin_open: true` and `tty: true` keep the SSH session interactive, the same as passing `-it` to `docker run`.
+- You do not need `--net=host` here. That option is only for reaching a server running on the host machine; a service defined in the same Compose file is reachable by name.
+
+### Adding a token
+
+The example above uses `free.pinggy.io`, which gives a temporary URL that changes on each restart. If you have a [Pinggy Pro](https://dashboard.pinggy.io/) account, add your access token to get a persistent subdomain and longer sessions. In the SSH-style command, the token goes in front of the server address as the username, and you connect to `pro.pinggy.io` instead of `free.pinggy.io`:
+
+```yaml
+  tunnel:
+    image: pinggy/pinggy
+    command: -p 443 -R0:web:80 <YOUR_TOKEN>@pro.pinggy.io
+    depends_on:
+      - web
+    stdin_open: true
+    tty: true
+```
+
+Replace `<YOUR_TOKEN>` with the token from your <a href="https://dashboard.pinggy.io/" target="_blank">dashboard</a>. To keep the token out of the file, you can read it from an environment variable instead:
+
+```yaml
+  tunnel:
+    image: pinggy/pinggy
+    command: -p 443 -R0:web:80 ${PINGGY_TOKEN}@pro.pinggy.io
+    depends_on:
+      - web
+    stdin_open: true
+    tty: true
+```
+
+Then run `PINGGY_TOKEN=yourtoken docker compose up`, or put `PINGGY_TOKEN=yourtoken` in a `.env` file next to the compose file.
+
+Start everything with:
+
+```bash
+docker compose up
+```
+
+The public URL is printed in the `tunnel` service logs. If you started in detached mode with `docker compose up -d`, print it with:
+
+```bash
+docker compose logs tunnel
+```
+
+Swap the `web` service for whatever you are hosting (a Node app, a Flask server, a game server) and point `-R0:<service>:<port>` at its service name and port. Any other Pinggy option works here too, exactly as it does with `docker run`.
+
 ## Customizing your tunnel
 
 Any Pinggy configuration will work with the docker container. To learn about more options see [Pinggy CLI](/docs/cli/) documentation.
