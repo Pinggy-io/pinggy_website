@@ -59,6 +59,17 @@ Download the Pinggy App from <a href="/app/" target="_blank">here</a> and follow
 
 ![Pinggy App Screenshot](/assets/app5.webp)
 {{% /tab %}}
+{{% tab name="Docker" %}}
+If you have Docker installed, run the pre-built Pinggy image (no need to install anything else):
+
+```bash
+docker run --net=host -it pinggy/pinggy -p 443 -R0:localhost:8000 free.pinggy.io
+```
+
+Replace the port `8000` with the localhost port where your service is running.
+
+On Mac and Windows, drop the `--net=host` option. See the <a href="/docs/docker/">Docker docs</a> for Web Debugger, UDP tunnels, and Docker Compose examples.
+{{% /tab %}}
 {{% tab name="Node.js SDK" %}}
 Install the <a target="_blank" href="https://pinggy-io.github.io/sdk-nodejs/">Pinggy Node.js SDK</a> using `npm`:
 
