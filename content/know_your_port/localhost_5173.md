@@ -91,7 +91,7 @@ Port 5173 is primarily used by Vite and Vite-powered applications across the mod
 <li><strong>CSS Frameworks</strong>: {{< link href="https://tailwindcss.com/" >}}Tailwind CSS{{< /link >}}, {{< link href="https://unocss.dev/" >}}UnoCSS{{< /link >}}, {{< link href="https://sass-lang.com/" >}}Sass{{< /link >}}</li>
 <li><strong>Component Libraries</strong>: Build and test UI components with live reload</li>
 <li><strong>Micro-frontends</strong>: Module federation for composable apps</li>
-<li><strong>Documentation Sites</strong>: {{< link href="https://vitepress.dev/" >}}VitePress{{< /link >}}, {{< link href="https://dumi.umijs.org/" >}}Dumi{{< /link >}} for docs</li>
+<li><strong>Documentation Sites</strong>: {{< link href="https://vitepress.dev/" >}}VitePress{{< /link >}}, {{< link href="https://v1.d.umijs.org/" >}}Dumi{{< /link >}} for docs</li>
 <li><strong>Design Systems</strong>: Build and maintain component systems</li>
 <li><strong>Blog Generators</strong>: {{< link href="https://astro.build/" >}}Astro{{< /link >}} for content-heavy sites</li>
 </ul>
