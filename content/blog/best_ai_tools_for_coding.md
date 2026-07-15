@@ -37,7 +37,7 @@ Whether you're a solo developer looking to boost productivity or part of a team 
 - **Blackbox AI** - Free alternative with code search capabilities - <a target="_blank" href="https://blackbox.ai">Try Blackbox AI</a>
 - **CodeGPT** - Multi-model AI assistant supporting various LLMs - <a target="_blank" href="https://codegpt.co">Try CodeGPT</a>
 - **Bito AI** - AI coding assistant with chat and code generation - <a target="_blank" href="https://bito.ai">Try Bito AI</a>
-- **Phind** - AI search engine optimized for developers - <a target="_blank" href="https://phind.com">Try Phind</a>
+- **Phind** - AI search engine optimized for developers - <a target="_blank" href="https://phindai.org">Try Phind</a>
 - **Continue.dev** - Open-source AI coding assistant with local model support - <a target="_blank" href="https://continue.dev">Try Continue.dev</a>
 - **OpenAI Codex** - Foundation model for many AI coding tools - <a target="_blank" href="https://github.com/openai/codex">Learn about Codex</a>
 - **CodeAssist** - Google's AI coding assistant with intelligent suggestions - <a target="_blank" href="https://codeassist.google/">Try CodeAssist</a>
@@ -275,7 +275,7 @@ While the above nine tools represent the top tier of AI coding assistants, sever
 - {{< link href="https://blackbox.ai" >}}Blackbox AI{{< /link >}} - Offers comprehensive code search across millions of repositories and free tier with generous limits
 - {{< link href="https://codegpt.co" >}}CodeGPT{{< /link >}} - Provides multi-model support allowing connection to GPT-4, Claude, and open-source alternatives
 - {{< link href="https://bito.ai" >}}Bito AI{{< /link >}} - Excels at code explanation, unit test generation, and performance optimization suggestions
-- {{< link href="https://phind.com" >}}Phind{{< /link >}} - Combines AI-powered search with code generation, optimized specifically for developer queries
+- {{< link href="https://phindai.org" >}}Phind{{< /link >}} - Combines AI-powered search with code generation, optimized specifically for developer queries
 - {{< link href="https://continue.dev" >}}Continue.dev{{< /link >}} - Open-source AI coding assistant that runs locally or connects to various AI providers, offering maximum privacy and customization
 - {{< link href="https://github.com/openai/codex" >}}OpenAI Codex{{< /link >}} - Foundation model that powers many popular AI coding tools including GitHub Copilot, providing the underlying technology for code understanding and generation
 - {{< link href="https://codeassist.google/" >}}CodeAssist (Gemini Code Assist){{< /link >}} - Google's AI coding assistant with intelligent suggestions, code completion, and integration across Google Cloud services

@@ -2,6 +2,7 @@
 title: "What problems does DNS solve?"
 description: "Learn how DNS simplifies internet access by translating IP addresses into user-friendly domain names, ensuring seamless connectivity and enhanced security."
 date: 2024-12-19T14:15:25+05:30
+lastmod: 2026-07-14T14:15:25+05:30
 draft: false
 og_image: "images/dns/Domain_Name_System.webp"
 tags: ["DNS", "IP Addressing", "Load Balancing", "Web Technology", "DNS Security", "SEO"]
@@ -128,7 +129,7 @@ Email authentication is a **critical component** of **secure email communication
 
 All three protocols-**SPF**, **DKIM**, and **DMARC**-are implemented using **DNS TXT records**. These records are **publicly accessible**, allowing mail servers to authenticate emails based on the information stored in the domain’s **DNS**. Properly configured **DNS records** ensure that **legitimate emails** are delivered successfully and protect the domain from being misused by **spammers** and **phishers**.
 
-By leveraging DNS for email authentication, domains can enhance **security**, improve **email deliverability**, and maintain their **reputation**. This **seamless process** happens **behind the scenes**, making email communication both **reliable** and **secure**.
+By leveraging DNS for email authentication, domains can enhance **security**, improve **email deliverability**, and maintain their **reputation**. This **seamless process** happens **behind the scenes**, making email communication both **reliable** and **secure**. Since **SPF**, **DKIM**, and **DMARC** all rely on correctly published **DNS TXT records**, it's worth periodically running a {{< link href="https://easydmarc.com/tools/dns-record-checker" >}}dns lookup{{< /link >}} to confirm these records are live, correctly formatted, and propagated across resolvers - a small check that prevents **silent authentication failures** down the line.
 
 
 ### 8. Search Engine Optimization (SEO)
