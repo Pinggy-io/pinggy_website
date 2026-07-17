@@ -111,7 +111,7 @@ That framing only works, though, if you can actually check on the job without si
 
 Colibrì ships `coli serve`, an OpenAI-compatible HTTP server with `/v1/chat/completions`, `/v1/completions`, and `/v1/models` endpoints, SSE streaming, and support for temperature and top-p controls. That means anything you've already written against the OpenAI SDK works against it with a base URL change.
 
-{{< image "colibri_glm_5_2_744b_model_25gb_ram/colibri_ui.webp" "Colibrì's bundled web UI connected to a local coli serve endpoint, mid-response to a prompt, with live VRAM/RAM/core and queue stats in the sidebar" >}}
+
 
 Build and set it up first:
 
@@ -138,6 +138,7 @@ Start the server. The README is explicit that the default bind address is localh
 ```bash
 COLI_MODEL=/path/to/store COLI_API_KEY=your-secret-key ./coli serve --host 127.0.0.1 --port 8000
 ```
+{{< image "colibri_glm_5_2_744b_model_25gb_ram/colibri_ui.webp" "Colibrì's bundled web UI connected to a local coli serve endpoint, mid-response to a prompt, with live VRAM/RAM/core and queue stats in the sidebar" >}}
 
 That last part - "before exposing the server beyond the machine" - is the whole reason a tunnel is useful here. `127.0.0.1` means nothing outside your laptop can reach it, which is safe by default but also means you can't check on your overnight run from your phone without opening a separate terminal on the same machine. Pinggy closes that gap without you touching your router:
 
