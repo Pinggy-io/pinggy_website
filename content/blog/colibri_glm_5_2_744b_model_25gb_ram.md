@@ -1,5 +1,5 @@
 ---
-title: "Colibrì Runs GLM-5.2's 744B Parameters on a 25 GB RAM Laptop by Streaming Experts From Disk"
+title: "Self hosting a 744B param LLM with only 25 GB RAM"
 description: "A single-file C engine called Colibrì streams GLM-5.2's 744B mixture-of-experts weights off an NVMe drive to run the full model on 25 GB of RAM at 0.05-2 tokens/second. Here's how it works, what Hacker News made of it, and how to check on a queued run from your phone with Pinggy."
 date: 2026-07-12T10:00:00+05:30
 lastmod: 2026-07-11T10:00:00+05:30
@@ -43,10 +43,10 @@ If you want the general background on why MoE models behave this way, see our ex
 
 ## How the disk-streaming trick works
 
-The core idea exploits something MoE models already give you for free: only a fraction of the parameters activate for any single token. GLM-5.2 has 75 MoE layers with 256 experts each - 21,504 experts total - plus a multi-token-prediction (MTP) head, but the router only picks a handful of experts per token. Colibrì splits the model into two very differently-treated pieces:
+The core idea exploits something MoE models already give you for free: only a fraction of the parameters activate for any single token. GLM-5.2 has 75 MoE layers with 256 experts each - 21,504 experts total - plus a multi-token-prediction (MTP) head, but the router only picks a handful of experts per token. Colibrì splits the model into two pieces and treats each one completely differently:
 
 - **The dense backbone** - attention, shared experts, embeddings, roughly 17B parameters - stays resident in RAM at int4 quantization, weighing in around 9.9 GB.
-- **The 21,504 routed experts** - about 19 MB each at int4, ~370 GB total - live on disk and get streamed in on demand, with a per-layer LRU cache, an optional pinned "hot store" for frequently-used experts, and the OS page cache acting as a free second-level cache.
+- **The 21,504 routed experts** - about 19 MB each at int4, ~370 GB total - live on disk and stream in on demand, backed by a per-layer LRU cache, an optional pinned "hot store" for frequently-used experts, and the OS page cache acting as a free second-level cache.
 
 That 370 GB has to sit on a local NVMe drive; over a network share or spinning disk this approach falls apart. The engine itself is refreshingly unglamorous: a single C file (`c/glm.c`), no Python at runtime, no BLAS library, no GPU required, built with GCC and OpenMP. Python only shows up once, during the initial FP8-to-int4 conversion step. An optional CUDA backend can host the resident tensors, but the experts stay CPU-streamed either way.
 
@@ -58,7 +58,7 @@ A few implementation details are worth calling out because they explain why this
 - **Grammar-forced speculative decoding** for structured output, useful if you're planning to hit this with function-calling or JSON-mode requests instead of open-ended chat.
 - An experimental **router-lookahead prefetch** claims 71.6% predictable routing, which is the kind of thing that could meaningfully close the speed gap if it matures.
 
-On the SSD-wear question that inevitably comes up whenever someone proposes hammering a drive as a substitute for RAM: the README addresses it directly, noting that heavy writes are limited to the KV cache while expert loading is almost entirely reads. Reads don't wear out flash the way writes do, so the "you'll kill your SSD in a month" worry is less founded than it sounds at first.
+The SSD-wear question inevitably comes up whenever someone proposes hammering a drive as a substitute for RAM. The README addresses it directly: heavy writes are limited to the KV cache, while expert loading is almost entirely reads. Reads don't wear out flash the way writes do, so the "you'll kill your SSD in a month" worry is less founded than it sounds at first.
 
 ## The actual numbers
 
@@ -111,6 +111,8 @@ That framing only works, though, if you can actually check on the job without si
 
 Colibrì ships `coli serve`, an OpenAI-compatible HTTP server with `/v1/chat/completions`, `/v1/completions`, and `/v1/models` endpoints, SSE streaming, and support for temperature and top-p controls. That means anything you've already written against the OpenAI SDK works against it with a base URL change.
 
+{{< image "colibri_glm_5_2_744b_model_25gb_ram/colibri_ui.webp" "Colibrì's bundled web UI connected to a local coli serve endpoint, mid-response to a prompt, with live VRAM/RAM/core and queue stats in the sidebar" >}}
+
 Build and set it up first:
 
 ```bash
@@ -118,6 +120,8 @@ git clone https://github.com/JustVugg/colibri.git
 cd colibri/c
 ./setup.sh
 ```
+
+{{< image "colibri_glm_5_2_744b_model_25gb_ram/git_clone.webp" "Terminal output of cloning the Colibrì repo and running ./setup.sh, which detects the toolchain, warns if OpenMP isn't installed, and prints the next commands to run" >}}
 
 Either convert the weights yourself or grab the pre-quantized version from Hugging Face to skip the conversion step:
 
@@ -147,6 +151,10 @@ Pinggy responds with a public HTTPS URL:
 You are assigned a random subdomain: https://abc123.a.pinggy.link
 ```
 
+{{< image "colibri_glm_5_2_744b_model_25gb_ram/pinggy_tunnel.webp" "Real free-tier Pinggy tunnel output: an unauthenticated 60-minute expiry notice plus both HTTP and HTTPS URLs on two separate domains" >}}
+
+An unauthenticated free tunnel like this actually prints four URLs (HTTP and HTTPS, on two different domains) and a note that it expires in 60 minutes - fine for checking on a run once, less fine for an overnight job. [Signing in](/) or moving to a paid plan removes that expiry.
+
 Now poll it from wherever you actually are:
 
 ```bash
@@ -170,8 +178,10 @@ ssh -p 443 -R0:localhost:8000 a.pinggy.io -t "b:myuser:mypassword"
 
 This is the same pattern we've used for other local-inference setups - see our guides on [exposing an Ollama API](/blog/forward_ollama_port_11434_online_access/) and [self-hosting any LLM](/blog/how_to_self_host_any_llm_step_by_step_guide/) - it just matters more here because the whole point of Colibrì is that the model is doing something slow enough that you genuinely want to walk away while it works.
 
-## Where this goes next
+## Conclusion
 
 The most interesting thing about Colibrì isn't the specific tok/s numbers, which will look dated within a few months as NVMe drives get faster and someone inevitably tunes the expert-pinning heuristics further. It's that "RAM as a hard requirement" is being actively challenged by more than one project at once - Colibrì and antirez's ds4 arrived at similar architectures independently, working on different model families, within weeks of each other. That's usually a sign an idea's time has come rather than a coincidence.
 
 Whether disk-streamed MoE inference ends up as a permanent fixture of the local-LLM toolkit or a clever stopgap that gets obsoleted by cheaper high-RAM hardware, it's worth trying at least once if you have a spare NVMe drive and a task that doesn't mind waiting. The <a href="https://github.com/JustVugg/colibri" target="_blank">Colibrì repository</a> has the full benchmark methodology and build instructions if you want to reproduce the numbers on your own machine.
+
+This post is a write-up of the Show HN thread <a href="https://news.ycombinator.com/item?id=48842459" target="_blank">"Getting GLM 5.2 running on my slow computer"</a>, where the discussion described above played out.
