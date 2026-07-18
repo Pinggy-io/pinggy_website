@@ -2,7 +2,7 @@
 title: "Self hosting a 744B param LLM with only 25 GB RAM"
 description: "A single-file C engine called Colibrì streams GLM-5.2's 744B mixture-of-experts weights off an NVMe drive to run the full model on 25 GB of RAM at 0.05-2 tokens/second. Here's how it works, what Hacker News made of it, and how to check on a queued run from your phone with Pinggy."
 date: 2026-07-12T10:00:00+05:30
-lastmod: 2026-07-11T10:00:00+05:30
+lastmod: 2026-07-17T10:00:00+05:30
 draft: false
 tags: ["GLM-5.2", "Colibrì", "local LLM", "mixture of experts", "disk streaming", "self-hosted AI", "Pinggy", "Show HN", "Z.ai"]
 categories: ["Technology", "AI Tools", "Self-Hosting"]
@@ -26,14 +26,6 @@ The trick is that it barely uses the RAM at all. Colibrì keeps only the model's
 4. **The catch**: at these speeds it is a queue-a-task-and-check-back-later tool, not a chat interface. The README itself recommends setting an API key before exposing the server beyond your machine.
 5. **The practical follow-up**: since `coli serve` binds to localhost only, use [Pinggy](/) to get a public HTTPS URL and poll your overnight run from your phone: `ssh -p 443 -R0:localhost:8000 free.pinggy.io`.
 {{% /tldr %}}
-
-## What actually happened on Hacker News
-
-The post's own framing is disarming: the goal was to get GLM-5.2 to answer correctly on a 12-core laptop with 25 GB of RAM, "even if speed is measured in minutes per paragraph, not tokens per second." That is not a typo. On the author's own dev machine, cold decode runs at 0.05-0.1 tokens per second - roughly one word every ten to twenty seconds.
-
-The top comment on the thread was short: "This is the hacker spirit." That sums up the reaction pretty well. Nobody in the comments thought 0.1 tok/s was a practical daily driver, but plenty of people were impressed that it worked at all, and several pointed out the resemblance to <a href="https://github.com/antirez/ds4" target="_blank">ds4</a>, a similar disk-streaming inference engine that Redis creator <a href="https://antirez.com/" target="_blank">Salvatore Sanfilippo</a> has been building for DeepSeek models. Both projects lean on the same insight: modern NVMe drives are fast enough that RAM doesn't have to be a hard cutoff for "can I run this model." It can be a dial.
-
-The pushback was just as useful as the praise. One commenter noted that a chat UI is the wrong mental model at this speed - the workflow that makes sense is closer to batch processing: queue a prompt, walk away, check the result hours later. Another pointed out that for most practical purposes, free-tier API access from a cloud provider serving GLM-5.2 would clear far more tokens than a 0.1 tok/s local run, so the value here is more "I can" than "I should." Both are fair, and the project doesn't really argue otherwise.
 
 ## GLM-5.2, briefly
 
