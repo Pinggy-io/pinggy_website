@@ -2,7 +2,7 @@
 title: "How to Turn ChatGPT Into a Free Local Coding Agent With DevSpace"
 description: "DevSpace is an open-source MCP server that gives ChatGPT direct access to your local files, terminal, and git repos - turning ordinary ChatGPT chats into a Codex-style coding agent without paying for a separate agent product. Full setup guide with Pinggy."
 date: 2026-07-13T14:15:25+05:30
-lastmod: 2026-07-14T14:15:25+05:30
+lastmod: 2026-07-15T14:15:25+05:30
 draft: false
 og_image: "images/turn_chatgpt_into_free_local_coding_agent_devspace/turn_chatgpt_into_free_local_coding_agent_devspace_banner.webp"
 tags: ["ChatGPT", "DevSpace", "MCP", "coding agent", "Codex", "AI coding tools", "Pinggy", "developer tools"]
@@ -110,7 +110,7 @@ You'll be asked for three things:
 
 Open a new terminal and start a tunnel to the port DevSpace will listen on:
 
-{{< pinggytunnel localport="7676" tryYourselfText="Run this to expose your local DevSpace server:" >}}
+{{< pinggytunnel box="true" localport="7676" tryYourselfText="Run this to expose your local DevSpace server:" >}}
 {{< /pinggytunnel >}}
 
 {{< image "turn_chatgpt_into_free_local_coding_agent_devspace/pinggy_url.webp" "Pinggy tunnel started, printing the public HTTP and HTTPS URLs" >}}
