@@ -1,8 +1,8 @@
 ---
-title: "Bonsai 27B: A 27B Model That Fits on a Phone (and What It Gives Up to Get There)"
-description: "PrismML's Bonsai 27B compresses a 27B-parameter Qwen3.6 model to 3.9GB using native 1-bit weights and runs it on an iPhone at 11 tok/s. Here's how the quantization works, the benchmarks it quietly loses, and how to try it in a browser."
+title: "Bonsai 27B: A 27B-Parameter LLM That Fits on an iPhone"
+description: "Bonsai 27B compresses a 27B-parameter Qwen3.6 model to 3.9GB using native 1-bit weights and runs on an iPhone at 11 tok/s. Here's what it gives up."
 date: 2026-07-17T11:00:00+05:30
-lastmod: 2026-07-17T11:00:00+05:30
+lastmod: 2026-07-18T11:00:00+05:30
 draft: false
 tags: ["Bonsai 27B", "PrismML", "on-device AI", "LLM quantization", "1-bit LLM", "edge AI", "local LLM", "Qwen3.6", "WebGPU"]
 categories: ["Technology", "AI", "Edge AI"]
@@ -29,7 +29,7 @@ outputs:
 
 ## What actually shipped
 
-Bonsai 27B is a multimodal model built on Qwen3.6 27B's hybrid-attention architecture (roughly 75% linear attention layers, 25% full attention), with the full ~27.32B language weights plus a 461M-parameter vision tower kept in 4-bit so the model can still read screenshots and documents, not just text. It ships in two compressed forms:
+Bonsai 27B is a multimodal model built on Qwen3.6 27B's hybrid-attention architecture (roughly 75% linear attention layers, 25% full attention). The ~27.32B language weights get the 1-bit or ternary treatment; a 461M-parameter vision tower rides along in 4-bit so the model can still read screenshots and documents, not just text. It ships in two compressed forms:
 
 - **1-bit build** - 3.9GB, 1.125 effective bits per weight, tuned to fit inside the memory budget of an iPhone 17 Pro.
 - **Ternary build** - 5.9GB, 1.71 effective bits per weight, aimed at laptop-class hardware where you can afford a bit more memory for better quality.
@@ -54,17 +54,21 @@ Part of that speed comes from **DSpark**, a speculative-decoding drafter layer t
 
 ## The benchmark that gives away the tradeoff
 
-Here's where the marketing copy and the Hacker News thread start to diverge. PrismML's own numbers show the ternary build scoring 78 on MMLU against 84 for the uncompressed Qwen3.6 27B - about 93% retention - and an average of 80.49 across 15 benchmarks in thinking mode, which PrismML frames as roughly 95% retention of full-precision quality.
+Here's where the marketing copy and the Hacker News thread start to diverge. PrismML's own release notes break results out across 15 benchmarks in thinking mode: the ternary build averages 80.49 against an uncompressed baseline of 85.07 (about 95% retention), and the 1-bit build averages 76.11 (about 90% retention).
 
-That's a genuinely good result, but it's an average, and averages hide the interesting part. Multiple people who actually ran the numbers by category (including a detailed breakdown from independent testing) found that **math and code hold up close to parity - PrismML has these sitting in the 90s - while tool-calling drops into the 70s, and vision quality falls off too.** Quantizing a model this aggressively doesn't cost you evenly across skills. Reasoning that stays inside the model's own head (chain-of-thought math, writing code) degrades gracefully. Anything that depends on precisely structured, multi-step output - calling a tool with the right arguments in the right format, in the exact schema an agent harness expects - is more fragile, and it shows.
+That's a genuinely good result, but it's an average, and averages hide the interesting part. **Math and code hold up close to parity, while tool-calling and vision take the real hit - and the 1-bit build's tool-calling score falls a lot further than the ternary build's does.** Math stays solidly in the 90s (93.4 ternary, 91.7 1-bit, versus a 95.3 baseline); coding trails a bit behind in the mid-to-high 80s (86.0 and 81.9, versus 88.7). Tool-calling and agentic tasks are the outlier: the ternary build drops to 74.0, and the 1-bit build falls further still, to 66.0, a much steeper cut off an 80.0 baseline. Zoom into a single agentic benchmark and it gets starker - on Tau2-Bench, a multi-step tool-use test, the 1-bit build scores 61.3 against a baseline of 82.9, a 26% relative drop. Quantizing a model this aggressively doesn't cost you evenly across skills. Reasoning that stays inside the model's own head (chain-of-thought math, writing code) degrades gracefully. Anything that depends on precisely structured, multi-step output - calling a tool with the right arguments in the right format, in the exact schema an agent harness expects - is more fragile, and it shows.
 
-If you're picturing Bonsai as the backbone for an on-device agent that calls tools, reads your calendar, and books things for you, that's exactly the workload where the compression bites hardest. It's a fine model for a phone-based chat assistant or a private coding helper. It is not yet a drop-in replacement for a full-precision model in an agentic pipeline, and at least one early Android tester reported getting a screen full of exclamation marks back instead of an answer - a reminder that "just shipped" software still ships some rough edges.
+If you're picturing Bonsai as the backbone for an on-device agent that calls tools, reads your calendar, and books things for you, that's exactly the workload where the compression bites hardest. It's a fine model for a phone-based chat assistant or a private coding helper. It is not yet a drop-in replacement for a full-precision model in an agentic pipeline - the steepest drops in PrismML's own numbers are concentrated in exactly the multi-step, tool-calling benchmarks a real agent harness would lean on.
 
 ## Try it without installing anything
 
 You don't need a phone or a beefy GPU to see this working. PrismML worked with the WebML community to build custom WebGPU kernels for Bonsai, and there's a live demo running the 1-bit build entirely in-browser at the <a href="https://huggingface.co/spaces/webml-community/bonsai-webgpu-kernels" target="_blank">Hugging Face Space</a>. WebGPU is the successor to WebGL - it gives the browser near-native access to the GPU's compute shaders, which is what makes running a 3.9GB model's matrix multiplications in a browser tab even remotely practical.
 
+{{< image "bonsai_27b_phone_llm/download_model.webp" "The Bonsai 27B WebGPU demo compiling kernels and downloading the 3.79GB model in the browser before first use" >}}
+
 Expect 8 to 30 tokens per second depending on your GPU, and a one-time multi-gigabyte download that gets cached for later runs. Chrome and Edge support WebGPU well; Safari's support is newer and more experimental, including on iOS.
+
+{{< image "bonsai_27b_phone_llm/using_model_on_browser.webp" "Bonsai 27B answering a Python coding question entirely in the browser via WebGPU, with live tokens-per-second stats" >}}
 
 ## Why Apple is suddenly in this story
 
