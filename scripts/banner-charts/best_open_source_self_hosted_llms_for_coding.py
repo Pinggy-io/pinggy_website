@@ -43,14 +43,18 @@ plt.rcParams.update({
 # ---- data (all values cited in the post) ----------------------------------
 # The leading proprietary bar (amber) is a frontier reference, not an
 # open-weight model - it shows how far open weights are from the best closed
-# model. Claude Opus 4.8: AA Intelligence Index 56, SWE-Bench Pro 69.2.
-# `prop` flags which bars are the proprietary reference.
+# model. Claude Fable 5 is the current AA Intelligence Index #1 (60), ahead of
+# Claude Opus 4.8 (56); SWE-Bench Pro frontier reference is still Opus 4.8
+# (69.2) pending a verified Fable 5 number. `prop` flags proprietary bars.
+# Kimi K3 (57 on AA Index) is open-weight licensed but weights aren't
+# published yet (due Jul 27, 2026) - no SWE-Bench Pro number was reported by
+# Moonshot for it, so it's absent from panel 2.
 
 # Panel 1 (PRIMARY): Artificial Analysis Intelligence Index.
-aa_labels = ["Claude\nOpus 4.8", "GLM\n5.2", "MiniMax\nM3", "DeepSeek\nV4 Pro",
+aa_labels = ["Claude\nFable 5", "Kimi\nK3", "GLM\n5.2", "MiniMax\nM3", "DeepSeek\nV4 Pro",
              "Kimi\nK2.6", "MiMo\nV2.5-Pro", "Kimi K2.7\nCode", "Qwen3.6\n35B-A3B"]
-aa_vals = [56.0, 51.1, 44.4, 44.3, 42.8, 42.2, 42.0, 32.0]
-aa_prop = [True, False, False, False, False, False, False, False]
+aa_vals = [60.0, 57.0, 51.1, 44.4, 44.3, 42.8, 42.2, 42.0, 32.0]
+aa_prop = [True, False, False, False, False, False, False, False, False]
 
 # Panel 2: SWE-Bench Pro.
 swe_labels = ["Claude\nOpus 4.8", "GLM\n5.2", "MiniMax\nM3", "Kimi K2.7\nCode",
@@ -126,7 +130,7 @@ open_patch = mpatches.Patch(facecolor=BAR_FACE, edgecolor=BAR_EDGE,
                             hatch=BAR_HATCH, label="Open weight")
 prop_patch = mpatches.Patch(facecolor=PROP_FACE, edgecolor=PROP_EDGE,
                             hatch=PROP_HATCH,
-                            label="Proprietary frontier (Claude Opus 4.8)")
+                            label="Proprietary frontier (Claude Fable 5 / Opus 4.8)")
 fig.legend(handles=[open_patch, prop_patch], loc="upper center",
            bbox_to_anchor=(0.5, 0.86), ncol=2, frameon=False, fontsize=12.5)
 
@@ -138,8 +142,8 @@ ax2 = fig.add_subplot(gs[0, 1])
 ax3 = fig.add_subplot(gs[1, :])
 
 bar_panel(ax1, aa_labels, aa_vals,
-          "Artificial Analysis Intelligence Index", 60, [0, 20, 40, 60],
-          prop=aa_prop, tickfs=9.5)
+          "Artificial Analysis Intelligence Index", 68, [0, 20, 40, 60],
+          prop=aa_prop, tickfs=8.3)
 bar_panel(ax2, swe_labels, swe_vals, "SWE-Bench Pro", 80, [0, 40, 80],
           prop=swe_prop, tickfs=9.5)
 dot_panel(ax3, ctx_labels, ctx_vals, "Context Window (M tokens)", 1.5,
