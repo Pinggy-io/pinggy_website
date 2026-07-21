@@ -13,9 +13,9 @@ outputs:
 
 {{< image "hallmark_anti_ai_slop_design_skill/hallmark_anti_ai_slop_design_skill_banner.webp" "Side-by-side comparison of a generic AI-generated landing page with a purple gradient hero next to a distinct editorial-style design produced by the Hallmark skill" >}}
 
-A developer named Adrian Krebs <a href="https://www.adriankrebs.ch/blog/design-slop/" target="_blank">ran 1,590 Show HN landing pages through Playwright</a> and scored each one against sixteen deterministic CSS and DOM checks: permanent dark theme, a purple-to-blue gradient hero, a three-icon feature grid, Inter set on an 8px grid. Twenty-two percent came back heavy slop. Another 32 percent were mild. Only 46 percent read as a page a human had actually made decisions about. The most common single tell, at 34% of pages, was the dark theme nobody asked for. His writeup hit the Hacker News front page and stayed there: 333 points, 235 comments, most of them nodding along.
+A developer named Adrian Krebs {{< link href="https://www.adriankrebs.ch/blog/design-slop/" >}}ran 1,590 Show HN landing pages through Playwright{{< /link >}} and scored each one against sixteen deterministic CSS and DOM checks: permanent dark theme, a purple-to-blue gradient hero, a three-icon feature grid, Inter set on an 8px grid. Twenty-two percent came back heavy slop. Another 32 percent were mild. Only 46 percent read as a page a human had actually made decisions about. The most common single tell, at 34% of pages, was the dark theme nobody asked for. His writeup hit the Hacker News front page and stayed there: 333 points, 235 comments, most of them nodding along.
 
-That's the backdrop <a href="https://github.com/nutlope/hallmark" target="_blank">Hallmark</a> launched into. It's a design skill, meaning a folder of instructions an AI coding agent loads before it writes any UI code, and its entire pitch is refusing to produce the page Krebs was scoring. Since exploding on GitHub's trending page this month, it's picked up more than 11,000 stars and 550+ forks.
+That's the backdrop {{< link href="https://github.com/nutlope/hallmark" >}}Hallmark{{< /link >}} launched into. It's a design skill, meaning a folder of instructions an AI coding agent loads before it writes any UI code, and its entire pitch is refusing to produce the page Krebs was scoring. Since exploding on GitHub's trending page this month, it's picked up more than 11,000 stars and 550+ forks.
 
 {{% tldr %}}
 1. **What it is**: <a href="https://github.com/nutlope/hallmark" target="_blank">Hallmark</a> is an open-source design skill for Claude Code, Cursor, and Codex that encodes anti-AI-slop rules and refuses the visual defaults every LLM was trained on.
@@ -33,7 +33,7 @@ The root cause isn't that language models can't design. It's that they're traine
 
 ## What Hallmark actually enforces
 
-Hallmark's <a href="https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/SKILL.md" target="_blank">SKILL.md</a> is long and specific in the way a real style guide is long and specific, not the way marketing copy is long. A few of the rules that stood out reading through it:
+Hallmark's {{< link href="https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/SKILL.md" >}}SKILL.md{{< /link >}} is long and specific in the way a real style guide is long and specific, not the way marketing copy is long. A few of the rules that stood out reading through it:
 
 - **No fabricated metrics.** If you didn't give the agent a real number, it can't invent "+47% conversion" or "trusted by 50,000 teams." That's an explicit slop-test gate, which is a little funny given how often you see exactly that kind of made-up stat on generated landing pages.
 - **No re-drawn browser chrome.** No fake macOS traffic-light dots wrapping a screenshot, no fake phone bezel. Use the real thing or leave it out.
@@ -45,7 +45,7 @@ There are four verbs: the default flow builds new UI, `hallmark audit <target>` 
 
 ## Who's behind it
 
-Hallmark comes out of <a href="https://www.together.ai/" target="_blank">Together AI</a>, the AI inference and training cloud, built by Hassan El Mghari, who goes by Nutlope online and leads the company's developer experience team. He's the person behind a string of viral open-source AI demos over the past few years, including roomGPT.io and aicommits, projects that between them have pulled in a couple million users. Hallmark launched on May 19, 2026, and mostly grew steadily until this month, when it hit GitHub's trending page and picked up over 3,000 stars in a single day. That kind of jump usually means one influential post or repost, not organic discovery, but the sustained star curve since suggests people are actually installing it rather than just clicking a link.
+Hallmark comes out of {{< link href="https://www.together.ai/" >}}Together AI{{< /link >}}, the AI inference and training cloud, built by Hassan El Mghari, who goes by Nutlope online and leads the company's developer experience team. He's the person behind a string of viral open-source AI demos over the past few years, including roomGPT.io and aicommits, projects that between them have pulled in a couple million users. Hallmark launched on May 19, 2026, and mostly grew steadily until this month, when it hit GitHub's trending page and picked up over 3,000 stars in a single day. That kind of jump usually means one influential post or repost, not organic discovery, but the sustained star curve since suggests people are actually installing it rather than just clicking a link.
 
 ## Where it gets honest about tradeoffs
 
