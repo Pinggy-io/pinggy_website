@@ -964,4 +964,39 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
   </div>
 </div>
 
+<!-- Featured-on badge marquee -->
+<section class="py-5" id="featured-on">
+  <div class="container">
+    <p class="badge-marquee-label text-center">Featured on</p>
+    <div class="badge-marquee" aria-label="Directories and sites featuring Pinggy">
+    <div class="badge-marquee-track">
+      <div class="badge-marquee-group">
+        <a href="https://lemonlaunch.dev/saas/pinggy" target="_blank" rel="noopener"><img src="https://lemonlaunch.dev/badge/lemonlaunch-badge-light.svg" alt="Featured on LemonLaunch" width="188" height="56" loading="lazy" /></a>
+        <a href="https://www.listbulb.com/tools/pinggy" target="_blank" rel="noopener"><img src="https://www.listbulb.com/featured-on-listbulb-light.svg" alt="Featured on ListBulb" loading="lazy" /></a>
+        <a href="https://easylaunch.dev/ai/pinggy" target="_blank" rel="noopener"><img src="https://easylaunch.dev/badge/easylaunch-badge-light.svg" alt="Featured on EasyLaunch" width="188" height="56" loading="lazy" /></a>
+        <a href="https://easydofollow.dev/ai/pinggy" target="_blank" rel="noopener"><img src="https://easydofollow.dev/badge/easydofollow-badge-light.svg" alt="Featured on EasyDoFollow" width="188" height="56" loading="lazy" /></a>
+        <a href="https://wired.business" target="_blank" rel="noopener"><img src="https://wired.business/badge1-light.svg" alt="Featured on Wired Business" width="200" height="54" loading="lazy" /></a>
+        <a href="https://dironix.com" target="_blank" rel="noopener"><img src="https://dironix.com/bage.png" alt="Featured on dironix.com" loading="lazy" /></a>
+        <a href="https://uno.directory" target="_blank" rel="noopener"><img src="https://uno.directory/uno-directory.svg" alt="Listed on Uno Directory" width="120" height="30" loading="lazy" /></a>
+        <a href="https://apphublist.com/products/pinggy" target="_blank" rel="noopener"><img src="https://apphublist.com/assets/images/badge.png" alt="App Hub List" height="54" loading="lazy" /></a>
+        <a href="https://saasavenue.com/products/pinggy" target="_blank" rel="noopener"><img src="https://saasavenue.com/assets/images/badge.png" alt="SaaS Avenue" height="54" loading="lazy" /></a>
+        <a href="https://appnetworker.com/products/pinggy" target="_blank" rel="noopener"><img src="https://appnetworker.com/assets/images/badge.png" alt="App Networker" height="54" loading="lazy" /></a>
+      </div>
+      <div class="badge-marquee-group" aria-hidden="true">
+        <a href="https://lemonlaunch.dev/saas/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://lemonlaunch.dev/badge/lemonlaunch-badge-light.svg" alt="" width="188" height="56" loading="lazy" /></a>
+        <a href="https://www.listbulb.com/tools/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://www.listbulb.com/featured-on-listbulb-light.svg" alt="" loading="lazy" /></a>
+        <a href="https://easylaunch.dev/ai/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://easylaunch.dev/badge/easylaunch-badge-light.svg" alt="" width="188" height="56" loading="lazy" /></a>
+        <a href="https://easydofollow.dev/ai/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://easydofollow.dev/badge/easydofollow-badge-light.svg" alt="" width="188" height="56" loading="lazy" /></a>
+        <a href="https://wired.business" target="_blank" rel="noopener" tabindex="-1"><img src="https://wired.business/badge1-light.svg" alt="" width="200" height="54" loading="lazy" /></a>
+        <a href="https://dironix.com" target="_blank" rel="noopener" tabindex="-1"><img src="https://dironix.com/bage.png" alt="" loading="lazy" /></a>
+        <a href="https://uno.directory" target="_blank" rel="noopener" tabindex="-1"><img src="https://uno.directory/uno-directory.svg" alt="" width="120" height="30" loading="lazy" /></a>
+        <a href="https://apphublist.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://apphublist.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>
+        <a href="https://saasavenue.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://saasavenue.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>
+        <a href="https://appnetworker.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://appnetworker.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{< faq >}}
