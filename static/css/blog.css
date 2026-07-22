@@ -369,8 +369,157 @@ body::before {
 @media (max-width: 560px) { .bp-endcard { flex-wrap: wrap; } .bp-endcard__cta { margin-left: 0; width: 100%; text-align: center; } }
 
 /* ---------------------------------------------------------------------------
+   Blog navbar (editorial). Lives outside the `.bp` wrapper (it sits in
+   baseof above the article and the list), so it carries its own palette
+   values instead of the `.bp` custom properties. Kept intentionally sparse:
+   wordmark + "Technical Blog", a Contact link, and community icons. No
+   Compare / Download / Dashboard - those product signals are what make a
+   blog read as a marketing page. blog.css loads only on blog pages, so this
+   never touches the product site.
+   --------------------------------------------------------------------------- */
+/* The site-wide fixed navbar left a 4.8em top offset on .contentcontainer;
+   this editorial nav sits in normal flow (sticky), so reclaim that space. */
+.contentcontainer { margin-top: 0; }
+
+.bp-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 250, 248, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid #e9ebf0;
+}
+.bp-nav__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px clamp(20px, 5vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.bp-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.bp-nav__logo { height: 30px; width: auto; display: block; }
+.bp-nav__sep { width: 1px; height: 22px; background: #d9dde4; }
+.bp-nav__label {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #6b7686;
+  white-space: nowrap;
+}
+.bp-nav__links {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.bp-nav__text {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: #344155;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s;
+}
+.bp-nav__text:hover { color: #1d4ed8; background: #eef2fe; }
+.bp-nav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: #6b7686;
+  transition: color 0.15s, background 0.15s;
+}
+.bp-nav__icon:hover { color: #1f2a37; background: #eef2fe; }
+.bp-nav__icon svg { width: 20px; height: 20px; display: block; }
+.bp-nav__icon--img img { width: 20px; height: 20px; display: block; }
+.bp-nav a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+  border-radius: 8px;
+}
+@media (max-width: 480px) {
+  .bp-nav__label { display: none; }
+  .bp-nav__sep { display: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   Blog list (editorial). Wrapped in `.bp` in layouts/blog/list.html so it
+   inherits the reading typefaces and palette. These rules retune the
+   masthead and the shared `.blog-card` markup (styled for the product site
+   in customization.css) into the same editorial voice as the posts: mono
+   for meta, Plus Jakarta for headings, the blog blue for links. Scoped under
+   `.bp` so the product site's cards (e.g. tag term pages) are untouched.
+   --------------------------------------------------------------------------- */
+.bp-list { max-width: 820px; margin: 0 auto; padding: clamp(28px, 5vw, 52px) 0 24px; }
+.bp-list__masthead { margin-bottom: 8px; }
+.bp-list__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--ui); font-weight: 700; font-size: 13px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-strong);
+}
+.bp-list__eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: var(--accent); }
+.bp-list__title {
+  font-family: var(--ui); font-weight: 800; color: var(--ink);
+  font-size: clamp(30px, 4.4vw, 42px); line-height: 1.08; letter-spacing: -0.02em;
+  margin: 14px 0 10px;
+}
+.bp-list__lede {
+  font-family: var(--sans); color: var(--body);
+  font-size: 18px; line-height: 1.6; max-width: 62ch; margin: 0;
+}
+.bp-list__lede a { color: var(--accent-strong); text-decoration: none; border-bottom: 1px solid var(--accent-soft-border); }
+.bp-list__lede a:hover { border-bottom-color: var(--accent); }
+.bp-list__rule { border: none; border-top: 1px solid var(--rule); margin: 22px 0 4px; }
+
+/* Retune the shared card markup under `.bp`. */
+.bp .blog-card { border-bottom-color: var(--rule); }
+.bp .blog-card__media { border-color: var(--rule); border-radius: 12px; background: var(--bg-tint); }
+/* Re-assert cover sizing: `.bp img { height: auto }` ties `.blog-card__media
+   img` on specificity but loads later, which would otherwise leave the image
+   short of the 120px frame. This two-class selector wins cleanly. */
+.bp .blog-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.bp .blog-card__placeholder { color: var(--faint); }
+.bp .blog-card__title {
+  font-family: var(--ui); font-weight: 700; color: var(--ink); letter-spacing: -0.01em;
+}
+.bp .blog-card__titlelink:hover .blog-card__title { color: var(--accent-strong); }
+.bp .blog-card__meta {
+  font-family: var(--mono); font-size: 12.5px; color: var(--muted); text-transform: none;
+}
+.bp .blog-card__meta time { color: var(--ink-2); }
+.bp .blog-card__tag {
+  font-family: var(--ui); font-weight: 600; font-size: 11.5px;
+  background: var(--accent-soft); color: var(--accent-strong); border-radius: 999px; padding: 2px 9px;
+}
+.bp .blog-card__excerpt { font-family: var(--sans); color: var(--muted); font-size: 15px; }
+
+/* Sort toggle: keep the segmented control, recolor to the blog palette. */
+.bp .blog-sort-label { font-family: var(--ui); color: var(--muted); }
+.bp .blog-sort { background: var(--bg-tint); border-color: var(--rule-strong); }
+.bp .blog-sort__btn { font-family: var(--ui); color: var(--muted); }
+.bp .blog-sort__btn.is-active { color: var(--ink); }
+.bp .blog-sort__btn:focus-visible { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35); }
+
+/* Pagination under `.bp`. */
+.bp .pagination { font-family: var(--ui); }
+.bp .pagination .page-link { color: var(--accent-strong); border-color: var(--rule); }
+.bp .pagination .active .page-link { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ---------------------------------------------------------------------------
    Motion
    --------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .bp *, .bp-progress__fill { transition: none !important; }
+  .bp *, .bp-progress__fill, .bp-nav a { transition: none !important; }
 }

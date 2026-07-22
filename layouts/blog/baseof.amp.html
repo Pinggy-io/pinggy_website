@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>
-      {{ if .IsHome }}Pinggy - Simple Localhost Tunnels{{ else }}{{ if
-      .Page.Title }}{{ .Page.Title }} - {{.Site.Title}}{{ end }}{{ end }}
+      {{- if and (eq .Section "blog") (eq .Kind "page") }}{{ .Title }} | Pinggy Blog
+      {{- else if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}}{{ end -}}
     </title>
 
     <!-- Favicon-->
@@ -79,10 +79,33 @@
       .navbar {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 0 3rem;
       }
-      .navbar .logo img {
-        max-height: 60px;
+      .navbar .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .navbar .brand img {
+        max-height: 30px;
+      }
+      .navbar .brand-sep {
+        width: 1px;
+        height: 22px;
+        background: #d9dde4;
+      }
+      .navbar .brand-label {
+        font-weight: 300;
+        font-size: 16px;
+        color: #6b7686;
+      }
+      .navbar .nav-contact {
+        font-weight: 600;
+        font-size: 14.5px;
+        color: #344155;
+        text-decoration: none;
       }
       .container {
         max-width: 800px;
@@ -222,15 +245,16 @@
     </amp-analytics>
     <header>
       <nav class="navbar">
-        <div class="logo">
-          <a href="/">
-            <img
-              src="/assets/pinggy_logo.webp"
-              alt="Pinggy brand logo"
-              height="50"
-            />
-          </a>
-        </div>
+        <a class="brand" href="/">
+          <img
+            src="/assets/pinggy_logo.webp"
+            alt="Pinggy brand logo"
+            height="30"
+          />
+          <span class="brand-sep"></span>
+          <span class="brand-label">Technical Blog</span>
+        </a>
+        <a class="nav-contact" href="/contact_us/">Contact</a>
       </nav>
     </header>
     <main class="container">
