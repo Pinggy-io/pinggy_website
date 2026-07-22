@@ -102,10 +102,13 @@
         color: #6b7686;
       }
       .navbar .nav-contact {
-        font-weight: 600;
-        font-size: 14.5px;
-        color: #344155;
-        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        color: #6b7686;
+      }
+      .navbar .nav-contact svg {
+        width: 20px;
+        height: 20px;
       }
       .container {
         max-width: 800px;
@@ -254,7 +257,12 @@
           <span class="brand-sep"></span>
           <span class="brand-label">Technical Blog</span>
         </a>
-        <a class="nav-contact" href="/contact_us/">Contact</a>
+        <a class="nav-contact" href="/contact_us/" aria-label="Contact">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8" />
+            <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          </svg>
+        </a>
       </nav>
     </header>
     <main class="container">
