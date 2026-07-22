@@ -89,3 +89,7 @@ menus:
   #   weight: 120
 
 minifyOutput: true
+minify:
+  tdewolff:
+    html:
+      keepQuotes: true
