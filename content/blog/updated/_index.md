@@ -1,6 +1,6 @@
 ---
 title: "Recently Updated - Pinggy Blog"
-description: "Pinggy blog posts sorted by their most recent update - guides on tunnels, networking, self-hosting, self-hosted LLMs, and AI, kept current."
+description: "Pinggy blog recently updated posts - guides on tunnels, networking, self-hosting, self-hosted LLMs, and AI."
 heading: "Recently updated posts"
 sort: "updated"
 canonical: "https://pinggy.io/blog/"
