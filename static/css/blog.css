@@ -378,8 +378,11 @@ body::before {
    never touches the product site.
    --------------------------------------------------------------------------- */
 /* The site-wide fixed navbar left a 4.8em top offset on .contentcontainer;
-   this editorial nav sits in normal flow (sticky), so reclaim that space. */
-.contentcontainer { margin-top: 0; }
+   the editorial blog nav sits in normal flow (sticky), so reclaim that
+   space - but only on blog pages. blog.css is also loaded by quickstart /
+   know_your_port, which keep the product fixed navbar and still need the
+   offset, so this is scoped to body.blog rather than being global. */
+body.blog .contentcontainer { margin-top: 0; }
 
 .bp-nav {
   position: sticky;
@@ -420,17 +423,6 @@ body::before {
   align-items: center;
   gap: 6px;
 }
-.bp-nav__text {
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 14.5px;
-  color: #344155;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: color 0.15s, background 0.15s;
-}
-.bp-nav__text:hover { color: #1d4ed8; background: #eef2fe; }
 .bp-nav__icon {
   display: inline-flex;
   align-items: center;
@@ -443,15 +435,16 @@ body::before {
 }
 .bp-nav__icon:hover { color: #1f2a37; background: #eef2fe; }
 .bp-nav__icon svg { width: 20px; height: 20px; display: block; }
-.bp-nav__icon--img img { width: 20px; height: 20px; display: block; }
 .bp-nav a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
   border-radius: 8px;
 }
 @media (max-width: 480px) {
-  .bp-nav__label { display: none; }
-  .bp-nav__sep { display: none; }
+  /* Keep the "Technical Blog" wordmark; tighten the chrome. */
+  .bp-nav__inner { padding: 11px 14px; }
+  .bp-nav__brand { gap: 10px; }
+  .bp-nav__label { font-size: 15px; }
 }
 
 /* ---------------------------------------------------------------------------

@@ -37,7 +37,7 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
           </div>
           <div style="margin-top: 4em; max-width: 28em">
             <div style="font-weight: 500">
-              <span class="highlight">&nbspFree persistent URL&nbsp;</span> for
+              <span class="highlight">&nbsp;Free persistent URL&nbsp;</span>for
               7 days & custom domain support:
             </div>
             <div class="input-group mt-1">
