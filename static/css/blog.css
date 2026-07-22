@@ -378,8 +378,11 @@ body::before {
    never touches the product site.
    --------------------------------------------------------------------------- */
 /* The site-wide fixed navbar left a 4.8em top offset on .contentcontainer;
-   this editorial nav sits in normal flow (sticky), so reclaim that space. */
-.contentcontainer { margin-top: 0; }
+   the editorial blog nav sits in normal flow (sticky), so reclaim that
+   space - but only on blog pages. blog.css is also loaded by quickstart /
+   know_your_port, which keep the product fixed navbar and still need the
+   offset, so this is scoped to body.blog rather than being global. */
+body.blog .contentcontainer { margin-top: 0; }
 
 .bp-nav {
   position: sticky;

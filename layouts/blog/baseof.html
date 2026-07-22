@@ -15,7 +15,7 @@
     {{- partial "seoblogs.html" . -}}
   </head>
 
-  <body class="{{ if eq .Kind "page" }}blogpost{{ end }}">
+  <body class="blog{{ if eq .Kind "page" }} blogpost{{ end }}">
     {{- partial "grid_canvas.html" . }}
     {{- partial "blog-navbar.html" .}}
 
