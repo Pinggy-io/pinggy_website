@@ -3,7 +3,7 @@
 <meta property="og:type" content="article" />
 <meta
   property="og:title"
-  content="{{ if .IsHome }}Pinggy - Simple Localhost Tunnels{{ else }}{{ if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}}{{ end }}{{ end }}"
+  content="{{ if and (eq .Section "blog") (eq .Kind "page") }}{{ .Title }} | Pinggy Blog{{ else if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}}{{ end }}"
 />
 
 {{ $metaDescription := .Params.description }} {{ if not $metaDescription }} {{
@@ -18,11 +18,11 @@ $metaDescription = .Summary }} {{ end }}
 <meta property="og:site_name" content="{{ $siteName }}" />
 <meta
   property="article:published_time"
-  content='{{.Date.Format "2006-01-02"}}T14:07:59+00:00'
+  content='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'
 />
 <meta
   property="article:modified_time"
-  content='{{.Date.Format "2006-01-02"}}T14:07:59+00:00'
+  content='{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}'
 />
 {{ if .Params.og_image }}
 <meta property="og:image" content="{{ .Params.og_image | absURL }}" />
@@ -55,8 +55,8 @@ $metaDescription = .Summary }} {{ end }}
     "https://pinggy.io/assets/pinggy_logo.png"
     {{ end }}
      ],
-    "datePublished": "{{.Date.Format "2006-01-02"}}T14:07:59+00:00",
-    "dateModified": "{{.Date.Format "2006-01-02"}}T14:07:59+00:00",
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}",
     "author": [{
         "@type": "Organization",
         "name": "Pinggy",

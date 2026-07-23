@@ -37,7 +37,7 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
           </div>
           <div style="margin-top: 4em; max-width: 28em">
             <div style="font-weight: 500">
-              <span class="highlight">&nbspFree persistent URL&nbsp;</span> for
+              <span class="highlight">&nbsp;Free persistent URL&nbsp;</span>for
               7 days & custom domain support:
             </div>
             <div class="input-group mt-1">
@@ -981,6 +981,9 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
         <a href="https://apphublist.com/products/pinggy" target="_blank" rel="noopener"><img src="https://apphublist.com/assets/images/badge.png" alt="App Hub List" height="54" loading="lazy" /></a>
         <a href="https://saasavenue.com/products/pinggy" target="_blank" rel="noopener"><img src="https://saasavenue.com/assets/images/badge.png" alt="SaaS Avenue" height="54" loading="lazy" /></a>
         <a href="https://appnetworker.com/products/pinggy" target="_blank" rel="noopener"><img src="https://appnetworker.com/assets/images/badge.png" alt="App Networker" height="54" loading="lazy" /></a>
+        <a href="https://dang.ai" target="_blank" rel="dofollow noopener"><img src="https://assets.dang.ai/badges/dang-verified-light.png" alt="Verified on DANG!" width="260" height="94" loading="lazy" /></a>
+        <a href="https://startupfa.me/s/pinggy-1?utm_source=pinggy.io" target="_blank" rel="noopener"><img src="https://startupfa.me/badges/featured/light.webp" alt="Featured on Startup Fame" width="171" height="54" loading="lazy" /></a>
+        <a href="https://fazier.com/launches/pinggy.io" target="_blank" rel="noopener"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&amp;theme=neutral" alt="Fazier badge" width="250" loading="lazy" /></a>
       </div>
       <div class="badge-marquee-group" aria-hidden="true">
         <a href="https://lemonlaunch.dev/saas/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://lemonlaunch.dev/badge/lemonlaunch-badge-light.svg" alt="" width="188" height="56" loading="lazy" /></a>
@@ -993,6 +996,9 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
         <a href="https://apphublist.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://apphublist.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>
         <a href="https://saasavenue.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://saasavenue.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>
         <a href="https://appnetworker.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://appnetworker.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>
+        <a href="https://dang.ai" target="_blank" rel="dofollow noopener" tabindex="-1"><img src="https://assets.dang.ai/badges/dang-verified-light.png" alt="" width="260" height="94" loading="lazy" /></a>
+        <a href="https://startupfa.me/s/pinggy-1?utm_source=pinggy.io" target="_blank" rel="noopener" tabindex="-1"><img src="https://startupfa.me/badges/featured/light.webp" alt="" width="171" height="54" loading="lazy" /></a>
+        <a href="https://fazier.com/launches/pinggy.io" target="_blank" rel="noopener" tabindex="-1"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&amp;theme=neutral" alt="" width="250" loading="lazy" /></a>
       </div>
       </div>
     </div>

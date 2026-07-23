@@ -2,7 +2,7 @@
 title: "Top 5 CLI coding agents in 2026"
 description: "The CLI coding agents worth using in 2026: Claude Code on Opus 4.8, OpenAI Codex on GPT-5.5, OpenCode's growth to 165k+ stars after its Anthropic login dispute, Cursor CLI's pending $60B SpaceX acquisition, Antigravity CLI after the Gemini CLI shutdown, and where Aider and the open-source Pi harness still fit."
 date: 2026-01-15T23:49:54+05:30
-lastmod: 2026-07-06T23:49:54+05:30
+lastmod: 2026-07-22T23:49:54+05:30
 draft: false
 og_image: "images/top_cli_based_ai_coding_agents/cli_coding_agents.webp"
 tags: ["CLI tools", "AI coding agents", "command line", "development", "terminal", "Claude Code", "OpenAI Codex", "Antigravity CLI", "Cursor CLI", "OpenCode", "Aider", "Pi", "open source", "SpaceX"]
@@ -308,7 +308,7 @@ The lineup above shifts based on what you're optimizing for, and 2026's consolid
 **{{< link href="https://github.com/tailcallhq/forgecode" >}}Forge{{< /link >}}** - An independent, model-agnostic Rust harness with a clean three-agent split: `forge` implements, `sage` researches read-only, `muse` plans. Fully bring-your-own-key across 300+ models, Apache-2.0. Install `curl -fsSL https://forgecode.dev/cli | sh`.
 
 {{< image "top_cli_based_ai_coding_agents/plandex_cli.webp" "plandex cli" >}}
-**{{< link href="https://plandex.ai" >}}Plandex{{< /link >}}** - Built for tasks where context is the bottleneck: 2M-token effective context via a cumulative-diff sandbox, with 20M+ token Tree-sitter indexing. Best when you're refactoring a huge monorepo, though it's effectively in maintenance mode now (no commits since October 2025) - self-host it rather than rely on Plandex Cloud.
+**{{< link href="https://github.com/plandex-ai/plandex" >}}Plandex{{< /link >}}** - Built for tasks where context is the bottleneck: 2M-token effective context via a cumulative-diff sandbox, with 20M+ token Tree-sitter indexing. Best when you're refactoring a huge monorepo, though it's effectively in maintenance mode now (no commits since October 2025) - self-host it rather than rely on Plandex Cloud.
 
 
 ### How to Integrate CLI Coding Agents into Your Workflow

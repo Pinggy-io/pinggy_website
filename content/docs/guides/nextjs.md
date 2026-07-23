@@ -11,7 +11,7 @@
 
 #### Step 1
 
-Set up your Next.js app if you have not done it already by following the guide: [https://nextjs.org/learn/basics/create-nextjs-app/setup](https://nextjs.org/learn/basics/create-nextjs-app/setup).
+Set up your Next.js app if you have not done it already by following the guide: [https://nextjs.org/docs/app/getting-started/installation](https://nextjs.org/docs/app/getting-started/installation).
 
 #### Step 2
 

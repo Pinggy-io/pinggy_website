@@ -2,8 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>
-  {{ if .IsHome }}Pinggy - Simple Localhost Tunnels{{ else }}{{ if .Page.Title
-  }}{{ .Page.Title }}{{ end }}{{ end }}
+  {{- if .IsHome }}Pinggy - Simple Localhost Tunnels
+  {{- else if and (eq .Section "blog") (eq .Kind "page") }}{{ .Title }} | Pinggy Blog
+  {{- else if .Page.Title }}{{ .Page.Title }}{{ end -}}
 </title>
 
 <!-- Favicon-->
