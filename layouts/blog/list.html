@@ -9,18 +9,17 @@
 {{ $isNew := not $isUpdated }}
 {{ $posts := $blog.RegularPages }}
 {{ $posts = cond $isUpdated ($posts.ByLastmod.Reverse) ($posts.ByDate.Reverse) }}
-<main>
-  <div
-    class="row justify-content-center"
-    style="max-width: 800px; margin: 0 auto"
-  >
+<div class="bp">
+<main class="bp-list">
+  <div class="row justify-content-center">
     <div class="col-12 col-md-12">
-      <header>
-        <h1 class="display-4">Blog</h1>
+      <header class="bp-list__masthead">
+        <span class="bp-list__eyebrow">Pinggy Blog</span>
+        <h1 class="bp-list__title">{{ .Params.heading | default "Tunnels, networking, self-hosted LLMs, and AI news" }}</h1>
+        <!-- Lede pulls from the markdown of the corresponding _index.md -->
+        <div class="bp-list__lede">{{ .Content }}</div>
       </header>
-      <hr />
-      <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
-      {{.Content}}
+      <hr class="bp-list__rule" />
 
       <!-- Sort toggle. Each option is a real URL: /blog/ (newest by publish
            date) and /blog/updated/ (recently updated by lastmod). -->
@@ -107,4 +106,5 @@
     </div>
   </div>
 </main>
+</div>
 {{ end }}

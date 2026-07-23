@@ -83,6 +83,69 @@
     transform: translateX(-320em);
   }
 }
+/* Featured-on badge marquee (homepage). The track holds two copies of
+   the badge set; animating to -50% loops seamlessly. Badges rest dimmed
+   and desaturated; hovering the strip pauses the scroll and restores
+   full color. Edges fade out via a mask so it works on any background. */
+.badge-marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+.badge-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: badge-scrolling 50s linear infinite;
+}
+.badge-marquee:hover .badge-marquee-track {
+  animation-play-state: paused;
+}
+.badge-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+}
+.badge-marquee img {
+  display: block;
+  height: 42px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+.badge-marquee:hover img {
+  filter: none;
+  opacity: 1;
+}
+.badge-marquee-label {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  margin-bottom: 1.5rem;
+}
+@keyframes badge-scrolling {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (min-width: 768px) {
   .marquee:before,
   .marquee:after {
@@ -510,7 +573,8 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .marquee-content {
+  .marquee-content,
+  .badge-marquee-track {
     animation: none !important;
   }
 }

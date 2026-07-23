@@ -62,7 +62,7 @@ Port 1313 is almost exclusively used by Hugo and Hugo-related tools. Here's what
 <li><strong>Theme Customization</strong>: Modifying existing {{< link href="https://themes.gohugo.io/" >}}Hugo themes{{< /link >}}</li>
 <li><strong>{{< link href="https://gohugo.io/templates/" >}}Layout Development{{< /link >}}</strong>: Creating custom page layouts</li>
 <li><strong>{{< link href="https://gohugo.io/content-management/shortcodes/" >}}Shortcode Development{{< /link >}}</strong>: Building reusable content components</li>
-<li><strong>{{< link href="https://gohugo.io/templates/partials/" >}}Partial Templates{{< /link >}}</strong>: Developing modular template components</li>
+<li><strong>{{< link href="https://gohugo.io/templates/partial/" >}}Partial Templates{{< /link >}}</strong>: Developing modular template components</li>
 </ul>
 </div>
 
