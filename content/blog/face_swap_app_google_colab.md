@@ -2,6 +2,7 @@
 title: "Build Your Own Face Swap App Using Google Colab and Pinggy"
 description: "Learn how to create a free face swap application using Google Colab with InsightFace and Gradio. Complete step-by-step guide to build and share your AI-powered face swapping tool publicly."
 date: 2026-01-24T14:00:00+05:30
+lastmod: 2026-07-22T14:00:00+05:30
 draft: false
 tags: ["Face Swap", "Google Colab", "Pinggy", "AI", "InsightFace", "Gradio", "Free Hosting", "Python"]
 og_image: "images/face_swap_app_google_colab/face_swap_app_google_colab_banner.webp"
@@ -46,7 +47,7 @@ This setup leverages InsightFace's powerful face detection and swapping models a
 
 ## Why Build Your Own Face Swap App?
 
-Ever wanted to see yourself as a movie star, swap faces with your pet, or create hilarious memes with your friends? Face swapping is one of those fun AI projects that never gets old. The best part? You can build your own face swap app in just a few minutes and share it with anyone.
+Ever wanted to see yourself as a movie star, swap faces with your pet, or create hilarious memes with your friends? Face swapping videos are one of those fun AI projects that never gets old. You can even {{< link href="https://invideo.io/make/face-swap-video/" >}}create face swap video{{< /link >}} by replacing faces in short clips, making your videos more entertaining and shareable. The best part? You can build your own face swap app in just a few minutes and share it with anyone.
 
 This project is perfect for a weekend experiment, a party trick, or just goofing around with friends. Imagine sending your group chat a link where everyone can swap faces with celebrities, historical figures, or each other. The reactions are priceless.
 
