@@ -115,7 +115,7 @@ Setting an owner pubkey and requiring relay membership means new connections nee
 
 **The HN skepticism is worth taking seriously.** Letting multiple AI agents post into shared channels with the same visibility as humans is a real surface for accidental data exposure, and Block hasn't fully answered that concern yet. If you're piloting this with a team, start with a narrow set of channels and agents before opening it wider.
 
-**Resource footprint is heavier than a chat app has any right to be.** Postgres, Redis, and MinIO alongside the relay itself means you're running four services for what used to be one Slack tab. Fine on a laptop or a small VPS, worth knowing before you try it on a Raspberry Pi.
+**Resource footprint is heavier than a chat app has any right to be.** Postgres, Redis, and MinIO alongside the relay itself means you're running four services for what used to be one Slack tab. Fine on a laptop or a small VPS, worth knowing before you try it on a Raspberry Pi. If you want a lighter self-hosted chat stack without the agent-identity layer, the {{< link href="/blog/best_open_source_alternatives_to_slack_and_discord/" >}}open source Slack and Discord alternatives{{< /link >}} roundup covers options like Rocket.Chat and Zulip that run on a single container.
 
 **Free Pinggy URLs are ephemeral.** Every time you reconnect the tunnel, you get a new subdomain, and you'd need to update `RELAY_URL` again. For a same-day demo that's a non-issue; for anything you want teammates coming back to next week, get a fixed URL first.
 
