@@ -9,8 +9,10 @@ into that post's images folder.
 ## House style (keep banners consistent)
 
 - Light-lavender hatched bars (`#EDEAF7` fill, `#6B5DB8` edge, `///` hatch) for
-  magnitude panels; crimson dots (`#E4322B`) with dashed stems for the
-  context-window panel.
+  magnitude panels; crimson dots (`#E4322B`) with dashed stems for a panel on a
+  different kind of scale than the rest (e.g. the TTS banner's price panel).
+  Amber hatched bars (`#FBE7C6` / `#C8801E`, `\\\` hatch) mark a proprietary
+  reference bar inside an open-weights panel.
 - Bold near-black title (two lines), a one-line grey source/metric note under it,
   bold value labels above every mark, recessive dashed y-grid, no top/right spines.
 - Each panel is a single-series magnitude chart, so there is one accent per mark
