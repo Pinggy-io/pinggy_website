@@ -2,6 +2,7 @@
 title: "Best OpenClaw Alternatives in 2026: Faster and More Secure Self-Hosted AI Agents"
 description: "Compare the best OpenClaw alternatives in 2026 - Nanobot, NanoClaw, ZeroClaw, Hermes Agent, and TrustClaw. See how each stacks up on performance, sandboxing, security, features, licensing, and self-hosting."
 date: 2026-07-25T11:00:00+05:30
+lastmod: 2026-07-27T11:00:00+05:30
 draft: false
 tags: ["OpenClaw", "OpenClaw alternatives", "ZeroClaw", "Hermes Agent", "Nanobot", "NanoClaw", "TrustClaw", "self-hosted AI", "AI agent security"]
 og_image: "images/best_openclaw_alternatives/best_openclaw_alternatives_banner.webp"
@@ -22,13 +23,13 @@ None of that means OpenClaw is a bad project. It popularized a genuinely useful 
 **Why look past OpenClaw:** <a href="https://github.com/jgamblin/OpenClawCVEs" target="_blank">543 CVEs</a> name OpenClaw as affected, including <a href="https://www.sentinelone.com/vulnerability-database/cve-2026-24763/" target="_blank">command injection (CVE-2026-24763)</a>, <a href="https://www.sentinelone.com/vulnerability-database/cve-2026-26322/" target="_blank">SSRF (CVE-2026-26322)</a>, <a href="https://github.com/advisories/GHSA-cv7m-c9jx-vg7q" target="_blank">path traversal (CVE-2026-26329)</a>, and a <a href="https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html" target="_blank">one-click prompt-injection RCE (CVE-2026-30741)</a>. Its Node.js gateway also idles at 400-800MB of RAM and climbs past 1GB with browser automation running.
 
 **The five alternatives compared here:**
-1. <a href="https://github.com/zeroclaw-labs/zeroclaw" target="_blank">ZeroClaw</a> - single Rust binary, ~8.8MB, under 5MB RAM, sub-10ms startup. Best if hardware is the constraint.
-2. <a href="https://github.com/nanocoai/nanoclaw" target="_blank">NanoClaw</a> - TypeScript, every agent runs in its own Docker container with filesystem isolation. Best if sandboxing is the priority and you're fine with Claude-only.
-3. <a href="https://github.com/NousResearch/hermes-agent" target="_blank">Hermes Agent</a> - 220K+ stars, self-improving skill system, six sandboxed execution backends, ships a built-in `hermes claw migrate` command. Best for feature parity and community size.
+1. <a href="https://github.com/NousResearch/hermes-agent" target="_blank">Hermes Agent</a> - 222K+ stars, self-improving skill system, six sandboxed execution backends, ships a built-in `hermes claw migrate` command. Best for feature parity and community size.
+2. <a href="https://github.com/zeroclaw-labs/zeroclaw" target="_blank">ZeroClaw</a> - single Rust binary, ~8.8MB, under 5MB RAM, sub-10ms startup. Best if hardware is the constraint.
+3. <a href="https://github.com/nanocoai/nanoclaw" target="_blank">NanoClaw</a> - TypeScript, every agent runs in its own Docker container with filesystem isolation. Best if sandboxing is the priority and you're fine with Claude-only.
 4. <a href="https://github.com/HKUDS/nanobot" target="_blank">Nanobot</a> - ~4,000 lines of readable Python, 8+ chat integrations, MIT licensed. Best for a small codebase you can actually audit.
 5. <a href="https://github.com/ComposioHQ/trustclaw" target="_blank">TrustClaw</a> - OAuth-only credentials, every action runs in an ephemeral cloud sandbox that terminates after use. Best if you don't want long-lived credentials on disk at all.
 
-**Quick install (ZeroClaw example):** <br>`curl -fsSL https://raw.githubusercontent.com/zeroclaw-labs/zeroclaw/master/install.sh | bash`
+**Quick install (Hermes Agent example):** <br>`curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`
 
 {{% /tldr %}}
 
@@ -46,25 +47,25 @@ None of that means OpenClaw is a bad project. It popularized a genuinely useful 
 </thead>
 <tbody>
 <tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>{{< link href="https://github.com/NousResearch/hermes-agent" >}}Hermes Agent{{< /link >}}</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Python</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">222K+</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">MIT</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Self-improving skills, 6 sandboxed backends</td>
+</tr>
+<tr>
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>{{< link href="https://github.com/zeroclaw-labs/zeroclaw" >}}ZeroClaw{{< /link >}}</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Rust</td>
   <td style="border:1px solid #ddd;padding:0.5em;">32.4K+</td>
   <td style="border:1px solid #ddd;padding:0.5em;">MIT OR Apache-2.0</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Single ~8.8MB binary, sub-10ms startup</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>{{< link href="https://github.com/nanocoai/nanoclaw" >}}NanoClaw{{< /link >}}</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">TypeScript</td>
   <td style="border:1px solid #ddd;padding:0.5em;">30.4K+</td>
   <td style="border:1px solid #ddd;padding:0.5em;">MIT</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Per-agent Docker container isolation</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>{{< link href="https://github.com/NousResearch/hermes-agent" >}}Hermes Agent{{< /link >}}</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Python</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">220K+</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">MIT</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Self-improving skills, 6 sandboxed backends</td>
 </tr>
 <tr>
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>{{< link href="https://github.com/HKUDS/nanobot" >}}Nanobot{{< /link >}}</strong></td>
@@ -98,16 +99,33 @@ Two separate but related problems drive people away from OpenClaw: resource usag
 
 On resource usage, OpenClaw is a Node.js daemon (the "Gateway") that needs Node 22.14 or newer and, per its own Docker documentation, at least 2GB of RAM just to build the image. In practice a lean idle Gateway sits around 400-800MB, and that climbs past 1GB once you enable Playwright or Puppeteer for browser automation, load several skills at once, or hand it a task with large file attachments. For a laptop or desktop that's a rounding error. For a Raspberry Pi, a $5 VPS, or a machine you'd like to run several other things on, it's a real cost.
 
-On attack surface, the numbers are harder to wave away. OpenClaw's core premise, an agent with local file access, shell execution, browser control, and credentials for whatever SaaS accounts you connect, is also exactly the premise that makes a compromised agent so damaging. The independently-maintained {{< link href="https://github.com/jgamblin/OpenClawCVEs" >}}OpenClawCVEs tracker{{< /link >}} counts 543 total CVEs across the CVE List V5 registry that name OpenClaw as an affected product (the large majority filed by third-party researchers, not the project itself), and 51 CVEs tied to the project's own GitHub Security Advisories, breaking down as 1 critical, 90 high, 53 medium, and 13 low severity. Four are worth naming specifically, because they show the actual failure modes, not just a scary total:
-
-- **CVE-2026-24763** - a command injection in OpenClaw's Docker sandbox execution path, caused by unsafe handling of the `PATH` environment variable when building shell commands. Fixed in v2026.1.29.
-- **CVE-2026-26322** - an SSRF in the Gateway tool's `gatewayUrl` parameter (CVSS 7.6), letting an attacker make the OpenClaw host open outbound WebSocket connections to arbitrary targets, including cloud metadata endpoints. Fixed in v2026.2.14.
-- **CVE-2026-26329** - a path traversal in the browser tool's upload action, which passed attacker-supplied paths straight into Playwright's `setInputFiles()` without restricting them to a safe root, allowing arbitrary file reads off the Gateway host. Fixed in v2026.2.14.
-- **CVE-2026-30741** - a prompt-injection-driven remote code execution: a lack of integrity checking on upstream API responses let an attacker poison the request stream and get the model to emit terminal commands that ran via MCP tools without human confirmation.
+On attack surface, the numbers are harder to wave away. OpenClaw's core premise, an agent with local file access, shell execution, browser control, and credentials for whatever SaaS accounts you connect, is also exactly the premise that makes a compromised agent so damaging. The independently-maintained {{< link href="https://github.com/jgamblin/OpenClawCVEs" >}}OpenClawCVEs tracker{{< /link >}} counts 543 total CVEs across the CVE List V5 registry that name OpenClaw as an affected product (the large majority filed by third-party researchers, not the project itself), and 51 CVEs tied to the project's own GitHub Security Advisories, breaking down as 1 critical, 90 high, 53 medium, and 13 low severity. Four are worth naming specifically, because they show the actual failure modes, not just a scary total: **CVE-2026-24763** is a command injection in OpenClaw's Docker sandbox execution path, caused by unsafe handling of the `PATH` environment variable when building shell commands, fixed in v2026.1.29. **CVE-2026-26322** is an SSRF in the Gateway tool's `gatewayUrl` parameter (CVSS 7.6), letting an attacker make the OpenClaw host open outbound WebSocket connections to arbitrary targets, including cloud metadata endpoints, fixed in v2026.2.14. **CVE-2026-26329** is a path traversal in the browser tool's upload action, which passed attacker-supplied paths straight into Playwright's `setInputFiles()` without restricting them to a safe root, allowing arbitrary file reads off the Gateway host, also fixed in v2026.2.14. And **CVE-2026-30741** is a prompt-injection-driven remote code execution: a lack of integrity checking on upstream API responses let an attacker poison the request stream and get the model to emit terminal commands that ran via MCP tools without human confirmation.
 
 That last one is the pattern security researchers keep coming back to: OpenClaw reads untrusted content (an email, a web page, a link preview) as part of doing its job, and untrusted content can contain instructions. {{< link href="https://www.promptfoo.dev/blog/openclaw-at-work/" >}}Promptfoo{{< /link >}} and {{< link href="https://www.giskard.ai/knowledge/openclaw-security-vulnerabilities-include-data-leakage-and-prompt-injection-risks" >}}Giskard{{< /link >}} have both documented indirect prompt injection leading to data exfiltration, and {{< link href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/" >}}Microsoft's security team{{< /link >}} published guidance specifically on running it safely, which tells you how seriously enterprise security teams are taking this. None of this is unique to OpenClaw as a category of software (any agent with tool access and internet-facing input has the same fundamental problem), but OpenClaw's specific defaults, an exposed management port, plaintext credential storage options, and a skill registry (ClawHub) that will auto-update unless you turn that off, have made it an unusually easy target.
 
-## 1. ZeroClaw - Best for Constrained Hardware
+## 1. Hermes Agent - Best Community and Feature Parity
+
+{{< image "best_openclaw_alternatives/hermes_agent.webp" "Hermes Agent homepage by Nous Research" >}}
+
+{{< link href="https://github.com/NousResearch/hermes-agent" >}}Hermes Agent{{< /link >}} is built by Nous Research, and at over 222,000 GitHub stars it's actually bigger than OpenClaw was at any point we've covered it on this blog before. It bills itself as "the only agent with a built-in learning loop": it creates skills from experience, improves them during use, and builds a persistent model of who you are across sessions using {{< link href="https://github.com/plastic-labs/honcho" >}}Honcho{{< /link >}} for dialectic user modeling.
+
+**Performance.** Written in Python and installed via `uv`, so it doesn't compete with ZeroClaw on raw footprint. What it does offer is elastic compute: six terminal backends (local, Docker, SSH, Singularity, Modal, and Daytona), where Daytona and Modal give you serverless persistence, meaning the agent's environment hibernates when idle and costs close to nothing between sessions. The project's own pitch is that it runs fine on a $5 VPS or scales up to a GPU cluster.
+
+**Security and sandbox.** The multiple terminal backends double as sandboxing options: you can run the agent's shell access inside an isolated Docker container, over SSH to a separate box, or in an ephemeral Singularity/Modal/Daytona environment instead of directly on your host. It also ships command approval and DM pairing, similar in spirit to OpenClaw's own pairing model, plus documented container isolation guidance.
+
+**Features.** A genuinely full terminal UI (multiline editing, slash-command autocomplete, streaming tool output), coverage of Telegram, Discord, Slack, WhatsApp, Signal, and CLI from one gateway process, a built-in cron scheduler for unattended reports and backups, and parallel subagent delegation with Python RPC for collapsing multi-step pipelines. The detail that matters most if you're actually coming from OpenClaw: Hermes ships a `hermes claw migrate` command specifically to import an existing OpenClaw setup.
+
+**License.** MIT.
+
+**Self-host.**
+
+```bash
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+```
+
+(There's also a native Windows PowerShell one-liner if you don't want WSL2.) After install, `hermes` drops you straight into an interactive chat, and `hermes gateway` starts the messaging bridge.
+
+## 2. ZeroClaw - Best for Constrained Hardware
 
 {{< image "best_openclaw_alternatives/zeroclaw.webp" "ZeroClaw homepage, a Rust-based personal AI agent" >}}
 
@@ -129,7 +147,7 @@ curl -fsSL https://raw.githubusercontent.com/zeroclaw-labs/zeroclaw/master/insta
 
 Then `zeroclaw quickstart` walks you through picking a provider and writing a working config. For the full Discord bot setup, see our {{< link href="/blog/zeroclaw_lightweight_openclaw_alternative/" >}}dedicated ZeroClaw guide{{< /link >}}.
 
-## 2. NanoClaw - Best for Container-Level Isolation
+## 3. NanoClaw - Best for Container-Level Isolation
 
 {{< image "best_openclaw_alternatives/nanoclaw.webp" "NanoClaw homepage, a container-isolated personal AI agent" >}}
 
@@ -152,28 +170,6 @@ bash nanoclaw.sh
 ```
 
 The setup script installs Node, pnpm, and Docker if they're missing, registers your credentials, builds the containers, and wires up whichever messaging channels you pick.
-
-## 3. Hermes Agent - Best Community and Feature Parity
-
-{{< image "best_openclaw_alternatives/hermes_agent.webp" "Hermes Agent homepage by Nous Research" >}}
-
-{{< link href="https://github.com/NousResearch/hermes-agent" >}}Hermes Agent{{< /link >}} is built by Nous Research, and at over 220,000 GitHub stars it's actually bigger than OpenClaw was at any point we've covered it on this blog before. It bills itself as "the only agent with a built-in learning loop": it creates skills from experience, improves them during use, and builds a persistent model of who you are across sessions using {{< link href="https://github.com/plastic-labs/honcho" >}}Honcho{{< /link >}} for dialectic user modeling.
-
-**Performance.** Written in Python and installed via `uv`, so it doesn't compete with ZeroClaw on raw footprint. What it does offer is elastic compute: six terminal backends (local, Docker, SSH, Singularity, Modal, and Daytona), where Daytona and Modal give you serverless persistence, meaning the agent's environment hibernates when idle and costs close to nothing between sessions. The project's own pitch is that it runs fine on a $5 VPS or scales up to a GPU cluster.
-
-**Security and sandbox.** The multiple terminal backends double as sandboxing options: you can run the agent's shell access inside an isolated Docker container, over SSH to a separate box, or in an ephemeral Singularity/Modal/Daytona environment instead of directly on your host. It also ships command approval and DM pairing, similar in spirit to OpenClaw's own pairing model, plus documented container isolation guidance.
-
-**Features.** A genuinely full terminal UI (multiline editing, slash-command autocomplete, streaming tool output), coverage of Telegram, Discord, Slack, WhatsApp, Signal, and CLI from one gateway process, a built-in cron scheduler for unattended reports and backups, and parallel subagent delegation with Python RPC for collapsing multi-step pipelines. The detail that matters most if you're actually coming from OpenClaw: Hermes ships a `hermes claw migrate` command specifically to import an existing OpenClaw setup.
-
-**License.** MIT.
-
-**Self-host.**
-
-```bash
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
-```
-
-(There's also a native Windows PowerShell one-liner if you don't want WSL2.) After install, `hermes` drops you straight into an interactive chat, and `hermes gateway` starts the messaging bridge.
 
 ## 4. Nanobot - Best Small, Auditable Codebase
 
@@ -240,22 +236,22 @@ The word "sandbox" means something different in each of these projects, which ma
   <td style="border:1px solid #ddd;padding:0.5em;">DM pairing required; group sessions sandboxed, main session is not</td>
 </tr>
 <tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">Hermes Agent</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Selectable: local, Docker, SSH, Singularity, Modal, or Daytona</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Local config; isolation level depends on chosen backend</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Command approval and DM pairing</td>
+</tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.5em;">ZeroClaw</td>
   <td style="border:1px solid #ddd;padding:0.5em;">OS-native: Landlock/Bubblewrap (Linux), Seatbelt (macOS), Docker (optional)</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Local config, with cryptographic tool receipts per action</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Supervised (approve medium-risk, block high-risk) by default; YOLO mode opt-in</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
   <td style="border:1px solid #ddd;padding:0.5em;">NanoClaw</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Per-agent Docker container, explicitly mounted volumes only</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Vault-based injection at request time, per-agent policy and rate limits</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Container boundary is the permission model, not an in-app approval flow</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">Hermes Agent</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Selectable: local, Docker, SSH, Singularity, Modal, or Daytona</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Local config; isolation level depends on chosen backend</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Command approval and DM pairing</td>
 </tr>
 <tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.5em;">Nanobot</td>
@@ -334,14 +330,14 @@ None of these impose copyleft obligations or field-of-use restrictions, so licen
 All five install in one command or a short script. If you're migrating an existing OpenClaw setup, Hermes Agent is the only one with a built-in migration path (`hermes claw migrate`); for the others, you're starting configuration from scratch, though your LLM API keys carry over regardless of which agent you pick.
 
 ```bash
+# Hermes Agent
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+
 # ZeroClaw
 curl -fsSL https://raw.githubusercontent.com/zeroclaw-labs/zeroclaw/master/install.sh | bash
 
 # NanoClaw
 git clone https://github.com/nanocoai/nanoclaw.git nanoclaw-v2 && cd nanoclaw-v2 && bash nanoclaw.sh
-
-# Hermes Agent
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 # Nanobot
 curl -fsSL https://raw.githubusercontent.com/HKUDS/nanobot/main/scripts/install.sh | sh
@@ -365,4 +361,4 @@ Swap `3000` for whichever port your chosen agent's dashboard runs on, and you ge
 
 ## Conclusion
 
-OpenClaw's growth was real, but its 2026 security track record and heavy Node.js footprint are legitimate reasons to look elsewhere. There's no single best replacement: pick ZeroClaw for raw efficiency, NanoClaw or TrustClaw for the strongest isolation, Hermes Agent for the biggest community and closest feature parity (with a built-in `hermes claw migrate` command), or Nanobot for a codebase small enough to read end to end. Whichever you choose, keep the gateway off the open internet and require pairing or an allowlist for DMs.
+OpenClaw's growth was real, but its 2026 security track record and heavy Node.js footprint are legitimate reasons to look elsewhere. There's no single best replacement: pick Hermes Agent for the biggest community and closest feature parity (with a built-in `hermes claw migrate` command), ZeroClaw for raw efficiency, NanoClaw or TrustClaw for the strongest isolation, or Nanobot for a codebase small enough to read end to end. Whichever you choose, keep the gateway off the open internet and require pairing or an allowlist for DMs.
