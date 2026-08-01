@@ -2,7 +2,7 @@
 title: "localhost:8080 - Web Server and Application Port Guide"
 description: "Complete guide to localhost:8080 - the popular alternative HTTP port used by Tomcat, Jenkins, development servers, and web applications."
 date: 2025-01-30T10:00:00+05:30
-lastmod: 2026-05-23T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "web server", "tomcat", "jenkins", "http"]
 schemahowto: true
@@ -25,6 +25,24 @@ outputs:
 Port 8080 is the unprivileged HTTP port most projects pick when port 80 is taken. On Linux and macOS, binding to ports below 1024 needs root (or the `CAP_NET_BIND_SERVICE` capability on Linux); 8080 is one of the "alternate HTTP" numbers in IANA's port registry (registered as `http-alt`) and stays out of root territory. That's the main reason it caught on.
 
 `localhost` resolves to `127.0.0.1` on IPv4 or `::1` on IPv6, both pointing at the machine you're on. So `localhost:8080` means "whatever process is listening on TCP port 8080 of this machine." Apache Tomcat picked 8080 as a default decades ago, Jenkins inherited it, and the broader Java ecosystem locked it in. Plenty of non-Java tools default to 8080 today too - code-server, LocalAI, and Open WebUI are common modern examples.
+
+---
+
+## Access localhost:8080 from Other Devices
+
+If you can not reach localhost:8080 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local web server on port 8080, allowing you to:
+- **Share your Tomcat/Jenkins server** with team members or clients
+- **Test on mobile devices** without being on the same network
+- **Demo your application** from anywhere in the world
+- **Access CI/CD tools** remotely for development and testing
+
+The tunnel provides a public URL that you can share, making your localhost:8080 web server accessible from any device with internet access.
 
 ---
 
@@ -142,24 +160,6 @@ If you can't access `localhost:8080`, here's how to diagnose and fix common web 
 <li><strong>Network access:</strong> Use your IP address like <code>http://192.168.1.100:8080</code></li>
 </ul>
 </div>
-
----
-
-## Access localhost:8080 from Other Devices
-
-If you can not reach localhost:8080 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8080 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8080 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This command creates a secure tunnel that forwards traffic from a public URL to your local web server on port 8080, allowing you to:
-- **Share your Tomcat/Jenkins server** with team members or clients
-- **Test on mobile devices** without being on the same network
-- **Demo your application** from anywhere in the world
-- **Access CI/CD tools** remotely for development and testing
-
-The tunnel provides a public URL that you can share, making your localhost:8080 web server accessible from any device with internet access.
 
 ---
 

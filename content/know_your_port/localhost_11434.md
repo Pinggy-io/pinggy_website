@@ -2,6 +2,7 @@
 title: "localhost:11434 - Ollama Local LLM Port Guide"
 description: "Complete guide to localhost:11434 - the default port for Ollama, the popular open-source tool for running local LLMs."
 date: 2026-03-06T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "ollama", "llm", "ai", "development"]
 schemahowto: true
@@ -24,6 +25,21 @@ outputs:
 **Localhost:11434** is the default port for **Ollama**, a popular open-source tool that allows developers to run, create, and share Large Language Models (LLMs) locally. "Localhost" refers to your own computer (typically mapped to IP address `127.0.0.1`), and "11434" is the port number where the Ollama API server listens for connections. This combination is a staple for local AI developers working with models like Llama 3, Mistral, and DeepSeek.
 
 Port 11434 serves as the gateway for interacting with your local LLMs. Other interfaces securely connect to this API on your machine to provide rich conversational UI over your locally hosted models without sending your data to external servers.
+
+---
+
+## Access localhost:11434 from Other Devices
+
+If you can not reach localhost:11434 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:11434 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:11434 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:11434 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local Ollama API, allowing you to:
+- **Use your local LLM models** remotely from your phone or laptop
+- **Integrate AI tools** without paying for expensive cloud GPUs
+- **Build applications** using a secure external endpoint for your local AI backend
 
 ---
 
@@ -77,21 +93,6 @@ If you can't access `localhost:11434`, here's how to diagnose and fix common Oll
 <p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the server is accessible.</p>
 <p style="margin: 0;"><strong>How to test:</strong> Navigate to <code>http://localhost:11434</code> in a browser. You should see a simple message saying "Ollama is running".</p>
 </div>
-
----
-
-## Access localhost:11434 from Other Devices
-
-If you can not reach localhost:11434 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:11434 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:11434 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:11434 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:11434 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This command creates a secure tunnel that forwards traffic from a public URL to your local Ollama API, allowing you to:
-- **Use your local LLM models** remotely from your phone or laptop
-- **Integrate AI tools** without paying for expensive cloud GPUs
-- **Build applications** using a secure external endpoint for your local AI backend
 
 ---
 

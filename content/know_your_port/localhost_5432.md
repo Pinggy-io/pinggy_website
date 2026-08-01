@@ -2,7 +2,7 @@
 title: "localhost:5432 - PostgreSQL Database Port Guide"
 description: "Complete guide to localhost:5432 - the default port for PostgreSQL database server, connections, and development workflows."
 date: 2025-01-30T10:00:00+05:30
-lastmod: 2026-03-07T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "postgresql", "database", "sql", "development"]
 schemahowto: true
@@ -25,6 +25,24 @@ outputs:
 **Localhost:5432** is the official default port for PostgreSQL, the world's most advanced open-source relational database. "Localhost" refers to your own computer (typically mapped to IP address `127.0.0.1`), and "5432" is the port number where PostgreSQL listens for database connections. This combination is essential for database development, allowing applications to connect to your local PostgreSQL instance for testing, development, and data management.
 
 Port 5432 is officially assigned to PostgreSQL by the Internet Assigned Numbers Authority (IANA), making it the standard across all PostgreSQL installations worldwide. Developers use this port to connect database administration tools, run application tests, and develop database-driven applications locally before deploying to production servers.
+
+---
+
+## Access localhost:5432 from Other Devices
+
+If you can not reach localhost:5432 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5432 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5432 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5432 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local PostgreSQL database server on port 5432, allowing you to:
+- **Connect to your database** from remote applications
+- **Share database access** with team members for development
+- **Test database connections** from different environments
+- **Access your PostgreSQL server** from cloud applications or services
+
+**Important:** Only use this for development databases. Never expose production databases through tunnels without proper security measures and authentication.
 
 ---
 
@@ -130,24 +148,6 @@ If you can't connect to `localhost:5432`, here's how to diagnose and fix common 
 <li><strong>Check logs:</strong> <code>sudo tail -f /var/log/postgresql/postgresql-*.log</code></li>
 </ul>
 </div>
-
----
-
-## Access localhost:5432 from Other Devices
-
-If you can not reach localhost:5432 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5432 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5432 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5432 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5432 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This command creates a secure tunnel that forwards traffic from a public URL to your local PostgreSQL database server on port 5432, allowing you to:
-- **Connect to your database** from remote applications
-- **Share database access** with team members for development
-- **Test database connections** from different environments
-- **Access your PostgreSQL server** from cloud applications or services
-
-**Important:** Only use this for development databases. Never expose production databases through tunnels without proper security measures and authentication.
 
 ---
 

@@ -15,13 +15,13 @@ outputs:
 
 Every time a device on your network looks up a hostname, that query goes to whatever DNS server you've configured - and for most people, that is still a resolver run by their ISP, Google (`8.8.8.8`), or Cloudflare (`1.1.1.1`). Self-hosting your own DNS server hands that control back to you: no third party sees your lookup history, you can block ads and trackers before they ever reach a device, and you get to decide exactly how internal hostnames, split-horizon zones, and DNSSEC are handled on your network.
 
-The open source DNS ecosystem splits into two fairly different categories, and mixing them up is the most common mistake people make when picking a server. The first category is full-service resolvers and authoritative nameservers - software like PowerDNS, BIND, Unbound, NSD, Knot DNS, and CoreDNS - built to run actual internet-facing DNS infrastructure, sign zones with DNSSEC, and answer millions of queries a second. The second is home and small-office friendly forwarders - Pi-hole, AdGuard Home, Technitium DNS Server, Blocky, and dnsmasq - built to sit between your devices and an upstream resolver, cache responses, and block known ad/tracker domains, usually with a web dashboard. This guide covers both categories with verified GitHub stats, licenses, and features, plus tested Docker commands you can run today.
+The open source DNS ecosystem splits into two fairly different categories, and mixing them up is the most common mistake people make when picking a server. The first category is authoritative nameservers and infrastructure-grade software - PowerDNS, BIND, NSD, Knot DNS, and CoreDNS - built to host zones, sign them with DNSSEC, and answer millions of queries a second. The second is home and small-office friendly resolvers and forwarders - Unbound, Pi-hole, AdGuard Home, Blocky, and SmartDNS - most of which sit between your devices and an upstream resolver, cache responses, and block known ad/tracker domains, with Unbound as the exception that resolves recursively on its own instead of forwarding. Technitium DNS Server straddles both categories. This guide covers all of them with verified GitHub stats, licenses, and features.
 
 {{% tldr %}}
 
-**Infrastructure-grade (authoritative/recursive), by GitHub stars:** <a href="https://coredns.io" target="_blank">CoreDNS</a>, <a href="https://technitium.com/dns/" target="_blank">Technitium DNS Server</a>, <a href="https://nlnetlabs.nl/projects/unbound/about/" target="_blank">Unbound</a>, <a href="https://www.powerdns.com" target="_blank">PowerDNS</a>, <a href="https://www.isc.org/bind/" target="_blank">BIND 9</a>, <a href="https://nlnetlabs.nl/projects/nsd/about/" target="_blank">NSD</a>, <a href="https://www.knot-dns.cz" target="_blank">Knot DNS</a> - full DNS servers for hosting zones or resolving recursively.
+**Infrastructure-grade (authoritative/recursive):** <a href="https://coredns.io" target="_blank">CoreDNS</a>, <a href="https://technitium.com/dns/" target="_blank">Technitium DNS Server</a>, <a href="https://www.powerdns.com" target="_blank">PowerDNS</a>, <a href="https://www.isc.org/bind/" target="_blank">BIND 9</a>, <a href="https://nlnetlabs.nl/projects/nsd/about/" target="_blank">NSD</a>, <a href="https://www.knot-dns.cz" target="_blank">Knot DNS</a> - full DNS servers for hosting zones or resolving recursively.
 
-**Home/lab-grade (forwarders & ad-blocking), by GitHub stars:** <a href="https://pi-hole.net" target="_blank">Pi-hole</a>, <a href="https://adguard.com/en/adguard-home/overview.html" target="_blank">AdGuard Home</a>, <a href="https://github.com/pymumu/smartdns" target="_blank">SmartDNS</a>, <a href="https://0xerr0r.github.io/blocky/latest/" target="_blank">Blocky</a>, dnsmasq - sit in front of an upstream resolver, cache responses, and block ads/trackers.
+**Home/lab-grade (resolvers, forwarders & ad-blocking):** <a href="https://nlnetlabs.nl/projects/unbound/about/" target="_blank">Unbound</a>, <a href="https://pi-hole.net" target="_blank">Pi-hole</a>, <a href="https://adguard.com/en/adguard-home/overview.html" target="_blank">AdGuard Home</a>, <a href="https://github.com/pymumu/smartdns" target="_blank">SmartDNS</a>, <a href="https://0xerr0r.github.io/blocky/latest/" target="_blank">Blocky</a>, dnsmasq - most sit in front of an upstream resolver and block ads/trackers, though Unbound resolves recursively on its own.
 
 **Quick test any of them:** `dig @<server-ip> -p <port> example.com +short`
 
@@ -31,7 +31,65 @@ The open source DNS ecosystem splits into two fairly different categories, and m
 
 The most immediate reason is privacy. Every domain you resolve tells your DNS provider what site you're about to visit, and that log persists somewhere outside your control unless you run the resolver yourself. The second reason is blocking - a DNS server that refuses to resolve known ad and tracker domains protects every device on your network (phones, smart TVs, IoT gadgets) without installing an extension anywhere, something browser-based ad blockers can't do. The third reason is control: split-horizon DNS for a homelab or VPN, custom internal TLDs, Response Policy Zones for threat intel, or just not being at the mercy of a public resolver's outage. And if you run any kind of internet-facing service, an authoritative server you manage yourself is how you actually own your zone data instead of trusting a registrar's default nameservers. For the fundamentals of how any of this resolution actually works, see our {{< link href="/blog/what_problems_does_DNS_solve/" newtab=false >}}explainer on what problems DNS solves{{< /link >}}.
 
-## Comparison Table: Open Source DNS Servers
+## Comparison Table: Authoritative & Recursive DNS Servers
+
+<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
+<thead>
+<tr>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Server</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">GitHub Stars</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">License</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Language</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://coredns.io" target="_blank">CoreDNS</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">14.2K+</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Apache-2.0</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Go</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Both (plugin-dependent)</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://technitium.com/dns/" target="_blank">Technitium DNS Server</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">9.3K+</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">GPL-3.0</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">C#</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative + Recursive + DHCP</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://www.powerdns.com" target="_blank">PowerDNS</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">4.4K+</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">GPL-2.0</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">C++</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative + Recursive</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://www.isc.org/bind/" target="_blank">BIND 9</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">756+</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">MPL-2.0</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">C</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative + Recursive</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://nlnetlabs.nl/projects/nsd/about/" target="_blank">NSD</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">565+</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">BSD-3-Clause</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">C</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative only</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://www.knot-dns.cz" target="_blank">Knot DNS</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">313+</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">GPL-2.0-or-later</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">C</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative only</td>
+</tr>
+</tbody>
+</table>
+
+## Comparison Table: DNS Forwarders, Caches & Resolvers
 
 <table style="width:100%;border-collapse:collapse;table-layout:fixed;">
 <thead>
@@ -59,25 +117,11 @@ The most immediate reason is privacy. Every domain you resolve tells your DNS pr
   <td style="border:1px solid #ddd;padding:0.5em;">Forwarder + blocking + DHCP</td>
 </tr>
 <tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://coredns.io" target="_blank">CoreDNS</a></strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">14.2K+</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Apache-2.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Go</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Both (plugin-dependent)</td>
-</tr>
-<tr>
   <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://github.com/pymumu/smartdns" target="_blank">SmartDNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">11.1K+</td>
   <td style="border:1px solid #ddd;padding:0.5em;">GPL-3.0</td>
   <td style="border:1px solid #ddd;padding:0.5em;">C</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Forwarder (fastest-IP racing)</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://technitium.com/dns/" target="_blank">Technitium DNS Server</a></strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">9.3K+</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">GPL-3.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">C#</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative + Recursive + DHCP</td>
 </tr>
 <tr>
   <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://0xerr0r.github.io/blocky/latest/" target="_blank">Blocky</a></strong></td>
@@ -92,34 +136,6 @@ The most immediate reason is privacy. Every domain you resolve tells your DNS pr
   <td style="border:1px solid #ddd;padding:0.5em;">BSD-3-Clause</td>
   <td style="border:1px solid #ddd;padding:0.5em;">C</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Recursive only</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://www.powerdns.com" target="_blank">PowerDNS</a></strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">4.4K+</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">GPL-2.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">C++</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative + Recursive</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://www.isc.org/bind/" target="_blank">BIND 9</a></strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">756+</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">MPL-2.0</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">C</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative + Recursive</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://nlnetlabs.nl/projects/nsd/about/" target="_blank">NSD</a></strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">565+</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">BSD-3-Clause</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">C</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative only</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong><a href="https://www.knot-dns.cz" target="_blank">Knot DNS</a></strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">313+</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">GPL-2.0-or-later</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">C</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Authoritative only</td>
 </tr>
 </tbody>
 </table>
@@ -164,25 +180,7 @@ Protocol support is comprehensive: DoT, DoH (HTTP/1.1, HTTP/2, HTTP/3), and DoQ 
 
 **License**: GPL-3.0 | **Language**: C# (.NET) | **GitHub Stars**: 9.3K+ | {{< link href="https://github.com/TechnitiumSoftware/DnsServer" >}}GitHub{{< /link >}}
 
-### 3. Unbound - The Default Validating Resolver on BSD and pfSense
-
-{{< image "best_open_source_dns_servers_for_self_hosting/nlnetlabs.webp" "Unbound Recursive DNS Resolver by NLnet Labs" >}}
-
-{{< link href="https://nlnetlabs.nl/projects/unbound/about/" >}}Unbound{{< /link >}} from NLnet Labs is a recursive-only, validating, caching DNS resolver - it does not serve authoritative zones at all, which keeps its codebase and attack surface smaller than a full-service server like BIND. That focus is exactly why it ships as the base-system resolver on OpenBSD and as the default DNS resolver behind pfSense and OPNsense firewalls. It validates DNSSEC by default, supports DoT, DoH, and DoQ as a server, and can act as a DNSCrypt endpoint. Aggressive NSEC caching reduces the number of queries it needs to send upstream, and EDNS Client Subnet support lets it pass along approximate client location for CDN-friendly answers when needed.
-
-Unbound has had an active 2026 on the security front: the 1.25.x line shipped three releases (1.25.0 in April, 1.25.1 in May, 1.25.2 in July) driven largely by DoS and buffer-overflow fixes in its newer QUIC transport code and DNSCrypt-over-TCP handling. If you're running Unbound as a validating resolver in front of a network, staying current on patch releases matters more here than feature-chasing.
-
-**Key Features:**
-- DNSSEC validation on by default, with aggressive NSEC caching
-- DoT, DoH, and DoQ support, plus DNSCrypt
-- EDNS Client Subnet support for CDN-friendly resolution
-- Optional Redis-backed shared response cache for resolver clusters
-- Extensive runtime statistics and a `cache_lookup` control command
-- Small, focused codebase (recursive-only, no authoritative code path)
-
-**License**: BSD-3-Clause | **Language**: C | **GitHub Stars**: 4.7K+ | {{< link href="https://github.com/NLnetLabs/unbound" >}}GitHub{{< /link >}}
-
-### 4. PowerDNS - Database-Backed Authoritative DNS With a REST API
+### 3. PowerDNS - Database-Backed Authoritative DNS With a REST API
 
 {{< image "best_open_source_dns_servers_for_self_hosting/power_dns.webp" "PowerDNS Authoritative Server and Recursor" >}}
 
@@ -200,7 +198,7 @@ On the recursive side, the PowerDNS Recursor supports DoT, DoH, and DoQ for encr
 
 **License**: GPL-2.0 | **Language**: C++ | **GitHub Stars**: 4.4K+ | {{< link href="https://github.com/PowerDNS/pdns" >}}GitHub{{< /link >}}
 
-### 5. BIND 9 - The Reference DNS Implementation
+### 4. BIND 9 - The Reference DNS Implementation
 
 {{< image "best_open_source_dns_servers_for_self_hosting/bind_9.webp" "BIND 9 DNS Server by ISC" >}}
 
@@ -218,8 +216,7 @@ On the recursive side, the PowerDNS Recursor supports DoT, DoH, and DoQ for encr
 
 **License**: MPL-2.0 | **Language**: C | **GitHub Stars**: 756+ (mirror) | {{< link href="https://github.com/isc-projects/bind9" >}}GitHub{{< /link >}}
 
-### 6. NSD - Authoritative-Only, Built for Root and TLD Operators
-
+### 5. NSD - Authoritative-Only, Built for Root and TLD Operators
 {{< image "best_open_source_dns_servers_for_self_hosting/nsd.webp" "NSD Authoritative DNS Server by NLnet Labs" >}}
 
 {{< link href="https://nlnetlabs.nl/projects/nsd/about/" >}}NSD{{< /link >}} (Name Server Daemon), also from NLnet Labs, takes the opposite approach from Unbound: it is authoritative-only by design, with no recursive resolution code at all. That narrow focus is deliberate - fewer code paths means a smaller attack surface and predictable, very high query throughput, which is why NSD is used by several DNS root server operators (including RIPE NCC's k.root-servers.net) and a number of ccTLD and gTLD registries. It's commonly deployed alongside Unbound from the same organization, one box handling authoritative zones and another handling recursive lookups.
@@ -236,7 +233,7 @@ NSD supports AXFR/IXFR zone transfers with DoT, catalog zones, and `nsd-control`
 
 **License**: BSD-3-Clause | **Language**: C | **GitHub Stars**: 565+ | {{< link href="https://github.com/NLnetLabs/nsd" >}}GitHub{{< /link >}}
 
-### 7. Knot DNS - High-Performance Authoritative DNS With AF_XDP
+### 6. Knot DNS - High-Performance Authoritative DNS With AF_XDP
 
 {{< image "best_open_source_dns_servers_for_self_hosting/knot_dns.webp" "Knot DNS Authoritative Server by CZ.NIC" >}}
 
@@ -254,11 +251,11 @@ Beyond raw performance, Knot DNS handles automatic DNSSEC signing with automatic
 
 **License**: GPL-2.0-or-later | **Language**: C | **GitHub Stars**: 313+ (mirror) | {{< link href="https://github.com/CZ-NIC/knot" >}}GitHub{{< /link >}}
 
-## DNS Forwarders, Caches & Ad-Blocking Resolvers
+## DNS Forwarders, Caches & Resolvers
 
-These servers don't walk the DNS hierarchy themselves - they sit between your devices and an upstream resolver (often `1.1.1.1`, `8.8.8.8`, or Quad9), cache answers, and in most cases block ad and tracker domains before they ever resolve.
+Most of the servers in this section sit between your devices and an upstream resolver (often `1.1.1.1`, `8.8.8.8`, or Quad9), cache answers, and block ad and tracker domains before they ever resolve - the home-lab-friendly counterpart to the infrastructure servers above. Unbound, grouped here for its similar home-network footprint, is the exception: it performs real recursive resolution rather than forwarding, and has no blocking feature at all.
 
-### 8. AdGuard Home - The Most Polished Web UI for Network-Wide Blocking
+### 7. AdGuard Home - The Most Polished Web UI for Network-Wide Blocking
 
 {{< image "best_open_source_dns_servers_for_self_hosting/adguard.webp" "AdGuard Home Network-Wide Ad Blocking DNS" >}}
 
@@ -276,7 +273,7 @@ AdGuard Home explicitly collects no telemetry or usage statistics by design, whi
 
 **License**: GPL-3.0 | **Language**: Go | **GitHub Stars**: 35.8K+ | {{< link href="https://github.com/AdguardTeam/AdGuardHome" >}}GitHub{{< /link >}}
 
-### 9. Pi-hole - The Default Answer for Home Ad Blocking
+### 8. Pi-hole - The Default Answer for Home Ad Blocking
 
 {{< image "best_open_source_dns_servers_for_self_hosting/pi_hole.webp" "Pi-hole Ad-Blocking DNS Sinkhole" >}}
 
@@ -294,7 +291,7 @@ Pi-hole uses the EUPL-1.2 license, an EU-originated copyleft license that's genu
 
 **License**: EUPL-1.2 | **Language**: Shell (core) / C (FTL) | **GitHub Stars**: 60.1K+ (core), 1.7K+ (FTL) | {{< link href="https://github.com/pi-hole/pi-hole" >}}GitHub{{< /link >}}
 
-### 10. Blocky - Lightweight, YAML-Configured, Built for Observability
+### 9. Blocky - Lightweight, YAML-Configured, Built for Observability
 
 {{< image "best_open_source_dns_servers_for_self_hosting/blocky.webp" "Blocky Lightweight DNS Proxy and Ad Blocker" >}}
 
@@ -312,7 +309,7 @@ Feature-wise, Blocky supports DoH, DoT, DoQ (RFC 9250), and DoH3 (RFC 9114) as a
 
 **License**: Apache-2.0 | **Language**: Go | **GitHub Stars**: 6.8K+ | {{< link href="https://github.com/0xERR0R/blocky" >}}GitHub{{< /link >}}
 
-### 11. SmartDNS - Fastest-IP-Wins Resolution
+### 10. SmartDNS - Fastest-IP-Wins Resolution
 
 {{< image "best_open_source_dns_servers_for_self_hosting/smart_dns.webp" "SmartDNS Fastest-IP-Wins DNS Resolver" >}}
 
@@ -329,6 +326,24 @@ SmartDNS supports DoT, DoH, DoQ, and DoH3 as upstream client protocols, DNS64 fo
 - Standalone web UI plugin for query monitoring and stats
 
 **License**: GPL-3.0 | **Language**: C | **GitHub Stars**: 11.1K+ | {{< link href="https://github.com/pymumu/smartdns" >}}GitHub{{< /link >}}
+
+### 11. Unbound - The Default Validating Resolver on BSD and pfSense
+
+{{< image "best_open_source_dns_servers_for_self_hosting/nlnetlabs.webp" "Unbound Recursive DNS Resolver by NLnet Labs" >}}
+
+{{< link href="https://nlnetlabs.nl/projects/unbound/about/" >}}Unbound{{< /link >}} from NLnet Labs is a recursive-only, validating, caching DNS resolver - it does not serve authoritative zones at all, which keeps its codebase and attack surface smaller than a full-service server like BIND. That focus is exactly why it ships as the base-system resolver on OpenBSD and as the default DNS resolver behind pfSense and OPNsense firewalls, making it a common home-lab pairing alongside the forwarders above even though, unlike them, it does real recursion instead of forwarding to an upstream. It validates DNSSEC by default, supports DoT, DoH, and DoQ as a server, and can act as a DNSCrypt endpoint. Aggressive NSEC caching reduces the number of queries it needs to send upstream, and EDNS Client Subnet support lets it pass along approximate client location for CDN-friendly answers when needed.
+
+Unbound has had an active 2026 on the security front: the 1.25.x line shipped three releases (1.25.0 in April, 1.25.1 in May, 1.25.2 in July) driven largely by DoS and buffer-overflow fixes in its newer QUIC transport code and DNSCrypt-over-TCP handling. If you're running Unbound as a validating resolver in front of a network, staying current on patch releases matters more here than feature-chasing.
+
+**Key Features:**
+- DNSSEC validation on by default, with aggressive NSEC caching
+- DoT, DoH, and DoQ support, plus DNSCrypt
+- EDNS Client Subnet support for CDN-friendly resolution
+- Optional Redis-backed shared response cache for resolver clusters
+- Extensive runtime statistics and a `cache_lookup` control command
+- Small, focused codebase (recursive-only, no authoritative code path)
+
+**License**: BSD-3-Clause | **Language**: C | **GitHub Stars**: 4.7K+ | {{< link href="https://github.com/NLnetLabs/unbound" >}}GitHub{{< /link >}}
 
 ## Honorable Mentions
 
@@ -364,4 +379,4 @@ One important caution: this pattern is for the **web UI**, not the raw DNS port.
 
 ## Conclusion
 
-There's no single "best" open source DNS server - it depends on whether you need real infrastructure (**PowerDNS**, **BIND**, **Unbound**, **NSD**, **Knot DNS**, **CoreDNS**, **Technitium**) or a home-network ad blocker (**Pi-hole**, **AdGuard Home**, **Blocky**, **SmartDNS**). Whichever you pick, keep it patched, restrict who can query it, and verify it's resolving correctly with `dig` before switching your network over.
+There's no single "best" open source DNS server - it depends on whether you need real infrastructure (**PowerDNS**, **BIND**, **NSD**, **Knot DNS**, **CoreDNS**, **Technitium**) or a home-network resolver or ad blocker (**Unbound**, **Pi-hole**, **AdGuard Home**, **Blocky**, **SmartDNS**). Whichever you pick, keep it patched, restrict who can query it, and verify it's resolving correctly with `dig` before switching your network over.

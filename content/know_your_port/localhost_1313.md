@@ -2,6 +2,7 @@
 title: "localhost:1313 - Hugo Static Site Generator Port Guide"
 description: "Complete guide to localhost:1313 - the default port for Hugo static site generator development server and live reload functionality."
 date: 2025-01-30T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "hugo", "static site", "development", "jamstack"]
 schemahowto: true
@@ -24,6 +25,24 @@ outputs:
 **Localhost:1313** is exclusively associated with Hugo, the world's fastest static site generator. "Localhost" refers to your own computer (typically mapped to IP address `127.0.0.1`), and "1313" is the unique port number that Hugo chose for its development server. When you see localhost:1313, you're almost certainly looking at a Hugo development server in action.
 
 Hugo chose port 1313 as its default because it serves as a unique identifier that rarely conflicts with other services, making it instantly recognizable to developers working with static sites. The port supports JAMstack development workflows, Hugo-powered documentation projects, and Hugo-based blog and content sites, providing developers with instant feedback during the development process.
+
+---
+
+## Access localhost:1313 from Other Devices
+
+If you can not reach localhost:1313 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:1313 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1313 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1313 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local Hugo development server on port 1313, allowing you to:
+- **Share your Hugo site** with team members or clients
+- **Test on mobile devices** without being on the same network
+- **Demo your static site** from anywhere in the world
+- **Preview your content** on different devices and browsers
+
+The tunnel provides a public URL that you can share, making your localhost:1313 Hugo development server accessible from any device with internet access.
 
 ---
 
@@ -131,24 +150,6 @@ If you can't access `localhost:1313`, here's how to diagnose and fix common Hugo
 <li><strong>Network access:</strong> Use <code>hugo server --bind 0.0.0.0</code> for external access</li>
 </ul>
 </div>
-
----
-
-## Access localhost:1313 from Other Devices
-
-If you can not reach localhost:1313 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:1313 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1313 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1313 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1313 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This command creates a secure tunnel that forwards traffic from a public URL to your local Hugo development server on port 1313, allowing you to:
-- **Share your Hugo site** with team members or clients
-- **Test on mobile devices** without being on the same network
-- **Demo your static site** from anywhere in the world
-- **Preview your content** on different devices and browsers
-
-The tunnel provides a public URL that you can share, making your localhost:1313 Hugo development server accessible from any device with internet access.
 
 ---
 

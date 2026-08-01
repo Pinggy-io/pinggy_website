@@ -2,6 +2,7 @@
 title: "localhost:3210 - LobeChat Application Port Guide"
 description: "Complete guide to localhost:3210 - the default port for LobeChat, an open-source, modern-design AI chat framework."
 date: 2026-03-06T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "lobechat", "llm", "ai", "chat"]
 schemahowto: true
@@ -24,6 +25,18 @@ outputs:
 **Localhost:3210** is the default port for **LobeChat**, an incredibly popular, modern, and open-source high-performance ChatGPT UI. Many developers install LobeChat via Docker or Node, and it boots up immediately on `3210`.
 
 Because standard HTTP and dev ports like `3000` or `8080` are extremely crowded by React/Next.js/Tomcat apps, LobeChat made the developer-friendly decision to bind to `3210` by default. This makes it instantly recognizable as your AI graphical chat interface while reserving other common ranges for daily dev work.
+
+---
+
+## Access localhost:3210 from Other Devices
+
+Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your LobeChat UI out natively:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3210 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3210 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3210 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This allows other devices globally to seamlessly use your LobeChat web app config. 
 
 ---
 
@@ -65,18 +78,6 @@ If you can't access `localhost:3210`, here's how to diagnose and fix common Lobe
 <p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the local GUI is accessible.</p>
 <p style="margin: 0;"><strong>How to test:</strong> Navigate to <code>http://localhost:3210</code> in Google Chrome or Firefox.</p>
 </div>
-
----
-
-## Access localhost:3210 from Other Devices
-
-Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your LobeChat UI out natively:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3210 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3210 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3210 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3210 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This allows other devices globally to seamlessly use your LobeChat web app config. 
 
 ---
 

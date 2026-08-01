@@ -2,6 +2,7 @@
 title: "localhost:8000 - Python and Development Server Port Guide"
 description: "Complete guide to localhost:8000 - the popular port used by Django, Python HTTP servers, and various development frameworks."
 date: 2025-01-30T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "python", "django", "development", "http server"]
 schemahowto: true
@@ -24,6 +25,24 @@ outputs:
 **Localhost:8000** is synonymous with Python web development, serving as the default port for Django applications and Python's built-in HTTP server. "Localhost" refers to your own computer (typically mapped to IP address `127.0.0.1`), and "8000" is the port number where Python web servers listen for HTTP connections. This combination has become the standard choice for Python developers worldwide.
 
 Port 8000 gained popularity through Django's widespread adoption, which established it as the Python web development standard. The built-in `python -m http.server` command also defaults to port 8000, reinforcing its association with Python development. The port offers development convenience by being high enough to avoid conflicts with system services while remaining easy to remember.
+
+---
+
+## Access localhost:8000 from Other Devices
+
+If you can not reach localhost:8000 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8000 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local Python server on port 8000, allowing you to:
+- **Share your Django/FastAPI app** with team members or clients
+- **Test on mobile devices** without being on the same network
+- **Demo your application** from anywhere in the world
+- **Debug Python applications** on different devices and browsers
+
+The tunnel provides a public URL that you can share, making your localhost:8000 Python development server accessible from any device with internet access.
 
 ---
 
@@ -131,24 +150,6 @@ If you can't access `localhost:8000`, here's how to diagnose and fix common Pyth
 <li><strong>Network access:</strong> Use <code>python manage.py runserver 0.0.0.0:8000</code> for external access</li>
 </ul>
 </div>
-
----
-
-## Access localhost:8000 from Other Devices
-
-If you can not reach localhost:8000 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:8000 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8000 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This command creates a secure tunnel that forwards traffic from a public URL to your local Python server on port 8000, allowing you to:
-- **Share your Django/FastAPI app** with team members or clients
-- **Test on mobile devices** without being on the same network
-- **Demo your application** from anywhere in the world
-- **Debug Python applications** on different devices and browsers
-
-The tunnel provides a public URL that you can share, making your localhost:8000 Python development server accessible from any device with internet access.
 
 ---
 

@@ -2,6 +2,7 @@
 title: "localhost:3001 - AnythingLLM Workspace Port Guide"
 description: "Complete guide to localhost:3001 - the default port for AnythingLLM, an all-in-one desktop AI app for local models."
 date: 2026-03-06T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "anythingllm", "llm", "ai", "workspace"]
 schemahowto: true
@@ -24,6 +25,18 @@ outputs:
 **Localhost:3001** is the designated default port for **AnythingLLM**, an all-in-one AI app designed to give normal users and enterprises a full-tier AI workspace connecting smoothly to remote models or local engines like Ollama. Port 3001 provides a full RAG (Retrieval-Augmented Generation) document experience to "chat with your data".
 
 Because `3000` is deeply occupied by things like React and Express, many NodeJS and React-based applications select `3001` as the fallback or independent service port.
+
+---
+
+## Access localhost:3001 from Other Devices
+
+Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your RAG workspace:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3001 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3001 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3001 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This makes your private document workspace accessible anywhere.
 
 ---
 
@@ -72,18 +85,6 @@ If you can't access `localhost:3001`, here's how to diagnose and fix common Anyt
 <p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the local GUI is accessible.</p>
 <p style="margin: 0;"><strong>How to test:</strong> Navigate to <code>http://localhost:3001</code> in a browser instead of pinging it directly via cURL, as it serves a UI.</p>
 </div>
-
----
-
-## Access localhost:3001 from Other Devices
-
-Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your RAG workspace:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3001 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3001 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3001 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3001 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This makes your private document workspace accessible anywhere.
 
 ---
 
