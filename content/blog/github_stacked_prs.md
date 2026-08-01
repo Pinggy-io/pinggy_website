@@ -13,9 +13,9 @@ outputs:
 
 {{< image "github_stacked_prs/github_stacked_prs_banner.webp" "Three stacked GitHub pull requests shown as connected cards, each targeting the branch below it instead of main, illustrating GitHub's new native stacked PR workflow" >}}
 
-As of July 30, 2026, GitHub will let you open a pull request against another pull request instead of against `main`, and it'll actually track the relationship for you. Stacked pull requests moved from a private, waitlisted preview to public preview that day, and GitHub says it's rolling out to every repository "over the coming days," no opt-in required. If you've spent the last few years watching your teammates rebase a five-branch stack by hand, or paying Graphite $20 a seat a month to do it for you, this is the feature that's supposed to make that unnecessary.
+As of July 30, 2026, GitHub will let you open a pull request against another pull request instead of against `main`, and it'll actually track the relationship for you. Stacked pull requests moved from a private, waitlisted preview to {{< link href="https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview/" >}}public preview{{< /link >}} that day, and GitHub says it's rolling out to every repository "over the coming days," no opt-in required. If you've spent the last few years watching your teammates rebase a five-branch stack by hand, or paying Graphite $20 a seat a month to do it for you, this is the feature that's supposed to make that unnecessary.
 
-It's also not finished. The Hacker News thread on the launch pulled in 516 points and 282 comments in a day, and a good chunk of that discussion is people pointing at exactly where the feature still breaks.
+It's also not finished. The {{< link href="https://news.ycombinator.com/item?id=49112232" >}}Hacker News thread on the launch{{< /link >}} pulled in 516 points and 282 comments in a day, and a good chunk of that discussion is people pointing at exactly where the feature still breaks.
 
 {{% tldr %}}
 1. **What shipped**: native stacked PRs, in public preview on GitHub.com, the `gh` CLI, the mobile app, and Copilot via a `gh-stack` skill, as of July 30, 2026.
@@ -37,7 +37,7 @@ The mechanics are simple even if the tooling around them isn't. A stack is two o
 
 Each layer gets its own diff, its own review thread, and its own CI run. A reviewer looking at PR 2 sees only the wiring change, not the middleware code that's still under review one layer down. That's the entire pitch: you get to keep writing PRs that are small enough to review in one sitting, even when the total change is not small at all.
 
-What's new is that GitHub now tracks this natively. Before this, if you wanted a stack, you either rebased every downstream branch by hand every time the bottom one changed, or you paid for Graphite, Aviator, or a similar tool to do it. GitHub's pitch is that since the stack now lives inside GitHub's own PR object model, your existing branch protections, required reviews, and status checks apply to each layer automatically, without a bot or a browser extension in the loop.
+What's new is that GitHub now tracks this natively. Before this, if you wanted a stack, you either rebased every downstream branch by hand every time the bottom one changed, or you paid for Graphite, Aviator, or a similar tool to do it. GitHub's pitch, laid out in its {{< link href="https://docs.github.com/en/pull-requests/get-started/about-stacked-prs" >}}stacked PRs documentation{{< /link >}}, is that since the stack now lives inside GitHub's own PR object model, your existing branch protections, required reviews, and status checks apply to each layer automatically, without a bot or a browser extension in the loop.
 
 ## The gh CLI is where you'll actually live
 
