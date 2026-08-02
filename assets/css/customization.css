@@ -1948,3 +1948,96 @@ pre {
     transition: none !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Language switcher
+   Shared by the blog navbar (.bp-nav) and the product navbar (.navbar), so it
+   lives here rather than in blog.css and uses the site tokens. Only rendered
+   on pages that have a translation; Bootstrap supplies the open/close
+   behaviour and the rules below replace its default .dropdown-menu chrome.
+   --------------------------------------------------------------------------- */
+.lang-switch { position: relative; }
+.lang-switch__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-md);
+  background: var(--ink-50);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink-500);
+  cursor: pointer;
+  transition: color var(--duration-fast), background var(--duration-fast),
+    border-color var(--duration-fast);
+}
+.lang-switch__toggle:hover,
+.lang-switch__toggle[aria-expanded="true"] {
+  color: var(--ink-900);
+  background: var(--brand-50);
+  border-color: var(--brand-100);
+}
+.lang-switch__toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.lang-switch__flag { display: block; border-radius: 2px; flex: none; }
+.lang-switch__chev {
+  width: 13px;
+  height: 13px;
+  flex: none;
+  opacity: 0.7;
+  transition: transform var(--duration-fast);
+}
+.lang-switch__toggle[aria-expanded="true"] .lang-switch__chev { transform: rotate(180deg); }
+
+.lang-switch__menu.dropdown-menu {
+  min-width: 168px;
+  padding: 5px;
+  margin: 0;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+}
+.lang-switch__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink-700);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--duration-fast), background var(--duration-fast);
+}
+.lang-switch__item:hover { color: var(--ink-900); background: var(--ink-50); }
+.lang-switch__item.is-active { color: var(--brand-700); }
+.lang-switch__item:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.lang-switch__check {
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+  flex: none;
+  opacity: 0;
+  color: var(--brand-600);
+}
+.lang-switch__item.is-active .lang-switch__check { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-switch__toggle,
+  .lang-switch__chev,
+  .lang-switch__item { transition: none; }
+}
+
+/* Below ~420px drop the language name and keep flag + chevron only. */
+@media (max-width: 420px) {
+  .lang-switch__cur { display: none; }
+  .lang-switch__toggle { gap: 4px; padding: 0 7px; }
+}

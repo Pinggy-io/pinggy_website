@@ -44,7 +44,9 @@
       if (navigator.clipboard) navigator.clipboard.writeText(pre.innerText);
       var html = btn.innerHTML;
       btn.classList.add('copied');
-      btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied';
+      // Label comes from the template's data-copied attribute so it stays translatable.
+      var copiedLabel = btn.getAttribute('data-copied') || 'Copied';
+      btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> ' + copiedLabel;
       setTimeout(function () { btn.classList.remove('copied'); btn.innerHTML = html; }, 1600);
     });
   });

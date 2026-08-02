@@ -9,11 +9,11 @@
         {{ if ne .Lastmod .Date }}
         <span class="date-info italic">
           <br />
-          Updated on {{ .Lastmod.Format "Jan 2, 2006" }}</span
+          {{ i18n "updatedOn" }} {{ time.Format (i18n "datefmtAmp") .Lastmod }}</span
         >
         {{ else }}
         <i class="bi bi-calendar4-event me-1"></i
-        ><span>{{ .Date.Format "Jan 2, 2006" }}</span>
+        ><span>{{ time.Format (i18n "datefmtAmp") .Date }}</span>
         {{ end }}
       </div>
     </div>

@@ -435,6 +435,7 @@ body.blog .contentcontainer { margin-top: 0; }
 }
 .bp-nav__icon:hover { color: #1f2a37; background: #eef2fe; }
 .bp-nav__icon svg { width: 20px; height: 20px; display: block; }
+
 .bp-nav a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);

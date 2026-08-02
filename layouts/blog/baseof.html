@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.Language.Lang }}">
   <head>
     {{- partial "analytics.html" . -}}
     {{- partial "header.html" . -}} {{- with .OutputFormats.Get "AMP" }}
@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link href="/css/blog.css?v=23" rel="stylesheet" />
+    <link href="/css/blog.css?v=27" rel="stylesheet" />
     {{- partial "seoblogs.html" . -}}
   </head>
 

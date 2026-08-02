@@ -1,0 +1,27 @@
+{{/* Small flag adornment for the language switcher. Takes a language code as
+     the context, e.g. {{ partial "lang-flag.html" "es" }}.
+
+     Deliberately simplified shapes: at 18x13 the detail of a real flag is mud,
+     and these read instantly. Corners are rounded with `border-radius` on the
+     <svg> in CSS rather than a clipPath, because the same flag renders more
+     than once per page and duplicate clipPath ids would collide.
+
+     Flags mark countries, not languages, so the visible label in the switcher
+     is always the language name - the flag is decoration only and is hidden
+     from assistive tech. */}}
+{{ $lang := . }}
+{{ if eq $lang "es" }}
+<svg class="lang-switch__flag" viewBox="0 0 20 14" width="18" height="13" aria-hidden="true" focusable="false">
+  <rect width="20" height="14" fill="#c60b1e" />
+  <rect y="3.5" width="20" height="7" fill="#ffc400" />
+</svg>
+{{ else }}
+<svg class="lang-switch__flag" viewBox="0 0 20 14" width="18" height="13" aria-hidden="true" focusable="false">
+  <rect width="20" height="14" fill="#f7f8fa" />
+  <rect y="0" width="20" height="2" fill="#d02f44" />
+  <rect y="4" width="20" height="2" fill="#d02f44" />
+  <rect y="8" width="20" height="2" fill="#d02f44" />
+  <rect y="12" width="20" height="2" fill="#d02f44" />
+  <rect width="9" height="6" fill="#46467f" />
+</svg>
+{{ end }}
