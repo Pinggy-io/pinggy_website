@@ -54,3 +54,30 @@ When enabled, the box is built automatically from the post's `##` (h2) headings.
 | `eyebrow` | Small uppercase kicker above the title. Falls back to the first category, then the first tag, then "Blog". |
 | `author` | Name shown in the meta row (default: "Pinggy Blog"). |
 | `schemahowto` | Base64-encoded `<script type="application/ld+json">` block (typically a HowTo schema) injected into the page head for SEO. Decoded via `base64Decode` in `layouts/partials/seoblogs.html`. |
+| `slug` | Overrides the URL segment. Used on Spanish translations to give them a Spanish URL (see below). |
+
+## Translated posts (English + Spanish)
+
+English is the default language and stays at the site root (`/blog/foo/`). Spanish lives under `/es/`. Only selected posts are translated; everything else stays English-only and is simply absent from the Spanish site.
+
+To translate `content/blog/foo.md`, add `content/blog/foo.es.md`:
+
+```yaml
+---
+title: "Título en español"
+slug: "titulo-en-espanol"      # -> /es/blog/titulo-en-espanol/
+eyebrow: "Novedades"           # tags stay English, so set this explicitly
+date: 2023-08-10T14:15:25+05:30   # keep the original publish date
+lastmod: 2026-08-01T14:15:25+05:30
+og_image: "images/foo/thumb.webp" # reuse the English image folder
+---
+```
+
+Keep the English base filename (`foo.es.md`) - Hugo pairs translations by filename, and `slug` controls the URL independently. A language switcher and reciprocal `hreflang` tags appear automatically on both versions, and only on posts that have a translation.
+
+Two things that bite:
+
+- Use **root-absolute image paths** (`/doc_img/...`). Relative `../../../` paths break on Spanish AMP pages, which sit one directory deeper.
+- `schemahowto` must be **re-encoded** in Spanish, not copied - it contains English prose. Omit it if you are not translating it.
+
+UI strings come from `i18n/en.toml` / `i18n/es.toml`. The `pinggytunnel` shortcode is not translated yet, so posts using it need that done first.

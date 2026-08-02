@@ -5,14 +5,13 @@
   {{ if ne .Lastmod .Date }}
   <span class="info">
     <br />
-    Updated on {{ .Lastmod.Format "Jan 2, 2006" }}</span
+    {{ i18n "updatedOn" }} {{ time.Format (i18n "datefmtAmp") .Lastmod }}</span
   >
   {{ else }}
-  <span class="info">{{ .Date.Format "Jan 2, 2006" }}</span>
+  <span class="info">{{ time.Format (i18n "datefmtAmp") .Date }}</span>
   {{ end }}
   <span class="info">
-    <span>·</span> {{ .ReadingTime }} min{{ if (ne .ReadingTime 1) }}s{{ end }}
-    read</span
+    <span>·</span> {{ .ReadingTime }} {{ i18n "minRead" }}</span
   >
 
   <div class="badge-container">

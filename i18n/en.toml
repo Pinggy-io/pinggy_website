@@ -1,0 +1,89 @@
+# UI strings for the blog and know-your-port templates. Keys are referenced
+# with {{ i18n "key" }}.
+# `datefmt*` values are Go time layouts rendered through `time.Format`, which
+# localises month and weekday names - so the layout itself carries any
+# language-specific wording (e.g. Spanish "2 de January de 2006").
+#
+# NOTE: Hugo's i18n TOML reserves the keys `one` and `other`. Never introduce a
+# [table] into this file - it swallows every key defined after it and fails the
+# build with "reserved keys mixed with unreserved keys".
+
+# Dates
+datefmt = "January 2, 2006"
+datefmtShort = "Mon, Jan 2, 2006"
+datefmtAmp = "Jan 2, 2006"
+
+# Post meta
+updated = "Updated"
+updatedOn = "Updated on"
+minRead = "min read"
+readingTime = "Est. reading time"
+writtenBy = "Written by"
+
+# Post chrome
+share = "Share"
+shareOnX = "Share on X"
+shareOnLinkedIn = "Share on LinkedIn"
+shareOnFacebook = "Share on Facebook"
+shareViaEmail = "Share via email"
+copyLink = "Copy link"
+featuredImage = "featured image"
+tableOfContents = "Table of contents"
+inThisArticle = "In this article"
+copy = "Copy"
+copyCode = "Copy code"
+copied = "Copied"
+language = "Language"
+
+# Blog list
+blogName = "Pinggy Blog"
+technicalBlog = "Technical Blog"
+blogHeading = "Tunnels, networking, self-hosted LLMs, and AI news"
+sortBy = "Sort by"
+sortPosts = "Sort posts"
+newest = "Newest"
+recentlyUpdated = "Recently updated"
+taggedPosts = "Blog posts tagged"
+
+# Blog navbar
+contact = "Contact"
+onGitHub = "Pinggy on GitHub"
+onDiscord = "Pinggy on Discord"
+
+# Footer
+footerTagline = "Instantly share your localhost over secure public URLs - no signup, no config."
+footerProduct = "Product"
+footerComparisons = "Comparisons"
+footerResources = "Resources"
+footerCompany = "Company"
+footerPricing = "Pricing"
+footerDocumentation = "Documentation"
+footerQuickstart = "Quickstart Recipes"
+footerBlog = "Blog"
+footerTools = "Tools"
+footerKnowYourPorts = "Know Your Ports"
+footerAbout = "About Us"
+footerContact = "Contact Us"
+footerTerms = "Terms of Service"
+footerPrivacy = "Privacy Policy"
+footerMadeFor = "Made for developers, everywhere."
+copyright = "Copyright"
+
+# Shortcodes
+summary = "Summary"
+videoUnsupported = "Your browser does not support HTML video."
+enterYourToken = "Enter your token"
+
+# Know your ports
+readMore = "Read More…"
+knowYourPorts = "Know Your Ports"
+
+# Product navbar
+navUseCases = "Use Cases"
+navIngress = "Ingress for dev/test"
+navGuiApp = "GUI App"
+navHelp = "Help"
+navFaq = "FAQ"
+navDashboard = "Dashboard"
+navForum = "Community Forum"
+navLogoAlt = "Pinggy brand logo"

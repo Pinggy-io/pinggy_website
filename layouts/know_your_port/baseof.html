@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.Language.Lang }}">
   <head>
     {{- partial "analytics.html" . -}}
     {{- partial "header.html" . -}} {{- with .OutputFormats.Get "AMP" }}
     <link rel="amphtml" href="{{ .RelPermalink | absURL }}" />
     {{- end }}
-    <link href="/css/blog.css?v=3" rel="stylesheet" />
+    <link href="/css/blog.css?v=27" rel="stylesheet" />
     {{- partial "seoblogs.html" . -}}
   </head>
 
-  <body>
-    {{- partial "navbar.html" .}}
+  <body class="blog">
+    {{- partial "blog-navbar.html" .}}
 
     <div class="container py-3 contentcontainer maincontent">
       <div class="row flex-nowrap row justify-content-evenly">
