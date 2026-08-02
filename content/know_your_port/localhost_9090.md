@@ -2,6 +2,7 @@
 title: "localhost:9090 - OpenClaw Dashboard & Web UI Port Guide"
 description: "Complete guide to localhost:9090 - the popular port used by OpenClaw autonomous AI agent dashboard and Prometheus monitoring."
 date: 2026-03-06T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "openclaw", "prometheus", "ai", "dashboard"]
 schemahowto: true
@@ -24,6 +25,18 @@ outputs:
 **Localhost:9090** (and occasionally **9091**) is a widely paired port typically used for local AI dashboards and monitoring gateways. Most notably, it is the default port for the **OpenClaw** autonomous AI agent web UI and its WebSocket Gateway. It's also well known among DevOps engineers as the default port for the **Prometheus** metrics monitoring system.
 
 Port 9090 gives developers a convenient web interface to check up on agent logs, view monitoring statistics, or configure system boundaries without interfering with lower-range common ports like 8080 or 3000.  
+
+---
+
+## Access localhost:9090 from Other Devices
+
+Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your dashboard easily:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:9090 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:9090 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:9090 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This exposes the UI instantly. **Warning:** If running an AI agent or database portal, ensure authentication is enabled before exposing it to the Internet.
 
 ---
 
@@ -69,18 +82,6 @@ When using OpenClaw, the AI gateway actively listens on port 9090 to interface b
 <h3 style="color: #155724; margin: 0 0 15px 0;">🌐 Step 3: Test the Connection</h3>
 <p style="margin: 0 0 10px 0;"><strong>Action:</strong> Run a simple curl test <code>curl http://localhost:9090</code> to inspect the headers.</p>
 </div>
-
----
-
-## Access localhost:9090 from Other Devices
-
-Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your dashboard easily:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:9090 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:9090 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:9090 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:9090 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This exposes the UI instantly. **Warning:** If running an AI agent or database portal, ensure authentication is enabled before exposing it to the Internet.
 
 ---
 

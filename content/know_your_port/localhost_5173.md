@@ -2,7 +2,7 @@
 title: "localhost:5173 - Vite Development Server Port Guide"
 description: "Complete guide to localhost:5173 - the default port for Vite development server used by Vue.js, React, and modern frontend frameworks."
 date: 2025-01-30T10:00:00+05:30
-lastmod: 2026-05-21T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "vite", "vue", "react", "frontend", "development"]
 schemahowto: true
@@ -27,6 +27,18 @@ outputs:
 There's a small joke in the number itself: 5-1-7-3 reads as V-I-T-E if you squint at a phone keypad. Cute, but the reason most frontend projects you touch in 2026 land on this port is more boring - Vite is the default dev server for almost every modern framework.
 
 As of 2026, Vite 8 ships with **{{< link href="https://rolldown.rs/" >}}Rolldown{{< /link >}}**, a Rust-based bundler that replaces the old Rollup + esbuild split. Production builds are 1.6x to 7.7x faster than Vite 7 on real codebases (Linear reported 46s -> 6s; Ramp -57%; Beehiiv -64%). Plugin API compatibility was preserved, but some Rollup plugins that reach into internals still need updates - check before upgrading large monorepos. The dev server on `localhost:5173` works the same as before, though under the hood it now uses the **Environment API** (introduced in Vite 6) to handle client, SSR, and edge runtimes as separate, configurable environments - the foundation TanStack Start, Nuxt, and SvelteKit build on for unified dev/prod parity. Around it, the ecosystem has picked up **{{< link href="https://tanstack.com/start" >}}TanStack Start{{< /link >}}** (full-stack React on Vite, v1 RC since early 2026), **{{< link href="https://voidzero.dev/posts/announcing-vite-plus" >}}Vite+{{< /link >}}** (VoidZero's integrated toolchain), and coding agents like Claude Code and Cursor that drive the Vite server for browser automation.
+
+---
+
+## Access localhost:5173 from Other Devices
+
+`localhost` only resolves on the machine running Vite, so a phone on the same Wi-Fi or a teammate on the other side of the office can't hit it directly. Two options: bind Vite to your LAN IP (`npm run dev -- --host` then visit `http://<your-ip>:5173`), or open a tunnel for anyone on the internet. For the second case, a one-line {{< link href="https://pinggy.io/" >}}Pinggy{{< /link >}} command works without installing anything:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5173 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5173 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5173 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+You'll get back a public HTTPS URL that proxies to `localhost:5173`. Useful for sharing a WIP build with a client, testing on iOS Safari without messing with certs, or pointing a webhook (Stripe, Clerk, GitHub) at a local handler. Heads-up: Vite's HMR runs over WebSockets, and depending on your `vite.config.js` you may need to set `server.hmr.clientPort: 443` and add the tunnel host to `server.allowedHosts` for hot reload to keep working over the tunnel.
 
 ---
 
@@ -164,18 +176,6 @@ A few things about how Vite handles 5173 that trip people up:
 - **`allowedHosts` is enforced.** Since Vite 6, requests with a `Host` header outside `server.allowedHosts` are rejected with a 403. This matters when proxying through a tunnel or a reverse proxy - add the public hostname or set it to `true` for dev.
 - **Inside Docker, `localhost` isn't your host.** Inside a container, `localhost` is the container itself. Run Vite with `--host 0.0.0.0`, expose 5173 in your `Dockerfile`/compose, and visit `http://localhost:5173` from the host - it'll forward in. For HMR, you may also need `server.hmr.host` set to the host name the browser uses.
 - **HTTPS on localhost takes a plugin.** Vite has `server.https`, but generating a trusted cert is the painful part. `vite-plugin-mkcert` automates this (uses [mkcert](https://github.com/FiloSottile/mkcert) under the hood) and is the standard answer when you need HTTPS for OAuth callbacks, PWAs, or anything that requires a secure context.
-
----
-
-## Access localhost:5173 from Other Devices
-
-`localhost` only resolves on the machine running Vite, so a phone on the same Wi-Fi or a teammate on the other side of the office can't hit it directly. Two options: bind Vite to your LAN IP (`npm run dev -- --host` then visit `http://<your-ip>:5173`), or open a tunnel for anyone on the internet. For the second case, a one-line {{< link href="https://pinggy.io/" >}}Pinggy{{< /link >}} command works without installing anything:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:5173 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5173 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5173 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5173 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-You'll get back a public HTTPS URL that proxies to `localhost:5173`. Useful for sharing a WIP build with a client, testing on iOS Safari without messing with certs, or pointing a webhook (Stripe, Clerk, GitHub) at a local handler. Heads-up: Vite's HMR runs over WebSockets, and depending on your `vite.config.js` you may need to set `server.hmr.clientPort: 443` and add the tunnel host to `server.allowedHosts` for hot reload to keep working over the tunnel.
 
 ---
 

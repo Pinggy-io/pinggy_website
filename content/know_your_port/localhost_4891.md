@@ -2,6 +2,7 @@
 title: "localhost:4891 - GPT4All API Port Guide"
 description: "Complete guide to localhost:4891 - the default port for the GPT4All local API server."
 date: 2026-03-06T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "gpt4all", "llm", "ai", "development"]
 schemahowto: true
@@ -24,6 +25,18 @@ outputs:
 **Localhost:4891** is the default port for **GPT4All**, a popular ecosystem designed to let anyone run large language models on their consumer-grade CPUs and GPUs. When you enable the backend server mode inside the GPT4All desktop application, it listens on port 4891.
 
 Like many newer local AI tools, GPT4All uses this port to expose a REST API that mimics the OpenAI API structure, making it a drop-in offline substitute for ChatGPT in scripts, LangChain agents, or automated tasks.
+
+---
+
+## Access localhost:4891 from Other Devices
+
+Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your GPT4All models:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:4891 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:4891 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:4891 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This allows other devices globally to send prompts to your local GPT4All instance securely.
 
 ---
 
@@ -65,18 +78,6 @@ If you can't access `localhost:4891`, here's how to diagnose and fix common GPT4
 <p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the local API is accessible.</p>
 <p style="margin: 0;"><strong>How to test:</strong> Run <code>curl http://localhost:4891/v1/models</code> to see if the server responds.</p>
 </div>
-
----
-
-## Access localhost:4891 from Other Devices
-
-Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your GPT4All models:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:4891 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:4891 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:4891 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4891 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This allows other devices globally to send prompts to your local GPT4All instance securely.
 
 ---
 

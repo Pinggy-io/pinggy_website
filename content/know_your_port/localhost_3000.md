@@ -2,6 +2,7 @@
 title: "localhost:3000 - Development Server Port Guide"
 description: "Complete guide to localhost:3000 - the most popular development server port used by React, Express.js, Rails, and many other frameworks."
 date: 2025-01-30T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "development", "react", "express", "rails"]
 schemahowto: true
@@ -24,6 +25,24 @@ outputs:
 **Localhost:3000** is the most popular development server port, widely adopted across multiple frameworks and platforms. "Localhost" refers to your own computer (typically mapped to IP address `127.0.0.1`), and "3000" is the port number where development servers listen for connections. This combination has become the de facto standard for web development, making it instantly recognizable to developers worldwide.
 
 Port 3000 gained popularity through Ruby on Rails and was later adopted by the Node.js ecosystem, creating widespread familiarity among developers. If you're a developer, chances are you've encountered localhost:3000 countless times during your development journey, whether working with React, Express.js, Rails, or countless other modern development tools.
+
+---
+
+## Access localhost:3000 from Other Devices
+
+If you can not reach localhost:3000 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local development server on port 3000, allowing you to:
+- **Share your React/Express app** with team members or clients
+- **Test on mobile devices** without being on the same network
+- **Demo your application** from anywhere in the world
+- **Debug issues** on different devices and browsers
+
+The tunnel provides a public URL that you can share, making your localhost:3000 development server accessible from any device with internet access.
 
 ---
 
@@ -131,24 +150,6 @@ If you can't access `localhost:3000`, here's how to diagnose and fix common deve
 <li><strong>Network access:</strong> Use your IP address like <code>http://192.168.1.100:3000</code></li>
 </ul>
 </div>
-
----
-
-## Access localhost:3000 from Other Devices
-
-If you can not reach localhost:3000 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3000 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3000 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3000 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3000 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This command creates a secure tunnel that forwards traffic from a public URL to your local development server on port 3000, allowing you to:
-- **Share your React/Express app** with team members or clients
-- **Test on mobile devices** without being on the same network
-- **Demo your application** from anywhere in the world
-- **Debug issues** on different devices and browsers
-
-The tunnel provides a public URL that you can share, making your localhost:3000 development server accessible from any device with internet access.
 
 ---
 

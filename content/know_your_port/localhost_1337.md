@@ -2,6 +2,7 @@
 title: "localhost:1337 - Jan Local AI Port Guide"
 description: "Complete guide to localhost:1337 - the default port for Jan, an open-source alternative to ChatGPT that runs entirely offline."
 date: 2026-03-06T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "jan", "llm", "ai", "offline"]
 schemahowto: true
@@ -24,6 +25,18 @@ outputs:
 **Localhost:1337** is the default port for **Jan**, a privacy-focused open-source alternative to ChatGPT that runs 100% offline on any Windows, Mac, or Linux computer. The number "1337" (historically spelling "leet", as in "elite") gives a nod to hacker culture, making it an instantly memorable API endpoint. 
 
 Jan exposes an OpenAI-equivalent API natively. It spins up a local server on port 1337 with the identical layout as `api.openai.com/v1`, making it exceptionally easy for developers to plug Jan into applications meant for ChatGPT simply by changing the base URL.
+
+---
+
+## Access localhost:1337 from Other Devices
+
+Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your Jan server globally:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:1337 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This allows other applications on foreign networks to communicate securely with your local Jan models.
 
 ---
 
@@ -74,18 +87,6 @@ If you can't access `localhost:1337`, here's how to diagnose and fix common Jan 
 <p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the local API is accessible.</p>
 <p style="margin: 0;"><strong>How to test:</strong> Run <code>curl http://localhost:1337/v1/models</code> to see if it responds with a list of models.</p>
 </div>
-
----
-
-## Access localhost:1337 from Other Devices
-
-Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share your Jan server globally:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:1337 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:1337 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:1337 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:1337 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This allows other applications on foreign networks to communicate securely with your local Jan models.
 
 ---
 
