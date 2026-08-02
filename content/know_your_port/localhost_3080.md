@@ -2,6 +2,7 @@
 title: "localhost:3080 - LibreChat Web App Port Guide"
 description: "Complete guide to localhost:3080 - the default port for LibreChat, a powerful open-source ChatGPT clone."
 date: 2026-03-06T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "librechat", "llm", "ai", "chatgpt"]
 schemahowto: true
@@ -24,6 +25,18 @@ outputs:
 **Localhost:3080** is the default web application port serving **LibreChat**, a widely used open-source clone that aims to meticulously replicate (and enhance upon) the original ChatGPT web experience. By hitting `http://localhost:3080`, developers get a fully-featured chat app supporting plugins, multiple LLM backends (Anthropic, Google, local endpoints), and secure multi-user environments.
 
 Choosing `3080` allows the frontend app to stay out of the way of backend API ports and keeps it separated from a regular `3000` default React stack.
+
+---
+
+## Access localhost:3080 from Other Devices
+
+Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share LibreChat with your team easily:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3080 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3080 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3080 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This exposes the chatbot instantly! You retain full control over your prompts while ensuring users get a clean GUI from wherever they connect.
 
 ---
 
@@ -65,18 +78,6 @@ If you can't access `localhost:3080`, here's how to diagnose and fix common Libr
 <p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the local GUI is accessible.</p>
 <p style="margin: 0;"><strong>How to test:</strong> Navigate to <code>http://localhost:3080</code> in your web browser.</p>
 </div>
-
----
-
-## Access localhost:3080 from Other Devices
-
-Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share LibreChat with your team easily:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:3080 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:3080 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:3080 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:3080 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This exposes the chatbot instantly! You retain full control over your prompts while ensuring users get a clean GUI from wherever they connect.
 
 ---
 

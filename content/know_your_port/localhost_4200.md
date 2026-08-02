@@ -2,6 +2,7 @@
 title: "localhost:4200 - Angular Development Server Port Guide"
 description: "Complete guide to localhost:4200 - the default port for Angular development server used by Angular CLI and modern frontend development."
 date: 2025-01-30T10:00:00+05:30
+lastmod: 2026-07-31T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "angular", "frontend", "development", "cli"]
 schemahowto: true
@@ -24,6 +25,24 @@ outputs:
 **Localhost:4200** is the default port for Angular development server, exclusively used by Angular CLI for serving Angular applications during development. "Localhost" refers to your own computer (typically mapped to IP address `127.0.0.1`), and "4200" is Angular's unique port number. When you see localhost:4200, you're looking at an Angular application running in development mode.
 
 Port 4200 was chosen by the Angular team as the default development server port to avoid conflicts with other common development ports. Angular CLI automatically starts the development server on this port when you run `ng serve`, providing developers with live reload, hot module replacement, and an optimized development experience for building modern web applications.
+
+---
+
+## Access localhost:4200 from Other Devices
+
+If you can not reach localhost:4200 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
+
+{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:4200 free.pinggy.io" >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:4200 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:4200 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+This command creates a secure tunnel that forwards traffic from a public URL to your local Angular development server on port 4200, allowing you to:
+- **Share your Angular app** with team members or clients
+- **Test on mobile devices** without being on the same network  
+- **Demo your application** from anywhere in the world
+- **Debug issues** on different devices and browsers
+
+The tunnel provides a public URL that you can share, making your localhost:4200 Angular application accessible from any device with internet access.
 
 ---
 
@@ -131,24 +150,6 @@ If you can't access `localhost:4200`, here's how to diagnose and fix common Angu
 <li><strong>Network access:</strong> Use <code>ng serve --host 0.0.0.0</code> for external access</li>
 </ul>
 </div>
-
----
-
-## Access localhost:4200 from Other Devices
-
-If you can not reach localhost:4200 from other devices, it is probably because you are on a different network. Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to easily access it from anywhere:
-
-{{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:4200 free.pinggy.io" >}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:4200 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:4200 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:4200 free.pinggy.io\"}}}"
-{{</ ssh_command >}}
-
-This command creates a secure tunnel that forwards traffic from a public URL to your local Angular development server on port 4200, allowing you to:
-- **Share your Angular app** with team members or clients
-- **Test on mobile devices** without being on the same network  
-- **Demo your application** from anywhere in the world
-- **Debug issues** on different devices and browsers
-
-The tunnel provides a public URL that you can share, making your localhost:4200 Angular application accessible from any device with internet access.
 
 ---
 
