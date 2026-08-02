@@ -1,6 +1,15 @@
 <link rel="canonical" href="{{ .Params.canonical | default .Permalink }}" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:type" content="article" />
+
+{{- partial "hreflang.html" . -}}
+
+<meta property="og:locale" content="{{ site.Params.ogLocale | default "en_US" }}" />
+{{ range .Translations }}
+<meta property="og:locale:alternate" content="{{ .Site.Params.ogLocale }}" />
+{{ end }}
+{{/* Only real posts are articles. List and landing pages (/blog/,
+     /blog/updated/, /es/) are websites and must not carry article:* meta. */}}
+{{ $isArticle := eq .Kind "page" }}
+<meta property="og:type" content="{{ cond $isArticle "article" "website" }}" />
 <meta
   property="og:title"
   content="{{ if and (eq .Section "blog") (eq .Kind "page") }}{{ .Title }} | Pinggy Blog{{ else if .Page.Title }}{{ .Page.Title }} - {{.Site.Title}}{{ end }}"
@@ -16,6 +25,7 @@ $metaDescription = .Summary }} {{ end }}
 <meta property="og:description" content="{{ $metaDescription }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ $siteName }}" />
+{{ if $isArticle }}
 <meta
   property="article:published_time"
   content='{{ .Date.Format "2006-01-02T15:04:05-07:00" }}'
@@ -24,6 +34,7 @@ $metaDescription = .Summary }} {{ end }}
   property="article:modified_time"
   content='{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}'
 />
+{{ end }}
 {{ if .Params.og_image }}
 <meta property="og:image" content="{{ .Params.og_image | absURL }}" />
 <meta
@@ -35,12 +46,12 @@ $metaDescription = .Summary }} {{ end }}
 {{ end }}
 <meta name="author" content="{{ $siteName }}" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:label1" content="{{ i18n "writtenBy" }}" />
 <meta name="twitter:data1" content="{{ $siteName }}" />
-<meta name="twitter:label2" content="Est. reading time" />
+<meta name="twitter:label2" content="{{ i18n "readingTime" }}" />
 <meta
   name="twitter:data2"
-  content="{{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}"
+  content="{{ .ReadingTime }} {{ i18n "minRead" }}"
 />
 
 <script type="application/ld+json">
@@ -57,6 +68,7 @@ $metaDescription = .Summary }} {{ end }}
      ],
     "datePublished": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
     "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}",
+    "inLanguage": "{{ site.Language.Lang }}",
     "author": [{
         "@type": "Organization",
         "name": "Pinggy",

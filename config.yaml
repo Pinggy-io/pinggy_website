@@ -1,6 +1,28 @@
 baseURL: "https://pinggy.io"
-languageCode: "en-us"
 title: "Pinggy"
+
+# Multilingual: English is the default and stays at the site root, so every
+# existing /blog/... URL is unchanged. Spanish lives under /es/ and covers the
+# blog only - a post becomes bilingual by adding a sibling `<name>.es.md`.
+# Taxonomy/term/RSS are off for Spanish because tags are not translated; the
+# Spanish home is kept on and serves a dedicated landing page.
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    locale: en
+    label: "English"
+    weight: 1
+    params:
+      ogLocale: "en_US"
+  es:
+    locale: es
+    label: "Español"
+    weight: 2
+    disableKinds: ["taxonomy", "term", "rss"]
+    params:
+      ogLocale: "es_ES"
 
 markup:
   highlight:
@@ -88,8 +110,8 @@ menus:
   #   url: /Return_policy
   #   weight: 120
 
-minifyOutput: true
 minify:
+  minifyOutput: true
   tdewolff:
     html:
       keepQuotes: true

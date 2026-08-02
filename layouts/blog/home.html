@@ -1,0 +1,67 @@
+{{/* Landing page for a non-default language (currently /es/). Only reached by
+     a home page whose front matter sets `type: blog`, so the English homepage
+     at / is untouched. Deliberately short - it introduces the translated blog
+     and lists the most recent posts in this language, then hands off to the
+     full list at /<lang>/blog/. */}}
+{{ define "main" }}
+{{ $blog := site.GetPage "/blog" }}
+{{ $posts := slice }}
+{{ with $blog }}{{ $posts = .RegularPages.ByDate.Reverse }}{{ end }}
+<div class="bp">
+<main class="bp-list">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-12">
+      <header class="bp-list__masthead">
+        <span class="bp-list__eyebrow">{{ i18n "blogName" }}</span>
+        <h1 class="bp-list__title">{{ .Params.heading | default (i18n "blogHeading") }}</h1>
+        <div class="bp-list__lede">{{ .Content }}</div>
+      </header>
+      <hr class="bp-list__rule" />
+
+      <div id="bloglist">
+        {{ range first 6 $posts }}
+        {{/* Same thumbnail resolution as blog/list.html: asset paths go through
+             the image pipeline, absolute static paths are used as-is. */}}
+        {{ $thumb := "" }}
+        {{ with .Params.og_image }}
+          {{ $res := resources.Get . }}
+          {{ if $res }}
+            {{ $thumb = ($res.Fill "320x200 webp q80").RelPermalink }}
+          {{ else }}
+            {{ $thumb = . | relURL }}
+          {{ end }}
+        {{ end }}
+        <article class="blog-card">
+          <a href="{{ .RelPermalink }}" class="blog-card__media" tabindex="-1" aria-hidden="true">
+            {{ with $thumb }}
+            <img src="{{ . }}" alt="" loading="lazy" decoding="async" width="180" height="120" />
+            {{ else }}
+            <span class="blog-card__placeholder"><i class="bi bi-link-45deg"></i></span>
+            {{ end }}
+          </a>
+          <div class="blog-card__body">
+            <a href="{{ .RelPermalink }}" class="blog-card__titlelink">
+              <h2 class="blog-card__title">{{ .Title }}</h2>
+            </a>
+            <div class="blog-card__meta">
+              <time>{{ time.Format (i18n "datefmtShort") .Date }}</time>
+              {{ range first 3 (.GetTerms "tags") }}
+              <span class="blog-card__tag">{{ .LinkTitle }}</span>
+              {{ end }}
+            </div>
+            <p class="blog-card__excerpt">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+
+      {{ with $blog }}
+      <p class="bp-home__more">
+        <a class="bp-endcard__cta" href="{{ .RelPermalink }}">{{ i18n "allPosts" }}</a>
+      </p>
+      {{ end }}
+    </div>
+  </div>
+</main>
+</div>
+{{ end }}

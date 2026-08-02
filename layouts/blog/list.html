@@ -14,8 +14,8 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-12">
       <header class="bp-list__masthead">
-        <span class="bp-list__eyebrow">Pinggy Blog</span>
-        <h1 class="bp-list__title">{{ .Params.heading | default "Tunnels, networking, self-hosted LLMs, and AI news" }}</h1>
+        <span class="bp-list__eyebrow">{{ i18n "blogName" }}</span>
+        <h1 class="bp-list__title">{{ .Params.heading | default (i18n "blogHeading") }}</h1>
         <!-- Lede pulls from the markdown of the corresponding _index.md -->
         <div class="bp-list__lede">{{ .Content }}</div>
       </header>
@@ -26,11 +26,11 @@
       <div
         class="blog-sort-row d-flex align-items-center justify-content-between flex-wrap"
       >
-        <span class="blog-sort-label">Sort by</span>
+        <span class="blog-sort-label">{{ i18n "sortBy" }}</span>
         <div
           class="blog-sort"
           role="group"
-          aria-label="Sort posts"
+          aria-label="{{ i18n "sortPosts" }}"
           data-active="{{ cond $isNew "new" "updated" }}"
         >
           <span class="blog-sort__thumb" aria-hidden="true"></span>
@@ -38,13 +38,13 @@
             href="{{ with $blog }}{{ .RelPermalink }}{{ else }}/blog/{{ end }}"
             class="blog-sort__btn{{ if $isNew }} is-active{{ end }}"
             {{ if $isNew }}aria-current="page"{{ end }}
-            >Newest</a
+            >{{ i18n "newest" }}</a
           >
           <a
             href="{{ with $updatedPage }}{{ .RelPermalink }}{{ else }}/blog/updated/{{ end }}"
             class="blog-sort__btn{{ if $isUpdated }} is-active{{ end }}"
             {{ if $isUpdated }}aria-current="page"{{ end }}
-            >Recently updated</a
+            >{{ i18n "recentlyUpdated" }}</a
           >
         </div>
       </div>
@@ -92,7 +92,7 @@
               <h2 class="blog-card__title">{{ .Title }}</h2>
             </a>
             <div class="blog-card__meta">
-              <time>{{ if $isNew }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ else if .Lastmod.After .Date }}Updated {{ .Lastmod.Format "Mon, Jan 2, 2006" }}{{ else }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
+              <time>{{ if $isNew }}{{ time.Format (i18n "datefmtShort") .Date }}{{ else if .Lastmod.After .Date }}{{ i18n "updated" }} {{ time.Format (i18n "datefmtShort") .Lastmod }}{{ else }}{{ time.Format (i18n "datefmtShort") .Date }}{{ end }}</time>
               {{ range first 3 (.GetTerms "tags") }}
               <span class="blog-card__tag">{{ .LinkTitle }}</span>
               {{ end }}
