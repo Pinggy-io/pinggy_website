@@ -1,0 +1,47 @@
+{{/* Language switcher, shared by the blog navbar and the product navbar.
+
+     Renders nothing unless the current page actually has a translation, so it
+     is absent from the English-only majority of the site - no control implies
+     no translation, rather than a dead or misleading link.
+
+     Uses Bootstrap's dropdown JS (bundled site-wide) for click-outside, Esc
+     and aria-expanded handling. Styles live in assets/css/customization.css
+     under `.lang-switch` because this appears outside the blog too. */}}
+{{ if .IsTranslated }}
+<div class="lang-switch dropdown">
+  <button
+    class="lang-switch__toggle"
+    type="button"
+    id="lang-switch-toggle"
+    data-bs-toggle="dropdown"
+    data-bs-offset="0,8"
+    aria-expanded="false"
+    aria-label="{{ i18n "language" }}"
+  >
+    {{ partial "lang-flag.html" .Lang }}
+    <span class="lang-switch__cur">{{ .Language.Label }}</span>
+    <svg class="lang-switch__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+  <ul class="lang-switch__menu dropdown-menu dropdown-menu-end" aria-labelledby="lang-switch-toggle">
+    {{ range .AllTranslations }}
+    <li>
+      <a
+        class="lang-switch__item{{ if eq .Lang $.Lang }} is-active{{ end }}"
+        href="{{ .RelPermalink }}"
+        hreflang="{{ .Lang }}"
+        lang="{{ .Lang }}"
+        {{ if eq .Lang $.Lang }}aria-current="true"{{ end }}
+      >
+        {{ partial "lang-flag.html" .Lang }}
+        <span>{{ .Language.Label }}</span>
+        <svg class="lang-switch__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12l5 5 9-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

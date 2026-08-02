@@ -40,23 +40,6 @@
       {{ end }}
 
       <div class="bp-actions">
-        {{/* Language switcher. `.IsTranslated` is true only for posts that have
-             a sibling `<name>.es.md`, so English-only posts render nothing. */}}
-        {{ if .IsTranslated }}
-        <div class="bp-lang" role="group" aria-label="{{ i18n "language" }}">
-          {{ range .AllTranslations }}
-          <a
-            class="bp-lang__opt{{ if eq .Lang $.Lang }} is-active{{ end }}"
-            href="{{ .RelPermalink }}"
-            hreflang="{{ .Lang }}"
-            lang="{{ .Lang }}"
-            {{ if eq .Lang $.Lang }}aria-current="true"{{ end }}
-            >{{ .Language.Label }}</a
-          >
-          {{ end }}
-        </div>
-        {{ end }}
-
         <span class="bp-label">{{ i18n "share" }}</span>
         <div class="bp-share">
           {{ $u := .Permalink }}{{ $t := .Title }}

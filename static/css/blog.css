@@ -164,38 +164,6 @@ body::before {
 .bp-share a:hover { color: #fff; background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
 .bp-share svg { width: 16px; height: 16px; }
 
-/* Language switcher. Renders only on posts that have a translation, sitting in
-   the .bp-actions row opposite the share buttons. Segmented control styled to
-   match .blog-sort on the list page. */
-.bp-lang {
-  display: inline-flex; align-items: center; gap: 2px; margin-right: auto;
-  padding: 3px; border-radius: 10px; background: var(--bg-tint); border: 1px solid var(--rule);
-}
-.bp-lang__opt {
-  font-family: var(--ui); font-size: 13px; font-weight: 600; line-height: 1;
-  color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: 7px;
-  transition: all 0.15s;
-}
-.bp-lang__opt:hover { color: var(--ink); }
-.bp-lang__opt.is-active { color: #fff; background: var(--accent); }
-.bp-lang__opt:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35); }
-
-@media (prefers-reduced-motion: reduce) {
-  .bp-lang__opt { transition: none; }
-}
-
-@media (max-width: 560px) {
-  .bp-actions { flex-wrap: wrap; }
-  .bp-lang { margin-right: 0; }
-}
-
-/* "View all articles" link under the translated-language landing page list.
-   Reuses the endcard CTA styling, so its `margin-left: auto` (which exists to
-   right-align it inside .bp-endcard) has to be neutralised or it would defeat
-   justify-content and stick to the right edge. */
-.bp-home__more { display: flex; justify-content: center; margin: 28px 0 8px; }
-.bp-home__more .bp-endcard__cta { margin-left: 0; }
-
 .bp-headrule { border: 0; border-top: 1px solid var(--rule); margin: 26px auto 0; max-width: var(--measure); }
 
 /* ---------------------------------------------------------------------------
@@ -467,6 +435,7 @@ body.blog .contentcontainer { margin-top: 0; }
 }
 .bp-nav__icon:hover { color: #1f2a37; background: #eef2fe; }
 .bp-nav__icon svg { width: 20px; height: 20px; display: block; }
+
 .bp-nav a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);

@@ -76,4 +76,10 @@ $metaDescription = .Summary }} {{ end }}
       }]
   }
 </script>
-{{ with .Params.schemahowto }} {{ . | base64Decode| safeHTML }} {{ end }}
+{{/* `schemahowto` holds a base64-encoded <script type="application/ld+json">
+     block. The know_your_port pages set it to the boolean `true`, which is
+     truthy but not base64 - decoding it emitted three stray bytes into the
+     page and made the HTML invalid UTF-8. Only decode actual strings. */}}
+{{ with .Params.schemahowto }}
+{{ if eq (printf "%T" .) "string" }}{{ . | base64Decode | safeHTML }}{{ end }}
+{{ end }}

@@ -1,7 +1,12 @@
-# UI strings for the blog templates. Keys are referenced with {{ i18n "key" }}.
+# UI strings for the blog and know-your-port templates. Keys are referenced
+# with {{ i18n "key" }}.
 # `datefmt*` values are Go time layouts rendered through `time.Format`, which
 # localises month and weekday names - so the layout itself carries any
 # language-specific wording (e.g. Spanish "2 de January de 2006").
+#
+# NOTE: Hugo's i18n TOML reserves the keys `one` and `other`. Never introduce a
+# [table] into this file - it swallows every key defined after it and fails the
+# build with "reserved keys mixed with unreserved keys".
 
 # Dates
 datefmt = "January 2, 2006"
@@ -38,7 +43,6 @@ sortBy = "Sort by"
 sortPosts = "Sort posts"
 newest = "Newest"
 recentlyUpdated = "Recently updated"
-allPosts = "View all articles"
 taggedPosts = "Blog posts tagged"
 
 # Blog navbar
@@ -69,3 +73,17 @@ copyright = "Copyright"
 summary = "Summary"
 videoUnsupported = "Your browser does not support HTML video."
 enterYourToken = "Enter your token"
+
+# Know your ports
+readMore = "Read More…"
+knowYourPorts = "Know Your Ports"
+
+# Product navbar
+navUseCases = "Use Cases"
+navIngress = "Ingress for dev/test"
+navGuiApp = "GUI App"
+navHelp = "Help"
+navFaq = "FAQ"
+navDashboard = "Dashboard"
+navForum = "Community Forum"
+navLogoAlt = "Pinggy brand logo"

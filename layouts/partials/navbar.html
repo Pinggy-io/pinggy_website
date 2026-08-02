@@ -5,7 +5,7 @@
         <img
           height="50"
           src="/assets/pinggy_logo.webp"
-          alt="Pinggy brand logo"
+          alt="{{ i18n "navLogoAlt" }}"
         />
       </a>
     </div>
@@ -24,20 +24,20 @@
       <ul class="navbar-nav mb-2 mb-lg-0">
         {{ range .Site.Menus.main }}
         <li class="nav-item mx-2">
-            {{ if eq .Name "Quickstart" }}
+            {{ if eq .Identifier "quickstart" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="quickstartDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ .Pre }}
                     <span style="display:inline-block;">
-                        Use Cases
+                        {{ i18n "navUseCases" }}
                     </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="quickstartDropdown">
-                    <a class="dropdown-item" href="/ingress_for_dev_test_environments/">Ingress for dev/test</a>
-                    <a class="dropdown-item" href="/quickstart/">Quickstart recipes</a>
+                    <a class="dropdown-item" href="/ingress_for_dev_test_environments/">{{ i18n "navIngress" }}</a>
+                    <a class="dropdown-item" href="/quickstart/">{{ i18n "footerQuickstart" }}</a>
                 </div>
             </div>
-            {{ else if eq .Name "Download" }}
+            {{ else if eq .Identifier "download" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="downloadDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ .Pre }}
@@ -46,12 +46,12 @@
                     </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="downloadDropdown">
-                    <a class="dropdown-item" href="/app/">GUI App</a>
+                    <a class="dropdown-item" href="/app/">{{ i18n "navGuiApp" }}</a>
                     <a class="dropdown-item" href="/cli/">CLI</a>
                     <a target="_blank" class="dropdown-item" href="https://pinggy-io.github.io/sdk-nodejs/">Node.js SDK</a>
                     <a target="_blank" class="dropdown-item" href="https://pypi.org/project/pinggy/">Python SDK</a>
                 </div>
-            {{ else if eq .Name "Compare" }}
+            {{ else if eq .Identifier "compare" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="compareDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ .Pre }}
@@ -67,7 +67,7 @@
                 </div>
                 
             </div>
-            {{ else if eq .Name "Help" }}
+            {{ else if eq .Identifier "help" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="helpDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ .Pre }}
@@ -76,8 +76,8 @@
                     </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="helpDropdown">
-                    <a class="dropdown-item" href="/help/">Help</a>
-                    <a class="dropdown-item" href="/help/#faq">FAQ</a>
+                    <a class="dropdown-item" href="/help/">{{ i18n "navHelp" }}</a>
+                    <a class="dropdown-item" href="/help/#faq">{{ i18n "navFaq" }}</a>
                 </div>
             </div>
             {{ else }}
@@ -118,7 +118,7 @@
             target="_blank"
           >
             <span>
-              <img title="Community Forum" src="/assets/pinggy_forum_logo.png" alt= "Pinggy Community Forum Logo" style="max-width: 1.3em;" />
+              <img title="{{ i18n "navForum" }}" src="/assets/pinggy_forum_logo.png" alt= "Pinggy Community Forum Logo" style="max-width: 1.3em;" />
             </span
           ></a>
         </li>
@@ -130,7 +130,7 @@
           id="LoginBtn"
           class="p-2 mx-1"
         >
-          Dashboard</a
+          {{ i18n "navDashboard" }}</a
         >
       </div>
     </div>

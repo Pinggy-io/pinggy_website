@@ -4,8 +4,10 @@ title: "Pinggy"
 # Multilingual: English is the default and stays at the site root, so every
 # existing /blog/... URL is unchanged. Spanish lives under /es/ and covers the
 # blog only - a post becomes bilingual by adding a sibling `<name>.es.md`.
-# Taxonomy/term/RSS are off for Spanish because tags are not translated; the
-# Spanish home is kept on and serves a dedicated landing page.
+# Taxonomy/term/RSS are off for Spanish because tags are not translated, and
+# `home` is off so /es/ is not built at all: it 301s to /es/blog/ via
+# netlify.toml. That also stops Hugo pairing / and /es/ as hreflang alternates,
+# which they never were - / is the product homepage and is not translated.
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 
@@ -16,13 +18,81 @@ languages:
     weight: 1
     params:
       ogLocale: "en_US"
+    menus:
+      main:
+        - name: Home
+          identifier: home
+          url: "/"
+          weight: 90
+        - name: Pricing
+          identifier: pricing
+          url: /#prices
+          weight: 100
+        - name: Docs
+          identifier: docs
+          url: /docs/
+          weight: 120
+        - name: Download
+          identifier: download
+          url: /app/
+          weight: 123
+        - name: Compare
+          identifier: compare
+          url: /compare/
+          weight: 125
+        - name: Quickstart
+          identifier: quickstart
+          url: /quickstart/
+          weight: 130
+        - name: Blog
+          identifier: blog
+          url: /blog/
+          weight: 140
+        - name: Help
+          identifier: help
+          url: /help/
+          weight: 150
   es:
     locale: es
     label: "Español"
     weight: 2
-    disableKinds: ["taxonomy", "term", "rss"]
+    disableKinds: ["home", "taxonomy", "term", "rss"]
     params:
       ogLocale: "es_ES"
+    menus:
+      main:
+        - name: Inicio
+          identifier: home
+          url: "/"
+          weight: 90
+        - name: Precios
+          identifier: pricing
+          url: /#prices
+          weight: 100
+        - name: Documentación
+          identifier: docs
+          url: /docs/
+          weight: 120
+        - name: Descargar
+          identifier: download
+          url: /app/
+          weight: 123
+        - name: Comparativas
+          identifier: compare
+          url: /compare/
+          weight: 125
+        - name: Quickstart
+          identifier: quickstart
+          url: /quickstart/
+          weight: 130
+        - name: Blog
+          identifier: blog
+          url: /blog/
+          weight: 140
+        - name: Ayuda
+          identifier: help
+          url: /help/
+          weight: 150
 
 markup:
   highlight:
@@ -76,39 +146,6 @@ outputFormats:
     baseName: "llms"
     isPlainText: true
     rel: "alternate"
-
-menus:
-  main:
-    - name: Home
-      url: "/"
-      weight: 90
-    - name: Pricing
-      url: /#prices
-      weight: 100
-    - name: Docs
-      url: /docs/
-      weight: 120
-    - name: Download
-      url: /app/
-      weight: 123
-    - name: Compare
-      url: /compare/
-      weight: 125
-    - name: Quickstart
-      url: /quickstart/
-      weight: 130
-    - name: Blog
-      url: /blog/
-      weight: 140
-    - name: Help
-      url: /help/
-      weight: 150
-  # - name: Terms of Service
-  #   url: /Terms_of_Service
-  #   weight: 110
-  # - name: Cancellation and Return Policy
-  #   url: /Return_policy
-  #   weight: 120
 
 minify:
   minifyOutput: true
