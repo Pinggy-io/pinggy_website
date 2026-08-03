@@ -2,11 +2,11 @@
 title: "Top 5 Local LLM Tools and Models in 2026"
 description: "Discover the best local LLM tools and models in 2026 that offer privacy, control, and cost-effectiveness for running powerful AI models on your own hardware."
 date: 2025-06-04T14:00:00+05:30
-lastmod: 2026-07-14T17:41:00+05:30
+lastmod: 2026-08-02T17:41:00+05:30
 draft: false
-tags: ["LLM", "AI Models", "Local AI", "Self-Hosted AI", "Ollama", "LM Studio", "GPT4All", "llama.cpp", "Local Inference", "Jan"]
+tags: ["LLM", "AI Models", "Local AI", "Self-Hosted AI", "Ollama", "LM Studio", "Unsloth", "GPT4All", "llama.cpp", "Local Inference", "Jan"]
 og_image: "images/top_5_local_llm_tools_and_models/top_5_local_llm_tools_and_models_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiUnVubmluZyBMTE1zIExvY2FsbHkgaW4gMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogIkEgY29tcHJlaGVuc2l2ZSBndWlkZSB0byB0aGUgdG9wIDUgbG9jYWwgTExNIHRvb2xzIGFuZCBsYXRlc3QgbW9kZWxzIGluIDIwMjYsIGluY2x1ZGluZyBHUFQtT1NTLCBEZWVwU2VlayBWMy4yLUV4cCwgUXdlbjMtQ29kZXIsIExsYW1hIDQsIE5WSURJQSBOZW1vdHJvbiAzLCBHTE0tNC43LCBLaW1pLUsyIFRoaW5raW5nIGFuZCBWYXVsdEdlbW1hIGZvciBwcml2YWN5LWZvY3VzZWQsIGNvc3QtZWZmZWN0aXZlIEFJIGRlcGxveW1lbnQiLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvaW1hZ2VzL3RvcF81X2xvY2FsX2xsbV90b29sc19hbmRfbW9kZWxzL3RvcF81X2xvY2FsX2xsbV90b29sc19hbmRfbW9kZWxzX2Jhbm5lci53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNob29zZSB0aGUgcmlnaHQgbG9jYWwgTExNIHRvb2wgYmFzZWQgb24geW91ciBoYXJkd2FyZSBjYXBhYmlsaXRpZXMgYW5kIHVzZSBjYXNlIHJlcXVpcmVtZW50cyAoT2xsYW1hIGZvciBzaW1wbGljaXR5LCBMTSBTdHVkaW8gZm9yIEdVSSwgdGV4dC1nZW5lcmF0aW9uLXdlYnVpIGZvciBmbGV4aWJpbGl0eSkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkluc3RhbGwgdGhlIHNlbGVjdGVkIHRvb2wgKE9sbGFtYSwgTE0gU3R1ZGlvLCBHUFQ0QWxsLCB0ZXh0IGdlbmVyYXRpb24gd2VidWksIEphbiwgb3IgTG9jYWxBSSkgZm9sbG93aW5nIHRoZSBvZmZpY2lhbCBpbnN0YWxsYXRpb24gZ3VpZGUuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIGEgY29tcGF0aWJsZSAyMDI1IG1vZGVsOiBHUFQtT1NTIGZvciByZWFzb25pbmcsIERlZXBTZWVrIFYzLjItRXhwIGZvciB0aGlua2luZyBtb2RlLCBRd2VuMy1Db2RlciBmb3IgYWdlbnRpYyBjb2RpbmcsIExsYW1hIDQsIE5WSURJQSBOZW1vdHJvbiAzLCBHTE0tNC43LCBLaW1pLUsyIFRoaW5raW5nIGZvciBnZW5lcmFsIHVzZSwgb3IgVmF1bHRHZW1tYSBmb3IgY29tcGFjdCBlZmZpY2llbmN5LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJDb25maWd1cmUgdGhlIG1vZGVsIHBhcmFtZXRlcnMgYmFzZWQgb24geW91ciBoYXJkd2FyZSAoOEdCIFJBTSBmb3Igc21hbGwgbW9kZWxzLCAzMkdCKyBmb3IgbGFyZ2VyIHZhcmlhbnRzLCAxMjhHQisgZm9yIGVudGVycHJpc2UgbW9kZWxzIGxpa2UgUXdlbjMtQ29kZXItNDgwQikuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlJ1biB0aGUgbW9kZWwgbG9jYWxseSB1c2luZyB0aGUgdG9vbCdzIGludGVyZmFjZSBvciBPcGVuQUktY29tcGF0aWJsZSBBUEksIHdpdGggb3B0aW9ucyBmb3IgbXVsdGltb2RhbCBpbnB1dCwgdG9vbCBjYWxsaW5nLCBhbmQgYWdlbnRpYyB3b3JrZmxvd3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIk9wdGlvbmFsbHksIHNoYXJlIHlvdXIgbG9jYWwgTExNIG9ubGluZSB1c2luZyBQaW5nZ3kgYnkgY3JlYXRpbmcgYSBzZWN1cmUgdHVubmVsIHRvIHlvdXIgbG9jYWwgQVBJIGVuZHBvaW50IGZvciByZW1vdGUgYWNjZXNzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiUnVubmluZyBMTE1zIExvY2FsbHkgaW4gMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogIkEgZ3VpZGUgdG8gdGhlIGJlc3QgbG9jYWwgTExNIHRvb2xzIGFuZCBtb2RlbHMgaW4gMjAyNiwgY292ZXJpbmcgTE0gU3R1ZGlvLCBVbnNsb3RoLCBPbGxhbWEgYW5kIHRoZSBzdHJvbmdlc3Qgb3Blbi13ZWlnaHQgbW9kZWxzIHRoYXQgZml0IGluIDEyOEdCIG9mIG1lbW9yeSwgaW5jbHVkaW5nIFF3ZW4zLjYsIEdlbW1hIDQsIGdwdC1vc3MsIFF3ZW4zLUNvZGVyLU5leHQsIE5lbW90cm9uIDMgU3VwZXIgYW5kIERlZXBTZWVrLVY0LUZsYXNoIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL3RvcF81X2xvY2FsX2xsbV90b29sc19hbmRfbW9kZWxzL3RvcF81X2xvY2FsX2xsbV90b29sc19hbmRfbW9kZWxzX2Jhbm5lci53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlBpY2sgYSBydW5uZXIgdGhhdCBtYXRjaGVzIGhvdyB5b3UgbGlrZSB0byB3b3JrOiBMTSBTdHVkaW8gZm9yIGEgZ3JhcGhpY2FsIGFwcCB3aXRoIGJvdGggbGxhbWEuY3BwIGFuZCBNTFggZW5naW5lcywgVW5zbG90aCBTdHVkaW8gdG8gcnVuIGFuZCBmaW5lLXR1bmUgZnJvbSBvbmUgVUksIG9yIE9sbGFtYSBmb3Igb25lLWxpbmUgY29tbWFuZC1saW5lIHB1bGxzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJJbnN0YWxsIHRoZSB0b29sIHlvdSBwaWNrZWQgZnJvbSBpdHMgb2ZmaWNpYWwgZG93bmxvYWQgcGFnZS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiV29yayBvdXQgeW91ciBtZW1vcnkgYnVkZ2V0LiBUaGUgcXVhbnRpemVkIG1vZGVsIGZpbGUgcGx1cyB0aGUgS1YgY2FjaGUgaGFzIHRvIGZpdCBpbiBSQU0gcGx1cyBWUkFNIGNvbWJpbmVkLiBXaXRoIDEyOEdCIHlvdSBjYW4gcnVuIGFueXRoaW5nIHVwIHRvIHJvdWdobHkgYSAxMjBCIG1peHR1cmUtb2YtZXhwZXJ0cyBtb2RlbCBhdCA0LWJpdC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRG93bmxvYWQgYW4gVW5zbG90aCBEeW5hbWljIEdHVUYgKHRoZSBVRC1RNF9LX1hMIHZhcmlhbnQgaXMgdGhlIHVzdWFsIHN0YXJ0aW5nIHBvaW50KTogUXdlbjMuNi0zNUItQTNCIGF0IGFib3V0IDIzR0IsIFF3ZW4zLUNvZGVyLU5leHQgYXQgYWJvdXQgNDZHQiwgZ3B0LW9zcy0xMjBiIGF0IGFib3V0IDY2R0IsIG9yIERlZXBTZWVrLVY0LUZsYXNoIGF0IDMtYml0IHRvIGZpbGwgYSAxMjhHQiBtYWNoaW5lLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJSdW4gdGhlIG1vZGVsIGZyb20gdGhlIHRvb2wncyBjaGF0IGludGVyZmFjZSBvciB0aHJvdWdoIGl0cyBPcGVuQUktY29tcGF0aWJsZSBBUEkgZW5kcG9pbnQsIHdpdGggdG9vbCBjYWxsaW5nIGFuZCB2aXNpb24gaW5wdXQgd2hlcmUgdGhlIG1vZGVsIHN1cHBvcnRzIGl0LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcHRpb25hbGx5IHNoYXJlIHlvdXIgbG9jYWwgTExNIG9ubGluZSB1c2luZyBQaW5nZ3kgYnkgY3JlYXRpbmcgYSBzZWN1cmUgdHVubmVsIHRvIHlvdXIgbG9jYWwgQVBJIGVuZHBvaW50IGZvciByZW1vdGUgYWNjZXNzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
@@ -16,429 +16,496 @@ aliases:
 ---
 
 {{< image "top_5_local_llm_tools_and_models/top_5_local_llm_tools_and_models_banner.webp" "top 5 local llm tools and models 2026 banner" >}}
-Running powerful AI language models locally has become increasingly accessible in 2026, offering privacy, cost savings, and full control over your data. With groundbreaking releases like Google's Gemma 4 (now including a 12B model that runs in 16GB of RAM), Kimi K2.5/K2.6, Qwen3.5/3.6, GLM-5.1, NVIDIA Nemotron Cascade 2, OpenAI's GPT-OSS, DeepSeek V3.2-Exp, Qwen3-Coder-480B for agentic coding, Meta's Llama 4, and Mistral Large 3, local LLMs now rival cloud-based services in performance while maintaining complete data privacy and eliminating subscription costs.
 
+Running powerful AI language models locally has become increasingly accessible in 2026, offering privacy, cost savings, and full control over your data. With releases like Qwen3.6 and Qwen3.5, Google's Gemma 4, OpenAI's gpt-oss, Qwen3-Coder-Next for agentic coding, NVIDIA's Nemotron 3, Mistral Medium 3.5, and DeepSeek-V4-Flash, local LLMs now rival cloud-based services in performance while maintaining complete data privacy and eliminating subscription costs.
+
+The practical question is no longer whether a good open-weight model exists, but which one fits your machine. So this post is organised around a memory budget of **128GB**, which is what a maxed-out Mac Studio, a Ryzen AI MAX+ 395 mini PC, or a workstation with a couple of GPUs and a lot of DDR5 gives you. Below are the tools worth installing, a section on Unsloth (whose quantized model files most people are actually running, whether they know it or not), and then the models that genuinely fit, with measured memory numbers rather than vibes.
 
 {{% tldr %}}
 
-**Top 5 Local LLM Tools:**
-1. **Ollama** - One-line commands, 100+ models | <a href="https://ollama.com/download" target="_blank">Download</a>
-2. **LM Studio** - Best GUI, model discovery | <a href="https://lmstudio.ai/" target="_blank">Download</a>
-3. **BlueQubit** - Cloud quantum computing via a Python SDK (adjacent, not a local LLM runner) | <a href="https://www.bluequbit.io/" target="_blank">Bluequbit</a>
-4. **text-generation-webui** - Flexible, extensions | <a href="https://github.com/oobabooga/text-generation-webui" target="_blank">GitHub</a>
+**Top local LLM tools:**
+1. **LM Studio** - Best GUI, ships both llama.cpp and MLX engines | <a href="https://lmstudio.ai/" target="_blank">Download</a>
+2. **Unsloth** - Dynamic GGUF quants plus a local run-and-train UI | <a href="https://unsloth.ai/" target="_blank">Unsloth</a>
+3. **Ollama** - One-line commands, best for scripting | <a href="https://ollama.com/download" target="_blank">Download</a>
+4. **text-generation-webui** - Flexible, extensions, many backends | <a href="https://github.com/oobabooga/text-generation-webui" target="_blank">GitHub</a>
 5. **GPT4All** - Beginner-friendly desktop app | <a href="https://gpt4all.io/" target="_blank">Download</a>
-6. **LocalAI** - Developer-focused, OpenAI API compatible | <a href="https://github.com/go-skynet/LocalAI" target="_blank">GitHub</a>
+6. **LocalAI** - Developer-focused, OpenAI API compatible | <a href="https://localai.io/" target="_blank">LocalAI</a>
 
 **Bonus: Jan** - Complete ChatGPT alternative, 100% offline | <a href="https://jan.ai/" target="_blank">Download</a>
 
-**Latest Models (2026):**
-- **Gemma 4 12B** (Jun 2026) - Google's newest mid-sized model, native audio, runs in 16GB RAM | <a href="https://ai.google.dev/gemma" target="_blank">Google</a>
-- **Gemma 4** (Apr 2026) - Google's MoE flagship, 26B params, 85 t/s on consumer hardware | <a href="https://ai.google.dev/gemma" target="_blank">Google</a>
-- **Kimi K2.6** (Apr 2026) - Latest Moonshot AI with Agent Swarm architecture | <a href="https://www.moonshot.cn/" target="_blank">Moonshot AI</a>
-- **Qwen3.6-35B-A3B** (Apr 2026) - Alibaba's newest efficient MoE model | <a href="https://qwenlm.github.io/" target="_blank">Qwen</a>
-- **GLM-5.1** (Apr 2026) - Zhipu AI's latest with 744B MoE architecture | <a href="https://huggingface.co/zai-org/GLM-5.1" target="_blank">Hugging Face</a>
-- **NVIDIA Nemotron Cascade 2** (Mar 2026) - Optimized for fast local inference | <a href="https://huggingface.co/nvidia/Nemotron-Cascade-2" target="_blank">Hugging Face</a>
-- **Kimi K2.5** (Jan 2026) - 1T parameter MoE with Agent Swarm | <a href="https://huggingface.co/moonshotai/Kimi-K2.5" target="_blank">Hugging Face</a>
-- **Qwen3.5** (Mar 2026) - 122B MoE, beats GPT-5-mini on benchmarks | <a href="https://huggingface.co/Qwen/Qwen3.5" target="_blank">Hugging Face</a>
-- **Mistral Large 3** (Dec 2025) - Mistral's most capable model | <a href="https://ollama.com/library/mistral-large-3" target="_blank">Ollama</a>
-- **GPT-OSS** (Aug 2025) - OpenAI's first open-weight models, GPT-4 level performance | <a href="https://openai.com/index/introducing-gpt-oss/" target="_blank">OpenAI</a>
-- **DeepSeek V3.2-Exp** (Oct 2025) - Advanced reasoning with "thinking mode" | <a href="https://www.deepseek.com/" target="_blank">DeepSeek</a>
-
+**Best models that fit in 128GB (4-bit unless noted):**
+- **Qwen3.6-35B-A3B** - 23GB, best all-round pick | <a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF" target="_blank">Unsloth GGUF</a>
+- **Gemma 4 26B-A4B** - 16-18GB, multimodal, Apache 2.0 | <a href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF" target="_blank">Unsloth GGUF</a>
+- **Qwen3-Coder-Next** - 46GB, 80B MoE built for agentic coding | <a href="https://huggingface.co/unsloth/Qwen3-Coder-Next-GGUF" target="_blank">Unsloth GGUF</a>
+- **gpt-oss-120b** - 66GB, Apache 2.0, strong tool calling | <a href="https://huggingface.co/unsloth/gpt-oss-120b-GGUF" target="_blank">Unsloth GGUF</a>
+- **Nemotron 3 Super 120B-A12B** - 64-72GB, 1M context | <a href="https://huggingface.co/unsloth/NVIDIA-Nemotron-3-Super-120B-A12B-GGUF" target="_blank">Unsloth GGUF</a>
+- **Qwen3.5-122B-A10B** - 70GB, 256K context | <a href="https://huggingface.co/unsloth/Qwen3.5-122B-A10B-GGUF" target="_blank">Unsloth GGUF</a>
+- **Mistral Medium 3.5 128B** - 80GB dense, multimodal | <a href="https://huggingface.co/unsloth/Mistral-Medium-3.5-128B-GGUF" target="_blank">Unsloth GGUF</a>
+- **DeepSeek-V4-Flash** - 110-135GB at 3-bit, fills a 128GB box | <a href="https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF" target="_blank">Unsloth GGUF</a>
 
 {{% /tldr %}}
 
-## Why Run LLMs Locally in 2026?
+## Why run LLMs locally in 2026?
 
-The landscape of AI has evolved dramatically, but running LLMs locally continues to offer compelling advantages:
+The reasons have not changed much, but the gap in capability has closed enough that they finally matter:
 
-- **Complete Data Privacy**: Your prompts and data never leave your device
-- **No Subscription Costs**: Use AI as much as you want without usage fees
-- **Offline Operation**: Work without internet connectivity
-- **Customization Control**: Fine-tune models for specific use cases
-- **Reduced Latency**: Eliminate network delays for faster responses
+- **Complete data privacy**: your prompts and files never leave the machine
+- **No subscription costs**: no per-token billing, no rate limits
+- **Offline operation**: works on a plane, in a lab, behind an air gap
+- **Customization**: fine-tune on your own data, swap chat templates, control sampling
+- **Reduced latency**: no round trip, and no queue behind other customers
 
-## Top 5 Local LLM Tools in 2026
+## Top local LLM tools in 2026
 
-### 1. Ollama
+### 1. LM Studio
 
-Ollama has emerged as the go-to solution for running LLMs locally, striking an ideal balance between ease of use and powerful features.
+LM Studio is the one to install first if you are not sure what you want. It is a desktop app that hides the awkward parts of local inference (finding a model, picking a quant that fits, wiring up an API) behind a UI that does not assume you have read a llama.cpp changelog.
 
-**Key Features:**
-- One-line commands to pull and run models
-- Support for 200+ optimized models including Gemma 4, Kimi K2.5/K2.6, Qwen3.5/3.6, GLM-5.1, Nemotron Cascade 2, GPT-OSS, DeepSeek V3.2-Exp, and Mistral Large 3
-- Native Kimi CLI integration (`ollama launch kimi`) for agentic workflows
-- Cross-platform support (Windows, macOS, Linux)
-- OpenAI-compatible API with MLX optimizations for Apple Silicon
-- Active community and regular updates (latest: v0.21.x with Hermes Agent support)
+The thing that separates it from the rest is that it ships **two inference engines**. `llama.cpp` runs GGUF files on NVIDIA, AMD, Intel and plain CPU. Apple's **MLX** runs MLX-format models natively on M-series Macs, and on the same chip an MLX build is commonly 10-40% faster than the equivalent GGUF. LM Studio picks the right one and lets you switch.
 
-**Getting Started with Ollama:**
+**Key features:**
+- Model search that tells you up front whether a quant will fit in your RAM
+- Both llama.cpp and MLX engines, switchable per model
+- Built-in chat with conversation history, attachments and vision input
+- OpenAI-compatible API server, plus tool calling
+- Per-model parameter tuning and GPU offload controls without editing config files
 
-1. **Install Ollama**:
-   - Visit {{< link href="https://ollama.com/download" >}}ollama.com/download{{< /link >}}
-   - Download and install for your operating system
-   {{< image "how_to_easily_share_ollama_api_and_open_webui_online/ollama_version.webp" "Verify Ollama installation" >}}
-
-2. **Run a model**:
-   ```bash
-   # Pull and run the latest models in one command
-   ollama run qwen3.5
-
-   # For the newest Gemma that fits in 16GB RAM:
-   ollama run gemma4:12b
-
-   # For the fastest local inference:
-   ollama run gemma4:26b
-
-   # For the latest reasoning models:
-   ollama run deepseek-v3.2-exp:7b
-
-   # For agentic AI with Kimi K2.6:
-   ollama launch kimi --model kimi-k2.6:cloud
-   ```
-   {{< image "how_to_easily_share_ollama_api_and_open_webui_online/model_run_terminal.webp" "Running a model with Ollama" >}}
-
-3. **Use the API**:
-   ```bash
-   curl http://localhost:11434/api/chat -d '{
-     "model": "gemma4:26b",
-     "messages": [
-       {"role": "user", "content": "Explain quantum computing in simple terms"}
-     ]
-   }'
-   ```
-   {{< image "run_deepseek_locally/postman_ss.webp" "Send requests with curl" >}}
-
-**Best For**: General users who want a straightforward way to run LLMs locally with minimal setup.
-
-> **Related**: Learn how to {{< link href="/blog/running_ollama_on_google_colab_with_pinggy/" >}}run Ollama on Google Colab{{< /link >}} or {{< link href="/blog/how_to_easily_share_ollama_api_and_open_webui_online/" >}}share your Ollama API online{{< /link >}} for remote access.
-
-### 2. LM Studio
-
-LM Studio provides the most polished graphical user interface for managing and running local LLMs, making it accessible for non-technical users.
-
-**Key Features:**
-- Intuitive GUI for model discovery and management
-- Built-in chat interface with conversation history
-- Advanced parameter tuning through visual controls
-- Model performance comparison tools
-- OpenAI-compatible API server
-
-**Getting Started with LM Studio:**
+**Getting started with LM Studio:**
 
 1. **Install LM Studio**:
    - Visit {{< link href="https://lmstudio.ai/" >}}lmstudio.ai{{< /link >}}
    - Download the installer for your OS
    {{< image "lm_studio/lm_home_page.webp" "LM Studio homepage" >}}
 
-2. **Download Models**:
-   - Navigate to the "Discover" tab
-   - Browse and download models based on your hardware capabilities
+2. **Download models**:
+   - Open the "Discover" tab and search for a model
+   - LM Studio flags each quant as a likely fit or not, based on your hardware
    {{< image "lm_studio/lm_model.webp" "Downloading models in LM Studio" >}}
 
-3. **Chat or Enable API**:
+3. **Chat or enable the API**:
    - Use the built-in chat interface
-   - Or enable the API server through the "Developer" tab
+   - Or start the server from the "Developer" tab and point any OpenAI client at `http://localhost:1234/v1`
    {{< image "lm_studio/lm_studio_dev.webp" "LM Studio Developer mode" >}}
 
-**Best For**: Users who prefer graphical interfaces over command-line tools and want an all-in-one solution.
+Recent releases have been steady rather than dramatic: the 0.4.x line brought parallel predictions for vision models like Qwen3.5/3.6 and Gemma 4, and KV cache checkpointing that helps a lot with repeated long-context agentic runs. You can track it on the {{< link href="https://lmstudio.ai/changelog" >}}changelog{{< /link >}}.
 
-> **Related**: Check out our detailed {{< link href="/blog/lm_studio/" >}}LM Studio guide{{< /link >}} for step-by-step setup instructions and advanced features.
+**Best for**: almost everyone. It is the shortest path from "I have a laptop" to "I am talking to a 27B model".
 
-### 3. BlueQubit
+> **Related**: check out our detailed {{< link href="/blog/lm_studio/" >}}LM Studio guide{{< /link >}} for step-by-step setup and advanced features.
 
-{{< link href="https://www.bluequbit.io/" >}}Bluequbit{{< /link >}} is the outlier in this list: it is a cloud quantum computing platform, not a local LLM runner. It is here because the workflow rhymes. If you already prototype models in Python and Jupyter, BlueQubit gives you the same loop for quantum circuits without buying or booking hardware.
+### 2. Unsloth
 
-You write circuits against a Python SDK, then execute them on a simulator or on real quantum backends from multiple providers. It speaks the frameworks people already use - Qiskit and Cirq - so existing circuit code mostly carries over. Typical use cases are quantum machine learning, optimization, chemistry, and finance research.
+{{< link href="https://unsloth.ai/" >}}Unsloth{{< /link >}} is the most useful project in this list that most people have never explicitly installed. If you have downloaded a GGUF in the last year, there is a good chance it was one of theirs.
 
-**Key Features:**
-- Python SDK with Jupyter Notebook support for interactive development
-- Access to quantum simulators and multiple hardware backends from one API
-- Compatible with existing Qiskit and Cirq circuit code
-- Targets quantum machine learning, optimization, and scientific computing workflows
-- No local quantum hardware or infrastructure to set up
+It started as a fine-tuning library (train 2x faster with about 70% less VRAM, using custom Triton kernels) and has grown into two things: the **quantized model files** that a large share of the local ecosystem runs on, and **Unsloth Studio**, an Apache 2.0 local UI for running and training models on your own hardware. The GitHub repo sits at roughly 69k stars and gets pushed to daily.
 
-**Getting Started with BlueQubit:**
+#### Why Unsloth's quants are worth seeking out
 
-1. **Create an account**:
-   - Sign up at {{< link href="https://www.bluequbit.io/" >}}bluequbit.io{{< /link >}} on the free tier
+Standard GGUF quantization applies the same bit width to every layer. That is a bad assumption. Embedding layers and the first and last attention blocks carry structure the rest of the model leans on, and squashing them to 4 bits costs far more accuracy than squashing a middle feed-forward layer.
 
-2. **Install the SDK**:
+**Unsloth Dynamic 2.0** picks a quantization type per layer, and the pattern is derived per model. The layers it protects in Gemma 3 are not the ones it protects in Llama 4. Calibration uses a hand-curated dataset of over 1.5M tokens, and to avoid fooling themselves they measure KL divergence against Wikipedia text rather than against the calibration set.
+
+The numbers back it up. On Gemma 3 27B, comparing against Google's own quantization-aware training release:
+
+| Quant | Unsloth MMLU (5-shot) | Google QAT | Disk |
+|---|---|---|---|
+| Q4_K_XL | 71.47% | 71.07% | 15.64GB |
+| Q3_K_XL | 70.87% | 69.50% | 12.76GB |
+| Q2_K_XL | 68.70% | 67.77% | 9.95GB |
+
+The 4-bit dynamic build is roughly 2GB smaller than the QAT version while scoring about a point higher. On KL divergence (lower is better, and it is the metric that actually tracks "does this behave like the original model"), Gemma 3 12B at Q3_K_XL goes from 0.0878 to 0.0806 for an extra 0.25GB on disk.
+
+You will see these files named with a `UD-` prefix, as in `UD-Q4_K_XL`. UD is Unsloth Dynamic, and the `_XL` suffix means it spends extra bits where they matter. **`UD-Q4_K_XL` is the sensible default** for most people.
+
+#### The other half: bug fixes
+
+The less advertised benefit is that Unsloth tends to find and fix the chat template and tokenizer bugs that ship with new model releases. They have worked directly with the teams behind gpt-oss, Qwen3, Llama 4, Mistral and Gemma on issues that changed measured accuracy, including {{< link href="https://github.com/ggml-org/llama.cpp/pull/12889" >}}patches upstreamed into llama.cpp{{< /link >}}. When a major model drops and the first weekend's worth of "this model is dumb" posts turn out to be a broken Jinja template, the fixed GGUF is usually theirs.
+
+Community discussion on the {{< link href="https://huggingface.co/unsloth" >}}Hugging Face repos{{< /link >}} is worth reading before you pick a file. The short version of the recurring `UD-Q4_K_XL` vs `Q4_K_M` question: the XL variant uses Q5_K on the important matrices where Q4_K_M mostly uses Q6_K, and for equal file size the XL build generally wins.
+
+*The honest caveat*: on small dense models, the gap between a Dynamic quant and a good conventional imatrix quant is real but modest, and sometimes the file sizes come out nearly identical. The wins get large on mixture-of-experts models and at low bit depths (3-bit and below), which is exactly where you will be operating if you are trying to squeeze a 284B model into 128GB.
+
+#### Unsloth Studio: run and train in one app
+
+Unsloth Studio is the newer half of the project, and it is the reason Unsloth belongs in a list of tools rather than just a footnote about file formats. It is a local web UI (still marked Beta) that covers both inference and training, on Windows, Linux, WSL and macOS.
+
+{{< image "top_5_local_llm_tools_and_models/unsloth_studio.webp" "Unsloth Studio training interface" >}}
+
+On the inference side it does what LM Studio does, plus a few things it does not:
+
+- Search, download and run **GGUF, MLX and safetensors** models, including LoRA adapters
+- **GGUF hardware controls**: pick GPUs and layer counts, offload MoE experts to CPU, use multi-GPU or tensor parallelism. This is the knob that decides whether a 120B MoE actually runs on your box
+- **Model arena** to run the same prompt through two models side by side
+- Self-healing tool calling, code execution, and web/PDF search
+- Local RAG with a choice of embedding models
+- Chat with images, audio, PDFs, DOCX and code
+- OpenAI **and** Anthropic-compatible endpoints (`/v1/chat/completions`, `/v1/responses`, `/v1/messages`)
+- Can also front remote providers and servers (OpenAI, Anthropic, vLLM, Ollama) from the same UI
+
+On the training side, which is where Unsloth started:
+
+- Fine-tune and run RL on 500+ models, roughly 2x faster with about 70% less VRAM, and up to 12x faster on MoE models
+- LoRA, QLoRA, full fine-tuning, pretraining and RL, in 4-bit, 16-bit or FP8
+- **Data Recipes** build training sets from PDF, CSV or DOCX files in a visual node editor
+- GRPO and vision RL with about 80% less VRAM, and long-context training at 500K+ tokens
+- Live observability for loss curves and GPU usage
+- Export the result straight to GGUF or 16-bit safetensors, so a fine-tune goes back into your runner without a separate conversion step
+
+Hardware support is broader than you might expect: NVIDIA RTX 30/40/50 and Blackwell, AMD via ROCm on Windows and Linux, Vulkan for GGUF inference on Intel GPUs, and macOS with training plus both MLX and GGUF inference. CPU-only works for chat and Data Recipes.
+
+**Getting started with Unsloth:**
+
+1. **Install** (macOS, Linux, WSL):
    ```bash
-   pip install bluequbit
+   curl -fsSL https://unsloth.ai/install.sh | sh
+   ```
+   On Windows PowerShell:
+   ```powershell
+   irm https://unsloth.ai/install.ps1 | iex
+   ```
+   The same command updates an existing install.
+
+2. **Launch {{< link href="https://unsloth.ai/docs/new/studio/" >}}Unsloth Studio{{< /link >}}**:
+   ```bash
+   unsloth studio
+   ```
+   Then open the UI in a browser, search for a model and download it. To expose it on your network instead of just localhost, pass a host and port:
+   ```bash
+   unsloth studio -H 0.0.0.0 -p 8888
    ```
 
-3. **Connect and run a circuit**:
-   - Point the SDK at a simulator or an available hardware backend
-   - Build and execute circuits from Python or a Jupyter Notebook
+3. **Point a coding agent at your local model**:
+   ```bash
+   unsloth start claude
+   ```
+   `codex`, `opencode` and `hermes` work the same way. You can also keep your usual cloud model and attach a local one as a subagent:
+   ```bash
+   unsloth start claude --as-subagent --model unsloth/model-GGUF:quant
+   ```
 
-4. **Analyze and iterate**:
-   - Pull results back into your notebook and refine the circuit
+**Best for**: anyone squeezing the most quality out of a fixed memory budget, and anyone who wants to fine-tune a model and run it without renting a GPU or leaving one app.
 
-**Best For**: Developers, researchers, and educators who want a cloud platform to learn and build quantum applications without managing hardware.
+### 3. Ollama
 
-*Worth being clear about the tradeoff*: nothing here runs on your machine, and quantum computing solves a different class of problem than an LLM does. If you came to this post to run a chat model offline, skip to the next tool - this one is adjacent, not a substitute.
+Ollama remains the fastest way to get a model running from a terminal, and it is still the easiest thing to script against or drop into a Docker Compose file.
+
+**Key features:**
+- One-line commands to pull and run models
+- A curated library, so you are not choosing between 40 quants of the same model
+- Cross-platform (Windows, macOS, Linux), with MLX optimizations on Apple Silicon
+- OpenAI-compatible API on port 11434
+- Straightforward `Modelfile` format for pinning system prompts and parameters
+
+**Getting started with Ollama:**
+
+1. **Install Ollama**:
+   - Visit {{< link href="https://ollama.com/download" >}}ollama.com/download{{< /link >}}
+   {{< image "how_to_easily_share_ollama_api_and_open_webui_online/ollama_version.webp" "Verify Ollama installation" >}}
+
+2. **Run a model**:
+   ```bash
+   # Good default on a 32GB machine
+   ollama run qwen3.6
+
+   # Fits comfortably in 16GB
+   ollama run gemma4:12b
+
+   # Reasoning and tool calling, needs ~66GB
+   ollama run gpt-oss:120b
+   ```
+   {{< image "how_to_easily_share_ollama_api_and_open_webui_online/model_run_terminal.webp" "Running a model with Ollama" >}}
+
+3. **Use the API**:
+   ```bash
+   curl http://localhost:11434/api/chat -d '{
+     "model": "qwen3.6",
+     "messages": [
+       {"role": "user", "content": "Explain KV cache quantization in two sentences"}
+     ]
+   }'
+   ```
+   {{< image "run_deepseek_locally/postman_ss.webp" "Send requests with curl" >}}
+
+Model tags move around, so check {{< link href="https://ollama.com/library" >}}ollama.com/library{{< /link >}} for what is currently published before scripting against a specific tag.
+
+**Best for**: developers who live in a terminal, and anyone automating local inference.
+
+> **Related**: learn how to {{< link href="/blog/running_ollama_on_google_colab_with_pinggy/" >}}run Ollama on Google Colab{{< /link >}} or {{< link href="/blog/how_to_easily_share_ollama_api_and_open_webui_online/" >}}share your Ollama API online{{< /link >}} for remote access.
 
 ### 4. text-generation-webui
 
-For those looking for a balance between powerful features and ease of installation, text-generation-webui offers a comprehensive solution with a web interface.
+If you want to poke at every knob, text-generation-webui is still the most configurable option, and the portable builds removed the old dependency-hell complaint.
 
-**Key Features:**
-- Simple installation via pip or conda
-- Intuitive web interface with chat and text completion modes
-- Support for multiple model backends (GGUF, GPTQ, AWQ, etc.)
-- Extensions ecosystem for added functionality
-- Character creation and customization
-- Built-in knowledge base/RAG capabilities
+**Key features:**
+- Portable builds that need no installation
+- Chat and raw text completion modes
+- Multiple backends (GGUF, GPTQ, AWQ, ExLlama)
+- Extensions ecosystem
+- Character creation and built-in RAG
 
-**Getting Started with text-generation-webui:**
+**Getting started:**
 
-1. **Option 1: Portable builds (recommended)**:
-   - Download from: {{< link href="https://github.com/oobabooga/text-generation-webui/releases" >}}GitHub Releases{{< /link >}}
-   - No installation needed - just unzip and run
-   - Compatible with GGUF (llama.cpp) models on Windows, Linux, and macOS
+1. **Grab a portable build**:
+   - Download from {{< link href="https://github.com/oobabooga/text-generation-webui/releases" >}}GitHub Releases{{< /link >}}
+   - Unzip and run, no install step
 
 2. **Launch the web UI**:
    ```bash
-   # Start the web interface
    text-generation-webui --listen
    ```
 
 3. **Download models through the interface**:
-   - Navigate to the "Models" tab in the web interface
-   - Download models from Hugging Face directly through the UI
-   - Select and load your preferred model
+   - Open the "Models" tab and pull directly from Hugging Face
 
 {{< image "top_5_local_llm_tools_and_models/text_generation_webui.webp" "text-generation-webui interface" >}}
 
-**Best For**: Users who want a feature-rich interface with easy installation and the flexibility to use various model formats.
+**Best for**: tinkerers who want sampler-level control and format flexibility.
 
 ### 5. GPT4All
 
-GPT4All provides a polished desktop application experience with minimal setup required, making it ideal for Windows users.
+GPT4All is a conventional desktop application, which is exactly its appeal. No terminal, no engine selection, no quant naming conventions.
 
-**Key Features:**
-- User-friendly desktop application
-- Pre-configured with optimized models
-- Built-in chat interface with conversation history
-- Local RAG capabilities for document analysis
-- Plugin ecosystem for extended functionality
+**Key features:**
+- Desktop app with a short setup path
+- Pre-configured model list
+- Chat with conversation history
+- Local RAG over your own documents
+- Plugin ecosystem
 
-**Getting Started with GPT4All:**
+**Getting started:**
 
-1. **Install GPT4All**:
-   - Visit {{< link href="https://gpt4all.io/" >}}gpt4all.io{{< /link >}}
-   - Download and install the desktop application
-
-2. **Select a model**:
-   - Use the built-in model downloader
-   - Choose from various optimized models
-
-3. **Start chatting**:
-   - Use the intuitive chat interface
-   - Adjust parameters through the settings panel
+1. **Install GPT4All** from {{< link href="https://gpt4all.io/" >}}gpt4all.io{{< /link >}}
+2. **Select a model** using the built-in downloader
+3. **Start chatting**, adjusting parameters from the settings panel
 
 {{< image "top_5_local_llm_tools_and_models/gpt4_all.webp" "GPT4All desktop application" >}}
 
-**Best For**: Windows users and those who prefer a traditional desktop application experience.
+**Best for**: non-technical users, and Windows machines where you want one installer and nothing else.
 
 ### 6. LocalAI
 
-{{< link href="https://localai.io/" >}}LocalAI {{< /link >}} offers the most versatile platform for developers who need to integrate local LLMs into their applications.
+{{< link href="https://localai.io/" >}}LocalAI{{< /link >}} is the option you reach for when the LLM is a component in a larger system rather than something you chat with.
 
-**Key Features:**
-- Support for multiple model architectures (GGUF, ONNX, PyTorch)
-- Drop-in replacement for OpenAI API
-- Extensible plugin system
-- Docker-ready deployment
-- Multi-modal capabilities (text, image, audio)
+**Key features:**
+- Drop-in replacement for the OpenAI API
+- Multiple model architectures (GGUF, ONNX, PyTorch)
+- Multi-modal: text, image generation, audio transcription and TTS
+- Docker-ready, which makes it easy to pin in CI
 
-**Getting Started with LocalAI:**
+**Getting started with LocalAI:**
 
 1. **Using Docker**:
    ```bash
    # CPU only image:
-    docker run -ti --name local-ai -p 8080:8080 localai/localai:latest-cpu
+   docker run -ti --name local-ai -p 8080:8080 localai/localai:latest-cpu
 
-    # Nvidia GPU:
-    docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-gpu-nvidia-cuda-12
+   # Nvidia GPU:
+   docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-gpu-nvidia-cuda-12
 
-    # CPU and GPU image (bigger size):
-    docker run -ti --name local-ai -p 8080:8080 localai/localai:latest
+   # CPU and GPU image (bigger size):
+   docker run -ti --name local-ai -p 8080:8080 localai/localai:latest
 
-    # AIO images (it will pre-download a set of models ready for use, see https://localai.io/basics/container/)
-    docker run -ti --name local-ai -p 8080:8080 localai/localai:latest-aio-cpu
+   # AIO images (pre-downloads a set of models ready for use)
+   docker run -ti --name local-ai -p 8080:8080 localai/localai:latest-aio-cpu
    ```
 
-2. **Download models**:
-   ```bash
-   http://localhost:8080/browse/
-   ```
+2. **Browse and download models** at `http://localhost:8080/browse/`
+
 {{< image "top_5_local_llm_tools_and_models/local_ai.webp" "LocalAI model browser" >}}
 
+**Best for**: developers replacing an OpenAI dependency in an existing application.
 
-**Best For**: Developers who need a flexible, API-compatible solution for integrating local LLMs into applications.
+### 7. BlueQubit
 
-### Bonus Tool: Jan
+{{< link href="https://www.bluequbit.io/" >}}BlueQubit{{< /link >}} is the outlier here: it is a cloud quantum computing platform, not a local LLM runner. It is included because the workflow rhymes. If you already prototype models in Python and Jupyter, BlueQubit gives you the same loop for quantum circuits without buying or booking hardware.
 
-Jan is a comprehensive ChatGPT alternative that runs completely offline on your local device, offering full control and privacy.
+You write circuits against a Python SDK, then execute them on a simulator or on real quantum backends from multiple providers. It speaks Qiskit and Cirq, so existing circuit code mostly carries over.
 
-**Key Features:**
-- Powered by Cortex, a universal AI engine that runs on any hardware
-- Model Library with popular LLMs like Llama, Gemma, Mistral, and Qwen
-- OpenAI-compatible API server for integration with other applications
-- Extensions system for customizing functionality
-- Support for remote AI APIs like Groq and OpenRouter when needed
+**Getting started with BlueQubit:**
 
-**Getting Started with Jan:**
+1. **Create an account** at {{< link href="https://www.bluequbit.io/" >}}bluequbit.io{{< /link >}} on the free tier
+2. **Install the SDK**:
+   ```bash
+   pip install bluequbit
+   ```
+3. **Connect and run a circuit** against a simulator or an available hardware backend
+4. **Analyze and iterate** from your notebook
 
-1. **Install Jan**:
-   - Visit {{< link href="https://jan.ai/" >}}jan.ai{{< /link >}}
-   - Download the installer for your operating system (Windows, MacOS, or Linux)
+**Best for**: developers and researchers who want to learn quantum computing without managing hardware.
 
-2. **Launch Jan and Download Models**:
-   - Open Jan after installation
-   - Navigate to the Model Library
-   - Choose from various optimized models based on your hardware capabilities
+*Worth being clear about the tradeoff*: nothing here runs on your machine, and quantum computing solves a different class of problem than an LLM does. If you came to this post to run a chat model offline, this one is adjacent, not a substitute.
 
-3. **Start Using Jan**:
-   - Use the intuitive chat interface
-   - Configure model parameters through settings
-   - Optionally enable the API server for integration with other applications
+### Bonus tool: Jan
+
+Jan is a ChatGPT-shaped desktop app that runs fully offline, and it is the nicest looking of the bunch.
+
+**Key features:**
+- Model library covering Llama, Gemma, Mistral and Qwen
+- OpenAI-compatible API server
+- Extensions system
+- Can also call remote APIs like Groq and OpenRouter when you want them
+
+**Getting started with Jan:**
+
+1. **Install Jan** from {{< link href="https://jan.ai/" >}}jan.ai{{< /link >}} (Windows, macOS or Linux)
+2. **Open the Model Library** and pick something that fits your hardware
+3. **Start chatting**, and optionally enable the API server
 
 {{< image "top_5_local_llm_tools_and_models/jan.webp" "Jan AI interface" >}}
 
-**Best For**: Users looking for a polished, all-in-one solution that works across multiple platforms and hardware configurations.
+**Best for**: a polished all-in-one app that works across platforms.
 
-> **Related**: Learn how to {{< link href="/blog/self_host_local_ai_assistant_with_jan_and_pinggy/" >}}self-host Jan as an AI assistant{{< /link >}} and make it accessible from anywhere.
+> **Related**: learn how to {{< link href="/blog/self_host_local_ai_assistant_with_jan_and_pinggy/" >}}self-host Jan as an AI assistant{{< /link >}} and make it accessible from anywhere.
 
-## Best Models for Local Deployment in 2026
+## Best models that fit in 128GB
 
-The quality of locally runnable models has improved dramatically. Here are the standout models of 2026:
+First, the rule that governs everything below: **the quantized weights plus the KV cache have to fit in RAM and VRAM combined**. If the model spills to disk, throughput collapses. Long context makes this worse, because the KV cache grows with it, so leave headroom rather than picking the largest file that technically fits.
 
-### 1. Gemma 4 (12B and 26B-A4B)
+All memory figures below are for 4-bit Unsloth Dynamic quants unless stated otherwise, and they mean total RAM plus VRAM.
 
-Google's Gemma 4 family delivers frontier-level intelligence in a compact package. The flagship 26B-A4B is a Mixture-of-Experts (MoE) model that activates only 4 billion parameters per token from its 26 billion total, hitting 85 tokens per second on consumer hardware like AMD Ryzen AI MAX+ with 128GB RAM. It ships with a 256K context window and function calling that actually works.
+| Model | Params (active) | 4-bit memory | Good at |
+|---|---|---|---|
+| Gemma 4 12B | 12B dense | 7-8GB | General use on a laptop |
+| gpt-oss-20b | 20B MoE | 14GB | Reasoning, tool calling |
+| Gemma 4 26B-A4B | 26B (4B) | 16-18GB | Multimodal, fast |
+| Qwen3.6-27B | 27B dense | 18GB | Quality per GB |
+| Gemma 4 31B | 31B dense | 17-20GB | Strongest dense Gemma |
+| Qwen3.6-35B-A3B | 35B (3B) | 23GB | Best all-rounder |
+| Qwen3-Coder-Next | 80B (3B) | 46GB | Agentic coding |
+| Nemotron 3 Super | 120B (12B) | 64-72GB | Reasoning, 1M context |
+| gpt-oss-120b | 120B MoE | 66GB | Tool calling, Apache 2.0 |
+| Qwen3.5-122B-A10B | 122B (10B) | 70GB | Frontier-ish general use |
+| Mistral Medium 3.5 | 128B dense | 80GB | Multimodal, multilingual |
+| DeepSeek-V4-Flash | 284B (13B) | 110-135GB (3-bit) | The ceiling of 128GB |
 
-The newest member, **Gemma 4 12B**, landed on June 3, 2026 and fills the gap between the edge-friendly E4B and the 26B MoE. It's a dense 12B model that fits in 16GB of RAM (or 16GB of VRAM/unified memory), so it runs on a regular laptop. Google claims it gets close to the 26B MoE's benchmark scores at less than half the total memory footprint. The interesting bit is the architecture: there are no separate multimodal encoders. Vision goes through a single matrix multiplication, and raw audio is projected straight into the same dimensional space as text tokens, both flowing directly into the LLM backbone. That makes it the first mid-sized Gemma with native audio input. Multi-Token Prediction (MTP) drafters cut latency on top of that.
+### 1. Qwen3.6 (27B and 35B-A3B)
+
+Alibaba's Qwen3.6 is the default recommendation for most people with a decent machine. Two variants: a dense 27B and a 35B mixture-of-experts with 3B active parameters. The MoE is the more interesting one, because activating 3B parameters per token means it generates at roughly small-model speed while holding 35B worth of knowledge.
+
+Both ship with 256K context across 201 languages, extendable toward 1M with YaRN. There are also MTP (multi-token prediction) builds that trade about 1GB of extra memory for lower latency.
+
+{{< image "top_5_local_llm_tools_and_models/qwen.webp" "Qwen3.6 model overview" >}}
+
+- **Memory**: 27B needs 18GB at 4-bit, 30GB at 8-bit. 35B-A3B needs 23GB at 4-bit, 38GB at 8-bit
+- **License**: Apache 2.0
+- **Unsloth GGUFs**: {{< link href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF" >}}Qwen3.6-35B-A3B-GGUF{{< /link >}} and {{< link href="https://huggingface.co/unsloth/Qwen3.6-27B-GGUF" >}}Qwen3.6-27B-GGUF{{< /link >}}
+- **For Macs**: {{< link href="https://huggingface.co/unsloth/Qwen3.6-27B-UD-MLX-4bit" >}}Qwen3.6-27B-UD-MLX-4bit{{< /link >}} runs on the MLX engine
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/qwen3.6" >}}Unsloth's Qwen3.6 guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, Ollama, text-generation-webui, Jan
+
+### 2. Gemma 4 (12B, 26B-A4B and 31B)
+
+Google's Gemma 4 family is the best option under 20GB, and the 12B in particular is the model to hand someone with a 16GB laptop. The architecture is worth a note: there are no separate multimodal encoders. Vision goes through a single matrix multiplication and raw audio is projected into the same space as text tokens, both feeding straight into the LLM backbone.
+
+The 26B-A4B is a MoE that activates 4B parameters per token, which is why it feels quicker than its size suggests. The 31B is the strongest dense member. Context is 128K on the E2B/E4B edge models and 256K on the rest.
+
+Google also publishes QAT versions, and Unsloth mirrors those too, so you can compare against their Dynamic builds directly.
 
 {{< image "top_5_local_llm_tools_and_models/gemma.webp" "Gemma 4 model overview" >}}
 
-- **Release Dates**: 26B-A4B (April 2026), 12B (June 3, 2026)
-- **Official Website**: {{< link href="https://ai.google.dev/gemma" >}}Google Gemma{{< /link >}}
-- **Models**:
-  - {{< link href="https://huggingface.co/google/gemma-4-12b-it" >}}Gemma 4 12B{{< /link >}} - dense 12B, native audio + vision, runs in 16GB RAM
-  - {{< link href="https://huggingface.co/google/gemma-4-26b-a4b-it" >}}Gemma 4 26B-A4B{{< /link >}} - 26B params (4B active), runs on 64GB+ RAM
-  - {{< link href="https://huggingface.co/google/gemma-4-31b-it" >}}Gemma 4 31B{{< /link >}} - Larger variant for high-end hardware
-- **Hardware Requirements**: 16GB RAM for 12B, 32GB+ for 26B-A4B, 64GB+ for 31B
-- **Strengths**: 12B variant runs in 16GB RAM with native audio and vision, 85 t/s on the 26B MoE, 256K context window, encoder-free multimodal architecture, MTP for lower latency
+- **Memory**: 12B needs 7-8GB at 4-bit. 26B-A4B needs 16-18GB. 31B needs 17-20GB
+- **License**: Gemma terms of use
+- **Unsloth GGUFs**: {{< link href="https://huggingface.co/unsloth/gemma-4-12b-it-GGUF" >}}12B{{< /link >}}, {{< link href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF" >}}26B-A4B{{< /link >}}, {{< link href="https://huggingface.co/unsloth/gemma-4-31B-it-GGUF" >}}31B{{< /link >}}, {{< link href="https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF" >}}E4B{{< /link >}} for edge devices
+- **QAT builds**: {{< link href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF" >}}gemma-4-26B-A4B-it-qat-GGUF{{< /link >}}
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/gemma-4" >}}Unsloth's Gemma 4 guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, Ollama, text-generation-webui, Jan
+
+### 3. Qwen3-Coder-Next
+
+If you are running a local model for coding, this is the one. 80B total with 3B active, 262K native context, and it is built specifically for agentic coding rather than being a general model that happens to write code.
+
+The 3B active parameter count matters more here than anywhere else, because agentic coding loops are throughput-bound. Unsloth's docs put it at 20+ tokens/s when the quant fits entirely in memory, which it does with room to spare on 128GB.
+
+- **Memory**: 46GB at 4-bit, 85GB at 8-bit
+- **Unsloth GGUF**: {{< link href="https://huggingface.co/unsloth/Qwen3-Coder-Next-GGUF" >}}Qwen3-Coder-Next-GGUF{{< /link >}}
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/qwen3-coder-next" >}}Unsloth's Qwen3-Coder-Next guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, Ollama, llama.cpp, vLLM
+
+### 4. gpt-oss (20B and 120B)
+
+OpenAI's open-weight models are Apache 2.0, natively MXFP4, and still among the best available for tool calling and structured reasoning. The 120B is the sweet spot on a 128GB machine: about 66GB of memory for 6+ tokens/s, which leaves plenty for context.
+
+The 20B is the better choice if you are sharing the machine with anything else, at around 14GB.
+
+{{< image "top_5_local_llm_tools_and_models/openai.webp" "OpenAI gpt-oss models" >}}
+
+- **Memory**: 20B needs 14GB, 120B needs 66GB
+- **Context**: 128K on both
 - **License**: Apache 2.0
-- **Compatible with**: Ollama, LM Studio, text-generation-webui, Jan
+- **Unsloth GGUFs**: {{< link href="https://huggingface.co/unsloth/gpt-oss-120b-GGUF" >}}gpt-oss-120b-GGUF{{< /link >}} and {{< link href="https://huggingface.co/unsloth/gpt-oss-20b-GGUF" >}}gpt-oss-20b-GGUF{{< /link >}}
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/gpt-oss-how-to-run-and-fine-tune" >}}Unsloth's gpt-oss guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, Ollama, LocalAI, llama.cpp
 
-### 2. Kimi K2.5 and K2.6
+### 5. NVIDIA Nemotron 3 (Nano, Super and Ultra)
 
-Moonshot AI's Kimi K2.5 and the newly released K2.6 represent the pinnacle of open-weight AI models with their revolutionary Agent Swarm architecture. These massive 1 trillion parameter MoE models (32B active per token) can coordinate up to 100 sub-agents for complex tasks, making them ideal for sophisticated agentic workflows. The K2.6 release in April 2026 brings enhanced long-horizon agentic execution capabilities and is now available through Ollama's Kimi CLI integration.
+NVIDIA's Nemotron 3 line is a hybrid reasoning MoE family with a 1M token context window. **Nemotron-3-Super-120B-A12B** is the one that fits a 128GB budget: 120B total, 12B active, and 64-72GB at 4-bit. The 12B active count makes it heavier per token than gpt-oss-120b, but it scores well on AIME 2025, Terminal Bench and SWE-Bench Verified.
 
-{{< image "top_5_local_llm_tools_and_models/moonshot.webp" "Moonshot AI Kimi model page" >}}
+**Nemotron-3-Nano-30B-A3B** is the small sibling if you want the same behaviour on a laptop. Nemotron-3-Ultra-550B-A55B exists but is well outside 128GB.
 
-- **Release Dates**: K2.5 (January 2026), K2.6 (April 2026)
-- **Official Website**: {{< link href="https://www.moonshot.cn/" >}}Moonshot AI{{< /link >}}
-- **Models**:
-  - {{< link href="https://huggingface.co/moonshotai/Kimi-K2.5" >}}Kimi K2.5{{< /link >}} - 1T params (32B active), Agent Swarm architecture
-  - {{< link href="https://huggingface.co/moonshotai/Kimi-K2.6" >}}Kimi K2.6{{< /link >}} - Latest with improved agentic execution
-- **Hardware Requirements**: 128GB+ RAM recommended for full capabilities
-- **Strengths**: Agent Swarm (100 sub-agents), AIME 2025 96.1% score, multimodal (text + image + video), thinking mode
-- **License**: Modified MIT (free commercial use below 100M MAU)
-- **Compatible with**: Ollama (via `ollama launch kimi --model kimi-k2.6:cloud`), LM Studio, text-generation-webui
+{{< image "top_5_local_llm_tools_and_models/nvidia.webp" "NVIDIA Nemotron model page" >}}
 
-### 3. Qwen3.5 and Qwen3.6
+- **Memory**: Super needs 64-72GB at 4-bit, 128GB at 8-bit. Nano 30B-A3B is far smaller
+- **License**: NVIDIA Open Model License (not Apache, check the terms for commercial use)
+- **Unsloth GGUFs**: {{< link href="https://huggingface.co/unsloth/NVIDIA-Nemotron-3-Super-120B-A12B-GGUF" >}}Super 120B-A12B{{< /link >}} and {{< link href="https://huggingface.co/unsloth/Nemotron-3-Nano-30B-A3B-GGUF" >}}Nano 30B-A3B{{< /link >}}
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/nemotron-3/nemotron-3-super" >}}Unsloth's Nemotron 3 Super guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, Ollama, vLLM, SGLang, llama.cpp
 
-Alibaba's Qwen3.5 and the newer Qwen3.6 series represent the current state-of-the-art in open-source MoE models. Qwen3.5's 122 billion parameters with only 10 billion active per token deliver performance that beats GPT-5-mini on most benchmarks all while running on a MacBook with 64GB RAM. The April 2026 Qwen3.6-35B-A3B release brings further efficiency improvements with just 3.5 billion active parameters from 35 billion total.
+### 6. Qwen3.5-122B-A10B
 
-{{< image "top_5_local_llm_tools_and_models/qwen.webp" "Qwen 3.5 and 3.6 model overview" >}}
+The larger Qwen3.5 sits just under the 128GB line at 70GB in 4-bit, or 60GB at 3-bit if you want more room for context. 122B total, 10B active, 256K context. The Qwen3.5 family is unusually broad, running from 0.8B up to 397B, so it is easy to prototype on a small one and move up.
 
-- **Release Dates**: Qwen3.5 (March 2026), Qwen3.6 (April 2026)
-- **Official Website**: {{< link href="https://qwenlm.github.io/" >}}Qwen{{< /link >}}
-- **Models**:
-  - {{< link href="https://huggingface.co/Qwen/Qwen3.5" >}}Qwen3.5{{< /link >}} - 122B params (10B active), Apache 2.0 license
-  - {{< link href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B" >}}Qwen3.6-35B-A3B{{< /link >}} - 35B params (3.5B active)
-- **Hardware Requirements**: 64GB+ RAM for Qwen3.5, 32GB+ for Qwen3.6-35B-A3B
-- **Strengths**: Apache 2.0 license, 262K context (expandable to 1M), beats GPT-5-mini on benchmarks
-- **Compatible with**: Ollama, LM Studio, LocalAI, Jan
+Note the 397B-A17B variant needs 214GB at 4-bit, so it is out of reach here.
 
-### 4. GLM-5.1
+- **Memory**: 60GB at 3-bit, 70GB at 4-bit, 106GB at 6-bit
+- **License**: Apache 2.0
+- **Unsloth GGUF**: {{< link href="https://huggingface.co/unsloth/Qwen3.5-122B-A10B-GGUF" >}}Qwen3.5-122B-A10B-GGUF{{< /link >}}
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/qwen3.5" >}}Unsloth's Qwen3.5 guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, Ollama, LocalAI, Jan
 
-Zhipu AI's GLM-5.1 represents a massive leap forward with its 744 billion parameter MoE architecture 40 billion active per token trained on 28.5 trillion tokens. Released in April 2026, this model uses DeepSeek Sparse Attention (DSA) to reduce long-context compute, making it one of the most cost-efficient models at this scale for agentic deployment. It inherits and improves upon GLM-4.7's production workflow capabilities.
+### 7. Mistral Medium 3.5 128B
 
-{{< image "top_5_local_llm_tools_and_models/glm.webp" "GLM-5.1 model overview" >}}
+The only large **dense** model on this list. Mistral Medium 3.5 is a 128B dense multimodal hybrid reasoning model with a 256K context window, and it needs 80GB at 4-bit or 64GB at 3-bit.
 
-- **Release Date**: April 2026
-- **Official Website**: {{< link href="https://z.ai/" >}}Z.ai{{< /link >}}
-- **Model**: {{< link href="https://huggingface.co/zai-org/GLM-5.1" >}}GLM-5.1{{< /link >}} (744B total, 40B active)
-- **Hardware Requirements**: 128GB+ RAM for optimal performance
-- **Strengths**: DeepSeek Sparse Attention (DSA), 28.5T training tokens, advanced agentic execution, BrowseComp 67.5
-- **Compatible with**: Ollama, LM Studio, text-generation-webui, Claude Code, Cline, Roo Code
+Dense means every parameter runs for every token, so it is slower than a MoE of similar memory footprint. What you get back is consistency: dense models tend to degrade more gracefully on tasks that fall outside what the MoE routing was tuned for.
 
-### 5. NVIDIA Nemotron Cascade 2
+{{< image "top_5_local_llm_tools_and_models/mistral.webp" "Mistral model overview" >}}
 
-NVIDIA's Nemotron Cascade 2 replaces the previous Nemotron 3 as the company's flagship inference-optimized model for local deployment. This 30 billion parameter model runs at approximately 54 tokens per second on consumer GPUs (tested on RTX 4060 Ti + RTX 3060 configurations), delivering 15x faster performance than human speech with quality comparable to GPT-4o mini.
+- **Memory**: 64GB at 3-bit, 80GB at 4-bit, 128-170GB at 8-bit
+- **Unsloth GGUF**: {{< link href="https://huggingface.co/unsloth/Mistral-Medium-3.5-128B-GGUF" >}}Mistral-Medium-3.5-128B-GGUF{{< /link >}}
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/mistral-3.5" >}}Unsloth's Mistral 3.5 guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, Ollama, vLLM, llama.cpp
 
-{{< image "top_5_local_llm_tools_and_models/nvidia.webp" "NVIDIA Nemotron Cascade 2 model page" >}}
+### 8. DeepSeek-V4-Flash
 
-- **Release Date**: March 2026
-- **Official Website**: {{< link href="https://nvidia.com/" >}}NVIDIA{{< /link >}}
-- **Model**: {{< link href="https://huggingface.co/nvidia/Nemotron-Cascade-2" >}}Nemotron Cascade 2{{< /link >}} (30B parameters)
-- **Hardware Requirements**: 16GB+ VRAM (NVIDIA GPU optimized)
-- **Strengths**: 54 t/s on consumer GPUs, CUDA-optimized inference, quality comparable to GPT-4o mini
-- **License**: NVIDIA license (open weights with commercial restrictions)
-- **Compatible with**: Ollama, LM Studio, vLLM, SGLang, llama.cpp, NVIDIA NIM
+This is the ceiling. DeepSeek-V4-Flash-0731 is 284B total with 13B active and a 1M context window, and it does not fit at 4-bit (that needs 162GB). At **3-bit** (`UD-IQ3_XXS`) it lands at 103GB on disk and 110-135GB of memory, which is precisely the case Unsloth's dynamic quantization was built for: at 3 bits, uniform quantization falls apart, and per-layer bit allocation is the difference between a usable model and a broken one.
 
-### 6. GPT-OSS (20B and 120B)
+Unsloth's own tutorial for this model uses the 3-bit quant specifically because it fits a 128GB device. Budget at least 110GB of actual free memory and do not expect to run much else.
 
-OpenAI's groundbreaking first open-weight models represent a major shift in the AI landscape, bringing enterprise-grade reasoning capabilities to local deployment. These models excel at advanced reasoning, sophisticated tool calling, and complex agentic workflows, making them ideal for developers building AI applications that require reliable decision-making capabilities.
+{{< image "top_5_local_llm_tools_and_models/deepseek.webp" "DeepSeek model page" >}}
 
-{{< image "top_5_local_llm_tools_and_models/openai.webp" "OpenAI GPT-OSS models" >}}
+- **Memory**: 92GB at 1-bit, 102GB at 2-bit, 110-135GB at 3-bit, 162GB at 4-bit
+- **Unsloth GGUF**: {{< link href="https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF" >}}DeepSeek-V4-Flash-0731-GGUF{{< /link >}}
+- **Guide**: {{< link href="https://unsloth.ai/docs/models/deepseek-v4" >}}Unsloth's DeepSeek-V4 guide{{< /link >}}
+- **Compatible with**: LM Studio, Unsloth, llama.cpp, vLLM, SGLang
 
-- **Release Date**: August 2025
-- **Official Website**: {{< link href="https://openai.com/index/introducing-gpt-oss/" >}}OpenAI{{< /link >}}
-- **Models**:
-  - {{< link href="https://huggingface.co/openai/gpt-oss-20b" >}}GPT-OSS 20B{{< /link >}} - Runs on high-end consumer hardware (32GB+ RAM)
-  - {{< link href="https://huggingface.co/openai/gpt-oss-120b" >}}GPT-OSS 120B{{< /link >}} - Requires enterprise-grade infrastructure
-- **Strengths**: Advanced reasoning, tool calling, agentic workflows, GPT-4 level performance
-- **Compatible with**: Ollama, LM Studio, LocalAI
+### What does not fit in 128GB
 
-### 7. DeepSeek V3.2-Exp
+Worth stating plainly, because these are the models that dominate the headlines:
 
-The latest evolution in DeepSeek's reasoning model family represents cutting-edge advancement in AI reasoning capabilities, approaching the performance levels of O3 and Gemini 2.5 Pro. This experimental model showcases DeepSeek's continued innovation in mathematical problem solving and complex reasoning tasks. The model features an advanced "thinking mode" that allows it to work through problems step-by-step, making it particularly valuable for developers working on applications requiring logical reasoning, code analysis, and mathematical computations.
+- **GLM-5.2** (744B total, 40B active) needs 223GB even at 1-bit. The 2-bit build fits a 256GB Mac, not a 128GB one. {{< link href="https://huggingface.co/unsloth/GLM-5.2-GGUF" >}}GGUF{{< /link >}}
+- **Kimi K2.6 and K3** are trillion-parameter class. {{< link href="https://huggingface.co/unsloth/Kimi-K2.6-GGUF" >}}GGUF{{< /link >}}
+- **DeepSeek-V4-Pro** is 1.6T total with 49B active
+- **Nemotron-3-Ultra-550B-A55B** and **Qwen3.5-397B-A17B** (214GB at 4-bit) are both out
+- **MiniMax M3** is also above the line. {{< link href="https://huggingface.co/unsloth/MiniMax-M3-GGUF" >}}GGUF{{< /link >}}
 
-{{< image "top_5_local_llm_tools_and_models/deepseek.webp" "DeepSeek V3.2-Exp model page" >}}
+If you want to run these, the practical options are a 256GB or 512GB Mac Studio, a multi-GPU server, or MoE expert offloading to disk, which works but is slow enough that you will not enjoy it.
 
-- **Release Date**: September 2025
-- **Official Website**: {{< link href="https://www.deepseek.com/" >}}DeepSeek{{< /link >}}
-- **Model**: {{< link href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Exp" >}}DeepSeek V3.2-Exp{{< /link >}}
-- **Hardware Requirements**: 16GB RAM (smaller variants) to 64GB+ RAM (larger configurations)
-- **Strengths**: Advanced reasoning, thinking mode, mathematical problem solving, code analysis
-- **Compatible with**: Ollama, LM Studio, text-generation-webui, Jan
-
-### 8. Mistral Large 3
-
-Mistral AI's Mistral Large 3 is a state-of-the-art open-weight model and Mistral's first mixture-of-experts model since the seminal Mixtral series. Trained with 41B active and 675B total parameters on 3000 NVIDIA H200 GPUs, this model represents a substantial step forward in frontier AI capabilities. Released under the Apache 2.0 license, it provides developers with transparency and efficiency for building agentic systems at scale.
-
-{{< image "top_5_local_llm_tools_and_models/mistral.webp" "Mistral Large 3 model overview" >}}
-
-- **Release Date**: December 2025
-- **Official Website**: {{< link href="https://mistral.ai/" >}}Mistral AI{{< /link >}}
-- **Model**: {{< link href="https://ollama.com/library/mistral-large-3" >}}Mistral Large 3{{< /link >}} (675B total, 41B active parameters)
-- **Hardware Requirements**: 8×A100 or 8×H100 node (NVFP4 checkpoint available for efficiency)
-- **Strengths**: Frontier-level reasoning, multimodal capabilities (text and images), multilingual (40+ languages), agentic workflows, tool use
-- **License**: Apache 2.0 (fully open-source)
-- **Compatible with**: Ollama, LM Studio, vLLM, TensorRT-LLM, SGLang, Amazon Bedrock, Azure Foundry
-
-> **Related**: Want to run DeepSeek models specifically? Check out our guide on {{< link href="https://pinggy.io/blog/run_deepseek_locally/" >}}running DeepSeek locally{{< /link >}}.
+> **Related**: want to run DeepSeek models specifically? Check out our guide on {{< link href="/blog/run_deepseek_locally/" >}}running DeepSeek locally{{< /link >}}.
 
 ## Conclusion
 
-Local LLMs have evolved rapidly in 2026, with groundbreaking models like Google's Gemma 4 (the new 12B variant runs in 16GB of RAM with native audio, while the 26B MoE hits 85 t/s on consumer hardware), Moonshot AI's Kimi K2.5/K2.6 (1T parameter Agent Swarm models), Alibaba's Qwen3.5/3.6 (beating GPT-5-mini), Zhipu AI's GLM-5.1 (744B MoE), NVIDIA's Nemotron Cascade 2 (54 t/s inference), OpenAI's GPT-OSS, DeepSeek V3.2-Exp, and Mistral Large 3 bringing frontier-level AI performance to personal devices.
+The practical picture in 2026: install **LM Studio** if you want the shortest path, use **Unsloth's Dynamic GGUFs** whatever runner you end up with, and reach for **Ollama** when you are scripting.
 
-Whether you prefer simplicity (Ollama, GPT4All), GUIs (LM Studio), flexibility (text-generation-webui, LocalAI), or all-in-one solutions (Jan), there’s a perfect fit for every user.
+On models, the memory budget decides more than the leaderboard does. With 16GB, Gemma 4 12B is a genuinely good assistant. With 32GB, Qwen3.6-35B-A3B is the best all-round model most people can run. With 128GB, gpt-oss-120b and Nemotron 3 Super are comfortable, Qwen3-Coder-Next handles agentic coding, and DeepSeek-V4-Flash at 3-bit is the largest thing that will fit.
 
-These new models deliver powerful reasoning, multimodal support, agentic coding capabilities, and built-in tool-calling making local AI both capable and secure. Running LLMs locally gives you full data control, no subscription costs, and offline functionality.
+The frontier open-weight models (GLM-5.2, Kimi K3, DeepSeek-V4-Pro) are still out of reach on a single 128GB machine, and pretending otherwise is how people end up with a model paging to SSD at two tokens per second. The gap between "best open model" and "best open model I can actually run" is real, but at 128GB it is narrower than it has ever been.
