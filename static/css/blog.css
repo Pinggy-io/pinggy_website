@@ -269,18 +269,84 @@ body::before {
 @media (max-width: 620px) { .bp-statgrid { grid-template-columns: 1fr; } }
 
 /* ---------------------------------------------------------------------------
-   In-article table of contents
+   Table of contents
+
+   Two presentations of the same server-rendered markup (Hugo's
+   .TableOfContents, h2 + h3, emitted twice by layouts/blog/single.html):
+
+     .bp-toc   collapsed <details> card inside the text measure - the default,
+               used on everything below the rail breakpoint.
+     .bp-rail  fixed right-hand rail that tracks scroll position. Only appears
+               at >= 1440px, because it has to clear the widest in-flow element
+               (.bp-hero at 940px), not just the 720px measure.
+
+   Exactly one is ever visible. Hugo emits nested <ul>, so the nesting is shown
+   with indentation and a left rule rather than numbering.
    --------------------------------------------------------------------------- */
-.bp-toc { max-width: var(--measure) !important; margin: 2em auto !important; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 22px 26px; box-shadow: var(--bp-shadow-sm); }
-.bp-toc__title { font-family: var(--ui); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin: 0 0 14px; display: flex; align-items: center; gap: 9px; }
-.bp-toc__title::before { content: ""; width: 16px; height: 2px; background: var(--accent); border-radius: 2px; }
-.bp-toc ol { counter-reset: toc; margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; }
-.bp-toc li { margin: 0 0 9px; padding: 0; break-inside: avoid; }
-.bp-toc li::before { display: none; }
-.bp-toc a { display: flex; gap: 12px; align-items: baseline; font-family: var(--ui); font-weight: 600; font-size: 14.5px; color: var(--ink-2); text-decoration: none; background: none; padding: 0; }
+
+/* Shared list reset for both variants. #TableOfContents is Hugo's own id. */
+.bp-toc ul, .bp-rail ul { margin: 0; padding: 0; list-style: none; }
+.bp-toc li, .bp-rail li { margin: 0; padding: 0; }
+.bp-toc li::before, .bp-rail li::before { display: none; }
+.bp-toc a, .bp-rail a { display: block; font-family: var(--ui); text-decoration: none; background: none; }
+.bp-toc a:focus-visible, .bp-rail a:focus-visible, .bp-toc__title:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* --- Collapsed card (narrow screens) --- */
+.bp-toc { max-width: var(--measure) !important; margin: 2em auto !important; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 4px 22px; box-shadow: var(--bp-shadow-sm); }
+.bp-toc__title { font-family: var(--ui); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); display: flex; align-items: center; gap: 9px; padding: 16px 0; cursor: pointer; list-style: none; }
+.bp-toc__title::-webkit-details-marker { display: none; }
+.bp-toc__title::before { content: ""; width: 16px; height: 2px; background: var(--accent); border-radius: 2px; flex: none; }
+.bp-toc__title::after { content: ""; width: 7px; height: 7px; margin-left: auto; border-right: 2px solid var(--faint); border-bottom: 2px solid var(--faint); transform: rotate(45deg) translate(-2px, -2px); transition: transform .18s ease; }
+.bp-toc[open] .bp-toc__title::after { transform: rotate(-135deg) translate(-2px, -2px); }
+.bp-toc > ul { padding: 2px 0 18px; }
+.bp-toc a { font-weight: 600; font-size: 14.5px; color: var(--ink-2); padding: 6px 0; }
 .bp-toc a:hover { color: var(--accent-strong); }
-.bp-toc a .bp-num { font-variant-numeric: tabular-nums; color: var(--accent); font-size: 12.5px; font-weight: 700; min-width: 20px; }
-@media (max-width: 600px) { .bp-toc ol { columns: 1; } }
+.bp-toc ul ul { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--rule); }
+.bp-toc ul ul a { font-weight: 500; font-size: 13.5px; color: var(--muted); }
+
+/* --- Fixed rail (wide screens) --- */
+.bp-rail { display: none; }
+
+@media (min-width: 1440px) {
+  .bp-toc { display: none; }
+
+  .bp-rail {
+    display: block;
+    position: fixed;
+    /* 470px = half the 940px .bp-hero, + 28px breathing room. Anchoring to the
+       viewport centre keeps the article column exactly where it already sits. */
+    left: calc(50% + 498px);
+    top: 96px;
+    width: min(240px, calc(50vw - 510px));
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    z-index: 20;
+    transition: opacity .22s ease;
+    /* blog.js shrinks max-height as the footer comes up, which can cut an entry
+       in half. Fade the last few pixels so the crop reads as intentional and
+       hints that the list scrolls. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
+  }
+  /* Faded out by blog.js once the article bottom scrolls past, so the rail
+     never hovers beside the footer. */
+  .bp-rail.is-past-article { opacity: 0; pointer-events: none; }
+
+  .bp-rail::-webkit-scrollbar { width: 4px; }
+  .bp-rail::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 4px; }
+
+  .bp-rail__title { font-family: var(--ui); font-weight: 700; font-size: 11.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--faint); display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+  .bp-rail__title::before { content: ""; width: 16px; height: 2px; background: var(--accent); border-radius: 2px; flex: none; }
+
+  .bp-rail a { font-weight: 600; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); padding: 6px 0 6px 14px; border-left: 2px solid var(--rule); transition: color .16s ease, border-color .16s ease; }
+  .bp-rail a:hover { color: var(--accent-strong); border-left-color: var(--rule-strong); }
+  .bp-rail a.is-active { color: var(--accent); font-weight: 700; border-left-color: var(--accent); }
+
+  .bp-rail ul ul { margin-left: 14px; }
+  .bp-rail ul ul a { font-weight: 500; font-size: 12.5px; color: var(--muted); }
+  .bp-rail ul ul a.is-active { color: var(--accent); font-weight: 600; }
+}
 
 /* ---------------------------------------------------------------------------
    Tables

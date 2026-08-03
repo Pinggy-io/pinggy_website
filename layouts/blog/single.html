@@ -75,14 +75,37 @@
     </figure>
     {{ end }}
 
+    {{/* Table of contents. Server-rendered from Hugo's .TableOfContents (h2 + h3,
+         see markup.tableOfContents in config.yaml) so it is crawlable and works
+         without JS - blog.js only adds the scroll-spy highlight.
+
+         Shown automatically on any post with at least 3 headings; set `toc: false`
+         in front matter to opt a post out. Headings emitted by shortcode templates
+         rather than markdown (tldr's "Summary", callout's title) are not in the
+         markdown AST, so they are correctly absent here.
+
+         Two variants render from the same string: `.bp-rail` is the fixed right-hand
+         rail on wide screens, `.bp-toc` is a collapsed card for everything narrower.
+         CSS shows exactly one of them. */}}
+    {{ $toc := .TableOfContents }}
+    {{ $tocCount := len (findRE "<a href=\"#" $toc) }}
+    {{ $showToc := and (ge $tocCount 3) (ne .Params.toc false) }}
+
+    {{ if $showToc }}
+    {{/* Sibling of .bp-prose, not a child: `.bp-prose > *` would clamp it to
+         var(--measure) and centre it. */}}
+    <aside class="bp-rail" id="bp-rail" aria-label="{{ i18n "tableOfContents" }}">
+      <div class="bp-rail__title">{{ i18n "inThisArticle" }}</div>
+      {{ $toc }}
+    </aside>
+    {{ end }}
+
     <article class="bp-prose" id="bp-prose">
-      {{/* "In this article" TOC is opt-in: set `toc: true` in a post's front
-           matter to show it. Off by default. */}}
-      {{ if .Params.toc }}
-      <nav class="bp-toc" id="bp-toc" aria-label="{{ i18n "tableOfContents" }}" hidden>
-        <div class="bp-toc__title">{{ i18n "inThisArticle" }}</div>
-        <ol id="bp-toc-list"></ol>
-      </nav>
+      {{ if $showToc }}
+      <details class="bp-toc" id="bp-toc" aria-label="{{ i18n "tableOfContents" }}">
+        <summary class="bp-toc__title">{{ i18n "inThisArticle" }}</summary>
+        {{ $toc }}
+      </details>
       {{ end }}
       {{ .Content }}
     </article>
@@ -91,5 +114,5 @@
 {{ end }}
 
 {{ define "pagespecificjs" }}
-<script src="/js/blog.js?v=2" defer></script>
+<script src="/js/blog.js?v=3" defer></script>
 {{ end }}

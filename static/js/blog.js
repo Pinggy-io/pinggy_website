@@ -19,20 +19,95 @@
     w.appendChild(t);
   });
 
-  // 3) Build the "In this article" TOC from h2s (skip ones inside callouts)
-  var list = document.getElementById('bp-toc-list');
-  var toc = document.getElementById('bp-toc');
-  if (list && toc) {
-    var n = 0;
-    document.querySelectorAll('.bp-prose h2[id]').forEach(function (h) {
-      if (h.closest('.bp-callout')) return;
-      n++;
-      var li = document.createElement('li');
-      li.innerHTML = '<a href="#' + h.id + '"><span class="bp-num">' +
-        String(n).padStart(2, '0') + '</span><span>' + h.textContent.trim() + '</span></a>';
-      list.appendChild(li);
+  // 3) Table of contents scroll-spy.
+  //    The TOC markup itself is server-rendered by layouts/blog/single.html from
+  //    Hugo's .TableOfContents, so it works with JS off - this only highlights
+  //    the section you're currently reading in the fixed rail.
+  var rail = document.getElementById('bp-rail');
+  var prose = document.getElementById('bp-prose');
+  if (rail && prose) {
+    var footer = document.querySelector('.pgf') || document.querySelector('footer');
+    var MIN_RAIL = 140;   // below this the rail is too short to be worth showing
+    var heads = Array.prototype.slice.call(prose.querySelectorAll('h2[id], h3[id]'));
+    var links = {};
+    rail.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      links[decodeURIComponent(a.getAttribute('href').slice(1))] = a;
     });
-    if (n >= 2) toc.removeAttribute('hidden');
+
+    var current = null;
+    var ticking = false;
+
+    function spy() {
+      ticking = false;
+      if (!heads.length) return;
+
+      // Active = the last heading whose top has passed the reading line. More
+      // predictable than IntersectionObserver when sections are far apart.
+      var active = null;
+      for (var i = 0; i < heads.length; i++) {
+        if (heads[i].getBoundingClientRect().top <= 110) active = heads[i];
+        else break;
+      }
+
+      var link = active ? links[active.id] : null;
+      if (link !== current) {
+        if (current) {
+          current.classList.remove('is-active');
+          current.removeAttribute('aria-current');
+        }
+        if (link) {
+          link.classList.add('is-active');
+          link.setAttribute('aria-current', 'location');
+          // On long posts the rail scrolls internally - nudge it (and only it,
+          // never the page) so the active entry stays in view.
+          if (rail.scrollHeight > rail.clientHeight) {
+            var lr = link.getBoundingClientRect();
+            var rr = rail.getBoundingClientRect();
+            if (lr.top < rr.top) rail.scrollTop -= rr.top - lr.top + 12;
+            else if (lr.bottom > rr.bottom) rail.scrollTop += lr.bottom - rr.bottom + 12;
+          }
+        }
+        current = link;
+      }
+
+      clampToFooter();
+    }
+
+    // The rail is taller than whatever article is left near the end of a long
+    // post, so hiding it only once the article scrolls away still left its
+    // lower half sitting on top of the footer. Instead, shrink it against the
+    // footer as the footer comes into view, and drop it entirely once there's
+    // no usable room left.
+    function clampToFooter() {
+      var top = rail.getBoundingClientRect().top;
+      var footerTop = footer ? footer.getBoundingClientRect().top : Infinity;
+
+      if (footerTop < window.innerHeight) {
+        var avail = footerTop - 16 - top;
+        rail.style.maxHeight = Math.max(0, avail) + 'px';
+        if (avail < MIN_RAIL) rail.classList.add('is-past-article');
+        else rail.classList.remove('is-past-article');
+        return;
+      }
+
+      rail.style.maxHeight = '';        // hand height back to the stylesheet
+      // Fallback for any page without a footer: hide once the article is gone.
+      if (!footer && prose.getBoundingClientRect().bottom < 200) {
+        rail.classList.add('is-past-article');
+      } else {
+        rail.classList.remove('is-past-article');
+      }
+    }
+
+    function scheduleSpy() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(spy);
+    }
+
+    document.addEventListener('scroll', scheduleSpy, { passive: true });
+    window.addEventListener('resize', scheduleSpy);
+    spy();
   }
 
   // 4) Copy buttons on code blocks + the permalink button
