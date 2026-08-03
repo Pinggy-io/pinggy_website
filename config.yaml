@@ -112,6 +112,13 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  # Drives the blog post table of contents (.bp-rail / .bp-toc in
+  # layouts/blog/single.html). These match Hugo's defaults, but are set
+  # explicitly so the h2 + h3 depth is intentional rather than inherited.
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: false
 
 taxonomies:
   tag: tags
