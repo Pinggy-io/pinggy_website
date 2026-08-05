@@ -17,6 +17,16 @@ On August 4, 2026, CISA added CVE-2026-9198 to its Known Exploited Vulnerabiliti
 
 The vulnerability is in {{< link href="https://github.com/langflow-ai/langflow" >}}Langflow{{< /link >}}, the open-source visual builder for LangChain-style AI agents that's become a default choice for people who want to wire up LLMs, tools, and vector stores without writing glue code by hand. And CVE-2026-9198 is not Langflow's first appearance on CISA's list. It's not even its fourth.
 
+{{% tldr %}}
+
+- **CVE-2026-9198** chains two Langflow endpoints, `/api/v1/auto_login` (hands out a SUPERUSER token with no credentials) and `/api/v1/validate/code` (runs whatever Python it's given via `exec()`), into unauthenticated remote code execution. CVSS 9.8. Added to <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank">CISA's KEV catalog</a> on August 4, 2026 with a 3-day patch deadline.
+- It's at least the fifth Langflow CVE with this profile since May 2025, when <a href="https://www.recordedfuture.com/blog/langflow-cve-2025-3248" target="_blank">CVE-2025-3248</a> was used to deploy the Flodrix botnet.
+- <a href="https://censys.com/advisory/cve-2025-3248" target="_blank">Censys</a> found roughly 7,000 Langflow instances reachable from the public internet; Sysdig watched a separate Langflow RCE get exploited within 20 hours of disclosure.
+- The root cause every time: `LANGFLOW_AUTO_LOGIN` defaults to on, and the app assumes a trusted, single-user network that doesn't exist once the port is public.
+- If you self-host Langflow (or anything similar) and need remote access, don't forward the raw port. Put an authenticated tunnel in front of it, for example `ssh -p 443 -R0:localhost:7860 -t free.pinggy.io b:user:pass` with <a href="https://pinggy.io" target="_blank">Pinggy</a>.
+
+{{% /tldr %}}
+
 ## The bug, again
 
 CVE-2026-9198 is a two-step chain. Langflow ships with an `/api/v1/auto_login` endpoint that, in its default configuration, hands out a valid SUPERUSER session token to any caller who asks, no credentials required. Once you have that token, you can hit `/api/v1/validate/code`, an endpoint meant to let the UI sanity-check a custom component's Python before running it in a flow. That endpoint runs the code you send it through `exec()`.
