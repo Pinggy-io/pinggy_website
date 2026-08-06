@@ -13,8 +13,7 @@ defaultContentLanguageInSubdir: false
 
 languages:
   en:
-    locale: en
-    label: "English"
+    languageName: "English"
     weight: 1
     params:
       ogLocale: "en_US"
@@ -53,8 +52,7 @@ languages:
           url: /help/
           weight: 150
   es:
-    locale: es
-    label: "Español"
+    languageName: "Español"
     weight: 2
     disableKinds: ["home", "taxonomy", "term", "rss"]
     params:

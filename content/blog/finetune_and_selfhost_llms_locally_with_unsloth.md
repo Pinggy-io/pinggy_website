@@ -1,5 +1,5 @@
 ---
-title: "Fine-Tune and Self-Host LLMs Locally with Unsloth in 2026"
+title: "Self-Host and Fine-Tune LLMs Locally with Unsloth in 2026"
 description: "Fine-tune LLMs locally with Unsloth: QLoRA on a single GPU, Unsloth Studio, Dynamic GGUF quants, and sharing your model over a Pinggy tunnel."
 date: 2026-08-04T10:00:00+05:30
 lastmod: 2026-08-03T10:00:00+05:30
@@ -33,7 +33,7 @@ unsloth studio -p 8888                          # open http://127.0.0.1:8888
 ```
 Windows: `irm https://unsloth.ai/install.ps1 | iex` in PowerShell.
 
-**QLoRA VRAM floor** (<a href="https://unsloth.ai/docs/get-started/fine-tuning-for-beginners/unsloth-requirements" target="_blank">source</a>): 3B needs 3.5 GB, 7B needs 5 GB, 8B needs 6 GB, 70B needs 41 GB. For inference, use the `UD-` prefixed <a href="https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs" target="_blank">Dynamic 2.0 GGUFs</a>; `UD-Q4_K_XL` is effectively lossless.
+**Will it fit on your GPU?** For *training*, QLoRA is the cheapest option: a 3B model needs about 3.5 GB of VRAM, 7B needs 5 GB, 8B needs 6 GB, and 70B needs 41 GB (<a href="https://unsloth.ai/docs/get-started/fine-tuning-for-beginners/unsloth-requirements" target="_blank">Unsloth's published minimums</a>). For *running* a model rather than training one, pick the `UD-` prefixed <a href="https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs" target="_blank">Dynamic 2.0 GGUFs</a>, where `UD-Q4_K_XL` is effectively lossless.
 
 **Share it remotely:**
 ```bash
@@ -56,6 +56,8 @@ curl -fsSL https://unsloth.ai/install.sh | sh
 
 On Windows, run `irm https://unsloth.ai/install.ps1 | iex` in PowerShell.
 
+### Troubleshooting installation errors on Mac
+
 On an Apple Silicon Mac, check which Python it picks up first. If it lands on python.org's **universal2** build, `sysconfig.get_platform()` reports `macosx-10.13-universal2` and uv resolves **Intel** wheels for anything with a compiled extension, leaving a mixed-architecture venv. The install completes, then launching dies with `incompatible architecture (have 'x86_64', need 'arm64')` from `pydantic_core`. Point the installer at a native arm64 interpreter instead, and wipe the old environment so its kept-torch pin does not drag the broken wheels forward:
 
 ```bash
@@ -77,13 +79,86 @@ unsloth studio -p 8888
 
 First launch takes a minute while it loads PyTorch and Transformers. It does not prompt you for a password: it creates a default `unsloth` admin account and writes the generated password to `~/.unsloth/studio/auth/.bootstrap_password`. Sign in with that and change it. Studio binds to `127.0.0.1`, so nothing is reachable from your network until you change that.
 
-To skip the UI and just serve a model, `unsloth run` takes a Hugging Face repo and quant in one string:
+To skip the UI and just serve a model, `unsloth run` takes a Hugging Face repo and quant in one string. Here it is with {{< link href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF" >}}unsloth/gemma-4-26B-A4B-it-GGUF{{< /link >}}, a 26B mixture-of-experts model with only 4B active parameters:
 
 ```bash
 unsloth run --model unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q4_K_XL -c 131072
 ```
 
 That downloads the model if needed, loads it, and prints the endpoint URL and API key. Studio uses llama.cpp's smart auto context, allocating only the KV cache you actually need instead of reserving the full declared window, so you can load a 1M-context model on hardware that could never hold 1M tokens of cache.
+
+### What actually fits on a MacBook
+
+macOS lets the GPU address roughly 75% of unified memory, and the KV cache grows on top of the weights, so budget about 16 GB of the model on a 24 GB machine and about 45 GB on a 64 GB one. These are the real `UD-Q4_K_XL` download sizes from Unsloth's Hugging Face repos:
+
+<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
+<thead>
+<tr>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Model</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">UD-Q4_K_XL size</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">24 GB Mac</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">64 GB Mac</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/Qwen3.5-4B-GGUF" >}}Qwen3.5 4B{{< /link >}}</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">2.9 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes, lots of room</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF" >}}Gemma 4 E2B{{< /link >}}</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">3.2 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes, lots of room</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF" >}}Gemma 4 E4B{{< /link >}}</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">5.1 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/gpt-oss-20b-GGUF" >}}gpt-oss 20B{{< /link >}} (MoE)</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">11.9 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes, best pick at 24 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF" >}}Gemma 4 26B-A4B{{< /link >}} (MoE)</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">17.0 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Tight, short context only</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/Qwen3.6-27B-GGUF" >}}Qwen3.6 27B{{< /link >}}</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">17.6 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Tight, short context only</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/gemma-4-31B-it-GGUF" >}}Gemma 4 31B{{< /link >}}</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">18.8 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">No</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF" >}}Qwen3.6 35B-A3B{{< /link >}} (MoE)</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">22.4 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">No</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes, best pick at 64 GB</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;">{{< link href="https://huggingface.co/unsloth/gpt-oss-120b-GGUF" >}}gpt-oss 120B{{< /link >}} (MoE)</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">63.0 GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">No</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">No, needs 96 GB+</td>
+</tr>
+</tbody>
+</table>
+
+Prefer the MoE entries on a Mac. Unified memory bandwidth, not compute, is the limit, and a model like gpt-oss 20B or Qwen3.6 35B-A3B only reads its active experts per token, so it generates several times faster than a dense model of the same file size.
 
 To point a coding agent at the local model, `unsloth start` writes the environment and launches it. It accepts `claude`, `codex`, `opencode`, `hermes`, `openclaw`, and `pi`:
 
