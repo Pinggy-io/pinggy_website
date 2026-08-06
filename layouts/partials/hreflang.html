@@ -1,0 +1,22 @@
+{{/* Reciprocal hreflang alternates. Included from both seoblogs.html and
+     seoindex.html so every page of a translated pair points at the other -
+     Google discards one-way hreflang.
+
+     `.IsTranslated` is false for the 150+ English-only pages, so they emit
+     nothing at all. x-default points at English, the canonical version of
+     every piece of content on the site.
+
+     Pages that canonicalise elsewhere (e.g. /blog/updated/ points at /blog/)
+     are skipped: hreflang on a non-canonical URL is a conflicting signal and
+     is ignored by search engines anyway. */}}
+{{ $selfCanonical := eq (.Params.canonical | default .Permalink) .Permalink }}
+{{ if and .IsTranslated $selfCanonical }}
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+{{ end }}
+{{/* `range first 1` rather than `index ... 0`, which errors if a page ever
+     exists in two non-English languages and has no English original. */}}
+{{ range first 1 (where .AllTranslations "Lang" "en") }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+{{ end }}
+{{ end }}

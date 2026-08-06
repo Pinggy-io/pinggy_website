@@ -16,17 +16,18 @@
       <div class="bp-meta">
         <span class="bp-mi">
           <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 3v3M16 3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          {{ if .Lastmod.After .Date }}Updated {{ .Lastmod.Format "January 2, 2006" }}{{ else }}{{ .Date.Format "January 2, 2006" }}{{ end }}
+          {{/* time.Format (not .Date.Format) so month names localise. */}}
+          {{ if .Lastmod.After .Date }}{{ i18n "updated" }} {{ time.Format (i18n "datefmt") .Lastmod }}{{ else }}{{ time.Format (i18n "datefmt") .Date }}{{ end }}
         </span>
         <span class="bp-dot"></span>
         <span class="bp-mi">
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          {{ .ReadingTime }} min read
+          {{ .ReadingTime }} {{ i18n "minRead" }}
         </span>
         <span class="bp-dot"></span>
         <span class="bp-mi">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-10a4.2 4.2 0 017-3.1A4.2 4.2 0 0119 11c0 4.8-7 10-7 10z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-          {{ .Params.author | default "Pinggy Blog" }}
+          {{ .Params.author | default (i18n "blogName") }}
         </span>
       </div>
 
@@ -39,14 +40,14 @@
       {{ end }}
 
       <div class="bp-actions">
-        <span class="bp-label">Share</span>
+        <span class="bp-label">{{ i18n "share" }}</span>
         <div class="bp-share">
           {{ $u := .Permalink }}{{ $t := .Title }}
-          <a href="https://twitter.com/share?url={{ $u }}&text={{ $t }}" aria-label="Share on X" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 3h3.3l-7.2 8.2L23 21h-6.6l-5.2-6.8L5.3 21H2l7.7-8.8L1.5 3h6.8l4.7 6.2L18.2 3zm-1.2 16h1.8L7.1 4.9H5.2L17 19z"/></svg></a>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $u }}&title={{ $t }}" aria-label="Share on LinkedIn" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.4H3.6V20h3.3V8.4zM5.2 3.2A1.9 1.9 0 105.2 7a1.9 1.9 0 000-3.8zM20.4 20v-6.4c0-3.4-1.8-5-4.2-5-1.9 0-2.8 1.1-3.2 1.8V8.4H9.7V20H13v-6.1c0-1.6.3-3.1 2.3-3.1s2 1.8 2 3.2V20h3.1z"/></svg></a>
-          <a href="https://www.facebook.com/sharer.php?u={{ $u }}" aria-label="Share on Facebook" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a>
-          <a href="mailto:?subject={{ $t }}&body={{ $u }}" aria-label="Share via email"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
-          <a href="#" id="bp-copylink" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12a3 3 0 003 3h4a3 3 0 100-6h-2M15 12a3 3 0 00-3-3H8a3 3 0 100 6h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></a>
+          <a href="https://twitter.com/share?url={{ $u }}&text={{ $t }}" aria-label="{{ i18n "shareOnX" }}" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 3h3.3l-7.2 8.2L23 21h-6.6l-5.2-6.8L5.3 21H2l7.7-8.8L1.5 3h6.8l4.7 6.2L18.2 3zm-1.2 16h1.8L7.1 4.9H5.2L17 19z"/></svg></a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $u }}&title={{ $t }}" aria-label="{{ i18n "shareOnLinkedIn" }}" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.4H3.6V20h3.3V8.4zM5.2 3.2A1.9 1.9 0 105.2 7a1.9 1.9 0 000-3.8zM20.4 20v-6.4c0-3.4-1.8-5-4.2-5-1.9 0-2.8 1.1-3.2 1.8V8.4H9.7V20H13v-6.1c0-1.6.3-3.1 2.3-3.1s2 1.8 2 3.2V20h3.1z"/></svg></a>
+          <a href="https://www.facebook.com/sharer.php?u={{ $u }}" aria-label="{{ i18n "shareOnFacebook" }}" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a>
+          <a href="mailto:?subject={{ $t }}&body={{ $u }}" aria-label="{{ i18n "shareViaEmail" }}"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
+          <a href="#" id="bp-copylink" aria-label="{{ i18n "copyLink" }}"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12a3 3 0 003 3h4a3 3 0 100-6h-2M15 12a3 3 0 00-3-3H8a3 3 0 100 6h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></a>
         </div>
       </div>
 
@@ -67,21 +68,44 @@
              onload="this.closest('.bp-hero__frame').classList.add('is-loaded')">
         <div class="bp-hero__ph">
           <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="9.5" r="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M4 17l4.5-4.5L13 17M11 15l3-3 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>featured&nbsp;image</span>
+          <span>{{ i18n "featuredImage" }}</span>
         </div>
       </div>
       {{ with $.Params.imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
     </figure>
     {{ end }}
 
+    {{/* Table of contents. Server-rendered from Hugo's .TableOfContents (h2 + h3,
+         see markup.tableOfContents in config.yaml) so it is crawlable and works
+         without JS - blog.js only adds the scroll-spy highlight.
+
+         Shown automatically on any post with at least 3 headings; set `toc: false`
+         in front matter to opt a post out. Headings emitted by shortcode templates
+         rather than markdown (tldr's "Summary", callout's title) are not in the
+         markdown AST, so they are correctly absent here.
+
+         Two variants render from the same string: `.bp-rail` is the fixed right-hand
+         rail on wide screens, `.bp-toc` is a collapsed card for everything narrower.
+         CSS shows exactly one of them. */}}
+    {{ $toc := .TableOfContents }}
+    {{ $tocCount := len (findRE "<a href=\"#" $toc) }}
+    {{ $showToc := and (ge $tocCount 3) (ne .Params.toc false) }}
+
+    {{ if $showToc }}
+    {{/* Sibling of .bp-prose, not a child: `.bp-prose > *` would clamp it to
+         var(--measure) and centre it. */}}
+    <aside class="bp-rail" id="bp-rail" aria-label="{{ i18n "tableOfContents" }}">
+      <div class="bp-rail__title">{{ i18n "inThisArticle" }}</div>
+      {{ $toc }}
+    </aside>
+    {{ end }}
+
     <article class="bp-prose" id="bp-prose">
-      {{/* "In this article" TOC is opt-in: set `toc: true` in a post's front
-           matter to show it. Off by default. */}}
-      {{ if .Params.toc }}
-      <nav class="bp-toc" id="bp-toc" aria-label="Table of contents" hidden>
-        <div class="bp-toc__title">In this article</div>
-        <ol id="bp-toc-list"></ol>
-      </nav>
+      {{ if $showToc }}
+      <details class="bp-toc" id="bp-toc" aria-label="{{ i18n "tableOfContents" }}">
+        <summary class="bp-toc__title">{{ i18n "inThisArticle" }}</summary>
+        {{ $toc }}
+      </details>
       {{ end }}
       {{ .Content }}
     </article>
@@ -90,5 +114,5 @@
 {{ end }}
 
 {{ define "pagespecificjs" }}
-<script src="/js/blog.js?v=2" defer></script>
+<script src="/js/blog.js?v=3" defer></script>
 {{ end }}

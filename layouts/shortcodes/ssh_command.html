@@ -108,7 +108,7 @@
             x-show="text === ''"
             type="text"
             class="form-control"
-            placeholder="Enter your token"
+            placeholder="{{ i18n "enterYourToken" }}"
             x-model="data.commandConfig.token"
             :class="{'is-invalid': /[^a-zA-Z0-9-]/.test(data.commandConfig.token)}"
             style="max-width: 200px; max-height: 30px; font-size: 0.8rem"

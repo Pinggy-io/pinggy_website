@@ -1,5 +1,9 @@
 <link rel="canonical" href="{{ .Permalink }}" />
-<meta property="og:locale" content="en_US" />
+{{- partial "hreflang.html" . -}}
+<meta property="og:locale" content="{{ site.Params.ogLocale | default "en_US" }}" />
+{{ range .Translations }}
+<meta property="og:locale:alternate" content="{{ .Site.Params.ogLocale }}" />
+{{ end }}
 <meta property="og:type" content="website" />
 <meta
   name="twitter:title"

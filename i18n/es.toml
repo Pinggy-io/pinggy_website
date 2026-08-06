@@ -1,0 +1,88 @@
+# Spanish UI strings. Mirrors i18n/en.toml key for key - any key missing here
+# falls back to the English value.
+# `datefmt*` are Go time layouts: `time.Format` localises the month name, so the
+# surrounding wording ("de ... de") lives in the layout string itself.
+#
+# NOTE: Hugo's i18n TOML reserves the keys `one` and `other`. Never introduce a
+# [table] into this file - it swallows every key defined after it and fails the
+# build with "reserved keys mixed with unreserved keys".
+
+# Dates
+datefmt = "2 de January de 2006"
+datefmtShort = "Mon, 2 Jan 2006"
+datefmtAmp = "2 Jan 2006"
+
+# Post meta
+updated = "Actualizado"
+updatedOn = "Actualizado el"
+minRead = "min de lectura"
+readingTime = "Tiempo de lectura"
+writtenBy = "Escrito por"
+
+# Post chrome
+share = "Compartir"
+shareOnX = "Compartir en X"
+shareOnLinkedIn = "Compartir en LinkedIn"
+shareOnFacebook = "Compartir en Facebook"
+shareViaEmail = "Compartir por correo"
+copyLink = "Copiar enlace"
+featuredImage = "imagen destacada"
+tableOfContents = "Tabla de contenidos"
+inThisArticle = "En este artículo"
+copy = "Copiar"
+copyCode = "Copiar código"
+copied = "Copiado"
+language = "Idioma"
+
+# Blog list
+blogName = "Blog de Pinggy"
+technicalBlog = "Blog técnico"
+blogHeading = "Túneles, redes, LLMs autoalojados y noticias de IA"
+sortBy = "Ordenar por"
+sortPosts = "Ordenar artículos"
+newest = "Más recientes"
+recentlyUpdated = "Actualizados recientemente"
+taggedPosts = "Artículos etiquetados"
+
+# Blog navbar
+contact = "Contacto"
+onGitHub = "Pinggy en GitHub"
+onDiscord = "Pinggy en Discord"
+
+# Footer
+footerTagline = "Comparte tu localhost al instante mediante URLs públicas seguras - sin registro, sin configuración."
+footerProduct = "Producto"
+footerComparisons = "Comparativas"
+footerResources = "Recursos"
+footerCompany = "Empresa"
+footerPricing = "Precios"
+footerDocumentation = "Documentación"
+footerQuickstart = "Recetas de inicio rápido"
+footerBlog = "Blog"
+footerTools = "Herramientas"
+footerKnowYourPorts = "Conoce tus puertos"
+footerAbout = "Sobre nosotros"
+footerContact = "Contacto"
+footerTerms = "Términos del servicio"
+footerPrivacy = "Política de privacidad"
+footerMadeFor = "Hecho para desarrolladores, en todo el mundo."
+copyright = "Copyright"
+
+# Shortcodes
+summary = "Resumen"
+videoUnsupported = "Tu navegador no admite vídeo HTML."
+enterYourToken = "Introduce tu token"
+
+# Know your ports
+readMore = "Leer más…"
+knowYourPorts = "Conoce tus puertos"
+
+# Product navbar
+navUseCases = "Casos de uso"
+navIngress = "Ingress para dev/test"
+navGuiApp = "Aplicación de escritorio"
+navHelp = "Ayuda"
+navFaq = "Preguntas frecuentes"
+navDashboard = "Panel"
+navForum = "Foro de la comunidad"
+navLogoAlt = "Logotipo de Pinggy"

@@ -3,8 +3,20 @@ command = "hugo --gc --minify && npx -y pagefind@1.1.0 --site public --glob \"do
 publish = "public"
 
 [context.production.environment]
-HUGO_VERSION = "0.122.0"
+HUGO_VERSION = "0.164.0"
 HUGO_ENV = "production"
+
+# Hugo does not build /es/ (the Spanish home kind is disabled), so send it to
+# the Spanish blog. Must stay above the /* catch-all below.
+[[redirects]]
+  from = "/es"
+  to = "/es/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/es/"
+  to = "/es/blog/"
+  status = 301
 
 [[redirects]]
   from = "/blog/top_5_local_llm_tools_and_models_2025"
