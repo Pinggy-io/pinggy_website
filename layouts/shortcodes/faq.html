@@ -87,11 +87,17 @@
             >
               <div class="accordion-body" x-ref="faq2">
                 <p>
-                  In windows, sometimes, the ssh tunnel cannot reach localhost because of some bug in the ssh client. <b>Replace <code>localhost</code> with <code>127.0.0.1</code> in your Pinggy command.</b>
+                  In windows, sometimes, the ssh tunnel cannot reach localhost
+                  because of some bug in the ssh client.
+                  <b
+                    >Replace <code>localhost</code> with
+                    <code>127.0.0.1</code> in your Pinggy command.</b
+                  >
                 </p>
                 <p>Example:</p>
                 <div class="alert alert-dark bg-light bg-gradient">
-                  ssh -p 443 -R0:127.0.0.1:8000 -L4300:127.0.0.1:4300 qr@free.pinggy.io
+                  ssh -p 443 -R0:127.0.0.1:8000 -L4300:127.0.0.1:4300
+                  qr@free.pinggy.io
                 </div>
               </div>
             </div>
@@ -315,6 +321,42 @@
           </div>
           <div
             class="accordion-item"
+            x-show="$refs.faq2.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+          >
+            <h2 class="accordion-header" id="headingCertificateExpiry">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseCertificateExpiry"
+                aria-expanded="false"
+                aria-controls="collapseCertificateExpiry"
+              >
+                Shows certificate expired. How to renew?
+              </button>
+            </h2>
+            <div
+              id="collapseCertificateExpiry"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingCertificateExpiry"
+              data-bs-parent="#accordionFaq"
+            >
+              <div class="accordion-body" x-ref="faq2">
+                <p>
+                  Pinggy automatically renews certificates if it finds the
+                  opportunity when the tunnel is not active. However, still if
+                  certificate has expired, it can be renewed manually from
+                  <a href="https://dashboard.pinggy.io/domains" target="_blank"
+                    >https://dashboard.pinggy.io/domains</a
+                  >
+                  . Click on the edit icon on the domain, and click Custom
+                  Domain tab.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="accordion-item"
             x-show="$refs.faq8.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
           >
             <h2 class="accordion-header" id="headingConnectionReset">
@@ -337,11 +379,12 @@
             >
               <div class="accordion-body" x-ref="faq8">
                 <p>
-                  Make sure you do not add any arbitrary argument after the SSH command.
+                  Make sure you do not add any arbitrary argument after the SSH
+                  command.
                 </p>
                 <p>
-                  One common reason for this is that an existing tunnel
-                  with the same token is active.
+                  One common reason for this is that an existing tunnel with the
+                  same token is active.
                 </p>
                 <p>
                   <b>Terminate your existing tunnel with the same token.</b> You

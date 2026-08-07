@@ -13,7 +13,6 @@ defaultContentLanguageInSubdir: false
 
 languages:
   en:
-    locale: en
     label: "English"
     weight: 1
     params:
@@ -53,7 +52,6 @@ languages:
           url: /help/
           weight: 150
   es:
-    locale: es
     label: "Español"
     weight: 2
     disableKinds: ["home", "taxonomy", "term", "rss"]
