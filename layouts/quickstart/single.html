@@ -2,10 +2,14 @@
 
 <div class="container py-3 contentcontainer maincontent">
   <div class="row flex-nowrap row justify-content-evenly">
-    <div class="col-lg-12 blogcontent">
+    <div
+      class="col-lg-12 blogcontent"
+      data-pagefind-body
+      data-pagefind-meta="title:{{ .Title }}"
+    >
       <h1 class="display-6 mb-4" id="blogtitle">{{.Title}}</h1>
       <div class="row justify-content-center">
-        <div class="col-12 col-md-12 blogbody">
+        <div class="col-12 col-md-12 blogbody" data-pagefind-ignore>
           <div class="row">
             <div class="col col-12 col-lg-6">
               <i class="bi bi-calendar4-event me-1"></i
