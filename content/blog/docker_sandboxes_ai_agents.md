@@ -97,7 +97,7 @@ It's a small addition on top of what `sbx` already does, but it's the addition t
 
 ## What Hacker News didn't let slide
 
-The [launch thread](https://news.ycombinator.com/item?id=49239751) was not a pile-on, but it wasn't a coronation either, and the specific objections are worth knowing before you install this:
+The {{< link href="https://news.ycombinator.com/item?id=49239751" >}}launch thread{{< /link >}} was not a pile-on, but it wasn't a coronation either, and the specific objections are worth knowing before you install this:
 
 - **`sbx login` is required for a local sandboxing tool.** Multiple commenters flagged this as an odd requirement for something that's fundamentally running on your own machine, with the obvious worry being that a tool this deep in your dev workflow shouldn't need an account just to launch.
 - **No native Linux support yet**, which several people called out as ironic given Docker's origins. If your dev machine runs Linux, `sbx` isn't for you today; you're stuck with macOS or Windows.
