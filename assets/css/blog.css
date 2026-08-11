@@ -1,11 +1,89 @@
 /* ============================================================================
    Pinggy blog post template
-   Fonts (Plus Jakarta Sans / Source Sans 3 / JetBrains Mono) are loaded in
-   layouts/blog/baseof.html. Everything visual is namespaced `bp-` and the
-   design tokens live on `.bp`, so nothing here leaks to the navbar, footer,
-   blog list, or any other page (blog.css only loads on blog pages, and the
+   Fonts (Plus Jakarta Sans / Source Sans 3 / JetBrains Mono) are self-hosted
+   and declared below. Everything visual is namespaced `bp-` and the design
+   tokens live on `.bp`, so nothing here leaks to the navbar, footer, blog
+   list, or any other page (blog.css only loads on blog pages, and the
    redesign rules are scoped to the single-post wrapper).
    ============================================================================ */
+
+/* Self-hosted webfonts. Previously three render-blocking round trips to
+   fonts.googleapis.com + fonts.gstatic.com (~1,040ms of blocked render on
+   mobile). These are the variable builds Google serves, so one file covers
+   every weight the blog uses. Files live in static/fonts/ and are referenced
+   root-absolute so they survive blog.css being fingerprinted. */
+/* JetBrains Mono - latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* JetBrains Mono - latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Plus Jakarta Sans - latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Plus Jakarta Sans - latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Source Sans 3 - latin-ext */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/source-sans-3-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Source Sans 3 - latin */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/source-sans-3-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Source Sans 3 - latin-ext */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/source-sans-3-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Source Sans 3 - latin */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/source-sans-3-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /* Blog page background color: #fbfaf8 (warm off-white). The grid canvas and
    the wash animation are kept; only the colour changes. html provides the base
@@ -46,8 +124,11 @@ body::before {
   --ink: #1f2a37;
   --ink-2: #344155;
   --body: #3f4a5a;
-  --muted: #6b7686;
-  --faint: #97a0ad;
+  /* Both darkened to clear WCAG AA (4.5:1) on the #fbfaf8 page ground.
+     Previously 4.41:1 and 2.53:1, which Lighthouse flagged on the post
+     meta line (date / reading time / author). */
+  --muted: #616b7a;
+  --faint: #6a7383;
 
   /* Surfaces */
   --bg: #ffffff;
@@ -91,16 +172,6 @@ body::before {
 .bp ::selection { background: var(--accent); color: #fff; }
 
 /* ---------------------------------------------------------------------------
-   Reading progress bar
-   --------------------------------------------------------------------------- */
-.bp-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60; pointer-events: none; background: transparent; }
-.bp-progress__fill {
-  height: 100%; width: 0; border-radius: 0;
-  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-  transition: width 0.08s linear;
-}
-
-/* ---------------------------------------------------------------------------
    Layout
    --------------------------------------------------------------------------- */
 .bp-wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
@@ -140,11 +211,23 @@ body::before {
 .bp-tags li::before { display: none; }
 .bp-tags a {
   font-family: var(--ui); font-weight: 600; font-size: 13px; white-space: nowrap;
+  line-height: 22px;
   color: var(--ink-2); text-decoration: none; background: var(--bg-tint);
   border: 1px solid var(--rule); padding: 6px 13px; border-radius: 999px; transition: all 0.15s;
 }
 .bp-tags a:hover { color: var(--accent-strong); border-color: var(--accent-soft-border); background: var(--accent-soft); }
-/* Single-row tags with a "+N" reveal chip (collapse handled in blog.js). */
+/* Single-row tags with a "+N" reveal chip (collapse handled in blog.js).
+
+   The one-row height is clamped here rather than left to the script. blog.js
+   runs deferred, so on a post with 15 tags the header first painted five rows
+   of chips and then collapsed to one, moving the whole article up ~145px -
+   the entire CLS on the page (0.103). Clipping the container to one row means
+   the initial paint is already the final layout and the script only fills in
+   the "+N" chip. Height is exact: 22px line-box + 6px padding + 1px border,
+   top and bottom. `line-height` above is explicit for the same reason - the
+   inherited prose leading would make this a fractional, drifting number. */
+.bp-tags { max-height: 36px; overflow: hidden; }
+.bp-tags.is-expanded { max-height: none; overflow: visible; }
 .bp-tags li.is-hidden { display: none; }
 .bp-tags__more { display: flex; }
 .bp-tags__morebtn {
@@ -481,7 +564,7 @@ body.blog .contentcontainer { margin-top: 0; }
   font-weight: 300;
   font-size: 16px;
   letter-spacing: 0.02em;
-  color: #6b7686;
+  color: #616b7a;
   white-space: nowrap;
 }
 .bp-nav__links {
@@ -581,5 +664,5 @@ body.blog .contentcontainer { margin-top: 0; }
    Motion
    --------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .bp *, .bp-progress__fill, .bp-nav a { transition: none !important; }
+  .bp *, .bp-nav a { transition: none !important; }
 }

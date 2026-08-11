@@ -212,7 +212,7 @@
             class="btn btn-outline-dark pinggytunnelshortcode_copybutton"
             type="button"
           >
-            <i class="bi bi-clipboard"></i>
+            <span class="pg-ico-btn">{{ partial "icon.html" "clipboard" }}</span>
           </button>
         </div>
         <template x-if="data.mode === 'http'">
@@ -282,14 +282,11 @@
                 class="form-check-label"
                 for="shortcode_passwordCheck_{{ $random }}"
                 >Password Protect
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   data-bs-html="true"
-                  title="Enable basic authentication"
-                ></i>
+                  title="Enable basic authentication">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
           </div>
@@ -305,15 +302,11 @@
                 class="form-check-label"
                 for="shortcode_qrcheck_{{ $random }}"
                 >QR Code
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   data-bs-html="true"
-                  title="Show QR Code for the URL"
-                ></i
-              ></label>
+                  title="Show QR Code for the URL">{{ partial "icon.html" "info-circle" }}</span></label>
             </div>
           </div>
           <template x-if="data.passwordCheck && (data.mode === 'http')">
@@ -373,13 +366,10 @@
                 for="shortcode_keepalive_{{ $random }}"
               >
                 Keep Alive
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Send keep alive packets for a stable tunnel"
-                ></i>
+                  title="Send keep alive packets for a stable tunnel">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
           </div>
@@ -395,14 +385,10 @@
                 class="form-check-label"
                 for="shortcode_restart_{{ $random }}"
                 >Auto Reconnect
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Automatically reconnect tunnel on failure."
-                ></i
-              ></label>
+                  title="Automatically reconnect tunnel on failure.">{{ partial "icon.html" "info-circle" }}</span></label>
             </div>
           </div>
           <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
@@ -432,14 +418,10 @@
                 class="form-check-label"
                 for="shortcode_rsaCheck_{{ $random }}"
                 >Manually check host key
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Type 'yes' to manually validate host key"
-                ></i
-              ></label>
+                  title="Type 'yes' to manually validate host key">{{ partial "icon.html" "info-circle" }}</span></label>
             </div>
           </div>
           <div class="col col-12 col-lg-6" x-show="data.mode !== 'http'">
@@ -455,14 +437,10 @@
                 for="shortcode_ipWhitelistCheck_{{ $random }}"
               >
                 IP Whitelist
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Allow specified IPs to access the tunnel"
-                >
-                </i>
+                  title="Allow specified IPs to access the tunnel">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
             <div
@@ -486,7 +464,7 @@
                     type="button"
                     @click="data.ipWhitelist.push('')"
                   >
-                    <i class="bi bi-plus"></i>
+                    <span class="pg-ico-btn">{{ partial "icon.html" "plus" }}</span>
                   </button>
                   <div
                     class="invalid-feedback"
@@ -511,7 +489,7 @@
                       type="button"
                       @click="data.ipWhitelist.splice(index, 1)"
                     >
-                      <i class="bi bi-x"></i>
+                      <span class="pg-ico-btn">{{ partial "icon.html" "x" }}</span>
                     </button>
                     <div
                       class="invalid-feedback"
@@ -538,14 +516,10 @@
                 for="shortcode_keyAuthentication_{{ $random }}"
               >
                 Key / Token Authentication
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Bearer token authentication"
-                >
-                </i>
+                  title="Bearer token authentication">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
             <div class="col col-12 mb-3"
@@ -566,7 +540,7 @@
                     type="button"
                     @click="data.keyAuthentications.push('')"
                   >
-                    <i class="bi bi-plus"></i>
+                    <span class="pg-ico-btn">{{ partial "icon.html" "plus" }}</span>
                   </button>
                 </div>
                 <template
@@ -586,7 +560,7 @@
                       type="button"
                       @click="data.keyAuthentications.splice(index, 1)"
                     >
-                      <i class="bi bi-x"></i>
+                      <span class="pg-ico-btn">{{ partial "icon.html" "x" }}</span>
                     </button>
                   </div>
                 </template>
@@ -606,14 +580,10 @@
                 for="shortcode_ipWhitelistCheck_{{ $random }}"
               >
                 IP Whitelist
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Allow specified IPs to access the tunnel"
-                >
-                </i>
+                  title="Allow specified IPs to access the tunnel">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
             <div class="col col-12 mb-3"
@@ -636,7 +606,7 @@
                     type="button"
                     @click="data.ipWhitelist.push('')"
                   >
-                    <i class="bi bi-plus"></i>
+                    <span class="pg-ico-btn">{{ partial "icon.html" "plus" }}</span>
                   </button>
                   <div
                     class="invalid-feedback"
@@ -661,7 +631,7 @@
                       type="button"
                       @click="data.ipWhitelist.splice(index, 1)"
                     >
-                      <i class="bi bi-x"></i>
+                      <span class="pg-ico-btn">{{ partial "icon.html" "x" }}</span>
                     </button>
                     <div
                       class="invalid-feedback"
@@ -686,13 +656,10 @@
                 class="form-check-label"
                 for="shortcode_httpsonly_{{ $random }}"
                 >HTTPS only
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Only allow HTTPS requests"
-                ></i>
+                  title="Only allow HTTPS requests">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
           </div>
@@ -708,13 +675,10 @@
                 class="form-check-label"
                 for="shortcode_forwardhost_{{ $random }}"
                 >Forward to other hosts
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Forwarding to addresses other than localhost"
-                ></i>
+                  title="Forwarding to addresses other than localhost">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
             <div class="col col-12 mb-3" x-show="data.forwardHost" x-transition.duration.300ms>
@@ -739,13 +703,10 @@
                 class="form-check-label"
                 for="shortcode_accesstoken_{{ $random }}"
                 >Connect to HTTPS Server
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Connect to an HTTPS(TLS) server running locally"
-                ></i>
+                  title="Connect to an HTTPS(TLS) server running locally">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
             <div class="col col-12 mb-3" 
@@ -773,13 +734,10 @@
                 class="form-check-label"
                 for="shortcode_noReverseProxy_{{ $random }}"
                 >No Reverse Proxy
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Disable reverse proxy headers"
-                ></i>
+                  title="Disable reverse proxy headers">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
           </div>
@@ -795,15 +753,11 @@
                 class="form-check-label"
                 for="shortcode_force_{{ $random }}"
                 >Force
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   data-bs-html="true"
-                  title="Forcefully close existing tunnels and establish a new tunnel"
-                ></i
-              ></label>
+                  title="Forcefully close existing tunnels and establish a new tunnel">{{ partial "icon.html" "info-circle" }}</span></label>
             </div>
           </div>
           <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
@@ -818,17 +772,13 @@
                 class="form-check-label"
                 for="shortcode_corsPreflight_{{ $random }}"
                 >Allow CORS preflight
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   data-bs-html="true"
                   title="Key authentication / password authentication will block
                   all unauthenticated requests to Pinggy URLs. To allow
-                  CORS preflight requests, enable this option."
-                ></i
-              ></label>
+                  CORS preflight requests, enable this option.">{{ partial "icon.html" "info-circle" }}</span></label>
             </div>
           </div>
           <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
@@ -843,15 +793,11 @@
                 class="form-check-label"
                 for="shortcode_xForwardedFor_{{ $random }}"
                 >X-Forwarded-For header
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   data-bs-html="true"
-                  title="Add X-Forwarded-For header to every request"
-                ></i
-              ></label>
+                  title="Add X-Forwarded-For header to every request">{{ partial "icon.html" "info-circle" }}</span></label>
             </div>
           </div>
           <div class="col col-12 col-lg-6" x-show="data.mode === 'http'">
@@ -866,15 +812,11 @@
                 class="form-check-label"
                 for="shortcode_fullUrl_{{ $random }}"
                 >Original request url header
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   data-bs-html="true"
-                  title="Original uri for every request in X-Pinggy-Url header"
-                ></i
-              ></label>
+                  title="Original uri for every request in X-Pinggy-Url header">{{ partial "icon.html" "info-circle" }}</span></label>
             </div>
           </div>
           <div class="col col-12 col-lg-6">
@@ -889,13 +831,10 @@
                 class="form-check-label"
                 for="shortcode_accesstoken_{{ $random }}"
                 >Use Token
-                <i
-                  class="bi bi-info-circle"
-                  type="button"
+                <span class="pg-ico-btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
-                  title="Use your Pinggy token"
-                ></i>
+                  title="Use your Pinggy token">{{ partial "icon.html" "info-circle" }}</span>
               </label>
             </div>
             <div class="col col-12 mb-2" x-show="data.accesstoken" x-transition.duration.300ms>
@@ -938,15 +877,11 @@
         <div x-show="data.mode === 'http'">
           <label class="form-check-label"
             >Live Header Modifications
-            <i
-              class="bi bi-info-circle"
-              type="button"
+            <span class="pg-ico-btn"
               data-bs-toggle="tooltip"
               data-bs-placement="right"
               data-bs-html="true"
-              title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>"
-            ></i
-          ></label>
+              title="Change request headers on the fly - <a href='/docs/advanced/live_header/' target='_blank'>read more.</a>">{{ partial "icon.html" "info-circle" }}</span></label>
 
           <div>
             <button
@@ -954,7 +889,7 @@
               class="btn btn-primary mb-3 mt-2 custom-button"
               @click="data.headerModifications.push({ mode: 'a', headername: '', headerval: '' })"
             >
-              <i class="bi bi-plus"></i> Add header modification rule
+              <span class="pg-ico-btn">{{ partial "icon.html" "plus" }}</span> Add header modification rule
             </button>
           </div>
 
@@ -993,7 +928,7 @@
                   type="button"
                   @click="data.headerModifications.splice(index, 1)"
                 >
-                  <i class="bi bi-x"></i>
+                  <span class="pg-ico-btn">{{ partial "icon.html" "x" }}</span>
                 </button>
               </div>
             </template>

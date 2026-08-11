@@ -14,9 +14,12 @@
 <link rel="icon" type="image/x-icon" href="/assets/favicon2.ico" />
 
 <!-- Core theme CSS (includes Bootstrap)-->
-{{ $styles := resources.Get "/css/style.css" | resources.Minify }} {{ $syntax :=
-resources.Get "/css/syntax.css" | resources.Minify }} {{ $customization :=
-resources.Get "/css/customization.css" | resources.Minify }}
+{{/* Fingerprinted so netlify.toml can serve /css/* as immutable. Without the
+     content hash these sit at stable URLs and a year-long cache would strand
+     returning visitors on stale styles. */}}
+{{ $styles := resources.Get "/css/style.css" | resources.Minify | resources.Fingerprint }}
+{{ $syntax := resources.Get "/css/syntax.css" | resources.Minify | resources.Fingerprint }}
+{{ $customization := resources.Get "/css/customization.css" | resources.Minify | resources.Fingerprint }}
 
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 <link rel="stylesheet" href="{{ $syntax.RelPermalink }}" />

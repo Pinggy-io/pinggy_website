@@ -1,7 +1,5 @@
 {{ define "main" }}
 <div class="bp">
-  <div class="bp-progress"><div class="bp-progress__fill" id="bp-progress-fill"></div></div>
-
   <main class="bp-wrap bp-article">
     <header class="bp-head">
       {{/* Eyebrow: explicit `eyebrow` front matter, else first category, else first tag, else section. */}}
@@ -114,5 +112,6 @@
 {{ end }}
 
 {{ define "pagespecificjs" }}
-<script src="/js/blog.js?v=3" defer></script>
+{{ $blogjs := resources.Get "js/blog.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $blogjs.RelPermalink }}" defer></script>
 {{ end }}
