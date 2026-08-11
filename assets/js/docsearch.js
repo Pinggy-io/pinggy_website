@@ -62,6 +62,7 @@
       var path = new URL(url, window.location.origin).pathname;
       var parts = path.split("/").filter(Boolean);
       if (parts[0] === "docs") parts.shift();
+      else if (parts[0] === "quickstart") parts[0] = "Quickstart";
       if (parts.length === 0) return "Docs";
       return parts.map(function (p) {
         return p.replace(/[-_]/g, " ");

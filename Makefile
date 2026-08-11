@@ -1,5 +1,5 @@
 PAGEFIND := npx -y pagefind@1.1.0
-PAGEFIND_FLAGS := --site public --glob "docs/**/*.html"
+PAGEFIND_FLAGS := --site public --glob "{docs,quickstart}/**/*.html"
 
 .PHONY: help dev dev-search dev-live build index clean
 

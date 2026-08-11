@@ -1,5 +1,5 @@
 [build]
-command = "hugo --gc --minify && npx -y pagefind@1.1.0 --site public --glob \"docs/**/*.html\""
+command = "hugo --gc --minify && npx -y pagefind@1.1.0 --site public --glob \"{docs,quickstart}/**/*.html\""
 publish = "public"
 
 [context.production.environment]
