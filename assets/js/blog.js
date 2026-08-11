@@ -1,16 +1,5 @@
 (function () {
-  // 1) Reading progress
-  var fill = document.getElementById('bp-progress-fill');
-  function onScroll() {
-    var h = document.documentElement;
-    var max = h.scrollHeight - h.clientHeight;
-    if (fill) fill.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0).toFixed(2) + '%';
-  }
-  document.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  onScroll();
-
-  // 2) Wrap markdown tables so they get the card + horizontal scroll
+  // 1) Wrap markdown tables so they get the card + horizontal scroll
   document.querySelectorAll('.bp-prose table').forEach(function (t) {
     if (t.closest('.bp-tablewrap')) return;
     var w = document.createElement('div');
@@ -19,7 +8,7 @@
     w.appendChild(t);
   });
 
-  // 3) Table of contents scroll-spy.
+  // 2) Table of contents scroll-spy.
   //    The TOC markup itself is server-rendered by layouts/blog/single.html from
   //    Hugo's .TableOfContents, so it works with JS off - this only highlights
   //    the section you're currently reading in the fixed rail.
@@ -110,7 +99,7 @@
     spy();
   }
 
-  // 4) Copy buttons on code blocks + the permalink button
+  // 3) Copy buttons on code blocks + the permalink button
   document.querySelectorAll('.bp-code').forEach(function (block) {
     var btn = block.querySelector('.bp-code__copy');
     var pre = block.querySelector('pre');
@@ -131,7 +120,7 @@
     if (navigator.clipboard) navigator.clipboard.writeText(location.href);
   });
 
-  // 5) Collapse the tag row to a single line with a "+N" reveal chip.
+  // 4) Collapse the tag row to a single line with a "+N" reveal chip.
   var tagList = document.querySelector('.bp-tags');
   if (tagList) {
     var items = Array.prototype.slice.call(tagList.querySelectorAll('li:not(.bp-tags__more)'));

@@ -3,7 +3,8 @@
   <head>
     {{- partial "analytics.html" . -}}
     {{- partial "header.html" . -}}
-    <link href="/css/docs.css?v=8" rel="stylesheet" />
+    {{ $docscss := resources.Get "css/docs.css" | resources.Minify | resources.Fingerprint }}
+    <link href="{{ $docscss.RelPermalink }}" rel="stylesheet" />
     {{- partial "seodocs.html" . -}}
   </head>
 

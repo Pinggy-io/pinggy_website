@@ -123,17 +123,18 @@
           style="cursor: pointer"
           tabindex="0"
           role="button"
+          aria-label="{{ i18n "copyCode" }}"
         >
           <template x-if="copied">
-            <i class="bi bi-check-lg" style="font-size: 1rem"></i>
+            <span style="font-size: 1rem">{{ partial "icon.html" "check-lg" }}</span>
           </template>
           <template x-if="!copied">
-            <i
-              class="bi bi-clipboard"
+            <span
               style="color: black; font-size: 1rem"
               onmouseover="this.style.color='blue';"
               onmouseout="this.style.color='black';"
-            ></i>
+              >{{ partial "icon.html" "clipboard" }}</span
+            >
           </template>
         </span>
       </div>

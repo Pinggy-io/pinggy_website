@@ -1479,6 +1479,15 @@ footer.bg-dark .border-color-subtlegray {
   overflow: hidden;
 }
 
+/* Stand-in for <video poster>, so the still can be lazy-loaded. Bootstrap's
+   `.ratio` already stretches it over the video; `hidden` removes it on play. */
+.videocontainer .videoposter {
+  object-fit: cover;
+}
+.videocontainer .videoposter[hidden] {
+  display: none;
+}
+
 /* Pricing section --------------------------  */
 /* ------ Hide monthly prices by default ---- */
 .monthly {
@@ -1681,6 +1690,23 @@ input:checked + .slider:before {
 #instructions {
   color: var(--ink-500);
   font-size: 0.8125rem;
+}
+
+/* Inline icons - see layouts/partials/icon.html. Sized and baseline-shifted to
+   match how the bootstrap-icons webfont used to render, so swapping a glyph
+   from <i class="bi bi-x"> to an inline SVG is visually a no-op. */
+.pg-ico {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+}
+
+/* Icons that only exist to hang a tooltip off (the info circles in the
+   pinggytunnel shortcode) should read as explanatory, not clickable. */
+.pg-ico-btn[data-bs-toggle="tooltip"] {
+  cursor: help;
 }
 
 /* Copy to clipboard */
