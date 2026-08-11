@@ -46,132 +46,7 @@ So treat everything below as a portrait of **Summer 2026**, with a small forward
 
 We assigned each of the 208 companies to exactly one primary theme, using YC's own `industry`, `subindustry`, and `tags` fields rather than keyword guessing on marketing copy. Each company appears once, so the counts sum to 208.
 
-<div style="border:1px solid #ddd;border-radius:6px;padding:1em 1.1em;margin:1.2em auto;">
-<div style="font-weight:bold;margin-bottom:0.9em;">Primary theme, all 208 companies (Summer 2026 + Fall 2026 + Winter 2027)</div>
-
-<div style="overflow-x:auto;">
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Other vertical B2B / AI apps</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:100.0%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">33</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">15.9%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">AI infrastructure &amp; data</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:97.0%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">32</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">15.4%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Robotics &amp; physical AI</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:97.0%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">32</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">15.4%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Developer tools &amp; agent tooling</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:72.7%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">24</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">11.5%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Fintech &amp; financial ops</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:69.7%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">23</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">11.1%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Healthcare &amp; bio</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:57.6%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">19</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">9.1%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Industrial, energy &amp; materials</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:30.3%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">10</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">4.8%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Security &amp; compliance</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:24.2%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">8</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">3.8%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Supply chain &amp; logistics</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:18.2%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">6</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">2.9%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Defense, aerospace &amp; drones</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:18.2%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">6</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">2.9%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Consumer</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:15.2%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">5</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">2.4%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Construction &amp; real estate</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:15.2%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">5</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">2.4%</div>
-</div>
-
-<div style="display:flex;align-items:center;margin:0.4em 0;min-width:31em;">
-  <div style="flex:0 0 16.5em;font-size:0.88em;padding-right:0.8em;white-space:nowrap;">Government &amp; education</div>
-  <div style="flex:1 1 auto;min-width:5em;background:#eef2fe;border-radius:3px;height:1.45em;">
-    <div style="width:15.2%;background:#2563eb;height:100%;border-radius:3px;"></div>
-  </div>
-  <div style="flex:0 0 2.9em;font-size:0.86em;text-align:right;">5</div>
-  <div style="flex:0 0 4.4em;font-size:0.86em;text-align:right;">2.4%</div>
-</div>
-
-</div>
-
-<div style="font-size:0.82em;color:#666;margin-top:0.9em;">Bar length is relative to the largest theme. Source: YC company directory, retrieved August 11, 2026.</div>
-</div>
+{{< image "what_yc_is_funding_in_2026/what_yc_is_funding_in_2026_themes.webp" "Primary theme of all 208 companies across YC Summer 2026, Fall 2026 and Winter 2027" >}}
 
 Two things jump out of that chart.
 
@@ -277,65 +152,65 @@ The defense companies are unusually direct about what they are. Isengard Industr
 
 YC publishes <a target="_blank" href="https://www.ycombinator.com/rfs">Requests for Startups</a>, a list of ideas it explicitly wants founders to build. The live edition is for **Fall 2026** and contains 13 categories. Comparing it against what actually got funded in Summer 2026 is a useful reality check, and the hit rate is higher than you'd expect.
 
-<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
+<table>
 <thead>
 <tr>
-  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">RFS category (Fall 2026)</th>
-  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Already funded in Summer 2026</th>
+  <th>RFS category (Fall 2026)</th>
+  <th>Already funded in Summer 2026</th>
 </tr>
 </thead>
 <tbody>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Compute at Sea</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Atomarine (offshore nuclear data centers), Pacific (micro data centers)</td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Multiplayer AI</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><a href="https://mosaic.inc" target="_blank">Mosaic</a> ("defining the frontier of multiplayer AI"), <a href="https://trydock.ai" target="_blank">Dock</a>, Agent FM</td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;">The Future of American Defense</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Isengard Industries, Greypoint Industries, Earendil Robotics, <a href="https://www.guildai.co" target="_blank">GUILD</a></td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Data for the Real World</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><a href="https://hebbianrobotics.com/" target="_blank">Hebbian Robotics</a>, <a href="https://www.markovstudios.com/" target="_blank">Markov</a>, <a href="https://www.praxisrobotics.io" target="_blank">Praxis AI</a>, <a href="https://qokedas.com/" target="_blank">Qokedas</a> (Fall 2026)</td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;">New Operating Systems for the Physical World</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><a href="https://os3robotics.com/" target="_blank">OS3</a>, <a href="https://bizmark.ai" target="_blank">Bizmark</a>, <a href="https://neuronindustries.com" target="_blank">Neuron Industries</a>, <a href="https://www.controlseat.com" target="_blank">Control Seat</a></td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Self-Maintaining APIs</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><a href="https://godhands.dev" target="_blank">GodHands</a> (Fall 2026), HyperProbe</td>
-</tr>
-<tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Proving You're Human</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">OneCLI (identity gateway for agents)</td>
+<tr>
+  <td>Compute at Sea</td>
+  <td>Atomarine (offshore nuclear data centers), Pacific (micro data centers)</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">AI-Native Compliance Infrastructure</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Thin: TrustAI is the one clean match; only 2 companies tag Compliance at all</td>
+  <td>Multiplayer AI</td>
+  <td><a href="https://mosaic.inc" target="_blank">Mosaic</a> ("defining the frontier of multiplayer AI"), <a href="https://trydock.ai" target="_blank">Dock</a>, Agent FM</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">The Primer (AI tutoring for young children)</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Thin: <a href="https://bloomylearning.com/" target="_blank">Bloomy</a> (K-12 mastery learning), <a href="https://wondering.app" target="_blank">Wondering</a></td>
+  <td>The Future of American Defense</td>
+  <td>Isengard Industries, Greypoint Industries, Earendil Robotics, <a href="https://www.guildai.co" target="_blank">GUILD</a></td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">AI for the Aging Population</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Thin: Cova (home care), <a href="https://www.illumelabs.ai" target="_blank">Illume Labs</a></td>
+  <td>Data for the Real World</td>
+  <td><a href="https://hebbianrobotics.com/" target="_blank">Hebbian Robotics</a>, <a href="https://www.markovstudios.com/" target="_blank">Markov</a>, <a href="https://www.praxisrobotics.io" target="_blank">Praxis AI</a>, <a href="https://qokedas.com/" target="_blank">Qokedas</a> (Fall 2026)</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">The Best Time to Build in Crypto</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Thin: <a href="https://www.arbital.xyz" target="_blank">Arbital</a>, and only 3 companies tag Crypto / Web3</td>
+  <td>New Operating Systems for the Physical World</td>
+  <td><a href="https://os3robotics.com/" target="_blank">OS3</a>, <a href="https://bizmark.ai" target="_blank">Bizmark</a>, <a href="https://neuronindustries.com" target="_blank">Neuron Industries</a>, <a href="https://www.controlseat.com" target="_blank">Control Seat</a></td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">AI-Powered Consumer Products for 1 Billion People</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Thin: only 5 consumer companies in the whole dataset</td>
+  <td>Self-Maintaining APIs</td>
+  <td><a href="https://godhands.dev" target="_blank">GodHands</a> (Fall 2026), HyperProbe</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">A Cloud for Small Software</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Thin: <a href="https://vendo.run/" target="_blank">Vendo</a>, <a href="https://prized.dev" target="_blank">Prized</a> ("Lovable for internal tools")</td>
+  <td>Proving You're Human</td>
+  <td>OneCLI (identity gateway for agents)</td>
+</tr>
+<tr>
+  <td>AI-Native Compliance Infrastructure</td>
+  <td>Thin: TrustAI is the one clean match; only 2 companies tag Compliance at all</td>
+</tr>
+<tr>
+  <td>The Primer (AI tutoring for young children)</td>
+  <td>Thin: <a href="https://bloomylearning.com/" target="_blank">Bloomy</a> (K-12 mastery learning), <a href="https://wondering.app" target="_blank">Wondering</a></td>
+</tr>
+<tr>
+  <td>AI for the Aging Population</td>
+  <td>Thin: Cova (home care), <a href="https://www.illumelabs.ai" target="_blank">Illume Labs</a></td>
+</tr>
+<tr>
+  <td>The Best Time to Build in Crypto</td>
+  <td>Thin: <a href="https://www.arbital.xyz" target="_blank">Arbital</a>, and only 3 companies tag Crypto / Web3</td>
+</tr>
+<tr>
+  <td>AI-Powered Consumer Products for 1 Billion People</td>
+  <td>Thin: only 5 consumer companies in the whole dataset</td>
+</tr>
+<tr>
+  <td>A Cloud for Small Software</td>
+  <td>Thin: <a href="https://vendo.run/" target="_blank">Vendo</a>, <a href="https://prized.dev" target="_blank">Prized</a> ("Lovable for internal tools")</td>
 </tr>
 </tbody>
 </table>
