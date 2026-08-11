@@ -4,7 +4,7 @@ description: "A working OTP flow proves your app sends and checks a code. It doe
 date: 2026-07-09T10:00:00+05:30
 lastmod: 2026-07-08T10:00:00+05:30
 draft: false
-tags: ["OTP", "authentication", "signup fraud", "webhook testing", "Viber", "SMS", "localhost", "Pinggy", "SSH tunnel", "developer tools"]
+tags: ["OTP", "Authentication", "webhook testing", "localhost", "Pinggy", "SSH tunnel"]
 categories: ["Technology", "Developer Tools", "Security"]
 og_image: "images/catch_signup_fraud_in_local_dev/banner.webp"
 outputs:

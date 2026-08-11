@@ -4,7 +4,7 @@ description: "curl is refusing all vulnerability reports for the month of July 2
 date: 2026-07-02T10:00:00+05:30
 lastmod: 2026-07-03T10:00:00+05:30
 draft: false
-tags: ["curl", "open source", "AI slop", "bug bounty", "vulnerability disclosure", "HackerOne", "Daniel Stenberg", "cybersecurity", "maintainer burnout"]
+tags: ["curl", "open source", "cybersecurity"]
 categories: ["Technology", "Security", "Open Source"]
 og_image: "images/curl_ai_slop_summer_of_bliss/curl_ai_slop_banner.webp"
 outputs:

@@ -102,6 +102,35 @@ Write like a seasoned developer talking shop, the kind of post that does well on
 - **Code blocks earn their place.** Show the command or the diff; don't paste 80 lines of boilerplate. Annotate with `# comment` only when the line isn't self-explanatory.
 - **Inline code for short plain-text snippets.** A single short line of unhighlighted plain text - a URL, an env var assignment, a filename, a value - should be inline code (single backticks), not a fenced code block. Fenced blocks (which render as the dark terminal card) are for multi-line commands/output or syntax-highlighted code. Avoid bare ` ``` ` / ` ```text ` fences for one-liners: `https://abc123.a.pinggy.link` reads better inline than as a one-line terminal card.
 
+### Tags
+
+Tags are a navigation taxonomy, not an SEO keyword field. Every distinct tag
+builds a `/tags/<slug>/` page, so a tag used by one post is a thin page that
+helps nobody. The blog once carried 717 distinct tags across 190 posts, 79% of
+them used exactly once; it was trimmed back to ~250. Keep it that way.
+
+- **Three to five tags. Six is the ceiling.** If a sixth feels necessary, one of
+  the others is not pulling its weight.
+- **The first tag is the post's primary topic, and it is visible.** With no
+  `eyebrow` or `categories` in front matter, `layouts/blog/single.html` renders
+  tag #1 as the kicker above the title. Put the real subject there (`Vue.js`,
+  `obsidian`, `Foundry VTT`), not a generic one (`guide`, `Pinggy`).
+- **Reuse an existing tag before inventing one.** Check what is already in use:
+  `grep -ho '^\s*tags:.*' content/blog/*.md | grep -o '"[^"]*"' | sort | uniq -c | sort -rn`
+- **Match the existing capitalisation exactly.** Hugo slugifies terms, so
+  `Self-Hosted AI` and `self-hosted AI` silently merge into one page with an
+  arbitrary display title. Pick the spelling already in the list.
+- **Do not tag what only this post will ever use**, with one exception: the
+  single primary-topic tag in position #1. Everything after it should be a tag
+  that genuinely groups this post with others.
+- **Never use a tag as a keyword dump.** No phrases
+  (`best AI search analytics monitoring tools`), no slugs
+  (`free-minecraft-port-forwarding`, `dns_probe_finished_nxdomain`), no
+  one-off model names in positions 2-6. Search keywords belong in
+  `description` and `schemahowto`, which is where they actually count.
+- **Spanish siblings carry the same English tags** (Spanish has taxonomies
+  disabled). When you change tags on `foo.md`, mirror them into `foo.es.md`.
+
 ### LLM-context comment (how-to-with-Pinggy posts only)
 
 When writing a "how to do X with Pinggy" guide (a post whose goal is to expose/share/access something local using a Pinggy tunnel), embed a hidden LLM-context comment with the concise steps. This gives an at-a-glance summary that survives in the rendered HTML for LLMs and scrapers. **Only add it to how-to posts that use Pinggy to reach a goal** - skip it for explainer, comparison, or news posts.
