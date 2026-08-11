@@ -82,3 +82,25 @@ HUGO_ENV = "production"
   from = "/*"
   to = "/404/"
   status = 404
+
+# Cache headers. Netlify's default for every asset is
+# `public,max-age=0,must-revalidate`, so even content-hashed bundles were
+# revalidated on every navigation. Hugo fingerprints CSS/JS (the filename
+# changes when the contents do), and the self-hosted fonts are versioned by
+# name, so all of them are safe to cache immutably. HTML is deliberately left
+# on the default so content edits go live immediately.
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
