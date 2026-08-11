@@ -5,8 +5,7 @@ date: 2024-12-19T14:15:25+05:30
 lastmod: 2026-07-30T14:15:25+05:30
 draft: false
 og_image: "images/dns/Domain_Name_System.webp"
-tags: ["DNS", "IP Addressing", "Load Balancing", "Web Technology", "DNS Security", "SEO"]
-
+tags: ["DNS", "Load Balancing", "SEO"]
 outputs:
   - HTML
   - AMP

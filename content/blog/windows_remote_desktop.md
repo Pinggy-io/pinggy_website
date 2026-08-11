@@ -3,7 +3,7 @@
  date: 2023-05-01T01:15:25+05:30
  lastmod: 2026-05-23T14:15:25+05:30
  draft: false
- tags: ["guide", "windows", "RDP", "remote desktop"]
+ tags: ["guide", "windows", "RDP"]
 ---
 
 I was packing for a trip and realised I had no way to reach my home desktop if something went sideways. I didn't want to install TeamViewer or any other agent, just plain RDP over a tunnel. This post walks through that setup on a current Windows 11 box (24H2 / 25H2), the security gotchas, and the alternatives worth knowing.

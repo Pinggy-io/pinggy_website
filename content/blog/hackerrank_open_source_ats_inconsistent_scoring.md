@@ -4,7 +4,7 @@ description: "HackerRank open-sourced its AI hiring agent and the same resume sc
 date: 2026-07-01T11:00:00+05:30
 lastmod: 2026-07-01T11:00:00+05:30
 draft: false
-tags: ["HackerRank", "AI hiring", "ATS", "resume screening", "LLM non-determinism", "open source", "hiring-agent", "prompt injection"]
+tags: ["HackerRank", "open source"]
 categories: ["Technology", "AI", "Developer Tools"]
 og_image: "images/hackerrank_open_source_ats_inconsistent_scoring/banner.webp"
 outputs:

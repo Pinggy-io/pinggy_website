@@ -4,7 +4,7 @@
  date: 2024-10-27T14:15:25+05:30
  lastmod: 2024-10-27T15:15:25+05:30
  draft: false 
- tags: ["guide","Slack Webhook"]
+ tags: ["guide", "Slack Webhook"]
  og_image: "images/slack_webhooks/outgoing_webhook_img.webp"
  outputs:
   - HTML
