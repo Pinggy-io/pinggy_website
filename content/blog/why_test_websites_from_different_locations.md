@@ -4,7 +4,7 @@ description: "A look at why geolocation testing matters, the testing dimensions 
 date: 2026-06-30T14:00:00+05:30
 lastmod: 2026-06-30T14:00:00+05:30
 draft: false
-tags: ["geolocation testing", "cross-browser testing", "website testing", "QA", "localization", "web performance", "developer tools"]
+tags: ["geolocation testing", "developer tools"]
 categories: ["Technology", "Developer Tools"]
 og_image: "images/why_test_websites_from_different_locations/image1.png"
 outputs:

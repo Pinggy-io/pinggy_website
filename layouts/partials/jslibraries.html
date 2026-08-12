@@ -13,61 +13,33 @@
 {{ $quickstart := resources.Get "/js/quickstartsearch.js"}}
 {{ $docsearch := resources.Get "/js/docsearch.js" }}
 {{ $cursorglow := resources.Get "/js/cursorglow.js" }}
+{{ $tooltips := resources.Get "/js/tooltips.js" }}
 
-{{ $js := slice $jquery $alpine $bootstrap
-$getos $typewriter $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc
-$quickstart $docsearch $cursorglow | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
+{{/* Blog articles get a trimmed bundle. The only interactive markup they carry
+     comes from the ssh_command, pinggytunnel and tabs shortcodes, which need
+     jQuery, Alpine, Bootstrap, their two store files, the CIDR validator that
+     pinggytunnel calls from Alpine expressions, and getos.js for its
+     `x-init="... getOS() ..."`. Everything else is product/docs machinery:
+     index.js registers the homepage `advModal` store, doc.js drives the docs
+     sidebar and injects code-block copy buttons that blog.css already hides
+     (`.bp-code .copy-to-clipboard { display: none }`), and blog.js does its own
+     copying via navigator.clipboard. Dropping those six files keeps ~32KB of
+     source - and jQuery walking every <pre><code> - off every article. */}}
+{{ $isBlog := eq .Section "blog" }}
+{{ $sources := cond $isBlog
+  (slice $jquery $alpine $bootstrap $getos $pinggyshortcode $pinggycommand $cidrvalidation $cursorglow $tooltips)
+  (slice $jquery $alpine $bootstrap $getos $typewriter $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc $quickstart $docsearch $cursorglow $tooltips) }}
 
+{{ $js := $sources | resources.Concat (cond $isBlog "js/blog-bundle.js" "js/bundle.js") | resources.Minify | resources.Fingerprint }}
+
+{{/* `defer` matters more than the split: without it this script blocks
+     rendering, which Lighthouse measured at ~1.8s of LCP element render delay
+     on an article. Deferred scripts still execute in source order, so Alpine
+     store registration (pinggycommand.js, index.js) lands before Alpine boots
+     on DOMContentLoaded. */}}
 <script
   src="{{ $js.RelPermalink }}"
   integrity="{{ $js.Data.Integrity }}"
   crossorigin="anonymous"
+  defer
 ></script>
-
-<!-- Enable tooltip -->
-<script type="text/javascript">
-  const tooltipTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="tooltip"]')
-  );
-  const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    const tooltip = new bootstrap.Tooltip(tooltipTriggerEl, {
-      trigger: "manual",
-    });
-
-    let tooltipTimeout;
-    let currentToolTip;
-
-    tooltipTriggerEl.addEventListener("mouseenter", function () {
-      let toolTipID;
-
-      // Clear Set Timeout
-      clearTimeout(tooltipTimeout);
-
-      // Show Tooltip
-      tooltip.show();
-
-      // Assign current tooltip ID to toolTipID variable
-      toolTipID = tooltipTriggerEl.getAttribute("aria-describedby");
-
-      // Assign current tooltip to currentToolTip variable
-      currentToolTip = document.querySelector(`#${toolTipID}`);
-
-      // Hide tooltip on tooltip mouse leave
-      currentToolTip.addEventListener("mouseleave", function () {
-        tooltip.hide();
-      });
-    });
-
-    tooltipTriggerEl.addEventListener("mouseleave", function () {
-      // SetTimeout before tooltip disappears
-      tooltipTimeout = setTimeout(function () {
-        // Hide tooltip if not hovered.
-        if (!currentToolTip.matches(":hover")) {
-          tooltip.hide();
-        }
-      }, 100);
-    });
-
-    return tooltip;
-  });
-</script>

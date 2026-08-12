@@ -5,7 +5,7 @@
  lastmod: 2026-05-23T14:15:25+05:30
  draft: false
  og_image: "images/pirdp/pirdp.webp"
- tags: ["guide", "tcp", "raspberry pi", "rdp"]
+ tags: ["guide", "tcp", "raspberry pi", "RDP"]
  outputs:
   - HTML
   - AMP

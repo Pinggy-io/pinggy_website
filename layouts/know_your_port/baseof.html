@@ -5,7 +5,7 @@
     {{- partial "header.html" . -}} {{- with .OutputFormats.Get "AMP" }}
     <link rel="amphtml" href="{{ .RelPermalink | absURL }}" />
     {{- end }}
-    <link href="/css/blog.css?v=27" rel="stylesheet" />
+    {{- partial "blogcss.html" . -}}
     {{- partial "seoblogs.html" . -}}
   </head>
 

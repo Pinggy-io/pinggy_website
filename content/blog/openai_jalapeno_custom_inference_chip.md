@@ -4,7 +4,7 @@ description: "OpenAI and Broadcom unveiled Jalapeño, OpenAI's first custom ASIC
 date: 2026-06-28T10:00:00+05:30
 lastmod: 2026-06-27T10:00:00+05:30
 draft: false
-tags: ["AI hardware", "OpenAI", "inference chip", "Broadcom", "ASIC", "Nvidia", "AI inference costs", "Jalapeño", "custom silicon"]
+tags: ["AI hardware", "OpenAI"]
 categories: ["Technology", "AI Infrastructure"]
 og_image: "images/openai_jalapeno_chip/jalapeno_hero.webp"
 outputs:

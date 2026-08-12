@@ -1,0 +1,21 @@
+{{/* Blog-only heading render hook (scoped to the blog section, like
+     render-codeblock.html next to it).
+
+     49 posts write their sub-sections as `#### Pros of X` directly under a
+     `## 1. Some Tool`, which skips a level and fails the `heading-order`
+     accessibility audit. Anything below h3 is emitted as h3 so h2 -> h4 renders
+     as h2 -> h3, and repeated `####` siblings all land on the same level.
+
+     Doing it here rather than in content matters for the table of contents:
+     Hugo builds .TableOfContents from the markdown AST (h2-h3 per
+     markup.tableOfContents in config.yaml), so rewriting 42 `####` to `###` in
+     a post like best_ngrok_alternatives would triple the length of the "In this
+     article" rail. The AST still sees h4, the rail stays short, and only the
+     emitted tag changes.
+
+     Deliberately stateless: a page is rendered once per output format and any
+     Scratch-based depth tracking would carry over from the AMP pass into the
+     HTML one (see the same trap in shortcodes/image.html). A pure function of
+     .Level gives both passes the same answer. */}}
+{{- $level := cond (gt .Level 3) 3 .Level -}}
+<h{{ $level }} id="{{ .Anchor | safeURL }}"{{ with .Attributes.class }} class="{{ . }}"{{ end }}>{{ .Text }}</h{{ $level }}>

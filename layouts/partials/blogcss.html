@@ -1,0 +1,9 @@
+{{/* blog.css, minified and fingerprinted.
+
+     It used to be served straight out of static/ with a hand-bumped `?v=`
+     query, which had drifted to three different values across the three
+     templates that load it (v28 / v27 / v3) and shipped ~3KB of unminified
+     whitespace. A content hash in the filename keeps the three call sites in
+     sync automatically and makes the file safe to cache immutably. */}}
+{{ $css := resources.Get "css/blog.css" | resources.Minify | resources.Fingerprint }}
+<link href="{{ $css.RelPermalink }}" rel="stylesheet" />

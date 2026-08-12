@@ -4,7 +4,7 @@ description: "A new attack called agentjacking uses public Sentry DSNs and MCP t
 date: 2026-06-15T11:00:00+05:30
 lastmod: 2026-06-14T11:00:00+05:30
 draft: false
-tags: ["AI security", "agentjacking", "MCP security", "Sentry", "Claude Code", "Cursor", "AI coding agents", "supply chain security", "developer security"]
+tags: ["AI security", "Claude Code", "Cursor", "AI coding agents", "supply chain security"]
 categories: ["Security", "AI Tools", "Developer Tools"]
 og_image: "images/agentjacking_attack/agentjacking_attack_banner.webp"
 outputs:

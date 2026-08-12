@@ -4,7 +4,7 @@ description: "SpaceX bought Cursor for $60B. OpenAI owns Windsurf. Google killed
 date: 2026-06-20T10:00:00+05:30
 lastmod: 2026-06-19T10:00:00+05:30
 draft: false
-tags: ["Cursor", "SpaceX", "AI coding tools", "Claude Code", "developer tools", "AI coding", "Windsurf", "Gemini CLI"]
+tags: ["Cursor", "SpaceX", "AI coding tools", "Claude Code", "developer tools", "AI coding"]
 categories: ["Technology", "Developer Tools", "AI Tools"]
 og_image: "images/spacex_cursor_acquisition/spacex_cursor_acquisition_hero.webp"
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiTmV3c0FydGljbGUiLAogICJuYW1lIjogIldobyBPd25zIFlvdXIgQUkgQ29kaW5nIFRvb2xzIGluIDIwMjYiLAogICJkZXNjcmlwdGlvbiI6ICJTcGFjZVggYm91Z2h0IEN1cnNvciBmb3IgJDYwQi4gT3BlbkFJIG93bnMgV2luZHN1cmYuIEdvb2dsZSBraWxsZWQgdGhlIEdlbWluaSBDTEkuIEhlcmUgaXMgd2hhdCB0aGUgQUkgY29kaW5nIHRvb2wgY29uc29saWRhdGlvbiBtZWFucyBmb3IgeW91ciBkYXRhLCBtb2RlbCBjaG9pY2UsIGFuZCB3aGF0IGluZGVwZW5kZW50IG9wdGlvbnMgcmVtYWluLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9zcGFjZXhfY3Vyc29yX2FjcXVpc2l0aW9uL3NwYWNleF9jdXJzb3JfYWNxdWlzaXRpb25faGVyby53ZWJwIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjYtMDYtMTlUMTA6MDA6MDArMDU6MzAiLAogICJhdXRob3IiOiB7IkB0eXBlIjogIk9yZ2FuaXphdGlvbiIsICJuYW1lIjogIlBpbmdneSJ9LAogICJhcnRpY2xlU2VjdGlvbiI6ICJEZXZlbG9wZXIgVG9vbHMiCn0KPC9zY3JpcHQ+Cg=="

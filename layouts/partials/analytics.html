@@ -9,9 +9,19 @@
 
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
+    // Deferred to idle. Loading Clarity from <head> cost ~100ms of script
+    // evaluation on the critical path of every page; nothing it records
+    // depends on running before the page is interactive. The `clarity` queue
+    // stub is installed immediately so any early calls are still captured and
+    // replayed once the real tag arrives.
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        function load(){
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        }
+        // requestIdleCallback is unsupported in Safari <16.4, hence the timeout.
+        if (c.requestIdleCallback) { c.requestIdleCallback(load, { timeout: 5000 }); }
+        else { c.addEventListener("load", function(){ setTimeout(load, 1500); }); }
     })(window, document, "clarity", "script", "s1yeo4645e");
 </script>

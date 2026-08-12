@@ -4,7 +4,7 @@ description: "Hugging Face disclosed that an autonomous AI agent, not a human op
 date: 2026-07-20T11:00:00+05:30
 lastmod: 2026-07-22T11:00:00+05:30
 draft: false
-tags: ["Hugging Face", "OpenAI", "AI security", "autonomous AI agents", "cybersecurity", "data breach", "supply chain security", "MLOps security"]
+tags: ["Hugging Face", "OpenAI", "AI security", "cybersecurity", "supply chain security"]
 categories: ["Technology", "Security", "AI"]
 og_image: "images/hugging_face_ai_agent_breach/hugging_face_ai_agent_breach_banner.webp"
 outputs:
