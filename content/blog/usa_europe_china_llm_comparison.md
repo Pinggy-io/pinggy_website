@@ -5,7 +5,7 @@ date: 2025-08-30T08:15:25+05:30
 lastmod: 2026-01-10T11:00:00+05:30
 draft: false
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlVTQSwgRXVyb3BlLCBvciBDaGluYSAtIFdobyBoYXMgdGhlIGJlc3QgQUkgTW9kZWxzPyIsCiAgImRlc2NyaXB0aW9uIjogIkNvbXBhcmUgQUkgbW9kZWxzIGZyb20gVVNBLCBFdXJvcGUsIGFuZCBDaGluYSBpbiAyMDI2LiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy91c2FfZXVyb3BlX2NoaW5hX2xsbV9jb21wYXJpc29uL2dsb2JhbF9haV9zaG93ZG93bl9iYW5uZXIud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJVU0EgbW9kZWxzOiBHZW1pbmkgMyBQcm8sIEdyb2sgNC4xLCBHUFQtNS4xLCBDbGF1ZGUgT3B1cyA0LjUiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ2hpbmEgbW9kZWxzOiBEZWVwU2Vlay1WMy4yLCBRd2VuMy1NYXgiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRXVyb3BlIG1vZGVsczogTWlzdHJhbCBMYXJnZSAzLCBGYWxjb24gMiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
-tags: ["LLM comparison", "AI models 2026", "GPT-5.1", "Claude Opus 4.5", "Gemini 3 Pro", "Grok 4.1", "DeepSeek", "Qwen3", "Mistral Large 3", "global AI race"]
+tags: ["LLM comparison", "DeepSeek"]
 og_image: "images/usa_europe_china_llm_comparison/global_ai_showdown_banner.webp"
 outputs:
   - HTML

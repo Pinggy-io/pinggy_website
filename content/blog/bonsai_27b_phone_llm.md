@@ -4,7 +4,7 @@ description: "Bonsai 27B compresses a 27B-parameter Qwen3.6 model to 3.9GB using
 date: 2026-07-17T11:00:00+05:30
 lastmod: 2026-07-18T11:00:00+05:30
 draft: false
-tags: ["Bonsai 27B", "PrismML", "on-device AI", "LLM quantization", "1-bit LLM", "edge AI", "local LLM", "Qwen3.6", "WebGPU"]
+tags: ["Bonsai 27B", "on-device AI", "edge AI", "local LLM", "Qwen3.6"]
 categories: ["Technology", "AI", "Edge AI"]
 og_image: "images/bonsai_27b_phone_llm/bonsai_27b_phone_llm_banner.webp"
 outputs:

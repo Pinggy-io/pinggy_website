@@ -4,7 +4,7 @@ description: "Learn how to securely SSH into Docker containers with practical ex
 date: 2024-10-18T14:15:25+05:30
 lastmod: 2024-10-18T14:15:25+05:30
 draft: false
-tags: ["guide", "docker", "SSH", "container management"]
+tags: ["guide", "Docker", "ssh"]
 outputs:
   - HTML
   - AMP

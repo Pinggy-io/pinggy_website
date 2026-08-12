@@ -57,10 +57,15 @@ aa_vals = [60.0, 57.0, 51.1, 44.4, 44.3, 42.2, 32.0]
 aa_prop = [True, False, False, False, False, False, False]
 
 # Panel 2: SWE-Bench Pro.
+# Muse Glimmer 30B (Meta, Aug 10 2026) is the only bar here that runs on a
+# single consumer GPU - 51.2 is Meta's self-reported High Reasoning score from
+# the model card (https://huggingface.co/meta-models/Muse-Glimmer-30B), the
+# same table that gives Qwen3.6-27B 50.2 and Gemma4-31B 36.9. Meta published no
+# Artificial Analysis Index number, so it is absent from panels 1 and 3.
 swe_labels = ["Claude\nOpus 4.8", "GLM\n5.2", "MiniMax\nM3",
-              "DeepSeek\nV4-Pro-Max", "Qwen3.6\n35B-A3B"]
-swe_vals = [69.2, 62.1, 59.0, 55.4, 49.5]
-swe_prop = [True, False, False, False, False]
+              "DeepSeek\nV4-Pro-Max", "Muse\nGlimmer\n30B", "Qwen3.6\n35B-A3B"]
+swe_vals = [69.2, 62.1, 59.0, 55.4, 51.2, 49.5]
+swe_prop = [True, False, False, False, False, False]
 
 # Panel 3: the models that actually fit a maxed-out MacBook Pro. The M5 Max
 # tops out at 128GB of unified memory (Apple, Mar 2026), so the cutoff is
@@ -128,8 +133,8 @@ fig.suptitle("Best Open Source Self-Hosted LLMs for\nCoding in 2026",
 # source note + legend between title and panels
 fig.text(0.5, 0.88,
          "Open weights vs the best proprietary model  ·  primary metric: "
-         "Artificial Analysis Intelligence Index  ·  cross-check: SWE-Bench Pro  ·  July 2026",
-         fontsize=12, color="#666666", ha="center")
+         "Artificial Analysis Intelligence Index  ·  cross-check: SWE-Bench Pro  ·  Jul-Aug 2026",
+         fontsize=11.5, color="#666666", ha="center")
 
 MAC_SUB = ("Artificial Analysis Intelligence Index, same scale as the top-left panel  ·  "
            "4-bit weights inside the M5 Max's 128GB ceiling")
@@ -153,7 +158,7 @@ bar_panel(ax1, aa_labels, aa_vals,
           "Artificial Analysis Intelligence Index", 68, [0, 20, 40, 60],
           prop=aa_prop, tickfs=9.5)
 bar_panel(ax2, swe_labels, swe_vals, "SWE-Bench Pro", 80, [0, 40, 80],
-          prop=swe_prop, tickfs=9.5)
+          prop=swe_prop, tickfs=9.0)
 bar_panel(ax3, mac_labels, mac_vals,
           "Practical Models You Can Actually Self-Host", 44, [0, 10, 20, 30, 40],
           fmt="{:.0f}", tickfs=9.0, titlefs=17, subtitle=MAC_SUB)

@@ -4,7 +4,7 @@ description: "npm v12 lands in July 2026 and turns off install script execution 
 date: 2026-06-12T12:00:00+05:30
 lastmod: 2026-06-11T12:00:00+05:30
 draft: false
-tags: ["npm", "npm v12", "supply chain security", "JavaScript", "Node.js", "developer tools", "security", "open source"]
+tags: ["npm", "supply chain security", "JavaScript", "Node.js", "developer tools", "security"]
 categories: ["Technology", "Security", "JavaScript"]
 og_image: "images/npm_v12_install_scripts/npm_v12_install_scripts_banner.webp"
 outputs:

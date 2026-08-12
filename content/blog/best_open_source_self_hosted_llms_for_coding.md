@@ -1,12 +1,12 @@
 ---
 title: "Best Open Source Self-Hosted LLMs for Coding in 2026"
-description: "Discover the best open source LLMs for coding and development that you can self-host. Compare Kimi K3, GLM-5.2, MiniMax M3, DeepSeek-V4-Pro-Max, Qwen3.6, Devstral 2, MiMo-V2.5-Pro, and more with benchmarks, hardware requirements, and deployment guides."
+description: "Discover the best open source LLMs for coding and development that you can self-host. Compare Kimi K3, GLM-5.2, MiniMax M3, DeepSeek-V4-Pro-Max, Qwen3.6, Muse Glimmer 30B, Devstral 2, MiMo-V2.5-Pro, and more with benchmarks, hardware requirements, and deployment guides."
 date: 2026-03-26T14:15:25+05:30
-lastmod: 2026-07-27T10:00:00+05:30
+lastmod: 2026-08-11T10:00:00+05:30
 draft: false
-tags: ["open source LLM", "self-hosted AI", "coding LLM", "Kimi K3", "GLM-5.2", "MiniMax M3", "DeepSeek-V4-Pro-Max", "Qwen3.6", "Devstral", "MiMo-V2.5-Pro", "local AI"]
+tags: ["open source LLM", "self-hosted AI", "GLM-5.2", "Qwen3.6", "local AI"]
 og_image: "images/best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIENob29zZSBhbmQgU2VsZi1Ib3N0IE9wZW4gU291cmNlIExMTXMgZm9yIENvZGluZyIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byBzZWxlY3RpbmcgYW5kIHNlbGYtaG9zdGluZyB0aGUgYmVzdCBvcGVuIHNvdXJjZSBsYXJnZSBsYW5ndWFnZSBtb2RlbHMgZm9yIHNvZnR3YXJlIGRldmVsb3BtZW50LCBpbmNsdWRpbmcgbW9kZWwgY29tcGFyaXNvbiwgaGFyZHdhcmUgcmVxdWlyZW1lbnRzLCBhbmQgZGVwbG95bWVudCB0b29scy4iLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQXNzZXNzIFlvdXIgSGFyZHdhcmUgYW5kIFJlcXVpcmVtZW50cyIsCiAgICAgICJ0ZXh0IjogIkRldGVybWluZSB5b3VyIGF2YWlsYWJsZSBoYXJkd2FyZSAoR1BVIFZSQU0sIHN5c3RlbSBSQU0sIHN0b3JhZ2UpIGFuZCBjb2RpbmcgbmVlZHMuIEZvciBjb25zdW1lciBHUFVzIHdpdGggOC0yNEdCIFZSQU0sIGNvbnNpZGVyIG1vZGVscyBsaWtlIERldnN0cmFsIFNtYWxsIDIgKDI0Qikgb3IgUXdlbiAzLjYgMjdCLiBGb3IgYSBzaW5nbGUgODBHQi1jbGFzcyBtdWx0aS1HUFUgc2VydmVyLCBHTE0tNS4yIGZpdHMgaW4gcm91Z2hseSA0eCBIMTAwLiBLaW1pIEszIG5lZWRzIGEgbXVsdGktbm9kZSBjbHVzdGVyIG9mIDY0IG9yIG1vcmUgYWNjZWxlcmF0b3JzIGZvciBpdHMgMS40VEIgb2YgTVhGUDQgd2VpZ2h0cy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ2hvb3NlIFlvdXIgTW9kZWwgQmFzZWQgb24gVXNlIENhc2UiLAogICAgICAidGV4dCI6ICJTZWxlY3QgYSBtb2RlbCB0aGF0IGZpdHMgeW91ciBjb2Rpbmcgd29ya2Zsb3cuIEtpbWkgSzMgdG9wcyB0aGUgb3Blbi13ZWlnaHQgTGl2ZUJlbmNoIHJhbmtpbmdzIGJ1dCByZXF1aXJlcyBjbHVzdGVyIGhhcmR3YXJlIGFuZCBhIGJlc3Bva2UgbGljZW5zZS4gR0xNLTUuMiBpcyB0aGUgc3Ryb25nZXN0IE1JVC1saWNlbnNlZCBtb2RlbCB0aGF0IGZpdHMgb25lIHNlcnZlci4gRm9yIGxpZ2h0d2VpZ2h0IGxvY2FsIHVzZSwgRGV2c3RyYWwgU21hbGwgMiBvciBRd2VuIDMuNiAyN0IgcnVuIG9uIGNvbnN1bWVyIGhhcmR3YXJlLiBGb3IgY29zdC1zZW5zaXRpdmUgc2VydmluZywgRGVlcFNlZWsgVjQtRmxhc2ggZ2l2ZXMgdXAgbGl0dGxlIGFnZW50aWMgY29kaW5nIHF1YWxpdHkgYXQgMjg0QiB0b3RhbCBwYXJhbWV0ZXJzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJJbnN0YWxsIGEgU2VsZi1Ib3N0aW5nIFRvb2wiLAogICAgICAidGV4dCI6ICJTZXQgdXAgYSBkZXBsb3ltZW50IHRvb2wgbGlrZSBPbGxhbWEgZm9yIHF1aWNrIGxvY2FsIHByb3RvdHlwaW5nLCB2TExNIG9yIFNHTGFuZyBmb3IgcHJvZHVjdGlvbiBzZXJ2aW5nIHdpdGggaGlnaCBjb25jdXJyZW5jeSwgb3IgbGxhbWEuY3BwIGZvciBtYXhpbXVtIGNvbnRyb2wgYW5kIENQVSBpbmZlcmVuY2UuIEZvciBhIEdVSSBleHBlcmllbmNlLCB1c2UgTE0gU3R1ZGlvIG9yIE9wZW4gV2ViVUkuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRvd25sb2FkIGFuZCBSdW4gdGhlIE1vZGVsIiwKICAgICAgInRleHQiOiAiUHVsbCB5b3VyIGNob3NlbiBtb2RlbCB1c2luZyB0aGUgc2VsZWN0ZWQgdG9vbC4gRm9yIGV4YW1wbGUsIHJ1biBvbGxhbWEgcHVsbCBxd2VuMy42OjI3YiB3aXRoIE9sbGFtYSwgb3IgZG93bmxvYWQgd2VpZ2h0cyBmcm9tIEh1Z2dpbmcgRmFjZSBmb3IgdkxMTS4gQXBwbHkgNC1iaXQgcXVhbnRpemF0aW9uIChRNF9LX00pIHRvIHJlZHVjZSBtZW1vcnkgdXNhZ2Ugd2hpbGUgbWFpbnRhaW5pbmcgcXVhbGl0eTsgS2ltaSBLMyBzaGlwcyBuYXRpdmVseSBpbiBNWEZQNCBmcm9tIHF1YW50aXphdGlvbi1hd2FyZSB0cmFpbmluZy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW50ZWdyYXRlIHdpdGggWW91ciBEZXZlbG9wbWVudCBXb3JrZmxvdyIsCiAgICAgICJ0ZXh0IjogIkNvbm5lY3QgeW91ciBzZWxmLWhvc3RlZCBtb2RlbCB0byBjb2RpbmcgdG9vbHMgbGlrZSBPcGVuQ29kZSwgQ29udGludWUuZGV2LCBBaWRlciwgb3IgYW55IE9wZW5BSS1jb21wYXRpYmxlIGNsaWVudC4gTW9zdCBzZWxmLWhvc3RpbmcgdG9vbHMgZXhwb3NlIGFuIE9wZW5BSS1jb21wYXRpYmxlIEFQSSBlbmRwb2ludCwgbWFraW5nIGludGVncmF0aW9uIHN0cmFpZ2h0Zm9yd2FyZCB3aXRoIGV4aXN0aW5nIGRldmVsb3BtZW50IHdvcmtmbG93cy4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIENob29zZSBhbmQgU2VsZi1Ib3N0IE9wZW4gU291cmNlIExMTXMgZm9yIENvZGluZyIsCiAgImRlc2NyaXB0aW9uIjogIlN0ZXAtYnktc3RlcCBndWlkZSB0byBzZWxlY3RpbmcgYW5kIHNlbGYtaG9zdGluZyB0aGUgYmVzdCBvcGVuIHNvdXJjZSBsYXJnZSBsYW5ndWFnZSBtb2RlbHMgZm9yIHNvZnR3YXJlIGRldmVsb3BtZW50LCBpbmNsdWRpbmcgbW9kZWwgY29tcGFyaXNvbiwgaGFyZHdhcmUgcmVxdWlyZW1lbnRzLCBhbmQgZGVwbG95bWVudCB0b29scy4iLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQXNzZXNzIFlvdXIgSGFyZHdhcmUgYW5kIFJlcXVpcmVtZW50cyIsCiAgICAgICJ0ZXh0IjogIkRldGVybWluZSB5b3VyIGF2YWlsYWJsZSBoYXJkd2FyZSAoR1BVIFZSQU0sIHN5c3RlbSBSQU0sIHN0b3JhZ2UpIGFuZCBjb2RpbmcgbmVlZHMuIEZvciBjb25zdW1lciBHUFVzIHdpdGggOC0yNEdCIFZSQU0sIGNvbnNpZGVyIG1vZGVscyBsaWtlIERldnN0cmFsIFNtYWxsIDIgKDI0QiksIFF3ZW4gMy42IDI3Qiwgb3IgTXVzZSBHbGltbWVyIDMwQiwgd2hpY2ggcXVhbnRpemVzIHRvIHVuZGVyIDIwR0Igd2l0aCBLLVF1YW50LiBGb3IgYSBzaW5nbGUgODBHQi1jbGFzcyBtdWx0aS1HUFUgc2VydmVyLCBHTE0tNS4yIGZpdHMgaW4gcm91Z2hseSA0eCBIMTAwLiBLaW1pIEszIG5lZWRzIGEgbXVsdGktbm9kZSBjbHVzdGVyIG9mIDY0IG9yIG1vcmUgYWNjZWxlcmF0b3JzIGZvciBpdHMgMS40VEIgb2YgTVhGUDQgd2VpZ2h0cy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ2hvb3NlIFlvdXIgTW9kZWwgQmFzZWQgb24gVXNlIENhc2UiLAogICAgICAidGV4dCI6ICJTZWxlY3QgYSBtb2RlbCB0aGF0IGZpdHMgeW91ciBjb2Rpbmcgd29ya2Zsb3cuIEtpbWkgSzMgdG9wcyB0aGUgb3Blbi13ZWlnaHQgTGl2ZUJlbmNoIHJhbmtpbmdzIGJ1dCByZXF1aXJlcyBjbHVzdGVyIGhhcmR3YXJlIGFuZCBhIGJlc3Bva2UgbGljZW5zZS4gR0xNLTUuMiBpcyB0aGUgc3Ryb25nZXN0IE1JVC1saWNlbnNlZCBtb2RlbCB0aGF0IGZpdHMgb25lIHNlcnZlci4gRm9yIGxpZ2h0d2VpZ2h0IGxvY2FsIHVzZSwgRGV2c3RyYWwgU21hbGwgMiBvciBRd2VuIDMuNiAyN0IgcnVuIG9uIGNvbnN1bWVyIGhhcmR3YXJlLiBGb3IgYSBsb2NhbCBhZ2VudCB0aGF0IGxlYW5zIG9uIE1DUCB0b29sIGNhbGxzLCBNZXRhJ3MgQXBhY2hlIDIuMCBNdXNlIEdsaW1tZXIgMzBCIHNjb3JlcyA3NS41IG9uIE1DUCBBdGxhcyBvbiBhIHNpbmdsZSAyNEdCIEdQVS4gRm9yIGNvc3Qtc2Vuc2l0aXZlIHNlcnZpbmcsIERlZXBTZWVrIFY0LUZsYXNoIGdpdmVzIHVwIGxpdHRsZSBhZ2VudGljIGNvZGluZyBxdWFsaXR5IGF0IDI4NEIgdG90YWwgcGFyYW1ldGVycy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiSW5zdGFsbCBhIFNlbGYtSG9zdGluZyBUb29sIiwKICAgICAgInRleHQiOiAiU2V0IHVwIGEgZGVwbG95bWVudCB0b29sIGxpa2UgT2xsYW1hIGZvciBxdWljayBsb2NhbCBwcm90b3R5cGluZywgdkxMTSBvciBTR0xhbmcgZm9yIHByb2R1Y3Rpb24gc2VydmluZyB3aXRoIGhpZ2ggY29uY3VycmVuY3ksIG9yIGxsYW1hLmNwcCBmb3IgbWF4aW11bSBjb250cm9sIGFuZCBDUFUgaW5mZXJlbmNlLiBGb3IgYSBHVUkgZXhwZXJpZW5jZSwgdXNlIExNIFN0dWRpbyBvciBPcGVuIFdlYlVJLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJEb3dubG9hZCBhbmQgUnVuIHRoZSBNb2RlbCIsCiAgICAgICJ0ZXh0IjogIlB1bGwgeW91ciBjaG9zZW4gbW9kZWwgdXNpbmcgdGhlIHNlbGVjdGVkIHRvb2wuIEZvciBleGFtcGxlLCBydW4gb2xsYW1hIHB1bGwgcXdlbjMuNjoyN2Igd2l0aCBPbGxhbWEsIG9yIGRvd25sb2FkIHdlaWdodHMgZnJvbSBIdWdnaW5nIEZhY2UgZm9yIHZMTE0uIEFwcGx5IDQtYml0IHF1YW50aXphdGlvbiAoUTRfS19NKSB0byByZWR1Y2UgbWVtb3J5IHVzYWdlIHdoaWxlIG1haW50YWluaW5nIHF1YWxpdHk7IEtpbWkgSzMgc2hpcHMgbmF0aXZlbHkgaW4gTVhGUDQgZnJvbSBxdWFudGl6YXRpb24tYXdhcmUgdHJhaW5pbmcuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkludGVncmF0ZSB3aXRoIFlvdXIgRGV2ZWxvcG1lbnQgV29ya2Zsb3ciLAogICAgICAidGV4dCI6ICJDb25uZWN0IHlvdXIgc2VsZi1ob3N0ZWQgbW9kZWwgdG8gY29kaW5nIHRvb2xzIGxpa2UgT3BlbkNvZGUsIENvbnRpbnVlLmRldiwgQWlkZXIsIG9yIGFueSBPcGVuQUktY29tcGF0aWJsZSBjbGllbnQuIE1vc3Qgc2VsZi1ob3N0aW5nIHRvb2xzIGV4cG9zZSBhbiBPcGVuQUktY29tcGF0aWJsZSBBUEkgZW5kcG9pbnQsIG1ha2luZyBpbnRlZ3JhdGlvbiBzdHJhaWdodGZvcndhcmQgd2l0aCBleGlzdGluZyBkZXZlbG9wbWVudCB3b3JrZmxvd3MuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
 outputs:
   - HTML
   - AMP
@@ -30,7 +30,10 @@ Whether you're a solo developer who wants to keep code off third-party servers, 
 **Also worth self-hosting (not in LiveBench's current rotation, scored on other benchmarks):**
 - **DeepSeek-V4-Pro-Max** - SWE-Bench Verified **80.6%**, 1.6T/49B active - <a target="_blank" href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro">Get DeepSeek-V4-Pro-Max</a>
 - **MiMo-V2.5-Pro** - vendor SWE-Bench Verified **78.9%** - <a target="_blank" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro">Get MiMo-V2.5-Pro</a>
+- **Muse Glimmer 30B** - vendor SWE-Bench Pro **51.2**, MCP Atlas **75.5**, runs on a 24GB GPU - <a target="_blank" href="https://huggingface.co/meta-models/Muse-Glimmer-30B">Get Muse Glimmer 30B</a>
 - **Devstral 2** - LiveBench Coding **66.79**, Agentic Coding **43.33** - <a target="_blank" href="https://huggingface.co/mistralai">Get Devstral 2</a>
+
+**New: Meta shipped a 30B agentic model that fits one consumer GPU.** Muse Glimmer landed **August 10, 2026** under **Apache 2.0** - dense, multimodal, 131K context, and quantized down to under 20GB so it runs on a single 24GB card. It beats Qwen3.6-27B on SWE-Bench Pro and by 13 points on MCP Atlas tool use, but loses to it on TerminalBench 2.1. See the [Muse Glimmer section below](#8-muse-glimmer-30b-meta---best-tool-use-on-a-single-gpu).
 
 **Kimi K3 weights are out, but they need a cluster:** Moonshot published the 2.8T MoE flagship on **July 27, 2026**. It's the **#1 open-weight model on LiveBench's Coding Avg (81.45) and Agentic Coding Avg (57.58)**, but at ~1.4 TB of MXFP4 weights it does not fit any single 8-GPU node, and it ships under a bespoke license rather than MIT. If you want the best model that fits one server, that's still GLM-5.2 - see the [Kimi K3 section below](#1-kimi-k3-moonshot-ai---top-open-weight-scores-cluster-required).
 
@@ -178,6 +181,8 @@ The useful surprise here is that **bigger does not win on a laptop**. **Qwen3.6 
 
 Two caveats. AA publishes reasoning and non-reasoning variants separately, and this table uses the reasoning score wherever one exists - Qwen3-Coder-Next and Mistral Medium 3.5 are scored non-reasoning only, so the bottom rows aren't a strict like-for-like read. And the two Mistral models the rest of this guide covers score lower on this index than their SWE-bench numbers suggest: **Devstral 2 sits at 19** and **Devstral Small 2 at 17** (both non-reasoning), as does **Nemotron-Cascade 2 30B-A3B at 18**.
 
+One model missing from this table is the newest entrant in exactly this size class: **Muse Glimmer 30B**, which Meta released on August 10, 2026. Artificial Analysis hasn't scored it yet, so there is no Intelligence Index number to slot in, but on Meta's own benchmarks it trades wins with Qwen3.6 27B and clears it comfortably on tool use. It's covered in [its own section below](#8-muse-glimmer-30b-meta---best-tool-use-on-a-single-gpu).
+
 What does *not* fit: GLM-5.2. Unsloth's 2-bit dynamic GGUF squeezes it from ~1.51 TB to ~239 GB, which needs a 256GB Mac Studio rather than any MacBook Pro, and 2-bit is a real quality cut on top. Kimi K3 is further out of reach again.
 
 ### LiveBench (secondary cross-check, July 2026)
@@ -271,8 +276,16 @@ SWE-Bench Pro is the coding-specific benchmark that does cover the June releases
   <td style="border:1px solid #ddd;padding:0.5em;">Apr 24, 2026</td>
   <td style="border:1px solid #ddd;padding:0.5em;">55.4</td>
 </tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Muse Glimmer 30B</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Meta</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Aug 10, 2026</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">51.2</td>
+</tr>
 </tbody>
 </table>
+
+The interesting row is the last one. **Muse Glimmer 30B lands 4.2 points behind DeepSeek-V4-Pro-Max** on this benchmark while being roughly 50x smaller in total parameters and running on a single 24GB GPU rather than eight H100s. Everything above it in this table needs a rack.
 
 DeepSeek-V4-Pro-Max sits lower on SWE-Bench Pro but leads open weights on the older SWE-Bench Verified at **80.6%** (tied with Gemini 3.1 Pro) and posts **93.5% on LiveCodeBench**, so its ranking depends heavily on which benchmark you weight. Several of these are self-reported by the vendor; treat them as directional until LiveBench and other independent evaluations catch up.
 
@@ -421,7 +434,7 @@ The architecture uses a hybrid attention design that interleaves local sliding w
 
 {{< image "best_open_source_self_hosted_llms_for_coding/qwen_3_coder.webp" "Qwen 3.6 Open Source LLM by Alibaba" >}}
 
-The general-purpose **Qwen 3.6** line (a 27B dense variant and the 35B-A3B MoE, both Apache 2.0, both released April 2026) is what shows up in this guide's LiveBench and Quick Decision tables: **71.78 Coding Avg / 39.29 Agentic Coding Avg** for the 27B, which makes it the best self-hostable option that fits a single consumer GPU. Nothing else in this guide comes close on that constraint.
+The general-purpose **Qwen 3.6** line (a 27B dense variant and the 35B-A3B MoE, both Apache 2.0, both released April 2026) is what shows up in this guide's LiveBench table: **71.78 Coding Avg / 39.29 Agentic Coding Avg** for the 27B, which makes it the best self-hostable option that fits a single consumer GPU. Nothing else in this guide comes close on that constraint.
 
 On the coding-specialized side, {{< link href="https://huggingface.co/Qwen/Qwen3-Coder-Next" >}}Qwen3-Coder-Next{{< /link >}} (80B total, 3B active) combines hybrid attention with MoE and scores 70.6% on SWE-bench Verified from only 3B active parameters - the best efficiency-per-active-parameter story here. Alibaba also provides {{< link href="https://github.com/QwenLM/qwen-code" >}}Qwen Code{{< /link >}}, an open source terminal coding agent optimized for the Qwen models, so you get a working agent workflow without wiring one up yourself.
 
@@ -434,7 +447,76 @@ On the coding-specialized side, {{< link href="https://huggingface.co/Qwen/Qwen3
 - **LiveBench Agentic Coding Avg:** 39.29 (Qwen 3.6 27B)
 - **Self-hosting:** Qwen 3.6 27B runs on a single 24GB GPU or a 32GB Mac via Ollama; Qwen3-Coder-Next needs more headroom despite its 3B active count
 
-### 8. StarCoder 2 (BigCode / Hugging Face) - Most Auditable Training Data
+### 8. Muse Glimmer 30B (Meta) - Best Tool Use on a Single GPU
+
+Meta Superintelligence Labs released {{< link href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model" >}}Muse Glimmer{{< /link >}} on **August 10, 2026**: a 30B dense multimodal model under **Apache 2.0**, built for agents that run on your own machine instead of in a datacenter. It is not a Llama model, and the announcement doesn't mention Llama once - it reads as a separate line out of MSL.
+
+The specs that matter here: **~29.6B total parameters** (including a ~1.8B vision encoder), 52 layers, a **131K context window**, GQA at 16:1, and a repeating `[local, local, local, global]` attention pattern with a 2,048-token sliding window. Full BF16 wants about 64GB, but Meta ships K-Quant builds that put the language model under 20GB, so it fits a single 24GB card, with a reported **0.2-1.0% degradation across 15 benchmarks**. That is the entire pitch: a serious agentic model on hardware you already own.
+
+Here's how it scores against its direct size-class rivals, both of which are already in this guide. All numbers are Meta's own, taken from the {{< link href="https://huggingface.co/meta-models/Muse-Glimmer-30B" >}}model card{{< /link >}} benchmark table, and all three columns are max-reasoning scores: Muse Glimmer in **High Reasoning**, Gemma4 and Qwen3.6 in **Thinking Mode**. TerminalBench 2.1 is run with the `terminus2` harness.
+
+<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
+<thead>
+<tr>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Benchmark</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Muse Glimmer 30B</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Qwen3.6 27B</th>
+  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Gemma4 31B</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">SWE-Bench Pro</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>51.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">50.2</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">36.9</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">SWE-Bench Verified</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">76.0</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>77.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">66.6</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">TerminalBench 2.1</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">51.7</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>60.7</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">43.4</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">MCP Atlas (Public)</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>75.5</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">62.5</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">54.2</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;">DeepSearch QA</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>74.6</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">71.1</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">61.7</td>
+</tr>
+</tbody>
+</table>
+
+Read that honestly and it's a split decision with Qwen 3.6 27B, not a clean win. Qwen still takes SWE-Bench Verified (77.2 vs 76.0) and takes **TerminalBench 2.1 by nine points** (60.7 vs 51.7), which is the benchmark closest to "can it actually drive a shell". Muse Glimmer edges SWE-Bench Pro and then pulls away on **MCP Atlas: 75.5 against Qwen's 62.5**. For scale, GLM-5.2 scores 76.8 on that same benchmark at 753B total parameters. A 30B model landing 1.3 points off it is the single most interesting number in this release. If your agent spends its time calling MCP servers, that gap is the reason to try it; if it spends its time in a terminal, Qwen 3.6 27B is still the better local pick.
+
+The other piece worth knowing about is **DFlash**, a block-diffusion speculative decoder that drafts 16 tokens in a single pass. Meta reports **74.9 to 233.4 tok/s on an RTX 5090 (3.1x)**, 26.6 to 50.2 on an M5 Max (1.8x), and 23.7 to 37.8 on an M4 Max (1.5x), with output identical to standard decoding. Speculative decoding usually costs you quality or memory; a 3.1x jump for neither is the kind of thing that changes whether a local agent feels usable.
+
+Two caveats. Every number above is self-reported by Meta - it isn't on LiveBench, and Artificial Analysis hasn't published an Intelligence Index score, so there's no independent read against the rest of this guide yet. And at 131K, its context window is the shortest of anything in the top half of this list, which bites when you point an agent at a large repo.
+
+#### Key Specs
+
+- **Architecture:** Dense causal transformer, ~29.6B total parameters (incl. ~1.8B vision encoder), 52 layers, GQA 16:1
+- **Context Window:** 131K tokens; text + image input, text output
+- **License:** Apache 2.0
+- **SWE-Bench Pro:** 51.2 ({{< link href="https://huggingface.co/meta-models/Muse-Glimmer-30B" >}}self-reported by Meta{{< /link >}})
+- **SWE-Bench Verified:** 76.0 (self-reported by Meta)
+- **TerminalBench 2.1:** 51.7 (self-reported by Meta)
+- **MCP Atlas:** 75.5 (self-reported by Meta; best tool-use score of any consumer-hardware model in this guide)
+- **LiveBench / Artificial Analysis:** Not yet covered
+- **Self-hosting:** Ollama, LM Studio, llama.cpp, vLLM, SGLang, Transformers, Jan, Docker Model Runner, and ExecuTorch on Apple devices; ~64GB VRAM at BF16, under 20GB with K-Quant so a single 24GB GPU or a 32GB Mac works
+
+### 9. StarCoder 2 (BigCode / Hugging Face) - Most Auditable Training Data
 
 {{< image "best_open_source_self_hosted_llms_for_coding/starcode2.webp" "StarCoder 2 Open Source LLM by BigCode" >}}
 
@@ -520,62 +602,8 @@ Once you've picked a model, you need the right tools and hardware to run it. We'
 - {{< link href="/blog/top_5_local_llm_tools_and_models/" >}}Top 5 Local LLM Tools and Models{{< /link >}} - A detailed comparison of Ollama, vLLM, llama.cpp, LM Studio, and other self-hosting tools with hardware requirements and performance benchmarks.
 
 
-## Quick Decision Guide
-
-<table style="width:100%;border-collapse:collapse;table-layout:fixed;">
-<thead>
-<tr>
-  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Your Need</th>
-  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Recommended Model</th>
-  <th style="border:1px solid #ddd;padding:0.5em;text-align:left;background:#f5f7fa;color:#333;font-weight:bold;">Why</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#fff3cd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Best raw benchmark score (cluster required)</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Kimi K3</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Tops LiveBench among open-weight models at 81.45 Coding Avg and 57.58 Agentic Coding Avg, but needs 64+ accelerators and a bespoke license</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Best overall coding on one server</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">GLM-5.2</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Highest single-node scores on LiveBench (79.65 Coding, 51.92 Agentic), MIT licensed, fits ~4x H100</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">Best on consumer hardware</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Qwen 3.6 27B or Devstral Small 2</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Solid coding scores with much smaller deployment footprint than trillion-scale models</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Best tiny model (&lt;10B)</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Yi-Coder 9B or StarCoder2-3B</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Runs on laptops, punches above weight</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">Best for agentic workflows</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">GLM-5.2</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Top single-node agentic coding score plus long-horizon execution and anti-hack RL training for coding agents</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Best long context + multimodal</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">MiniMax M3</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">1M-token context and native image input in one open-weight model</td>
-</tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Best for enterprise compliance</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">IBM Granite Code</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Apache 2.0, ethics-vetted training data</td>
-</tr>
-<tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">Best efficiency per parameter</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Qwen3.6-35B-A3B</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Strong coding-agent scores from only 3B active parameters</td>
-</tr>
-</tbody>
-</table>
-
 ## Conclusion
 
-**Kimi K3** now holds the top open-weight scores on every independent benchmark we checked, and since **July 27, 2026** its weights are public - but at ~1.4 TB it needs a multi-node cluster and ships under a bespoke license with a revenue trigger, so for most teams it's an API model that happens to be downloadable. **GLM-5.2** is the one to actually deploy: best scores of anything that fits a single server, MIT licensed, roughly 4x H100.
+**Kimi K3** holds the top open-weight scores on every independent benchmark we checked, but at ~1.4 TB it needs a cluster and a bespoke license, so for most teams it's an API model that happens to be downloadable. **GLM-5.2** is the one to actually deploy: the best scores of anything that fits a single server, MIT licensed, roughly 4x H100. At the small end, **Muse Glimmer 30B** quantizes under 20GB and posts 75.5 on MCP Atlas, within 1.3 points of a 753B model, though Qwen 3.6 27B still beats it on terminal work.
 
-For most developers: start with Qwen 3.6 27B or Devstral Small 2 on local hardware, move to GLM-5.2 when you have a GPU server and want top-tier agentic work, and reach for Kimi K3 only if you have the cluster or are happy calling the API. Self-hosted open source models are production-ready for coding, and with the best open weights now 3 points off the top of the Artificial Analysis index, the gap with proprietary models keeps shrinking.
+So: start with Qwen 3.6 27B or Devstral Small 2 locally, add Muse Glimmer if your agent leans on MCP tool calls, move to GLM-5.2 once you have a GPU server, and reach for Kimi K3 only if you have the cluster. With the best open weights now 3 points off the top of the Artificial Analysis index, the gap with proprietary models keeps shrinking.
