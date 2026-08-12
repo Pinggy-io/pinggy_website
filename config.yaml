@@ -124,9 +124,14 @@ taxonomies:
 pagination:
   pagerSize: 10
 
+# AMP is not a site-wide format. Only the blog and know_your_port sections have
+# AMP templates (layouts/*/baseof.amp.html); every other page rendered into the
+# AMP output format got the regular Bootstrap + Alpine layout copied under
+# /amp/, which is invalid AMP, self-canonical, and linked from nowhere. The two
+# sections that do have templates opt in through `cascade` in their _index.md.
 outputs:
-  home: ["HTML", "AMP", "llmstxt"]
-  page: ["HTML", "AMP"]
+  home: ["HTML", "llmstxt"]
+  page: ["HTML"]
 
 outputFormats:
   HTML:

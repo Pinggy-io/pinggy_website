@@ -4,6 +4,10 @@ description: "Guías prácticas y análisis a fondo sobre túneles a localhost, 
 heading: "Túneles, redes, LLMs autoalojados y noticias de IA"
 date: 2023-02-23
 publishdate: 2023-02-23
+cascade:
+  - target:
+      kind: page
+    outputs: ["HTML", "AMP"]
 ---
 
 Guías prácticas, análisis de protocolos y notas de campo sobre túneles, SSH, proxies inversos, autoalojamiento, LLMs autoalojados e IA - de la gente que construye <a href="/">Pinggy</a>.
