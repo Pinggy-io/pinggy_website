@@ -1,0 +1,15 @@
+{{/* AMP twin of drawio.html.
+
+     AMP forbids third-party scripts, so the viewer-static.min.js embed cannot
+     run here - it tripped "The parent tag of tag 'amphtml engine script' is
+     'div', but it can only be 'head'". Render the static export of the same
+     diagram instead, and drop the interactive markup entirely. */}}
+{{ with .Get "img" }}
+<img
+  src="{{ . }}"
+  alt="{{ $.Get "alt" }}"
+  {{ with $.Get "width" }}width="{{ . }}"{{ end }}
+  {{ with $.Get "height" }}height="{{ . }}"{{ end }}
+  decoding="async"
+/>
+{{ end }}
