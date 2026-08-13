@@ -1,13 +1,35 @@
-{{ $poster := .Get "poster" }} {{ $src := .Get "src" }}
+{{/* Click-to-play video.
+
+     The poster is a lazily-loaded <img> layered over the video rather than the
+     <video poster> attribute, because a poster attribute is fetched eagerly
+     even with preload="none" - on the Ngrok alternatives post that was 81KB
+     downloaded during page load for a video sitting 5,000px down the page.
+
+     Bootstrap's `.ratio` absolutely positions every child to fill the box, so
+     the img (later in the DOM) stacks over the video and takes the first
+     click. */}}
+{{ $poster := .Get "poster" }}
+{{ $src := .Get "src" }}
+{{ $type := cond (strings.HasSuffix $src ".webm") "video/webm" "video/mp4" }}
 
 <div class="my-4 videocontainer ratio ratio-16x9">
   <video
     preload="none"
     onclick="this.paused?this.play():this.pause();"
     loop
-    poster="{{ $poster }}"
+    playsinline
   >
-    <source src="{{ $src }}" type="video/mp4" />
+    <source src="{{ $src }}" type="{{ $type }}" />
     {{ i18n "videoUnsupported" }}
   </video>
+  {{ with $poster }}
+  <img
+    class="videoposter"
+    src="{{ . }}"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    onclick="var v=this.previousElementSibling;this.hidden=true;v.play();"
+  />
+  {{ end }}
 </div>

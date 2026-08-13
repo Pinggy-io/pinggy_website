@@ -3,7 +3,7 @@ title: "Inside Kitesurf: Cloudflare Built a Browser Engine Just for AI Agents"
 description: "Cloudflare shipped Kitesurf, a browser engine written from scratch to run in V8 isolates on Workers instead of Chromium. Here's how it works, the real CPU and memory numbers, what it still can't do, and how to point it at an app running on your own machine."
 date: 2026-08-08T15:30:00+05:30
 draft: false
-tags: ["Cloudflare", "Kitesurf", "AI agents", "browser automation", "Cloudflare Workers", "V8 isolates", "headless browser", "web scraping"]
+tags: ["Cloudflare", "AI agents"]
 categories: ["Technology", "AI", "Developer Tools"]
 og_image: "images/cloudflare_kitesurf_ai_agent_browser/cloudflare_kitesurf_ai_agent_browser_banner.webp"
 outputs:

@@ -5,13 +5,15 @@
     {{- partial "header.html" . -}} {{- with .OutputFormats.Get "AMP" }}
     <link rel="amphtml" href="{{ .RelPermalink | absURL }}" />
     {{- end }}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link href="/css/blog.css?v=28" rel="stylesheet" />
+    {{/* Fonts are self-hosted (@font-face lives in blog.css). The Google Fonts
+         stylesheet used to render-block for ~1s on mobile before it could even
+         start fetching the woff2 files off a third origin. Only the two faces
+         needed for the first paint - the h1 and the body copy - are preloaded;
+         JetBrains Mono and the latin-ext cuts load on demand. */}}
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+    {{- partial "blogcss.html" . -}}
     {{- partial "seoblogs.html" . -}}
   </head>
 

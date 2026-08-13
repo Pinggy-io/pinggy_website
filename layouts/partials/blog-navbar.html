@@ -4,7 +4,11 @@
      `.bp-nav` in static/css/blog.css and load only on blog pages. -->
 <nav class="bp-nav" aria-label="Blog">
   <div class="bp-nav__inner">
-    <a class="bp-nav__brand" href="/" aria-label="Pinggy home">
+    {{/* No aria-label: the accessible name is computed from the logo alt plus
+         the wordmark below ("Pinggy Technical Blog"), which matches the visible
+         text. A hand-written "Pinggy home" label did not contain the visible
+         text and failed WCAG 2.5.3 label-in-name. */}}
+    <a class="bp-nav__brand" href="/">
       <img
         class="bp-nav__logo"
         src="/assets/pinggy_logo.webp"

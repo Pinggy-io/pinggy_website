@@ -4,7 +4,7 @@
  date: 2024-11-02T14:15:25+05:30
  lastmod: 2024-11-02T15:15:25+05:30
  draft: false 
- tags: ["guide","FastAPI", "Pinggy"]
+ tags: ["guide", "FastAPI", "Pinggy"]
  og_image: "images/host_fastapi_app/host_fastapi.webp"
  outputs:
   - HTML

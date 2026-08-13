@@ -1,7 +1,42 @@
-{{ $imageName := .Get 0 }} {{ $altText := .Get 1 }} {{ $image :=
-resources.GetMatch (printf "images/%s" $imageName) }} {{ with $image }}
+{{/* Body image.
+
+     The first image in a post is the lead graphic and is the LCP element on
+     most articles, so it loads eagerly at high priority; everything after it is
+     below the fold and loads lazily. Before this, all ten images on a long
+     comparison post were fetched eagerly and competed with the LCP image for
+     bandwidth on mobile.
+
+     The lead is identified by scanning RawContent rather than by counting
+     shortcode invocations: pages render once per output format and a Scratch
+     counter is shared across them, so the AMP render (which happens first)
+     would eat the count and leave the HTML page's lead image lazy-loaded.
+
+     width/height come from the resource so the browser can reserve the box
+     before the bytes arrive. `.bp img { max-width: 100%; height: auto }` in
+     blog.css keeps the rendered size fluid; the attributes only supply the
+     aspect ratio. */}}
+{{ $imageName := .Get 0 }}
+{{ $altText := .Get 1 }}
+{{ $image := resources.GetMatch (printf "images/%s" $imageName) }}
+{{ with $image }}
+{{/* First image name in the source that actually resolves to a resource - a
+     couple of posts point their lead image at a file that no longer exists, and
+     that shortcode call renders nothing, so naively taking the first name would
+     leave the page with no prioritised image at all. */}}
+{{ $lead := "" }}
+{{ range findRE `\{\{<\s*image\s+"[^"]*"` $.Page.RawContent }}
+  {{ if eq $lead "" }}
+    {{ $name := trim (index (findRE `"[^"]*"` . 1) 0) "\"" }}
+    {{ if resources.GetMatch (printf "images/%s" $name) }}{{ $lead = $name }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ $isLead := and (ne $lead "") (eq $lead $imageName) }}
 <img
   src="{{ .RelPermalink }}"
   alt="{{ with $altText }}{{ $altText }}{{ else }}{{ $imageName }}{{ end }}"
+  width="{{ .Width }}"
+  height="{{ .Height }}"
+  decoding="async"
+  {{ if $isLead }}loading="eager" fetchpriority="high"{{ else }}loading="lazy"{{ end }}
 />
 {{ end }}

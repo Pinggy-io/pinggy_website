@@ -2,7 +2,7 @@
  title: "Quickest way to share file" 
  date: 2023-06-13T01:15:25+05:30 
  draft: true 
- tags: ["guide", "file share", "web server", "pinggy"]
+ tags: ["guide", "web server", "Pinggy"]
 ---
 
 What is the quickest way to share file with others? Email, WhatsApp etc. While this solution is elegant, it is not really that quick.

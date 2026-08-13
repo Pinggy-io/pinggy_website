@@ -3,7 +3,7 @@ title: "Jeff Dean Left Google After 27 Years to Automate the Scientific Method"
 description: "Jeff Dean, Sanjay Ghemawat, Oriol Vinyals, and Quoc Le just quit Google to found Discovery Loop, a startup betting that the entire cycle of hypothesis, experiment, and evaluation can be run on a loop, at scale, by machines. Here's what it actually is, and what's still unproven."
 date: 2026-08-06T10:30:00+05:30
 draft: false
-tags: ["Jeff Dean", "Discovery Loop", "Google", "Google DeepMind", "AI research", "AI for science", "AlphaEvolve", "startups"]
+tags: ["Jeff Dean", "Google"]
 categories: ["Technology", "AI", "Business"]
 og_image: "images/jeff_dean_discovery_loop/jeff_dean_discovery_loop_banner.webp"
 outputs:
