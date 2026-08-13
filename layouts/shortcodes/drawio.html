@@ -1,0 +1,12 @@
+{{/* Interactive draw.io diagram.
+
+     Wrap the exported `<div class="mxgraph" data-mxgraph="...">` blob as the
+     shortcode's inner content; this template adds the viewer script. The `img`
+     parameter is the same diagram exported as a static file - it is what the
+     AMP twin renders, since AMP cannot run the third-party viewer.
+
+     {{< drawio img="/assets/foo.png" alt="..." width="2605" height="1160" >}}
+     <div class="mxgraph" data-mxgraph="..."></div>
+     {{< /drawio >}} */}}
+{{ .Inner | safeHTML }}
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>

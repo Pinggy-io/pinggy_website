@@ -1,0 +1,32 @@
+{{/* AMP twin of image.html.
+
+     AMP only accepts `loading="lazy"` on `img`; the HTML template's
+     `loading="eager"` on the lead graphic failed validation on every article
+     that has an image ("The attribute 'loading' in tag 'img' is set to the
+     invalid value 'eager'"). The lead image here simply omits the attribute -
+     no `loading` means the default eager fetch, which is what we want for the
+     LCP element anyway, and the AMP runtime schedules the rest.
+
+     The lead is detected the same way as in image.html: by scanning RawContent
+     for the first image name that resolves to a resource. */}}
+{{ $imageName := .Get 0 }}
+{{ $altText := .Get 1 }}
+{{ $image := resources.GetMatch (printf "images/%s" $imageName) }}
+{{ with $image }}
+{{ $lead := "" }}
+{{ range findRE `\{\{<\s*image\s+"[^"]*"` $.Page.RawContent }}
+  {{ if eq $lead "" }}
+    {{ $name := trim (index (findRE `"[^"]*"` . 1) 0) "\"" }}
+    {{ if resources.GetMatch (printf "images/%s" $name) }}{{ $lead = $name }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ $isLead := and (ne $lead "") (eq $lead $imageName) }}
+<img
+  src="{{ .RelPermalink }}"
+  alt="{{ with $altText }}{{ $altText }}{{ else }}{{ $imageName }}{{ end }}"
+  width="{{ .Width }}"
+  height="{{ .Height }}"
+  decoding="async"
+  {{ if not $isLead }}loading="lazy"{{ end }}
+/>
+{{ end }}

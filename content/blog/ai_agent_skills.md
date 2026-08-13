@@ -2,7 +2,7 @@
 title: "What Are Skills in AI Agents? Top 14 Skills You Must Know in 2026"
 description: "Discover what AI agent skills are, how they work, and the top 14 must-know skills for developers - including Grill Me, Caveman, TDD, and Graphify. Learn how to install and use skills in Claude Code, Cursor, Codex CLI, and other AI coding agents."
 date: 2026-02-14T14:15:25+05:30
-lastmod: 2026-06-03T14:15:25+05:30
+lastmod: 2026-08-12T14:15:25+05:30
 draft: false
 og_image: "images/ai_agent_skills/ai_agent_skills_banner.webp"
 tags: ["AI agents", "agent skills", "Claude Code", "AI coding", "developer tools"]
@@ -407,7 +407,7 @@ npx skillsadd supabase/agent-skills
 
 {{< link href="https://github.com/remotion-dev/skills" >}}Remotion{{< /link >}} lets developers create videos programmatically using React, and the Remotion Best Practices skill (with 89,000+ installs) teaches your AI agent how to do it properly. This skill covers component composition for video scenes, animation timing, audio synchronization, rendering optimization, and deployment to Remotion's Lambda rendering service.
 
-Programmatic video generation is a growing use case for marketing teams, content creators, and SaaS products that need personalized video at scale. The skill ensures your agent produces Remotion code that follows the framework's composition model correctly, handles frame timing precisely, and optimizes rendering performance for production workloads.
+Programmatic video generation is a growing use case for marketing teams, content creators, and SaaS products that need personalized video at scale. While these skills help developers build custom video workflows through code, teams looking to simplify the broader production process can also use {{< link href="https://invideo.io/" >}}invideo Agent{{< /link >}} to turn ideas, briefs, and creative direction into complete videos, with scenes, visuals, voiceovers, music, and editing handled through an AI-powered workflow.
 
 **Key Features**:
 
