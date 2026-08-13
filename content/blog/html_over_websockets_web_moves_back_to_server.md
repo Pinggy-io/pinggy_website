@@ -11,7 +11,7 @@ outputs:
   - AMP
 ---
 
-{{< image "html_over_websockets_web_moves_back_to_server/html_over_websockets_web_moves_back_to_server_banner.webp" "Diagram comparing a traditional SPA fetching JSON from an API against HTML over WebSockets, where the server renders HTML and pushes it over a persistent connection" >}}
+{{< image "html_over_websockets_web_moves_back_to_server/html_over_websockets_web_moves_back_to_server_banner.webp" "The Phoenix Framework blog post announcing the real-time Twitter clone screencast, showing two synced browser panes updating live with no client-side JavaScript" >}}
 
 In April 2020, Chris McCord posted a screencast with a blunt title: "Build a real-time Twitter clone in 15 minutes with LiveView and Phoenix 1.5. No need to write JavaScript." He built a timeline that broadcast new posts to every connected browser instantly, with payloads he claimed were smaller than a hand-written SPA would send. There was no REST API, no JSON schema, no client-side rendering framework. The server rendered HTML, diffed it against what the browser already had, and pushed just the difference down an open connection.
 
@@ -22,7 +22,7 @@ That idea, usually called "HTML over WebSockets" or "server-driven UI," has been
 2. Phoenix LiveView is the most established implementation; Rails Hotwire/Turbo, Laravel Livewire, Symfony UX Live Components, Blazor Server, and Datastar all do variations of the same pattern.
 3. The tradeoff is real: one codebase and no API layer, but the server now holds per-connection state, which changes how you scale and how you monitor failures.
 4. WebSockets guarantee in-order delivery and support bidirectional push; Server-Sent Events get you automatic reconnection and plain HTTP compatibility but only push one way.
-5. Testing this locally is different from testing a stateless API, reconnect behavior and multi-client broadcast state matter more than a single request/response cycle.
+5. Testing this locally is different from testing a stateless API: reconnect behavior and multi-client broadcast state matter more than a single request/response cycle.
 6. To test it from a real phone on a real cellular connection, you need a tunnel that forwards the WebSocket upgrade handshake untouched, not one that only understands plain HTTP.
 {{% /tldr %}}
 
@@ -36,7 +36,7 @@ The pitch is that you get real-time updates for free: broadcast a change to ever
 
 ## Older than the name suggests
 
-The pattern is not new, and the obvious objection, that this reinvents ASP.NET WebForms and DHTML-style postbacks from the 2000s, is not wrong about the shape. What's different now is the diffing. Early postback-style frameworks re-sent whole page fragments and clobbered scroll position and focus. Modern implementations diff the rendered HTML tree (via libraries like morphdom or idiomorph) and patch only what changed, which is what makes it viable for interactive UI instead of just page reloads with extra steps.
+The pattern is not new. The obvious objection, that this reinvents ASP.NET WebForms and DHTML-style postbacks from the 2000s, is not wrong about the shape. What's different now is the diffing. Early postback-style frameworks re-sent whole page fragments and clobbered scroll position and focus. Modern implementations diff the rendered HTML tree (via libraries like morphdom or idiomorph) and patch only what changed, which is what makes it viable for interactive UI instead of just page reloads with extra steps.
 
 Production use predates LiveView's public debut too. Booking.com built something similar in-house around 2014-2015: server-side templating plus morphdom for DOM patching, years before Phoenix made the pattern famous. LiveView, which shipped for Elixir/Phoenix in 2019, is generally credited as the implementation that made the idea mainstream and portable to other ecosystems, but it didn't invent the technique.
 
@@ -44,18 +44,18 @@ Production use predates LiveView's public debut too. Booking.com built something
 
 A few frameworks cover most of this space today, and they're not interchangeable:
 
-- **Phoenix LiveView** (Elixir) is the most mature implementation and the one everyone else gets compared to. It leans on the BEAM's lightweight processes to hold millions of connections cheaply, which is a big part of why it scales the way it does.
-- **Rails Hotwire (Turbo + Stimulus)** ships Turbo Streams, which can broadcast partial page updates over WebSocket via Action Cable, and Stimulus for the sliver of JavaScript you still need. 37signals built HEY and Basecamp on it and has been vocal about skipping the SPA build step entirely.
-- **Laravel Livewire** and **Symfony UX Live Components** bring the same idea to PHP, wiring component state to the server instead of a client store.
-- **Blazor Server** (.NET) runs your component tree on the server and streams UI diffs to the browser over SignalR, which is effectively WebSockets with fallbacks. It's popular for internal, employee-only tools where the always-on connection isn't a dealbreaker.
-- **Datastar** takes a different transport bet: it uses Server-Sent Events instead of WebSockets, and fits in about 11KB by merging Alpine.js-style client reactivity with htmx-style backend-driven updates into one library.
-- **htmx** itself is mostly a stateless, HTTP-based tool, but pairs with its SSE extension when you need server push without going full WebSocket.
+- **{{< link href="https://www.phoenixframework.org/" >}}Phoenix LiveView{{< /link >}}** (Elixir) is the most mature implementation and the one everyone else gets compared to. It leans on the BEAM's lightweight processes to hold millions of connections cheaply, which is a big part of why it scales the way it does.
+- **{{< link href="https://hotwired.dev/" >}}Rails Hotwire{{< /link >}} (Turbo + Stimulus)** ships Turbo Streams, which can broadcast partial page updates over WebSocket via Action Cable, and Stimulus for the sliver of JavaScript you still need. 37signals built HEY and Basecamp on it and has been vocal about skipping the SPA build step entirely.
+- **{{< link href="https://livewire.laravel.com/" >}}Laravel Livewire{{< /link >}}** and **{{< link href="https://ux.symfony.com/live-component" >}}Symfony UX Live Components{{< /link >}}** bring the same idea to PHP, wiring component state to the server instead of a client store.
+- **{{< link href="https://learn.microsoft.com/en-us/aspnet/core/blazor/" >}}Blazor Server{{< /link >}}** (.NET) runs your component tree on the server and streams UI diffs to the browser over SignalR, which is effectively WebSockets with fallbacks. It's popular for internal, employee-only tools where the always-on connection isn't a dealbreaker.
+- **{{< link href="https://github.com/starfederation/datastar/" >}}Datastar{{< /link >}}** takes a different transport bet: it uses Server-Sent Events instead of WebSockets, and fits in about 11KB by merging Alpine.js-style client reactivity with htmx-style backend-driven updates into one library.
+- **{{< link href="https://htmx.org/" >}}htmx{{< /link >}}** itself is mostly a stateless, HTTP-based tool, but pairs with its SSE extension when you need server push without going full WebSocket.
 
 None of these agree on transport, and that disagreement is the most interesting technical argument in this space right now.
 
 ## WebSocket or SSE: the transport fight
 
-WebSockets guarantee in-order, bidirectional delivery over a single TCP connection. That matters when the server is maintaining stateful UI and the client also needs to push events back frequently, form input, clicks, keystrokes for live validation. It's also more resource-hungry: every open socket is a held connection and (usually) held server-side state, and naive implementations are vulnerable to slow, resource-exhausting connection floods the way any long-lived TCP service is.
+WebSockets guarantee in-order, bidirectional delivery over a single TCP connection. That matters when the server is maintaining stateful UI and the client also needs to push events back frequently: form input, clicks, keystrokes for live validation. It's also more resource-hungry: every open socket is a held connection and (usually) held server-side state, and naive implementations are vulnerable to slow, resource-exhausting connection floods the way any long-lived TCP service is.
 
 Server-Sent Events are HTTP, not a protocol upgrade. That gets you automatic reconnection out of the box (the browser retries and sends a `Last-Event-ID` header so the server can resume where it left off), and it survives strict corporate proxies that mangle WebSocket upgrades better than WebSockets do. The catch is that SSE is one-directional, server to client only, and under HTTP/1.1 browsers cap you at six connections per origin, which can bite you if a user has several tabs open. HTTP/2 mostly removes that ceiling through multiplexing.
 
@@ -94,6 +94,4 @@ If you're building an internal tool, an admin dashboard, or anything where every
 
 **Further reading:**
 - <a href="https://www.phoenixframework.org/blog/build-a-real-time-twitter-clone-in-15-minutes-with-live-view-and-phoenix-1-5" target="_blank">Build a real-time Twitter clone in 15 minutes with LiveView and Phoenix 1.5</a> - Phoenix Framework Blog
-- <a href="https://hotwired.dev/" target="_blank">Hotwire: HTML Over The Wire</a> - Hotwired.dev
 - <a href="https://world.hey.com/dhh/bringing-hotwire-to-basecamp-91a442d6" target="_blank">Bringing Hotwire to Basecamp</a> - DHH
-- <a href="https://github.com/starfederation/datastar/" target="_blank">Datastar: the hypermedia framework</a> - GitHub
