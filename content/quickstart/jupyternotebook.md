@@ -17,4 +17,6 @@ https://ranlkfsbjkxry.a.pinggy.link?token=09f45dxxxx
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jupyter Notebook:" portstring="Jupyter Notebook Port" localport="8888" webdebugenabled=false keepalive=true headermodifications=`[{"mode":"a", "headername":"Host", "headerval": "localhost:8888"}]` >}}
 {{< /pinggytunnel >}}
 
+{{< iframe src="https://www.youtube.com/embed/Fr92jL8yB30" title="Sharing Jupyter Notebooks from localhost" >}}
+
 <hr>
