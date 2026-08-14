@@ -1,3 +1,9 @@
-{{ $href := .Get "href" | default "#" }}
-{{ $newtab := .Get "newtab" | default true }}
-<a href="{{ .Get "href" }}" {{ if $newtab }}target="_blank"{{ end }}>{{ .Inner }}</a>
+{{/* Whitespace must be trimmed around the assignment lines and after the
+     anchor. Untrimmed, they emit two leading newlines before the anchor and one
+     after it; inside a `{{% %}}` shortcode such as `tldr` - whose Inner is
+     re-run through Goldmark - a blank line closes the surrounding list and
+     drops the link into its own paragraph, and the trailing newline renders as
+     a stray space before any punctuation that follows the link. */}}
+{{- $href := .Get "href" | default "#" -}}
+{{- $newtab := .Get "newtab" | default true -}}
+<a href="{{ $href }}" {{ if $newtab }}target="_blank"{{ end }}>{{ .Inner }}</a>
