@@ -14,4 +14,6 @@ Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.link`. Use this 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Django server:" portstring="Django Port" localport="8000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
+{{< iframe src="https://www.youtube.com/embed/xsIrb1PM2Hc" title="Share Django App from Localhost" >}}
+
 <hr>

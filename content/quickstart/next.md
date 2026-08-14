@@ -14,4 +14,6 @@ Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.link`. Use this 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Next server:" portstring="Next Port" localport="3000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
+{{< iframe src="https://www.youtube.com/embed/H5_9rdmHQWE" title="Sharing a Next.js application from localhost with Pinggy" >}}
+
 <hr>
