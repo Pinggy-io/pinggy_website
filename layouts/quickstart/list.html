@@ -34,11 +34,13 @@
             <div class="card mb-3 h-100" style="max-width: 540px">
               <div class="row g-0 h-100">
                 {{ with .Params.og_image }}
-                <div class="col-md-4 d-flex justify-content-center">
+                <div
+                  class="col-md-4 d-flex justify-content-center align-items-center"
+                >
                   <img
                     src="{{ . }}"
                     class="img-fluid rounded-start"
-                    style="width: 100%; padding: 1rem"
+                    style="width: 100%; padding: 1rem; object-fit: contain"
                   />
                 </div>
                 {{ end }}

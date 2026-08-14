@@ -4,7 +4,7 @@ description: "Jan is an offline-first desktop app for running and chatting with 
 date: 2026-08-12T01:15:25+05:30
 draft: false
 tags: ["guide"]
-og_image: "/quickstart/images/jan-ai.jpg"
+og_image: "/quickstart/images/jan-ai.webp"
 ---
 
 With [pinggy.io](https://pinggy.io) you can share your Jan instance from localhost with just a single command. **Replace the port 1337 with the port where Jan is running.**
@@ -15,5 +15,7 @@ Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.link`. Use this 
 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Jan:" portstring="Jan Port" localport="1337" webdebugenabled=false keepalive=true headermodifications=`[{"mode":"u", "headername":"Host", "headerval": "localhost:1337"}]` >}}
 {{< /pinggytunnel >}}
+
+{{< iframe src="https://www.youtube.com/embed/zp_DmhnhD_w" title="Self-host a local AI assistant with Jan and Pinggy" >}}
 
 <hr>

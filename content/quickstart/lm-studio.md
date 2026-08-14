@@ -14,4 +14,6 @@ Start the server from the **Developer** tab in LM Studio first, then run the tun
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to LM Studio:" portstring="LM Studio Port" localport="1234" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
+{{< iframe src="https://www.youtube.com/embed/FQgmqxBE3f4" title="Share the LM Studio API online with Pinggy" >}}
+
 <hr>

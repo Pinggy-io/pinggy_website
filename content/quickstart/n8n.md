@@ -14,4 +14,6 @@ Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.link`. Use this 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to n8n:" portstring="n8n Port" localport="5678" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
+{{< iframe src="https://www.youtube.com/embed/RJoNzhWSgA4" title="Self-host n8n and configure Google Auth and webhook URLs" >}}
+
 <hr>

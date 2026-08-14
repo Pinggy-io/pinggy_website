@@ -23,11 +23,11 @@ With [pinggy.io](https://pinggy.io), you can share your Minecraft server from lo
 
 {{% /tldr %}}
 
-{{< iframe src="https://www.youtube.com/embed/jwHRK6rYDIs" title="How to Host a Minecraft Server for Friends Online (No Port Forwarding)" >}}
 
 {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start a tunnel to Minecraft server:" portstring="Minecraft server Port" localport="25565" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
+{{< iframe src="https://www.youtube.com/embed/jwHRK6rYDIs" title="How to Host a Minecraft Server for Friends Online (No Port Forwarding)" >}}
 ## Open your world to LAN
 
 This is the quickest route: any world you are already playing can become a server without downloading anything.

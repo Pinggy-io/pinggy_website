@@ -14,4 +14,6 @@ Pinggy will give you a URL like `https://ranlkfsbjkxry.a.pinggy.link`. Use this 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to Open WebUI:" portstring="Open WebUI Port" localport="3000" webdebugenabled=false keepalive=true >}}
 {{< /pinggytunnel >}}
 
+{{< iframe src="https://www.youtube.com/embed/OhWEKvYj-UE" title="Run Ollama Models for Free on Google Colab with Pinggy + OpenWebUI" >}}
+
 <hr>
