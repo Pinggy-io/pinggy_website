@@ -14,23 +14,25 @@ outputs:
 
 {{< image "best_remote_iot_device_management_software/best_remote_iot_device_management_software_banner.webp" "Best Remote IoT Device Management Software in 2026" >}}
 
-The same 100 Raspberry Pis cost $20 a month to manage on RemoteIoT and $409 on balenaCloud. Both are sold as remote IoT device management software, both reach a device sitting behind CGNAT with no public IP and no port forwarding, and that 20x gap is not a markup. They solve different halves of the problem. The cheap half is **access**: get a shell, a VNC desktop or an HTTP endpoint on a device you cannot route to. The expensive half is **lifecycle**: a device registry, updates that are atomic and roll back when they fail, fleet-wide config, audit logs. Buying the wrong half is what actually costs money, in either direction.
+Managing a fleet of IoT devices such as Raspberry Pis and other single-board computers is not easy, especially once they are out in the wild: behind CGNAT, on cellular data, inside someone else's home network. Easy remote access and management is essential once you can no longer just walk over and plug in a keyboard.
 
-This guide compares balenaCloud, AWS IoT Device Management, SocketXP, RemoteIoT and Dataplicity on what decides that call: how the agent crosses NAT, whether over-the-air updates are atomic, what happens when one bricks a device 400km away, and what the bill looks like at real fleet sizes. Every price and feature here came from the vendor's own pricing and documentation pages, checked in August 2026.
+That's the gap this guide is about. The same 100 Raspberry Pis cost $20 a month to manage on RemoteIoT and $409 on balenaCloud, and that gap is not a markup, it's two different products: the cheap half is **access** (a shell or VNC session on a device you can't route to), the expensive half is **lifecycle** (a device registry, atomic updates with rollback, fleet-wide config, audit logs). Buying the wrong half is what actually costs money.
+
+This guide compares balenaCloud, SocketXP, RemoteIoT, Dataplicity and AWS IoT Device Management on what decides that call: how the agent crosses NAT, whether updates are atomic, and what the bill looks like at real fleet sizes. Every price and feature here came from the vendor's own pages, checked in August 2026.
 
 {{% tldr %}}
 
 **Top 5 remote IoT device management platforms in 2026:**
 
 1. **<a href="https://www.balena.io/cloud" target="_blank">balenaCloud</a>** - Containers on balenaOS, delta updates, 100+ boards. Free for 10 devices, then $159/month.
-2. **<a href="https://aws.amazon.com/iot-device-management/" target="_blank">AWS IoT Device Management</a>** - Jobs, fleet indexing, secure tunneling. Pay per use: $0.003/action, $1.00/tunnel.
-3. **<a href="https://www.socketxp.com/" target="_blank">SocketXP</a>** - Static agent, mTLS, no inbound ports. $20/month (40 devices) or $99/month (100 devices).
-4. **<a href="https://remoteiot.com/" target="_blank">RemoteIoT</a>** - Cheapest per device. $0.20 to $1.00 per device/month, free for 5 non-commercial.
-5. **<a href="https://www.dataplicity.com/" target="_blank">Dataplicity</a>** - Bare Pi to browser terminal in one command. 1 free device, then $3.00/device/month.
+2. **<a href="https://www.socketxp.com/" target="_blank">SocketXP</a>** - Static agent, mTLS, no inbound ports. $20/month (40 devices) or $99/month (100 devices).
+3. **<a href="https://remoteiot.com/" target="_blank">RemoteIoT</a>** - Cheapest per device. $0.20 to $1.00 per device/month, free for 5 non-commercial.
+4. **<a href="https://www.dataplicity.com/" target="_blank">Dataplicity</a>** - Bare Pi to browser terminal in one command. 1 free device, then $3.00/device/month.
+5. **<a href="https://aws.amazon.com/iot-device-management/" target="_blank">AWS IoT Device Management</a>** - Jobs, fleet indexing, secure tunneling. Pay per use: $0.003/action, $1.00/tunnel.
 
 **Also worth a look:** <a href="https://qbee.io/" target="_blank">qbee.io</a>, <a href="https://thingsboard.io/" target="_blank">ThingsBoard</a>, <a href="https://memfault.com/" target="_blank">Memfault</a>, <a href="https://mender.io/" target="_blank">Mender</a>.
 
-**Short version:** deploying containers, use balenaCloud. Huge fleet already on AWS, use AWS IoT. Only need a shell, the access tools cost a tenth as much and an SSH reverse tunnel through {{< link href="https://pinggy.io" newtab=false >}}Pinggy{{< /link >}} costs nothing.
+**Short version:** deploying containers, use balenaCloud. Only need a shell, the access tools cost a tenth as much. Huge fleet already on AWS, use AWS IoT.
 
 {{% /tldr %}}
 
@@ -38,15 +40,15 @@ This guide compares balenaCloud, AWS IoT Device Management, SocketXP, RemoteIoT 
 
 "Device management" is a bag that holds five separate jobs, and most tools are strong at two or three of them. Being clear about which ones you need saves a lot of money.
 
-**Identity and provisioning** is how a device gets its credentials and joins the fleet without a human typing a token into it. At small scale you paste an install command over SSH. At 10,000 units coming off a contract manufacturer's line, you need zero-touch provisioning backed by per-device certificates.
+**Identity and provisioning** is how a device gets its credentials and joins the fleet without a human typing a token into it. Done right, the device connects and authenticates on its own the moment it's powered on. At small scale you paste an install command over SSH. At 10,000 units coming off a contract manufacturer's line, you need zero-touch provisioning backed by per-device certificates instead.
 
-**Remote access** is getting an interactive session, a shell, a VNC desktop or an HTTP endpoint, on a device you cannot route to. Every platform here does this, but the mechanism differs enough to matter for firewall reviews.
+**Remote access** is a shell, a VNC desktop or an HTTP endpoint on a device you can't route to. Every platform here does it, but the mechanism differs enough to matter for firewall reviews.
 
-**Over-the-air updates** is shipping new software. The important word is atomic: either the whole update lands or the device stays on the old version. A `git pull` followed by a service restart is not an OTA system, because there is no defined state to roll back to when it fails at 2am on a device 400km away.
+**Over-the-air updates** means shipping new software safely. The key word is atomic: either the whole update lands, or the device stays on the old version. A `git pull` and a service restart is not an OTA system: there's no state to roll back to when it fails at 2am, 400km away.
 
-**Telemetry and monitoring** is CPU, memory, disk, temperature, connectivity and application metrics, plus alerts when they go out of range. This is where the "IoT platform" category blurs into observability tools like Memfault.
+**Telemetry and monitoring** is CPU, memory, disk, temperature and connectivity metrics, plus alerts when they drift out of range. This is where "IoT platform" blurs into observability tools like Memfault.
 
-**Configuration and policy** is declaring what the device should look like (users, SSH keys, NTP, firewall rules, installed packages) and having the agent converge to it. qbee.io and balenaCloud take this seriously; the access-focused tools mostly do not.
+**Configuration and policy** is declaring what the device should look like (users, SSH keys, NTP, firewall rules, packages) and having the agent converge to it. qbee.io and balenaCloud take it seriously; the access-focused tools mostly don't.
 
 One more thing worth weighing before you standardize on anything: Google retired Cloud IoT Core on **16 August 2023**, five years after launching it, and every customer had to migrate. Ask what your exit looks like before you have 5,000 devices in the field.
 
@@ -71,13 +73,6 @@ One more thing worth weighing before you standardize on anything: Google retired
   <td style="border:1px solid #ddd;padding:0.5em;">$159/mo (30 devices)</td>
 </tr>
 <tr style="background:#e8f5e9;">
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>AWS IoT Device Management</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Cloud service, bring your own agent</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Via Jobs, you build the applier</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">50 remote actions/mo, 12 months</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Pay per use</td>
-</tr>
-<tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>SocketXP</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Agent + mTLS tunnel broker</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Yes, packages/containers/firmware</td>
@@ -97,6 +92,13 @@ One more thing worth weighing before you standardize on anything: Google retired
   <td style="border:1px solid #ddd;padding:0.5em;">Scheduled tasks and fleet jobs</td>
   <td style="border:1px solid #ddd;padding:0.5em;">1 device</td>
   <td style="border:1px solid #ddd;padding:0.5em;">$3.00/device/mo (min 3)</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>AWS IoT Device Management</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Cloud service, bring your own agent</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Via Jobs, you build the applier</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">50 remote actions/mo, 12 months</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Pay per use</td>
 </tr>
 </tbody>
 </table>
@@ -126,35 +128,11 @@ The catch is cost. The free tier is 10 devices and one user. **Prototype** is $1
 - **Pricing:** free 10 devices; $159/mo (30), $329/mo (60), $1,439/mo (110); extra devices $2 to $3
 - **Weak spot:** price per device, and the container model is a real architectural commitment
 
-### 2. AWS IoT Device Management - best at hyperscale
-
-{{< image "best_remote_iot_device_management_software/aws_iot_device_management.webp" "AWS IoT Device Management product page" >}}
-
-{{< link href="https://aws.amazon.com/iot-device-management/" >}}AWS IoT Device Management{{< /link >}} is not a product you install, it is a set of APIs layered on AWS IoT Core. That is both its strength and the reason small teams bounce off it. There is no agent that gives you a terminal five minutes after signup. There is a device registry, a job engine, a search index and a tunnel broker, and you assemble a device management story out of them.
-
-**Jobs** are the OTA and remote action primitive. You define a job document, target a thing group, and devices subscribe over MQTT and report progress. Rollout rate, abort criteria and timeouts are all configurable, which is how you avoid pushing a bad firmware to a whole continent at once. What AWS does not give you is the applier: the code on the device that takes the job document and safely writes a partition or swaps a container is yours to write, or you pull in AWS IoT Greengrass or a third-party updater.
-
-**Fleet indexing** builds a searchable index over device shadows, connectivity state, registry metadata and violations, so you can answer "which devices are on firmware 2.3.1, offline, and in the EU region" without maintaining your own database. **Fleet Hub** is a managed web application over that index for operators who should not have console access.
-
-**Secure tunneling** is the remote access piece and it is worth understanding in detail. AWS opens a tunnel, mints a source token and a destination token, and delivers the destination token to the device over an MQTT reserved topic. A local proxy at each end connects to the AWS tunneling service over WebSockets and multiplexes TCP streams through it. No inbound firewall rule changes at the remote site. The tunnel's `maxLifetimeTimeoutMinutes` defaults to **720 minutes (12 hours)** and can be set anywhere from 1 minute to 12 hours. Since 2022 you can also multiplex several data streams and run simultaneous TCP connections over one tunnel, so an SSH session and a web UI can share a single billed tunnel.
-
-Pricing is per unit and it adds up in a shape unlike everything else here: **$0.003 per remote action** for the first 250,000 per month and $0.0015 above that, **$2.25 per million index updates** metered in 1KB increments plus $0.05 per 10,000 search queries, **$0.10 per 1,000 things** bulk registered, and **$1.00 per secure tunnel created**. That last one is the number that surprises people. If your support team opens one tunnel per device per month across a 1,000 device fleet, that is $1,000/month in tunneling alone, which is why multiplexing and long-lived tunnels matter. The free tier covers 50 remote actions per month for 12 months, and new accounts get up to $200 in credits over six months.
-
-Use AWS when the fleet is large, the compliance requirements are real, and the rest of your stack is already on AWS so IAM, CloudWatch and Lambda integration is free architecture rather than new work. Do not use it because it is "the safe choice" for 50 devices; you will spend weeks building what balenaCloud or SocketXP hands you on day one.
-
-**Key specs**
-
-- **Device model:** MQTT + X.509 certificates against AWS IoT Core, agent of your choosing
-- **OTA:** Jobs with staged rollout, abort criteria and progress reporting; you supply the on-device applier
-- **Remote access:** secure tunneling over WebSockets, tokens delivered via MQTT, 12-hour max tunnel lifetime
-- **Pricing:** $0.003/remote action, $1.00/secure tunnel, $2.25/M index updates, $0.05/10K queries, $0.10/1K things registered
-- **Weak spot:** no batteries included, multi-dimensional billing that is hard to forecast
-
-### 3. SocketXP - best remote access plus OTA for a mid-size fleet
+### 2. SocketXP - best remote access plus OTA for a mid-size fleet
 
 {{< image "best_remote_iot_device_management_software/socketxp.webp" "SocketXP IoT remote access and device management dashboard" >}}
 
-{{< link href="https://www.socketxp.com/" >}}SocketXP{{< /link >}} sits between the two poles above: more opinionated than AWS, far cheaper than balena, and focused first on getting you onto the device. The agent is a single static binary available for Linux, Windows and macOS across x86_64, x86, ARM, ARM64 and RISC-V, which matters when your fleet is a mix of Pis and industrial ARM64 gateways. Installation on Linux is one line from their documentation:
+{{< link href="https://www.socketxp.com/" >}}SocketXP{{< /link >}} sits between balenaCloud above and AWS IoT Device Management further down: more opinionated than AWS, far cheaper than balena, and focused first on getting you onto the device. The agent is a single static binary available for Linux, Windows and macOS across x86_64, x86, ARM, ARM64 and RISC-V, which matters when your fleet is a mix of Pis and industrial ARM64 gateways. Installation on Linux is one line from their documentation:
 
 ```bash
 curl -LO https://portal.socketxp.com/download/linux/amd64/socketxp && \
@@ -192,7 +170,7 @@ Watch the data caps. Plans allocate between 100MB and 500MB per device per month
 - **Pricing:** Small Business $20/$39/$79 per month for 40 devices; Enterprise $99/$299/$499/$799 per month for 100 devices; extras $0.30 to $1.99
 - **Weak spot:** per-device data caps of 100MB to 500MB, monitoring and OTA gated behind the $499 Standard plan, no built-in data visualization
 
-### 4. RemoteIoT - cheapest per device for SSH and VNC
+### 3. RemoteIoT - cheapest per device for SSH and VNC
 
 {{< image "best_remote_iot_device_management_software/remoteiot.webp" "RemoteIoT secure remote IoT access and management platform" >}}
 
@@ -224,7 +202,7 @@ At 100 devices, Enterprise costs $100/month for capabilities that overlap most o
 - **Pricing:** free for 5 non-commercial devices; $0.20, $0.50, $1.00 and $1.20 per device per month
 - **Weak spot:** JVM dependency, and it is an access tool rather than a full lifecycle platform
 
-### 5. Dataplicity - simplest path from a bare Pi to a browser terminal
+### 4. Dataplicity - simplest path from a bare Pi to a browser terminal
 
 {{< image "best_remote_iot_device_management_software/dataplicity.webp" "Dataplicity remote device management for Linux IoT fleets" >}}
 
@@ -250,6 +228,30 @@ The honest tradeoff: at $3.00 per device Dataplicity is the most expensive per-u
 - **Operations:** monitors and canary checks, alerts, incidents, on-call escalation, fleet map, log analytics
 - **Pricing:** 1 device free; $3.00/device/month from 3 devices; volume bands and custom quotes above 50
 - **Weak spot:** highest per-device price here, no atomic OTA, Python runtime required on device
+
+### 5. AWS IoT Device Management - best at hyperscale
+
+{{< image "best_remote_iot_device_management_software/aws_iot_device_management.webp" "AWS IoT Device Management product page" >}}
+
+{{< link href="https://aws.amazon.com/iot-device-management/" >}}AWS IoT Device Management{{< /link >}} is not a product you install, it is a set of APIs layered on AWS IoT Core. That is both its strength and the reason small teams bounce off it. There is no agent that gives you a terminal five minutes after signup. There is a device registry, a job engine, a search index and a tunnel broker, and you assemble a device management story out of them.
+
+**Jobs** are the OTA and remote action primitive. You define a job document, target a thing group, and devices subscribe over MQTT and report progress. Rollout rate, abort criteria and timeouts are all configurable, which is how you avoid pushing a bad firmware to a whole continent at once. What AWS does not give you is the applier: the code on the device that takes the job document and safely writes a partition or swaps a container is yours to write, or you pull in AWS IoT Greengrass or a third-party updater.
+
+**Fleet indexing** builds a searchable index over device shadows, connectivity state, registry metadata and violations, so you can answer "which devices are on firmware 2.3.1, offline, and in the EU region" without maintaining your own database. **Fleet Hub** is a managed web application over that index for operators who should not have console access.
+
+**Secure tunneling** is the remote access piece and it is worth understanding in detail. AWS opens a tunnel, mints a source token and a destination token, and delivers the destination token to the device over an MQTT reserved topic. A local proxy at each end connects to the AWS tunneling service over WebSockets and multiplexes TCP streams through it. No inbound firewall rule changes at the remote site. The tunnel's `maxLifetimeTimeoutMinutes` defaults to **720 minutes (12 hours)** and can be set anywhere from 1 minute to 12 hours. Since 2022 you can also multiplex several data streams and run simultaneous TCP connections over one tunnel, so an SSH session and a web UI can share a single billed tunnel.
+
+Pricing is per unit and it adds up in a shape unlike everything else here: **$0.003 per remote action** for the first 250,000 per month and $0.0015 above that, **$2.25 per million index updates** metered in 1KB increments plus $0.05 per 10,000 search queries, **$0.10 per 1,000 things** bulk registered, and **$1.00 per secure tunnel created**. That last one is the number that surprises people. If your support team opens one tunnel per device per month across a 1,000 device fleet, that is $1,000/month in tunneling alone, which is why multiplexing and long-lived tunnels matter. The free tier covers 50 remote actions per month for 12 months, and new accounts get up to $200 in credits over six months.
+
+Use AWS when the fleet is large, the compliance requirements are real, and the rest of your stack is already on AWS so IAM, CloudWatch and Lambda integration is free architecture rather than new work. Do not use it because it is "the safe choice" for 50 devices; you will spend weeks building what balenaCloud or SocketXP hands you on day one.
+
+**Key specs**
+
+- **Device model:** MQTT + X.509 certificates against AWS IoT Core, agent of your choosing
+- **OTA:** Jobs with staged rollout, abort criteria and progress reporting; you supply the on-device applier
+- **Remote access:** secure tunneling over WebSockets, tokens delivered via MQTT, 12-hour max tunnel lifetime
+- **Pricing:** $0.003/remote action, $1.00/secure tunnel, $2.25/M index updates, $0.05/10K queries, $0.10/1K things registered
+- **Weak spot:** no batteries included, multi-dimensional billing that is hard to forecast
 
 ## What it costs at 100 devices
 
@@ -355,4 +357,4 @@ Vendors solve this three ways: an **outbound tunnel to a broker**, where the age
 
 ## Conclusion
 
-There is no single best remote IoT device management software in 2026, but the split is clear. **balenaCloud** is the most complete platform for containerized Linux fleets. **AWS IoT Device Management** wins at scale inside an AWS estate, if you build the device side yourself. **SocketXP**, **RemoteIoT** and **Dataplicity** are access-first tools that cost far less because they solve a smaller problem, which for many teams is the whole requirement. Price your shortlist at the fleet size you expect in twelve months, not today: the same 100 devices cost $20 on RemoteIoT Business and $409 on balenaCloud Pilot. And keep a plain SSH reverse tunnel in your back pocket. It costs nothing, it works when the dashboard does not, and it has outlasted several IoT platforms already.
+There is no single best remote IoT device management software in 2026, but the split is clear. **balenaCloud** is the most complete platform for containerized Linux fleets. **SocketXP**, **RemoteIoT** and **Dataplicity** are access-first tools that cost far less because they solve a smaller problem, which for many teams is the whole requirement. **AWS IoT Device Management** wins at scale inside an AWS estate, if you build the device side yourself. Price your shortlist at the fleet size you expect in twelve months, not today: the same 100 devices cost $20 on RemoteIoT Business and $409 on balenaCloud Pilot. And keep a plain SSH reverse tunnel in your back pocket. It costs nothing, it works when the dashboard does not, and it has outlasted several IoT platforms already.
