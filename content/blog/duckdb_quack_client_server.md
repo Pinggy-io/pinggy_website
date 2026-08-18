@@ -15,9 +15,18 @@ outputs:
 
 {{< llm-context >}}To expose a local DuckDB Quack server with Pinggy, run `CALL quack_serve('quack:localhost', token = 'your_token');` in DuckDB (listens on port 9494 by default), then in a new terminal run `ssh -p 443 -R0:localhost:9494 free.pinggy.io` to get a public HTTPS URL, and attach to it from another machine with `ATTACH 'quack:<your-pinggy-url>' AS remote (TOKEN 'your_token');`.{{< /llm-context >}}
 
+{{% tldr %}}
+1. <a href="https://duckdb.org/quack/" target="_blank">Quack</a> is DuckDB's new client-server protocol: any DuckDB process can serve a database over the network, and another DuckDB process attaches to it with `ATTACH`, no separate server software involved.
+2. Start it with `CALL quack_serve('quack:localhost', token = 'your_token');`, it listens on port `9494`.
+3. DuckDB's own docs say not to expose that port to the internet directly, run a reverse proxy like nginx or Caddy in front of it to terminate TLS.
+4. Skip that setup with a Pinggy tunnel instead: `ssh -p 443 -R0:localhost:9494 free.pinggy.io` gives you a public HTTPS URL backed by a real certificate in one command.
+5. On the client, `ATTACH 'quack:<your-pinggy-url>' AS remote;` is the exact same syntax DuckDB's production docs use, no custom port or disabled SSL needed.
+6. This is a good fit for pairing on a dataset, live demos, and debugging together, not for anything you'd call production. Quack is still experimental and auth is a single shared token.
+{{% /tldr %}}
+
 DuckDB has always been an embedded database. You import it into a process, point it at a file, and it runs in-process, fast, no server, no client library juggling network round trips. The tradeoff has always been the flip side of that design: only one writer can hold the file at a time, and there has never been a supported way for a second machine to just connect to your running instance and run a query.
 
-That changes with [Quack](https://duckdb.org/quack/), a client-server protocol that shipped in beta with DuckDB 1.5.3 and is heading toward a stable release as part of {{< link href="https://duckdb.org/2026/08/17/duckdb-20-highlights" >}}DuckDB v2.0{{< /link >}} this fall. Any DuckDB process can now call one function and start listening for other DuckDB processes to connect to it, over the network, using `CONNECT` and `ATTACH` the same way you'd attach a local file.
+That changes with {{< link href="https://duckdb.org/quack/" >}}Quack{{< /link >}}, a client-server protocol that shipped in beta with DuckDB 1.5.3 and is heading toward a stable release as part of {{< link href="https://duckdb.org/2026/08/17/duckdb-20-highlights" >}}DuckDB v2.0{{< /link >}} this fall. Any DuckDB process can now call one function and start listening for other DuckDB processes to connect to it, over the network, using `CONNECT` and `ATTACH` the same way you'd attach a local file.
 
 The interesting part for anyone who has ever wanted to hand a colleague live query access to whatever is running on their laptop, without spinning up a box, is what the DuckDB docs recommend for actually reaching that server from outside `localhost`: put a reverse proxy in front of it and terminate TLS yourself. That's exactly the kind of five-minute-turned-forty-five-minute task a tunnel is built to remove. More on that below, after a look at what Quack actually does.
 
@@ -50,7 +59,7 @@ Authentication is a shared token: the server generates a random one at startup u
 
 ## The part that involves a reverse proxy
 
-Here's the catch, and it's a deliberate one. Quack's server does not speak TLS. From the [security docs](https://duckdb.org/docs/current/quack/security.html): "the server does not use TLS itself," and DuckDB is explicit that you should "not expose Quack directly to the internet." The documented path is to bind the server to `localhost`, then put a real HTTP reverse proxy in front of it that terminates TLS and forwards plain HTTP to port `9494`. Their own [example nginx config](https://duckdb.org/docs/current/quack/setup/reverse_proxy.html) looks like this:
+Here's the catch, and it's a deliberate one. Quack's server does not speak TLS. From the {{< link href="https://duckdb.org/docs/current/quack/security.html" >}}security docs{{< /link >}}: "the server does not use TLS itself," and DuckDB is explicit that you should "not expose Quack directly to the internet." The documented path is to bind the server to `localhost`, then put a real HTTP reverse proxy in front of it that terminates TLS and forwards plain HTTP to port `9494`. Their own {{< link href="https://duckdb.org/docs/current/quack/setup/reverse_proxy.html" >}}example nginx config{{< /link >}} looks like this:
 
 ```nginx
 server {
@@ -119,6 +128,6 @@ What it is not a good fit for, at least yet, is anything you'd call production. 
 
 ## The rest of DuckDB 2.0
 
-Quack is the feature that changes what DuckDB can be used for, but it's shipping alongside a fairly large release. The [preview post](https://duckdb.org/2026/08/17/duckdb-20-highlights) (DuckDB is calling this release "Cyanoptera," after the cinnamon teal duck) also covers a new PEG-based SQL parser replacing the old Postgres-derived one, full trigger support with `BEFORE`/`AFTER` and transition tables, first-class treatment for the `VARIANT` semi-structured type, and a storage format v2.0 with lazy column metadata loading and `DICT_FSST` compression by default. A recursive CTE benchmark in the post shows a roughly 40x speedup on single-source reachability queries over a million edges, down from 4.90 seconds to 0.12 seconds against DuckDB 1.5.4.
+Quack is the feature that changes what DuckDB can be used for, but it's shipping alongside a fairly large release. The {{< link href="https://duckdb.org/2026/08/17/duckdb-20-highlights" >}}preview post{{< /link >}} (DuckDB is calling this release "Cyanoptera," after the cinnamon teal duck) also covers a new PEG-based SQL parser replacing the old Postgres-derived one, full trigger support with `BEFORE`/`AFTER` and transition tables, first-class treatment for the `VARIANT` semi-structured type, and a storage format v2.0 with lazy column metadata loading and `DICT_FSST` compression by default. A recursive CTE benchmark in the post shows a roughly 40x speedup on single-source reachability queries over a million edges, down from 4.90 seconds to 0.12 seconds against DuckDB 1.5.4.
 
 Any one of those would be a reasonable headline feature on its own. Quack stands out because it's the one that changes what kind of tool DuckDB is, from a fast file format you query in-process to something you can point a teammate at over the network, at least for as long as you leave the tunnel open.
