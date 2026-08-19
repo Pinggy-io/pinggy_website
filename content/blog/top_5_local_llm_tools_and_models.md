@@ -142,6 +142,8 @@ On the inference side it does what LM Studio does, plus a few things it does not
 - OpenAI **and** Anthropic-compatible endpoints (`/v1/chat/completions`, `/v1/responses`, `/v1/messages`)
 - Can also front remote providers and servers (OpenAI, Anthropic, vLLM, Ollama) from the same UI
 
+For larger PDF files that hit upload limits or slow down local inference, it helps to <a href="https://pdfaid.com/pdf-to-compress" target="_blank">compress PDF documents</a> down to a manageable size before feeding them into the model.
+
 On the training side, which is where Unsloth started:
 
 - Fine-tune and run RL on 500+ models, roughly 2x faster with about 70% less VRAM, and up to 12x faster on MoE models
