@@ -2,15 +2,20 @@
 title: "How to Set Up Port Forwarding - Even Behind CGNAT"
 description: "Learn when you need port forwarding, how to set it up on your router, and how to bypass CGNAT limitations using Pinggy tunnels for hosting servers and remote access."
 date: 2025-08-04T14:15:25+05:30
+lastmod: 2026-08-20T14:15:25+05:30
 draft: false
 og_image: "images/how_to_set_up_port_forwording_even_behind_cgnat/port_forwarding.webp"
-tags: ["guide", "networking", "port forwarding"]
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwgCiAgIkB0eXBlIjogIkhvd1RvIiwgCiAgIm5hbWUiOiAiSG93IHRvIFNldCBVcCBQb3J0IEZvcndhcmRpbmcgLSBFdmVuIEJlaGluZCBDR05BVCIsCiAgImRlc2NyaXB0aW9uIjogIkNvbXByZWhlbnNpdmUgZ3VpZGUgdG8gc2V0dGluZyB1cCBwb3J0IGZvcndhcmRpbmcgb24geW91ciByb3V0ZXIgYW5kIGJ5cGFzc2luZyBDR05BVCBsaW1pdGF0aW9ucyB1c2luZyBQaW5nZ3kgdHVubmVscyBmb3IgaG9zdGluZyBzZXJ2ZXJzIGFuZCByZW1vdGUgYWNjZXNzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9ob3dfdG9fc2V0X3VwX3BvcnRfZm9yd29yZGluZ19ldmVuX2JlaGluZF9jZ25hdC9wb3J0X2ZvcndhcmRpbmcud2VicCIsCiAgInRvdGFsVGltZSI6ICJQVDEwTSIsCiAgImVzdGltYXRlZENvc3QiOiB7CiAgICAiQHR5cGUiOiAiTW9uZXRhcnlBbW91bnQiLAogICAgImN1cnJlbmN5IjogIlVTRCIsCiAgICAidmFsdWUiOiAiMCIKICB9LAogICJ0b29sIjogewogICAgIkB0eXBlIjogIkhvd1RvVG9vbCIsCiAgICAibmFtZSI6ICJQaW5nZ3kiCiAgfSwKICAic3RlcCI6IFt7CiAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICJ0ZXh0IjogIkRldGVybWluZSBpZiB5b3UgbmVlZCBwb3J0IGZvcndhcmRpbmcgYnkgaWRlbnRpZnlpbmcgaWYgeW91IHdhbnQgdG8gaG9zdCBhcHBsaWNhdGlvbnMsIGdhbWVzLCBvciBuZWVkIHJlbW90ZSBhY2Nlc3MgdG8geW91ciBkZXZpY2VzLiIsCiAgICAibmFtZSI6ICJEZXRlcm1pbmUgaWYgeW91IG5lZWQgcG9ydCBmb3J3YXJkaW5nIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciByb3V0ZXIncyBhZG1pbiBwYW5lbCBieSB0eXBpbmcgaXRzIElQIGFkZHJlc3MgKHVzdWFsbHkgMTkyLjE2OC4xLjEgb3IgMTkyLjE2OC4wLjEpIGluIHlvdXIgYnJvd3NlciBhbmQgbG9nIGluIHdpdGggeW91ciBjcmVkZW50aWFscy4iLAogICAgIm5hbWUiOiAiQWNjZXNzIHJvdXRlciBhZG1pbiBwYW5lbCIKICB9LAogIHsKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgInRleHQiOiAiTmF2aWdhdGUgdG8gdGhlIHBvcnQgZm9yd2FyZGluZyBzZWN0aW9uIChvZnRlbiBjYWxsZWQgJ1ZpcnR1YWwgU2VydmVycycsICdQb3J0IE1hcHBpbmcnLCBvciAnTkFUL0dhbWluZycpIGFuZCBjcmVhdGUgYSBuZXcgcnVsZSB3aXRoIHRoZSBkZXNpcmVkIHBvcnQgYW5kIGRldmljZSBJUC4iLAogICAgIm5hbWUiOiAiQ29uZmlndXJlIHBvcnQgZm9yd2FyZGluZyBydWxlIgogIH0sCiAgewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAidGV4dCI6ICJJZiB5b3UncmUgYmVoaW5kIENHTkFULCBvcGVuIHRlcm1pbmFsIGFuZCBydW4gJ3NzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDpbUE9SVF0gdGNwQGZyZWUucGluZ2d5LmlvJyByZXBsYWNpbmcgW1BPUlRdIHdpdGggeW91ciBkZXNpcmVkIHBvcnQgbnVtYmVyLiIsCiAgICAibmFtZSI6ICJCeXBhc3MgQ0dOQVQgd2l0aCBQaW5nZ3kiCiAgfV0gICAgCn0KPC9zY3JpcHQ+"
+tags: ["port forwarding", "networking", "CGNAT"]
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwgCiAgIkB0eXBlIjogIkhvd1RvIiwgCiAgIm5hbWUiOiAiSG93IHRvIFNldCBVcCBQb3J0IEZvcndhcmRpbmcgLSBFdmVuIEJlaGluZCBDR05BVCIsCiAgImRlc2NyaXB0aW9uIjogIkNvbXByZWhlbnNpdmUgZ3VpZGUgdG8gc2V0dGluZyB1cCBwb3J0IGZvcndhcmRpbmcgb24geW91ciByb3V0ZXIgYW5kIGJ5cGFzc2luZyBDR05BVCBsaW1pdGF0aW9ucyB1c2luZyBQaW5nZ3kgdHVubmVscyBmb3IgaG9zdGluZyBzZXJ2ZXJzIGFuZCByZW1vdGUgYWNjZXNzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9ob3dfdG9fc2V0X3VwX3BvcnRfZm9yd29yZGluZ19ldmVuX2JlaGluZF9jZ25hdC9wb3J0X2ZvcndhcmRpbmcud2VicCIsCiAgInRvdGFsVGltZSI6ICJQVDEwTSIsCiAgImVzdGltYXRlZENvc3QiOiB7CiAgICAiQHR5cGUiOiAiTW9uZXRhcnlBbW91bnQiLAogICAgImN1cnJlbmN5IjogIlVTRCIsCiAgICAidmFsdWUiOiAiMCIKICB9LAogICJ0b29sIjogewogICAgIkB0eXBlIjogIkhvd1RvVG9vbCIsCiAgICAibmFtZSI6ICJQaW5nZ3kiCiAgfSwKICAic3RlcCI6IFt7CiAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICJ0ZXh0IjogIkRldGVybWluZSBpZiB5b3UgbmVlZCBwb3J0IGZvcndhcmRpbmcgYnkgaWRlbnRpZnlpbmcgaWYgeW91IHdhbnQgdG8gaG9zdCBhcHBsaWNhdGlvbnMsIGdhbWVzLCBvciBuZWVkIHJlbW90ZSBhY2Nlc3MgdG8geW91ciBkZXZpY2VzLiIsCiAgICAibmFtZSI6ICJEZXRlcm1pbmUgaWYgeW91IG5lZWQgcG9ydCBmb3J3YXJkaW5nIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAidGV4dCI6ICJBY2Nlc3MgeW91ciByb3V0ZXIncyBhZG1pbiBwYW5lbCBieSB0eXBpbmcgaXRzIElQIGFkZHJlc3MgKHVzdWFsbHkgMTkyLjE2OC4xLjEgb3IgMTkyLjE2OC4wLjEpIGluIHlvdXIgYnJvd3NlciBhbmQgbG9nIGluIHdpdGggeW91ciBjcmVkZW50aWFscy4iLAogICAgIm5hbWUiOiAiQWNjZXNzIHJvdXRlciBhZG1pbiBwYW5lbCIKICB9LAogIHsKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgInRleHQiOiAiTmF2aWdhdGUgdG8gdGhlIHBvcnQgZm9yd2FyZGluZyBzZWN0aW9uIChvZnRlbiBjYWxsZWQgJ1ZpcnR1YWwgU2VydmVycycsICdQb3J0IE1hcHBpbmcnLCBvciAnTkFUL0dhbWluZycpIGFuZCBjcmVhdGUgYSBuZXcgcnVsZSB3aXRoIHRoZSBkZXNpcmVkIHBvcnQgYW5kIGRldmljZSBJUC4iLAogICAgIm5hbWUiOiAiQ29uZmlndXJlIHBvcnQgZm9yd2FyZGluZyBydWxlIgogIH0sCiAgewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAidGV4dCI6ICJJZiB5b3UncmUgYmVoaW5kIENHTkFULCBvcGVuIGEgdGVybWluYWwgYW5kIHJ1biAnc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OltQT1JUXSBmcmVlLnBpbmdneS5pbycgcmVwbGFjaW5nIFtQT1JUXSB3aXRoIHlvdXIgZGVzaXJlZCBwb3J0IG51bWJlciwgdG8gZ2V0IGEgcHVibGljIEhUVFBTIFVSTCB3aXRob3V0IHRvdWNoaW5nIHlvdXIgcm91dGVyLiIsCiAgICAibmFtZSI6ICJCeXBhc3MgQ0dOQVQgd2l0aCBQaW5nZ3kiCiAgfV0gICAgCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
 ---
+{{< llm-context >}}To set up port forwarding behind CGNAT with Pinggy - run `ssh -p 443 -R0:localhost:8080 free.pinggy.io` (replace 8080 with your service's port) to get a public HTTPS URL, or prefix the hostname with `tcp@` for raw TCP services like SSH or game servers.{{< /llm-context >}}
+
 {{< image "how_to_set_up_port_forwording_even_behind_cgnat/port_forwarding.webp" "prot forwarding" >}}
+
+Most home and mobile internet connections no longer come with a dedicated public IP address - IPv4 ran out years ago, so ISPs increasingly put customers behind a shared one instead. That's invisible for ordinary browsing, but it quietly breaks anything that depends on someone else initiating a connection to you.
 
 Setting up port forwarding can seem daunting, especially when you encounter obstacles like CGNAT (Carrier-Grade Network Address Translation). Whether you're trying to host a Minecraft server, run a web application, or enable remote SSH access, this guide will walk you through everything you need to know about port forwarding and how to make it work even in challenging network environments.
 
@@ -25,7 +30,7 @@ Setting up port forwarding can seem daunting, especially when you encounter obst
    ssh -p 443 -R0:localhost:8080 free.pinggy.io
    ```
 
-4. **Get persistent access**: Sign in to <a href="https://dashboard.pinggy.io" target="_blank" >Pinggy Dashboard</a > for permanent URLs and custom domains.
+4. **Get persistent access**: Sign in to <a href="https://dashboard.pinggy.io" target="_blank">Pinggy Dashboard</a> for permanent URLs and custom domains.
 
 {{% /tldr %}}
 
@@ -49,7 +54,7 @@ Port forwarding isn't always necessary. You only need it when you want to make s
 - Accessing Network Attached Storage (NAS) devices
 - Managing IoT devices and home automation systems
 
-If your device has a direct public IP address (rare these days), port forwarding isn't required. Even if you have  a public IP from your ISP, most home networks use NAT (Network Address Translation) through a router. This blocks incoming connections by default.
+If your device had a direct public IP address, port forwarding wouldn't be necessary at all - but that's rare these days. In the normal case, your ISP gives your router a public IP, and the router then uses NAT (Network Address Translation) to share it across every device on your network. That sharing is exactly what blocks incoming connections by default, and it's what port forwarding is designed to fix. CGNAT is a level worse: your router's WAN address isn't a real public IP either, so there's no forwarding rule on your router that can help.
 
 ## Understanding port forwarding
 
@@ -61,7 +66,7 @@ This process involves mapping an external port on your router's public IP to an 
 
 Most modern routers provide web-based interfaces for configuring port forwarding. Here's the general process:
 
-<svg width="100%" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+<svg width="100%" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif; display: block; max-width: 720px; margin: 0 auto;">
   <title id="title">Sample port forwarding interface</title>
   <desc id="desc">A sample router ui for setting up port forwarding.</desc>
   <rect width="100%" height="100%" fill="#f5f5f5" />
@@ -120,10 +125,10 @@ Popular router interfaces like ASUS, Netgear, Linksys, and TP-Link all follow si
 
 ## But what to do in case of CGNAT?
 
-CGNAT presents a significant challenge for traditional port forwarding. Many internet service providers, including T-Mobile, Verizon, and various mobile carriers, use CGNAT to conserve IPv4 addresses. Under CGNAT, multiple customers share a single public IP address, making direct port forwarding impossible.
+CGNAT presents a significant challenge for traditional port forwarding. Internet service providers including T-Mobile Home Internet, Verizon 5G Home, Starlink, and most mobile carriers use CGNAT to stretch a shrinking pool of IPv4 addresses across many customers. Under CGNAT, multiple customers share a single public IP address, making direct port forwarding impossible.
 
 **How to identify CGNAT:**
-Check your router's WAN IP address in the admin panel. If it starts with `10.x.x.x`, `172.16-31.x.x`, `100.64.x.x`, or `192.168.x.x`, you're likely behind CGNAT. These are private IP ranges that indicate your router doesn't have a true public IP.
+Check your router's WAN IP address in the admin panel. If it falls in `100.64.0.0/10` (the range IANA reserved specifically for carrier-grade NAT, so `100.64.x.x` through `100.127.x.x`), you're behind CGNAT for certain. Seeing a private range instead, like `10.x.x.x`, `172.16-31.x.x`, or `192.168.x.x`, usually means the same thing in practice: your router isn't holding a real public IP, whether that's CGNAT or another layer of NAT upstream.
 
 **CGNAT limitations:**
 
@@ -177,4 +182,4 @@ Disabling your firewall exposes every device on your network to potential attack
 
 ## Conclusion
 
-Port forwarding’s still super useful for stuff like hosting servers or remote access, but CGNAT makes the usual router setup kind of useless. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} fixes that by letting you tunnel your local services online with a simple command, no public IP needed. So whether you’re coding, gaming, or just need access to something at home, it’s an easy way to make it work from anywhere.
+Port forwarding is still the right tool for hosting a server or reaching a device remotely, but CGNAT takes the usual router setup off the table. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} works around that by tunneling your local service out over an outbound SSH connection instead of an inbound router rule, so no public IP is required. Whether you're coding, gaming, or just SSHing home, it's a quick way to make it work from anywhere.
