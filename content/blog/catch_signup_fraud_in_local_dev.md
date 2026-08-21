@@ -2,7 +2,7 @@
 title: "Catch Signup Fraud in Local Dev, Before It Ships"
 description: "A working OTP flow proves your app sends and checks a code. It doesn't prove your signup holds up against bots. Here's how to test auth for fraud resistance locally with a Pinggy tunnel."
 date: 2026-07-09T10:00:00+05:30
-lastmod: 2026-07-08T10:00:00+05:30
+lastmod: 2026-08-20T10:00:00+05:30
 draft: false
 tags: ["OTP", "Authentication", "webhook testing", "localhost", "Pinggy", "SSH tunnel"]
 categories: ["Technology", "Developer Tools", "Security"]
@@ -66,7 +66,7 @@ None of this is exotic. It's the kind of thing that takes twenty minutes to chec
 
 Here's the thing OTP verification can't do on its own, and it's worth saying plainly, because a lot of teams treat "we added 2FA" as the finish line. Verifying a phone number confirms someone has access to that number. It does not confirm the account isn't part of a coordinated pattern: dozens of accounts registered in the same hour, from the same device fingerprint, using sequentially generated numbers, all completing verification because each individual step technically worked.
 
-This is the blind spot that turns into <a href="https://sift.com/blog/what-is-fake-account-creation/" target="_blank">fake-account-detection</a> territory, a genuinely different layer than authentication. Authentication asks "is this a real, reachable identity?" Fraud detection asks "does this pattern of behavior look like a real person, or like something automated at scale?" You need both, and they catch different things. A fraud ring using real, working phone numbers will sail through OTP verification every time, because nothing about that flow is designed to notice the pattern across accounts, only the validity of one code at a time.
+This is the blind spot that turns into <a href="https://sift.com/blog/what-is-fake-account-creation/" target="_blank">fake-account-detection</a> territory, a genuinely different layer than authentication. Authentication asks "is this a real, reachable identity?" <a href="https://truthscan.com/" target="_blank">Fraud detection</a> asks "does this pattern of behavior look like a real person, or like something automated at scale?" You need both, and they catch different things. A fraud ring using real, working phone numbers will sail through OTP verification every time, because nothing about that flow is designed to notice the pattern across accounts, only the validity of one code at a time.
 
 The practical takeaway isn't "go buy more tools." It's simpler than that: build and test your verification step with the same rigor you'd want from a fraud-detection layer, even before you have one. Treat your local testing environment as the place where you ask uncomfortable questions about your own auth flow, not just "does this work" but "what happens when someone tries to break it on purpose."
 
