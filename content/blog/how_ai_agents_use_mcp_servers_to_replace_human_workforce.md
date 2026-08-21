@@ -2,11 +2,11 @@
 title: "How AI Agents Use MCP Servers to Replace Human Workforce"
 description: "Discover how AI agents leverage Model Context Protocol (MCP) servers to automate complex workflows, integrate with enterprise systems, and transform traditional job roles across industries."
 date: 2025-07-02T14:00:00+05:30
-lastmod: 2026-08-11T14:00:00+05:30
+lastmod: 2026-08-20T14:00:00+05:30
 draft: false
 tags: ["AI agents", "MCP", "automation"]
 og_image: "images/how_ai_agents_use_mcp_servers_to_replace_human_workforce/ai_agents_mcp_banner.gif"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiSG93IEFJIEFnZW50cyBVc2UgTUNQIFNlcnZlcnMgdG8gUmVwbGFjZSBIdW1hbiBXb3JrZm9yY2UiLAogICJkZXNjcmlwdGlvbiI6ICJEaXNjb3ZlciBob3cgQUkgYWdlbnRzIGxldmVyYWdlIE1vZGVsIENvbnRleHQgUHJvdG9jb2wgKE1DUCkgc2VydmVycyB0byBhdXRvbWF0ZSBjb21wbGV4IHdvcmtmbG93cywgaW50ZWdyYXRlIHdpdGggZW50ZXJwcmlzZSBzeXN0ZW1zLCBhbmQgdHJhbnNmb3JtIHRyYWRpdGlvbmFsIGpvYiByb2xlcyBhY3Jvc3MgaW5kdXN0cmllcy4iLAogICJkYXRlUHVibGlzaGVkIjogIjIwMjUtMDctMDJUMTQ6MDA6MDArMDU6MzAiLAogICJkYXRlTW9kaWZpZWQiOiAiMjAyNi0wOC0xMVQxNDowMDowMCswNTozMCIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9ob3dfYWlfYWdlbnRzX3VzZV9tY3Bfc2VydmVyc190b19yZXBsYWNlX2h1bWFuX3dvcmtmb3JjZS9haV9hZ2VudHNfbWNwX2Jhbm5lci5naWYiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJBcnRpZmljaWFsIEludGVsbGlnZW5jZSIsCiAgICAiV29ya2ZvcmNlIEF1dG9tYXRpb24iLAogICAgIk1DUCBTZXJ2ZXJzIgogIF0sCiAgImtleXdvcmRzIjogWwogICAgIkFJIGFnZW50cyIsCiAgICAiTW9kZWwgQ29udGV4dCBQcm90b2NvbCIsCiAgICAiTUNQIHNlcnZlcnMiLAogICAgIndvcmtmb3JjZSBhdXRvbWF0aW9uIiwKICAgICJqb2IgZGlzcGxhY2VtZW50IiwKICAgICJlbnRlcnByaXNlIGludGVncmF0aW9uIiwKICAgICJhcnRpZmljaWFsIGludGVsbGlnZW5jZSIsCiAgICAiYnVzaW5lc3MgYXV0b21hdGlvbiIsCiAgICAiZnV0dXJlIG9mIHdvcmsiLAogICAgIkFudGhyb3BpYyBNQ1AiCiAgXQp9Cjwvc2NyaXB0Pg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiSG93IEFJIEFnZW50cyBVc2UgTUNQIFNlcnZlcnMgdG8gUmVwbGFjZSBIdW1hbiBXb3JrZm9yY2UiLAogICJkZXNjcmlwdGlvbiI6ICJEaXNjb3ZlciBob3cgQUkgYWdlbnRzIGxldmVyYWdlIE1vZGVsIENvbnRleHQgUHJvdG9jb2wgKE1DUCkgc2VydmVycyB0byBhdXRvbWF0ZSBjb21wbGV4IHdvcmtmbG93cywgaW50ZWdyYXRlIHdpdGggZW50ZXJwcmlzZSBzeXN0ZW1zLCBhbmQgdHJhbnNmb3JtIHRyYWRpdGlvbmFsIGpvYiByb2xlcyBhY3Jvc3MgaW5kdXN0cmllcy4iLAogICJkYXRlUHVibGlzaGVkIjogIjIwMjUtMDctMDJUMTQ6MDA6MDArMDU6MzAiLAogICJkYXRlTW9kaWZpZWQiOiAiMjAyNi0wOC0yMFQxNDowMDowMCswNTozMCIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9ob3dfYWlfYWdlbnRzX3VzZV9tY3Bfc2VydmVyc190b19yZXBsYWNlX2h1bWFuX3dvcmtmb3JjZS9haV9hZ2VudHNfbWNwX2Jhbm5lci5naWYiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJBcnRpZmljaWFsIEludGVsbGlnZW5jZSIsCiAgICAiV29ya2ZvcmNlIEF1dG9tYXRpb24iLAogICAgIk1DUCBTZXJ2ZXJzIgogIF0sCiAgImtleXdvcmRzIjogWwogICAgIkFJIGFnZW50cyIsCiAgICAiTW9kZWwgQ29udGV4dCBQcm90b2NvbCIsCiAgICAiTUNQIHNlcnZlcnMiLAogICAgIndvcmtmb3JjZSBhdXRvbWF0aW9uIiwKICAgICJqb2IgZGlzcGxhY2VtZW50IiwKICAgICJlbnRlcnByaXNlIGludGVncmF0aW9uIiwKICAgICJhcnRpZmljaWFsIGludGVsbGlnZW5jZSIsCiAgICAiYnVzaW5lc3MgYXV0b21hdGlvbiIsCiAgICAiZnV0dXJlIG9mIHdvcmsiLAogICAgIkFudGhyb3BpYyBNQ1AiCiAgXQp9Cjwvc2NyaXB0Pg=="
 outputs:
   - HTML
   - AMP
@@ -23,7 +23,7 @@ MCP servers enable AI agents to access and integrate with enterprise systems, da
 
 ## The MCP Revolution: Beyond Traditional Automation
 
-Model Context Protocol represents a breakthrough in AI integration. Before MCP, connecting AI systems to enterprise data required custom implementations for every single data source a fragmented approach that limited scalability. MCP changes this by providing a universal standard that allows AI agents to securely connect to popular systems like:
+Model Context Protocol represents a breakthrough in AI integration. Before MCP, {{< link href="https://www.glean.com/enterprise-search" >}}connecting AI systems to enterprise data{{< /link >}} required custom implementations for every single data source a fragmented approach that limited scalability. MCP changes this by providing a universal standard that allows AI agents to securely connect to popular systems like:
 
 - {{< link href="https://drive.google.com/" >}}Google Drive{{< /link >}} and {{< link href="https://slack.com/" >}}Slack{{< /link >}} for document management
 - {{< link href="https://www.postgresql.org/" >}}PostgreSQL{{< /link >}} databases and {{< link href="https://github.com/" >}}GitHub{{< /link >}} repositories
