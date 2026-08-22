@@ -1,21 +1,23 @@
 ---
- title: "SSH Reverse Tunneling" 
- description: "Learn SSH reverse tunneling to securely access local services from remote locations, even behind firewalls or NATs. Covers IoT control and database access."
- date: 2024-10-23T14:15:25+05:30
- lastmod: 2026-06-01T15:15:25+05:30
- draft: false 
- schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJCbG9nUG9zdGluZyIsCiAgIm1haW5FbnRpdHlPZlBhZ2UiOiB7CiAgICAiQHR5cGUiOiAiV2ViUGFnZSIsCiAgICAiQGlkIjogImh0dHBzOi8vcGluZ2d5LmlvL2Jsb2cvc3NoX3JldmVyc2VfdHVubmVsbGluZy8iCiAgfSwKICAiaGVhZGxpbmUiOiAiU1NIIFJldmVyc2UgVHVubmVsaW5nOiBBIENvbXBsZXRlIEd1aWRlIiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IFNTSCByZXZlcnNlIHR1bm5lbGluZyB3b3JrcywgaXRzIHByYWN0aWNhbCB1c2UgY2FzZXMsIHNlY3VyaXR5IGJlc3QgcHJhY3RpY2VzLCBhbmQgaG93IFBpbmdneSBzaW1wbGlmaWVzIHNlY3VyZSB0dW5uZWxpbmcgZnJvbSBsb2NhbGhvc3QuIiwKICAicHVibGlzaGVyIjogewogICAgIkB0eXBlIjogIk9yZ2FuaXphdGlvbiIsCiAgICAibmFtZSI6ICJQaW5nZ3kiCiAgfSwKICAiZGF0ZVB1Ymxpc2hlZCI6ICIyMDI0LTEwLTIzIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjYtMDYtMDEiLAogICJrZXl3b3JkcyI6ICJTU0gsIHJldmVyc2UgdHVubmVsaW5nLCByZW1vdGUgYWNjZXNzLCBOQVQsIGZpcmV3YWxsLCBQaW5nZ3ksIGF1dG9zc2gsIHJlbW90ZSBkZWJ1Z2dpbmcsIElvVCBhY2Nlc3MsIGRhdGFiYXNlIHR1bm5lbGluZywgU1NIIHNlY3VyaXR5LCBwb3J0IGZvcndhcmRpbmciLAogICJhcnRpY2xlU2VjdGlvbiI6ICJOZXR3b3JraW5nLCBEZXZPcHMsIFNlY3VyaXR5IiwKICAidXJsIjogImh0dHBzOi8vcGluZ2d5LmlvL2Jsb2cvc3NoX3JldmVyc2VfdHVubmVsbGluZy8iLAogICJhcnRpY2xlQm9keSI6ICJUbyBzZXQgdXAgYSBiYXNpYyBTU0ggcmV2ZXJzZSB0dW5uZWwsIHVzZSB0aGUgZm9sbG93aW5nIGNvbW1hbmQ6Cgpzc2ggLVIgODA4MDpsb2NhbGhvc3Q6MzAwMCB1c2VyQHJlbW90ZS1zZXJ2ZXIuY29tCgpUaGlzIHdpbGwgZXhwb3NlIHlvdXIgbG9jYWwgcG9ydCAzMDAwIHRvIHRoZSByZW1vdGUgc2VydmVyIHBvcnQgODA4MC4gV2l0aCBQaW5nZ3ksIHlvdSBjYW4gYWNoaWV2ZSBzaW1pbGFyIHR1bm5lbGluZyB3aXRob3V0IG5lZWRpbmcgYSBwdWJsaWMgSVAgb3IgY29tcGxleCBzZXR1cC4iCn0KPC9zY3JpcHQ+"
- tags: ["guide", "SSH Reverse Tunneling"]
- og_image: "images/ssh_reverse_tunnelling/ssh-reverse-tunneling.webp"
- outputs:
+title: "SSH Reverse Tunneling"
+description: "Learn SSH reverse tunneling to securely access local services from remote locations, even behind firewalls or NATs. Covers IoT control and database access."
+date: 2024-10-23T14:15:25+05:30
+lastmod: 2026-08-21T15:15:25+05:30
+draft: false
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJCbG9nUG9zdGluZyIsCiAgIm1haW5FbnRpdHlPZlBhZ2UiOiB7CiAgICAiQHR5cGUiOiAiV2ViUGFnZSIsCiAgICAiQGlkIjogImh0dHBzOi8vcGluZ2d5LmlvL2Jsb2cvc3NoX3JldmVyc2VfdHVubmVsbGluZy8iCiAgfSwKICAiaGVhZGxpbmUiOiAiU1NIIFJldmVyc2UgVHVubmVsaW5nOiBBIENvbXBsZXRlIEd1aWRlIiwKICAiZGVzY3JpcHRpb24iOiAiTGVhcm4gaG93IFNTSCByZXZlcnNlIHR1bm5lbGluZyB3b3JrcywgaXRzIHByYWN0aWNhbCB1c2UgY2FzZXMsIHNlY3VyaXR5IGJlc3QgcHJhY3RpY2VzLCBhbmQgaG93IFBpbmdneSBzaW1wbGlmaWVzIHNlY3VyZSB0dW5uZWxpbmcgZnJvbSBsb2NhbGhvc3QuIiwKICAicHVibGlzaGVyIjogewogICAgIkB0eXBlIjogIk9yZ2FuaXphdGlvbiIsCiAgICAibmFtZSI6ICJQaW5nZ3kiCiAgfSwKICAiZGF0ZVB1Ymxpc2hlZCI6ICIyMDI0LTEwLTIzIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjYtMDgtMjEiLAogICJrZXl3b3JkcyI6ICJTU0gsIHJldmVyc2UgdHVubmVsaW5nLCByZW1vdGUgYWNjZXNzLCBOQVQsIGZpcmV3YWxsLCBQaW5nZ3ksIGF1dG9zc2gsIHJlbW90ZSBkZWJ1Z2dpbmcsIElvVCBhY2Nlc3MsIGRhdGFiYXNlIHR1bm5lbGluZywgU1NIIHNlY3VyaXR5LCBwb3J0IGZvcndhcmRpbmciLAogICJhcnRpY2xlU2VjdGlvbiI6ICJOZXR3b3JraW5nLCBEZXZPcHMsIFNlY3VyaXR5IiwKICAidXJsIjogImh0dHBzOi8vcGluZ2d5LmlvL2Jsb2cvc3NoX3JldmVyc2VfdHVubmVsbGluZy8iLAogICJhcnRpY2xlQm9keSI6ICJUbyBzZXQgdXAgYSBiYXNpYyBTU0ggcmV2ZXJzZSB0dW5uZWwsIHVzZSB0aGUgZm9sbG93aW5nIGNvbW1hbmQ6Cgpzc2ggLVIgODA4MDpsb2NhbGhvc3Q6MzAwMCB1c2VyQHJlbW90ZS1zZXJ2ZXIuY29tCgpUaGlzIHdpbGwgZXhwb3NlIHlvdXIgbG9jYWwgcG9ydCAzMDAwIHRvIHRoZSByZW1vdGUgc2VydmVyIHBvcnQgODA4MC4gV2l0aCBQaW5nZ3ksIHlvdSBjYW4gYWNoaWV2ZSBzaW1pbGFyIHR1bm5lbGluZyB3aXRob3V0IG5lZWRpbmcgYSBwdWJsaWMgSVAgb3IgY29tcGxleCBzZXR1cC4iCn0KPC9zY3JpcHQ+"
+tags: ["ssh", "tunneling", "networking"]
+og_image: "images/ssh_reverse_tunnelling/ssh-reverse-tunneling.webp"
+outputs:
   - HTML
   - AMP
 ---
 
+{{< llm-context >}}To reach a local service from anywhere with Pinggy - run your service locally (say, on port 3000), then run `ssh -p 443 -R0:localhost:3000 free.pinggy.io` to get a public HTTPS URL that routes back to it, no reverse tunnel of your own to host.{{< /llm-context >}}
+
 {{< image "ssh_reverse_tunnelling/ssh-reverse-tunneling.webp" "SSH Reverse Tunnel Command Example" >}}
 
 
-SSH lets you forward ports in both directions. The less-obvious direction - reverse tunneling - is what you reach for when the machine running your service can't be reached directly: it's behind a corporate firewall, sitting on a private network, or assigned a dynamic IP with no inbound access. Rather than punching holes in a firewall or configuring port forwarding on a router you may not control, you initiate a connection outward from the restricted machine, and the remote server routes traffic back through that tunnel.
+Getting into a machine you don't control the network path to - a laptop on a coffee shop's Wi-Fi, a Raspberry Pi at a remote site, a server sitting behind a corporate firewall - is a problem every developer runs into eventually. SSH lets you forward ports in both directions. The less-obvious direction - reverse tunneling - is what you reach for when the machine running your service can't be reached directly: it's behind a corporate firewall, sitting on a private network, or assigned a dynamic IP with no inbound access. Rather than punching holes in a firewall or configuring port forwarding on a router you may not control, you initiate a connection outward from the restricted machine, and the remote server routes traffic back through that tunnel.
 
 [Pinggy](https://pinggy.io) is built on exactly this mechanic - it handles the public-facing server side so you don't have to run your own.
 
@@ -220,7 +222,30 @@ Once the reverse tunnel is set up, any traffic directed to the remote server (e.
 
 #### Optional Step: Persistent Tunnels
 
-If you want the reverse tunnel to persist across SSH session drops or server reboots, use tools like autossh or add the reverse tunnel command to a startup script.
+If you want the reverse tunnel to persist across SSH session drops or server reboots, use tools like autossh or wrap the command in a systemd service. autossh monitors the connection and restarts it on failure:
+
+```bash
+autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -R 8080:localhost:3000 user@remote-server.com
+```
+
+A plain systemd unit works too, without the extra autossh dependency:
+
+```ini
+# /etc/systemd/system/reverse-tunnel.service
+[Unit]
+Description=Persistent SSH reverse tunnel
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ssh -N -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes -R 8080:localhost:3000 user@remote-server.com
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable it with `systemctl enable --now reverse-tunnel.service`, and systemd handles restarts on both connection drops and reboots.
 
 
 ## Common Use Cases for SSH Reverse Tunneling
@@ -278,7 +303,9 @@ While SSH reverse tunneling is secure, it's important to follow best practices t
 3. **Restrict Access**: Limit which users and IP addresses can access the reverse tunnel by using firewall rules or specifying allowed users in `sshd_config`:
    `AllowUsers user@ip-address`
 
-4. **Monitoring**: Regularly audit SSH connections and logs to ensure that only authorized users are accessing the tunnel.
+4. **Prefer `GatewayPorts clientspecified` over `yes`**: Setting `GatewayPorts yes` binds every reverse-forwarded port to all interfaces on the remote server, so anyone who can reach that machine can reach your tunnel too. `GatewayPorts clientspecified` instead lets the client choose the bind address per-forward (`ssh -R 0.0.0.0:8080:...` for public, `ssh -R 127.0.0.1:8080:...` to keep it local to the server) - safer if the same server hosts tunnels you don't want all publicly reachable by default.
+
+5. **Monitoring**: Regularly audit SSH connections and logs to ensure that only authorized users are accessing the tunnel.
 
 ## Alternatives to SSH Reverse Tunneling
 
@@ -286,13 +313,13 @@ While SSH reverse tunneling is a powerful tool, there are alternatives that migh
 
 - **VPN (Virtual Private Network)**: A VPN creates a secure tunnel for all network traffic between your machine and a remote network. This can be more scalable and easier to manage if you need access to multiple services or machines on a remote network.
 
-- **Tunneling tools**: Tools such [Pinggy](https://pinggy.io), {{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}}, etc., are specialized for sharing services such as web applications, games, etc., allowing you to expose local servers to the internet with a public URL.
+- **Tunneling tools**: Tools such as [Pinggy](https://pinggy.io) and {{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}} are specialized for sharing services such as web applications and games, letting you expose local servers to the internet with a public URL without running your own reverse-tunnel server.
 
 Each method has its trade-offs depending on your needs, but SSH reverse tunneling excels in providing secure, flexible access to individual services.
 
 ## How Pinggy Uses SSH Reverse Tunneling
 
-[Pinggy](https://pinggy.io) runs the public-facing SSH server so you don’t have to. Instead of provisioning a VPS and maintaining `sshd_config`, you point a single command at `a.pinggy.io` and get a public URL back immediately:
+[Pinggy](https://pinggy.io) runs the public-facing SSH server so you don’t have to. Instead of provisioning a VPS and maintaining `sshd_config`, you point a single command at `free.pinggy.io` and get a public URL back immediately:
 
 ```
 ssh -p 443 -R0:localhost:3000 free.pinggy.io
@@ -303,7 +330,7 @@ The `-p 443` keeps the connection alive on networks that block port 22. The `R0`
 If your network runs traffic through an HTTP proxy, you can route the SSH connection through it using `ncat`:
 
 ```
-ssh -p443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" free.pinggy.io
+ssh -p 443 -R0:localhost:4000 -o ProxyCommand="ncat --proxy-type http --proxy 192.168.2.2:3128 %h %p" free.pinggy.io
 ```
 
 For networks where even that is blocked, the Pinggy {{< link href="/app/" >}}App{{< /link >}} can establish the tunnel over SSL without a separate SSH client.
