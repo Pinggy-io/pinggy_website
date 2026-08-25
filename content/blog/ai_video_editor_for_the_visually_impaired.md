@@ -2,7 +2,7 @@
 title: "AI Video Editors for the Visually Impaired"
 description: "Discover how AI-powered video editing tools make video creation accessible for the visually impaired through voice commands, automated editing, and smart features."
 date: 2025-05-09T14:15:25+05:30
-lastmod: 2026-08-12T14:15:25+05:30
+lastmod: 2026-08-24T14:15:25+05:30
 draft: false
 tags: ["AI Video Editing", "AI tools", "Video Production"]
 og_image: "images/ai_video_editor_for_the_visually_impaired/ai_video_editor_for_the_visually_impaired_banner.webp"
@@ -104,6 +104,8 @@ Perhaps the most revolutionary aspect of AI video editing is the ability to gene
 - Extend scenes or create smooth slow-motion effects
 
 For example, a visually impaired creator might say, "Add a sunset background behind the speaker" or "Remove the car passing in the background," and the AI would implement these changes without requiring visual guidance from the user.
+
+Many platforms have built this kind of generative editing directly into their toolset, letting a creator apply a model such as <a href="https://picsart.com/ai-models/seedance-2-0" target="_blank">seedance 2.0</a> to an existing photo or clip - swapping backgrounds, extending a scene, or removing an object - without touching a manual selection tool.
 
 ## Looking Forward: The Future of Accessible Video Editing
 
