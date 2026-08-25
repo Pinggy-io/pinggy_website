@@ -2,150 +2,75 @@
 title: "SSH Into Docker Container"
 description: "Learn how to securely SSH into Docker containers with practical examples and step-by-step instructions. Master container management and troubleshooting."
 date: 2024-10-18T14:15:25+05:30
-lastmod: 2024-10-18T14:15:25+05:30
+lastmod: 2026-08-21T14:15:25+05:30
 draft: false
-tags: ["guide", "Docker", "ssh"]
+og_image: "images/ssh_into_docker_container/ssh_directly_into_docker_using_pinggy.webp"
+tags: ["Docker", "ssh", "tunneling", "DevOps"]
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBTU0ggSW50byBhIERvY2tlciBDb250YWluZXIiLAogICJkZXNjcmlwdGlvbiI6ICJUd28gd2F5cyB0byBTU0ggaW50byBhIERvY2tlciBjb250YWluZXI6IGNvbm5lY3QgdG8gdGhlIGhvc3Qgb3ZlciBTU0ggYW5kIHVzZSBkb2NrZXIgZXhlYywgb3IgcnVuIGFuIFNTSCBzZXJ2ZXIgaW5zaWRlIHRoZSBjb250YWluZXIgYW5kIHJlYWNoIGl0IGRpcmVjdGx5IHRocm91Z2ggYSBQaW5nZ3kgVENQIHR1bm5lbC4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvc3NoX2ludG9fZG9ja2VyX2NvbnRhaW5lci9zc2hfZGlyZWN0bHlfaW50b19kb2NrZXJfdXNpbmdfcGluZ2d5LndlYnAiLAogICJ0b3RhbFRpbWUiOiAiUFQxME0iLAogICJlc3RpbWF0ZWRDb3N0IjogewogICAgIkB0eXBlIjogIk1vbmV0YXJ5QW1vdW50IiwKICAgICJjdXJyZW5jeSI6ICJVU0QiLAogICAgInZhbHVlIjogIjAiCiAgfSwKICAidG9vbCI6IFt7CiAgICAiQHR5cGUiOiAiSG93VG9Ub29sIiwKICAgICJuYW1lIjogIkRvY2tlciIKICB9LHsKICAgICJAdHlwZSI6ICJIb3dUb1Rvb2wiLAogICAgIm5hbWUiOiAiT3BlblNTSCIKICB9LHsKICAgICJAdHlwZSI6ICJIb3dUb1Rvb2wiLAogICAgIm5hbWUiOiAiUGluZ2d5IgogIH1dLAogICJzdGVwIjogW3sKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgIm5hbWUiOiAiUnVuIHlvdXIgRG9ja2VyIGNvbnRhaW5lciIsCiAgICAidGV4dCI6ICJTdGFydCB0aGUgY29udGFpbmVyIHlvdSB3YW50IHRvIHJlYWNoLCBmb3IgZXhhbXBsZTogZG9ja2VyIHJ1biAtZCAtLW5hbWUgbXktdWJ1bnR1LWNvbnRhaW5lciB1YnVudHU6bGF0ZXN0IHRhaWwgLWYgL2Rldi9udWxsIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAibmFtZSI6ICJFbmFibGUgU1NIIG9uIHRoZSBob3N0IGFuZCBnZW5lcmF0ZSBrZXlzIiwKICAgICJ0ZXh0IjogIkVuYWJsZSB0aGUgT3BlblNTSCBzZXJ2ZXIgb24gdGhlIGhvc3QgbWFjaGluZSBhbmQgZ2VuZXJhdGUgYSBrZXkgcGFpciB3aXRoOiBzc2gta2V5Z2VuIC10IGVkMjU1MTkgLUMgXCJ5b3VyX2VtYWlsQGV4YW1wbGUuY29tXCIiCiAgfSx7CiAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICJuYW1lIjogIkV4cG9zZSBTU0ggd2l0aCBhIFBpbmdneSBUQ1AgdHVubmVsIiwKICAgICJ0ZXh0IjogIlJ1bjogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjIyIHRjcEBmcmVlLnBpbmdneS5pbyB0byBnZXQgYSBwdWJsaWMgdGNwOi8vIGFkZHJlc3MgZm9yIHRoZSBTU0ggc2VydmVyLCB3aXRoIG5vIHB1YmxpYyBJUCBvciByb3V0ZXIgY29uZmlndXJhdGlvbiBuZWVkZWQuIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAibmFtZSI6ICJDb25uZWN0IGFuZCBlbnRlciB0aGUgY29udGFpbmVyIiwKICAgICJ0ZXh0IjogIkNvbm5lY3QgdXNpbmcgdGhlIGFkZHJlc3MgYW5kIHBvcnQgUGluZ2d5IHByaW50ZWQsIHRoZW4gcnVuOiBkb2NrZXIgZXhlYyAtaXQgbXktdWJ1bnR1LWNvbnRhaW5lciBiYXNoIHRvIG9wZW4gYSBzaGVsbCBpbnNpZGUgdGhlIGNvbnRhaW5lci4iCiAgfSx7CiAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICJuYW1lIjogIkFsdGVybmF0aXZlOiBTU0ggZGlyZWN0bHkgaW50byB0aGUgY29udGFpbmVyIiwKICAgICJ0ZXh0IjogIkluc3RhbGwgb3BlbnNzaC1zZXJ2ZXIgaW5zaWRlIHRoZSBjb250YWluZXIsIHN0YXJ0IGl0LCB0aGVuIHJ1biB0aGUgc2FtZSBQaW5nZ3kgVENQIHR1bm5lbCBjb21tYW5kIGZyb20gaW5zaWRlIHRoZSBjb250YWluZXIgdG8gcmVhY2ggdGhlIGNvbnRhaW5lciBTU0ggc2VydmVyIGRpcmVjdGx5LiIKICB9XQp9Cjwvc2NyaXB0Pg=="
 outputs:
   - HTML
   - AMP
 ---
 
-Secure Shell (SSH) is a widely supported protocol used for remotely making administrative connections to another computer on the network. It enables individuals to access a different computer and run commands through a terminal as if they were physically with the system. SSH is invaluable for system administrators, developers, and network engineers.
+{{< image "ssh_into_docker_container/ssh_into_docker_container_banner.webp" "SSH into Docker Container" >}}
+
+{{< llm-context >}}To reach a Docker container from anywhere with Pinggy - run `ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io` to expose an SSH server over a public `tcp://host:port` address, then either connect to the host and run `docker exec -it my-container bash`, or run the tunnel command from inside a container that has its own `openssh-server` to SSH straight in.{{< /llm-context >}}
+
+Debugging a container that runs on someone else's machine - a cloud VM, a build server, a box behind an office firewall - usually means getting a shell on it first, and the usual `docker exec` only helps once you can already reach the host. Secure Shell (SSH) is the widely supported protocol used for making administrative connections to another computer over the network. It lets you access a different machine and run commands through a terminal as if you were sitting in front of it, which makes it invaluable for system administrators, developers, and network engineers.
 
 In this article, we will explore two methods to SSH into Docker containers and discuss best practices for managing SSH within Docker environments.
 
-{{< image "ssh_into_docker_container/img1.webp" "SSH into Docker Container" >}}
-
 {{% tldr %}}
 
-1. **Method 1: SSH into Host and Exec into Docker**
+1. **[Method 1: SSH into the host, then `docker exec`](#method-1-ssh-into-host-and-exec-into-docker)** - safer, and the better default. Start your container, enable SSH on the host, then run these on the host:
 
-   **Steps:**
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"   # if you have no key yet
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io          # tunnel the host's SSH
+   ```
 
-   - **Run your Docker container.**
+   Then from anywhere, using the address and port Pinggy printed:
 
-   - **Generate SSH keys on your host:**
+   ```bash
+   ssh -p <port> -i ~/.ssh/id_rsa your_username@your-unique-url.a.free.pinggy.link
+   docker exec -it my-ubuntu-container bash
+   ```
 
-     ```bash
-     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-     ```
+2. **[Method 2: SSH straight into the container](#method-2-ssh-directly-into-docker-using-pinggy)** - when you need the container itself, not the host. Inside the container:
 
-   - **Create a secure tunnel using Pinggy:**
+   ```bash
+   apt-get update && apt-get install -y openssh-server openssh-client
+   mkdir /var/run/sshd
+   echo 'root:password' | chpasswd
+   sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+   service ssh start
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io          # run this inside the container
+   ```
 
-     ```bash
-     ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
-     ```
+   Then connect from your own machine:
 
-   - **Connect to SSH via public URL provided by Pinggy:**
-
-     ```bash
-     ssh -p <port> -i ~/.ssh/id_rsa your_username@your-unique-url.a.free.pinggy.link
-     ```
-
-   - **Access Docker container:**
-
-     ```bash
-     docker exec -it my-ubuntu-container bash
-     ```
-
-   **Continue reading [Method 1](#method-1-ssh-into-host-and-exec-into-docker)**
-
-2. **Method 2: SSH Directly into Docker Using Pinggy**
-
-   **Steps:**
-
-   - **Set up your container. Example with Ubuntu container:**
-
-     ```bash
-     docker run -it --name ssh-container ubuntu
-     ```
-
-   - **Install OpenSSH server inside the container:**
-
-     ```bash
-     apt-get update
-     apt-get install -y openssh-server
-     mkdir /var/run/sshd
-     ```
-
-   - **Configure SSH server and set root password:**
-
-     ```bash
-     echo 'root:password' | chpasswd
-     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-     service ssh start
-     ```
-
-   - **Create a tunnel using Pinggy:**
-
-     ```bash
-     ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
-     ```
-
-   - **SSH into the container via the public URL provided by Pinggy:**
-
-     ```bash
-     ssh -p <port> root@your-unique-url.a.free.pinggy.link
-     ```
-
-   **Continue reading [Method 2](#method-2-ssh-directly-into-docker-using-pinggy)**
+   ```bash
+   ssh -p <port> root@your-unique-url.a.free.pinggy.link
+   ```
 
 {{% /tldr %}}
 
-### What is SSH?
-
-SSH is a widely supported protocol that is used for remotely making administrative connections to another computer over the network. It enables individuals to access a different computer and run commands through a terminal as if they were physically with the system. Commonly, SSH is used to accomplish an encrypted and secure communication channel between a client and a server, so such a tool is invaluable for system administrators, developers, and network engineers.
-SSH is often used in handling cloud-based servers, managing distant services or even Docker instances as we will explain in this guide.
-
-
 ### How Does SSH Work?
 
-When you ‘log in’ to an SSH server for the first time, the communication between the client (usually your computer or device you are using) and the SSH server is to exchange secret keys to form what is referred to as an encrypted ‘tunnel’. This helps to make certain that any information exchange between them – in the form of commands, files, and passwords, etc. is not vulnerable to eavesdropping.
-SSH uses a client-server model of operation, in that the client initiates connection requests to the server. To set up an SSH session, you typically need:
+When you log in to an SSH server, the client (your local machine) and the server exchange keys to establish an encrypted tunnel. Everything that crosses it afterwards - commands, files, passwords - is protected from eavesdropping.
 
-**Requirements to Set Up an SSH Session:**
-
-- **An SSH client:** A tool run locally on your machine. Most Linux distributions and macOS come with the OpenSSH client pre-installed.
-- **An SSH server:** An SSH server has to be installed and running on the remote machine or container. This is what waits for connection requests over an SSH server on a specific port, most preferably port number 22.
-
-
-**Basic SSH Command Syntax:**
-
-```bash
-ssh user@host
-```
-
-- `user`: The username on the remote machine.
-- `host`: The IP address or domain name of the remote server.
-
-**Example:**
-
-```bash
-ssh john@192.168.1.100
-```
+Two pieces are needed: an **SSH client** on your machine, which Linux and macOS ship with by default, and an **SSH server** running on the remote machine or container, listening on a port (conventionally 22). The command itself is just `ssh user@host`, where `host` is an IP address or domain name.
 
 ## Why is SSH Important for Docker Containers?
 
-SSH can be effective in container management irrespective of the working environment, but it is more effective for production projects and for remote work. While Docker provides its own set of tools for container access, SSH is often used when:
-
-- **Managing containers on remote servers:** Whenever you have Docker containers running in the context of a virtual machine, such as cloud services, SSH allows you easy and safe access to both the host and its containers.
-- **Needing secure, encrypted access:** SSH makes sure that any commands or data in transit between you and the container is encrypted.
-- **Restricted from direct Docker access:** Though in some contexts, direct access to docker can be prohibited via security policies then SSH becomes the favored way of engaging the container.
-
-SSH also enables tunneling, port forwarding, and other features that may be helpful when dealing with containers remotely. or in a specific network topological structure.
+Docker has its own tools for container access, so SSH earns its place mainly in production and remote work. It is worth reaching for when you are managing containers on a remote server such as a cloud VM and need safe access to both the host and what runs on it, when the commands and data in transit need to stay encrypted, or when security policy restricts direct Docker access and SSH is the sanctioned way in. It also brings tunneling and port forwarding along with it, which matters once the network between you and the container is not a straight line.
 
 ## Method 1: SSH into Host and Exec into Docker
-In this method, you will initially connect a terminal to the host machine, where the Docker container is launched from by using SSH. After getting on the host, it is possible to use a built-in `docker exec` command to work in the container. This is a quite simple and safe process if you deal with the containers in a production mode.
-
-
-### Diagram Overview
+Here you SSH to the host machine that the container runs on, then use the built-in `docker exec` command to get a shell inside the container. It is the simpler and safer of the two methods, and the better default for production.
 
 {{< image "ssh_into_docker_container/ssh_into host_and_exec_into_docker.webp" "SSH into Host and Exec into Docker" >}}
 
-**Diagram flow Summary**
-  - Pinggy tunnel allows the user to access the host.
-  - Authentication is handled by the SSH server on the host, granting user access.
-  - Once authenticated, Docker commands (like `docker exec`) can be used to open a terminal session in the running Docker container.
+The flow: a Pinggy tunnel exposes the host's SSH server, the host authenticates you, and once you are in, `docker exec` opens a terminal session in the running container.
 
 ### Step-by-Step Guide
 
@@ -304,20 +229,13 @@ After creating the tunnel, Pinggy will provide a public URL like this:
 tcp://your-unique-url.a.free.pinggy.link:port
 ```
 
-- To connect to your system using the Pinggy-generated URL, follow these steps:
+Run `whoami` on the host to confirm your username, then connect using the address and port Pinggy printed:
 
-   - **Find Your Username:** Run this command:
-    
-     ```bash
-     whoami
-     ```
+```bash
+ssh -p <port> -i ~/.ssh/id_rsa your_username@your-unique-url.a.free.pinggy.link
+```
 
-    - **Connect via SSH:** Use the following command to establish an SSH connection:
-    
-      ```bash
-      ssh -p <port> -i ~/.ssh/id_rsa your_username@your-unique-url.a.free.pinggy.link
-      ```
-    *Replace `<port>`, `your_username`, and `your-unique-url` with your actual details.*
+*Replace `<port>`, `your_username`, and `your-unique-url` with your actual details.*
 
 {{< image "ssh_into_docker_container/connect-to-ssh-via-public-url.webp" "Connect to SSH via Public URL" >}}
 
@@ -333,18 +251,11 @@ This opens a terminal inside your running Docker container.
 
 ## Method 2: SSH Directly into Docker Using Pinggy
 
-In this method, where you need direct SSH access to a Docker container, you can set up an SSH server inside the container itself. This method allows you to establish an SSH connection directly into the container using Pinggy, even if the host lacks a public IP address.
-
-
-### Diagram Overview
+When you need SSH access straight into the container rather than the host, run an SSH server inside the container itself. Pinggy then exposes it publicly, so this works even when the host has no public IP address.
 
 {{< image "ssh_into_docker_container/ssh_directly_into_docker_using_pinggy.webp" "SSH Directly into Docker Using Pinggy" >}}
 
-**Diagram flow Summary**
-- The container runs Ubuntu and is accessible publicly by Pinggy’s URL.
-- The connection is forwarded to port 22 of the container from the public endpoint through pinggy.
-- The SSH server simply listens to port 22 in the container and takes care of this connection.
-
+The flow: Pinggy publishes a public endpoint and forwards connections to port 22 inside the container, where the container's own SSH server picks them up.
 
 ### Step-by-Step Guide
 
@@ -364,9 +275,11 @@ docker run -it --name ssh-container ubuntu
 
 **Install OpenSSH Server Inside the Container:**
 
+Install the server so the container can accept SSH connections, and the client so it can open the outbound Pinggy tunnel in the next step:
+
 ```bash
 apt-get update
-apt-get install -y openssh-server
+apt-get install -y openssh-server openssh-client
 ```
 
 {{< image "ssh_into_docker_container/install_openssh_server.webp" "Install OpenSSH Server" >}}
@@ -396,7 +309,7 @@ service ssh start
 #### 2. Create a Tunnel Using Pinggy
 
 **Run the Pinggy Tunnel Command:**
-Exposes port 22 (SSH port on the container) using Pinggy. The command will forward the connection to the host machine's SSH server:
+Run this **from inside the container**, in the same shell where you just started the SSH service. That matters: the container's port 22 is not published to the host, so `localhost:22` only resolves to the container's own SSH server from within the container. Running it on the host would tunnel the *host's* SSH server instead, which is Method 1.
 
 {{< ssh_command defaultcommand="ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io">}}
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io\"}}}"
@@ -405,16 +318,17 @@ Exposes port 22 (SSH port on the container) using Pinggy. The command will forwa
 {{< image "ssh_into_docker_container/create_a_tunnel_using_pinggy.webp" "Start SSH Service" >}}
 
 **Get the Public URL:**
-After executing the command, Pinggy will give us a public URL which external users would have the ability to connect to via SSH to the container’s server. It will look like this:
+After executing the command, Pinggy gives you a public address that anyone can use to reach the container's SSH server. It looks like this:
 
 ```
 tcp://your-unique-url.a.free.pinggy.link:port
 ```
 
+Since the tunnel process runs in the foreground, keep that shell open. Open a second shell into the container with `docker exec -it ssh-container bash` if you need to poke around while the tunnel is up.
+
 #### 3. SSH into the Container
 
-Connect to the Ubuntu container's SSH server on the public Pinggy link from your user machine. Run this command (replace rnhoq-27-59-124-165.a.free.pinggy.link) with the URL and port you received
-
+From your own machine, connect to the container's SSH server over the public Pinggy address. Replace `<port>` and the hostname with the values Pinggy printed:
 
 ```bash
 ssh -p <port> root@your-unique-url.a.free.pinggy.link
@@ -426,63 +340,7 @@ Enter the password you set earlier (`password` in this example).
 
 {{< image "ssh_into_docker_container/ssh_into_the_container.webp" "SSH Into The Container" >}}
 
-
-## Docker Best Practices for Managing SSH
-For Docker containers there is a notion of them being “disposable”. They are designed to be as long as the task or the process in which it is applied, and can be reused in cases of errors. Any changes we make manually after SSHing into a container are not permanent. If they are not added to the image, all changes will be gone once the container stops or restarts.
-
-### 1. Ephemeral Nature of Containers
-Never input or place something into a container by hand. Still, make changes in such manners in Dockerfiles or deploy changes using configuration management tools such as Ansible or Chef if changes are made through SSH.
-
-**Best Practice:**
-
-- Avoid manual changes inside containers. Instead, modify Dockerfiles or use configuration management tools like Ansible or Chef to ensure any changes made via SSH are reproducible and can be applied in a clean, automated way.
-
-- Rebuild your container images rather than manually changing configuration via SSH. This ensures that you maintain an immutable infrastructure, where changes are versioned and trackable.
-
-
-### 2. Container Immutability
-Docker’s best practice is that of an immutable infrastructure . An immutable container implies that changes to the running container need to be avoided instead the new containers should be spawned from the newly created images. When you open SSH access on a container, it can be altered manually in which you is contradicting this principle of immutability. For instance, changes made manually over time results in a difference in the running container and the definition of the configuration.
-
-
-**Best Practice:**
-
-- Docker should be utilized for Infrastructure as Code (IaC), because the used infrastructure is defined and managed. If change is required in specific containers, never update via SSH, always recreate the containers out of the Dockerfile or through the CI/CD paths.
-
-- Restrict the use of SSH to when you are doing urgent debugging the Docker image but before you perform any commands on the instance, remember to commit the Dockerfile and as well the change into version control once troubleshooting is over.
-
-
-### 3. Minimizing Security Risks
-It is worth to note that containers as being isolated and thus secure units themselves. Adding SSH to a container obviously opens it up to even more potential points of exploitation. When an SSH server is run inside a container it means port 22 is opened and this means that it attracts a lot of traffic and possibly a lot of danger if protection is not put in place. First of all, the SSH server as a service becomes a potential weak link if has not been set up and updated properly.
-
-**Best Practice:**
-
-- Instead of carrying out password-based authentication, use SSH key-based authentication to reduce brute force attacks. The first is to ensure that Root login is disabled, as well as the default privileges for users be restricted.
-
-- You should use the {{< link href="https://pinggy.io/docs/tcp_tunnels/ip_whitelist/" >}}IP Whitelist{{< /link >}} feature of Pinggy to only allow connections from trusted IP addresses.
-
-- You should update and patch your existing SSH server and your Docker images as often as possible to minimize on security exploits.
-
-### 4. Limiting the Need for SSH
-It would be desirable for SSH into Docker containers as much as possible. Using the shell of the host operating system, Docker offers the docker exec command which one can use to interact with containers with its inherent problems, such as the use of SSH connection which has to be established every time for every container. The docker exec is less invasive and is aligned with Docker principles of how containers can be managed in a much more controlled manner.
-
-**Best Practice:**
-
-- Giving admin access to the container Use `docker exec -it <container_id> /bin/bash` for working with containers when you need to work using command-line interface. This method also does not involve the opening of any other ports, which makes your container exposed to different security threats.
-
-- The only use of Reserve SSH should be when docker exec is not possible due to the application’s rate of growth or if you are working in a multitenant production environment with limited Docker privileges.
-
-
-### 5. Centralized Logging and Monitoring
-The problem with debugging using SSH access is that, the actions you may want to take are only limited to the particular instance. If something goes wrong, it may be a bit hard to track down to it’s source since it is all over. Rather than using SSH to diagnose issues, centrally logging and monitoring can give a clue to what is transpiring within a container.
-
-
-**Best Practice:**
-
-- Setup a logging as a service which is ELK Stack (Elasticsearch, Logstash, and Kibana) or use Prometheus along with Grafana to monitor the performance of your container along with logs of the application. That way there is little reliance on SSH because you can monitor the status of the container without physically logging into it.
-
-- Use tools like Datadog, New Relic, or Prometheus to monitor container metrics and performance remotely.
-
 ## Conclusion
 
-While, SSH is powerful tool for running Docker containers, but it has to be used carefully, in agreement with the Docker practices. Users can obtain access to the containers in production environment by techniques such as SSH into the host and run Docker proxied commands, or SSH into a container directly. However, you shouldn’t rely over much on manual intervention, for it’s against the core principles of Docker (immutability and automation). To make a more secure, scalable, and manageable Docker infrastructure one uses Docker exec to manage the containers combined with the security measure and centralized logging.
+SSH is useful for working with Docker containers, but it works best used sparingly. Reach a container either by SSHing into the host and running `docker exec`, or by running an SSH server inside the container and connecting directly - a {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} TCP tunnel makes either work without a public IP. Prefer `docker exec` day to day, use key-based auth on any SSH server you expose, and let centralized logging answer the questions that would otherwise send you hunting for a shell.
 

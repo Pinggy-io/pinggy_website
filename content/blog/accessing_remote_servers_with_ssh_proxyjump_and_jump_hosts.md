@@ -2,20 +2,21 @@
 title: "Accessing Remote Servers with SSH ProxyJump and Jump Hosts"
 description: "Learn how to securely navigate network segments with SSH ProxyJump and Jump Hosts. Covers SSH basics, configurations, and security best practices."
 date: 2024-11-06T10:30:00+05:30
-lastmod: 2024-11-06T10:30:00+05:30
+lastmod: 2026-08-24T10:30:00+05:30
 draft: false
 og_image: "images/securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ssh_proxyjump.webp"
-tags: ["networking", "security", "ssh", "engineering"]
+tags: ["ssh", "networking", "security"]
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBBY2Nlc3MgUmVtb3RlIFNlcnZlcnMgd2l0aCBTU0ggUHJveHlKdW1wIGFuZCBKdW1wIEhvc3RzIiwKICAiZGVzY3JpcHRpb24iOiAiVXNlIFNTSCBQcm94eUp1bXAgdG8gcmVhY2ggc2VydmVycyB0aGF0IGFyZSBub3QgZGlyZWN0bHkgcmVhY2hhYmxlLCBieSBob3BwaW5nIHRocm91Z2ggb25lIG9yIG1vcmUganVtcCBob3N0cyBpbiBhIHNpbmdsZSBjb21tYW5kIGluc3RlYWQgb2YgY2hhaW5pbmcgbWFudWFsIFNTSCBzZXNzaW9ucy4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvc2VjdXJlbHlfYWNjZXNzaW5nX3JlbW90ZV9zZXJ2ZXJzX3dpdGhfc3NoX3Byb3h5anVtcF9hbmRfanVtcF9ob3N0cy9zc2hfcHJveHlqdW1wLndlYnAiLAogICJ0b3RhbFRpbWUiOiAiUFQxME0iLAogICJlc3RpbWF0ZWRDb3N0IjogewogICAgIkB0eXBlIjogIk1vbmV0YXJ5QW1vdW50IiwKICAgICJjdXJyZW5jeSI6ICJVU0QiLAogICAgInZhbHVlIjogIjAiCiAgfSwKICAidG9vbCI6IHsKICAgICJAdHlwZSI6ICJIb3dUb1Rvb2wiLAogICAgIm5hbWUiOiAiT3BlblNTSCIKICB9LAogICJzdGVwIjogW3sKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgIm5hbWUiOiAiQ29uZmlybSB5b3VyIE9wZW5TU0ggdmVyc2lvbiIsCiAgICAidGV4dCI6ICJQcm94eUp1bXAgcmVxdWlyZXMgT3BlblNTSCA3LjMgb3IgbmV3ZXIgb24gdGhlIGNsaWVudC4gQ2hlY2sgd2l0aDogc3NoIC1WIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAibmFtZSI6ICJDb25uZWN0IHRocm91Z2ggYSBzaW5nbGUganVtcCBob3N0IiwKICAgICJ0ZXh0IjogIlJ1bjogc3NoIC1KIHVzZXJAanVtcC5leGFtcGxlLmNvbSB1c2VyQHNlcnZlci5kZXN0aW5hdGlvbi5jb20gdG8gY29ubmVjdCB0byB0aGUgdGFyZ2V0IGhvc3QgdGhyb3VnaCB0aGUganVtcCBob3N0IGluIG9uZSBjb21tYW5kLiIKICB9LHsKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgIm5hbWUiOiAiQ2hhaW4gbXVsdGlwbGUganVtcCBob3N0cyIsCiAgICAidGV4dCI6ICJTZXBhcmF0ZSBqdW1wIGhvc3RzIHdpdGggY29tbWFzIHRvIGhvcCB0aHJvdWdoIHRoZW0gaW4gb3JkZXI6IHNzaCAtSiB1c2VyQGp1bXAxLmV4YW1wbGUuY29tLHVzZXJAanVtcDIuZXhhbXBsZS5jb20gdXNlckBzZXJ2ZXIuZGVzdGluYXRpb24uY29tIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAibmFtZSI6ICJTYXZlIHRoZSByb3V0ZSBpbiB5b3VyIFNTSCBjb25maWciLAogICAgInRleHQiOiAiQWRkIGEgUHJveHlKdW1wIGVudHJ5IHRvIH4vLnNzaC9jb25maWcgc28gdGhlIGp1bXAgaXMgYXBwbGllZCBhdXRvbWF0aWNhbGx5LCB0aGVuIGNvbm5lY3Qgd2l0aCBqdXN0OiBzc2ggaG9zdF9kZXN0aW5hdGlvbiIKICB9LHsKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgIm5hbWUiOiAiU2V0IHVwIGtleS1iYXNlZCBhdXRoZW50aWNhdGlvbiIsCiAgICAidGV4dCI6ICJHZW5lcmF0ZSBhIGtleSB3aXRoIHNzaC1rZXlnZW4gLXQgZWQyNTUxOSBhbmQgY29weSBpdCB0byBib3RoIHRoZSBqdW1wIGhvc3QgYW5kIHRoZSB0YXJnZXQgc2VydmVyIHVzaW5nIHNzaC1jb3B5LWlkIHNvIG5vIHBhc3N3b3JkIGlzIG5lZWRlZCBhdCBlaXRoZXIgaG9wLiIKICB9XQp9Cjwvc2NyaXB0Pg=="
 outputs:
   - HTML
   - AMP
 ---
 
-## Introduction
 
-In practice, it is often impossible to establish a direct SSH connection with a remote server because of different network segmentation policies, firewall limitations, or extremely strict security measures at the organisation’s end. This is where Jump Hosts, commonly referred to as bastion hosts, fill the gap by providing means to connect two or more network segments. Together with SSH’s ProxyJump feature, they offer a secure way to connect to servers that otherwise cannot be reached. This guide dives into SSH ProxyJump and Jump Hosts, providing practical tips and configurations to maximise their effectiveness.
+{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/thumbnail.webp" "securely accessing remote servers with ssh proxyjump and jump hosts banner" >}}
+Production servers are rarely sitting on the open internet where you can SSH straight into them, and that is usually deliberate. In practice, a direct SSH connection is often impossible because of network segmentation policies, firewall limitations, or strict security measures at the organisation's end.
 
-{{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/thumbnail.webp" "thumbnail" >}}
+This is where Jump Hosts, commonly referred to as bastion hosts, fill the gap by providing a way to bridge two or more network segments. Together with SSH's ProxyJump feature, they offer a secure route to servers that otherwise cannot be reached. This guide dives into SSH ProxyJump and Jump Hosts, providing practical tips and configurations to maximise their effectiveness.
 
 {{% tldr %}}
 
@@ -37,10 +38,10 @@ SSH, or Secure Shell, is a protocol designed to secure data transmission over un
 
 - **Encryption**: Protects data from interception and man-in-the-middle attacks.
 - **Authentication**: Confirms the identities of clients and servers using passwords, public keys, or certificates.
-- **Integrity** : Ensures data hasn’t been tampered with using cryptographic hash functions.
+- **Integrity**: Ensures data hasn’t been tampered with using cryptographic hash functions.
 - **Port Forwarding**: Allows secure tunneling of network services.
 
-SSH is crucial for securely replacing outdated, insecure protocols like Telnet, ensuring privacy and compliance with security standards-especially essential for organizations managing sensitive data.
+SSH is crucial for securely replacing outdated, insecure protocols like Telnet, ensuring privacy and compliance with security standards - especially essential for organizations managing sensitive data.
 
 ## What is a Jump Host?
 
@@ -50,14 +51,14 @@ A Jump Host is an agnostic intermediate system in which network traffic is switc
 
 ## Why Use a Jump Host?
 
-- **Enhanced Security** : Secures the access through one point but makes it stronger and easier to monitor as compared to other options.
+- **Enhanced Security**: Funnels access through a single, hardened entry point that is far easier to monitor than many exposed servers.
 - **Network Segmentation**: Connects separate network sectors with one another without enabling direct access to sensitive internal hosts in external networks.
 - **Compliance and Auditing**: Helps in offering an easy access channel that can always be examined for any malicious incidences.
 - **Reduced Risk**: Reduces the risk of compromise of a site by placing most important and sensitive systems behind a more secure middle tier.
 
 ## What is SSH ProxyJump
 
-In the past, Previously, when using a Jump Host, it was necessary to first establish an SSH connection to the Jump Host and then initiate another SSH connection to the target server. This process was often tedious and inefficient, causing frustration for many users. Prior to the introduction of ProxyJump, there was no simple way to specify one or more Jump Hosts in the SSH connection process, requiring complex configurations such as local port forwarding. However, with the release of OpenSSH 7.3, the ProxyJump option was introduced, allowing users to easily specify Jump Hosts directly in the SSH command or configuration file, streamlining the connection process. {{< link href="https://www.openssh.com/txt/release-7.3" >}} Learn more about ProxyJump in the OpenSSH release notes for version 7.3 {{</ link>}}.
+Previously, using a Jump Host meant first establishing an SSH connection to the Jump Host and then initiating another SSH connection to the target server from there. It worked, but it was tedious, and there was no simple way to declare one or more Jump Hosts as part of a single connection: you had to fall back on awkward workarounds like local port forwarding or a hand-written `ProxyCommand`. OpenSSH 7.3 introduced the ProxyJump option, which lets you name the Jump Hosts directly in the SSH command or config file and have the client handle the rest. {{< link href="https://www.openssh.com/txt/release-7.3" >}}Learn more about ProxyJump in the OpenSSH release notes for version 7.3{{</ link>}}.
 
 {{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ssh_proxyjump.webp" "SSH ProxyJump" >}}
 
@@ -120,13 +121,14 @@ ssh host_destination
 {{< image "securely_accessing_remote_servers_with_ssh_proxyjump_and_jump_hosts/ssh host_destination_output.webp" "SSH Host destination Command Terminal Pic" >}}
 
 ### 4. SSH Tunnel Using Jump Host
-As mentioned earlier when connecting through the Jump Host you can use SSH port forwarding if you try to connect directly to the port number of the target server you will not be granted access due to the TCP port forwarding.
+
+ProxyJump combines with local port forwarding, which is useful when a service on the target network is not directly reachable from your machine. Add `-L` alongside `-J` and the forward is set up over the jumped connection:
 
 ```bash
-ssh -J user@jump.example.com -L 8080:remote_service:80: user: destination_server.hostname
+ssh -J user@jump.example.com -L 8080:remote_service:80 user@server.destination.com
 ```
 
-This command forwards your local port 8080 to remote_service:80 on server.destination.com, allowing access to the remote service through localhost:8080 on your machine.
+This forwards your local port 8080 to port 80 on `remote_service`, as resolved from the target server, so you can reach it at `http://localhost:8080` on your machine.
 
 ## Using SSH Keys to Avoid Entering Passwords Every Time 
 Among the benefits of the SSH, there is a possibility to use the key-based authentication. By utilizing ssh keys, you have the ability to log into your servers without entering a password every time, which not only enhances convenience but also security.
@@ -134,9 +136,11 @@ Among the benefits of the SSH, there is a possibility to use the key-based authe
 ### Generating SSH Keys
 To generate an SSH key pair, use the following command:
 ```bash
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
-As the next steps, hit enter to save the key pair under the default paths (~/.ssh/id_rsa and ~/.ssh/id_rsa.pub) then set a passphrase if needed. {{< link href="https://www.ssh.com/academy/ssh/keygen" >}}Refer to the OpenSSH key generation documentation for more details{{< /link >}}.
+Ed25519 is the default key type in current OpenSSH releases: the keys are short, fast, and there is no key size to pick, unlike RSA where you would need `-b 4096`. Stick with `-t rsa -b 4096` only if you have to talk to something old enough that it does not accept Ed25519.
+
+Press Enter to save the pair under the default paths (`~/.ssh/id_ed25519` and `~/.ssh/id_ed25519.pub`), then set a passphrase if needed. {{< link href="https://www.ssh.com/academy/ssh/keygen" >}}Refer to the OpenSSH key generation documentation for more details{{< /link >}}.
 
 ### Copying Your Public Key to the Server
 Use the ssh-copy-id command to copy your public key to the remote server:
@@ -162,7 +166,7 @@ ssh-copy-id user@server.destination.com
 Alternatively, you can copy your public key directly to the target server using:
 
 ```bash 
-ssh -J user@jump.example.com user@server.destination .com 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+ssh -J user@jump.example.com user@server.destination.com 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_ed25519.pub
 ```
 ### SSH Agent Forwarding
 If you cannot copy your SSH key to the target server, you can use SSH agent forwarding. This allows you to authenticate to the target server using your local SSH keys.
@@ -189,9 +193,9 @@ Host host_destination
 This configuration instructs SSH to connect another SSH session at jump.example.com and then channel on to the target server.
 
 ### Advantages of ProxyCommand
-- **Flexibility** : May be used to process non SSH proxies or any other proxies that may be required in handling proxies.
+- **Flexibility**: Works with non-SSH proxies and anything else you can drive from a command line.
 - **Compatibility**: It comes in handy where ProxyJump is not feasible because the server has outdated SSH servers.
-- **Customizability**: Permits even more configurations like netcat or other scripts unlike simple hand URL injections.
+- **Customizability**: Lets you route the connection through `netcat` or a custom script when a plain SSH hop is not enough.
 
 ## Security Best Practices
 
@@ -207,7 +211,7 @@ While, the usage of Jump Hosts and ProxyJump make it easier to work, one needs t
 ### 2. Strong Authentication Mechanisms:
 
 - **SSH Key Authentication**: Public key authentication must be used and it is recommended that password authentication be turned off because an attacker can attempt to guess a user’s password and gain access to the system.
-- **Multi-Factor Authentication (MFA)**: Reduce the number of password reset requests by enforcing MFA to provide second and in some cases third form of identification.
+- **Multi-Factor Authentication (MFA)**: Require a second factor on top of the key or password, so a stolen credential alone is not enough to get in.
 - **Authorized Keys Management**: This means that people should audit and manage those keys that are allowed in the operating system to avoid having unauthorized keys being accepted by the operating system.
 
 ### 3. Access Control:
@@ -246,7 +250,7 @@ Some standards like PCI DSS, HIPAA, and the GDPR necessitate the use of secure a
 
 - **Network Reachability**: Ensure that both the Jump Host and the target server are network accessible. Do not use unpredictable names, only ping and traceroute for diagnosis of the network connectivity problems.
 - **Firewall Rules**: Ensure firewalls on all the intermediate devices allow connection to the required ports for traffic SSH.
-- **DNS Resolution**: Check that all hostnames are responding to requests on the correct port number. If needed, resolve them to IP addresses, or convert your /etc/hosts file.
+- **DNS Resolution**: Confirm every hostname in the chain actually resolves. Remember that the target host is resolved *from the jump host*, not from your machine, so a name that works locally may still fail mid-hop. Substitute IP addresses to rule DNS out.
 
 ### 2. Authentication Failures:
 
@@ -256,31 +260,19 @@ Some standards like PCI DSS, HIPAA, and the GDPR necessitate the use of secure a
 
 ### 3. SSH Version Compatibility:
 
-- **Update OpenSSH**: It is, therefore, important to ensure you are using a version of OpenSSH that supports the ProxyJump option – the current minimum version should be 7.3.
+- **Update OpenSSH**: It is, therefore, important to ensure you are using a version of OpenSSH that supports the ProxyJump option - the minimum is 7.3, and `ssh -V` will tell you what you have.
 - **Server Compatibility**: In this case make sure that the version of the SSH servers on the Jump Host and the target server correlate by being the same or compatible.
 
 ### 4. Configuration Errors:
 
-SSH Config File Syntax: If you have not had much involvement with using SSH, then check your ~/.ssh/config file for any syntax errors or other issues.
-ProxyCommand Conflicts: The need to note is that if you are using both ProxyJump and ProxyCommand options, the latter is ignored. Delete configuration concerning the opponent’s moves that are currently in contrast to the current game situation.
+- **SSH Config File Syntax**: Check `~/.ssh/config` for typos and misplaced directives. `ssh -G host_destination` prints the fully resolved configuration for a host, which is the quickest way to confirm SSH is reading what you think it is.
+- **ProxyJump and ProxyCommand Conflicts**: These two options compete, and whichever is specified **first** prevents any later instance of the other from taking effect. So if a `Host *` block earlier in your config sets one of them, a per-host setting further down will be silently ignored. Remove the redundant directive rather than trying to layer both.
 
 ## Enhanced SSH Configurations
 
-### 1. Combining ProxyJump with ProxyCommand:
+### 1. Using ControlMaster for Connection Multiplexing:
 
-Although ProxyJump makes Proxy configuration easier, ProxyCommand is more flexible to use to resolve non-SSH proxies which various behaviors may be needed.
-
-**Example Using ProxyCommand:**
-```bash 
-Host host_destination
-    HostName server.destination.com
-    User user
-    ProxyCommand ssh -W %h:%p user@jump.example.com
-```
-
-### 2. Using ControlMaster for Connection Multiplexing:
-
-Connection multiplexing in the SSH converts several SSH sessions into one particular network connection hence saving a lot of overheads and enhancing the performance.
+Connection multiplexing lets several SSH sessions to the same host share one network connection, which cuts the per-session handshake overhead and makes subsequent connections noticeably faster.
 
 ```bash
 Host *
@@ -288,13 +280,13 @@ Host *
     ControlPath ~/.ssh/sockets/%r@%h-%p
     ControlPersist 10m
 ```
-### 3. Automating SSH Configurations:
+### 2. Automating SSH Configurations:
 
-For large scale server environments and each Linux server with unique and intricate access pattern, recommend using tools like Ansible or Puppet to automate the SSH or key management configuration.
+Once you are managing more than a handful of servers, each with its own access path, hand-editing `~/.ssh/config` stops scaling. Tools like Ansible or Puppet can generate the SSH config and distribute keys for you.
 
-### 4. Secure File Transfers Through Jump Hosts:
+### 3. Secure File Transfers Through Jump Hosts:
 
-When copying files use tools like scp or rsync with switches like -J for transfer through the jump host securely.
+`scp` accepts the same `-J` flag as `ssh`, so files can be copied through the jump host in one command:
 
 ```bash 
 scp -J user@jump.example.com file.txt user@server.destination.com:/path/to/destination/
