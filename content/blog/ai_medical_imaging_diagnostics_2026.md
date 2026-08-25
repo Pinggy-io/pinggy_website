@@ -2,7 +2,7 @@
 title: "AI Medical Imaging in 2026: Best Radiology AI Tools, FDA Clearances, and Diagnostic Accuracy"
 description: "A comprehensive guide to AI medical imaging and diagnostic AI in 2026 - the best radiology AI tools, FDA clearance data, accuracy benchmarks, Midjourney Medical's whole-body ultrasound scanner, Aidoc, Viz.ai, Paige, Tempus AI, and what actually works in clinical settings."
 date: 2026-06-22T14:15:25+05:30
-lastmod: 2026-06-22T14:15:25+05:30
+lastmod: 2026-08-24T14:15:25+05:30
 draft: false
 tags: ["AI medical imaging", "radiology AI"]
 categories: ["Technology", "Healthcare AI", "AI Tools"]
@@ -141,6 +141,8 @@ Meanwhile, **Rad AI** raised a $68M Series C (in two tranches) in 2025 at a $525
 **Google DeepMind's** Med-Gemini family hit 91.1% accuracy on MedQA (USMLE-style clinical reasoning), outperforming GPT-4 on the same benchmark. In April 2026, DeepMind announced its AI Co-Clinician initiative, which builds on Med-PaLM, AMIE, and Med-Gemini into a system that recorded zero critical errors on 97 of 98 realistic primary care queries in a structured evaluation. Real-world trials are planned across the US, India, and Australia. Through its partnership with Apollo Radiology International, Google is providing 3 million free TB, lung cancer, and breast cancer screenings in India over the next decade.
 
 **Microsoft** rebranded DAX Copilot to Dragon Copilot in March 2025, combining ambient voice capture with Dragon Medical One dictation. Over 200,000 clinicians now use it. The product listens to patient-clinician conversations, drafts clinical notes directly into Epic, and requires explicit clinician review before anything enters the medical record. In late 2025, Microsoft expanded it to nursing workflows. Nothing enters the chart without a human sign-off - a design choice that reflects where the liability sits right now.
+
+That same principle extends beyond AI documentation tools. In clinics introducing new technologies or expanding clinical services, arrangements such as <a href="https://freshclinics.com/medical-directorship" target="_blank">medical directorship with Fresh Clinics</a> reflect the broader need for defined medical oversight, clear protocols, and clinician accountability.
 
 **Nvidia's** Clara platform released three open-source medical AI models in October 2025. Clara Reason (NV-Reason-CXR-3B, available on Hugging Face) is a 3-billion-parameter vision-language model for chest X-ray interpretation that outputs step-by-step anatomical reasoning rather than just a confidence score - a direct response to the explainability problem that has hamstrung radiology AI adoption. Clara Segment handles interactive 3D segmentation. Clara Generate produces synthetic CT and MR images for training data augmentation. NIH is integrating Clara Reason into radiology workflows.
 
