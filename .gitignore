@@ -3,6 +3,7 @@ public/**
 resources/
 .vscode
 unwanted_images
-.claude
+.claude/*
+!.claude/skills/
 .antigravitycli
 
