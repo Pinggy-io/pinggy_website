@@ -37,7 +37,7 @@ Here's the part nobody says out loud in vendor pitches: the model usually isn't 
 
 Plenty of teams learn this the expensive way. A proof of concept runs fine on a public cloud at small scale, then production traffic hits, and suddenly the bill becomes a boardroom conversation nobody wanted to have.
 
-Worth a look, if you want to see how dedicated infrastructure for this kind of workload actually gets architected: go straight to the providers building it. DXC lays out its private cloud offering in {{< link href="https://dxc.com/solutions/cloud-and-infrastructure/private-cloud/private-cloud-plus-core" >}}Private Cloud Plus Core{{< /link >}}.
+Worth a look, if you want to see how dedicated infrastructure for this kind of workload actually gets architected: go straight to the providers building it. DXC lays out its private cloud offering at {{< link href="https://dxc.com/solutions/cloud-and-infrastructure/private-cloud/private-cloud-plus-core" >}}https://dxc.com/solutions/cloud-and-infrastructure/private-cloud/private-cloud-plus-core{{< /link >}}
 
 ## What AI Workloads Actually Demand From Infrastructure
 
