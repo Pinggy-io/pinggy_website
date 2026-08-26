@@ -1,21 +1,24 @@
 ---
- title: "502 Bad Gateway Meaning" 
- description: "502 Bad Gateway error occurs when a reverse proxy server cannot receive a valid response from upstream server. Learn causes and troubleshooting steps."
- date: 2024-11-16T14:15:25+05:30
- lastmod: 2024-11-16T15:15:25+05:30
- draft: false 
- tags: ["guide", "502 Bad Gateway"]
- og_image: "images/502_bad_gateway_error/502_error.webp"
- outputs:
+title: "502 Bad Gateway Meaning"
+description: "502 Bad Gateway error occurs when a reverse proxy server cannot receive a valid response from upstream server. Learn causes and troubleshooting steps."
+date: 2024-11-16T14:15:25+05:30
+lastmod: 2026-08-24T15:15:25+05:30
+draft: false
+tags: ["http", "troubleshooting", "web development"]
+og_image: "images/502_bad_gateway_error/502_error.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBGaXggYSA1MDIgQmFkIEdhdGV3YXkgRXJyb3IiLAogICJkZXNjcmlwdGlvbiI6ICJBIDUwMiBCYWQgR2F0ZXdheSBlcnJvciBtZWFucyBhIHJldmVyc2UgcHJveHkgY291bGQgbm90IGdldCBhIHZhbGlkIHJlc3BvbnNlIGZyb20gaXRzIHVwc3RyZWFtIHNlcnZlci4gTGVhcm4gdGhlIGNvbW1vbiBjYXVzZXMgYW5kIGhvdyB0byBkaWFnbm9zZSBhbmQgZml4IHRoZW0uIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzLzUwMl9iYWRfZ2F0ZXdheV9lcnJvci81MDJfZXJyb3Iud2VicCIsCiAgInRvdGFsVGltZSI6ICJQVDE1TSIsCiAgImVzdGltYXRlZENvc3QiOiB7CiAgICAiQHR5cGUiOiAiTW9uZXRhcnlBbW91bnQiLAogICAgImN1cnJlbmN5IjogIlVTRCIsCiAgICAidmFsdWUiOiAiMCIKICB9LAogICJ0b29sIjogewogICAgIkB0eXBlIjogIkhvd1RvVG9vbCIsCiAgICAibmFtZSI6ICJSZXZlcnNlIHByb3h5IHNlcnZlciBzdWNoIGFzIE5HSU5YIG9yIEFwYWNoZSIKICB9LAogICJzdGVwIjogW3sKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgIm5hbWUiOiAiUnVsZSBvdXQgYSBjbGllbnQtc2lkZSBwcm9ibGVtIiwKICAgICJ0ZXh0IjogIlJlbG9hZCB0aGUgcGFnZSwgY2xlYXIgeW91ciBicm93c2VyIGNhY2hlIGFuZCBjb29raWVzLCBhbmQgdHJ5IGFub3RoZXIgYnJvd3NlciBvciBkZXZpY2UuIElmIHRoZSBzaXRlIGlzIGRvd24gZm9yIGV2ZXJ5b25lLCBhIHN0YXR1cyBjaGVja2VyIHdpbGwgY29uZmlybSBpdC4iCiAgfSx7CiAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICJuYW1lIjogIlJlYWQgdGhlIHJldmVyc2UgcHJveHkgZXJyb3IgbG9nIiwKICAgICJ0ZXh0IjogIlRoZSBwcm94eSByZWNvcmRzIHdoeSBlYWNoIDUwMiBoYXBwZW5lZC4gT24gTkdJTlggY2hlY2sgL3Zhci9sb2cvbmdpbngvZXJyb3IubG9nIGFuZCBvbiBBcGFjaGUgY2hlY2sgL3Zhci9sb2cvYXBhY2hlMi9lcnJvci5sb2cgZm9yIHRoZSB1cHN0cmVhbSBsaW5lIG5hbWluZyB0aGUgZXhhY3QgZmFpbHVyZS4iCiAgfSx7CiAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICJuYW1lIjogIlRlc3QgdGhlIHVwc3RyZWFtIGRpcmVjdGx5IiwKICAgICJ0ZXh0IjogIkZyb20gdGhlIHByb3h5IGhvc3QsIHJ1biBjdXJsIC1JIGFnYWluc3QgdGhlIHVwc3RyZWFtIGFkZHJlc3MgYW5kIHBvcnQsIGZvciBleGFtcGxlOiBjdXJsIC1JIGh0dHA6Ly8xMC41LjYuMjM6OTk5OS4gQSByZWZ1c2VkIG9yIHRpbWVkIG91dCBjb25uZWN0aW9uIHBvaW50cyBhdCB0aGUgdXBzdHJlYW0sIG5vdCB0aGUgcHJveHkuIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAibmFtZSI6ICJDaGVjayB1cHN0cmVhbSBoZWFsdGggYW5kIHJlc291cmNlcyIsCiAgICAidGV4dCI6ICJDb25maXJtIHRoZSB1cHN0cmVhbSBwcm9jZXNzIGlzIHJ1bm5pbmcgYW5kIGxpc3RlbmluZyBvbiB0aGUgZXhwZWN0ZWQgcG9ydCwgYW5kIGNoZWNrIENQVSwgbWVtb3J5LCBhbmQgZGlzayB1c2FnZSBmb3IgZXhoYXVzdGlvbiB0aGF0IHdvdWxkIGNhdXNlIGl0IHRvIGRyb3AgY29ubmVjdGlvbnMuIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAibmFtZSI6ICJGaXggdGhlIGNvbmZpZ3VyYXRpb24gYW5kIHJlc3RhcnQiLAogICAgInRleHQiOiAiQ29ycmVjdCB0aGUgdXBzdHJlYW0gYWRkcmVzcyBvciBwb3J0LCByYWlzZSBwcm94eV9yZWFkX3RpbWVvdXQgYW5kIHByb3h5X2Nvbm5lY3RfdGltZW91dCBpZiByZXNwb25zZXMgYXJlIHNsb3csIHZlcmlmeSBETlMgaGFzIHByb3BhZ2F0ZWQsIHRoZW4gcmVzdGFydCB0aGUgc2VydmljZSB3aXRoIHN5c3RlbWN0bCByZXN0YXJ0IG5naW54LiIKICB9XQp9Cjwvc2NyaXB0Pg=="
+outputs:
   - HTML
   - AMP
 ---
+
+{{< image "502_bad_gateway_error/502_error.webp" "502 Bad Gateway Error" >}}
+Most websites today are served by more than one machine: a reverse proxy or CDN takes the request at the edge and passes it to an application server behind it. That extra hop is invisible when everything works, and very visible when it does not.
 
 Encountering a 502 Bad Gateway error can be frustrating for both website users and administrators, as it disrupts access to the website. A 502 Bad Gateway error specifically indicates that a server acting as a gateway or intermediary, like a reverse proxy server, has received an invalid response from an upstream server (often the main server hosting the content).
 
 This error often arises when there is a miscommunication between servers and understanding the underlying causes can help in pinpointing the exact issue. In this article, we’ll delve into what the 502 Bad Gateway error truly means, explore its common causes, and provide effective steps to troubleshoot and fix this issue.
 
-{{< image "502_bad_gateway_error/502_error.webp" "502 Bad Gateway Error" >}}
 
 {{% tldr %}}
 
@@ -26,7 +29,7 @@ This error often arises when there is a miscommunication between servers and und
     - Reverse proxy misconfiguration
     - Upstream server overload
     - DNS issues - reverse proxy is unable to resolve correct IP address of upstream server
-2. [**How to Fix It?**](#how-to-fix-a-502-bad-gateway-error)  
+3. [**How to Fix It?**](#how-to-fix-a-502-bad-gateway-error)  
    - **For Website Visitors**:
      - Refresh the page  
      - Clear browser cache and cookies
@@ -40,7 +43,6 @@ This error often arises when there is a miscommunication between servers and und
 
 {{% /tldr %}}
 
-<!-- This error often occurs when a reverse proxy server, responsible for routing client requests to backend servers, cannot connect properly or receives an unexpected response. -->
 ## What does "502 Bad Gateway" error mean?
 
 A 502 Bad Gateway error signals that an intermediary server, usually a reverse proxy, is unable to retrieve a valid response from the upstream server (typically the main web server). This can happen if the upstream server is down, overloaded, or improperly configured. When this occurs, the reverse proxy can’t forward the client’s request properly and instead displays a 502 Bad Gateway error message.
@@ -58,9 +60,7 @@ A 502 Bad Gateway error signals that an intermediary server, usually a reverse p
 
 A 502 Bad Gateway error occurs when there’s a communication breakdown between two servers, typically involving a reverse proxy server. This error can arise from several different causes:
 
-<!-- 1. **Server Overload or Misconfiguration**: One of the most common causes of a 502 Bad Gateway error is when the upstream server becomes overloaded or misconfigured. This often happens when the server experiences high traffic or runs into resource constraints such as CPU, memory, or bandwidth limitations. As a result, the upstream server might reject or reset the connection, causing the reverse proxy server to return a 502 Bad Gateway error. In some cases, the server might fail to respond within the expected time frame, triggering a `504 Gateway Timeout error`, which occurs when the server takes too long to respond to a request. -->
-
-1. **Server Downtime or Failure**: One of the frequent cause of a 502 Bad Gateway error is when the upstream server is temporarily down or experiencing a failure. This can occur during server maintenance, crashes, or issues with hardware or software. If the reverse proxy attempts to send requests to an unavailable upstream server, it will not receive a valid response, leading to a 502 Bad Gateway error.
+1. **Server Downtime or Failure**: One of the most frequent causes of a 502 Bad Gateway error is an upstream server that is temporarily down or experiencing a failure. This can occur during server maintenance, crashes, or issues with hardware or software. If the reverse proxy attempts to send requests to an unavailable upstream server, it will not receive a valid response, leading to a 502 Bad Gateway error.
 
 2. **Server Misconfigurations**: A 502 Bad Gateway error can occur due to misconfigurations in the upstream server. Incorrect settings in the server configuration files, such as issues with routing, proxy setup, or mismatched protocols, can cause the server to reject or reset connections. These misconfigurations prevent the server from correctly handling requests, leading the reverse proxy server to return a 502 Bad Gateway error.
 
@@ -120,7 +120,37 @@ If you're responsible for the website and encounter a 502 Bad Gateway error, her
 
 #### 1. Check Server Logs
 
-Access your server's access logs and error logs to identify any underlying issues. For {{< link href="https://httpd.apache.org/" >}}Apache{{< /link >}}, logs are typically in **/var/log/apache2/**, while for {{< link href="https://httpd.apache.org/" >}}Apache{{< /link >}}, they can be found in **/var/log/nginx/**. Reviewing these logs can help pinpoint the source of the error.
+Access your server's access logs and error logs to identify any underlying issues. For {{< link href="https://httpd.apache.org/" >}}Apache{{< /link >}}, logs are typically in **/var/log/apache2/**, while for {{< link href="https://nginx.org/" >}}NGINX{{< /link >}}, they can be found in **/var/log/nginx/**. Reviewing these logs can help pinpoint the source of the error.
+
+This is the step worth doing first, because the proxy writes down the actual reason for every 502 it returns. On NGINX, follow the error log while reproducing the request:
+
+```bash
+sudo tail -f /var/log/nginx/error.log
+```
+
+The line you are looking for names the upstream and the underlying failure. A few common ones and what they mean:
+
+```
+connect() failed (111: Connection refused) while connecting to upstream
+```
+Nothing is listening on the address and port NGINX was told to use. Either the application is not running, or the `proxy_pass` target points at the wrong port or host.
+
+```
+upstream prematurely closed connection while reading response header from upstream
+```
+The application accepted the connection and then died mid-request, typically an unhandled crash or the process being killed by the OOM killer.
+
+```
+no live upstreams while connecting to upstream
+```
+Every server in the `upstream` block has been marked as failed by NGINX's health checks.
+
+```
+upstream timed out (110: Connection timed out) while reading response header from upstream
+```
+The application is up but too slow to answer. Note that this one usually surfaces as a **504**, not a 502; see the timeout settings below.
+
+Reading that one line tells you whether to go look at the application, the network, or the proxy configuration, and saves guessing your way through the rest of this list.
 
 #### 2. Check Server Health and Resources 
 
