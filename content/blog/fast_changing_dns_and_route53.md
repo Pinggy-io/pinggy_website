@@ -1,23 +1,27 @@
 ---
 title: "Fast DNS Records with AWS Route 53"
 date: 2023-06-22T14:15:25+05:30
+lastmod: 2026-08-24T14:15:25+05:30
 draft: false
-og_image: "images/iot/head.webp"
+og_image: "images/fast_changing_dns_and_route53/fast_changing_dns_and_route53_banner.webp"
+tags: ["DNS", "AWS", "networking", "DevOps"]
 outputs:
   - HTML
   - AMP
 description: "Explore challenges and solutions for rapid DNS updates using AWS Route 53. Learn why hosting your DNS server with PowerDNS may provide a faster alternative."
 ---
 
-A user from South Korea brought to our notice that Pinggy works great for them, but it is slow. The answer to _"why"_ was obvious to us. Pinggy hosts its servers in the USA, specifically in Ohio. One key goal of Pinggy is to not only provide tunnels, but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the nearest region from where the user is creating the tunnel (as the default behavior).
+{{< image "fast_changing_dns_and_route53/fast_changing_dns_and_route53_banner.webp" "Fast DNS Records with AWS Route 53" >}}
 
-Assuming the tunnel has a persistent URL from Pinggy, the URL needs to point to the correct zone where the tunnel is created. As a result, the domain need to be pointed to the correct location dynamically when the tunnel is created. This implies a DNS update when each tunnel is spawned.
+Any service that spins up infrastructure on demand runs into the same problem eventually: the DNS record pointing at that infrastructure has to update just as fast, or visitors hit a dead end before the record ever catches up. A user from South Korea brought to our notice that Pinggy works great for them, but it is slow. The answer to _"why"_ was obvious to us. Pinggy hosts its servers in the USA, specifically in Ohio. One key goal of Pinggy is to not only provide tunnels, but fast and reliable tunnels. To improve the situation, we decided to host the tunnels in the nearest region from where the user is creating the tunnel (as the default behavior).
+
+Assuming the tunnel has a persistent URL from Pinggy, the URL needs to point to the correct zone where the tunnel is created. As a result, the domain needs to be pointed to the correct location dynamically when the tunnel is created. This implies a DNS update when each tunnel is spawned.
 
 While trying to manage DNS updates on the fly and trying to do it fast we had the following observations:
 
 - Can we change DNS records fast - on the fly while generating new URLs? - **Yes**.
 - Is {{< link href="https://aws.amazon.com/route53/" >}}AWS Route 53{{< /link >}} suitable for the purpose? - **It might be.**
-- Why the reasons for the perceived problem of _"DNS propagation delay"_ are not well discussed on the internet.
+- Why aren't the reasons for the perceived problem of _"DNS propagation delay"_ well discussed on the internet? - **They mostly focus on resolver caching, not the authoritative side.**
 - What is the TTL when a record is not found in an authoritative server? - TTL of SOA record.
 - What we think is a better alternative for Pinggy? - **Host your own DNS server.**
 - Route 53 is not bad, we just encountered a unique problem which will probably never be the case for others.
@@ -75,17 +79,17 @@ At this point, the reader is possibly shouting "reduce the TTL". We will discuss
 First approach towards a solution is reducing the TTL of the records. If we reduce the TTL for the record `example.a.pinggy.link` to `10` seconds, then it seems that the visitor can just retry after 10 seconds and the tunnel will work... no big deal. But TTL of the record will expire and the DNS server will refetch the record only if it had the record and the corresponding TTL in the first place.
 
 **When a record is not set, what is the TTL?** <br>
-In this case, the record for `example.a.pinggy.link` does not exist in the first place when the visitor tries to resolve it. As a result there is was TTL. The next time the visitor retries to resolve it, does the name server assume TTL to be 0 and try to resolve it? The answer is no. The name server will again try to refetch the record when the TTL of the SOA record set in the authoratitive server (say `a.pinggy.io`) expires.
+In this case, the record for `example.a.pinggy.link` does not exist in the first place when the visitor tries to resolve it, so there is no TTL to expire. The next time the visitor retries to resolve it, does the name server just assume TTL 0 and try again immediately? The answer is no. The name server will again try to refetch the record when the TTL of the SOA record set in the authoritative server (say `a.pinggy.io`) expires.
 
-> When a record is not found in an authoratitive server once, the record is refetched by a name server only after the TTL of the SOA record of the authoratitive server expires.
+> When a record is not found in an authoritative server once, the record is refetched by a name server only after the TTL of the SOA record of the authoritative server expires.
 
-Therefore, in our example scenario, even if the TTL of the record is set to be as low as 1, the visitor will not be able to resolve the name as by then the fact of absense of the record in the authoratitive server would have been cached till the SOA TTL expires.
+Therefore, in our example scenario, even if the TTL of the record is set to be as low as 1, the visitor will not be able to resolve the name as by then the fact of absence of the record in the authoritative server would have been cached till the SOA TTL expires.
 
-It is recommended not to reduce the TTL of the SOA record as it might cause other name servers to refetch the entire zone frequently from the authoratitive server unnecessarily ({{< link href="https://serverfault.com/questions/69183/recommended-dns-soa-record-ttl-default" >}}read more {{< /link >}}).
+It is recommended not to reduce the TTL of the SOA record as it might cause other name servers to refetch the entire zone frequently from the authoritative server unnecessarily ({{< link href="https://serverfault.com/questions/69183/recommended-dns-soa-record-ttl-default" >}}read more {{< /link >}}).
 
 ## Workarounds
 
-After all the investigation, the only way of making Pinggy work with Route 53 is to wait for the change sets to propagate to all the edge locations of Route 53. But this takes several seconds, and we do not want users of Pinggy to wait for 10 or 30 seconds to create their tunnel. As a result, at this point, we do not have any practical workarounds to use Route 53 for Pinggy.
+After all the investigation, the only way of making Pinggy work with Route 53 is to wait for the change set to fully propagate before telling the user their tunnel is ready. Route 53's own `GetChange` API reports a status of `INSYNC` once a change has reached every edge location, so this is at least detectable rather than a blind wait. But that wait is still several seconds to up to a minute, and we do not want users of Pinggy to wait 10 or 30 seconds just to create their tunnel. As a result, at this point, we do not have any practical workarounds to use Route 53 for Pinggy.
 
 Instead, we will be focusing on hosting our own DNS Server with {{< link href="https://powerdns.com" >}}PowerDNS{{< /link >}}.
 
