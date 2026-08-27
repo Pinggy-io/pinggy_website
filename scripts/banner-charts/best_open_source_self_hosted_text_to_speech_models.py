@@ -42,29 +42,32 @@ plt.rcParams.update({
 
 # ---- data (all values cited in the post) ----------------------------------
 # Panel 1 (PRIMARY): Artificial Analysis Speech Arena Elo, provider-voice,
-# July 2026 snapshot. The amber bar is the top proprietary model overall
-# (Qwen-Audio-3.0-TTS-Plus, 1,236) - the open-weight ceiling is 118 Elo below it.
-elo_labels = ["Qwen-Audio\n3.0-TTS-Plus", "Step Audio\nEditX", "Fish Audio\nS2 Pro",
-              "Voxtral\nTTS", "Kokoro\n82M v1.0", "Maya1",
-              "Magpie-Multi\n357M", "Chatterbox", "Zonos\nv0.1", "VibeVoice\n7B"]
-elo_vals = [1236, 1118, 1110, 1077, 1060, 1053, 1048, 1011, 1000, 958]
-elo_prop = [True, False, False, False, False, False, False, False, False, False]
+# August 2026 snapshot. Amber bars are proprietary reference points: Cartesia
+# Sonic 3.6 (1,283) leads the overall board, and ElevenLabs Eleven v3 (1,177) is
+# placed in Elo order to show that Breeze TTS 2 now outranks it.
+elo_labels = ["Cartesia\nSonic 3.6", "Breeze\nTTS 2", "Eleven v3", "Fish Audio\nS2 Pro",
+              "Step Audio\nEditX", "Voxtral\nTTS", "Magpie-Multi\n357M",
+              "Kokoro\n82M v1.0", "Maya1", "Higgs Audio\nV3 TTS", "Chatterbox",
+              "Zonos\nv0.1"]
+elo_vals = [1283, 1215, 1177, 1125, 1102, 1082, 1066, 1060, 1045, 1042, 1020, 1000]
+elo_prop = [True, False, True, False, False, False, False, False, False, False,
+            False, False]
 
 # Panel 2: total parameters, in millions (open weights only). Log scale - the
 # range is 82M to ~9B. Shows Kokoro punching far above its weight class.
 size_labels = ["Kokoro\n82M v1.0", "Magpie-Multi\n357M", "Chatterbox", "Zonos\nv0.1",
-               "Step Audio\nEditX", "Voxtral\nTTS", "Fish Audio\nS2 Pro", "VibeVoice\n7B"]
-size_vals = [82, 357, 500, 1600, 3000, 4000, 5000, 9000]
+               "Breeze\nTTS 2", "Voxtral\nTTS", "Fish Audio\nS2 Pro", "VibeVoice\n7B"]
+size_vals = [82, 357, 500, 1600, 3000, 4000, 4400, 9000]
 
 # Panel 3: hosted API price, USD per 1M characters, as listed on the Artificial
 # Analysis leaderboard. Open weights (crimson) vs proprietary (amber) - this is
 # what you pay someone *else* to run them; self-hosting trades it for hardware.
 # Sorted ascending by price, proprietary interleaved where it falls.
 price_labels = ["Kokoro\n82M v1.0", "StyleTTS 2", "OpenVoice\nv2", "Fish Audio\nS2 Pro",
-                "Voxtral\nTTS", "Zonos\nv0.1", "Chatterbox", "Qwen-Audio\n3.0-TTS-Plus",
-                "XTTS v2", "Eleven v3"]
-price_vals = [0.7, 2.8, 8.3, 15.0, 16.0, 20.0, 25.0, 27.6, 40.4, 100.0]
-price_prop = [False, False, False, False, False, False, False, True, False, True]
+                "Voxtral\nTTS", "Zonos\nv0.1", "Chatterbox", "Breeze\nTTS 2",
+                "Eleven v3\nConversational", "Eleven v3"]
+price_vals = [0.7, 2.8, 8.3, 15.0, 16.0, 20.0, 25.0, 34.0, 50.0, 100.0]
+price_prop = [False, False, False, False, False, False, False, False, True, True]
 
 
 def bar_panel(ax, labels, vals, title, ymax, yticks, prop=None, fmt="{:,.0f}",
@@ -126,15 +129,15 @@ fig.suptitle("Best Open Source Self-Hosted\nText-to-Speech Models in 2026",
 
 # source note + legend between title and panels
 fig.text(0.5, 0.88,
-         "Open weights vs the best proprietary model  ·  primary metric: "
-         "Artificial Analysis Speech Arena Elo  ·  July 2026",
+         "Open weights vs proprietary reference points  ·  primary metric: "
+         "Artificial Analysis Speech Arena Elo  ·  August 2026",
          fontsize=12, color="#666666", ha="center")
 
 open_patch = mpatches.Patch(facecolor=BAR_FACE, edgecolor=BAR_EDGE,
                             hatch=BAR_HATCH, label="Open weight")
 prop_patch = mpatches.Patch(facecolor=PROP_FACE, edgecolor=PROP_EDGE,
                             hatch=PROP_HATCH,
-                            label="Proprietary frontier (Qwen-Audio-3.0-TTS-Plus)")
+                            label="Proprietary reference (Cartesia Sonic 3.6, Eleven v3)")
 fig.legend(handles=[open_patch, prop_patch], loc="upper center",
            bbox_to_anchor=(0.5, 0.86), ncol=2, frameon=False, fontsize=12.5)
 
@@ -150,11 +153,11 @@ ax3 = fig.add_subplot(gs[1, 1])
 # Elo is an interval scale with no meaningful zero, so this panel starts at 900
 # (below the lowest bar) rather than 0. Labelled on the axis title to be explicit.
 bar_panel(ax1, elo_labels, elo_vals, "Speech Arena Elo (axis starts at 900)",
-          1300, [900, 1000, 1100, 1200, 1300], prop=elo_prop, tickfs=9.5, ymin=900)
+          1360, [900, 1000, 1100, 1200, 1300], prop=elo_prop, tickfs=8.5, ymin=900)
 bar_panel(ax2, size_labels, size_vals, "Model size (M parameters, log)",
           20000, [100, 1000, 10000], tickfs=8, ymin=50, log=True, rot=40)
 dot_panel(ax3, price_labels, price_vals, "Hosted API price (USD / 1M chars)",
-          120, [0, 40, 80, 120], prop=price_prop, tickfs=8)
+          120, [0, 40, 80, 120], prop=price_prop, tickfs=7.5)
 
 out = "best_open_source_self_hosted_text_to_speech_models_banner.png"
 fig.savefig(out, dpi=100, facecolor="white")
