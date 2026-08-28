@@ -123,7 +123,7 @@ The practical aspects of running your own VPN server often matter more than theo
 
 ### WireGuard Setup: Simple and Straightforward
 
-Setting up WireGuard feels refreshingly simple. Here's what a basic server configuration looks like:
+Setting up a {{< link href="https://nordvpn.com/blog/vpn-wireguard" >}}WireGuard VPN{{< /link >}} feels refreshingly simple. Here's what a basic server configuration looks like:
 
 ```ini
 [Interface]
