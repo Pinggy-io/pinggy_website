@@ -14,7 +14,7 @@ outputs:
 
 {{< image "stemdeck_local_ai_stem_separator_pinggy/stemdeck_banner.webp" "StemDeck runs locally on your machine, tunnels through Pinggy, and opens as a browser mixer on any device" >}}
 
-Splitting a mixed song back into its individual instruments used to require either a research lab or a subscription. <a href="https://github.com/stemdeckapp/stemdeck" target="_blank">StemDeck</a> does it with a `git clone` and a local model download. Point it at an MP3 and a few minutes later you have separate WAV files for vocals, drums, bass, guitar, piano, and everything else, playable in a browser-based mixer with per-track mute, solo, and volume faders. No account, no upload, no per-song fee.
+Splitting a mixed song back into its individual instruments used to require either a research lab or a subscription. {{< link href="https://github.com/stemdeckapp/stemdeck" >}}StemDeck{{< /link >}} does it with a `git clone` and a local model download. Point it at an MP3 and a few minutes later you have separate WAV files for vocals, drums, bass, guitar, piano, and everything else, playable in a browser-based mixer with per-track mute, solo, and volume faders. No account, no upload, no per-song fee.
 
 That alone would be a nice weekend tool. What makes it interesting from a "how do I actually use this" angle is that StemDeck runs as a plain FastAPI web server on `localhost:8000`. It is, mechanically, no different from any other local dev server you've ever wanted to reach from somewhere other than the machine it's running on - your phone, a bandmate's laptop, a studio machine on a different network. That's a problem Pinggy solves in one command, and it pairs unusually well here because StemDeck already leans into local-network sharing (it prints a QR code so you can open the mixer from a phone on the same Wi-Fi). A tunnel just removes the "same Wi-Fi" part.
 
@@ -31,7 +31,7 @@ That alone would be a nice weekend tool. What makes it interesting from a "how d
 
 ## What StemDeck actually does
 
-StemDeck takes an audio file (MP3, WAV, FLAC, OGG/Opus, MP4, M4A) or a YouTube URL and separates it into up to six stems: vocals, drums, bass, guitar, piano, and "other" (everything that doesn't fit the first five - synths, strings, whatever). The separation is powered by <a href="https://github.com/facebookresearch/demucs" target="_blank">Demucs</a>, Meta AI's open-source source-separation model, specifically the `htdemucs_6s` variant, a hybrid transformer architecture trained on the six-stem case rather than the more common four-stem (vocals/drums/bass/other) split.
+StemDeck takes an audio file (MP3, WAV, FLAC, OGG/Opus, MP4, M4A) or a YouTube URL and separates it into up to six stems: vocals, drums, bass, guitar, piano, and "other" (everything that doesn't fit the first five - synths, strings, whatever). The separation is powered by {{< link href="https://github.com/facebookresearch/demucs" >}}Demucs{{< /link >}}, Meta AI's open-source source-separation model, specifically the `htdemucs_6s` variant, a hybrid transformer architecture trained on the six-stem case rather than the more common four-stem (vocals/drums/bass/other) split.
 
 Once a job finishes, the result opens in a DAW-style mixer built with vanilla JavaScript and the Web Audio API: waveform view per stem, mute/solo buttons, volume faders, a shared transport with loop regions, and live VU meters. You can isolate just the vocals to check phrasing, mute the drums to hear how a bassline sits alone, or export any subset as a custom mix. There's also basic song analysis thrown in - BPM detection, key identification, and LUFS loudness measurement via `librosa` and `pyloudnorm` - and an optional secondary pass with the UVR-MDX-NET Karaoke 2 model to split lead vocals from backing vocals.
 
@@ -39,7 +39,7 @@ None of the underlying technology is new. Demucs has been open for a few years a
 
 ## Why it beats the alternatives for most personal use
 
-The commercial comparison points are <a href="https://moises.ai/" target="_blank">Moises</a> and <a href="https://www.lalal.ai/" target="_blank">LALAL.AI</a>, both of which charge per minute of audio processed or gate stem count behind a subscription. StemDeck's pitch is the opposite: everything runs on your machine, so there's no quota, no account, and no file ever leaves your computer. For separating a demo take to check a mix, pulling stems to practice along with a song, or grabbing an a cappella for a mashup, that's a straightforwardly better deal if you have the hardware for it.
+The commercial comparison points are {{< link href="https://moises.ai/" >}}Moises{{< /link >}} and {{< link href="https://www.lalal.ai/" >}}LALAL.AI{{< /link >}}, both of which charge per minute of audio processed or gate stem count behind a subscription. StemDeck's pitch is the opposite: everything runs on your machine, so there's no quota, no account, and no file ever leaves your computer. For separating a demo take to check a mix, pulling stems to practice along with a song, or grabbing an a cappella for a mashup, that's a straightforwardly better deal if you have the hardware for it.
 
 The tradeoff is exactly what you'd expect from trading a cloud GPU for your own: quality and speed depend on what you're running it on. Demucs is not free lunch, either. GPU acceleration helps a lot (CUDA on NVIDIA, MPS on Apple Silicon are both supported, with CPU fallback for everyone else), and a full six-stem separation on a longer track will noticeably tax a laptop's CPU if it has no GPU to fall back to.
 
@@ -47,7 +47,7 @@ The tradeoff is exactly what you'd expect from trading a cloud GPU for your own:
 
 You have four ways to run StemDeck, depending on platform and how much you want to touch a terminal.
 
-**Desktop app (macOS/Windows).** Grab a `.dmg` or `.zip` from the <a href="https://github.com/stemdeckapp/stemdeck/releases" target="_blank">releases page</a>. It's a Tauri-wrapped shell around the same FastAPI backend, and it bundles Python, FFmpeg, and the model download on first launch, so there's nothing else to install.
+**Desktop app (macOS/Windows).** Grab a `.dmg` or `.zip` from the {{< link href="https://github.com/stemdeckapp/stemdeck/releases" >}}releases page{{< /link >}}. It's a Tauri-wrapped shell around the same FastAPI backend, and it bundles Python, FFmpeg, and the model download on first launch, so there's nothing else to install.
 
 **Web server (macOS/Linux), one-shot setup:**
 
@@ -94,7 +94,7 @@ That's what a tunnel is for. Leave StemDeck running in one terminal, open a seco
 
 Pinggy responds with a public HTTPS URL, something like `https://abc123.a.pinggy.link`. Open it from any device on any network and you're looking at the exact same mixer you'd get on `localhost:8000` - waveforms, faders, export button included. The separation itself is still happening on your machine's CPU or GPU; the tunnel only carries the UI and the finished audio, the same way it would for any other local web app.
 
-If you need a stable link instead of a fresh random one every time you restart the tunnel, <a href="https://pinggy.io" target="_blank">Pinggy's paid plans</a> add persistent subdomains.
+If you need a stable link instead of a fresh random one every time you restart the tunnel, {{< link href="https://pinggy.io" >}}Pinggy's paid plans{{< /link >}} add persistent subdomains.
 
 ### Adding password protection
 
