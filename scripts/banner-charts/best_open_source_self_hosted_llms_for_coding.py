@@ -2,9 +2,9 @@
 """
 Banner chart for content/blog/best_open_source_self_hosted_llms_for_coding.md
 
-Primary source: Artificial Analysis (Intelligence Index). Secondary: SWE-Bench Pro.
-Third panel: SWE-bench Verified for the models that fit a 128GB MacBook Pro at
-4-bit. All figures are the ones cited in the post body.
+Primary source: Artificial Analysis (Intelligence Index v4.1.1). Secondary:
+SWE-Bench Pro. Third panel: the same Intelligence Index for the models that fit a
+128GB MacBook Pro at 4-bit. All figures are the ones cited in the post body.
 
 Usage (see README.md in this folder for the full workflow):
     python best_open_source_self_hosted_llms_for_coding.py
@@ -44,55 +44,63 @@ plt.rcParams.update({
 # ---- data (all values cited in the post) ----------------------------------
 # The leading proprietary bar (amber) is a frontier reference, not an
 # open-weight model - it shows how far open weights are from the best closed
-# model. Claude Fable 5 is the current AA Intelligence Index #1 (60), ahead of
-# Claude Opus 4.8 (56); SWE-Bench Pro frontier reference is still Opus 4.8
-# (69.2) pending a verified Fable 5 number. `prop` flags proprietary bars.
-# Kimi K3 (57 on AA Index) published weights on Jul 27, 2026, but Moonshot
-# reported no SWE-Bench Pro number for it, so it's absent from panel 2.
+# model. Claude Opus 5 is the current AA Intelligence Index #1 (63), ahead of
+# Claude Fable 5. `prop` flags proprietary bars.
+#
+# Panel 2's amber bar is Claude Opus 4.8 at 69.2, sourced from the SWE-bench Pro
+# row of Z.AI's GLM-5.2 model card (huggingface.co/zai-org/GLM-5.2), whose
+# header reads: GLM-5.2 | GLM-5.1 | Qwen3.7-Max | MiniMax M3 | DeepSeek-V4-Pro |
+# Claude Opus 4.8 | GPT-5.5 | Gemini 3.1 Pro -> 62.1 | 58.4 | 60.6 | 59 | 55.4 |
+# 69.2 | 58.6 | 54.2. That same row is the source for the MiniMax M3 and
+# DeepSeek bars here.
+# WARNING: a "Claude Opus 5 = 79.2 SWE-Bench Pro" figure circulates on secondary
+# sites. It is wrong - 79.20 is Claude 4.5 Opus on live-SWE-agent on SWE-bench
+# VERIFIED (swebench.com, 2025-12-15), a different and easier benchmark, and
+# swebench.com hosts no Pro board at all. Do not substitute it.
+# For an INDEPENDENT Pro board see Scale's SEAL (labs.scale.com), which tops out
+# at 61.5 (Muse Spark 1.1) under standardized scaffolding and does not cover the
+# August open-weight wave - never mix its numbers with the vendor-run ones here.
+# Kimi K3 is absent because Moonshot reported no SWE-Bench Pro number for it.
 
-# Panel 1 (PRIMARY): Artificial Analysis Intelligence Index.
-aa_labels = ["Claude\nFable 5", "Kimi\nK3", "GLM\n5.2", "MiniMax\nM3",
-             "DeepSeek\nV4 Pro", "MiMo\nV2.5-Pro", "Qwen3.6\n35B-A3B"]
-aa_vals = [60.0, 57.0, 51.1, 44.4, 44.3, 42.2, 32.0]
-aa_prop = [True, False, False, False, False, False, False]
+# Panel 1 (PRIMARY): Artificial Analysis Intelligence Index (v4.1.1, Aug 2026).
+# GLM-5.3's 756 GB of native-FP8 weights were published Aug 29 2026, so the full
+# 743B model is now self-hostable and joins the chart tied with Kimi K3 at 60.
+# GLM-5.3-Flash (57, MIT) stays as the bar that fits a single 8x80GB node.
+aa_labels = ["Claude\nOpus 5", "Kimi\nK3", "GLM-5.3", "Qwen3.8\nMax",
+             "GLM-5.3\nFlash", "DeepSeek\nV4 Pro", "Qwen3.8\n27B",
+             "MiniMax\nM3"]
+aa_vals = [63.0, 60.0, 60.0, 58.0, 57.0, 53.0, 52.0, 45.0]
+aa_prop = [True, False, False, False, False, False, False, False]
 
-# Panel 2: SWE-Bench Pro.
-# Muse Glimmer 30B (Meta, Aug 10 2026) is the only bar here that runs on a
-# single consumer GPU - 51.2 is Meta's self-reported High Reasoning score from
-# the model card (https://huggingface.co/meta-models/Muse-Glimmer-30B), the
-# same table that gives Qwen3.6-27B 50.2 and Gemma4-31B 36.9. Meta published no
-# Artificial Analysis Index number, so it is absent from panels 1 and 3.
-swe_labels = ["Claude\nOpus 4.8", "GLM\n5.2", "MiniMax\nM3",
-              "DeepSeek\nV4-Pro-Max", "Muse\nGlimmer\n30B", "Qwen3.6\n35B-A3B"]
-swe_vals = [69.2, 62.1, 59.0, 55.4, 51.2, 49.5]
-swe_prop = [True, False, False, False, False, False]
+# Panel 2: SWE-Bench Pro, open weights only. Qwen3.8-27B (Alibaba, Aug 14 2026)
+# is the bar that matters - it is the only one here that runs on a single 24GB
+# consumer GPU, and it lands within half a point of GLM-5.2 at ~28x fewer total
+# parameters. All figures are vendor-reported from each model card.
+swe_labels = ["Claude\nOpus 4.8", "Qwen3.8\nMax", "GLM\n5.2", "Qwen3.8\n27B",
+              "MiniMax\nM3", "DeepSeek\nV4-Pro", "Muse\nGlimmer\n30B"]
+swe_vals = [69.2, 67.7, 62.1, 61.7, 59.0, 55.4, 51.2]
+swe_prop = [True, False, False, False, False, False, False]
 
 # Panel 3: the models that actually fit a maxed-out MacBook Pro. The M5 Max
 # tops out at 128GB of unified memory (Apple, Mar 2026), so the cutoff is
-# "4-bit weights + KV cache headroom inside 128GB". Devstral 2 at 123B dense
-# (~70GB) is the largest that clears it; GLM-5.2 does not (its 2-bit GGUF is
-# ~239GB, a 256GB Mac Studio job).
+# "4-bit weights + KV cache headroom inside 128GB". GLM-5.3-Flash does not clear
+# it at a real Q4 (~180-195GB); Kimi K3 and Qwen3.8-Max are further out again.
 #
 # Scores are the Artificial Analysis Intelligence Index - the SAME metric and
-# scale as panel 1, so laptop models can be read directly against Kimi K3 (57)
-# and Claude Fable 5 (60). Sourced from AA's small (4B-40B) and medium
-# (40B-150B) open-weights boards:
-#   https://artificialanalysis.ai/models/open-source/small
-#   https://artificialanalysis.ai/models/open-source/medium
-# Reasoning variant used wherever AA publishes one, so this is one row per
-# model. Qwen3-Coder-Next and Mistral Medium 3.5 are scored non-reasoning only -
-# caveat carried into the post body.
+# scale as panel 1, so laptop models can be read directly against Kimi K3 (60)
+# and Claude Opus 5 (63). Reasoning variant used wherever AA publishes one, so
+# this is one row per model. Sourced from AA's open-weights boards:
+#   https://artificialanalysis.ai/models/open-source
 #
-# The point of the panel: the top bar is a 27B dense model, and every 120B-class
-# model that also fits scores lower. Second label line is the approximate 4-bit
-# in-memory size (gpt-oss-120b ships natively MXFP4).
-# three lines (name / size / footprint) so no single line is wide enough to
-# collide with its neighbour at this bar count
-mac_labels = ["Qwen3.6\n27B\n~17 GB", "Qwen3.6\n35B-A3B\n~20 GB",
-              "Qwen3.5\n122B-A10B\n~70 GB", "Mistral\nMedium 3.5\n~72 GB",
-              "Gemma 4\n31B\n~18 GB", "Nemotron 3\nSuper 120B\n~68 GB",
-              "gpt-oss\n120b\n~63 GB", "Qwen3-Coder\nNext\n~45 GB"]
-mac_vals = [37.0, 32.0, 32.0, 30.0, 29.0, 25.0, 24.0, 21.0]
+# The point of the panel: the top bar is a 27B dense model at the smallest
+# footprint on the chart, and every 120B-class model that also fits scores at
+# least 25 points lower. Second/third label lines are the model size and the
+# approximate 4-bit in-memory footprint (gpt-oss-120b ships natively MXFP4).
+mac_labels = ["Qwen3.8\n27B\n~14-17 GB", "Qwen3.6\n27B\n~17 GB",
+              "Muse Glimmer\n30B\n<20 GB", "Gemma 4\n31B\n~18 GB",
+              "Nemotron 3\nSuper 120B\n~68 GB", "gpt-oss\n120b\n~63 GB",
+              "Nemotron 3.5\nLightning\n~18 GB", "Qwen3-Coder\nNext\n~45 GB"]
+mac_vals = [52.0, 38.0, 35.0, 30.0, 26.0, 24.0, 24.0, 21.0]
 
 
 def bar_panel(ax, labels, vals, title, ymax, yticks, prop=None, fmt="{:.1f}",
@@ -133,7 +141,7 @@ fig.suptitle("Best Open Source Self-Hosted LLMs for\nCoding in 2026",
 # source note + legend between title and panels
 fig.text(0.5, 0.88,
          "Open weights vs the best proprietary model  ·  primary metric: "
-         "Artificial Analysis Intelligence Index  ·  cross-check: SWE-Bench Pro  ·  Jul-Aug 2026",
+         "Artificial Analysis Intelligence Index v4.1.1  ·  cross-check: SWE-Bench Pro  ·  August 2026",
          fontsize=11.5, color="#666666", ha="center")
 
 MAC_SUB = ("Artificial Analysis Intelligence Index, same scale as the top-left panel  ·  "
@@ -143,7 +151,7 @@ open_patch = mpatches.Patch(facecolor=BAR_FACE, edgecolor=BAR_EDGE,
                             hatch=BAR_HATCH, label="Open weight")
 prop_patch = mpatches.Patch(facecolor=PROP_FACE, edgecolor=PROP_EDGE,
                             hatch=PROP_HATCH,
-                            label="Proprietary frontier (Claude Fable 5 / Opus 4.8)")
+                            label="Proprietary frontier (Claude Opus 5 / Opus 4.8)")
 fig.legend(handles=[open_patch, prop_patch], loc="upper center",
            bbox_to_anchor=(0.5, 0.86), ncol=2, frameon=False, fontsize=12.5)
 
@@ -155,12 +163,12 @@ ax2 = fig.add_subplot(gs[0, 1])
 ax3 = fig.add_subplot(gs[1, :])
 
 bar_panel(ax1, aa_labels, aa_vals,
-          "Artificial Analysis Intelligence Index", 68, [0, 20, 40, 60],
-          prop=aa_prop, tickfs=9.5)
-bar_panel(ax2, swe_labels, swe_vals, "SWE-Bench Pro", 80, [0, 40, 80],
-          prop=swe_prop, tickfs=9.0)
+          "Artificial Analysis Intelligence Index", 72, [0, 20, 40, 60],
+          prop=aa_prop, tickfs=8.5)
+bar_panel(ax2, swe_labels, swe_vals, "SWE-Bench Pro (vendor-reported)", 80,
+          [0, 40, 80], prop=swe_prop, tickfs=8.5, titlefs=15)
 bar_panel(ax3, mac_labels, mac_vals,
-          "Practical Models You Can Actually Self-Host", 44, [0, 10, 20, 30, 40],
+          "Practical Models You Can Actually Self-Host", 60, [0, 20, 40, 60],
           fmt="{:.0f}", tickfs=9.0, titlefs=17, subtitle=MAC_SUB)
 
 out = "best_open_source_self_hosted_llms_for_coding_banner.png"
