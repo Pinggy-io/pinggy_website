@@ -44,7 +44,7 @@ No presenter available? AI avatars can deliver the script, so HR does not need t
 
 Too much material to turn into a video? The script-to-video workflow lets the team start with written training content and turn it into an explainer without building every scene manually.
 
-Need company-specific visuals? Templates and uploaded assets allow teams to include logos, product images, screenshots, or other training materials.
+Need company-specific visuals? Templates and uploaded assets allow teams to include logos created with a {{< link href="https://www.adobe.com/express/create/logo" >}}logo maker{{< /link >}}, product images, screenshots, or other training materials.
 
 Want to avoid complicated editing? Pollo AI brings the script, avatar, narration, and video generation into one workflow, reducing the need for separate production tools.
 
