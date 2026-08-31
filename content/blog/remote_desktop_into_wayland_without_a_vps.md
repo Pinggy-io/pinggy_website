@@ -104,7 +104,7 @@ Treat the tunnel address the same way you'd treat a VPN credential: it's live fo
 
 This combination is aimed at the same use case RustDesk's preview build and the WireGuard-plus-VPS approach are both chasing: getting into a Linux desktop that rebooted while you weren't there, or that you only need for a few minutes and don't want to stand up permanent infrastructure for.
 
-It's not a replacement for a proper enterprise remote-support tool with audit logs and session recording, and GNOME's Remote Login inherits normal GDM account security, so treat the system password the same way you'd treat any credential that unlocks a login screen. But if you've been putting off Wayland remote access because every option seemed to involve a preview build, a compositor swap, or a VPS to babysit, the pieces to skip all three were already installed.
+It's not a replacement for a proper enterprise remote-support tool with audit logs and session recording, and GNOME's Remote Login inherits normal GDM account security, so treat the system password the same way you'd treat any credential that unlocks a login screen. A {{< link href="http://proton.me/pass" >}}password manager{{< /link >}} can help protect remote-access credentials without relying on password reuse or memory. But if you've been putting off Wayland remote access because every option seemed to involve a preview build, a compositor swap, or a VPS to babysit, the pieces to skip all three were already installed.
 
 ## Conclusion
 
