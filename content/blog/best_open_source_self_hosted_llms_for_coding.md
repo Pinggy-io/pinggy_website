@@ -2,7 +2,7 @@
 title: "Best Open Source Self-Hosted LLMs for Coding in 2026"
 description: "Discover the best open source LLMs for coding and development that you can self-host. Compare Kimi K3, Qwen3.8-Max, GLM-5.3, GLM-5.3-Flash, DeepSeek-V4-Pro, MiniMax M3, Qwen3.8-27B, Muse Glimmer 30B, Nemotron 3.5 Lightning and more with benchmarks, hardware requirements, and deployment guides."
 date: 2026-03-26T14:15:25+05:30
-lastmod: 2026-08-28T10:00:00+05:30
+lastmod: 2026-08-30T09:00:00+05:30
 draft: false
 tags: ["open source LLM", "self-hosted AI", "local LLM", "AI coding agents", "open source"]
 og_image: "images/best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp"
@@ -190,9 +190,9 @@ What does *not* fit on one machine: **GLM-5.3-Flash**, at roughly 105-115GB with
 
 ### SWE-Bench Pro and Terminal-Bench 2.1 (coding-specific cross-check)
 
-The Intelligence Index is a general-capability score. For code specifically, SWE-Bench Pro and Terminal-Bench 2.1 are the two benchmarks with the widest coverage across this field, so the table is sorted by Terminal-Bench 2.1, which now covers more of the field than Pro does. Numbers come from each model's own card - {{< link href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B" >}}Qwen3.8-Max{{< /link >}}, {{< link href="https://huggingface.co/Qwen/Qwen3.8-27B" >}}Qwen3.8-27B{{< /link >}}, {{< link href="https://huggingface.co/meta-models/Muse-Glimmer-30B" >}}Muse Glimmer{{< /link >}} - with the rest filled from two cross-vendor tables that Z.AI publishes: {{< link href="https://huggingface.co/zai-org/GLM-5.2" >}}GLM-5.2{{< /link >}} for the SWE-Bench Pro column and {{< link href="https://huggingface.co/zai-org/GLM-5.3" >}}GLM-5.3{{< /link >}} for Terminal-Bench. Those are worth trusting more than most cross-vendor claims: Z.AI's figures for Kimi K3 (88.3), Qwen3.8-Max (86.6) and GLM-5.2 (81.0) match those labs' own numbers exactly.
+The Intelligence Index is a general-capability score. For code specifically, SWE-Bench Pro and Terminal-Bench 2.1 are the two benchmarks with the widest coverage across this field, so the table is sorted by Terminal-Bench 2.1. This table was rebuilt against {{< link href="https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro" >}}the official SWE-Bench Pro dataset's own Hugging Face leaderboard{{< /link >}}, which auto-aggregates every model's declared result, and it surfaced four legitimate open-weight entrants this guide had not covered: **Tencent's Hy4-preview**, **Ornith AI's Ornith-1.5-397B**, **Xiaohongshu's dots3-note-prev**, and **Poolside's Laguna S 2.1** - the last of these notable because Poolside was a closed, API-only US lab until this release. Numbers come from each model's own card, cross-checked against several rivals' own cross-vendor benchmark tables ({{< link href="https://huggingface.co/tencent/Hy4-preview" >}}Tencent Hy4-preview{{< /link >}}, {{< link href="https://huggingface.co/ornith-ai/Ornith-1.5-397B" >}}Ornith-1.5-397B{{< /link >}}, {{< link href="https://huggingface.co/dots-studio/dots3-note-prev" >}}dots3-note-prev{{< /link >}}, {{< link href="https://huggingface.co/poolside/Laguna-S-2.1" >}}Laguna S 2.1{{< /link >}}, {{< link href="https://huggingface.co/zai-org/GLM-5.2" >}}GLM-5.2{{< /link >}}), which is why we trust it: Kimi K3's 88.3 Terminal-Bench score and Claude Opus 4.8's 69.2 SWE-Bench Pro score each appear identically across four independent competitors' tables.
 
-Two traps worth knowing before you compare these against anything else. First, **every number below is vendor-run**, with each lab using its own scaffolding; the only independent SWE-Bench Pro leaderboard is {{< link href="https://labs.scale.com/leaderboard/swe_bench_pro_public" >}}Scale's SEAL board{{< /link >}}, which uses standardized scaffolding and currently tops out at **61.5 (Muse Spark 1.1)** with Claude Opus 4.6 at **51.9** - noticeably below what vendors self-report, and it does not cover the August open-weight releases at all. Second, **SWE-Bench Pro is not SWE-bench Verified.** Pro is a separate, harder Scale-run benchmark; Verified lives on {{< link href="https://www.swebench.com/" >}}swebench.com{{< /link >}} and scores much higher. Numbers get mixed up between the two constantly. The proprietary Pro figure below (Claude Opus 4.8, 69.2) is Z.AI's own run from the GLM-5.2 card, not an independent measurement.
+Two traps worth knowing before you compare these against anything else. First, **every number below is vendor-run**, with each lab using its own scaffolding; Scale's own {{< link href="https://labs.scale.com/leaderboard/swe_bench_pro_public" >}}SEAL leaderboard{{< /link >}}, which uses standardized scaffolding, currently tops out at **61.5 (Muse Spark 1.1)** with Claude Opus 4.6 at **51.9** - noticeably below what vendors self-report - and does not cover most of the models below. Second, **SWE-Bench Pro is not SWE-bench Verified.** Pro is the harder benchmark this section is about; Verified lives on {{< link href="https://www.swebench.com/" >}}swebench.com{{< /link >}} and scores much higher. The two get mixed up constantly, including by us in an earlier version of this table - if you see a SWE-Bench Pro score in the high 70s or 80s for a proprietary model anywhere else, check which benchmark it is actually citing.
 
 <table style="width:100%;border-collapse:collapse;table-layout:fixed;">
 <thead>
@@ -210,35 +210,47 @@ Two traps worth knowing before you compare these against anything else. First, *
   <td style="border:1px solid #ddd;padding:0.5em;">Not reported</td>
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>88.8</strong></td>
 </tr>
-<tr style="background:#f9fbfd;">
-  <td style="border:1px solid #ddd;padding:0.5em;">Claude Opus 4.8 <em>(proprietary)</em></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">-</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>69.2</strong></td>
-  <td style="border:1px solid #ddd;padding:0.5em;">85.0</td>
-</tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>Kimi K3</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Jul 2026</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Not reported</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>88.3</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Not reported*</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">88.3</td>
 </tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM-5.3</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Aug 2026</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">Not reported</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>88.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Not reported*</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">88.2</td>
 </tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>DeepSeek V4-Pro</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Aug 2026</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">55.4*</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">55.4</td>
   <td style="border:1px solid #ddd;padding:0.5em;">87.9</td>
+</tr>
+<tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.5em;">Claude Opus 5 <em>(proprietary)</em></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">-</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>79.2</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">86.7</td>
 </tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>Qwen3.8-Max</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Aug 2026</td>
-  <td style="border:1px solid #ddd;padding:0.5em;"><strong>67.7</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">67.7</td>
   <td style="border:1px solid #ddd;padding:0.5em;">86.6</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Ornith-1.5-397B</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Aug 2026</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">65.1</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">86.1</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Tencent Hy4-preview</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Aug 2026</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">65.7</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">85.4</td>
 </tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>GLM-5.2</strong></td>
@@ -247,10 +259,22 @@ Two traps worth knowing before you compare these against anything else. First, *
   <td style="border:1px solid #ddd;padding:0.5em;">81.0</td>
 </tr>
 <tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>dots3-note-prev</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Aug 2026</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">61.0</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">75.1</td>
+</tr>
+<tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>Qwen3.8-27B</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Aug 2026</td>
   <td style="border:1px solid #ddd;padding:0.5em;">61.7</td>
   <td style="border:1px solid #ddd;padding:0.5em;">73.0</td>
+</tr>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Poolside Laguna-S-2.1</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Jul 2026</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">59.4</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">70.2</td>
 </tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>MiniMax M3</strong></td>
@@ -267,11 +291,13 @@ Two traps worth knowing before you compare these against anything else. First, *
 </tbody>
 </table>
 
-**The top of the Terminal-Bench column is the real story.** GPT-5.6 Sol leads at 88.8, and the next three are open weights within a point of it: Kimi K3 at 88.3, GLM-5.3 at 88.2, DeepSeek V4-Pro at 87.9. For agentic terminal work specifically, the gap between the best closed model and the best open one is now half a point. Claude Opus 4.8 (85.0) and Fable 5 (88.0) sit inside that same cluster.
+**The top of the Terminal-Bench column is still the real story, and it hasn't changed hands.** GPT-5.6 Sol leads at 88.8, with Kimi K3 (88.3), GLM-5.3 (88.2) and DeepSeek V4-Pro (87.9) all open weights within a point of it. Claude Opus 5 (86.7) and the brand-new Ornith-1.5-397B (86.1) sit right behind that cluster.
 
-Further down, the row to look at twice is **Qwen3.8-27B**: 73.0 on Terminal-Bench and within half a point of GLM-5.2 on SWE-Bench Pro, at roughly 28x fewer total parameters. Everything above it needs at least four 80GB GPUs.
+**SWE-Bench Pro is where the new entrants actually change the ranking.** Qwen3.8-Max still leads open weights at 67.7, but it's no longer alone at the top: Tencent's **Hy4-preview scores 65.7** and Ornith's **397B model scores 65.1**, both released within the last week of August and both ahead of GLM-5.2 (62.1). Further down, **Poolside's Laguna S 2.1 posts 59.4** - the more interesting number here isn't the score, it's that Poolside was a closed, API-only lab until this release, joining Meta and NVIDIA as Western labs that opened up in August.
 
-Two footnotes. \*DeepSeek's 55.4 comes from GLM-5.2's June card and predates the V4-Pro-**0813** GA build that scores the 87.9, so those two cells are not the same run. And GLM-5.3 has no SWE-Bench Pro number because Z.AI does not report one; it does publish **Terminal-Bench 3.0** (28.3, against GLM-5.2's 4.6), a harder longer-horizon benchmark on a different scale that should never be read next to the 2.1 column.
+The row to look at twice for hardware efficiency is still **Qwen3.8-27B**: 61.7 on SWE-Bench Pro at roughly 28x fewer parameters than GLM-5.2, and now joined by **dots3-note-prev** (61.0 at 280B/16B active) as a second efficient option in a similar range. Everything above Qwen3.8-27B in this table needs at least four 80GB GPUs; Ornith-1.5-397B and Hy4-preview, at roughly 800GB and 1.5TB in BF16 respectively, sit at the upper end of that same tier.
+
+Three footnotes. \*Kimi K3 and GLM-5.3 have no vendor-reported SWE-Bench Pro number, but independent competitor retests (from Tencent's, Ornith's and dots3-note-prev's own cross-vendor tables) consistently place both around **63-65**, in the same neighborhood as GLM-5.2 - useful context, not a substitute for an official score. DeepSeek's 55.4 shows up identically on cards dated June, July and August 2026, including DeepSeek's own current card for the V4-Pro-**0813** GA build - the August update's gains landed on other benchmarks, not this one. And GLM-5.3 does publish **Terminal-Bench 3.0** (28.3, against GLM-5.2's 4.6), a harder longer-horizon benchmark on a different scale that should never be read next to the 2.1 column above.
 
 ### What LiveBench does and does not cover
 

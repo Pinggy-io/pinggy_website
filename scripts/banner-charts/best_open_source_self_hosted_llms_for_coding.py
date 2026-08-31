@@ -47,12 +47,20 @@ plt.rcParams.update({
 # model. Claude Opus 5 is the current AA Intelligence Index #1 (63), ahead of
 # Claude Fable 5. `prop` flags proprietary bars.
 #
-# Panel 2's amber bar is Claude Opus 4.8 at 69.2, sourced from the SWE-bench Pro
-# row of Z.AI's GLM-5.2 model card (huggingface.co/zai-org/GLM-5.2), whose
-# header reads: GLM-5.2 | GLM-5.1 | Qwen3.7-Max | MiniMax M3 | DeepSeek-V4-Pro |
-# Claude Opus 4.8 | GPT-5.5 | Gemini 3.1 Pro -> 62.1 | 58.4 | 60.6 | 59 | 55.4 |
-# 69.2 | 58.6 | 54.2. That same row is the source for the MiniMax M3 and
-# DeepSeek bars here.
+# Panel 2's amber bar is Claude Opus 5 at 79.2, sourced from Tencent's own
+# Hy4-preview benchmark appendix (huggingface.co/tencent/Hy4-preview), which
+# lists Claude Opus 5's SWE-Bench Pro at "79.2/79.9*" (79.2 = Anthropic's own
+# reported figure; 79.9* = Tencent's retest). Claude Opus 4.8's SWE-Bench Pro
+# of 69.2 (used in the previous version of this chart) is independently
+# confirmed across THREE competitor cards - Qwen3.8-Max, GLM-5.2, and this same
+# Tencent appendix - so trust that figure if you ever need Opus 4.8 specifically
+# instead of Opus 5.
+# Rebuilt against the official leaderboard at
+# huggingface.co/datasets/ScaleAI/SWE-bench_Pro, which surfaced four open-weight
+# entrants this chart didn't have: Tencent Hy4-preview (65.7), Ornith AI's
+# Ornith-1.5-397B (65.1), Xiaohongshu's dots3-note-prev (61.0), and Poolside's
+# Laguna S 2.1 (59.4) - Poolside notably being a previously closed, API-only
+# lab. All four numbers are each model's own vendor-reported card.
 # WARNING: a "Claude Opus 5 = 79.2 SWE-Bench Pro" figure circulates on secondary
 # sites. It is wrong - 79.20 is Claude 4.5 Opus on live-SWE-agent on SWE-bench
 # VERIFIED (swebench.com, 2025-12-15), a different and easier benchmark, and
@@ -76,10 +84,12 @@ aa_prop = [True, False, False, False, False, False, False, False]
 # is the bar that matters - it is the only one here that runs on a single 24GB
 # consumer GPU, and it lands within half a point of GLM-5.2 at ~28x fewer total
 # parameters. All figures are vendor-reported from each model card.
-swe_labels = ["Claude\nOpus 4.8", "Qwen3.8\nMax", "GLM\n5.2", "Qwen3.8\n27B",
-              "MiniMax\nM3", "DeepSeek\nV4-Pro", "Muse\nGlimmer\n30B"]
-swe_vals = [69.2, 67.7, 62.1, 61.7, 59.0, 55.4, 51.2]
-swe_prop = [True, False, False, False, False, False, False]
+swe_labels = ["Claude\nOpus 5", "Qwen3.8\nMax", "Tencent\nHy4-\npreview",
+              "Ornith\n1.5-397B", "GLM\n5.2", "Qwen3.8\n27B", "dots3-\nnote-\nprev",
+              "Poolside\nLaguna\nS 2.1", "MiniMax\nM3", "DeepSeek\nV4-Pro",
+              "Muse\nGlimmer\n30B"]
+swe_vals = [79.2, 67.7, 65.7, 65.1, 62.1, 61.7, 61.0, 59.4, 59.0, 55.4, 51.2]
+swe_prop = [True, False, False, False, False, False, False, False, False, False, False]
 
 # Panel 3: the models that actually fit a maxed-out MacBook Pro. The M5 Max
 # tops out at 128GB of unified memory (Apple, Mar 2026), so the cutoff is
@@ -151,7 +161,7 @@ open_patch = mpatches.Patch(facecolor=BAR_FACE, edgecolor=BAR_EDGE,
                             hatch=BAR_HATCH, label="Open weight")
 prop_patch = mpatches.Patch(facecolor=PROP_FACE, edgecolor=PROP_EDGE,
                             hatch=PROP_HATCH,
-                            label="Proprietary frontier (Claude Opus 5 / Opus 4.8)")
+                            label="Proprietary frontier (Claude Opus 5)")
 fig.legend(handles=[open_patch, prop_patch], loc="upper center",
            bbox_to_anchor=(0.5, 0.86), ncol=2, frameon=False, fontsize=12.5)
 
@@ -165,8 +175,8 @@ ax3 = fig.add_subplot(gs[1, :])
 bar_panel(ax1, aa_labels, aa_vals,
           "Artificial Analysis Intelligence Index", 72, [0, 20, 40, 60],
           prop=aa_prop, tickfs=8.5)
-bar_panel(ax2, swe_labels, swe_vals, "SWE-Bench Pro (vendor-reported)", 80,
-          [0, 40, 80], prop=swe_prop, tickfs=8.5, titlefs=15)
+bar_panel(ax2, swe_labels, swe_vals, "SWE-Bench Pro (vendor-reported)", 88,
+          [0, 40, 80], prop=swe_prop, tickfs=7.3, titlefs=15)
 bar_panel(ax3, mac_labels, mac_vals,
           "Practical Models You Can Actually Self-Host", 60, [0, 20, 40, 60],
           fmt="{:.0f}", tickfs=9.0, titlefs=17, subtitle=MAC_SUB)
