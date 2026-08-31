@@ -561,7 +561,7 @@ While the platforms above cover most sales team needs, several other AI-driven C
 
 {{< image "best_ai_driven_crm_for_automating_your_sales/salesloft.webp" "Salesloft + Clari AI CRM" >}}
 
-**{{< link href="https://www.zendesk.com/sell/" >}}Zendesk Sell{{< /link >}}** - Ideal for companies already using Zendesk for customer support. AI-powered lead scoring, smart lists, and automated task creation built on top of Zendesk's customer data. The unified support + sales view gives AI models a complete picture of customer interactions.
+**{{< link href="https://www.zendesk.com/sell/" >}}Zendesk Sell{{< /link >}}** - Ideal for companies already using Zendesk for customer support. AI-powered lead scoring, smart lists, and automated task creation built on top of Zendesk's customer data. The unified support + sales view gives AI models a complete picture of customer interactions. On the support side of that same data, Zendesk's {{< link href="https://www.zendesk.com/service/ai/ai-agents/" >}}AI agents for customer service{{< /link >}} resolve routine tickets end to end, so the customer record the sales AI reads stays current without manual logging.
 
 {{< image "best_ai_driven_crm_for_automating_your_sales/zendesk.webp" "Zendesk Sell AI CRM" >}}
 
