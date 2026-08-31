@@ -2,7 +2,7 @@
  title: "Pinggy Command Line Tool"
  description: "Pinggy CLI Tool provides more stable tunnels with quicker reconnections. Use Pinggy secure tunnel for dev/test environments to effortlessly test and preview applications and APIs."
  date: 2024-04-14T01:15:25+05:30
- lastmod: 2026-06-08T01:15:25+05:30
+ lastmod: 2026-08-25T12:02:00+05:30
  draft: false 
 ---
 

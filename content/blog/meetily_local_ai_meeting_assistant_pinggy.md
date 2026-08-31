@@ -43,7 +43,7 @@ The stack backing that claim:
 - **App shell**: a Rust core (about half the codebase) handling audio capture, transcription, and SQLite storage, wrapped in Tauri with a Next.js frontend for the UI.
 - **License**: MIT.
 
-None of this is exotic on its own. Local Whisper transcription has been around for years and Ollama-backed summarization is a weekend project for plenty of people. What Meetily gets right is packaging: a normal person can install it and get an offline, no-signup meeting assistant without touching a terminal, which is exactly the audience that would otherwise be stuck paying for Otter, Fireflies, or whatever their video call vendor bundles in.
+None of this is exotic on its own. Local Whisper transcription has been around for years and Ollama-backed summarization is a weekend project for plenty of people. What Meetily gets right is packaging: a normal person can install it and get an offline, no-signup meeting assistant without touching a terminal, which is exactly the audience that would otherwise be stuck paying for Otter, Fireflies, {{< link href="https://krisp.ai/ai-meeting-assistant/" >}}Krisp{{< /link >}}, or whatever their video call vendor bundles in.
 
 ## Why the timing makes sense
 

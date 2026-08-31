@@ -2,7 +2,7 @@
 title: "Pinggy CLI"
 description: "Robust HTTP, TCP, UDP, or TLS tunnels to localhost for sharing your apps, websites, and games. Manage tunnels from the command line with a background daemon, lifecycle commands, and saved configs."
 date: 2026-04-29T00:00:00+05:30
-lastmod: 2026-06-08T00:00:00+05:30
+lastmod: 2026-08-24T12:28:00+05:30
 draft: false
 ---
 
@@ -97,6 +97,26 @@ To start a TCP tunnel, use `--type tcp` and specify a port using `-l`.
 ```bash
 ./pinggy --type tcp -l 8000
 ```
+
+#### HAProxy PROXY Protocol with TCP Tunnel
+
+When forwarding TCP traffic, incoming connections originate from Pinggy, which means the target service won't see the client's original IP address by default. To pass the original client IP and connection details to upstream services (such as HAProxy or NGINX configured for PROXY protocol), Pinggy supports the [HAProxy PROXY Protocol](/docs/tcp_tunnels/haproxy/).
+
+- **Enable PROXY protocol v1** using `x:haproxy` or `x:haproxy:v1`:
+  ```bash
+  ./pinggy --type tcp -l 8000 x:haproxy
+  ```
+- **Enable PROXY protocol v2** using `x:haproxy:v2`:
+  ```bash
+  ./pinggy --type tcp -l 8000 x:haproxy:v2
+  ```
+
+You can also use the SSH command pattern:
+```bash
+./pinggy -p 443 -R0:localhost:8000 -t tcp@free.pinggy.io x:haproxy:v2
+```
+
+See the [HAProxy PROXY Protocol guide](/docs/tcp_tunnels/haproxy/) for detailed backend configuration examples.
 
 ### UDP Tunnel
 
@@ -513,6 +533,8 @@ Extended options provide advanced controls. Specify them as positional values li
 - `x:localservertls:<host>` connects to a local HTTPS server with the given SNI host.
 - `x:xff` adds `X-Forwarded-For`.
 - `x:fullurl` or `x:fullrequesturl` includes the original request URL.
+- `x:haproxy` or `x:haproxy:v1` enables HAProxy PROXY protocol v1 (passes original client IP for TCP connections).
+- `x:haproxy:v2` enables HAProxy PROXY protocol v2.
 - `w:<cidr>[,<cidr>...]` whitelists IPs, IPv4 CIDR.
 - `k:<token>` sets Bearer token(s) for auth, repeatable.
 - `b:<user:pass>` adds Basic Auth credentials, repeatable.
@@ -526,6 +548,12 @@ Examples:
 
 ```bash
 pinggy x:https x:xff -l https://localhost:8443
+```
+
+- Enable HAProxy PROXY protocol v2 on a TCP tunnel:
+
+```bash
+pinggy --type tcp -l 8000 x:haproxy:v2
 ```
 
 - Allow only a local subnet:

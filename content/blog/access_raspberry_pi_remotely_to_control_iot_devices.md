@@ -272,6 +272,8 @@ node iot-dashboard.js
 
 This creates a simple IoT dashboard that you can access from anywhere once we set up the tunnel.
 
+If you're building something more advanced than a demo dashboard - a production IoT platform with device fleets, secure APIs, and analytics - companies like SCAND specialize in {{< link href="https://scand.com/industries/iot/" >}}end-to-end IoT application development{{< /link >}}.
+
 Right now the web application can be accessed only from a local network because it runs on your IoT behind a NAT router or Firewall.
 
 #### Using Pinggy for remote access

@@ -2,7 +2,7 @@
 title: "Minecraft Port Forwarding"
 description: "Learn how to set up Minecraft port forwarding to share your server with friends. Covers different routers, troubleshooting, and Pinggy alternatives."
 date: 2025-05-18T14:15:25+05:30
-lastmod: 2026-07-02T15:15:25+05:30
+lastmod: 2026-08-25T15:15:25+05:30
 draft: false
 tags: ["gaming", "minecraft", "networking", "port forwarding", "guide", "tcp"]
 og_image: "images/minecraft_port_forwarding/minecraft_banner.webp"
@@ -164,7 +164,7 @@ If UPnP (Universal Plug and Play) isn't working, it may be disabled on your rout
 
 ### CGNAT Issues
 
-CGNAT (Carrier-Grade NAT) is common with mobile ISPs and prevents traditional port forwarding from working. If your ISP uses CGNAT, you can either contact them to request a public IP (which may cost extra) or use a tunneling service like Pinggy as described below.
+CGNAT (Carrier-Grade NAT) is common with mobile ISPs and prevents traditional port forwarding from working. If your ISP uses CGNAT, you can either contact them to request a public IP (which may cost extra) or use a tunneling service like Pinggy as described below. Players who want to protect their online privacy can also consider a VPN service such as {{< link href="https://veepn.com/vpn-servers/hong-kong/" >}}VeePN{{< /link >}} when connecting to gaming servers.
 
 ## Alternatives to Port Forwarding: Using Pinggy
 

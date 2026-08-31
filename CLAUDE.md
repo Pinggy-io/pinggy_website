@@ -60,6 +60,12 @@ Key conventions:
 - Don't add documentation or planning files unless asked.
 - **Last-updated dates**: when updating a blog post or any page, set `lastmod` (and any matching `dateModified` in JSON-LD / schema blocks) to **one day before today's date**, not today. Keep the existing time and timezone offset.
 
+### Skills
+
+Project skills live in `.claude/skills/`. Invoke one with `/<skill-name>`, or follow its `SKILL.md` directly when a request matches its description.
+
+- **`update-cli-version`** - bump the Pinggy CLI download links on `/cli/` to a new [cli-js](https://github.com/Pinggy-io/cli-js/releases) release. All the markup is in `layouts/shortcodes/cli-downloads.html`: a current-version card (one version pill + six asset links) and an "Older versions" table that the outgoing version gets prepended to. Read [`.claude/skills/update-cli-version/SKILL.md`](./.claude/skills/update-cli-version/SKILL.md) whenever asked to update or bump the CLI version. It covers the ordering trap (global `sed` for the card *before* adding the table row), verifying every download URL with `curl -IL` (must end in `200`) before writing it, releases that were skipped upstream, and the `lastmod` bump.
+
 ## Translated blog posts (English + Spanish)
 
 The site runs Hugo's multilingual mode. English is the default and stays at the root (`/blog/foo/`); Spanish lives under `/es/`. **Only selected posts are translated** - a post becomes bilingual purely by adding a sibling file, and everything else (language switcher, hreflang, `/es/blog/` listing) follows automatically.
