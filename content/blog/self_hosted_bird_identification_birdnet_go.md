@@ -84,7 +84,7 @@ ssh -p 443 -R0:localhost:8080 free.pinggy.io
 
 Pinggy prints a public URL like `https://abc123.a.pinggy.link`. Open that from any browser, anywhere, and you get the same live dashboard, spectrograms and all. Port 443 is used for the outbound connection specifically because it's almost never blocked by home routers or workplace firewalls, so this works from most networks without any extra configuration.
 
-The free tier's URL changes every time you reconnect, which is fine for checking in occasionally but annoying if you want to bookmark a stable link or set it as a webhook target. A <a href="https://pinggy.io/#prices" target="_blank">Pinggy access token</a> fixes that: `ssh -p 443 -R0:localhost:8080 <token>+tcp@pro.pinggy.io` gives you the same tunnel tied to a consistent address.
+The free tier's URL changes every time you reconnect, which is fine for checking in occasionally but annoying if you want to bookmark a stable link or set it as a webhook target. A [Pinggy access token](https://pinggy.io/#prices) fixes that: `ssh -p 443 -R0:localhost:8080 <token>+tcp@pro.pinggy.io` gives you the same tunnel tied to a consistent address.
 
 ## What accumulates after a few weeks
 
