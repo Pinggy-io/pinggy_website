@@ -89,7 +89,7 @@ spd_dense = [False, True, False, False, False, True, True]
 
 def bar_panel(ax, labels, vals, title, ymax, yticks, alt=None, fmt="{:.1f}",
               tickfs=10.5, titlefs=16, subtitle=None, hlines=(),
-              hline_side="right", xlim_left=-0.7):
+              hline_side="right", xlim_left=-0.7, ylabel=None, xlabel=None):
     """One single-series magnitude panel. `alt` flags amber bars; `hlines` is a
     list of (value, label) crimson dashed reference lines."""
     x = list(range(len(vals)))
@@ -124,6 +124,10 @@ def bar_panel(ax, labels, vals, title, ymax, yticks, alt=None, fmt="{:.1f}",
     ax.set_axisbelow(True)
     ax.yaxis.grid(True, linestyle="--", linewidth=0.8, color=GRID)
     ax.set_xlim(xlim_left, len(vals) - 0.3)
+    if ylabel:
+        ax.set_ylabel(ylabel, fontsize=11, labelpad=8)
+    if xlabel:
+        ax.set_xlabel(xlabel, fontsize=11, labelpad=10)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
 
@@ -162,16 +166,18 @@ ax3 = fig.add_subplot(gs[1, :])
 
 bar_panel(ax1, fit_labels, fit_vals,
           "Fits one 512GB Mac (GB at 4-bit)", 560, [0, 200, 400],
-          tickfs=8.2, titlefs=15,
+          tickfs=8.2, titlefs=15, ylabel="GB (4-bit weights)",
           hlines=[(472, "472GB usable after raising the wired limit")])
 bar_panel(ax2, big_labels, big_vals,
           "Too big for one Mac (GB)", 2300, [0, 512, 1024, 1536, 2048],
           alt=[True] * len(big_vals), fmt="{:.0f}", tickfs=9.0, titlefs=15,
+          ylabel="GB (4-bit weights)",
           hline_side="left", xlim_left=-1.0,
           hlines=[(512, "1 Mac"), (2048, "4 Macs")])
 bar_panel(ax3, spd_labels, spd_vals,
           "Generation Speed Is Set by Active Parameters, Not Total Size", 78,
           [0, 20, 40, 60], alt=spd_dense, tickfs=9.0, titlefs=17,
+          ylabel="Tokens/sec (generation)",
           subtitle="tokens/sec, 4-bit, batch 1, short context, measured on an "
                    "M3 Ultra 512GB (819GB/s)")
 
@@ -200,54 +206,32 @@ quants = ["F16", "Q8", "Q6", "Q4", "Q3", "Q2"]
 tps_1k = [10.4, 18.3, 23.0, 31.2, 38.1, 47.6]
 tps_128k = [5.5, 7.1, 7.7, 8.5, 8.9, 9.3]
 
-fig2 = plt.figure(figsize=(11.2, 5.4), dpi=100)
+fig2 = plt.figure(figsize=(11.2, 5.9), dpi=100)
 fig2.patch.set_facecolor("white")
 fig2.suptitle("Quantization Buys Speed at Short Context, Almost Nothing at Long",
               fontsize=17, fontweight="bold", y=1.0, va="top")
 fig2.text(0.5, 0.915,
-          "Qwen 32B dense, generation tokens/sec, batch 1  ·  measured on an "
-          "M3 Ultra 512GB (MLX discussion #3209)",
+          "Qwen 32B dense, generation tokens/sec, batch 1",
           fontsize=11, color="#666666", ha="center")
-gs2 = fig2.add_gridspec(1, 2, wspace=0.16, left=0.07, right=0.98, top=0.80,
-                        bottom=0.11)
+gs2 = fig2.add_gridspec(1, 2, wspace=0.16, left=0.07, right=0.98, top=0.78,
+                        bottom=0.19)
 a1 = fig2.add_subplot(gs2[0, 0])
 a2 = fig2.add_subplot(gs2[0, 1])
 # same y limit on both panels so the collapse is readable as an area, not just
-# as numbers
+# as numbers. x-axis label spells out what F16..Q2 mean; y-axis label spells
+# out the unit, since neither is obvious from the bare tick labels alone.
+QUANT_XLABEL = "Quantization level (F16 = full precision, Q2 = most aggressive)"
 bar_panel(a1, quants, tps_1k, "1K token context", 54, [0, 20, 40],
-          tickfs=11, titlefs=14)
+          tickfs=11, titlefs=14, ylabel="Tokens/sec (generation)",
+          xlabel=QUANT_XLABEL)
 bar_panel(a2, quants, tps_128k, "128K token context", 54, [0, 20, 40],
-          tickfs=11, titlefs=14)
+          tickfs=11, titlefs=14, ylabel="Tokens/sec (generation)",
+          xlabel=QUANT_XLABEL)
+fig2.text(0.5, 0.035,
+          "Source: measured on an M3 Ultra 512GB, MLX systematic benchmark "
+          "discussion #3209 - github.com/ml-explore/mlx/discussions/3209",
+          fontsize=9.5, color="#888888", ha="center")
 save(fig2, "self_hosting_llms_on_512gb_m5_ultra_mac_studio_quant_vs_context.png")
-
-
-# ---- Figure 3: prefill vs decode on M5 -----------------------------------
-# Backs the "Prefill is a different bottleneck" section. Source: Apple's own MLX
-# measurements on M5 vs M4 across six models (machinelearning.apple.com). Both
-# endpoints of each range are shown rather than a single midpoint, because the
-# spread is the interesting part: the Neural Accelerators transform prefill and
-# barely touch decode, which stays pinned to the 28% memory-bandwidth gain.
-phase_labels = ["Prefill (TTFT)\nslowest of\nsix models",
-                "Prefill (TTFT)\nfastest of\nsix models",
-                "Decode\nslowest of\nsix models",
-                "Decode\nfastest of\nsix models"]
-phase_vals = [3.30, 4.06, 1.19, 1.27]
-phase_alt = [False, False, True, True]
-
-fig3 = plt.figure(figsize=(9.6, 5.4), dpi=100)
-fig3.patch.set_facecolor("white")
-fig3.suptitle("The M5's Neural Accelerators Speed Up Prompts, Not Generation",
-              fontsize=16.5, fontweight="bold", y=1.0, va="top")
-fig3.text(0.5, 0.905,
-          "Speedup vs M4 across six models in MLX  ·  Apple Machine Learning "
-          "Research, January 2026",
-          fontsize=11, color="#666666", ha="center")
-a3 = fig3.add_axes([0.09, 0.13, 0.885, 0.66])
-bar_panel(a3, phase_labels, phase_vals, "", 4.8, [1, 2, 3, 4],
-          alt=phase_alt, fmt="{:.2f}x", tickfs=10.5,
-          hline_side="left", xlim_left=-1.05,
-          hlines=[(1.0, "M4 parity")])
-save(fig3, "self_hosting_llms_on_512gb_m5_ultra_mac_studio_prefill_vs_decode.png")
 
 
 # ---- Figure 4: what Mac clusters actually deliver ------------------------
@@ -261,7 +245,7 @@ clu_labels = ["1x M3 Ultra\nDeepSeek V3-0324\n671B MoE",
               "4x M3 Ultra\nDeepSeek V3.1\n671B MoE"]
 clu_vals = [20.0, 24.0, 31.9, 32.5]
 
-fig4 = plt.figure(figsize=(9.6, 5.4), dpi=100)
+fig4 = plt.figure(figsize=(9.6, 6.2), dpi=100)
 fig4.patch.set_facecolor("white")
 fig4.suptitle("What a Thunderbolt 5 Mac Cluster Actually Delivers",
               fontsize=17, fontweight="bold", y=1.0, va="top")
@@ -272,6 +256,12 @@ fig4.text(0.5, 0.862,
           "The model differs per node count - read this as a tier guide, not a "
           "scaling curve",
           fontsize=11, color="#666666", ha="center")
-a4 = fig4.add_axes([0.09, 0.15, 0.885, 0.62])
-bar_panel(a4, clu_labels, clu_vals, "", 40, [0, 10, 20, 30], tickfs=10.0)
+a4 = fig4.add_axes([0.11, 0.30, 0.865, 0.50])
+bar_panel(a4, clu_labels, clu_vals, "", 40, [0, 10, 20, 30], tickfs=10.0,
+          ylabel="Tokens/sec (generation)",
+          xlabel="Cluster size and model (M3 Ultra 512GB nodes)")
+fig4.text(0.5, 0.03,
+          "Source: macfax.com/blog/at-home-mac-inference-cluster-the-complete-"
+          "2026-guide",
+          fontsize=9.5, color="#888888", ha="center")
 save(fig4, "self_hosting_llms_on_512gb_m5_ultra_mac_studio_cluster_throughput.png")
