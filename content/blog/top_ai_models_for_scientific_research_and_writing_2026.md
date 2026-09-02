@@ -382,7 +382,7 @@ Successfully incorporating AI into your research workflow requires thoughtful in
 
 **Citation Verification**: Before citing papers, check Scite to understand how those papers have been received. Are they well-supported by subsequent research, or have findings been contradicted? This helps ensure you're citing reliable sources.
 
-**Writing and Synthesis**: Use Claude or ChatGPT for drafting literature review sections, but always verify claims against original sources. SciSpace can help with formatting and journal matching.
+**Writing and Synthesis**: Use Claude or ChatGPT for drafting literature review sections, but always verify claims against original sources. SciSpace can help with formatting and journal matching. Many journals now expect authors to disclose how much of a manuscript was AI assisted, so checking key sections with an <a href="https://gptzero.me/" target="_blank">AI detector</a> before submission can help you report that honestly.
 
 **Staying Current**: Set up alerts in Semantic Scholar for new papers in your area. Use Perplexity AI for quick updates on rapidly evolving topics.
 
