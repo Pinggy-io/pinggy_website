@@ -31,8 +31,6 @@ ssh -p 443 -R0:127.0.0.1:8123 free.pinggy.io
 ```
 `8123` is Home Assistant. Swap in `8581` (Homebridge), `8080` (openHAB, Zigbee2MQTT), `6052` (ESPHome), `1880` (Node-RED), `8091` (Z-Wave JS UI) or `8971` (Frigate).
 
-**The step everyone misses:** Pinggy adds `X-Forwarded-For`, so Home Assistant returns **400 Bad Request** until you enable *Trust X-Forwarded-For* and add `127.0.0.1` to *Trusted proxies* under **Settings > System > Network > HTTP server**. As of <a href="https://www.home-assistant.io/integrations/http/" target="_blank">2026.8 that moved out of `configuration.yaml`</a>, and the YAML form dies in 2027.2.
-
 **Add auth first:** append `b:youruser:yourpassword` to the command. Verified `401` without credentials, `200` with.
 
 **Alternatives:** <a href="https://www.nabucasa.com/pricing/" target="_blank">Home Assistant Cloud</a> ($6.50/month) covers Home Assistant only; <a href="https://tailscale.com/pricing" target="_blank">Tailscale's free plan</a> needs a client on every viewer; Cloudflare Tunnel is free but <a href="https://blog.cloudflare.com/updated-tos" target="_blank">still restricts self-hosted video</a>, ruling out Frigate.
@@ -150,7 +148,15 @@ X-Forwarded-Host: ymggt-44-227-128-71.free.pinggy.net
 X-Forwarded-Proto: https
 ```
 
-`X-Forwarded-For` carries the real visitor IP, which you want for logging and rate limiting, and `X-Forwarded-Proto: https` stops the app downgrading its redirects. But Home Assistant will not take a client IP from a proxy it has not been told to trust.
+Notice `Host` too: Pinggy forwards its own public hostname, not `localhost:8123`. Home Assistant does not check it, but an app that validates `Host` or builds absolute URLs from it can reject the request or emit broken links. If a tunneled app misbehaves this way, append `u:Host:localhost:8123` to rewrite `Host` back to what it expects:
+
+```bash
+ssh -p 443 -R0:127.0.0.1:8123 free.pinggy.io u:Host:localhost:8123
+```
+
+Verified: the app then sees `Host: localhost:8123`, while `X-Forwarded-Host` still carries the real tunnel address.
+
+`X-Forwarded-For` carries the real visitor IP, which is what Home Assistant's IP banning keys on, and `X-Forwarded-Proto: https` sets the request scheme so the app builds `https://` URLs instead of `http://`. But an untrusted proxy gets to set neither: Home Assistant rejects the request with 400 rather than believing it.
 
 On 2026.8 and later, go to **Settings > System > Network > HTTP server**, turn on **Trust X-Forwarded-For**, and add the address from the log message to **Trusted proxies**. On older installs the same thing lives in `configuration.yaml`:
 
@@ -162,13 +168,13 @@ http:
     - ::1
 ```
 
-If you upgraded, your old `http:` block was imported automatically and a repair issue raised asking you to delete it. Check the imported values first, and note that {{< link href="https://github.com/home-assistant/core/issues/178330" >}}issue #178330{{< /link >}} reported 2026.8.0 installs shown the deprecation warning while the Network UI was still missing those very fields. If yours does not show them, keep the YAML.
+If you upgraded, your old `http:` block was imported automatically and a repair issue raised asking you to delete it. Check the imported values first.
 
 Do not widen the trust to `0.0.0.0/0` to silence the error: `trusted_proxies` lists who is allowed to tell Home Assistant the client's IP, so trusting everything lets any caller forge it, poisoning your logs and defeating IP banning. With a CIDR, the docs require the network address (`192.168.1.0/24`), not a host address.
 
-Then set the **Internet** field to your tunnel URL, keeping **Local Network** on plain HTTP, since HTTPS there can break casting to media devices. A public HTTPS URL is also what unlocks integrations that must reach you from outside, like Withings and SmartThings.
+Then set the **Internet** field to your tunnel URL, keeping **Local Network** on plain HTTP, since HTTPS there can break casting to media devices. A public HTTPS URL is also what unlocks integrations that must reach you from outside: Withings, for one, requires a publicly reachable instance, HTTPS on port 443, and a certificate signed by a recognised CA.
 
-**On WebSockets:** the frontend does almost everything over a single socket at `/api/websocket`, so if upgrades do not survive the tunnel you get a UI that loads then shows stale state. Verified through a live tunnel: the handshake returns `HTTP/1.1 101 Switching Protocols`, frames pass both ways, and `X-Forwarded-For` survives the upgrade, so the setting above covers it.
+**On WebSockets:** the frontend does almost everything over a single socket at `/api/websocket`, so the tunnel has to carry upgrade requests. It does: through a live tunnel the handshake returns `HTTP/1.1 101 Switching Protocols`, frames pass both ways, and `X-Forwarded-For` is present on the upgrade request, so the trusted-proxy setting above applies to it too.
 
 ## Lock it down before you share the URL
 
@@ -200,7 +206,7 @@ A free tunnel expires after 60 minutes and hands out a new hostname each restart
 
 ```bash
 npm install -g pinggy
-pinggy http --token YOUR_TOKEN --subdomain myhome 8123
+pinggy -p 443 -R0:127.0.0.1:8123 YOUR_TOKEN@pro.pinggy.io
 ```
 
 To stay on plain SSH, run it under systemd; `-N` holds the forward open without a shell:
