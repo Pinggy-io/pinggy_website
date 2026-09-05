@@ -2,6 +2,7 @@
 title: "Sharing LocalWP WordPress sites"
 description: "Easily share your Local WordPress sites online with Pinggy. Guide covers steps to securely share LocalWP setups for collaboration and remote access."
 date: 2024-11-01T10:00:00+05:30
+lastmod: 2026-09-02T10:00:00+05:30
 draft: false
 tags: ["WordPress", "Pinggy", "guide", "tunneling", "remote access"]
 og_image: "images/sharing_localwp_wordpress_sites/thumbnail.webp"
@@ -32,7 +33,7 @@ Creating a local WordPress site is a routine for most developers, though sharing
 {{< iframe src="https://www.youtube.com/embed/DwMt-Ts-1Vk?si=8CRKOBp7xoCKaHnI" title="YouTube video player" >}}
 
 ## Why Use Pinggy for Local WordPress Site Sharing?
-Pinggy allows you to connect to Local sites from outside your network without the need for a VPN, or even to change firewalls. It’s especially useful for developers working with **LocalWP by Flywheel**, what helps to solve usual issues like reverse proxying, secure connections or mixed content. Pinggy in one way or another provides its users with the means to remotely access local WordPress setups, and as such, is an essential tool for developers to create and test their sites.
+Pinggy allows you to connect to Local sites from outside your network without the need for a VPN, or even to change firewalls. It’s especially useful for developers working with **LocalWP by Flywheel**, what helps to solve usual issues like reverse proxying, secure connections or mixed content. Pinggy in one way or another provides its users with the means to remotely access local WordPress setups, and as such, is an essential tool for developers to create and test their sites. For example, developers building interactive WordPress projects can use {{< link href="https://quiz-plugin.com/" >}}Quiz Maker by AYS{{< /link >}} to create quizzes locally, then share the site through Pinggy for client review and testing.
 
 
 ### Prerequisites
