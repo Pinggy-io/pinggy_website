@@ -1,0 +1,108 @@
+{{- /*
+  Download card for the latest Pinggy App release on /app/.
+  Links are built from data/app_releases.yaml (newest first); the release
+  workflow in Pinggy-io/app prepends each new version there. Installer paths
+  mirror the S3 layout written by that repo's .github/workflows/release.yml.
+*/ -}}
+{{- $releases := site.Data.app_releases -}}
+{{- $v := (index $releases 0).version -}}
+{{- $base := "https://djmq1sj6bh3a5.cloudfront.net/app" -}}
+      <div class="download border rounded">
+        <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="mac-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-mac"
+              type="button"
+              role="tab"
+              aria-selected="true"
+            >
+              Mac
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="windows-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-windows"
+              type="button"
+              role="tab"
+              aria-selected="false"
+            >
+              Windows
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="linux-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-linux"
+              type="button"
+              role="tab"
+              aria-selected="false"
+            >
+              Linux
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade" id="tab-mac" role="tabpanel" aria-labelledby="tab-mac-tab">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Apple Silicon</span>
+                  <a href="{{ $base }}/v{{ $v }}/mac/arm64/Pinggy-{{ $v }}-arm64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Intel 64 bit</span>
+                  <a href="{{ $base }}/v{{ $v }}/mac/amd64/Pinggy-{{ $v }}-x64.dmg" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="tab-windows" role="tabpanel" aria-labelledby="tab-windows-tab">
+          <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Install From Microsoft Store</span>
+                  <a href="https://apps.microsoft.com/detail/9n7w55g68ppm" target="_blank" class="btn btn-primary btn-pinggy-blue">Microsoft Store <i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Download x86 64 bit</span>
+                  <a href="{{ $base }}/v{{ $v }}/windows/x64/Pinggy-{{ $v }}+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Download Arm 64 bit</span>
+                  <a href="{{ $base }}/v{{ $v }}/windows/arm64/Pinggy-{{ $v }}+Setup.exe" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="tab-linux" role="tabpanel" aria-labelledby="tab-linux-tab">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>Ubuntu (deb) x86 64 bit</span>
+                <a href="{{ $base }}/v{{ $v }}/linux/x64/pinggyapp_{{ $v }}_amd64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>Ubuntu (deb) arm 64 bit</span>
+                <a href="{{ $base }}/v{{ $v }}/linux/arm64/pinggyapp_{{ $v }}_arm64.deb" target="_blank" class="btn btn-primary btn-pinggy-blue">Download</a>
+              </div>
+            </li>
+          </ul>
+          </div>
+        </div>
+      </div>
