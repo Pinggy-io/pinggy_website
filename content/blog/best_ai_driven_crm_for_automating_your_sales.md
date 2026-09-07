@@ -36,24 +36,30 @@ In this guide, we'll compare the best AI-driven CRM platforms for automating you
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:center;" colspan="4"><strong>AI-First CRMs (AI is the core product)</strong></td>
 </tr>
 <tr style="background:#f9fbfd;">
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>SendPulse</strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">SMEs & e-commerce, multichannel</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free / modular per-tool pricing</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">AI agents, 10 native messaging channels, Automation 360</td>
+</tr>
+<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Clay</strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Data enrichment & GTM</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free / $149/mo</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">150+ data providers, AI waterfall enrichment</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Instantly</strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">AI cold email at scale</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">$47/mo</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">160M+ leads, largest warmup pool</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Clarify</strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Founder-led startups</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free / $20/mo</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Zero-touch pipeline, ambient intelligence</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Regie.ai</strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">AI sales engagement</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Starting at $35K/yr</td>
@@ -146,6 +152,7 @@ In this guide, we'll compare the best AI-driven CRM platforms for automating you
    - Conversation intelligence and predictive forecasting are now standard features across most platforms
 
 2. **AI-First CRMs** (built from scratch with AI as the core product):
+   - <a href="https://sendpulse.com/features/crm" target="_blank">SendPulse</a>: Multichannel marketing platform with a built-in CRM, so a deal stage change can fire email, WhatsApp, or SMS follow-ups
    - <a href="https://www.clay.com" target="_blank">Clay</a>: 150+ data providers with AI waterfall enrichment and GTM automation
    - <a href="https://instantly.ai" target="_blank">Instantly</a>: AI cold email at scale with 160M+ leads and automated deliverability
    - <a href="https://www.clarify.ai" target="_blank">Clarify</a>: Autonomous CRM with zero-touch pipeline updates, free tier plus Starter at $20/mo
@@ -180,6 +187,33 @@ When choosing an AI-driven CRM, consider three factors: your team size and budge
 ### AI-First CRMs: Built From the Ground Up for Automation
 
 The platforms in this section took a fundamentally different approach to CRM - they were built from scratch with AI as the core product. In these platforms, the AI doesn't assist your workflow; it *is* the workflow.
+
+#### SendPulse AI Marketing Platform with a Built-In CRM
+
+{{< image "best_ai_driven_crm_for_automating_your_sales/sendpulse.webp" "SendPulse AI Marketing Platform with a Built-In CRM" >}}
+
+{{< link href="https://sendpulse.com/features/crm" >}}SendPulse{{< /link >}} approaches the CRM problem from the opposite end of most tools on this list. Rather than building a sales system and connecting outreach to it, SendPulse started as a multichannel messaging platform and grew the CRM inside it - which means the pipeline and the channels a deal actually moves through live in the same account. Founded in 2015, the platform has become a trusted global brand. It combines email, SMS, chatbots, web push notifications, landing pages and sales pipelines into a single subscription, rather than requiring customers to sign multiple contracts. This gives scaling businesses one AI-driven platform where marketing, sales, and support run out of the same account.
+
+The CRM handles contacts through custom fields, activity timelines, and centralized records that connect every note, task, and message to the person it belongs to. Deals move through drag-and-drop pipelines that support multiple parallel sales processes, so different product lines or teams can run their own stages without separate workspaces, with role-based access controls, keeping each team's pipeline and permissions separate too.
+
+As contact history and pipeline data are stored together, teams developing an all-in-one CRM and marketing automation workflow can use a deal stage change to trigger a WhatsApp follow-up or an email sequence. This includes automated funnels that encourage repeat purchases, as well as upselling and cross-selling, without the need for exporting or setting up a middleware layer. The messaging side is where SendPulse is least comparable to the other tools here: email, SMS, Instagram, Facebook, WhatsApp, Telegram, TikTok, Viber, live chat, and web push all run natively. As an official Meta Partner and WhatsApp Business API provider, SendPulse can turn Facebook and Instagram ad clicks straight into conversations and accept payments inside the chat.
+
+The trade-off is scope. Teams that want a focused sales CRM with deep forecasting and advanced reporting will find SendPulse's analytics lighter than Salesforce or HubSpot, and the breadth of the toolkit means a longer orientation period for anyone who only needs one function. It is best suited to SMEs and e-commerce teams who would otherwise have to pay for four or five separate products and would rather access a marketplace of 50+ built-in integrations (including Shopify, WooCommerce and Zapier, with new ones added regularly) than create their own.
+
+**Key Features of SendPulse**:
+
+- **Built-In CRM with Multichannel Triggers** - Pipelines, contact records, and messaging channels in one account, so deal stage changes can fire email, WhatsApp, or SMS sequences without integrations
+- **Automation 360 Visual Builder** - Drag-and-drop workflows that branch on customer behavior, form submissions, deal movement, and internal events across every connected channel
+- **AI Agents for Sales and Support** - Autonomous agents that qualify inbound leads, create deals, hold conversations, and generate campaign content without manual prompting
+- **Official Meta Partner and WhatsApp Business API Access** - Verified sending on the official API, plus click-to-chat from Facebook and Instagram ads and in-conversation payments
+- **Ten Native Messaging Channels** - Email, SMS, web push, live chat, and chatbots for WhatsApp, Instagram, Facebook, Telegram, TikTok, and Viber under one subscription
+- **Extended Business Toolkit** - Landing page and online store builder, pop-up forms, NPS widgets, email verifier, and an online course builder included in the same ecosystem
+- **Team Roles and Access Control** - Assign roles and permissions across the CRM and messaging channels so marketing, sales, and support teams share one account without stepping on each other's data
+- **Growing Integrations Marketplace** - 50+ native and third-party integrations, with new connections added on an ongoing basis
+
+**SendPulse Pricing**:
+
+Pricing is modular - each tool is billed separately and the way each tool scales differs: email and SMS plans scale with subscriber or message volume, while the CRM scales with user seats. Paid email plans start in the single digits per month for small lists, with the chatbot builder, CRM, website builder, and pop-up builder each priced on their own tier. Enterprise pricing is custom. Because tools are billed independently, teams using four or five modules should model the combined cost rather than the entry price.
 
 #### Clay AI-Powered Data Enrichment and GTM Automation
 
