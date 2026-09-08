@@ -1,0 +1,13 @@
+# Pinggy App releases, newest first. The first entry is the latest release.
+# Installers are served from https://djmq1sj6bh3a5.cloudfront.net/app/v<version>/
+# The release workflow in Pinggy-io/app prepends a new entry here on every release.
+- version: 1.3.0
+- version: 1.2.9
+- version: 1.2.6
+- version: 1.2.3
+- version: 1.2.0
+- version: 1.1.9
+- version: 1.1.7
+- version: 1.1.5
+- version: 1.1.1
+- version: 1.0.9
