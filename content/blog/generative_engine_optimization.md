@@ -32,6 +32,8 @@ Unlike traditional search engines that return a list of ranked links, AI-powered
 
 GEO is closely related to two other terms you may encounter: **Answer Engine Optimization (AEO)** and **Artificial Intelligence Optimization (AIO)**. These terms describe overlapping practices and are often used interchangeably. The core idea across all three is the same adapt your content for an environment where the search engine itself is now the end consumer, synthesizing information before a human even sees the result.
 
+For colleges and universities, adapting to this environment can make institutional information more discoverable to prospective students using AI-powered search. A {{< link href="https://www.manaferra.com/" >}}Higher education information discovery agency{{< /link >}} can help institutions optimize their content for these emerging discovery behaviors.
+
 ## How GEO Differs from Traditional SEO
 
 The distinction between SEO and GEO is not just semantic. They target fundamentally different mechanisms.
