@@ -1,0 +1,61 @@
+{{- /*
+  "Previous Versions" table on /app/: every release in data/app_releases.yaml
+  except the first (latest) one. Installer paths mirror the S3 layout written
+  by Pinggy-io/app's .github/workflows/release.yml.
+*/ -}}
+{{- $releases := site.Data.app_releases -}}
+{{- $base := "https://djmq1sj6bh3a5.cloudfront.net/app" -}}
+<section class="pt-5 mt-5" id="previous-versions">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-center mb-4">
+          <h2 class="h3 fw-bolder">Previous Versions</h2>
+          <p class="text-muted mb-0">
+            Need an older release? Download a previous version below.
+          </p>
+        </div>
+        <div class="table-responsive border rounded shadow-sm">
+          <table class="table align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th scope="col" class="ps-4 py-3">Version</th>
+                <th scope="col" class="py-3">
+                  <i class="bi bi-apple me-1"></i> macOS
+                </th>
+                <th scope="col" class="py-3">
+                  <i class="bi bi-windows me-1"></i> Windows
+                </th>
+                <th scope="col" class="py-3 pe-4">
+                  <i class="bi bi-ubuntu me-1"></i> Linux (deb)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {{- range after 1 $releases }}
+              {{- $v := .version }}
+              <tr>
+                <td class="ps-4">
+                  <span class="badge bg-light text-dark border">v{{ $v }}</span>
+                </td>
+                <td>
+                  <a href="{{ $base }}/v{{ $v }}/mac/amd64/Pinggy-{{ $v }}-x64.dmg" target="_blank" class="pinggy-link text-decoration-none me-3">Intel</a>
+                  <a href="{{ $base }}/v{{ $v }}/mac/arm64/Pinggy-{{ $v }}-arm64.dmg" target="_blank" class="pinggy-link text-decoration-none">Apple Silicon</a>
+                </td>
+                <td>
+                  <a href="{{ $base }}/v{{ $v }}/windows/x64/Pinggy-{{ $v }}+Setup.exe" target="_blank" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="{{ $base }}/v{{ $v }}/windows/arm64/Pinggy-{{ $v }}+Setup.exe" target="_blank" class="pinggy-link text-decoration-none">ARM64</a>
+                </td>
+                <td class="pe-4">
+                  <a href="{{ $base }}/v{{ $v }}/linux/x64/pinggyapp_{{ $v }}_amd64.deb" target="_blank" class="pinggy-link text-decoration-none me-3">x64</a>
+                  <a href="{{ $base }}/v{{ $v }}/linux/arm64/pinggyapp_{{ $v }}_arm64.deb" target="_blank" class="pinggy-link text-decoration-none">ARM64</a>
+                </td>
+              </tr>
+              {{- end }}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
