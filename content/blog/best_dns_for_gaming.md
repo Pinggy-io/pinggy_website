@@ -2,10 +2,10 @@
 title: "Best DNS for Gaming in 2026"
 description: "Discover the best DNS for gaming in 2026 to reduce latency and improve performance. Explore top options like Cloudflare, Quad9, AdGuard, NextDNS, and Control D with setup guides."
 date: 2024-11-21T14:15:25+05:30
-lastmod: 2026-05-23T23:20:00+05:30
+lastmod: 2026-09-06T23:20:00+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
-tags: ["gaming", "DNS", "internet", "guide"]
+tags: ["gaming", "DNS", "networking", "guide"]
 schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkJlc3QgRE5TIGZvciBHYW1pbmcgaW4gMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogIkRpc2NvdmVyIHRoZSBiZXN0IEROUyBmb3IgZ2FtaW5nIGluIDIwMjYgdG8gcmVkdWNlIGxhdGVuY3ksIGltcHJvdmUgY29ubmVjdGlvbiByZWxpYWJpbGl0eSwgYW5kIGVuaGFuY2UgeW91ciBvdmVyYWxsIGdhbWluZyBwZXJmb3JtYW5jZS4gRXhwbG9yZSB0b3Agb3B0aW9ucyBsaWtlIENsb3VkZmxhcmUsIEdvb2dsZSBETlMsIGFuZCBPcGVuRE5TLCBhbmQgbGVhcm4gaG93IHRvIGNvbmZpZ3VyZSB0aGVtIGZvciBhbiBvcHRpbWl6ZWQgZ2FtaW5nIGV4cGVyaWVuY2UuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2Jlc3RfZG5zX2Zvcl9nYW1pbmcvZG5zX2Zvcl9nYW1pbmcud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJUZXN0IGxhdGVuY3kgb2YgcG9wdWxhciBETlMgc2VydmVyczpcbiAxLiBwaW5nIDguOC44LjhcbiAyLiBwaW5nIDEuMS4xLjEgVGhlbiwgc2VsZWN0IHRoZSBETlMgc2VydmVyIHdpdGggbG93ZXN0IGxhdGVuY3kuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNvbmZpZ3VyZSB5b3VyIG5ldHdvcmsgdG8gdXNlIHRoZSBiZXN0IGRldGVjdGVkIEROUyBmb3IgZ2FtaW5nIHVzaW5nIHRoZSBlbnN1aW5nIHN0ZXBzLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
@@ -15,7 +15,7 @@ outputs:
 
 Changing your DNS resolver will not lower your in-game ping. Once a match starts, your client is already talking to the game server by IP, so DNS is out of the path. What DNS does affect: launcher startup, login, matchmaking lookups, voice and chat endpoints, CDN selection for patches, and the occasional region-routing decision via EDNS Client Subnet. A faster, more reliable resolver can make those steps feel snappier and less flaky, which is usually what people are reaching for when they say a "gaming DNS" feels better.
 
-This post lists the resolvers worth testing in 2026, how to actually measure them from your location, and the current setup steps for Windows 11, macOS, Linux, and routers. DNS ({{< link href="https://en.wikipedia.org/wiki/Domain_Name_System" >}}Domain Name System{{< /link >}}) is the layer that turns names like `login.example.com` into IPs.
+This post lists the resolvers worth testing in 2026, how to actually measure them from your location, and the current setup steps for Windows 11, macOS, Linux, routers, and consoles. DNS ({{< link href="https://en.wikipedia.org/wiki/Domain_Name_System" >}}Domain Name System{{< /link >}}) is the layer that turns names like `login.example.com` into IPs.
 
 
 
@@ -57,7 +57,7 @@ This post lists the resolvers worth testing in 2026, how to actually measure the
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">9.9.9.9<br>149.112.112.112</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
-   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Security-first resolver with malware/phishing domain blocking.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Security-first resolver with malware/phishing blocking. Added DoQ and DNS over HTTP/3 in March 2026.</td>
 </tr>
 <tr style="background:#f9fbfd;">
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://dns.watch/" target="_blank">DNS.Watch</a></strong></td>
@@ -131,7 +131,8 @@ This post lists the resolvers worth testing in 2026, how to actually measure the
    - <a href="https://joindns4.eu/for-public" target="_blank">DNS4EU (86.54.11.100)</a> - new EU-operated resolver
 3. **Pick based on measured latency from your location**:
    - Test 2-3 providers with ping and a DNS benchmark, then keep the fastest stable one.
-4. **Setup instructions**: Follow [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows 11, macOS, Linux, or your router.
+   - Put a *different operator* in the secondary slot (1.1.1.1 + 9.9.9.9), not the same provider's backup IP. Cloudflare's 1.1.1.1 and 1.0.0.1 went down together for 62 minutes in July 2025.
+4. **Setup instructions**: Follow [how to change DNS settings](#how-to-change-your-dns-for-gaming) on Windows 11, macOS, Linux, your router, or a PS5, Xbox, or Switch.
 
 {{% /tldr %}}
 
@@ -146,7 +147,7 @@ So what does a slow or flaky resolver actually cost you?
 
 2. **Connection hiccups**: Resolvers with intermittent outages or stale caches can make logins time out or send your client to a stale endpoint. ISP-default DNS is often the culprit here.
 
-3. **Suboptimal CDN steering**: Many game CDNs and matchmakers route by your resolver's IP (or via EDNS Client Subnet). A nearby, well-peered resolver can land you on a closer download mirror or matchmaking pop. This affects patch speed and login latency, not in-game ping.
+3. **Suboptimal CDN steering**: Many game CDNs and matchmakers route by your resolver's IP (or via EDNS Client Subnet). A nearby, well-peered resolver can land you on a closer download mirror or matchmaking pop. This affects patch speed and login latency, not in-game ping. Worth knowing: some privacy-first resolvers strip ECS on purpose, which occasionally parks you on a worse patch mirror. Quad9 ships a separate ECS-enabled address for exactly this tradeoff (see below).
 
 4. **DNS-layer attacks**: Spoofed or poisoned responses can point a launcher at a malicious endpoint. DNSSEC-validating resolvers and encrypted DNS (DoH/DoT/DoQ) close most of that gap.
 
@@ -194,10 +195,12 @@ For a fuller benchmark across many resolvers:
 - `dnsperf` (Linux): scripted benchmarking against arbitrary resolvers and query sets.
 
 #### 2. Reliability
-High availability and stable uptime are essential. Unreliable DNS can cause intermittent failures when games try to resolve APIs, voice services, launchers, or matchmaking endpoints.
+Every public resolver goes down eventually, including the fast ones. On 14 July 2025 Cloudflare withdrew the routes for 1.1.1.0/24, 1.0.0.0/24, and 2606:4700:4700::/48 for 62 minutes, from 21:52 to 22:54 UTC. A config change made a month earlier had quietly attached the resolver prefixes to a pre-production service; touching that service pulled 1.1.1.1 off the internet. Not an attack, just a misconfiguration, and most 1.1.1.1 users worldwide lost DNS over UDP, TCP, and DoT for the hour. Cloudflare's {{< link href="https://blog.cloudflare.com/cloudflare-1-1-1-1-incident-on-july-14-2025/" >}}incident writeup{{< /link >}} is worth reading.
 
-- **Why It Matters**: A reliable DNS ensures consistent access to gaming servers without interruptions.
-- **What to Look For**: Check for uptime guarantees and global server infrastructure from your chosen DNS provider.
+The practical lesson: **make your secondary resolver a different operator**. Nearly every guide tells you to pair 1.1.1.1 with 1.0.0.1, but that prefix list above is the point - they are the same anycast network behind the same config plane, and they went down together. Pair 1.1.1.1 with 9.9.9.9 or 8.8.8.8 instead. An outage at one provider then costs you a retry instead of a dead launcher.
+
+- **What to look for**: a published status page, a wide anycast footprint, and a fallback you actually control.
+- **What to avoid**: leaving your ISP's resolver as the backup. It's usually the flakiest entry on the list, and it's what your machine falls back to if you only ever set a primary.
 
 
 #### 3. Security
@@ -264,11 +267,17 @@ Here are the best DNS servers to test for gaming performance in 2026:
 #### 4. Quad9 DNS (9.9.9.9)
    - **Primary DNS**: 9.9.9.9
    - **Secondary DNS**: 149.112.112.112
+   - **ECS-enabled**: 9.9.9.11 / 149.112.112.11 (same blocking, but forwards EDNS Client Subnet)
+   - **Unsecured**: 9.9.9.10 / 149.112.112.10 (no malware blocking; still DNSSEC-validating)
    - **Latency**: Low.
    - **Reliability**: Very good.
-   - **Features**: Security-focused resolver that blocks known malicious domains.
+   - **Features**: Security-focused resolver that blocks known malicious domains. DoH, DoT, and, since 31 March 2026, DNS over QUIC and DNS over HTTP/3 across the whole network.
 
-   **Why it's great for gaming**: {{< link href="https://quad9.net/" >}}Quad9 DNS{{< /link >}} is ideal for players who want strong DNS-layer threat blocking without giving up speed.
+   **Why it's great for gaming**: {{< link href="https://quad9.net/" >}}Quad9 DNS{{< /link >}} is ideal for players who want strong DNS-layer threat blocking without giving up speed. Two things changed in 2026 that are worth knowing.
+
+   DoQ landed in March, which saves a round trip on encrypted lookups compared to DoT. And from **15 June 2026, strict DNSSEC validation is active on every Quad9 endpoint**, including the one address that previously skipped it. That is a security win with a real edge case attached: a domain with a broken DNSSEC chain now fails to resolve instead of resolving anyway. If a game service stops resolving on Quad9 but works fine on 8.8.8.8, that is the likely explanation, and it is the publisher's DNS to fix rather than yours.
+
+   The other Quad9 detail that matters for gaming is ECS. The default 9.9.9.9 does not forward your subnet to authoritative servers, which is good for privacy and occasionally bad for patch downloads, because some CDNs then steer you off your nearest mirror. If your downloads feel slower on Quad9 than on Cloudflare, try 9.9.9.11 before writing the resolver off.
 
 #### 5. DNS.Watch (84.200.69.80)
    - **Primary DNS**: 84.200.69.80
@@ -350,15 +359,23 @@ Here’s an example of the result output after running the script:
 
 Changing your DNS is easy and can be done in just a few steps:
 
-1. **Windows 11 (22H2 / 23H2 / 24H2)**:
+1. **Windows 11 (23H2 / 24H2 / 25H2)**:
    - Open **Settings** > **Network & internet**.
    - Click your active connection (**Wi-Fi** or **Ethernet**), then click the adapter to open its properties.
    - Under **DNS server assignment**, click **Edit**.
-   - Switch from **Automatic (DHCP)** to **Manual**, toggle **IPv4** on, and enter your preferred and alternate DNS addresses. Optionally set **DNS over HTTPS** to **On (automatic template)** for encrypted DNS - supported natively since Windows 11 22H2 and improved in 24H2.
-   - Click **Save**. (The old Control Panel > Network and Sharing Center path still works on Windows 11, but Microsoft is steering everything through Settings now.)
+   - Switch from **Automatic (DHCP)** to **Manual**, toggle **IPv4** on, and enter your preferred and alternate DNS addresses. Optionally set **DNS over HTTPS** to **On (automatic template)** for encrypted DNS.
+   - Click **Save**. (The old Control Panel > Network and Sharing Center path still works, but Microsoft is steering everything through Settings now.)
 
-2. **macOS (Sequoia 15 / Tahoe 16)**:
-   - Open **System Settings** (not the old System Preferences) > **Network**.
+   The **DNS over HTTPS** dropdown only lights up for resolvers Windows already knows, and out of the box that list is just Cloudflare, Google, and Quad9. Check what yours has with `Get-DnsClientDohServerAddress`. For AdGuard, Control D, NextDNS, or DNS4EU you have to register the template yourself first, from an admin PowerShell prompt:
+
+   ```powershell
+   Add-DnsClientDohServerAddress -ServerAddress '94.140.14.14' -DohTemplate 'https://dns.adguard-dns.com/dns-query' -AllowFallbackToUdp $False -AutoUpgrade $True
+   ```
+
+   Use `-AllowFallbackToUdp $True` if you would rather a DoH failure drop back to plaintext than break name resolution outright.
+
+2. **macOS (Sequoia 15 / Tahoe 26)**:
+   - Open **System Settings** (not the old System Preferences) > **Network**. Apple jumped straight from macOS 15 to macOS 26 with Tahoe, so there is no 16 through 25 to look for; the steps below are the same on both releases.
    - Select your active service (Wi-Fi or Ethernet), then click **Details...**.
    - Choose **DNS** in the sidebar.
    - Click **+** under **DNS Servers** and enter each address. Remove the greyed-out DHCP-pushed addresses if you want yours to take precedence.
@@ -377,7 +394,18 @@ Changing your DNS is easy and can be done in just a few steps:
    - Enter your chosen DNS addresses, save, and reboot if the router prompts you.
    - Heads up: some ISP-supplied routers ignore your DNS overrides or transparently redirect port 53. If your changes don't seem to take effect, test with `dig @1.1.1.1 example.com` from a client and compare to `dig example.com`.
 
+5. **Consoles (PS5, Xbox Series X|S, Switch)**:
+   - **PS5**: **Settings** > **Network** > **Settings** > **Set Up Internet Connection**. Highlight your saved network, press the Options button, then **Advanced Settings** > **DNS Settings** > **Manual**, and fill in primary and secondary.
+   - **Xbox Series X|S**: press the Xbox button, then **Profile & system** > **Settings** > **General** > **Network settings** > **Advanced settings** > **DNS settings** > **Manual**.
+   - **Nintendo Switch / Switch 2**: **System Settings** > **Internet** > **Internet Settings**, pick your network, then **Change Settings** > **DNS Settings** > **Manual**.
+
+   Three things to know before you bother:
+
+   - **No console supports encrypted DNS.** Not DoH, not DoT, not DoQ. Whatever you type in goes out as plaintext UDP on port 53, so your ISP still sees every lookup. If encrypted DNS on the console matters to you, the only way to get it is to set it on the router instead.
+   - **Filtering resolvers break console services more often than they break PCs.** Ad-blocking profiles have a habit of eating telemetry and CDN hostnames that a launcher treats as mandatory. Start on an unfiltered profile, and if the store hangs or a patch download stalls, that is the first thing to undo.
+   - **DNS is not your NAT type.** Changing DNS will not open ports, fix a Strict or Type 3 NAT, or improve peer-to-peer matchmaking. That is UPnP, [port forwarding](/blog/how_to_set_up_port_forwarding_even_behind_cgnat/), or your ISP's CGNAT, and it is a separate problem from the one on this page.
+
 ### Conclusion
 
-Switching DNS will not lower your in-game ping. It can make launchers boot faster, logins less flaky, patches grab from a closer mirror, and the whole pre-game pipeline feel more consistent - which is usually what "gaming DNS" tweaks are actually solving for. In 2026, the safe defaults are Cloudflare (1.1.1.1), Google (8.8.8.8), and Quad9 (9.9.9.9) on global anycast; Control D and NextDNS if you want filtering and per-device profiles; AdGuard or Mullvad for encrypted DNS by default; and DNS4EU if you'd rather stay on EU-operated infrastructure. Benchmark two or three from your own connection, pick the fastest one that stays up, and move on - this is not a setting worth obsessing over.
+Switching DNS will not lower your in-game ping. It makes launchers boot faster, logins less flaky, and patches grab from a closer mirror, which is what "gaming DNS" tweaks are really solving for. Cloudflare (1.1.1.1), Google (8.8.8.8), and Quad9 (9.9.9.9) are the safe 2026 defaults. Benchmark two or three from your own connection, put two different operators in the primary and secondary slots, and move on.
 
