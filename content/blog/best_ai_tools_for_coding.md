@@ -1,13 +1,13 @@
 ---
 title: "Best AI Tools for Coding in 2026"
-description: "The AI coding tools worth installing in late 2026: Cursor after the SpaceX deal, Google Antigravity, GitHub Copilot's credit billing, Cline, Kilo Code, Zed, Kiro, and terminal agents like Claude Code, OpenAI Codex, OpenCode, Pi, Amp, Grok Build, and Droid."
+description: "The AI coding tools worth installing in late 2026: Cursor after the SpaceX deal, Google Antigravity, GitHub Copilot's credit billing, Cline, Kilo Code, Zed, Kiro, and terminal agents like Claude Code, OpenAI Codex, DeepSeek Harness, OpenCode, Pi, Amp, Grok Build, and Droid."
 date: 2025-08-17T14:15:25+05:30
-lastmod: 2026-09-08T15:15:25+05:30
+lastmod: 2026-09-09T15:15:25+05:30
 draft: false
 tags: ["AI coding tools", "AI coding agents", "Cursor", "AI tools", "development"]
 categories: ["Technology", "Development", "AI Tools"]
 og_image: "images/best_ai_tools_for_coding/ai_coding_tools.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiQ2hvb3NlIHRoZSBCZXN0IEFJIENvZGluZyBUb29sIGZvciBZb3VyIERldmVsb3BtZW50IFdvcmtmbG93IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGV2YWx1YXRlIGFuZCBjaG9vc2UgdGhlIGJlc3QgQUkgY29kaW5nIHRvb2wgaW4gMjAyNiwgaW5jbHVkaW5nIEN1cnNvciwgR29vZ2xlIEFudGlncmF2aXR5LCBHaXRIdWIgQ29waWxvdCwgQ2xpbmUsIEtpbG8gQ29kZSwgWmVkLCBLaXJvLCBDbGF1ZGUgQ29kZSwgT3BlbkFJIENvZGV4LCBPcGVuQ29kZSwgUGksIEFtcCwgR3JvayBCdWlsZCwgYW5kIERyb2lkLiIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTA5LTA4VDE1OjE1OjI1KzA1OjMwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRlY2lkZSBXaGVyZSB0aGUgQWdlbnQgU2hvdWxkIFJ1biIsCiAgICAgICJ0ZXh0IjogIkNob29zZSBiZXR3ZWVuIGFuIEFJIGVkaXRvciBvciBJREUgZXh0ZW5zaW9uIChDdXJzb3IsIEdpdEh1YiBDb3BpbG90LCBDbGluZSwgS2lsbyBDb2RlLCBaZWQsIEtpcm8pIGFuZCBhIHRlcm1pbmFsIGFnZW50IChDbGF1ZGUgQ29kZSwgT3BlbkFJIENvZGV4LCBPcGVuQ29kZSwgUGksIEFtcCwgR3JvayBCdWlsZCwgRHJvaWQpLiBFZGl0b3JzIGFyZSBiZXR0ZXIgd2hlbiB5b3Ugd2FudCB0byByZWFkIGV2ZXJ5IGRpZmYgYXMgaXQgbGFuZHM7IHRlcm1pbmFsIGFnZW50cyBhcmUgc2NyaXB0YWJsZSwgcnVuIGluIENJLCBhbmQgbGV0IHlvdSBydW4gc2V2ZXJhbCBzZXNzaW9ucyBpbiBwYXJhbGxlbC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiTWF0Y2ggdGhlIFRvb2wgdG8gdGhlIFRhc2siLAogICAgICAidGV4dCI6ICJVc2UgaW5saW5lIGNvbXBsZXRpb24gYW5kIGNoYXQgZm9yIGV2ZXJ5ZGF5IGVkaXRzLCBhbmQgYW4gYXV0b25vbW91cyBhZ2VudCBmb3IgbXVsdGktZmlsZSByZWZhY3RvcnMsIG1pZ3JhdGlvbnMsIGFuZCB0ZXN0IGdlbmVyYXRpb24uIENsYXVkZSBDb2RlIGFuZCBPcGVuQUkgQ29kZXggbGVhZCBvbiBsb25nIG11bHRpLWZpbGUgd29yaywgQ3Vyc29yIFRhYiBhbmQgR2l0SHViIENvcGlsb3QgYXJlIHN0aWxsIHRoZSBmYXN0ZXN0IGlubGluZSBjb21wbGV0aW9ucywgR3JvayBCdWlsZCBydW5zIHVwIHRvIGVpZ2h0IHBhcmFsbGVsIHN1Yi1hZ2VudHMgaW4gaXNvbGF0ZWQgZ2l0IHdvcmt0cmVlcywgYW5kIFFvZG8gYW5kIEtpcm8gZm9jdXMgb24gcmV2aWV3LCB0ZXN0cywgYW5kIHNwZWNzLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJDaGVjayBPd25lcnNoaXAsIFByaXZhY3ksIGFuZCBMb2NrLWluIiwKICAgICAgInRleHQiOiAiMjAyNiBicm91Z2h0IGhlYXZ5IGNvbnNvbGlkYXRpb24uIFNwYWNlWCBjbG9zZWQgaXRzIGFjcXVpc2l0aW9uIG9mIEN1cnNvciBwYXJlbnQgQW55c3BoZXJlIG9uIEF1Z3VzdCAxNCAyMDI2LCBHb29nbGUgcmV0aXJlZCBHZW1pbmkgQ0xJIG9uIEp1bmUgMTggMjAyNiwgQVdTIGVuZGVkIHN1cHBvcnQgZm9yIEFtYXpvbiBRIERldmVsb3BlciBpbiBmYXZvdXIgb2YgS2lybywgYW5kIFdpbmRzdXJmIGJlY2FtZSBEZXZpbiBEZXNrdG9wLiBJZiB5b3UgbmVlZCBpbmRlcGVuZGVuY2Ugb3IgbG9jYWwgbW9kZWxzLCBsb29rIGF0IE9wZW5Db2RlLCBQaSwgQ2xpbmUsIEdvb3NlLCBvciBHcm9rIEJ1aWxkLCB3aGljaCBhcmUgYWxsIG9wZW4gc291cmNlIGFuZCBwcm92aWRlci1hZ25vc3RpYy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiVGVzdCBvbiBhIFJlYWwgVGFzayBCZWZvcmUgUGF5aW5nIiwKICAgICAgInRleHQiOiAiTW9zdCB0b29scyBoZXJlIGhhdmUgYSBmcmVlIHRpZXIgb3IgYSB0cmlhbCwgYW5kIHNldmVyYWwgYXJlIGZ1bGx5IG9wZW4gc291cmNlLiBSdW4gdGhlIHNhbWUgcmVhbCB0aWNrZXQgdGhyb3VnaCB0d28gb3IgdGhyZWUgY2FuZGlkYXRlcywgdGhlbiBjb21wYXJlIGRpZmYgcXVhbGl0eSwgaG93IG11Y2ggY2xlYW51cCBlYWNoIG9uZSBuZWVkcywgYW5kIHdoYXQgYSBtb250aCBvZiB0aGF0IHVzYWdlIGFjdHVhbGx5IGNvc3RzIHVuZGVyIGNyZWRpdC1iYXNlZCBiaWxsaW5nLiIKICAgIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiQ2hvb3NlIHRoZSBCZXN0IEFJIENvZGluZyBUb29sIGZvciBZb3VyIERldmVsb3BtZW50IFdvcmtmbG93IiwKICAiZGVzY3JpcHRpb24iOiAiU3RlcC1ieS1zdGVwIGd1aWRlIHRvIGV2YWx1YXRlIGFuZCBjaG9vc2UgdGhlIGJlc3QgQUkgY29kaW5nIHRvb2wgaW4gMjAyNiwgaW5jbHVkaW5nIEN1cnNvciwgR29vZ2xlIEFudGlncmF2aXR5LCBHaXRIdWIgQ29waWxvdCwgQ2xpbmUsIEtpbG8gQ29kZSwgWmVkLCBLaXJvLCBDbGF1ZGUgQ29kZSwgT3BlbkFJIENvZGV4LCBEZWVwU2VlayBIYXJuZXNzLCBPcGVuQ29kZSwgUGksIEFtcCwgR3JvayBCdWlsZCwgYW5kIERyb2lkLiIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTA5LTA5VDE1OjE1OjI1KzA1OjMwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkRlY2lkZSBXaGVyZSB0aGUgQWdlbnQgU2hvdWxkIFJ1biIsCiAgICAgICJ0ZXh0IjogIkNob29zZSBiZXR3ZWVuIGFuIEFJIGVkaXRvciBvciBJREUgZXh0ZW5zaW9uIChDdXJzb3IsIEdpdEh1YiBDb3BpbG90LCBDbGluZSwgS2lsbyBDb2RlLCBaZWQsIEtpcm8pIGFuZCBhIHRlcm1pbmFsIGFnZW50IChDbGF1ZGUgQ29kZSwgT3BlbkFJIENvZGV4LCBEZWVwU2VlayBIYXJuZXNzLCBPcGVuQ29kZSwgUGksIEFtcCwgR3JvayBCdWlsZCwgRHJvaWQpLiBFZGl0b3JzIGFyZSBiZXR0ZXIgd2hlbiB5b3Ugd2FudCB0byByZWFkIGV2ZXJ5IGRpZmYgYXMgaXQgbGFuZHM7IHRlcm1pbmFsIGFnZW50cyBhcmUgc2NyaXB0YWJsZSwgcnVuIGluIENJLCBhbmQgbGV0IHlvdSBydW4gc2V2ZXJhbCBzZXNzaW9ucyBpbiBwYXJhbGxlbC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiTWF0Y2ggdGhlIFRvb2wgdG8gdGhlIFRhc2siLAogICAgICAidGV4dCI6ICJVc2UgaW5saW5lIGNvbXBsZXRpb24gYW5kIGNoYXQgZm9yIGV2ZXJ5ZGF5IGVkaXRzLCBhbmQgYW4gYXV0b25vbW91cyBhZ2VudCBmb3IgbXVsdGktZmlsZSByZWZhY3RvcnMsIG1pZ3JhdGlvbnMsIGFuZCB0ZXN0IGdlbmVyYXRpb24uIENsYXVkZSBDb2RlIGFuZCBPcGVuQUkgQ29kZXggbGVhZCBvbiBsb25nIG11bHRpLWZpbGUgd29yaywgQ3Vyc29yIFRhYiBhbmQgR2l0SHViIENvcGlsb3QgYXJlIHN0aWxsIHRoZSBmYXN0ZXN0IGlubGluZSBjb21wbGV0aW9ucywgR3JvayBCdWlsZCBydW5zIHVwIHRvIGVpZ2h0IHBhcmFsbGVsIHN1Yi1hZ2VudHMgaW4gaXNvbGF0ZWQgZ2l0IHdvcmt0cmVlcywgRGVlcFNlZWsgSGFybmVzcyByZWJ1aWxkcyB0aGUgYWdlbnQgbG9vcCBpdHNlbGYgYXMgYSBzd2FwcGFibGUgcGx1Z2luLCBhbmQgUW9kbyBhbmQgS2lybyBmb2N1cyBvbiByZXZpZXcsIHRlc3RzLCBhbmQgc3BlY3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNoZWNrIE93bmVyc2hpcCwgUHJpdmFjeSwgYW5kIExvY2staW4iLAogICAgICAidGV4dCI6ICIyMDI2IGJyb3VnaHQgaGVhdnkgY29uc29saWRhdGlvbi4gU3BhY2VYIGNsb3NlZCBpdHMgYWNxdWlzaXRpb24gb2YgQ3Vyc29yIHBhcmVudCBBbnlzcGhlcmUgb24gQXVndXN0IDE0IDIwMjYsIEdvb2dsZSByZXRpcmVkIEdlbWluaSBDTEkgb24gSnVuZSAxOCAyMDI2LCBBV1MgZW5kZWQgc3VwcG9ydCBmb3IgQW1hem9uIFEgRGV2ZWxvcGVyIGluIGZhdm91ciBvZiBLaXJvLCBhbmQgV2luZHN1cmYgYmVjYW1lIERldmluIERlc2t0b3AuIElmIHlvdSBuZWVkIGluZGVwZW5kZW5jZSBvciBsb2NhbCBtb2RlbHMsIGxvb2sgYXQgT3BlbkNvZGUsIERlZXBTZWVrIEhhcm5lc3MsIFBpLCBDbGluZSwgR29vc2UsIG9yIEdyb2sgQnVpbGQsIHdoaWNoIGFyZSBhbGwgb3BlbiBzb3VyY2UgYW5kIHByb3ZpZGVyLWFnbm9zdGljLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJUZXN0IG9uIGEgUmVhbCBUYXNrIEJlZm9yZSBQYXlpbmciLAogICAgICAidGV4dCI6ICJNb3N0IHRvb2xzIGhlcmUgaGF2ZSBhIGZyZWUgdGllciBvciBhIHRyaWFsLCBhbmQgc2V2ZXJhbCBhcmUgZnVsbHkgb3BlbiBzb3VyY2UuIFJ1biB0aGUgc2FtZSByZWFsIHRpY2tldCB0aHJvdWdoIHR3byBvciB0aHJlZSBjYW5kaWRhdGVzLCB0aGVuIGNvbXBhcmUgZGlmZiBxdWFsaXR5LCBob3cgbXVjaCBjbGVhbnVwIGVhY2ggb25lIG5lZWRzLCBhbmQgd2hhdCBhIG1vbnRoIG9mIHRoYXQgdXNhZ2UgYWN0dWFsbHkgY29zdHMgdW5kZXIgY3JlZGl0LWJhc2VkIGJpbGxpbmcuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
 outputs:
   - HTML
   - AMP
@@ -17,7 +17,7 @@ outputs:
 
 AI coding tools have gone from autocomplete plugins to agents that plan a task, edit a dozen files, run your test suite, and open the pull request. Picking one is now less about which model is smartest this month and more about where the agent runs, who owns it, and what a month of real usage costs.
 
-That last part is why this list looks different from the version you may have read earlier. In the last six months Google retired Gemini CLI, SpaceX closed a $60 billion all-stock acquisition of Cursor's parent Anysphere, AWS ended support for Amazon Q Developer, Cognition renamed Windsurf to Devin Desktop, and Cursor absorbed both Supermaven and Continue.dev. Several tools this post used to recommend no longer exist under the name you knew them by.
+That last part is why this list looks different from the version you may have read earlier. In the last six months Google retired Gemini CLI, SpaceX closed a $60 billion all-stock acquisition of Cursor's parent Anysphere, AWS ended support for Amazon Q Developer, Cognition renamed Windsurf to Devin Desktop, and Cursor absorbed both Supermaven and Continue.dev. Several tools this post used to recommend no longer exist under the name you knew them by. On the other side of the ledger, DeepSeek open-sourced its own agent harness on August 13 and passed 100,000 GitHub stars in about two days, on its way to overtaking OpenCode as the most-starred coding agent on GitHub.
 
 Here is what is actually worth installing in September 2026, split by where it runs: in your editor, or in your terminal.
 
@@ -36,14 +36,15 @@ Here is what is actually worth installing in September 2026, split by where it r
 **CLI coding agents:**
 1. **Claude Code** - Anthropic's terminal agent, strongest on long multi-file work - <a target="_blank" href="https://claude.com/product/claude-code">Try Claude Code</a>
 2. **OpenAI Codex** - Apache-2.0 terminal agent on OpenAI's GPT-5 series - <a target="_blank" href="https://github.com/openai/codex">Try Codex</a>
-3. **OpenCode** - 206k stars, 75+ model providers, MIT licensed - <a target="_blank" href="https://opencode.ai">Try OpenCode</a>
-4. **Pi** - the sub-1,000-token harness, 103k stars and still climbing - <a target="_blank" href="https://github.com/earendil-works/pi">Try Pi</a>
-5. **Cursor CLI** - Cursor's agent outside the editor, bundled with paid plans - <a target="_blank" href="https://cursor.com/cli">Try Cursor CLI</a>
-6. **Amp** - Sourcegraph-founded agent with a genuinely usable free tier - <a target="_blank" href="https://ampcode.com">Try Amp</a>
-7. **Grok Build** - xAI's Rust TUI with eight parallel sub-agents, Apache-2.0 - <a target="_blank" href="https://github.com/xai-org/grok-build">Try Grok Build</a>
-8. **Antigravity CLI** - Google's `agy` binary, the replacement for Gemini CLI - <a target="_blank" href="https://antigravity.google/">Try Antigravity CLI</a>
-9. **Droid** - Factory's model-agnostic agent aimed at enterprise SDLC - <a target="_blank" href="https://factory.ai">Try Droid</a>
-10. **Goose** - Apache-2.0 agent under the Agentic AI Foundation, runs local models - <a target="_blank" href="https://github.com/aaif-goose/goose">Try Goose</a>
+3. **DeepSeek Harness** - the new star leader, ~219k and MIT, everything in it is a plugin - <a target="_blank" href="https://github.com/deepseek-ai/deepseek-harness">Try DeepSeek Harness</a>
+4. **OpenCode** - 206k stars, 75+ model providers, MIT licensed - <a target="_blank" href="https://opencode.ai">Try OpenCode</a>
+5. **Pi** - the sub-1,000-token harness, 103k stars and still climbing - <a target="_blank" href="https://github.com/earendil-works/pi">Try Pi</a>
+6. **Cursor CLI** - Cursor's agent outside the editor, bundled with paid plans - <a target="_blank" href="https://cursor.com/cli">Try Cursor CLI</a>
+7. **Amp** - Sourcegraph-founded agent with a genuinely usable free tier - <a target="_blank" href="https://ampcode.com">Try Amp</a>
+8. **Grok Build** - xAI's Rust TUI with eight parallel sub-agents, Apache-2.0 - <a target="_blank" href="https://github.com/xai-org/grok-build">Try Grok Build</a>
+9. **Antigravity CLI** - Google's `agy` binary, the replacement for Gemini CLI - <a target="_blank" href="https://antigravity.google/">Try Antigravity CLI</a>
+10. **Droid** - Factory's model-agnostic agent aimed at enterprise SDLC - <a target="_blank" href="https://factory.ai">Try Droid</a>
+11. **Goose** - Apache-2.0 agent under the Agentic AI Foundation, runs local models - <a target="_blank" href="https://github.com/aaif-goose/goose">Try Goose</a>
 
 **Honorable mentions:** <a target="_blank" href="https://www.warp.dev">Warp</a>, <a target="_blank" href="https://github.com/charmbracelet/crush">Crush</a>, <a target="_blank" href="https://www.trae.ai">Trae</a>
 {{% /tldr %}}
@@ -127,48 +128,54 @@ Here is what is actually worth installing in September 2026, split by where it r
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">ChatGPT plans or API</td>
 </tr>
 <tr>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank">DeepSeek Harness</a></strong></td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Provider-agnostic, plugin-based, biggest star mover</td>
+  <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free (MIT)</td>
+</tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://opencode.ai" target="_blank">OpenCode</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Provider independence and local models</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free (MIT)</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/earendil-works/pi" target="_blank">Pi</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">A minimal, readable harness to build on</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free (MIT)</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://cursor.com/cli" target="_blank">Cursor CLI</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Cursor users scripting or running in CI</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Bundled with Cursor plans</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://ampcode.com" target="_blank">Amp</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Trying a full agent at zero cost</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free with ads; zero-markup credits</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/xai-org/grok-build" target="_blank">Grok Build</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Parallel sub-agents in isolated worktrees</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free harness; Grok plan or API key</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://antigravity.google/" target="_blank">Antigravity CLI</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Gemini models from the terminal</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Free, weekly compute cap</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://factory.ai" target="_blank">Droid</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Ticket-to-PR workflows in enterprises</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">$20 to $200/mo</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://github.com/aaif-goose/goose" target="_blank">Goose</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">CLI agent</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Fully offline work and infrastructure tasks</td>
@@ -362,11 +369,29 @@ Codex runs on OpenAI's current GPT-5 series with one of the largest context wind
 
 **Pricing:** Included with ChatGPT Plus, Pro, and Business plans up to a usage allowance, or pay-as-you-go with an API key.
 
-### 3. OpenCode - Provider Independence, 206k Stars
+### 3. DeepSeek Harness - Everything Is a Plugin
+
+{{< image "top_cli_based_ai_coding_agents/deepseek_harness_cli.webp" "DeepSeek Harness developer preview homepage" >}}
+
+{{< link href="https://github.com/deepseek-ai/deepseek-harness" >}}DeepSeek Harness{{< /link >}} (`dsh`) did not exist a month before this update. DeepSeek published it under MIT on August 13, 2026, and it passed 100,000 GitHub stars in roughly two days, on its way to around 219,000 today, past OpenCode for the raw star lead in this whole category.
+
+The design idea is in the name: everything, including the agent loop itself, is a replaceable plugin. Models, tools, skills, sessions, sandboxes, storage, scheduling, and the UI are all swappable pieces built on a plugin runtime called Cordis, so you extend it by mounting a plugin rather than forking internals. Despite the branding it is not DeepSeek-only: the built-in provider catalog covers Anthropic, OpenAI, Bedrock, Azure, and Vertex, and you can register a custom provider pointing at a self-hosted endpoint to attach Ollama or vLLM. It defaults to `deepseek-v4-pro` and `deepseek-v4-flash`, reads both `AGENTS.md` and `CLAUDE.md`, acts as an MCP client, and ships an ACP server plus Python and JSON-RPC SDKs.
+
+One shape difference to know before you reach for it: `dsh` is web-first, not a terminal UI. The default `npx @deepseek-ai/dsh web` opens a local browser interface, and terminal-only use means the headless path, `npx @deepseek-ai/dsh --profile headless "fix the failing tests"`. If you want a full-screen TUI like Grok Build or Crush, this is not that. It is also, by DeepSeek's own README, a developer preview that promises breaking changes, so pin your version if you depend on it.
+
+- **Everything is a plugin** - the agent loop, tools, sessions, and UI are all swappable
+- **Multi-provider despite the name** - Anthropic, OpenAI, Bedrock, Azure, and Vertex, plus custom endpoints
+- **Reads AGENTS.md and CLAUDE.md** - and can delegate to the Claude Code and Codex binaries
+- **Web-first, not a TUI** - a local browser UI by default, with a headless CLI path for scripts and CI
+- **Developer preview** - breaking changes are expected, pin the version you build on
+
+**Pricing:** Free and MIT licensed. You pay whichever provider you configure, including DeepSeek's own API.
+
+### 4. OpenCode - Provider Independence, 206k Stars
 
 {{< image "top_cli_based_ai_coding_agents/opencode_cli.webp" "OpenCode open source AI coding agent" >}}
 
-{{< link href="https://opencode.ai" >}}OpenCode{{< /link >}} is one of the two most-starred coding agents on GitHub, at over 206,000 stars, and it is the pick if you do not want a vendor deciding which model you use. It is MIT licensed and provider-agnostic: 75+ providers through Models.dev, local models through Ollama, or you can authenticate with a GitHub Copilot or ChatGPT subscription you already pay for and use that quota.
+{{< link href="https://opencode.ai" >}}OpenCode{{< /link >}} held the raw star lead in this category until DeepSeek Harness landed, and at over 206,000 stars it is still the pick if you do not want a vendor deciding which model you use. It is MIT licensed and provider-agnostic: 75+ providers through Models.dev, local models through Ollama, or you can authenticate with a GitHub Copilot or ChatGPT subscription you already pay for and use that quota.
 
 It moved from `sst/opencode` to `anomalyco/opencode` after the rebrand, so old links redirect. Beyond the terminal it now ships a desktop app and an IDE extension, loads language servers automatically so the agent gets real type information instead of guessing, and supports multiple parallel sessions. Kilo Code rebuilt itself on top of it in April 2026, which is a decent signal about the quality of the harness.
 
@@ -378,7 +403,7 @@ It moved from `sst/opencode` to `anomalyco/opencode` after the rebrand, so old l
 
 **Pricing:** Free and MIT licensed. You pay whichever provider you point it at, or nothing if you run local models.
 
-### 4. Pi - The Smallest Harness That Still Does the Job
+### 5. Pi - The Smallest Harness That Still Does the Job
 
 {{< image "top_cli_based_ai_coding_agents/pi_cli.webp" "Pi coding agent" >}}
 
@@ -396,7 +421,7 @@ That makes it the one to reach for if you want to know exactly what your agent i
 
 **Pricing:** Free and MIT licensed. You pay only whichever model provider you point it at.
 
-### 5. Cursor CLI - Cursor's Agent Outside the Editor
+### 6. Cursor CLI - Cursor's Agent Outside the Editor
 
 {{< image "top_cli_based_ai_coding_agents/cursor_cli.webp" "Cursor CLI terminal agent" >}}
 
@@ -412,7 +437,7 @@ It keeps the Plan and Ask modes from the editor, and adds Cloud Handoff: prefix 
 
 **Pricing:** Bundled with paid Cursor plans, starting at $20/month.
 
-### 6. Amp - A Free Tier That Is Actually Usable
+### 7. Amp - A Free Tier That Is Actually Usable
 
 {{< image "top_cli_based_ai_coding_agents/ampcode_cli.webp" "Amp coding agent" >}}
 
@@ -428,7 +453,7 @@ The pricing is the interesting part. Amp Free, launched in October 2025, is ad-s
 
 **Pricing:** Free with ads, or pay-as-you-go credits at zero markup. Higher tiers are available for teams that need more throughput.
 
-### 7. Grok Build - xAI's Rust TUI, Now Open Source
+### 8. Grok Build - xAI's Rust TUI, Now Open Source
 
 {{< image "top_cli_based_ai_coding_agents/grokbuild_cli.webp" "Grok Build from xAI" >}}
 
@@ -446,7 +471,7 @@ Despite the subscription-first launch, it is not locked to xAI. It authenticates
 
 **Pricing:** The harness is free and open source. Model access comes through a Grok subscription, available on every plan including the free tier since August 2026 with SuperGrok at $30/month, or through your own `XAI_API_KEY` on the API.
 
-### 8. Antigravity CLI - Google's Replacement for Gemini CLI
+### 9. Antigravity CLI - Google's Replacement for Gemini CLI
 
 {{< image "top_cli_based_ai_coding_agents/antigravity_cli.webp" "Antigravity CLI from Google" >}}
 
@@ -461,7 +486,7 @@ Two changes are worth knowing before you migrate. It is closed source, where Gem
 
 **Pricing:** Free with a weekly compute cap, with higher limits on Google AI Pro and Ultra subscriptions.
 
-### 9. Droid - Built for the Enterprise SDLC
+### 10. Droid - Built for the Enterprise SDLC
 
 {{< image "best_ai_tools_for_coding/factory_droid.webp" "Factory Droid coding agent" >}}
 
@@ -477,7 +502,7 @@ It is model-agnostic on the backend, routing to frontier models rather than bind
 
 **Pricing:** Pro is $20/month, Plus $100/month, and Max $200/month, with custom pricing for teams and enterprises.
 
-### 10. Goose - Foundation-Governed and Local-First
+### 11. Goose - Foundation-Governed and Local-First
 
 {{< image "best_ai_tools_for_coding/goose.webp" "Goose AI Coding Agent" >}}
 
@@ -519,7 +544,7 @@ Start with where you want to review the work, because that single decision elimi
 
 Then work out what actually blocks you today. If your problem is typing speed on familiar code, inline completion is enough and Copilot's $10 tier solves it. If your problem is that a change touches thirty files across four modules, completion does not help at all and you need an agent that can plan, run tests, and read its own failures. If your problem is that AI-written code arrives faster than anyone can review it, the tool you need is Qodo or Kiro, not a faster generator.
 
-Check the constraints that are not negotiable before you fall in love with a product. Code that cannot leave your network rules out almost everything here and leaves an open-source agent pointed at a local model through Ollama, which in practice means OpenCode, Pi, Goose, or Grok Build. A hard budget rules out anything billed in credits, because agent mode burns them in a way autocomplete never did. Discomfort about ownership is now a legitimate technical constraint too, given that Cursor belongs to SpaceX, Antigravity belongs to Google, and Gemini CLI stopped existing with two weeks of notice.
+Check the constraints that are not negotiable before you fall in love with a product. Code that cannot leave your network rules out almost everything here and leaves an open-source agent pointed at a local model through Ollama, which in practice means OpenCode, DeepSeek Harness, Pi, Goose, or Grok Build. A hard budget rules out anything billed in credits, because agent mode burns them in a way autocomplete never did. Discomfort about ownership is now a legitimate technical constraint too, given that Cursor belongs to SpaceX, Antigravity belongs to Google, and Gemini CLI stopped existing with two weeks of notice. If you want a hackable base rather than a finished product, DeepSeek Harness and Pi are both built to be taken apart, just be ready for a developer preview's rough edges on the former.
 
 Finally, test on something real. Every tool here has a free tier, a trial, or an open-source licence, so pick one genuine ticket from your backlog and run it through two or three candidates. Compare the diffs, count how much you had to clean up afterwards, and multiply that session's cost by a month. Benchmarks measure something; your own backlog measures the thing you are actually paying for.
 
