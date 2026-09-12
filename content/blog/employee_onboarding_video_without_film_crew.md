@@ -90,6 +90,8 @@ Save the original script with the finished video. When a process changes, the te
 
 Short videos are also easier to maintain. Separate modules for first-day tasks, communication tools, security, and team processes are usually more practical than one long onboarding recording.
 
+For companies producing multiple onboarding, training, or internal communication videos, {{< link href="https://invideo.io/" >}}invideo agent{{< /link >}} helps teams maintain consistency by keeping project context, brand guidelines, and creative instructions connected throughout the video creation process.
+
 ## Final Thoughts
 
 An employee onboarding video does not need a camera crew to be useful. The important part is deciding what new employees actually need to know and presenting it clearly.
