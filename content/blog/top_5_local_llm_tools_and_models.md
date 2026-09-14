@@ -27,9 +27,10 @@ The practical question is no longer whether a good open-weight model exists, but
 1. **LM Studio** - Best GUI, ships both llama.cpp and MLX engines | <a href="https://lmstudio.ai/" target="_blank">Download</a>
 2. **Unsloth** - Dynamic GGUF quants plus a local run-and-train UI | <a href="https://unsloth.ai/" target="_blank">Unsloth</a>
 3. **Ollama** - One-line commands, best for scripting | <a href="https://ollama.com/download" target="_blank">Download</a>
-4. **text-generation-webui** - Flexible, extensions, many backends | <a href="https://github.com/oobabooga/text-generation-webui" target="_blank">GitHub</a>
-5. **GPT4All** - Beginner-friendly desktop app | <a href="https://gpt4all.io/" target="_blank">Download</a>
-6. **LocalAI** - Developer-focused, OpenAI API compatible | <a href="https://localai.io/" target="_blank">LocalAI</a>
+4. **Atomic Chat** - Desktop app, fully offline, no terminal | <a href="https://atomic.chat/" target="_blank">Download</a>
+5. **text-generation-webui** - Flexible, extensions, many backends | <a href="https://github.com/oobabooga/text-generation-webui" target="_blank">GitHub</a>
+6. **GPT4All** - Beginner-friendly desktop app | <a href="https://gpt4all.io/" target="_blank">Download</a>
+7. **LocalAI** - Developer-focused, OpenAI API compatible | <a href="https://localai.io/" target="_blank">LocalAI</a>
 
 **Bonus: Jan** - Complete ChatGPT alternative, 100% offline | <a href="https://jan.ai/" target="_blank">Download</a>
 
@@ -234,7 +235,25 @@ Model tags move around, so check {{< link href="https://ollama.com/library" >}}o
 
 > **Related**: learn how to {{< link href="/blog/running_ollama_on_google_colab_with_pinggy/" >}}run Ollama on Google Colab{{< /link >}} or {{< link href="/blog/how_to_easily_share_ollama_api_and_open_webui_online/" >}}share your Ollama API online{{< /link >}} for remote access.
 
-### 4. text-generation-webui
+### 4. Atomic Chat
+
+If Ollama's terminal-and-API approach feels a little bare and you would rather just open an app and start typing, {{< link href="https://atomic.chat/" >}}Atomic Chat{{< /link >}} fills that gap. It is a desktop chat app that runs open-source LLMs entirely on your own machine, wrapping local inference in a graphical interface: no command line, no API calls, and no data leaving your device.
+
+**Key features:**
+- Fully local, offline inference, so your prompts and files never leave your machine
+- Pick a model, download it, and chat in a familiar window
+- Runs popular open-source models without manual environment setup
+- Private by default, which is a good fit for sensitive or confidential work
+
+**Getting started:**
+
+1. **Install Atomic Chat** from {{< link href="https://atomic.chat/" >}}atomic.chat{{< /link >}}
+2. **Choose a model** from the built-in list and let it download locally
+3. **Start chatting**, with no terminal or configuration required
+
+**Best for**: non-technical users, or anyone who wants a private, offline ChatGPT-style experience without the setup overhead of CLI-based tools.
+
+### 5. text-generation-webui
 
 If you want to poke at every knob, text-generation-webui is still the most configurable option, and the portable builds removed the old dependency-hell complaint.
 
@@ -263,7 +282,7 @@ If you want to poke at every knob, text-generation-webui is still the most confi
 
 **Best for**: tinkerers who want sampler-level control and format flexibility.
 
-### 5. GPT4All
+### 6. GPT4All
 
 GPT4All is a conventional desktop application, which is exactly its appeal. No terminal, no engine selection, no quant naming conventions.
 
@@ -284,7 +303,7 @@ GPT4All is a conventional desktop application, which is exactly its appeal. No t
 
 **Best for**: non-technical users, and Windows machines where you want one installer and nothing else.
 
-### 6. LocalAI
+### 7. LocalAI
 
 {{< link href="https://localai.io/" >}}LocalAI{{< /link >}} is the option you reach for when the LLM is a component in a larger system rather than something you chat with.
 
@@ -317,7 +336,7 @@ GPT4All is a conventional desktop application, which is exactly its appeal. No t
 
 **Best for**: developers replacing an OpenAI dependency in an existing application.
 
-### 7. BlueQubit
+### 8. BlueQubit
 
 {{< link href="https://www.bluequbit.io/" >}}BlueQubit{{< /link >}} is the outlier here: it is a cloud quantum computing platform, not a local LLM runner. It is included because the workflow rhymes. If you already prototype models in Python and Jupyter, BlueQubit gives you the same loop for quantum circuits without buying or booking hardware.
 

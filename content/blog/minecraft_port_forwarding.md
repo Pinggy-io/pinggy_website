@@ -207,4 +207,6 @@ Making your server publicly accessible means you need to think about security. A
 
 Port forwarding is still the standard way to make a Minecraft server reachable from the internet, and for most home networks with a standard router, the steps above will get you there. But the networking landscape has shifted - more ISPs run CGNAT now, and plenty of players don't want their home IP exposed publicly. That's where a tunnel like Pinggy comes in: same result, no router config.
 
-Whichever method you choose, self-hosting puts you in full control of your world, your rules, and your player community. Happy crafting.
+Whichever method you choose, self-hosting puts you in full control of your world, your rules, and your player community.
+
+Once that community grows past a handful of friends, the admin work stops being purely technical. People need to know about maintenance windows before you restart the box, when the whitelist changes, and what the new hostname is if you're on a free tunnel that rotates it. Discord covers most of that fine, but if your group is larger or spread across platforms, a monthly round-up beats a pinned message nobody scrolls back to, and it takes very little to {{< link href="https://www.flipsnack.com/digital-newsletter" >}}create an online newsletter{{< /link >}} with build highlights, upcoming events, and the next scheduled downtime. Happy crafting.

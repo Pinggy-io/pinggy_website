@@ -113,6 +113,8 @@ Where a personal router is allowed, the features to look for are WPA3, automatic
 
 Campus computing is shifting too, as smart devices and locally run AI applications spread. Discussions about the {{< link href="https://www.cybersecurityintelligence.com/blog/edge-ai-the-future-of-artificial-intelligence-and-edge-computing-6377.html" >}}future of ai{{< /link >}} increasingly involve edge computing, where more processing happens close to the user instead of in a distant data center. Local processing can help privacy, but every connected device still needs secure configuration and regular updates.
 
+For students who'd rather sidestep shared campus networks altogether when handling anything sensitive, it's worth knowing {{< link href="https://saily.com/blog/how-to-get-an-esim/" >}}how to get an eSIM{{< /link >}} as a backup - routing through a personal mobile data plan instead of a dorm or cafe Wi-Fi network removes the rogue-access-point risk entirely, at the cost of using up mobile data instead.
+
 ## Safer charging equipment
 
 Public USB charging ports are a question mark, because a USB port carries data as well as power. This is where you should know the actual state of the evidence, because the advice you see repeated is older than the facts.
