@@ -119,8 +119,24 @@
         font-size: 1rem;
         color: #991313;
       }
+      /* `height: auto` is what keeps the aspect ratio. The shortcodes stamp
+         the intrinsic width/height on the tag so the browser can reserve the
+         box, but those attributes also set a used height, so without this the
+         width shrank to the column while the height stayed at the full
+         intrinsic value - a 1280x720 banner rendered 800x720 on desktop and
+         358x720 on a phone. With `height: auto` the attributes go back to
+         supplying only the ratio, which is what `.bp img` does on the HTML
+         page. `border-box` stops the padding from being added on top of
+         `max-width: 100%`, which pushed the image ~26px past the column and
+         gave the page a horizontal scroll on mobile. Note that border-box also
+         reinterprets the handful of images carrying an inline `width` in em
+         (seven of them, all in host_website_on_android): that em value is now
+         the total footprint rather than the picture, so those render 1.6em
+         narrower - 454px instead of 480px. Aspect ratio stays correct. */
       .blogcontent img {
+        box-sizing: border-box;
         max-width: 100%;
+        height: auto;
         padding: 1em 0.8em;
         border-radius: 1%;
       }
@@ -136,8 +152,16 @@
         font-size: 1.25rem;
         color: #666;
       }
+      /* `flex-wrap: wrap` because the default `nowrap` gave the tag row no
+         way out on a narrow screen: a 12-tag post ran the row to 915px inside
+         a 390px viewport and scrolled the whole page sideways, and even a
+         5-tag post squeezed the pills until the text broke onto a second line
+         inside them ("KVM Over IP" rendered 36px tall against 22px for the
+         one-line pills). `white-space: nowrap` on the pill keeps each tag on a
+         single line so it wraps as a unit rather than mid-label. */
       .badge-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
         gap: 0.5rem;
@@ -149,6 +173,7 @@
         border-radius: 0.25rem;
         font-size: 0.75rem;
         background-color: #6c757d;
+        white-space: nowrap;
       }
       footer {
         padding: 2rem 1rem;

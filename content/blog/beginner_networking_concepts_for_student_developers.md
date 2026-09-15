@@ -201,7 +201,7 @@ Several tools can help. `ping` tests whether a host can be reached in certain ne
 
 Browser developer tools are also extremely useful. The Network panel shows requests, response times, status codes, headers, payloads, and returned data. When a frontend application cannot load information, this panel should be one of the first places you look.
 
-As you continue learning, build small projects that force you to use networking concepts. Create a simple API, connect a frontend to it, run the server on a local port, and test it from another device on the same network. Use `curl` to send requests. Change a port intentionally and observe the error. Look up a domain with `nslookup`. Small experiments turn abstract ideas into practical knowledge.
+As you continue learning, build small projects that force you to use networking concepts. Create a simple API, connect a frontend to it, run the server on a local port, and test it from another device on the same network. Use `curl` to send requests. Change a port intentionally and observe the error. Look up a domain with `nslookup`. Small experiments turn abstract ideas into practical knowledge. Students can also use a {{< link href="https://mypaperhelp.com/" >}}write my paper website{{< /link >}} when networking projects and other coursework leave little time for academic writing.
 
 You do not need to memorize the entire OSI model or every protocol before building useful software. Begin with the concepts you will meet every day: IP addresses, ports, DNS, HTTP, TCP, UDP, clients, servers, APIs, TLS, firewalls, latency, and common debugging tools. Each concept is one piece of the same puzzle.
 
