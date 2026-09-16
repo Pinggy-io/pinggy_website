@@ -1,0 +1,168 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080b12;
+    --accent:#5b9dff;        /* brand blue, lifted for dark ground */
+    --accent-dim:#2f5fb0;
+    --amber:#f0a83c;
+    --white:#ffffff;
+    --muted:#8b95a8;
+    --dim:#5b6475;
+    --line:rgba(255,255,255,.075);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1920px;height:1080px;background:var(--bg);overflow:hidden;position:relative;
+       font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+
+  /* depth: faint grid + two soft glows, same recipe as the other dark banners */
+  .grid{position:absolute;inset:0;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),
+                     linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 85% 70% at 60% 45%,#000 30%,transparent 100%);
+    -webkit-mask-image:radial-gradient(ellipse 85% 70% at 60% 45%,#000 30%,transparent 100%)}
+  .glow{position:absolute;border-radius:50%;filter:blur(130px)}
+  .g1{width:920px;height:920px;right:-180px;top:-330px;background:rgba(91,157,255,.16)}
+  .g2{width:700px;height:700px;left:-230px;bottom:-330px;background:rgba(91,157,255,.07)}
+  .g3{width:520px;height:520px;right:340px;bottom:-260px;background:rgba(240,168,60,.06)}
+
+  .wrap{position:relative;height:100%;display:flex;align-items:center;gap:72px;
+        padding:0 96px}
+
+  /* ---------- left ---------- */
+  .left{width:900px;flex:none}
+  .eyebrow{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:700;
+           letter-spacing:.17em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
+  .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);
+                box-shadow:0 0 14px 3px rgba(91,157,255,.65)}
+  h1{font-size:88px;line-height:1.045;font-weight:800;color:var(--white);letter-spacing:-.031em}
+  h1 .accent{color:var(--accent)}
+  .sub{margin-top:28px;font-size:27px;line-height:1.52;font-weight:400;color:var(--muted);
+       max-width:830px}
+  .sub b{color:#c9d2e0;font-weight:600}
+
+  .chips{display:flex;gap:16px;margin-top:46px}
+  .chip{background:rgba(255,255,255,.038);border:1px solid rgba(255,255,255,.085);
+        border-radius:15px;padding:19px 24px}
+  .chip .n{font-size:31px;font-weight:700;color:var(--white);letter-spacing:-.018em;
+           display:block;line-height:1.1}
+  .chip .n .u{font-size:21px;font-weight:600;color:var(--muted);margin-left:3px}
+  .chip .c{margin-top:7px;font-size:15px;color:var(--dim);letter-spacing:.005em}
+
+  .brand{position:absolute;left:96px;bottom:52px;font-size:19px;color:var(--dim);
+         font-weight:500;letter-spacing:.01em}
+  .brand b{color:var(--muted);font-weight:600}
+
+  /* ---------- right: the scoreboard ---------- */
+  .right{flex:1;display:flex;justify-content:flex-end}
+  .board{width:100%;max-width:700px;background:rgba(255,255,255,.032);
+         border:1px solid rgba(255,255,255,.09);border-radius:26px;padding:34px 36px 30px;
+         box-shadow:0 40px 90px rgba(0,0,0,.5)}
+  .board-h{display:flex;align-items:baseline;justify-content:space-between;
+           padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.085)}
+  .board-t{font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:500;
+           letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  .board-s{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--dim)}
+
+  .r{margin-bottom:23px}
+  .r:last-child{margin-bottom:0}
+  .r-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+  .r-name{font-size:22px;font-weight:600;color:#e3e9f2}
+  .r-name .sz{font-family:"JetBrains Mono",monospace;font-size:16px;font-weight:400;
+              color:var(--dim);margin-left:10px}
+  .r-score{font-size:29px;font-weight:700;color:var(--white);letter-spacing:-.02em}
+  .track{height:11px;border-radius:6px;background:rgba(255,255,255,.07);overflow:hidden}
+  .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent-dim),var(--accent))}
+
+  /* the reference row: GPT-4o, deliberately desaturated */
+  .r.ref .r-name,.r.ref .r-score{color:var(--muted)}
+  .r.ref .fill{background:rgba(255,255,255,.22)}
+  .r.ref .r-name .tag{display:inline-block;font-family:"JetBrains Mono",monospace;
+        font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);
+        border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:3px 8px;margin-left:11px;
+        vertical-align:2px}
+  .r.moe .fill{background:linear-gradient(90deg,#8a5d18,var(--amber))}
+  .r.moe .r-score{color:var(--amber)}
+</style>
+
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+<div class="grid"></div>
+
+<div class="wrap">
+  <div class="left">
+    <div class="eyebrow"><span class="dot"></span> Local LLM</div>
+    <h1>Small LLMs that<br>fit in <span class="accent">8GB</span></h1>
+    <p class="sub">GPT-4o scores <b>8</b> on Artificial Analysis's Intelligence Index.
+       A <b>3.4GB</b> download scores <b>13</b> - on an M1 MacBook Air.</p>
+
+    <div class="chips">
+      <div class="chip">
+        <span class="n">6.6<span class="u">GB</span></span>
+        <div class="c">Qwen3.5-9B at Q4_K_M</div>
+      </div>
+      <div class="chip">
+        <span class="n">32<span class="u">K</span></span>
+        <div class="c">context, fully on GPU</div>
+      </div>
+      <div class="chip">
+        <span class="n">36<span class="u">B</span></span>
+        <div class="c">via MoE offload</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="board">
+      <div class="board-h">
+        <span class="board-t">Intelligence Index</span>
+        <span class="board-s">AA v4.3</span>
+      </div>
+
+      <div class="r moe">
+        <div class="r-top">
+          <span class="r-name">K2 Horizon 36B-A4B <span class="sz">9.4GB · offload</span></span>
+          <span class="r-score">26</span>
+        </div>
+        <div class="track"><div class="fill" style="width:100%"></div></div>
+      </div>
+
+      <div class="r">
+        <div class="r-top">
+          <span class="r-name">Qwen3.8 27B <span class="sz">6.8GB · 2-bit</span></span>
+          <span class="r-score">22</span>
+        </div>
+        <div class="track"><div class="fill" style="width:84.6%"></div></div>
+      </div>
+
+      <div class="r">
+        <div class="r-top">
+          <span class="r-name">Qwen3.5 9B <span class="sz">6.6GB</span></span>
+          <span class="r-score">14</span>
+        </div>
+        <div class="track"><div class="fill" style="width:53.8%"></div></div>
+      </div>
+
+      <div class="r">
+        <div class="r-top">
+          <span class="r-name">Qwen3.5 4B <span class="sz">3.4GB</span></span>
+          <span class="r-score">13</span>
+        </div>
+        <div class="track"><div class="fill" style="width:50.0%"></div></div>
+      </div>
+
+      <div class="r ref">
+        <div class="r-top">
+          <span class="r-name">GPT-4o <span class="tag">Nov 2024 · API</span></span>
+          <span class="r-score">8</span>
+        </div>
+        <div class="track"><div class="fill" style="width:30.8%"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="brand"><b>pinggy.io</b> / blog</div>

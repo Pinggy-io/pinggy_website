@@ -2,7 +2,6 @@
 title: "Small LLMs That Fit in 8GB: The Best Models to Self-Host in 2026"
 description: "Which open-weight LLMs actually fit in 8GB of VRAM or RAM in 2026, with measured file sizes, KV cache math from published configs, and Ollama commands for Qwen3.5, Gemma 4, Ministral 3, Granite 4.1, Nemotron 3 Nano, and Phi-4-mini."
 date: 2026-09-15T09:00:00+05:30
-lastmod: 2026-09-14T09:00:00+05:30
 draft: false
 tags: ["local LLM", "self-hosted AI", "Ollama", "edge AI", "on-device AI"]
 categories: ["Technology", "AI", "Self-Hosting"]
@@ -13,9 +12,13 @@ outputs:
   - AMP
 ---
 
-{{< image "small_llms_that_fit_in_8gb_memory/small_llms_8gb_banner.webp" "Small LLMs that fit within 8GB of memory for self-hosting" >}}
+{{< image "small_llms_that_fit_in_8gb_memory/small_llms_8gb_banner.webp" "Artificial Analysis Intelligence Index scores for models that run on 8GB: K2 Horizon 36B-A4B at 26, Qwen3.8 27B at 22, Qwen3.5 9B at 14 and Qwen3.5 4B at 13, all above GPT-4o at 8" >}}
 
-Most people who want to run an LLM on their own hardware are not shopping for a GPU, they are working with whatever is already on the desk. That usually means an 8GB graphics card or a laptop with 8GB of soldered RAM, and for a long time that budget bought you a 7B model that was pleasant to demo and frustrating to use. That changed in 2026: Alibaba's Qwen3.5-9B ships at 6.6GB in 4-bit and outscores OpenAI's 120B gpt-oss on GPQA Diamond (81.7 vs 80.1), and Google's quantization-aware build of Gemma 4 12B squeezes a 12-billion-parameter dense multimodal model into 7.2GB.
+Most people who want to run an LLM on their own hardware are not shopping for a GPU, they are working with whatever is already on the desk. That usually means an 8GB graphics card or a laptop with 8GB of soldered RAM, and for a long time that budget bought you a 7B model that was pleasant to demo and frustrating to use. That changed in 2026, and the clearest way to see how much is to line a local model up against the one that defined the frontier when it shipped.
+
+<a href="https://artificialanalysis.ai/models/gpt-4o" target="_blank">GPT-4o</a> scores **8** on Artificial Analysis's current Intelligence Index. **Qwen3.5-4B scores 13** - a 3.4GB download that runs on an M1 MacBook Air with 8GB of unified memory and leaves room for your browser. Qwen3.5-9B scores 14 at 6.6GB. The model that needed an OpenAI data centre and charged by the token is now beaten by a file small enough for a USB stick, on a laptop Apple stopped selling years ago.
+
+Two caveats before that claim runs away with itself. GPT-4o was OpenAI's flagship chat model through most of 2025, but it was not the frontier at the *end* of 2025 - GPT-5 shipped that August and scores 23 on the same index, which nothing in this guide reaches. And Artificial Analysis scores full-precision models served over an API, so a heavily quantized local build will not deliver its listed score.
 
 This guide covers what actually fits in 8GB, how to budget that 8GB correctly (weights are only part of the bill), and which model to pick depending on whether your 8GB is dedicated VRAM or shared system RAM.
 
@@ -23,7 +26,7 @@ This guide covers what actually fits in 8GB, how to budget that 8GB correctly (w
 
 {{% tldr %}}
 
-**The highest-scoring model an 8GB machine can run** is not one that fits in 8GB at all: **Qwen3.5-35B-A3B** (36B total, ~3B active) via <a href="https://huggingface.co/unsloth/Qwen3.5-35B-A3B-GGUF" target="_blank">Unsloth's UD-IQ2_XXS dynamic quant</a> (9.93GB) with llama.cpp's `--n-cpu-moe` parking the experts in system RAM. It scores 15 on the Artificial Analysis Intelligence Index against 14 for the best model that fits natively. Needs 32GB of RAM and runs slower.
+**The highest-scoring thing an 8GB machine can run** is <a href="https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B" target="_blank">K2 Horizon MoVA 36B-A4B</a> (36B total, 4B active, Apache 2.0), which scores **26** - but only via MoE offload, at `IQ2_XXS` (9.37GB) plus 32GB of system RAM. **Qwen3.8-27B** scores 22 and squeezes into 8GB at <a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" target="_blank">Unsloth's `UD-IQ2_XXS`</a> (6.77GB), but it is dense, so offload does not help it and 2-bit costs real quality. **Qwen3.5-35B-A3B** (15, 9.93GB) is the gentler offload option.
 
 **If your 8GB is dedicated GPU VRAM:**
 - <a href="https://huggingface.co/Qwen/Qwen3.5-9B" target="_blank">Qwen3.5-9B</a> at Q4_K_M (`ollama pull qwen3.5:9b`, 6.6GB) - the default pick. Apache 2.0, 262K context, native vision, and a hybrid attention design that keeps the KV cache small.
@@ -98,7 +101,7 @@ This shows up in measured runs. A <a href="https://localllm.in/blog/best-local-l
 
 ## How They Actually Rank
 
-<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank">Artificial Analysis</a> runs the most useful independent scoreboard for this, because it scores every model on the same ten evaluations rather than trusting vendor-reported numbers. Here is where the 8GB-class models sit on its Intelligence Index, alongside what each one costs you on disk. The amber bar is the odd one out: it is the MoE-offload route, which runs on an 8GB card without fitting inside it.
+<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank">Artificial Analysis</a> runs the most useful independent scoreboard for this, because it scores every model on the same ten evaluations rather than trusting vendor-reported numbers. Here is where the 8GB-class models sit on its Intelligence Index, alongside what each one costs you on disk. The amber bars are the MoE-offload route, which runs on an 8GB card without fitting inside it, and the dashed line is GPT-4o at 8.
 
 {{< image "small_llms_that_fit_in_8gb_memory/small_llms_that_fit_in_8gb_memory_chart.webp" "Two-panel chart: Artificial Analysis Intelligence Index v4.3 for models that fit in 8GB, and the disk size of each, with an 8GB budget line" >}}
 
@@ -114,6 +117,18 @@ One caveat that trips people up: **Artificial Analysis rescales this index, and 
 </tr>
 </thead>
 <tbody>
+<tr style="background:#fdf6e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>K2 Horizon MoVA 36B-A4B</strong><br><span style="font-size:0.9em;color:#666;">IQ2_XXS, MoE 36B/4B active</span></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">26</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">9.37GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes, with MoE offload</td>
+</tr>
+<tr>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Qwen3.8 27B</strong><br><span style="font-size:0.9em;color:#666;">Unsloth UD-IQ2_XXS, dense</span></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">22</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">6.77GB</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Yes, but only at 2-bit</td>
+</tr>
 <tr style="background:#fdf6e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>Qwen3.5 35B-A3B</strong><br><span style="font-size:0.9em;color:#666;">Unsloth UD-IQ2_XXS</span></td>
   <td style="border:1px solid #ddd;padding:0.5em;">15</td>
@@ -187,7 +202,11 @@ Ranking and memory bill are only loosely related: Qwen3.5 4B sits one point off 
 
 ## The Models That Fit in 8GB of VRAM
 
-**Qwen3.5-35B-A3B via Unsloth** is the biggest thing on this list, and the only entry here that does not fit in 8GB of VRAM at all. It is a mixture of experts: 36B parameters total, roughly 3B active per token, which means llama.cpp can keep attention and the KV cache on the card and push the bulky expert tensors into system RAM. Unsloth's `UD-IQ2_XXS` build is 9.93GB on disk and it tops the 8GB bracket on the Intelligence Index at 15. The [offloading section](#stretching-past-8gb-unsloth-dynamic-quants-and-moe-offloading) below has the command and the caveats - the short version is that it needs 32GB of system RAM and trades speed for capability.
+**K2 Horizon MoVA 36B-A4B** is the highest-scoring model an 8GB machine can run, at 26. Released September 3, 2026 by <a href="https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B" target="_blank">MBZUAI's Institute of Foundation Models</a> under Apache 2.0, it is a mixture of experts with 100 experts and 8 active per token (37.4B parameters total, ~4B active) plus a Mixture-of-Values attention variant, and a 524K context. Because it is a genuine MoE, llama.cpp can keep attention and the KV cache on the card and push the expert tensors into system RAM. The catch is that it has no hybrid-attention trick: all 48 layers run full attention with 8 KV heads, which works out to 6 GiB of KV cache at 32K context on top of the weights. Budget 32GB of system RAM and treat long context as expensive.
+
+**Qwen3.8-27B** is the highest-scoring model that fits in 8GB without any offloading at all - but read the asterisk. It scores 22 (34 at xhigh reasoning effort), and Unsloth's `UD-IQ2_XXS` build is 6.77GB, comfortably inside 8GB. It is also a *dense* 27B, so `--n-cpu-moe` does nothing for it: there are no expert tensors to move. 6.77GB is a 2-bit quantization of a 27B model, and that score was measured on the full-precision weights. A sane 4-bit build (`UD-Q4_K_XL`) is 16.35GB. Treat the 2-bit build as an experiment worth running rather than a 22-scoring model you now own. It does inherit Qwen3.5's hybrid attention (48 linear layers, 16 full), so its KV cache is a reasonable 2 GiB at 32K.
+
+**Qwen3.5-35B-A3B via Unsloth** is the gentler offload option: 36B total, roughly 3B active, `UD-IQ2_XXS` at 9.93GB, scoring 15. The [offloading section](#stretching-past-8gb-unsloth-dynamic-quants-and-moe-offloading) below has the command and the caveats.
 
 **Qwen3.5-9B** is the one to try first if you want everything on the GPU. Released March 2, 2026 under Apache 2.0, it is a 10B-parameter multimodal model (there is a 27-layer vision tower in the config alongside the text stack) with a 262,144-token position limit. It ties Gemma 4 12B at the top of the 8GB bracket on the current Intelligence Index, and it gets there at 6.6GB rather than 7.2GB. The catch, and it is a real one: Artificial Analysis notes the Qwen3.5 small models burn 230-390M output tokens to complete the index, far more than frontier models. Thinking mode is where the quality comes from, and it costs you wall-clock time on slow hardware.
 

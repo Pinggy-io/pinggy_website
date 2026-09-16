@@ -6,15 +6,21 @@ Panel 1 (PRIMARY): Artificial Analysis Intelligence Index v4.3, read off the
 live leaderboard at https://artificialanalysis.ai/leaderboards/models on
 2026-09-15. Scope is "what an 8GB machine can run", which is NOT the same as
 "what fits in 8GB of VRAM": the lavender bars fit on the card by themselves,
-and the single amber bar (Qwen3.5-35B-A3B) only runs once its MoE experts are
-offloaded to system RAM. The legend spells that out, so do not drop it.
+and the amber bars (K2 Horizon MoVA 36B-A4B, Qwen3.5-35B-A3B) only run once
+their MoE experts are offloaded to system RAM. The legend says so, so keep it.
+A dashed line marks GPT-4o (Nov 2024) at 8, the point of the whole panel.
 
-Panel 2: the download size of the smallest good-quality build of each of those
-same models, in the SAME left-to-right order as panel 1, with the 8GB budget
-line drawn in. Sizes are Ollama's published tag sizes
-(ollama.com/library/<model>/tags), cross-checked against the two screenshots
-embedded in the post; the amber bar is the measured size of Unsloth's
-UD-IQ2_XXS GGUF and is deliberately the only bar above the 8GB line.
+Panel 2: the on-disk size of the exact build named on each x label, in the SAME
+left-to-right order as panel 1, with the 8GB budget line drawn in. Ollama tag
+sizes (ollama.com/library/<model>/tags) where the model is in Ollama's library,
+otherwise measured with an HTTP HEAD against the GGUF on Hugging Face. Do not
+infer any of these from parameter count - quant choice moves them by 3x.
+
+The two sub-3-bit entries need care. Qwen3.8-27B is DENSE, so --n-cpu-moe does
+nothing for it: UD-IQ2_XXS (6.77GB) is the only way it reaches 8GB, and a 2-bit
+dense 27B will not deliver the 22 AA measured on the full-precision model. K2
+Horizon is a real MoE (100 experts, 8 active) so offload works, but its bar is
+also IQ2_XXS. Both are in because the post says plainly what they cost.
 
 IMPORTANT - index versioning. AA rescales this index; v4.3 folds in ten much
 harder evals (Humanity's Last Exam, Terminal-Bench v4.0, GDPval-AA v2, ...), so
@@ -80,21 +86,33 @@ plt.rcParams.update({
 # including it. AA lists only a non-reasoning row for it; every other row here
 # is the reasoning variant, so its bar is not strictly like-for-like.
 #
+# The third label line is the exact build each bar is sized from, because the
+# quant matters as much as the model. AA scores the FULL-PRECISION model served
+# over an API; a sub-3-bit GGUF of the same weights will not deliver the plotted
+# score. That caveat is on the panel-1 subtitle and in the post - keep both.
+#
 # label, AA Intelligence Index v4.3, size in GB, needs MoE offload
 MODELS = [
-    ("Qwen3.5\n35B-A3B\nUnsloth",  15, 9.93, True),
-    ("Gemma 4\n12B\nQAT",          14, 7.2,  False),
-    ("Qwen3.5\n9B",                14, 6.6,  False),
-    ("Qwen3.5\n4B",                13, 3.4,  False),
-    ("Gemma 4\nE4B\nQAT",           9, 6.1,  False),
-    ("Gemma 4\nE2B\nQAT",           8, 4.3,  False),
-    ("Granite\n4.1 8B",             7, 5.3,  False),
-    ("Nemotron 3\nNano 4B",         7, 2.8,  False),
-    ("Qwen3.5\n2B",                 7, 2.7,  False),
-    ("Phi-4\nMini",                 6, 2.5,  False),
-    ("Granite\n4.1 3B",             6, 2.1,  False),
-    ("Ministral\n3 8B",             5, 6.0,  False),
+    ("K2 Horizon\n36B-A4B\nIQ2_XXS",   26, 9.37, True),
+    ("Qwen3.8\n27B\nUD-IQ2_XXS",       22, 6.77, False),
+    ("Qwen3.5\n35B-A3B\nUD-IQ2_XXS",   15, 9.93, True),
+    ("Gemma 4\n12B\nQAT",              14, 7.2,  False),
+    ("Qwen3.5\n9B\nQ4_K_M",            14, 6.6,  False),
+    ("Qwen3.5\n4B\nQ4_K_M",            13, 3.4,  False),
+    ("Gemma 4\nE4B\nQAT",               9, 6.1,  False),
+    ("Gemma 4\nE2B\nQAT",               8, 4.3,  False),
+    ("Granite\n4.1 8B\nQ4_K_M",         7, 5.3,  False),
+    ("Nemotron 3\nNano 4B\nQ4_K_M",     7, 2.8,  False),
+    ("Qwen3.5\n2B\nQ4_K_M",             7, 2.7,  False),
+    ("Phi-4\nMini\nQ4_K_M",             6, 2.5,  False),
+    ("Ministral\n3 8B\nQ4_K_M",         5, 6.0,  False),
 ]
+
+# GPT-4o (Nov 2024), AA Intelligence Index v4.3 = 8, from
+# artificialanalysis.ai/models/gpt-4o. Drawn as a reference line on panel 1:
+# everything above it is a local model that outscores the model that defined
+# the frontier when it shipped.
+GPT4O_INDEX = 8
 
 labels = [m[0] for m in MODELS]
 aa_vals = [m[1] for m in MODELS]
@@ -106,7 +124,7 @@ BUDGET_GB = 8.0
 
 def bar_panel(ax, labels, vals, title, ymax, yticks, fmt="{:.0f}",
               tickfs=9.5, titlefs=17, subtitle=None, budget=None,
-              xlabel=None, ylabel=None, off=None):
+              xlabel=None, ylabel=None, off=None, budget_above=False):
     x = list(range(len(vals)))
     off = off or [False] * len(vals)
     # hatch can't be passed as a list, so draw each bar on its own
@@ -119,11 +137,13 @@ def bar_panel(ax, labels, vals, title, ymax, yticks, fmt="{:.0f}",
         ax.text(xi, v + ymax * 0.015, fmt.format(v), ha="center", va="bottom",
                 fontsize=11.5, fontweight="bold")
     if budget is not None:
-        ax.axhline(budget, color=LIMIT_COLOR, linestyle="--", linewidth=1.6,
+        level, caption = budget
+        ax.axhline(level, color=LIMIT_COLOR, linestyle="--", linewidth=1.6,
                    zorder=4)
-        ax.text(len(vals) - 0.45, budget - ymax * 0.045, "8GB budget",
-                color=LIMIT_COLOR, fontsize=11.5, fontweight="bold",
-                va="top", ha="right")
+        ax.text(len(vals) - 0.45,
+                level + ymax * 0.02 if budget_above else level - ymax * 0.045,
+                caption, color=LIMIT_COLOR, fontsize=11.5, fontweight="bold",
+                va="bottom" if budget_above else "top", ha="right")
     # a subtitle needs the title lifted so the grey line can sit between them
     ax.set_title(title, fontsize=titlefs, fontweight="bold",
                  pad=30 if subtitle else 12)
@@ -155,7 +175,7 @@ fig.suptitle("Small LLMs That Fit in 8GB", fontsize=30, fontweight="bold",
 fig.text(0.5, 0.928,
          "Artificial Analysis Intelligence Index v4.3, read 2026-09-15  ·  "
          "reasoning variant where one is published\n"
-         "Sizes are Ollama tag sizes for the smallest good-quality build of each model",
+         "Sizes measured from the named GGUF/Ollama build of each model, not from parameter count",
          fontsize=11.5, color="#666666", ha="center", va="top",
          linespacing=1.5)
 
@@ -165,7 +185,7 @@ fits_patch = mpatches.Patch(facecolor=BAR_FACE, edgecolor=BAR_EDGE,
 off_patch = mpatches.Patch(facecolor=OFF_FACE, edgecolor=OFF_EDGE,
                            hatch=OFF_HATCH,
                            label="Runs on 8GB via MoE offload to system RAM "
-                                 "(Unsloth dynamic quant + llama.cpp --n-cpu-moe)")
+                                 "(llama.cpp --n-cpu-moe)")
 fig.legend(handles=[fits_patch, off_patch], loc="upper center",
            bbox_to_anchor=(0.5, 0.884), ncol=2, frameon=False, fontsize=11.5)
 
@@ -177,16 +197,19 @@ ax2 = fig.add_subplot(gs[1, 0])
 
 bar_panel(ax1, labels, aa_vals,
           "How they rank: Artificial Analysis Intelligence Index v4.3",
-          18, [0, 5, 10, 15], off=offload,
-          subtitle="Higher is better. Every model here runs on an 8GB machine.",
-          xlabel="Model (ranked by Intelligence Index)",
+          30, [0, 10, 20, 30], off=offload,
+          budget=(GPT4O_INDEX, "GPT-4o (Nov 2024) = 8"), budget_above=True,
+          tickfs=8.2,
+          subtitle="Scores are for the full-precision model - a sub-3-bit "
+                   "build will not reach them.",
+          xlabel="Model and build (ranked by Intelligence Index)",
           ylabel="Intelligence Index v4.3")
 bar_panel(ax2, labels, size_vals,
-          "What they cost you: weights on disk, smallest good build",
-          12.0, [0, 2, 4, 6, 8, 10, 12], fmt="{:.1f}", budget=BUDGET_GB,
-          off=offload,
+          "What they cost you: weights on disk, for the build named above",
+          12.0, [0, 2, 4, 6, 8, 10, 12], fmt="{:.1f}",
+          budget=(BUDGET_GB, "8GB budget"), off=offload, tickfs=8.2,
           subtitle="Same order as above. Weights only - the KV cache is extra.",
-          xlabel="Model (same order as above)",
+          xlabel="Model and build (same order as above)",
           ylabel="Weights on disk (GB)")
 
 out = "small_llms_that_fit_in_8gb_memory_chart.png"
