@@ -599,7 +599,7 @@ if __name__ == "__main__":
     mcp.run(transport="http", port=8080)
 ```
 
-Clients then connect via URL instead of a local command. This is useful for internal company tools you want to deploy once and share widely, and it is how remote MCP servers work in OpenAI's tool ecosystem. You can expose a local HTTP MCP server to the internet using a tunnel - our {{< link href="/blog/expose_mcp_server_with_pinggy/" >}}guide to exposing an MCP server with Pinggy{{< /link >}} walks through that in detail.
+Clients then connect via URL instead of a local command. This is useful for internal company tools you want to deploy once and share widely, and it is how remote MCP servers work in OpenAI's tool ecosystem. Marketing teams can use a similar setup for publishing and analytics access, letting agents call {{< link href="https://vistasocial.com/integrations/mcp/" >}}social workflow connectors{{< /link >}} from a shared tool layer. You can expose a local HTTP MCP server to the internet using a tunnel - our {{< link href="/blog/expose_mcp_server_with_pinggy/" >}}guide to exposing an MCP server with Pinggy{{< /link >}} walks through that in detail.
 
 ### Environment Variables and Secrets
 
