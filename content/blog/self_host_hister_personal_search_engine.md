@@ -21,6 +21,38 @@ Every developer has the same problem: you read something useful three weeks ago,
 
 {{< link href="https://github.com/asciimoo/hister" >}}Hister{{< /link >}} fixes that by building a real search engine over your own browsing, one page at a time, and it stores nothing outside your machine unless you tell it to.
 
+{{% tldr %}}
+
+1. **Install and start Hister**
+
+   ```bash
+   chmod +x hister
+   ./hister listen
+   ```
+
+   The web UI comes up at `http://127.0.0.1:4433`. Add the Firefox or Chrome extension to index pages as you browse.
+
+2. **Expose it with Pinggy**
+
+   ```bash
+   ssh -p 443 -R0:localhost:4433 free.pinggy.io
+   ```
+
+   You get a public HTTPS URL like `https://abc123.a.pinggy.link` - search your index from any device.
+
+3. **Add password protection (optional)**
+
+   ```bash
+   ssh -p 443 -R0:localhost:4433 -t free.pinggy.io b:youruser:yourpassword
+   ```
+
+**Links:**
+- <a href="https://github.com/asciimoo/hister" target="_blank">Hister on GitHub</a>
+- <a href="https://hister.org/docs" target="_blank">Hister documentation</a>
+- <a href="https://pinggy.io" target="_blank">Pinggy</a> for instant public HTTPS tunnels
+
+{{% /tldr %}}
+
 ## What Hister Actually Does
 
 Hister runs a small server on your computer (or a box you control) and builds a full-text index of two things: pages you visit and files you point it at. It's the difference between "search your history" and "search the actual content of everything you've read."
