@@ -63,7 +63,7 @@ Removing that production step changes what a solo launch can look like. A weeken
 
 Developers who ship frequently tend to build this into their launch checklist. Generate a demo video the same day the tunnel goes live, right alongside the README and the landing page copy. It becomes a five-minute step instead of a separate project on its own.
 
-For startups that need ongoing video production rather than a single launch asset, {{< link href="https://invideo.io/" >}}invideo agent{{< /link >}} can help transform product ideas into structured video projects by assisting with creative planning, scene development, and iterative revisions.
+AI video generation tools allow developers and startups to quickly create promotional videos without traditional production resources.
 
 ## Getting Started
 
