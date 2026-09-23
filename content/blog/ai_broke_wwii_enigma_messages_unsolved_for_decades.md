@@ -36,7 +36,7 @@ None of that makes MVUEH special in a historical sense. It makes it exactly the 
 
 ## What actually happened in September 2026
 
-According to Weierud's account, Carter Leffen set GPT-6 Astra loose on the Crypto Cellar's list of unbroken messages with an open-ended goal: find one that looks solvable, and solve it. The model settled on MVUEH and then made the connection that had apparently gone unexploited for years, that message Nr. 173, indicator **SIPVX** and sent the same day, had already been broken by hand back in 2017 by researcher Alex Shovkoplyas. Its plaintext contained the place name "ROSENOW ROSENOW," repeated for radio clarity, twice.
+According to <a href="https://www.cryptocellar.org/bgac/the-mvueh-break.html" target="_blank">Weierud's account of the break</a>, Carter Leffen set GPT-6 Astra loose on the Crypto Cellar's list of unbroken messages with an open-ended goal: find one that looks solvable, and solve it. The model settled on MVUEH and then made the connection that had apparently gone unexploited for years, that message Nr. 173, indicator **SIPVX** and sent the same day, had already been broken by hand back in 2017 by researcher Alex Shovkoplyas. Its plaintext contained the place name "ROSENOW ROSENOW," repeated for radio clarity, twice.
 
 {{< image "ai_broke_wwii_enigma_messages_unsolved_for_decades/mvueh_crib_chain_timeline.webp" "Timeline showing how a 2017 Enigma break supplied the crib an AI model used to crack the unsolved MVUEH message in 2026" >}}
 
@@ -58,13 +58,13 @@ Two different labs, two different models, the same general recipe, within a week
 
 ## The pushback, and it's worth taking seriously
 
-The Hacker News discussion around the MVUEH break was more interesting than the announcement itself, and it raised points that any technically literate reader should weigh before getting too excited.
+The <a href="https://news.ycombinator.com/item?id=49801324" target="_blank">Hacker News discussion around the MVUEH break</a> was more interesting than the announcement itself, and it raised points that any technically literate reader should weigh before getting too excited.
 
 The biggest one is attribution. Carter Leffen picked the target, made the connection between the two messages, and supplied the crib. The model's job, however capable, was to take that lead and execute a well-defined search. Several commenters pointed out that other models, given the same prompt and the same crib, reportedly produced comparable code and reached the same answer. That's a meaningful distinction: it's evidence the underlying task, once framed correctly, is not exotic for a competent coding agent, rather than evidence that this specific model has some unique codebreaking talent.
 
 There's also a verification gap. How do you know the plaintext is actually correct, as opposed to merely plausible-looking German that happens to decrypt cleanly? The strongest version of that check is exactly what happened here: the message matches known German military phrasing, references a real place (Rosenow), and lines up with a related, independently-verified message from the same day. That's solid corroboration, but it's also worth noting that Weierud's own team said they were still combing through the model's logs afterward to understand exactly how it got there, which is a reasonable thing to want before calling a case fully closed.
 
-Leffen's own framing is the most useful one to end on. He reportedly said the write-up explaining the solution took 99 times more effort than the codebreaking itself, and was blunt that "the cipher itself is not the story." Enigma is a 1930s electromechanical rotor machine with a well-understood, decades-old body of attack techniques. None of this says anything about modern cryptography. The math protecting a TLS session or a Bitcoin wallet belongs, in his words, to "a far harder class" of problem, and nothing here moves that needle.
+Leffen's own framing, <a href="https://tech.yahoo.com/ai/chatgpt/articles/openais-gpt-6-astra-cracked-092217942.html" target="_blank">as relayed in the press coverage</a>, is the most useful one to end on. He reportedly said the write-up explaining the solution took 99 times more effort than the codebreaking itself, and was blunt that "the cipher itself is not the story." Enigma is a 1930s electromechanical rotor machine with a well-understood, decades-old body of attack techniques. None of this says anything about modern cryptography. The math protecting a TLS session or a Bitcoin wallet belongs, in his words, to "a far harder class" of problem, and nothing here moves that needle.
 
 ## What it's actually evidence of
 
