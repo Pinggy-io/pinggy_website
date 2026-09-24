@@ -1,6 +1,8 @@
 ---
 title: "Pinggy App"
 lastmod: 2026-09-06T12:02:00+05:30
+# Also emit /app/version.json (latest app version) via the appversion format.
+outputs: ["HTML", "appversion"]
 ---
 
 <div class="container">

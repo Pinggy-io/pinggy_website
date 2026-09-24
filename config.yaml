@@ -157,6 +157,15 @@ outputFormats:
     isPlainText: true
     rel: "alternate"
 
+  # Machine-readable latest Pinggy App version, driven by data/app_releases.yaml.
+  # Attached to the /app/ page, so it is served at /app/version.json. The app's
+  # update check reads this instead of a hardcoded S3 file.
+  appversion:
+    mediaType: "application/json"
+    baseName: "version"
+    isPlainText: true
+    notAlternative: true
+
 minify:
   minifyOutput: true
   tdewolff:
