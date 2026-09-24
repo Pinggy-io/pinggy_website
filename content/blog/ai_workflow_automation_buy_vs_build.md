@@ -60,7 +60,7 @@ The thing to check is ongoing cost. Builders often look cheap at the entry tier.
 
 The alternative is something that already works and needs no building. There are a lot of these, aimed at different business sizes, types and budgets, so the work moves from development to research.
 
-The main target audience of these tools is typically smaller businesses looking to save time on {{< link href="https://neotechie.in/rpa/manual-workflows-vs-operations-workflows-where-automation-fits/" >}}daily workflows{{< /link >}} without having to hire additional employees. They're usually simple to install and give you results quickly.
+The main target audience of these tools is typically smaller businesses looking to save time on {{< link href="https://neotechie.in/rpa/manual-workflows-vs-operations-workflows-where-automation-fits/" >}}daily workflows{{< /link >}} without having to hire additional employees. They're usually simple to install and give you results quickly. For instance, dedicated assistants - like the {{< link href="https://depositphotos.com/ai-assistant.html" >}}DepositPhotos AI Assistant{{< /link >}} - allow teams to automate visual asset search and content generation directly within their existing workflows, eliminating the need to build custom media pipelines.
 
 The catch is that they're generic by design. A tool that has to suit a range of different business needs is never going to tick every single one of your requirements.
 
