@@ -64,7 +64,7 @@ That part, at least, doesn't need custom driver work. If whatever you get runnin
 ssh -p 443 -R0:localhost:8080 free.pinggy.io
 ```
 
-Swap `8080` for whatever port your service is actually bound to inside the Buildroot environment, run that from a machine that can reach the board (or from the board itself, if you've got a shell with SSH client tools in that userspace), and you get back a URL you can hit from anywhere. It's the same trick we've covered in more depth for {{< link href="/blog/access_home_server_raspberry_pi_behind_cgnat/" >}}getting a Raspberry Pi reachable from behind CGNAT{{< /link >}}, and it applies just as well to a microcontroller that happens to be running a real kernel for the first time.
+Swap `8080` for whatever port your service is actually bound to inside the Buildroot environment, run that from a machine that can reach the board (or from the board itself, if you've got a shell with SSH client tools in that userspace), and you get back a URL you can hit from anywhere. It's the same trick we've covered in more depth for {{< link href="/blog/access_home_server_raspberry_pi_behind_cgnat/" newtab=false >}}getting a Raspberry Pi reachable from behind CGNAT{{< /link >}}, and it applies just as well to a microcontroller that happens to be running a real kernel for the first time.
 
 ## Where this goes next
 
