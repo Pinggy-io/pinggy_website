@@ -1,0 +1,13 @@
+{{- /* Latest Pinggy App version, from data/app_releases.yaml (first entry is newest). */ -}}
+{{- $releases := site.Data.app_releases -}}
+{{- $latest := index $releases 0 -}}
+{{- $versions := slice -}}
+{{- range $releases -}}
+  {{- $versions = $versions | append (printf "%v" .version) -}}
+{{- end -}}
+{{- $out := dict
+      "version" (printf "%v" $latest.version)
+      "url" (absURL "app/")
+      "versions" $versions
+-}}
+{{- $out | jsonify (dict "indent" "  ") -}}

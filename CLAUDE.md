@@ -24,6 +24,7 @@ The **blog post template only** (`layouts/blog/single.html` + `static/css/blog.c
 Hugo static site. Build with `make build`; serve locally with `make serve` (or `hugo server`).
 
 ```
+aidocs/             Blog writing + blog image generation instructions
 content/            Markdown + HTML page content (one folder per route)
   _index.md         Homepage (_index.es.md is the Spanish /es/ landing)
   cli/, app/, docs/, blog/, compare/, …
@@ -91,6 +92,8 @@ UI strings live in `i18n/en.toml` and `i18n/es.toml` and are read with `{{ i18n 
 Section and landing pages for Spanish are `content/blog/_index.es.md`, `content/blog/updated/_index.es.md`, and `content/_index.es.md` (the `/es/` landing, which uses `type: blog` to pick up `layouts/blog/home.html` and the blog chrome).
 
 ## Writing style
+
+**New blog posts follow [`aidocs/BLOG_WRITING.md`](./aidocs/BLOG_WRITING.md)**: research, crux, skeleton, image placeholders, front matter, schema, build. The writer makes no images. **Blog images follow [`aidocs/BLOG_IMAGE_GENERATOR.md`](./aidocs/BLOG_IMAGE_GENERATOR.md)**: a separate run on one post path that turns each placeholder into a WebP in `assets/images/<slug>/` and takes the post out of draft. Read the one the task needs before writing or illustrating a post. Imported zip articles follow the `import-article-zip` skill instead. The voice and style rules below apply to both docs.
 
 - **Never use em-dashes (`—`, U+2014).** This applies everywhere in the repo: blog posts, page content, shortcodes, CSS/JS comments, code strings, commit messages - no exceptions. Use a regular hyphen `-` instead (with surrounding spaces for parenthetical breaks: ` - `). En-dashes (`–`) are also off-limits; stick to ASCII `-`.
 - **Links leaving pinggy.io open in a new page.** Any URL pointing outside the `pinggy.io` domain (a different site) must open in a new tab. Markdown's `[text](url)` syntax can't set this, so write the link as an HTML anchor with `target="_blank"`: `<a href="https://example.com" target="_blank">text</a>`. Goldmark runs with `unsafe: true`, so inline HTML renders fine. Links to `pinggy.io` (and its subdomains) and internal/relative links stay as normal Markdown in the same tab.
