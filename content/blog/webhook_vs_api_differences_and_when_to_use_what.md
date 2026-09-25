@@ -185,7 +185,7 @@ When you need to know about events immediately as they occur, webhooks are your 
 **Real example**: User makes a payment → Stripe immediately hits your webhook → you can update the order status and send a confirmation email right away. No delays, no polling.
 
 ### 2. Automated Workflow Triggers
-Perfect for those "when X happens, do Y" automations that make your app feel magical to users.
+Perfect for those "when X happens, do Y" automations that make your app feel magical to users. No-code platforms like {{< link href="https://www.quickbase.com/" >}}Quickbase{{< /link >}} use the same model, letting teams fire a webhook whenever a record is created or updated without writing any backend code.
 
 **Real example**: New user signs up → webhook triggers → welcome email sent, user added to onboarding sequence, analytics event tracked, Slack notification sent to your team. All automatic.
 
