@@ -2,6 +2,7 @@
 title: "How to Make Your Website Agent-Ready for AI Search in 2026"
 description: "A practical, developer-friendly guide to make your website agent-ready for AI search. Learn crawler setup, structured data, indexing workflow, llms.txt, and evidence-backed GEO workflows."
 date: 2026-05-10T15:25:00+05:30
+lastmod: 2026-09-25T15:25:00+05:30
 draft: false
 tags: ["AI Search", "GEO"]
 categories: ["Technology", "SEO", "AI Tools"]
@@ -140,7 +141,7 @@ If you want the broader strategy layer, pair this implementation guide with {{< 
 
 Google reports AI-feature traffic inside the standard Search Console Performance report under the `Web` search type, so you can start measuring without special tooling. For ChatGPT Search presence, run prompt-level checks and monitor referral patterns.
 
-For richer tracking across models, use workflows like those in {{< link href="/blog/best_ai_search_analytics_monitoring_tools/" >}}AI search analytics tools{{< /link >}}.
+For richer tracking across models, an AI rank tracker like {{< link href="https://lumirank.ai/" >}}Lumirank{{< /link >}} runs a fixed prompt set daily across ChatGPT, Gemini, Perplexity, Copilot, AI Mode, and AI Overviews and logs visibility, citations, and competitor rank (it has a free plan). For a wider comparison, see these {{< link href="/blog/best_ai_search_analytics_monitoring_tools/" >}}AI search analytics tools{{< /link >}}.
 
 ## Step 8: Build Entity and Off-Site Trust Signals
 
