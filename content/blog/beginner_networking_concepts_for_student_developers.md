@@ -191,7 +191,7 @@ This is a sensible security practice. A database often needs to communicate with
 
 Authentication is another essential idea. Authentication confirms who a user or system is. Authorization decides what that user or system is allowed to do. These terms sound similar, but they answer different questions: "Who are you?" and "What may you access?"
 
-Developers must also protect sensitive values such as API keys, access tokens, database passwords, and private certificates. Never place secrets directly in public source code. Use environment variables or a dedicated secret-management system.
+Developers must also protect sensitive values such as API keys, access tokens, database passwords, and private certificates. Never place secrets directly in public source code. Use environment variables or a dedicated {{< link href="https://infisical.com/blog/secrets-management-complete-guide" >}}secret-management system{{< /link >}}.
 
 Even with good security, network problems will happen. The best response is not panic. It is a clear troubleshooting process.
 

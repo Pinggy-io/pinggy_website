@@ -47,6 +47,8 @@ Stick to solving one particular problem. Work out the minimum you need to offer 
 
 You don't need every possible integration, tool or feature to look professional. A simple UI, one primary tool, simple authentication, account management and a payment system are enough to start.
 
+Founders preparing to launch commercially may also need to {{< link href="https://startinwyoming.com/" >}}form a business entity{{< /link >}} before taking payments and operating under a formal company structure.
+
 You should devote the same amount of time and energy to your early growth and marketing efforts. Working with a {{< link href="https://onelittleweb.com/saas-seo-services/" >}}SaaS SEO agency{{< /link >}} can help capture demand in the meantime, so you have users who want to test your early product.
 
 Don't overthink the first version. Get something out there that does something genuinely useful for your customers, so they can take it further and tell you what they need next.

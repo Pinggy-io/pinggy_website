@@ -2,7 +2,7 @@
 title: "What is Generative Engine Optimization and How Can You Excel at GEO?"
 description: "Generative Engine Optimization (GEO) is the practice of structuring content to maximize visibility in AI-generated search responses. Learn what GEO is, how it differs from SEO, and actionable strategies to get your content cited by ChatGPT, Perplexity, Google AI Overviews, and more."
 date: 2026-03-18T10:00:00+00:00
-lastmod: 2026-09-02T10:00:00+00:00
+lastmod: 2026-09-25T10:00:00+00:00
 draft: false
 tags: ["GEO", "SEO", "AI Search", "ChatGPT"]
 og_image: "images/generative_engine_optimization/geo_banner.webp"
@@ -263,6 +263,10 @@ The implication: **not all valuable content needs to be on your own domain**. Gu
 ## GEO Tools Worth Knowing
 
 The tooling ecosystem for GEO has matured considerably in 2025 and 2026. Several platforms now offer dedicated GEO dashboards that track how your brand or content is being cited across AI engines.
+
+{{< image "generative_engine_optimization/lumirank.webp" "Lumirank homepage with the AI visibility dashboard" >}}
+
+**{{< link href="https://lumirank.ai/" >}}Lumirank{{< /link >}}** is the easiest place to start measuring. It runs your prompts daily across ChatGPT, Gemini, Perplexity, Microsoft Copilot, Google AI Mode, and Google AI Overviews, and records visibility, a 0-100 prominence score, sentiment, cited sources (owned, earned, and competitor), and a competitor league table with alerts when a rival overtakes you. There is a free plan with 10 prompts, and Pro is $99/month for 100 prompts on all six engines, billed monthly with unlimited team members and a 14-day no-card trial. It does not cover Claude or Grok yet and has no prompt-volume data, so larger teams may pair it with an enterprise platform.
 
 {{< image "generative_engine_optimization/profound.webp" "Profound" >}}
 
