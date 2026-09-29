@@ -16,7 +16,7 @@ outputs:
 
 {{< image "test_whop_webhooks_locally/test_whop_webhooks_locally_banner.webp" "Claude Code terminal where the prompt 'Using the Whop CLI, show me what I am selling right now' runs whop products list and whop plans list, then summarises two live products: a $20 lifetime pass and a $9 monthly membership with a 3-day free trial" >}}
 
-This guide scaffolds a Whop app from the terminal, runs it on localhost, and gets signature-verified payment webhooks into it through a Pinggy tunnel. Nothing gets deployed until the last step.
+{{< link href="https://whop.com/" >}}Whop{{< /link >}} is a platform for starting and running an online business, with your storefront, checkout and wallet in one place. This guide scaffolds a Whop app from the terminal, runs it on localhost, and gets signature-verified payment webhooks into it through a Pinggy tunnel. Nothing gets deployed until the last step.
 
 Whop is a payment platform: businesses run their checkout, subscription billing and payouts from one dashboard, and developers ship apps that those businesses install and run inside that dashboard or in front of their customers. Since July it also has a CLI, so the whole loop of registering an app, running it locally and deploying it happens in your shell.
 
