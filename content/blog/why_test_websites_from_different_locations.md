@@ -72,7 +72,7 @@ Different countries impose restrictions on the display of certain content. Geolo
 
 ### 3. Customizing Advertisements
 
-Advertisements, a billion-dollar industry, benefit from geolocation testing to ensure precise targeting based on the user's region. Accurate ad delivery enhances user engagement and contributes to the overall success of advertising campaigns.
+Advertisements, a billion-dollar industry, benefit from geolocation testing to ensure precise targeting based on the user's region. Accurate ad delivery enhances user engagement and contributes to the overall success of advertising campaigns. David, who manages a <a href="https://sixgun.com.au/google-ads/" target="_blank">Google Ads performance agency</a>, notes that accurate geotargeting helps reduce wasted ad spend by focusing campaigns on relevant regions.
 
 ### 4. Security Measures
 
