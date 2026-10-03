@@ -40,7 +40,7 @@ The worked example here is an MCP-server-only plugin called HTTP Status. It has 
 
 {{< image "build_and_publish_chatgpt_plugin_mcp/chatgpt_plugin_mcp_tunnel.webp" "Sequence diagram: the laptop opens an SSH tunnel to Pinggy, ChatGPT posts tools/call to /mcp, Pinggy forwards it down the tunnel, lookup_http_status(429) runs, and the result returns to ChatGPT" >}}
 
-*During development, ChatGPT calls your local MCP server through a tunnel.*
+*Numbers follow one request in order; the dashed green line is the SSH connection your laptop opens before ChatGPT sends anything.*
 
 ## Prerequisites
 
