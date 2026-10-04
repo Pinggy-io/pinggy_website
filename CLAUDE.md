@@ -113,6 +113,34 @@ Write like a seasoned developer talking shop, the kind of post that does well on
 - **Code blocks earn their place.** Show the command or the diff; don't paste 80 lines of boilerplate. Annotate with `# comment` only when the line isn't self-explanatory.
 - **Inline code for short plain-text snippets.** A single short line of unhighlighted plain text - a URL, an env var assignment, a filename, a value - should be inline code (single backticks), not a fenced code block. Fenced blocks (which render as the dark terminal card) are for multi-line commands/output or syntax-highlighted code. Avoid bare ` ``` ` / ` ```text ` fences for one-liners: `https://abc123.a.pinggy.link` reads better inline than as a one-line terminal card.
 
+### Image titles
+
+Every body image (diagram, chart, collage, annotated screenshot) carries a
+title that makes sense on its own. Images get shared, pinned, embedded and
+indexed in image search without the post around them, so someone who sees
+only the image must still know what it shows and which topic it belongs to.
+
+- **Name the subject and the topic.** Put the product, protocol or task in
+  the title: "How ChatGPT reaches your local MCP server", not "One tool call,
+  start to finish"; "How to publish a ChatGPT plugin in 6 steps", not "From
+  ZIP to the plugin directory". A title that only makes sense after reading
+  the section above it needs rewriting.
+- **Run the standalone test.** Cover the post, read only the image's title
+  and sub line, and ask whether a stranger would know what the picture is
+  about. If not, add the missing subject.
+- **One line, plus a sub line for context.** The title stays on one line at
+  the 60 to 66px title size (about 45 to 50 characters on a 1600px canvas).
+  Context that doesn't fit goes in a sub line of about 30px under it: the
+  setup, the scope or the data source, such as "ChatGPT plugin development
+  through a Pinggy tunnel, one tools/call request".
+- **The banner is the exception.** It already carries the post headline.
+- **Captions and alt text don't replace the title.** They still describe
+  the image, and the caption should add something the title doesn't (a
+  legend, a credit), not repeat it.
+- **Placeholders lead with the title.** In an image placeholder, the first
+  `Text` item is the proposed standalone title, and the second is its sub
+  line when one is needed.
+
 ### Tags
 
 Tags are a navigation taxonomy, not an SEO keyword field. Every distinct tag

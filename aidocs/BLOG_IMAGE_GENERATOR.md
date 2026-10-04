@@ -184,6 +184,12 @@ captions all count.
   as something a developer would say out loud.
 - Say what the picture shows, not what it is called: "One request from your
   phone to port 5173", not "Tunnel architecture".
+- Body image titles stand alone, as `CLAUDE.md` -> "Image titles" requires:
+  someone who sees only the image, shared or in image search, must know its
+  subject and topic. Name the product, protocol or task ("How ChatGPT
+  reaches your local MCP server"), and put the setup or source in the sub
+  line. If the placeholder's title fails this test, rewrite it and say so
+  in the report.
 - Use the real names: the real tool, the real port, the real URL shape
   (`https://abc123.a.pinggy.link`), the real command. Put commands, ports,
   URLs and file names in JetBrains Mono.
@@ -344,8 +350,10 @@ kind like this:
 - Adjacent boxes, in a row and between rows, must not share a fill. A grid of
   steps where a column has the same fill in both rows reads as columns, not
   steps.
-- Title top left, 60 to 66px, weight 800, letter-spacing `-.03em`. 1
-  optional sub line under it at about 30px in `#616b7a`.
+- Title top left, 60 to 66px, weight 800, letter-spacing `-.03em`, on one
+  line (about 45 to 50 characters). 1 optional sub line under it at about
+  30px in `#616b7a`. Together they must make the image understandable
+  without the post (see Words on the image).
 - A command shown inside a diagram sits in a small code panel in the code
   card colours, in JetBrains Mono, copied exactly from the post.
 - Flowcharts, sequence and state diagrams: draw the SVG by hand. Mermaid is
