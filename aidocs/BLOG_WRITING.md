@@ -264,6 +264,10 @@ Write one blockquote per image:
 - `Text` lists the exact words on the image. Keep it to about 10 pieces of
   text. More than that belongs in the prose. Every piece follows the blog
   voice: real names, real ports, real numbers, no marketing words.
+- For a body image, the first `Text` item is its title and must make sense
+  without the post, per `CLAUDE.md` -> "Image titles": name the product,
+  protocol or task, such as "How to publish a ChatGPT plugin in 6 steps".
+  Put the setup or source in a second item as the sub line.
 - `Sources` lists the pages to capture for a `screenshot` or `collage`,
   where a `sourced` image lives, and where each number in a chart comes
   from. Name the part of the page when it is not the top: "the pricing
