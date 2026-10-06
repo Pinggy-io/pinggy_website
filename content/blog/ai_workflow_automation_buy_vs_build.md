@@ -36,7 +36,7 @@ These workflows started out as a large-organization thing and are now within rea
 - **Time back on repetitive tasks.** Data entry, booking meetings and pulling reports together eat up hours a day, and none of them need a person doing them by hand.
 - **Fewer human errors.** Manual admin work produces mistakes, and a mistyped record or a detail that never got logged is expensive to unpick later. Automating the workflow makes the records more accurate.
 - **Staff on work that needs them.** Once the repetitive work is gone, that time goes to the jobs that need your employees' specialist skills and a {{< link href="https://businessindia.co/b-schools/column/blending-human-touch-with-ai" >}}human touch{{< /link >}}.
-- **Better-informed decisions.** AI can read through far more data than a person can and surface the patterns in it, which is useful input for decisions you would otherwise be making on instinct.
+- **Better-informed decisions.** AI can read through far more data than a person can and surface the patterns in it, which is useful input for decisions you would otherwise be making on instinct. For businesses sharing reports, resources, or other information with customers, it can also be useful to {{< link href="https://www.adobe.com/express/feature/image/qr-code-generator" >}}create a QR code{{< /link >}} that gives people quick access to the relevant content.
 
 ## Building vs. buying your AI workflow automation tools
 
