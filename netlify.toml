@@ -104,3 +104,18 @@ HUGO_ENV = "production"
   for = "/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# The Pinggy CLI install scripts, copied into static/ by the cli-js release
+# workflow. Plain text, so a browser shows the script for reading, and
+# PowerShell's irm hands iex a string. Cache-Control stays on the default, so a
+# new script goes live with the deploy.
+
+[[headers]]
+  for = "/install.sh"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/install.ps1"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
