@@ -57,7 +57,7 @@ If you're wiring up part of the pipe yourself instead of buying a connector, the
 
 ### No-code rules and scheduled jobs
 
-Shopify Flow builds automations from trigger, condition, and action blocks, no code involved. The useful back-office cases are unglamorous:
+Shopify Flow builds automations from trigger, condition, and action blocks, no code involved. It can also support merchandising rules, such as a {{< link href="https://apps.shopify.com/monk-free-gift-with-purchase" >}}buy 1 get 1 free Shopify{{< /link >}} offer when specific products or conditions are met. The useful back-office cases are unglamorous:
 
 - Hide out-of-stock SKUs.
 - Tag refunds over $100 for review.

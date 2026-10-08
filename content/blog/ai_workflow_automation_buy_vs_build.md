@@ -36,7 +36,7 @@ These workflows started out as a large-organization thing and are now within rea
 - **Time back on repetitive tasks.** Data entry, booking meetings and pulling reports together eat up hours a day, and none of them need a person doing them by hand.
 - **Fewer human errors.** Manual admin work produces mistakes, and a mistyped record or a detail that never got logged is expensive to unpick later. Automating the workflow makes the records more accurate.
 - **Staff on work that needs them.** Once the repetitive work is gone, that time goes to the jobs that need your employees' specialist skills and a {{< link href="https://businessindia.co/b-schools/column/blending-human-touch-with-ai" >}}human touch{{< /link >}}.
-- **Better-informed decisions.** AI can read through far more data than a person can and surface the patterns in it, which is useful input for decisions you would otherwise be making on instinct.
+- **Better-informed decisions.** AI can read through far more data than a person can and surface the patterns in it, which is useful input for decisions you would otherwise be making on instinct. For businesses sharing reports, resources, or other information with customers, it can also be useful to {{< link href="https://www.adobe.com/express/feature/image/qr-code-generator" >}}create a QR code{{< /link >}} that gives people quick access to the relevant content.
 
 ## Building vs. buying your AI workflow automation tools
 
@@ -60,7 +60,7 @@ The thing to check is ongoing cost. Builders often look cheap at the entry tier.
 
 The alternative is something that already works and needs no building. There are a lot of these, aimed at different business sizes, types and budgets, so the work moves from development to research.
 
-The main target audience of these tools is typically smaller businesses looking to save time on {{< link href="https://neotechie.in/rpa/manual-workflows-vs-operations-workflows-where-automation-fits/" >}}daily workflows{{< /link >}} without having to hire additional employees. They're usually simple to install and give you results quickly. For instance, dedicated assistants - like the {{< link href="https://depositphotos.com/ai-assistant.html" >}}DepositPhotos AI Assistant{{< /link >}} - allow teams to automate visual asset search and content generation directly within their existing workflows, eliminating the need to build custom media pipelines.
+The main target audience of these tools is typically smaller businesses looking to save time on {{< link href="https://neotechie.in/rpa/manual-workflows-vs-operations-workflows-where-automation-fits/" >}}daily workflows{{< /link >}} without having to hire additional employees. They're usually simple to install and give you results quickly. For instance, dedicated assistants - like the {{< link href="https://depositphotos.com/ai-assistant.html" >}}DepositPhotos AI Assistant{{< /link >}} - allow teams to automate visual asset search and content generation directly within their existing workflows, eliminating the need to build custom media pipelines. Similar ready-made solutions, such as {{< link href="https://phonexa.com/blog/ai-lead-generation/" >}}AI lead generation tools{{< /link >}}, can automate other business processes without requiring custom development.
 
 The catch is that they're generic by design. A tool that has to suit a range of different business needs is never going to tick every single one of your requirements.
 
