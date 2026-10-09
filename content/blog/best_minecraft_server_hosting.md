@@ -1,6 +1,6 @@
 ---
 title: "Best Minecraft Server Hosting: Seven Providers Worth the Whitelist"
-description: "Seven Minecraft hosts compared on CPU clock, data centre locations, control panel and support: Godlike.Host, CloudNord, ServerPrism, Nodecraft, Pine Hosting, GG Servers and Kamatera. Plus the free option of running the server on your own machine behind a tunnel."
+description: "Seven Minecraft hosts compared on CPU clock, data centre locations, control panel and support: Godlike.Host, ServerPrism, CloudNord, Nodecraft, Pine Hosting, GG Servers and Kamatera. Plus the free option of running the server on your own machine behind a tunnel."
 date: 2026-08-10T14:30:00+05:30
 lastmod: 2026-10-08T14:30:00+05:30
 draft: false
@@ -21,8 +21,8 @@ So here are seven hosts compared on the things that actually change how a server
 Seven Minecraft hosts, sorted by what each one is actually good at:
 
 1. **<a href="https://godlike.host/" target="_blank">Godlike.Host</a> - best overall.** In-house bare metal on Ryzen 9 9950X3D and EPYC 9474F, 12 regions, one-click installer for 1000+ CurseForge and Modrinth modpacks, Path.net DDoS filtering. No hourly billing.
-2. **<a href="https://cloudnord.net/" target="_blank">CloudNord</a> - best for SMPs and public servers.** In-house, always-on DDoS protection, nodes kept below capacity, 18 locations, support replies in under 15 minutes on average. 3-day refund window.
-3. **<a href="https://serverprism.com/" target="_blank">ServerPrism</a> - best for running multiple servers.** One plan splits into a proxy, lobby and as many game servers as you need, 30+ switchable server engines, 1,500+ one-click modpacks. Fewer regions than the biggest hosts.
+2. **<a href="https://serverprism.com/" target="_blank">ServerPrism</a> - best for running multiple servers.** One plan splits into a proxy, lobby and as many game servers as you need, 30+ switchable server engines, 1,500+ one-click modpacks. Fewer regions than the biggest hosts.
+3. **<a href="https://cloudnord.net/" target="_blank">CloudNord</a> - best for SMPs and public servers.** In-house, always-on DDoS protection, nodes kept below capacity, 18 locations, support replies in under 15 minutes on average. 3-day refund window.
 4. **<a href="https://nodecraft.com/" target="_blank">Nodecraft</a> - best if you play more than Minecraft.** Swap the same server between games at no extra fee, 4.9 on Trustpilot from 1,700+ reviews. The cheap Lite tier sleeps when idle.
 5. **<a href="https://pinehosting.com/" target="_blank">Pine Hosting</a> - best value for modded.** Ryzen 9 and NVMe, 8 locations, 4.9 on Trustpilot, 99.99% uptime claim. Newer company with a shorter track record.
 6. **<a href="https://ggservers.com/" target="_blank">GG Servers</a> - cheapest sane entry.** From $3/month, 9 locations, running since 2013, Java and Bedrock. Standard plans are DDR4 and SSD, and the refund window is 24 hours.
@@ -64,29 +64,7 @@ The panel installs Fabric, Forge, and Paper, plus a one-click installer for over
 
 **Best for:** first servers, casual groups, and communities that are growing and want the best price-to-performance ratio without managing anything.
 
-## 2. CloudNord: best for SMPs and public servers
-
-{{< image "best_minecraft_server_hosting/cloudnord.webp" "CloudNord game server hosting homepage headline Game servers, close to your players, with 18 locations, support replies under 15 minutes and starting prices for Minecraft Java and Crossplay servers" >}}
-
-Once a server's IP is posted on Discord or shown on stream, it starts drawing DDoS attempts and sudden player spikes. <a href="https://cloudnord.net/" target="_blank">CloudNord</a> builds its own CloudShield DDoS filtering, which is always on and tuned to game traffic so real players stay connected. It also keeps spare capacity on every node, so a neighbour's busy evening doesn't drag down your TPS.
-
-It's a UK company that has hosted only game servers since 2021, and creators and mod teams, including the Distant Horizons team, run their servers there. Locations span <a href="https://cloudnord.net/locations" target="_blank">18 cities on four continents</a>, backups are automatic, and support tickets get a reply in under 15 minutes on average.
-
-**Pros**
-
-- In-house, game-aware DDoS protection, always on and included.
-- Nodes kept below capacity, plus automatic backups and RAID 1 NVMe storage.
-- 18 locations, fast 24/7 support, and a price-match guarantee.
-
-**Cons**
-
-- Ryzen 7 7700-class nodes rather than top-end X3D chips.
-- The refund window is 3 days.
-- No free tier.
-
-**Best for:** public SMPs, creator communities, and any server whose IP is out in the wild.
-
-## 3. ServerPrism: best for running multiple servers
+## 2. ServerPrism: best for running multiple servers
 
 {{< image "best_minecraft_server_hosting/serverprism.webp" "ServerPrism Minecraft Java Edition server hosting page with a One plan, split your way panel dividing a 12GB plan between Minecraft, Velocity, MariaDB and a Discord bot" >}}
 
@@ -107,6 +85,28 @@ Over 30 server engines, including Velocity, BungeeCord, Paper, Purpur, Fabric, N
 - The 72-hour refund window doesn't cover renewals or upgrades.
 
 **Best for:** proxy networks, multi-server communities, and anyone running a test server alongside their main world.
+
+## 3. CloudNord: best for SMPs and public servers
+
+{{< image "best_minecraft_server_hosting/cloudnord.webp" "CloudNord game server hosting homepage headline Game servers, close to your players, with 18 locations, support replies under 15 minutes and starting prices for Minecraft Java and Crossplay servers" >}}
+
+Once a server's IP is posted on Discord or shown on stream, it starts drawing DDoS attempts and sudden player spikes. <a href="https://cloudnord.net/" target="_blank">CloudNord</a> builds its own CloudShield DDoS filtering, which is always on and tuned to game traffic so real players stay connected. It also keeps spare capacity on every node, so a neighbour's busy evening doesn't drag down your TPS.
+
+It's a UK company that has hosted only game servers since 2021, and creators and mod teams, including the Distant Horizons team, run their servers there. Locations span <a href="https://cloudnord.net/locations" target="_blank">18 cities on four continents</a>, backups are automatic, and support tickets get a reply in under 15 minutes on average.
+
+**Pros**
+
+- In-house, game-aware DDoS protection, always on and included.
+- Nodes kept below capacity, plus automatic backups and RAID 1 NVMe storage.
+- 18 locations, fast 24/7 support, and a price-match guarantee.
+
+**Cons**
+
+- Ryzen 7 7700-class nodes rather than top-end X3D chips.
+- The refund window is 3 days.
+- No free tier.
+
+**Best for:** public SMPs, creator communities, and any server whose IP is out in the wild.
 
 ## 4. Nodecraft: best for multi-game groups
 
@@ -216,4 +216,4 @@ If you are weighing tunnels against the wider set of options, [Best Playit.gg al
 
 Godlike.Host covers the largest number of situations at once: named modern hardware, twelve regions, and a panel that installs the modpack you actually wanted to play. That makes it the default pick.
 
-The other six win in narrower lanes. CloudNord if the IP is going public and you expect attacks and player spikes. ServerPrism if you are running a proxy network or a test server next to the main world. Nodecraft if your group plays five games a year. Pine Hosting if you want strong modded performance without a premium logo. GG Servers if the budget is the constraint and the world is light. Kamatera if you would rather have root than a dropdown. And if the whole thing is six people on a weekend, run it on the machine in front of you and open a tunnel.
+The other six win in narrower lanes. ServerPrism if you are running a proxy network or a test server next to the main world. CloudNord if the IP is going public and you expect attacks and player spikes. Nodecraft if your group plays five games a year. Pine Hosting if you want strong modded performance without a premium logo. GG Servers if the budget is the constraint and the world is light. Kamatera if you would rather have root than a dropdown. And if the whole thing is six people on a weekend, run it on the machine in front of you and open a tunnel.
