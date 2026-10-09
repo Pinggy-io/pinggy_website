@@ -1,7 +1,8 @@
 ---
-title: "Best Minecraft Server Hosting: Five Providers Worth the Whitelist"
-description: "Five Minecraft hosts compared on CPU clock, data centre locations, control panel and support: Godlike.Host, Nodecraft, Pine Hosting, GG Servers and Kamatera. Plus the free option of running the server on your own machine behind a tunnel."
+title: "Best Minecraft Server Hosting: Seven Providers Worth the Whitelist"
+description: "Seven Minecraft hosts compared on CPU clock, data centre locations, control panel and support: Godlike.Host, CloudNord, ServerPrism, Nodecraft, Pine Hosting, GG Servers and Kamatera. Plus the free option of running the server on your own machine behind a tunnel."
 date: 2026-08-10T14:30:00+05:30
+lastmod: 2026-10-08T14:30:00+05:30
 draft: false
 tags: ["minecraft", "gaming", "comparison", "server hosting"]
 categories: ["Gaming", "Hosting", "Comparison"]
@@ -14,16 +15,18 @@ outputs:
 
 Every Minecraft hosting page promises the same three things: low latency, DDoS protection, and 99.9% uptime. None of that tells you what happens at 9pm on a Saturday when eight people are loading fresh chunks in different directions and someone's iron farm is ticking in the background. That is when hosts stop looking alike, and by then you have already paid.
 
-So here are five hosts compared on the things that actually change how a server feels: single-thread CPU speed, where the machines physically sit, what the control panel installs for you, and how quickly support answers. Prices below are rough published rates rather than quotes: every one of these sites was running a promo the day I checked, and promos change faster than an article ages.
+So here are seven hosts compared on the things that actually change how a server feels: single-thread CPU speed, where the machines physically sit, what the control panel installs for you, and how quickly support answers. Prices below are rough published rates rather than quotes: every one of these sites was running a promo the day I checked, and promos change faster than an article ages.
 
 {{% tldr %}}
-Five Minecraft hosts, sorted by what each one is actually good at:
+Seven Minecraft hosts, sorted by what each one is actually good at:
 
 1. **<a href="https://godlike.host/" target="_blank">Godlike.Host</a> - best overall.** In-house bare metal on Ryzen 9 9950X3D and EPYC 9474F, 12 regions, one-click installer for 1000+ CurseForge and Modrinth modpacks, Path.net DDoS filtering. No hourly billing.
-2. **<a href="https://nodecraft.com/" target="_blank">Nodecraft</a> - best if you play more than Minecraft.** Swap the same server between games at no extra fee, 4.9 on Trustpilot from 1,700+ reviews. The cheap Lite tier sleeps when idle.
-3. **<a href="https://pinehosting.com/" target="_blank">Pine Hosting</a> - best value for modded.** Ryzen 9 and NVMe, 8 locations, 4.9 on Trustpilot, 99.99% uptime claim. Newer company with a shorter track record.
-4. **<a href="https://ggservers.com/" target="_blank">GG Servers</a> - cheapest sane entry.** From $3/month, 9 locations, running since 2013, Java and Bedrock. Standard plans are DDR4 and SSD, and the refund window is 24 hours.
-5. **<a href="https://www.kamatera.com/" target="_blank">Kamatera</a> - best if you want root.** A plain cloud VPS with a 30-day trial and hourly billing. No game panel: you install Java and the server jar yourself.
+2. **<a href="https://cloudnord.net/" target="_blank">CloudNord</a> - best for SMPs and public servers.** In-house, always-on DDoS protection, nodes kept below capacity, 18 locations, support replies in under 15 minutes on average. 3-day refund window.
+3. **<a href="https://serverprism.com/" target="_blank">ServerPrism</a> - best for running multiple servers.** One plan splits into a proxy, lobby and as many game servers as you need, 30+ switchable server engines, 1,500+ one-click modpacks. Fewer regions than the biggest hosts.
+4. **<a href="https://nodecraft.com/" target="_blank">Nodecraft</a> - best if you play more than Minecraft.** Swap the same server between games at no extra fee, 4.9 on Trustpilot from 1,700+ reviews. The cheap Lite tier sleeps when idle.
+5. **<a href="https://pinehosting.com/" target="_blank">Pine Hosting</a> - best value for modded.** Ryzen 9 and NVMe, 8 locations, 4.9 on Trustpilot, 99.99% uptime claim. Newer company with a shorter track record.
+6. **<a href="https://ggservers.com/" target="_blank">GG Servers</a> - cheapest sane entry.** From $3/month, 9 locations, running since 2013, Java and Bedrock. Standard plans are DDR4 and SSD, and the refund window is 24 hours.
+7. **<a href="https://www.kamatera.com/" target="_blank">Kamatera</a> - best if you want root.** A plain cloud VPS with a 30-day trial and hourly billing. No game panel: you install Java and the server jar yourself.
 
 **Paying nobody:** run the server on the machine you already own and expose it with a TCP tunnel. `ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io` hands your friends a public `host:port` with no port forwarding and no router config.
 {{% /tldr %}}
@@ -61,7 +64,51 @@ The panel installs Fabric, Forge, and Paper, plus a one-click installer for over
 
 **Best for:** first servers, casual groups, and communities that are growing and want the best price-to-performance ratio without managing anything.
 
-## 2. Nodecraft: best for multi-game groups
+## 2. CloudNord: best for SMPs and public servers
+
+{{< image "best_minecraft_server_hosting/cloudnord.webp" "CloudNord game server hosting homepage headline Game servers, close to your players, with 18 locations, support replies under 15 minutes and starting prices for Minecraft Java and Crossplay servers" >}}
+
+Once a server's IP is posted on Discord or shown on stream, it starts drawing DDoS attempts and sudden player spikes. <a href="https://cloudnord.net/" target="_blank">CloudNord</a> builds its own CloudShield DDoS filtering, which is always on and tuned to game traffic so real players stay connected. It also keeps spare capacity on every node, so a neighbour's busy evening doesn't drag down your TPS.
+
+It's a UK company that has hosted only game servers since 2021, and creators and mod teams, including the Distant Horizons team, run their servers there. Locations span <a href="https://cloudnord.net/locations" target="_blank">18 cities on four continents</a>, backups are automatic, and support tickets get a reply in under 15 minutes on average.
+
+**Pros**
+
+- In-house, game-aware DDoS protection, always on and included.
+- Nodes kept below capacity, plus automatic backups and RAID 1 NVMe storage.
+- 18 locations, fast 24/7 support, and a price-match guarantee.
+
+**Cons**
+
+- Ryzen 7 7700-class nodes rather than top-end X3D chips.
+- The refund window is 3 days.
+- No free tier.
+
+**Best for:** public SMPs, creator communities, and any server whose IP is out in the wild.
+
+## 3. ServerPrism: best for running multiple servers
+
+{{< image "best_minecraft_server_hosting/serverprism.webp" "ServerPrism Minecraft Java Edition server hosting page with a One plan, split your way panel dividing a 12GB plan between Minecraft, Velocity, MariaDB and a Discord bot" >}}
+
+Running more than one server, whether a network, a test copy of your world or a second modpack, usually means paying for each one separately. <a href="https://serverprism.com/" target="_blank">ServerPrism</a> sells you a pool of RAM instead and lets you split it however you like: a 16GB plan can run a Velocity proxy, a lobby, a survival world and a minigames server side by side, each with its own IP and console, at no extra cost per split. Splits can be resized on the fly without restarting the others.
+
+Over 30 server engines, including Velocity, BungeeCord, Paper, Purpur, Fabric, NeoForge and Folia, can be switched from the panel without a reinstall, and more than <a href="https://serverprism.com/minecraft-server-hosting" target="_blank">1,500 modpacks</a> from CurseForge, Modrinth and FTB install in one click. Sub-users can also pay their share of the invoice with their own card, which helps when a whole staff team chips in.
+
+**Pros**
+
+- Server splitting: proxy, lobby and game servers on one plan, with no per-server fee.
+- 30+ switchable server engines and 1,500+ one-click modpacks included.
+- Bill splitting between friends, a free trial, and 4.9 out of 5 on HostAdvice.
+
+**Cons**
+
+- Four regions (Europe, North America, Singapore, Australia), fewer than the widest hosts here.
+- Splitting only pays off on bigger plans: a 2GB starter is too small to divide meaningfully.
+- The 72-hour refund window doesn't cover renewals or upgrades.
+
+**Best for:** proxy networks, multi-server communities, and anyone running a test server alongside their main world.
+
+## 4. Nodecraft: best for multi-game groups
 
 {{< image "best_minecraft_server_hosting/nodecraft.webp" "Nodecraft homepage advertising more than just Minecraft server hosting, with Lite and Pro 2GB plans and a 4.9 out of 5 rating from over 1700 reviews" >}}
 
@@ -83,7 +130,7 @@ NodePanel spins up an instance in about a minute, and the company sits at 4.9 ou
 
 **Best for:** groups that rotate games and would rather not pay for a second host to do it.
 
-## 3. Pine Hosting: best value for modded
+## 5. Pine Hosting: best value for modded
 
 {{< image "best_minecraft_server_hosting/pine_hosting.webp" "Pine Hosting homepage headline Game Hosting For Everyone with a 4.9 Trustpilot rating and a preview of its custom game panel showing a running server console" >}}
 
@@ -105,7 +152,7 @@ The custom Game Panel that Pine ships is the good kind of custom: scheduler, bac
 
 **Best for:** medium-sized modded servers that need real hardware and do not want to pay premium-brand prices for it.
 
-## 4. GG Servers: cheapest sane entry
+## 6. GG Servers: cheapest sane entry
 
 {{< image "best_minecraft_server_hosting/gg_servers.webp" "GG Servers Minecraft server hosting homepage advertising plans from three dollars a month with Java and Bedrock support, one-click modpacks and 24/7 live chat" >}}
 
@@ -127,7 +174,7 @@ Worth knowing before you buy: GG Servers advertises a pre-purchase ping test, wh
 
 **Best for:** budget servers running vanilla or light plugins for 30 to 40 players.
 
-## 5. Kamatera: best for full VPS control
+## 7. Kamatera: best for full VPS control
 
 {{< image "best_minecraft_server_hosting/kamatera.webp" "Kamatera homepage advertising enterprise-grade cloud infrastructure with scalable cloud servers and a Start Your Free Trial button" >}}
 
@@ -161,7 +208,7 @@ ssh -p 443 -R0:localhost:25565 tcp@free.pinggy.io
 
 That returns a public address like `tcp://rnxxx.a.pinggy.link:40527`, and your friends put `rnxxx.a.pinggy.link:40527` into the Add Server box. No router login, no dynamic DNS, no opening ports on your home network. The full walkthrough with screenshots is in [Sharing a Minecraft Server running on Localhost with Your Friends Online](/blog/exposing_localhost_minecraft_server/).
 
-The honest tradeoffs: free Pinggy sessions run for 60 minutes and hand out a new address each time, so you either restart the tunnel or take the $2.50/month plan for a persistent subdomain. Your world is only up while your machine is, your home upload bandwidth becomes the server's bandwidth, and a modpack for ten players will make a laptop unhappy. For a weekend of survival with friends, none of that matters. For a server that needs to be reachable at 3am on a Tuesday, pay one of the five above.
+The honest tradeoffs: free Pinggy sessions run for 60 minutes and hand out a new address each time, so you either restart the tunnel or take the $2.50/month plan for a persistent subdomain. Your world is only up while your machine is, your home upload bandwidth becomes the server's bandwidth, and a modpack for ten players will make a laptop unhappy. For a weekend of survival with friends, none of that matters. For a server that needs to be reachable at 3am on a Tuesday, pay one of the seven above.
 
 If you are weighing tunnels against the wider set of options, [Best Playit.gg alternatives](/blog/best_playit_gg_alternatives/) covers the tunneling, VPN, and virtual-LAN approaches side by side.
 
@@ -169,4 +216,4 @@ If you are weighing tunnels against the wider set of options, [Best Playit.gg al
 
 Godlike.Host covers the largest number of situations at once: named modern hardware, twelve regions, and a panel that installs the modpack you actually wanted to play. That makes it the default pick.
 
-The other four win in narrower lanes. Nodecraft if your group plays five games a year. Pine Hosting if you want strong modded performance without a premium logo. GG Servers if the budget is the constraint and the world is light. Kamatera if you would rather have root than a dropdown. And if the whole thing is six people on a weekend, run it on the machine in front of you and open a tunnel.
+The other six win in narrower lanes. CloudNord if the IP is going public and you expect attacks and player spikes. ServerPrism if you are running a proxy network or a test server next to the main world. Nodecraft if your group plays five games a year. Pine Hosting if you want strong modded performance without a premium logo. GG Servers if the budget is the constraint and the world is light. Kamatera if you would rather have root than a dropdown. And if the whole thing is six people on a weekend, run it on the machine in front of you and open a tunnel.
