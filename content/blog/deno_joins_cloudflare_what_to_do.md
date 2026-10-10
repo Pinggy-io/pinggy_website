@@ -19,7 +19,7 @@ On October 9, 2026, Ryan Dahl announced that the Deno team is joining Cloudflare
 If you run Deno in production, the practical question is what a Deno app depends on that Node or Workers don't give you. I took a small Hono app that runs under `deno run` and moved it to Node, Bun and `wrangler dev` to find out. The app code did not change. Everything that moved was the three lines that start the server.
 
 {{% tldr %}}
-1. **The clock** - per {{< link href="https://deno.com/blog/cloudflare" >}}Ryan Dahl's post{{< /link >}}, the Deno runtime gets 12 months of monthly bug-fix and security releases, and Deno Deploy shuts down after 6 months. Neither date was published as a calendar day, so count from October 9, 2026.
+1. **The clock** - per <a href="https://deno.com/blog/cloudflare" target="_blank">Ryan Dahl's post</a>, the Deno runtime gets 12 months of monthly bug-fix and security releases, and Deno Deploy shuts down after 6 months. Neither date was published as a calendar day, so count from October 9, 2026.
 2. **What survives** - JSR keeps running (its infrastructure moves to Cloudflare), `rusty_v8` keeps being maintained, and the Deno repository stays open source.
 3. **The real project** - Dahl and Bert Belder will merge `celld`, a self-hostable runtime for Durable Objects, into `workerd`, Cloudflare's open source Workers runtime.
 4. **Migration cost** - code written against web standards plus `npm:` packages ports in minutes. Code that calls `Deno.*` APIs does not, and you find those with a search.
