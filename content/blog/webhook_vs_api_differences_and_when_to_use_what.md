@@ -2,11 +2,11 @@
  title: "Webhook vs API: Differences and When to Use What?"
  description: "Understand the key differences between webhooks and APIs, their use cases, and when to choose each for your application. Complete guide with examples and best practices."
  date: 2025-07-08T14:15:25+05:30
- lastmod: 2026-08-18T14:15:25+05:30
+ lastmod: 2026-10-08T14:15:25+05:30
  draft: false
- tags: ["guide", "webhooks", "API"]
+ tags: ["webhooks", "API", "guide"]
  og_image: "images/webhook_vs_api_differences_and_when_to_use_what/webhook_api_comparison.webp"
- schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiV2ViaG9vayB2cyBBUEk6IERpZmZlcmVuY2VzIGFuZCBXaGVuIHRvIFVzZSBXaGF0PyIsCiAgImRlc2NyaXB0aW9uIjogIlVuZGVyc3RhbmQgdGhlIGtleSBkaWZmZXJlbmNlcyBiZXR3ZWVuIHdlYmhvb2tzIGFuZCBBUElzLCB0aGVpciB1c2UgY2FzZXMsIGFuZCB3aGVuIHRvIGNob29zZSBlYWNoIGZvciB5b3VyIGFwcGxpY2F0aW9uLiBDb21wbGV0ZSBndWlkZSB3aXRoIGV4YW1wbGVzIGFuZCBiZXN0IHByYWN0aWNlcy4iLAogICJkYXRlUHVibGlzaGVkIjogIjIwMjUtMDEtMDhUMTQ6MTU6MjUrMDU6MzAiLAogICJkYXRlTW9kaWZpZWQiOiAiMjAyNi0wOC0xOFQxNDoxNToyNSswNTozMCIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy93ZWJob29rX3ZzX2FwaV9kaWZmZXJlbmNlc19hbmRfd2hlbl90b191c2Vfd2hhdC93ZWJob29rX2FwaV9jb21wYXJpc29uLndlYnAiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJHdWlkZXMiLAogICAgIkludGVncmF0aW9uIgogIF0sCiAgImtleXdvcmRzIjogWwogICAgIndlYmhvb2tzIiwKICAgICJBUEkiLAogICAgImludGVncmF0aW9uIiwKICAgICJyZWFsLXRpbWUiLAogICAgImV2ZW50LWRyaXZlbiIsCiAgICAicHVzaCB2cyBwdWxsIgogIF0KfQo8L3NjcmlwdD4="
+ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJBcnRpY2xlIiwKICAiaGVhZGxpbmUiOiAiV2ViaG9vayB2cyBBUEk6IERpZmZlcmVuY2VzIGFuZCBXaGVuIHRvIFVzZSBXaGF0PyIsCiAgImRlc2NyaXB0aW9uIjogIlVuZGVyc3RhbmQgdGhlIGtleSBkaWZmZXJlbmNlcyBiZXR3ZWVuIHdlYmhvb2tzIGFuZCBBUElzLCB0aGVpciB1c2UgY2FzZXMsIGFuZCB3aGVuIHRvIGNob29zZSBlYWNoIGZvciB5b3VyIGFwcGxpY2F0aW9uLiBDb21wbGV0ZSBndWlkZSB3aXRoIGV4YW1wbGVzIGFuZCBiZXN0IHByYWN0aWNlcy4iLAogICJkYXRlUHVibGlzaGVkIjogIjIwMjUtMDctMDhUMTQ6MTU6MjUrMDU6MzAiLAogICJkYXRlTW9kaWZpZWQiOiAiMjAyNi0xMC0wOFQxNDoxNToyNSswNTozMCIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy93ZWJob29rX3ZzX2FwaV9kaWZmZXJlbmNlc19hbmRfd2hlbl90b191c2Vfd2hhdC93ZWJob29rX2FwaV9jb21wYXJpc29uLndlYnAiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJHdWlkZXMiLAogICAgIkludGVncmF0aW9uIgogIF0sCiAgImtleXdvcmRzIjogWwogICAgIndlYmhvb2tzIiwKICAgICJBUEkiLAogICAgImludGVncmF0aW9uIiwKICAgICJyZWFsLXRpbWUiLAogICAgImV2ZW50LWRyaXZlbiIsCiAgICAicHVzaCB2cyBwdWxsIgogIF0KfQo8L3NjcmlwdD4="
  outputs:
   - HTML
   - AMP
@@ -34,8 +34,8 @@ Both **webhooks** and **APIs** are essential tools in our integration toolkit, b
    - When you need to react to changes immediately as they happen  
 4. **Key Considerations:**
    - **APIs**: You control the timing but may waste resources with polling  
-   - **Webhooks**: More efficient but require public endpoints and robust error handling  
-   - **Security**: APIs typically use OAuth/API keys; webhooks require signature verification  
+   - **Webhooks**: More efficient but require a public HTTPS endpoint, and you must expect duplicate and out-of-order deliveries  
+   - **Security**: APIs typically use OAuth/API keys; webhooks require signature verification against the raw request body  
    - **Testing**: Use tools like [Pinggy](https://pinggy.io) to expose localhost for webhook testing  
 {{% /tldr %}}
 
@@ -142,8 +142,8 @@ Let's break down the key differences in a way that actually matters for your day
     </tr>
     <tr>
       <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Reliability</strong></td>
-      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Usually has retry built-in</td>
-      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">You'll need to handle failures</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">You retry on failure (and back off on 429s)</td>
+      <td style="text-align:left; border: 1px solid #ddd; padding: 10px;">Sender retries on non-2xx, but duplicates and out-of-order events are your problem</td>
     </tr>
     <tr style="background-color: #f9f9f9;">
       <td style="text-align:left; border: 1px solid #ddd; padding: 10px;"><strong>Security</strong></td>
@@ -244,28 +244,30 @@ Now here's how webhooks make an e-commerce order flow smooth:
 
 ```javascript
 // Your webhook endpoint that handles order events
-app.post('/webhooks/order-placed', async (req, res) => {
-  const { orderId, items, customerEmail } = req.body;
+// express.raw keeps the body as a Buffer, which signature checks need
+app.post('/webhooks/order-placed', express.raw({ type: 'application/json' }), async (req, res) => {
+  if (!isValidSignature(req)) return res.status(401).send('Invalid signature');
 
-  try {
-    // Immediately acknowledge receipt
-    res.status(200).send('OK');
+  const event = JSON.parse(req.body);
 
-    // Process the order asynchronously
-    await updateInventory(items);
-    await sendConfirmationEmail(customerEmail, orderId);
-    await notifyFulfillmentTeam(orderId);
-    await trackAnalyticsEvent('order_placed', orderId);
+  // Providers retry, so the same event can arrive twice
+  if (await alreadyProcessed(event.id)) return res.status(200).send('OK');
 
-  } catch (error) {
-    // Log error but don't fail the webhook
-    console.error('Order processing failed:', error);
-    // Maybe add to a retry queue
-  }
+  // Put the work on a queue and acknowledge right away
+  await queue.add('order-placed', event);
+  res.status(200).send('OK');
+});
+
+// A worker does the slow part, outside the request
+worker.process('order-placed', async ({ data: { id, orderId, items, customerEmail } }) => {
+  await updateInventory(items);
+  await sendConfirmationEmail(customerEmail, orderId);
+  await notifyFulfillmentTeam(orderId);
+  await markProcessed(id);
 });
 ```
 
-Webhooks rock here because the moment an order is placed, all your systems can react immediately without any polling or delays.
+Webhooks fit here because the moment an order is placed, your systems can react without any polling. The handler only verifies, de-duplicates and enqueues, because senders give up quickly: GitHub expects a `2xx` within 10 seconds, and Stripe tells you to return a `2xx` before any complex logic.
 
 This type of automation is particularly useful for <a href="https://customsocklab.com/" target="_blank">custom product businesses</a>, where each order may involve unique design details, inventory updates, and fulfillment steps.
 
@@ -278,32 +280,42 @@ Both APIs and webhooks can be security nightmares if you're not careful. Here's 
 - **Authentication**: OAuth 2.0, JWT tokens, or API keys - pick your poison but use something
 - **Rate limiting**: Stop people from hammering your endpoints into the ground
 - **Input validation**: Never trust user input, ever. Sanitize everything
-- **HTTPS everywhere**: If you're not using HTTPS in 2025, what are you doing?
+- **HTTPS everywhere**: Stripe, for one, requires an HTTPS endpoint in live mode and supports TLS 1.2 and 1.3 only
 - **Proper error messages**: Don't leak sensitive info in error responses
 
 ### Webhook Security (The Tricky Stuff)
 
-Always verify webhook signatures - don't trust random POST requests:
+Always verify webhook signatures - don't trust random POST requests. Anyone who finds your URL can send one, so without a check an attacker can fake a "payment succeeded" event. Most providers sign the request with an HMAC of the body using a shared secret. The details differ (Stripe sends a `Stripe-Signature` header containing a timestamp and a `v1` signature; GitHub uses `X-Hub-Signature-256`), so use the provider's official library when there is one. When there isn't, this is the shape of it:
 
 ```javascript
 const crypto = require('crypto');
 
-app.post('/webhook', (req, res) => {
-  const signature = req.headers['x-webhook-signature'];
-  const expectedSignature = crypto
+function isValidSignature(req) {
+  const received = req.headers['x-webhook-signature'] || '';
+  // req.body must be the raw Buffer, not parsed JSON
+  const expected = crypto
     .createHmac('sha256', process.env.WEBHOOK_SECRET)
     .update(req.body)
     .digest('hex');
 
-  if (signature !== expectedSignature) {
-    return res.status(401).send('Invalid signature');
-  }
-
-  // Process the webhook...
-});
+  const a = Buffer.from(received);
+  const b = Buffer.from(expected);
+  // Constant-time compare, and check the lengths first or timingSafeEqual throws
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
 ```
 
-Key tips: Use HTTPS, handle duplicates gracefully, and set processing timeouts.
+Three things trip people up. First, the signature covers the raw bytes, so if your framework parses the JSON before you hash it, verification fails (Stripe's docs call this out). Second, use a constant-time comparison, not `===`. Third, a valid signature can be captured and replayed, so check the timestamp when the provider sends one (Stripe's libraries default to a 5 minute tolerance) and drop events whose ID you've already seen. If you are designing your own webhooks, the open <a href="https://www.standardwebhooks.com/" target="_blank">Standard Webhooks</a> spec covers the signing and replay rules so you don't have to invent them.
+
+## What Breaks in Production
+
+Three webhook behaviours catch teams out, and none of them show up in a local test:
+
+- **Duplicates.** Senders retry on any non-`2xx` or timeout, so the same event can arrive more than once. Log the event ID and skip repeats. GitHub reuses the same `X-GitHub-Delivery` value on a manual redelivery for this reason.
+- **No ordering guarantee.** Stripe says plainly that it doesn't deliver events in the order they were generated, so `invoice.paid` can land before `invoice.created`. Don't build logic that depends on order, and don't trust the `created` timestamp to sort events.
+- **Retries have an end.** Stripe retries live-mode deliveries for up to three days with exponential backoff, then stops. Anything you miss after that, you have to fetch yourself.
+
+That last point is why most real integrations use both: the webhook says "something changed", and an API call fetches the current state of the object. It also covers the gaps if you were down. Run a periodic reconciliation job against the API for anything critical, like payments.
 
 ## Testing Locally
 
@@ -323,7 +335,7 @@ curl -X POST http://localhost:3000/api/users \
 
 ### Webhook Testing: The Public URL Problem
 
-Here's where things get tricky. Webhooks need a publicly accessible URL, but you're developing on localhost. The old-school solution was ngrok, but there's a simpler way.
+Here's where things get tricky. Webhooks need a publicly accessible URL, but you're developing on localhost. The usual options are a tunnel or, for some providers, their own CLI (the Stripe CLI can forward events to localhost with `stripe listen`). A tunnel works with any provider.
 
 [Pinggy](https://pinggy.io) lets you expose your local webhook endpoints without downloading anything:
 
@@ -338,7 +350,7 @@ Boom! You get a public URL that forwards to your local server. Now you can:
 - Validate your webhook security without deploying
 - Share your local webhook endpoints with team members
 
-The best part? No downloads, no accounts needed for testing, just SSH (which you already have).
+No download and no account is needed for the free tier, just SSH. The catch: a free tunnel lasts 60 minutes and gets a new random URL each time you reconnect, so you'll need to update the URL in the provider's dashboard after each restart. A Pinggy Pro token gives you a persistent subdomain if that gets old.
 
 
 
