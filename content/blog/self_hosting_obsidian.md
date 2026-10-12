@@ -2,7 +2,7 @@
 title: "Self-hosting Obsidian"
 description: "Complete guide to self-hosting Obsidian sync using Docker, CouchDB, and Pinggy tunnel. No paid Obsidian Sync, full control, and all the fun of building your own sync server!"
 date: 2025-09-14T14:30:00+05:30
-lastmod: 2026-05-23T14:30:00+05:30
+lastmod: 2026-10-10T14:30:00+05:30
 draft: false
 og_image: "images/self_hosting_obsidian/self_hosting_obsidian_complete_guide.webp"
 tags: ["obsidian", "self-hosted", "Docker", "Pinggy", "ngrok"]
@@ -14,9 +14,9 @@ outputs:
 
 {{< image "self_hosting_obsidian/self_hosting_obsidian_complete_guide.webp" "Self-hosting Obsidian" >}}
 
-Obsidian Sync costs $5/month. You can replace it with a {{< link href="https://couchdb.apache.org/" >}}CouchDB{{< /link >}} container, the Self-hosted LiveSync community plugin, and a tunnel to reach the database from outside your home network. I run mine in Docker with {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} as the tunnel; total monthly cost is zero. This post walks through the setup, end to end.
+Obsidian Sync costs $5/month ($4/month if you pay annually). You can replace it with a {{< link href="https://couchdb.apache.org/" >}}CouchDB{{< /link >}} container, the Self-hosted LiveSync community plugin, and a tunnel to reach the database from outside your home network. I run mine in Docker with {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} as the tunnel; total monthly cost is zero. This post walks through the setup, end to end, using Self-hosted LiveSync 1.0.35 (released October 5, 2026) and CouchDB 3.5.
 
-LiveSync does most of the heavy lifting. It speaks CouchDB's replication protocol directly, so edits propagate in a second or two and conflicts get resolved on the client without manual merges. I've used it through large vault reorganizations and concurrent edits across desktop and mobile and haven't lost a note. The Docker side keeps the install identical on Windows, macOS, and Linux. Plan on 30 to 60 minutes start to finish.
+LiveSync does most of the heavy lifting. It speaks CouchDB's replication protocol directly, so edits propagate in a second or two and conflicts get resolved on the client without manual merges. I've used it through large vault reorganizations and concurrent edits across desktop and mobile and haven't lost a note. The Docker side keeps the install identical on Windows, macOS, and Linux. Plan on 30 to 60 minutes start to finish. Back up your vault first, and turn off Obsidian Sync, iCloud or any other service that writes to the same vault before you connect LiveSync.
 
 {{% tldr %}}
 **What You'll Build:**
@@ -30,6 +30,7 @@ LiveSync does most of the heavy lifting. It speaks CouchDB's replication protoco
 - Docker installed on your system (Windows, macOS, or Linux)
 - Basic command line knowledge (copy/paste level)
 - Obsidian installed on your devices
+- Deno 2 (only to run LiveSync's CouchDB setup script once)
 {{% /tldr %}}
 
 ## Why I Built My Own Sync Server
@@ -93,24 +94,29 @@ docker compose version
 
 ### Linux Installation
 
-For Ubuntu/Debian systems, use the official Docker repository for the most up-to-date version:
+For Ubuntu and Debian, use Docker's official apt repository for the most up-to-date version:
 
 ```bash
-# Update package index
-sudo apt update
-
-# Install prerequisites
-sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
-
 # Add Docker's official GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-# Add Docker repository
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# Add the repository
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
 
 # Install Docker
 sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Add your user to docker group (requires logout/login)
 sudo usermod -aG docker $USER
@@ -119,6 +125,8 @@ sudo usermod -aG docker $USER
 docker --version
 docker compose version
 ```
+
+These are the commands from Docker's Ubuntu install page (22.04, 24.04 and 26.04 are supported). On Debian, swap `ubuntu` for `debian` in the URLs.
 
 ## Step 2: Setting Up CouchDB with Docker
 
@@ -133,6 +141,7 @@ Create a new directory for your Obsidian sync server and set up the Docker Compo
 # Create project directory
 mkdir obsidian-sync
 cd obsidian-sync
+mkdir couchdb-data, couchdb-etc
 
 # Create docker-compose.yml
 New-Item -ItemType File -Name "docker-compose.yml"
@@ -141,7 +150,7 @@ New-Item -ItemType File -Name "docker-compose.yml"
 **macOS/Linux:**
 ```bash
 # Create project directory
-mkdir obsidian-sync
+mkdir -p obsidian-sync/couchdb-data obsidian-sync/couchdb-etc
 cd obsidian-sync
 
 # Create docker-compose.yml
@@ -153,12 +162,12 @@ Now edit the `docker-compose.yml` file with your preferred text editor and add t
 ```yaml
 services:
   couchdb:
-    image: couchdb:latest
+    image: couchdb:3.5
     container_name: couchdb-for-ols
     user: 5984:5984
     environment:
-      - COUCHDB_USER=admin #Please change as you like.
-      - COUCHDB_PASSWORD=112 #Please change as you like.
+      - COUCHDB_USER=obsidian_admin #Please change as you like.
+      - COUCHDB_PASSWORD=change-me-to-a-long-random-password #Please change as you like.
     volumes:
       - ./couchdb-data:/opt/couchdb/data
       - ./couchdb-etc:/opt/couchdb/etc/local.d
@@ -169,7 +178,13 @@ services:
 
 The top-level `version:` field that older guides put at the top of the file is no longer required and Compose V2 prints a deprecation warning if you include it. The Compose schema is inferred from the CLI version now.
 
-Replace the default password (`112` in the example above) with a strong, secure password. This will be your CouchDB admin password, so make it both secure and memorable.
+Replace the placeholder password with a long random one (a password manager's generator is fine). This is your CouchDB admin password, and once the tunnel is up this database is reachable from the internet, so a short or guessable password is the main way this setup gets hurt.
+
+I pin the image to `couchdb:3.5` so a future major release doesn't change under you on a restart. LiveSync's own docs use `couchdb:latest`; either works today (Docker Hub's `latest` is 3.5.2.1 as of October 2026). If the container exits straight away, check the ownership of `couchdb-data` and `couchdb-etc` first. LiveSync's docs say CouchDB runs as uid 5984 and recommend this on a Linux host:
+
+```bash
+sudo chown -R 5984:5984 ./couchdb-data ./couchdb-etc
+```
 
 {{< image "self_hosting_obsidian/docker_compose.webp" "Docker Compose file example" >}}
 
@@ -197,39 +212,39 @@ After a few moments, CouchDB should be running and accessible at `http://localho
 
 {{< image "self_hosting_obsidian/couchdb_running_in_local_host_5984.webp" "CouchDB running at localhost:5984" >}}
 
-## Step 3: Configuring CouchDB
+## Step 3: Initializing CouchDB for LiveSync
 
-With CouchDB running, we need to set it up for use with Obsidian LiveSync. This involves creating a database and configuring user permissions.
+A fresh CouchDB container is not ready for LiveSync. The plugin needs the server configured for it (single-node setup, authentication, CORS for Obsidian's requests) and a database created. Older versions of this guide did that by hand in the Fauxton admin page, but LiveSync now ships a provisioning script that does it in one go, so use that instead.
 
-### Initial CouchDB Setup
-
-Open your browser and navigate to `http://localhost:5984/_utils` to access the CouchDB admin interface. Log in using the credentials you specified in the Docker Compose file (username: `admin`, password: your chosen password).
+First check that CouchDB answers. Open `http://localhost:5984/_utils` and log in with the admin username and password from your compose file.
 
 {{< image "self_hosting_obsidian/login_couch_db.webp" "Log in to CouchDB Fauxton" >}}
 
-### Creating the Database
+The script runs on Deno 2. Install it if you don't have it:
 
-In the CouchDB admin interface:
+```bash
+# macOS / Linux
+curl -fsSL https://deno.land/install.sh | sh
+# Windows PowerShell:  irm https://deno.land/install.ps1 | iex
+# or: brew install deno / winget install DenoLand.Deno
 
-1. Click "Create Database" in the sidebar
-2. Name your database `obsidian` (or any name you prefer)
-3. Leave "Partitioned" unchecked
-4. Click "Create"
+# confirm it works (open a new terminal first if the installer asks you to)
+deno --version
+```
 
-{{< image "self_hosting_obsidian/create_obsidian_database.webp" "Create obsidian database" >}}
+Then run the script with your CouchDB admin credentials. `obsidiannotes` is the database name LiveSync's docs use, and you can pick another:
 
-### Configuring Database Permissions
+```bash
+export hostname=http://localhost:5984
+export username=obsidian_admin
+export password='your-couchdb-admin-password'
+export database=obsidiannotes
+curl -s https://raw.githubusercontent.com/vrtmrz/obsidian-livesync/main/utils/couchdb/couchdb-init.sh | bash
+```
 
-Now we need to give our new user access to the obsidian database:
+It should end with `CouchDB provisioning completed.` If it prints `ERROR: Hostname missing`, pass the three variables inline in front of `bash` instead, as shown in the {{< link href="https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md" >}}LiveSync server setup guide{{< /link >}}.
 
-1. Navigate to your `obsidian` database
-2. Click on "Permissions" in the sidebar
-3. Under "Members", add `obsidian_user` to both "Names" fields (for read and write access)
-4. Click "Save"
-
-{{< image "self_hosting_obsidian/add_premission_in_obsidian_database.webp" "Add permissions to obsidian database" >}}
-
-Your CouchDB instance is now ready for Obsidian LiveSync!
+The script does not create a separate non-admin account, so LiveSync will connect with the admin credentials. That's fine for a personal server, but it is one more reason to keep the password long.
 
 ## Step 4: Setting Up Pinggy Tunnel for Remote Access
 
@@ -237,7 +252,7 @@ Now that CouchDB is running locally, we need a way to access it from outside you
 
 What makes {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} ideal for this use case is that there's nothing to install it works entirely over SSH, which comes pre-installed on every modern operating system. You run a single command, and Pinggy gives you a public HTTPS URL that routes traffic directly to your local CouchDB server.
 
-**Note:** This tunnel setup requires {{< link href="https://pinggy.io/#prices" >}}Pinggy Pro{{< /link >}}.
+**Note:** The command below works without an account on the free tier, which is fine for testing. Free tunnels last 60 minutes and get a new random URL each time you reconnect, so for a sync server you'll want {{< link href="https://pinggy.io/#prices" >}}Pinggy Pro{{< /link >}} (a persistent subdomain and no timeout).
 
 ### Creating the Tunnel
 
@@ -247,17 +262,17 @@ Start a Pinggy tunnel to expose your CouchDB instance securely with just one com
 "{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:5984 free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:5984 free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:5984 free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:5984 free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:5984 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5984 free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:5984 free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:5984 free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
-That's it! Pinggy will provide you with a public URL (something like `https://abc123.a.pinggy.io`) that securely tunnels to your local CouchDB instance. This URL will work from anywhere on the internet, allowing you to sync your Obsidian notes from any device.
+That's it! Pinggy will provide you with a public HTTPS URL (on the free tier, something like `https://abc123.run.pinggy-free.link`) that securely tunnels to your local CouchDB instance. This URL will work from anywhere on the internet, allowing you to sync your Obsidian notes from any device.
 
 {{< image "self_hosting_obsidian/run_the_pinggy_tunnel.webp" "Run the Pinggy tunnel" >}}
 
 The tunnel will display something like this:
 ```
 You can access local server via following URL(s):
-https://abc123.a.pinggy.io
+https://abc123.run.pinggy-free.link
 ```
 
-Copy this URL - you'll need it for configuring Obsidian LiveSync.
+Copy this URL - you'll need it for configuring Obsidian LiveSync. Obsidian on iOS and Android only talks to HTTPS servers with a valid certificate, which is the other reason to use a tunnel (or a reverse proxy with a real domain) instead of plain `http://` on your LAN.
 
 If you'd rather start the tunnel from a script or a long-running service (instead of leaving an SSH session open), Pinggy now ships official {{< link href="https://pinggy.io/docs/" >}}Node.js and Python SDKs{{< /link >}}. Both wrap the same protocol the SSH command above uses, so you can spin the tunnel up and tear it down programmatically from inside your own automation. Useful if you want the tunnel to come up alongside the CouchDB container on boot rather than as a separate manual step.
 
@@ -330,66 +345,64 @@ Now let's install the plugin that will connect to your CouchDB server:
 
 {{< image "self_hosting_obsidian/enable_self_hosted_livesync_plugin.webp" "Enable Self-hosted LiveSync plugin" >}}
 
-### Configuring LiveSync Plugin
+### Configuring LiveSync on the first device
 
-Once the plugin is installed and enabled, you'll see a new "Self-hosted LiveSync" option in your settings. We'll use the manual setup for full control.
+LiveSync 1.0.x walks you through setup with an onboarding dialog rather than the old Settings > Setup tab. The flow below follows the {{< link href="https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/quick_setup.md" >}}plugin's quick setup guide{{< /link >}}; the screenshots further down are from an earlier version of the plugin, so button labels may differ slightly.
 
-1. In Settings, scroll down to find "Self-hosted LiveSync" in the left sidebar
-2. Click it to open the plugin settings
-3. Go to the "Setup" tab
-4. Click "Manual setup"
-5. Click "Next" to Appearance Settings
-6. Fill in your connection details:
-
-**Database Configuration:**
-- **Server URI**: Your Pinggy tunnel URL (e.g., `https://abc123.a.pinggy.io`)
-- **Username**: `admin`
-- **Password**: Your CouchDB admin password (from `docker-compose.yml`)
-- **Database name**: `obsidian`
-- **Enable CORS**: Turn this on to allow cross-origin requests (required for web-based sync)
-- **Test Connection**: Click to verify your settings
-- Then click "Next" and accept any warnings if prompted
+1. After enabling the plugin, select the `Welcome to Self-hosted LiveSync` notice to open onboarding.
+2. Choose `I am setting this up for the first time` and confirm.
+3. On `Connection Method`, choose `Configure a remote manually`, then `Proceed with manual configuration`.
+4. On `End-to-End Encryption`, turn it on and enter a strong vault passphrase. Store it somewhere safe: without it the data on the server can't be read, and every other device needs the same passphrase.
+5. On `Choose a synchronisation remote`, select `CouchDB`, then fill in the connection details:
+   - **URL**: your full Pinggy URL, including `https://` and with no extra path (e.g. `https://abc123.run.pinggy-free.link`)
+   - **Username** and **Password**: your CouchDB admin credentials from `docker-compose.yml`
+   - **Database name**: `obsidiannotes` (or whatever you used in Step 3)
+6. Select `Create or connect to database and continue`. This test has to pass before onboarding goes on.
+7. Review `Setup Complete: Preparing to Initialise Server` and select `Restart and Initialise Server`. Read the overwrite warning, and only continue with `I Understand, Overwrite Server` if this device is meant to be the source of truth and you have a backup.
+8. If you see `No Synchronisation Settings Found` on a new database, choose `Use this device's settings`.
+9. Acknowledge that optional features are disabled, and keep Obsidian open until the progress indicators clear.
 
 {{< image "self_hosting_obsidian/remote_configuration_server_url.webp" "LiveSync server URL configuration" >}}
 
-**Important Configuration Notes:**
+Create a test note and let it upload before you add a second device.
+
+**Configuration notes:**
 - Use the full Pinggy URL including `https://`
-- Don't add `/obsidian` or any extra path to the URI
-- Make sure your Pinggy tunnel is running before testing
+- Don't add `/obsidiannotes` or any other path to the URL
+- Make sure the Pinggy tunnel is running before you run the connection test
 
 ## Step 6: Adding Additional Devices
 
 One of the best features of this setup is how easy it is to add new devices to your sync network.
 
-### Generating Setup URI for Other Devices
-Once sync is working properly:
+### Generating a Setup URI on the first device
 
-1. Go to the "Setup" tab in LiveSync settings
-2. In the "Set up other devices" section, click "Copy setup URI"
-3. Enter a passphrase to encrypt the setup URI and click "OK"
-4. The setup URI will be copied automatically
-5. The URI format: `obsidian://setuplivesync?settings=encrypted_config_data`
+Once the test note has synced, generate a Setup URI from this working device. It captures the settings this device is actually using, including the encryption setup.
 
-**Security Note**: This URI contains encrypted connection information. Store it in a password manager or secure location.
+1. Open the Obsidian command palette
+2. Run `Self-hosted LiveSync: Copy settings as a new Setup URI`
+3. Enter a passphrase to protect the URI and select `OK`
+4. Copy the result. It looks like `obsidian://setuplivesync?settings=...`
+
+**Security note**: the URI contains your credentials and vault settings. It is encrypted, but store it and its passphrase in a password manager, in separate places, and don't send both over the same channel.
 
 {{< image "self_hosting_obsidian/copy_the_setup_url.webp" "Copy the setup URI" >}}
 
-### Using the Setup URI
+### Adding another device
 
-On each new device where you want to sync your Obsidian vault:
+On each new device, start with a new or backed-up vault:
 
 1. Install Obsidian and the Self-hosted LiveSync plugin
-2. Go to Settings → Self-hosted LiveSync
-3. Go to the "Setup" tab
-4. Choose "Connect with setup URL"
-5. Paste the setup URI you saved earlier
-6. Enter the passphrase
-7. Click "Apply"
+2. Open onboarding from the `Welcome to Self-hosted LiveSync` notice
+3. Choose `I am adding a device to an existing synchronisation setup`
+4. On `Device Setup Method`, choose `Use a Setup URI (Recommended)`
+5. Paste the Setup URI, enter its passphrase, and select `Test Settings and Continue`
+6. Select `Restart and Fetch Data`. For an empty vault choose `Overwrite all with remote files`. If the vault already has notes, stop and read the plugin's {{< link href="https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/tips/fast-setup.md" >}}Fast Setup guide{{< /link >}} first, because the wrong choice can overwrite local work.
 
 {{< image "self_hosting_obsidian/connect_with_setup_url.webp" "Connect with setup URL" >}}
 {{< image "self_hosting_obsidian/enter_you_encrpt_passphrase.webp" "Enter your encrypt passphrase" >}}
 
-The plugin will automatically configure all the connection settings and begin syncing your vault to the new device.
+When retrieval finishes, the test note from the first device should appear unchanged. Edit a note on the new device to confirm sync works in both directions.
 
 {{< image "self_hosting_obsidian/data_sync_between_two_device.webp" "Data sync between two devices" >}}
 
@@ -398,6 +411,10 @@ What you end up with: a CouchDB container, a Pinggy tunnel, and the LiveSync plu
 
 A few things worth flagging for anyone setting this up:
 
-- The tunnel URL needs to stay reachable. The free Pinggy tier rotates the URL when the session ends, so for a permanent setup, run it on a Pro plan with a persistent URL or a custom domain. Otherwise you'll be updating LiveSync's settings every time the tunnel restarts.
+- The tunnel URL needs to stay reachable. The free Pinggy tier disconnects after 60 minutes and gives you a new URL when you reconnect, so for a permanent setup, run it on a Pro plan with a persistent URL or a custom domain. Otherwise you'll be updating LiveSync's settings every time the tunnel restarts.
 - Back up the CouchDB data directory. The whole point of self-hosting is owning the failure mode too. Snapshot `./couchdb-data` to whatever you already trust for backups.
 - LiveSync's end-to-end encryption is worth enabling even though the tunnel is already HTTPS. It means the CouchDB instance never sees plaintext notes, which is the right default once the data leaves your machine at all.
+
+## Conclusion
+
+You now have a CouchDB container behind a Pinggy tunnel, with LiveSync keeping your vault in step across devices and your notes encrypted before they leave the machine. Before you trust it with the only copy of your notes, run three quick checks. Reboot the host, run `docker compose ps` in the `obsidian-sync` folder to confirm CouchDB came back up, and if you're on the free tunnel, restart it and update the URL in LiveSync, since it will have changed. Then edit a note on each device and confirm the change shows up on the other one. Finally, copy `./couchdb-data` somewhere else and write down your vault encryption passphrase and the Setup URI passphrase, because without the vault passphrase the synced data can't be read and no database backup will fix that. Once those pass, add your phone using a Setup URI generated from the first device, and consider a Pinggy Pro persistent subdomain so the sync address stops changing.
