@@ -2,7 +2,7 @@
 title: "Best DNS for Gaming in 2026"
 description: "Discover the best DNS for gaming in 2026 to reduce latency and improve performance. Explore top options like Cloudflare, Quad9, AdGuard, NextDNS, and Control D with setup guides."
 date: 2024-11-21T14:15:25+05:30
-lastmod: 2026-09-06T23:20:00+05:30
+lastmod: 2026-10-15T23:20:00+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
 tags: ["gaming", "DNS", "networking", "guide"]
@@ -53,55 +53,62 @@ This post lists the resolvers worth testing in 2026, how to actually measure the
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Strong uptime with optional security and content filtering.</td>
 </tr>
 <tr>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Dynadot DNS</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Hosted DNS for your own domain</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">N/A</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">N/A</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Registrar-provided DNS hosting for your own domain, not a public resolver. Supports SRV records on subdomains and Dynamic DNS.</td>
+</tr>
+<tr style="background:#f9fbfd;">
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://quad9.net/" target="_blank">Quad9</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">9.9.9.9<br>149.112.112.112</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Security-first resolver with malware/phishing blocking. Added DoQ and DNS over HTTP/3 in March 2026.</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://dns.watch/" target="_blank">DNS.Watch</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">84.200.69.80<br>84.200.70.40</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Good</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">No-logging resolver with DNSSEC and long-term community operation.</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://adguard-dns.io/welcome.html" target="_blank">AdGuard DNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">94.140.14.14<br>94.140.15.15</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">DNS-level ad/tracker blocking with DoH, DoT, and DoQ support.</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://controld.com/free-dns" target="_blank">Control D (Free DNS)</a></strong></td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">76.76.2.0<br>76.76.10.0</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Newer public option with unfiltered and preset filtered profiles.</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://nextdns.io/" target="_blank">NextDNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Custom Config</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Excellent</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Highly customizable DNS filtering with analytics and per-device profiles.</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://dns.surfsharkdns.com/" target="_blank">Surfshark DNS</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">194.169.169.169</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Simple privacy-focused resolver with encrypted DNS support.</td>
 </tr>
-<tr>
+<tr style="background:#f9fbfd;">
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" target="_blank">Mullvad Encrypted DNS</a></strong></td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">dns.mullvad.net<br>(DoH/DoT)</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Public encrypted DNS with no account required and optional filters.</td>
 </tr>
-<tr style="background:#f9fbfd;">
+<tr>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://joindns4.eu/for-public" target="_blank">DNS4EU</a></strong></td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">86.54.11.100 (unfiltered)<br>86.54.11.1 (protective)</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low in EU</td>
@@ -264,7 +271,17 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    **Why it's great for gaming**: {{< link href="https://www.opendns.com/" >}}OpenDNS{{< /link >}} is a dependable option if you want stable DNS plus optional safety controls on shared networks.
 
-#### 4. Quad9 DNS (9.9.9.9)
+#### 4. Dynadot DNS
+   - **Type**: Domain registrar with free DNS hosting (not a public resolver)
+   - **Record types**: A, AAAA, CNAME, MX, TXT, CAA, and ANAME, plus SRV records on subdomains
+   - **Features**: Dynamic DNS, domain forwarding, and email forwarding
+   - **Cost**: DNS management is free with a registered domain; the domain price depends on the extension.
+
+   **Why it's worth a look**: Dynadot does a different job from the public resolvers on either side of it. Instead of resolving names for your device, it hosts the DNS records for your own domain. If you run a game server and want players to connect with a memorable name instead of an IP, you can use Dynadot's {{< link href="https://www.dynadot.com/domain/search" >}}domain name search{{< /link >}} to find and register one, then point it at your server.
+
+   SRV records are especially useful here, because some games, Minecraft: Java Edition being the common one, use them to find a server on a non-default port. Dynadot supports SRV records on subdomains, and its Dynamic DNS feature can update the record automatically if your server's IP address changes.
+
+#### 5. Quad9 DNS (9.9.9.9)
    - **Primary DNS**: 9.9.9.9
    - **Secondary DNS**: 149.112.112.112
    - **ECS-enabled**: 9.9.9.11 / 149.112.112.11 (same blocking, but forwards EDNS Client Subnet)
@@ -279,7 +296,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    The other Quad9 detail that matters for gaming is ECS. The default 9.9.9.9 does not forward your subnet to authoritative servers, which is good for privacy and occasionally bad for patch downloads, because some CDNs then steer you off your nearest mirror. If your downloads feel slower on Quad9 than on Cloudflare, try 9.9.9.11 before writing the resolver off.
 
-#### 5. DNS.Watch (84.200.69.80)
+#### 6. DNS.Watch (84.200.69.80)
    - **Primary DNS**: 84.200.69.80
    - **Secondary DNS**: 84.200.70.40
    - **Latency**: Low.
@@ -288,7 +305,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    **Why it's great for gaming**: {{< link href="https://dns.watch/" >}}DNS.Watch{{< /link >}} is a privacy-friendly alternative for players who prefer simple, open public resolvers.
 
-#### 6. Control D Free DNS (76.76.2.0)
+#### 7. Control D Free DNS (76.76.2.0)
    - **Primary DNS**: 76.76.2.0
    - **Secondary DNS**: 76.76.10.0
    - **Latency**: Low.
@@ -297,7 +314,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    **Why it's great for gaming**: {{< link href="https://controld.com/free-dns" >}}Control D Free DNS{{< /link >}} is a strong newer option in this 2026 update. You can keep an unfiltered profile for game compatibility or switch to security-focused profiles when needed.
 
-#### 7. AdGuard DNS (94.140.14.14)
+#### 8. AdGuard DNS (94.140.14.14)
    - **Primary DNS**: 94.140.14.14
    - **Secondary DNS**: 94.140.15.15
    - **Latency**: Low.
@@ -306,7 +323,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    **Why it's great for gaming**: {{% link href="https://adguard-dns.io/welcome.html" %}}AdGuard DNS{{% /link %}} can reduce unwanted ad and tracking lookups, but if a game launcher breaks, switch to its non-filtering endpoints.
 
-#### 8. NextDNS (Custom Configuration)
+#### 9. NextDNS (Custom Configuration)
    - **Primary DNS**: Custom endpoint generated at nextdns.io
    - **Secondary DNS**: Depends on your configuration
    - **Latency**: Very low.
@@ -315,7 +332,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    **Why it's great for gaming**: {{% link href="https://nextdns.io/" %}}NextDNS{{% /link %}} is ideal for advanced users who want per-device tuning, detailed logging choices, and allowlists to avoid game service conflicts.
 
-#### 9. Surfshark DNS (194.169.169.169)
+#### 10. Surfshark DNS (194.169.169.169)
    - **Primary DNS**: 194.169.169.169
    - **Secondary DNS**: 2a09:a707:169:: (IPv6)
    - **Latency**: Low.
@@ -324,7 +341,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    **Why it's great for gaming**: {{% link href="https://dns.surfsharkdns.com/" %}}Surfshark DNS{{% /link %}} is a simple drop-in option for players who want privacy and encrypted DNS without complex setup.
 
-#### 10. Mullvad Encrypted DNS (DoH/DoT)
+#### 11. Mullvad Encrypted DNS (DoH/DoT)
    - **Primary endpoint**: dns.mullvad.net
    - **Filtered options**: adblock, base, extended, family, all
    - **Latency**: Low.
@@ -333,7 +350,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
    **Why it's worth trying**: {{< link href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" >}}Mullvad Encrypted DNS{{< /link >}} is useful when you want encrypted DNS transport by default and optional filtering profiles.
 
-#### 11. DNS4EU (86.54.11.100)
+#### 12. DNS4EU (86.54.11.100)
    - **Unfiltered**: 86.54.11.100
    - **Protective (malware blocking)**: 86.54.11.1
    - **Protective + ad blocking**: 86.54.11.13
