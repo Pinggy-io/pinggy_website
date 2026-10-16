@@ -53,10 +53,10 @@ This post lists the resolvers worth testing in 2026, how to actually measure the
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Strong uptime with optional security and content filtering.</td>
 </tr>
 <tr>
-   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong>Dynadot DNS</strong></td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://www.dynadot.com/" target="_blank">Dynadot DNS</a></strong></td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Hosted DNS for your own domain</td>
-   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">N/A</td>
-   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">N/A</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Low</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Very Good</td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Registrar-provided DNS hosting for your own domain, not a public resolver. Supports SRV records on subdomains and Dynamic DNS.</td>
 </tr>
 <tr style="background:#f9fbfd;">
@@ -277,7 +277,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
    - **Features**: Dynamic DNS, domain forwarding, and email forwarding
    - **Cost**: DNS management is free with a registered domain; the domain price depends on the extension.
 
-   **Why it's worth a look**: Dynadot does a different job from the public resolvers on either side of it. Instead of resolving names for your device, it hosts the DNS records for your own domain. If you run a game server and want players to connect with a memorable name instead of an IP, you can use Dynadot's {{< link href="https://www.dynadot.com/domain/search" >}}domain name search{{< /link >}} to find and register one, then point it at your server.
+   **Why it's worth a look**: {{< link href="https://www.dynadot.com/" >}}Dynadot DNS{{< /link >}} does a different job from the public resolvers on either side of it. Instead of resolving names for your device, it hosts the DNS records for your own domain. If you run a game server and want players to connect with a memorable name instead of an IP, you can use Dynadot's {{< link href="https://www.dynadot.com/domain/search" >}}domain name search{{< /link >}} to find and register one, then point it at your server.
 
    SRV records are especially useful here, because some games, Minecraft: Java Edition being the common one, use them to find a server on a non-default port. Dynadot supports SRV records on subdomains, and its Dynamic DNS feature can update the record automatically if your server's IP address changes.
 
