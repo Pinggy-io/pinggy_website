@@ -438,6 +438,8 @@ While the eleven platforms above cover most marketing team needs, several other 
 
 {{< image "best_ai_agents_for_marketing/lately.webp" "Lately AI Social Content Repurposing" >}}
 
+**{{< link href="https://invideo.io/remote-agents/" >}}invideo remote agents{{< /link >}}** - Connects the AI agents you already use, such as Claude, ChatGPT, Claude Code, Codex, or Cursor, to invideo editor over MCP. You ask your agent for the cut, and it edits the timeline in invideo editor while you watch, with each edit showing under its own cursor. It is a normal editable timeline, so you can change any edit yourself, then export a video or a project for Premiere Pro, Final Cut Pro, or DaVinci Resolve. An invideo account is required.
+
 **{{< link href="https://www.canva.com" >}}Canva (Magic Studio){{< /link >}}** - Canva's AI suite includes Magic Write for copy, Magic Design for instant layouts, Magic Edit for image manipulation, and text-to-image generation. The most accessible design AI for non-designers, integrated into the platform used by 190+ million users.
 
 {{< image "best_ai_agents_for_marketing/canva.webp" "Canva Magic Studio AI Design" >}}
@@ -451,6 +453,8 @@ While the eleven platforms above cover most marketing team needs, several other 
 Selecting the right AI agent depends on your team's specific needs, marketing channels, budget, and existing tech stack. Here is a practical framework:
 
 **For small teams and solopreneurs**: Start with Predis.ai ($19/month) for visual social content creation or Synthesia's free tier for video marketing. These offer the best value for teams with limited budgets who need to produce high-quality content without hiring designers or videographers.
+
+Paid social media services are another option to consider separately from content automation. <a href="https://www.socialwick.com/" target="_blank">SocialWick</a> offers follower, like, and view packages, while the AI tools above focus on creating content and managing campaigns.
 
 **For growing marketing teams**: Jasper AI Pro ($69/month) provides the best balance of AI capabilities and affordability with 100+ specialized agents. Hootsuite ($249/month per user) is ideal if social media management with AI content generation is your primary need. Surfer SEO ($119/month) is the best pick for organic content and SEO-focused teams.
 
