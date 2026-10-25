@@ -112,6 +112,8 @@ Write like a seasoned developer talking shop, the kind of post that does well on
 - **Headings are signposts, not clickbait.** `## Why the default port is 5173`, not `## The SHOCKING truth about Vite`.
 - **Code blocks earn their place.** Show the command or the diff; don't paste 80 lines of boilerplate. Annotate with `# comment` only when the line isn't self-explanatory.
 - **Inline code for short plain-text snippets.** A single short line of unhighlighted plain text - a URL, an env var assignment, a filename, a value - should be inline code (single backticks), not a fenced code block. Fenced blocks (which render as the dark terminal card) are for multi-line commands/output or syntax-highlighted code. Avoid bare ` ``` ` / ` ```text ` fences for one-liners: `https://abc123.a.pinggy.link` reads better inline than as a one-line terminal card.
+- **Don't sound like AI.** No *delve, dive in, it's worth noting, in conclusion, not just X but Y*, rule-of-three lists, or neat summary lines closing every section.
+- **At least two small typos per blog post** (`teh`, `recieve`), in prose only - never in code, commands, URLs, names, headings, or front matter. Blog posts only, not docs or other pages.
 
 ### Image titles
 
