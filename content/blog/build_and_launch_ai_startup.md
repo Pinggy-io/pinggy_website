@@ -90,7 +90,7 @@ Once all of that is done, build an MVP around a single core action and get ready
 
 ## 5. Build the website and the brand
 
-To launch, you need a user-friendly website with a registered domain. Then comes the work on your startup's brand and marketing.
+To launch, you need a {{< link href="https://www.atom.com/register" >}}user-friendly website with a registered domain{{< /link >}}. Then comes the work on your startup's brand and marketing.
 
 That can look like a lot on your plate, but there are plenty of online tools and platforms to help.
 

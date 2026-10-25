@@ -2,11 +2,11 @@
 title: "Best Open Source LLMs for Coding to Self-Host in 2026"
 description: "The best open-weight coding LLMs you can self-host as of October 2026, from MiMo-V2.6-Pro and GLM-5.3 down to Qwen3.8-27B on one GPU, with current benchmark scores, licenses and the hardware each one needs."
 date: 2026-03-26T14:15:25+05:30
-lastmod: 2026-10-05T09:00:00+05:30
+lastmod: 2026-10-17T09:00:00+05:30
 draft: false
 tags: ["open source LLM", "self-hosted AI", "local LLM", "AI coding agents", "open source"]
 og_image: "images/best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIGNob29zZSBhbmQgc2VsZi1ob3N0IGFuIG9wZW4gc291cmNlIExMTSBmb3IgY29kaW5nIGluIDIwMjYiLAogICJkZXNjcmlwdGlvbiI6ICJUaGUgYmVzdCBvcGVuLXdlaWdodCBjb2RpbmcgTExNcyB5b3UgY2FuIHNlbGYtaG9zdCBhcyBvZiBPY3RvYmVyIDIwMjYsIGZyb20gTWlNby1WMi42LVBybyBhbmQgR0xNLTUuMyBkb3duIHRvIFF3ZW4zLjgtMjdCIG9uIG9uZSBHUFUsIHdpdGggY3VycmVudCBiZW5jaG1hcmsgc2NvcmVzLCBsaWNlbnNlcyBhbmQgdGhlIGhhcmR3YXJlIGVhY2ggb25lIG5lZWRzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9iZXN0X29wZW5fc291cmNlX3NlbGZfaG9zdGVkX2xsbXNfZm9yX2NvZGluZy9iZXN0X29wZW5fc291cmNlX3NlbGZfaG9zdGVkX2xsbXNfZm9yX2NvZGluZ19iYW5uZXIud2VicCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTEwLTA1VDA5OjAwOjAwKzA1OjMwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIk1hdGNoIHRoZSBtb2RlbCB0byB5b3VyIGhhcmR3YXJlIiwKICAgICAgInRleHQiOiAiT25lIDI0R0IgR1BVIG9yIGEgMzJHQiBNYWMgcnVucyBRd2VuMy44LTI3QiBhdCA0LWJpdCAoMTYtMTlHQikuIEEgMTI4R0IgbWFjaGluZSBydW5zIFF3ZW4zLjgtRmxhc2gtTmV4dCBhdCA0LWJpdCAoOTYtMTE0R0IpLiBUaHJlZSBvciBmb3VyIDgwR0IgR1BVcyBydW4gR0xNLTUuMy1GbGFzaCBhdCA0LWJpdCAoMTYyLTIxMEdCKS4gRWlnaHQgSDIwMHMgcnVuIE1pTW8tVjIuNi1Qcm8gKGFib3V0IDU3NEdCKSBvciBHTE0tNS4zICg3NTZHQikuIEtpbWkgSzMgbmVlZHMgYXQgbGVhc3QgZWlnaHQgR0IzMDAgb3IgTUkzNTVYIEdQVXMgKDEuNTZUQikuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNoZWNrIHRoZSBsaWNlbnNlIiwKICAgICAgInRleHQiOiAiUXdlbjMuOC0yN0IgaXMgQXBhY2hlIDIuMCwgYW5kIE1pTW8tVjIuNiwgR0xNLTUuMy1GbGFzaCBhbmQgRGVlcFNlZWsgVjQgYXJlIE1JVC4gS2ltaSBLMywgR0xNLTUuMywgUXdlbjMuOC1NYXgsIFF3ZW4zLjgtRmxhc2gtTmV4dCBhbmQgTWluaU1heCBNMyB1c2UgY3VzdG9tIGxpY2Vuc2VzIHdpdGggcmV2ZW51ZSBvciB1c2UtY2FzZSBjb25kaXRpb25zLCBzbyByZWFkIHRoZW0gYmVmb3JlIHJlc2VsbGluZyBpbmZlcmVuY2UuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkluc3RhbGwgT2xsYW1hIGFuZCBPcGVuQ29kZSIsCiAgICAgICJ0ZXh0IjogIlJ1biBjdXJsIC1mc1NMIGh0dHBzOi8vb2xsYW1hLmNvbS9pbnN0YWxsLnNoIHwgc2ggYW5kIGN1cmwgLWZzU0wgaHR0cHM6Ly9vcGVuY29kZS5haS9pbnN0YWxsIHwgYmFzaC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiR2l2ZSB0aGUgbW9kZWwgZW5vdWdoIGNvbnRleHQiLAogICAgICAidGV4dCI6ICJPcGVuQ29kZSBuZWVkcyBhdCBsZWFzdCA2NEsgdG9rZW5zIG9mIGNvbnRleHQsIGFuZCBPbGxhbWEgZGVmYXVsdHMgdG8gNEsgb24gR1BVcyB1bmRlciAyNEdpQiBvZiBWUkFNIGFuZCAzMksgdXAgdG8gNDhHaUIuIFN0YXJ0IHRoZSBzZXJ2ZXIgd2l0aCBPTExBTUFfQ09OVEVYVF9MRU5HVEg9NjQwMDAgb2xsYW1hIHNlcnZlLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJMYXVuY2ggdGhlIGNvZGluZyBhZ2VudCIsCiAgICAgICJ0ZXh0IjogIlJ1biBvbGxhbWEgbGF1bmNoIG9wZW5jb2RlIC0tbW9kZWwgcXdlbjMuODoyN2IuIE9uIGFuIEFwcGxlIFNpbGljb24gTWFjLCB1c2UgdGhlIHF3ZW4zLjg6MjdiLW1seCB0YWcgaW5zdGVhZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiT3B0aW9uYWxseSByZWFjaCBhIHJlbW90ZSBHUFUgYm94IHdpdGggUGluZ2d5IiwKICAgICAgInRleHQiOiAiT24gdGhlIEdQVSBtYWNoaW5lLCBydW4gc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjExNDM0IGZyZWUucGluZ2d5LmlvIFwidTpIb3N0OmxvY2FsaG9zdDoxMTQzNFwiIFwiazpjaGFuZ2UtbWVcIiwgdGhlbiBwb2ludCBPcGVuQ29kZSdzIGJhc2VVUkwgYXQgdGhlIHByaW50ZWQgaHR0cHMgVVJMIHBsdXMgL3YxIHdpdGggYXBpS2V5IGNoYW5nZS1tZS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIGNob29zZSBhbmQgc2VsZi1ob3N0IGFuIG9wZW4gc291cmNlIExMTSBmb3IgY29kaW5nIGluIDIwMjYiLAogICJkZXNjcmlwdGlvbiI6ICJUaGUgYmVzdCBvcGVuLXdlaWdodCBjb2RpbmcgTExNcyB5b3UgY2FuIHNlbGYtaG9zdCBhcyBvZiBPY3RvYmVyIDIwMjYsIGZyb20gTWlNby1WMi42LVBybyBhbmQgR0xNLTUuMyBkb3duIHRvIFF3ZW4zLjgtMjdCIG9uIG9uZSBHUFUsIHdpdGggY3VycmVudCBiZW5jaG1hcmsgc2NvcmVzLCBsaWNlbnNlcyBhbmQgdGhlIGhhcmR3YXJlIGVhY2ggb25lIG5lZWRzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9iZXN0X29wZW5fc291cmNlX3NlbGZfaG9zdGVkX2xsbXNfZm9yX2NvZGluZy9iZXN0X29wZW5fc291cmNlX3NlbGZfaG9zdGVkX2xsbXNfZm9yX2NvZGluZ19iYW5uZXIud2VicCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTEwLTE3VDA5OjAwOjAwKzA1OjMwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIk1hdGNoIHRoZSBtb2RlbCB0byB5b3VyIGhhcmR3YXJlIiwKICAgICAgInRleHQiOiAiT25lIDI0R0IgR1BVIG9yIGEgMzJHQiBNYWMgcnVucyBRd2VuMy44LTI3QiBhdCA0LWJpdCAoMTYtMTlHQikuIEEgMTI4R0IgTWFjIHJ1bnMgUXdlbjMuOC1GbGFzaC1OZXh0IGF0IDQtYml0IHdpdGggaXRzIG4tZ3JhbSB0YWJsZSBvbiBTU0QgKDU2R0Igb2YgR1BVIG1lbW9yeSwgdW5kZXIgdGhlIGRlZmF1bHQgbWFjT1MgR1BVIGxpbWl0IG9mIGFib3V0IDk2R0IpLiBUaHJlZSBvciBmb3VyIDgwR0IgR1BVcyBydW4gR0xNLTUuMy1GbGFzaCBhdCA0LWJpdCAoMTYyLTIxMEdCKS4gRWlnaHQgSDIwMHMgcnVuIE1pTW8tVjIuNi1Qcm8gKGFib3V0IDU3NEdCKSBvciBHTE0tNS4zICg3NTZHQikuIEtpbWkgSzMgbmVlZHMgYXQgbGVhc3QgZWlnaHQgR0IzMDAgb3IgTUkzNTVYIEdQVXMgKDEuNTZUQikuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNoZWNrIHRoZSBsaWNlbnNlIiwKICAgICAgInRleHQiOiAiUXdlbjMuOC0yN0IgaXMgQXBhY2hlIDIuMCwgYW5kIE1pTW8tVjIuNiwgR0xNLTUuMy1GbGFzaCBhbmQgRGVlcFNlZWsgVjQgYXJlIE1JVC4gS2ltaSBLMywgR0xNLTUuMywgUXdlbjMuOC1NYXgsIFF3ZW4zLjgtRmxhc2gtTmV4dCBhbmQgTWluaU1heCBNMyB1c2UgY3VzdG9tIGxpY2Vuc2VzIHdpdGggcmV2ZW51ZSBvciB1c2UtY2FzZSBjb25kaXRpb25zLCBzbyByZWFkIHRoZW0gYmVmb3JlIHJlc2VsbGluZyBpbmZlcmVuY2UuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkluc3RhbGwgT2xsYW1hIGFuZCBPcGVuQ29kZSIsCiAgICAgICJ0ZXh0IjogIlJ1biBjdXJsIC1mc1NMIGh0dHBzOi8vb2xsYW1hLmNvbS9pbnN0YWxsLnNoIHwgc2ggYW5kIGN1cmwgLWZzU0wgaHR0cHM6Ly9vcGVuY29kZS5haS9pbnN0YWxsIHwgYmFzaC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiR2l2ZSB0aGUgbW9kZWwgZW5vdWdoIGNvbnRleHQiLAogICAgICAidGV4dCI6ICJPcGVuQ29kZSBuZWVkcyBhdCBsZWFzdCA2NEsgdG9rZW5zIG9mIGNvbnRleHQsIGFuZCBPbGxhbWEgZGVmYXVsdHMgdG8gNEsgb24gR1BVcyB1bmRlciAyNEdpQiBvZiBWUkFNIGFuZCAzMksgdXAgdG8gNDhHaUIuIFN0YXJ0IHRoZSBzZXJ2ZXIgd2l0aCBPTExBTUFfQ09OVEVYVF9MRU5HVEg9NjQwMDAgb2xsYW1hIHNlcnZlLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJMYXVuY2ggdGhlIGNvZGluZyBhZ2VudCIsCiAgICAgICJ0ZXh0IjogIlJ1biBvbGxhbWEgbGF1bmNoIG9wZW5jb2RlIC0tbW9kZWwgcXdlbjMuODoyN2IuIE9uIGFuIEFwcGxlIFNpbGljb24gTWFjLCB1c2UgdGhlIHF3ZW4zLjg6MjdiLW1seCB0YWcgaW5zdGVhZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiT3B0aW9uYWxseSByZWFjaCBhIHJlbW90ZSBHUFUgYm94IHdpdGggUGluZ2d5IiwKICAgICAgInRleHQiOiAiT24gdGhlIEdQVSBtYWNoaW5lLCBydW4gc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjExNDM0IGZyZWUucGluZ2d5LmlvIFwidTpIb3N0OmxvY2FsaG9zdDoxMTQzNFwiIFwiazpjaGFuZ2UtbWVcIiwgdGhlbiBwb2ludCBPcGVuQ29kZSdzIGJhc2VVUkwgYXQgdGhlIHByaW50ZWQgaHR0cHMgVVJMIHBsdXMgL3YxIHdpdGggYXBpS2V5IGNoYW5nZS1tZS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
@@ -33,7 +33,7 @@ This guide ranks the coding models you can actually download as of October 6, 20
 
 **One GPU: pull Qwen3.8-27B.** It's a 27B dense Apache 2.0 model that needs 16-19GB at 4-bit, and it scores 34 on the index to the next-best small model's 25.
 
-**128GB Mac: Qwen3.8-Flash-Next.** It needs 96-114GB at 4-bit and scores 40, level with Qwen3.8-2.4T-A95B, the open weights behind Qwen3.8-Max.
+**128GB Mac: Qwen3.8-Flash-Next.** It scores 40, level with Qwen3.8-2.4T-A95B, the open weights behind Qwen3.8-Max. Use Atomic Chat's 4-bit build, which keeps the n-gram table on SSD and needs 56GB of GPU memory instead of 96-114GB.
 
 **One server: GLM-5.3-Flash.** It's MIT and needs 162-210GB at 4-bit, so three or four 80GB GPUs instead of eight.
 
@@ -55,7 +55,7 @@ On the current scale, **Claude Opus 5.5 leads overall at 58**. The best open wei
 | Kimi K3 | 2.78T (104B) | Kimi K3 License | **44** | 8x GB300 or 8x MI355X (1.56TB MXFP4) |
 | GLM-5.3-Flash | 320B (18B) | MIT | **42** | 3-4x 80GB GPUs at 4-bit (162-210GB) |
 | Qwen3.8-Max (2.4T-A95B) | 2.4T (95B) | Qwen3.8-Max License | 40 | 8x B300 at NVFP4 (1.32TiB) |
-| Qwen3.8-Flash-Next | 125B (6B) + 51B n-gram table | Qwen Community License | 40 | 128GB machine (96-114GB at 4-bit) |
+| Qwen3.8-Flash-Next | 125B (6B) + 51B n-gram table | Qwen Community License | 40 | 128GB machine (56GB in GPU memory at 4-bit, n-gram table on SSD) |
 | DeepSeek-V4.1-Flash | 552B + 196B Engram (16B) | MIT | 39 | 4x H200 with Engram on CPU (~511GB) |
 | MiMo-V2.6-Flash | 309B (15B) | MIT | 38 | 4x H200 (~178GB, mostly MXFP4) |
 | DeepSeek-V4-Pro-0813 | 1.6T (49B) | MIT | 36 | 8x H200 (893GB) |
@@ -64,14 +64,15 @@ On the current scale, **Claude Opus 5.5 leads overall at 58**. The best open wei
 
 ### Models that fit one GPU or a 128GB machine
 
-If your "server" is a laptop, the ceiling is Apple's: the M5 Max MacBook Pro tops out at **128GB of unified memory**, which has to hold the weights plus the KV cache. Same index, so these read directly against the table above.
+If your "server" is a laptop or a desktop Mac short of an Ultra, the ceiling is Apple's: the M5 Max tops out at **128GB of unified memory** in both the MacBook Pro and the Mac Studio. That has to hold the weights plus the KV cache, and by default macOS lets the GPU use only about 75% of it, roughly **96GB**. Same index, so these read directly against the table above.
 
 | Model | Params (active) | ~4-bit memory | AA Index |
 |---|---|---|---|
-| Qwen3.8-Flash-Next | 125B (6B) + n-gram table | 96-114GB | **40** |
+| Qwen3.8-Flash-Next | 125B (6B) + n-gram table | 96-114GB (56GB with the table on SSD) | **40** |
 | Qwen3.8-27B | 27B dense + vision | 16-19GB | **34** |
 | Qwen3.6-27B | 27.8B dense | 18GB | 21 |
 | Muse Glimmer 30B | 29.6B dense (incl. vision) | 17GB | 17 |
+| Gemma 4 26B-A4B | 26B (4B) | 14-17GB | 17 (est.) |
 | Gemma 4 31B | 30.7B dense | 17-20GB | 15 |
 | Nemotron 3.5 Lightning | 31.6B (3.6B) | 21-25.5GB | 13 |
 | Nemotron 3 Super 120B-A12B | 120.6B (12.7B) | 64-72GB | 13 |
@@ -179,9 +180,11 @@ It's the **strongest open weight that reports SWE-Bench Pro, at 67.7**, with 86.
 
 *Screenshot: huggingface.co/Qwen/Qwen3.8-Flash-Next, October 2026.*
 
-{{< link href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" >}}Qwen3.8-Flash-Next{{< /link >}} (August 26) is Alibaba's preview of the Qwen4 architecture: 125B parameters with 6B active, plus a 51B n-gram embedding table that can be offloaded to RAM or SSD, Gated DeltaNet with Qwen Sparse Attention, and a 262K context extensible to 1M. Thinking can be turned off, unlike on Max.
+{{< link href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" >}}Qwen3.8-Flash-Next{{< /link >}} (August 26) is Alibaba's preview of the Qwen4 architecture: 125B parameters with 6B active, plus a 51B n-gram embedding table that can be offloaded to RAM or SSD, Gated DeltaNet with Qwen Sparse Attention, native image input, and a 262K context extensible to 1M. Thinking can be turned off, unlike on Max.
 
-It scores **40** on the index, level with Qwen3.8-2.4T-A95B, the open weights behind Qwen3.8-Max, with **62.5 on SWE-Bench Pro** and 91.9 on LiveCodeBench v6. Unsloth's {{< link href="https://unsloth.ai/docs/models/qwen3.8-next" >}}guide{{< /link >}} puts the 4-bit quant at 96-114GB, so it's the strongest model that runs on a 128GB Mac without dropping below 4 bits. Read the **Qwen Community License** first: attribution is required above 100M monthly users or $20M monthly revenue, and any company (or affiliate) that runs a model-as-a-service or "AI work assistant" (AI coding or office-productivity) business needs a separate license before commercial use, regardless of size. Purely internal use, with nothing exposed to third parties, is exempt.
+It scores **40** on the index, level with Qwen3.8-2.4T-A95B, the open weights behind Qwen3.8-Max, with **62.5 on SWE-Bench Pro** and 91.9 on LiveCodeBench v6. Read the **Qwen Community License** first: attribution is required above 100M monthly users or $20M monthly revenue, and any company (or affiliate) that runs a model-as-a-service or "AI work assistant" (AI coding or office-productivity) business needs a separate license before commercial use, regardless of size. Purely internal use, with nothing exposed to third parties, is exempt.
+
+On a Mac, pick the GGUF carefully. Unsloth's {{< link href="https://unsloth.ai/docs/models/qwen3.8-next" >}}guide{{< /link >}} puts the 4-bit quant at 96-114GB, which is at or over the roughly 96GB that macOS lets the GPU use on a 128GB machine. {{< link href="https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF" >}}Atomic Chat's build{{< /link >}} keeps the 38GB n-gram table on SSD instead, so its 4.27bpw quant holds only 56GB in GPU memory, with room left for long context or a second model. Its 3.84bpw build even runs on a 64GB Mac, at a real quality cost. The [setup section below](#running-qwen38-flash-next-on-a-128gb-mac) explains why this works and has the commands.
 
 ### 7. Qwen3.8-27B (Alibaba) - best for a single GPU
 
@@ -297,6 +300,76 @@ ollama launch opencode --model qwen3.8:27b
 
 On an Apple Silicon Mac, use the `qwen3.8:27b-mlx` tag (also 18GB), which runs on Apple's MLX backend. Then open your repository and use it like any other terminal coding agent. Qwen3.8-27B thinks a lot by default, so if interactive edits feel slow, lower the reasoning effort for chat and keep it high for long agent runs.
 
+## Running Qwen3.8-Flash-Next on a 128GB Mac
+
+Ollama is the easy path for Qwen3.8-27B. Flash-Next on a Mac takes more care, because of a limit Apple's spec sheet doesn't mention: macOS doesn't give the GPU all of unified memory. By default it can wire about 75%, roughly 96GB on a 128GB machine. Check yours (`0` means the default is in force):
+
+```bash
+sysctl iogpu.wired_limit_mb
+```
+
+A standard 4-bit Flash-Next GGUF needs 96-114GB, so it sits at or over that line before you add any KV cache. You can raise the limit with `sudo sysctl iogpu.wired_limit_mb=<MB>`, which lasts until the next reboot (our {{< link href="/blog/self_hosting_llms_on_512gb_m5_ultra_mac_studio/" >}}512GB Mac Studio post{{< /link >}} covers how much to leave macOS), but on a 128GB machine that leaves very little for context. There's a better option.
+
+### Keep the n-gram table on SSD
+
+The 51B n-gram table is a lookup, not a matrix multiply. Each token hashes its last three tokens and reads 16 rows, about 2.7KB, so the table can stay on disk and get paged in on demand. At 36 tokens/s that's roughly 3MB/s of reads, and common n-grams stay in the page cache. llama.cpp memory-maps GGUF files by default, so in principle it already works this way. The catch, per {{< link href="https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF" >}}Atomic Chat's model card{{< /link >}}, is that Metal wires the entire mapped region of any shard that holds a GPU tensor, so a table sharing a shard with other weights gets pinned into GPU memory along with them. Atomic Chat's "AD" builds put the table alone in its own shard, which keeps it out:
+
+| Build | GPU memory | On SSD | Mean KLD | Same top-1 token |
+|---|---|---|---|---|
+| `AD-3.84bpw-IQ4_XS-M64` | 45.8GB | 39.1GB | 0.2277 | 82.68% |
+| `AD-4.27bpw-Q4_K_M-M64` | **56.1GB** | 38.4GB | **0.0842** | **89.49%** |
+| `AD-5.00bpw-Q5_K_M-M64` | 56.1GB | 54.4GB | 0.0837 | 89.55% |
+
+Get the 4.27bpw build. It matches the 5.00bpw build within measurement error, and at 56GB it leaves about 40GB under the default limit, so you don't have to touch the sysctl at all. Two caveats on the names. The bpw figure averages the whole file, and the Q5_1 n-gram table is 41% of it, so the expert weights in GPU memory are at 2.5 to 4.5 bits; the KLD column is the quality number to trust. And the 3.84bpw build is the one that gets Flash-Next onto a 64GB Mac (Atomic Chat measured 36 tokens/s on a 64GB M5 Max, and {{< link href="https://lilting.ch/en/articles/qwen38-flash-next-llamacpp-m1max-test" >}}an independent test{{< /link >}} got 17.6 tokens/s on a 64GB M1 Max), but most of its expert weights are at 1.75 bits and its KLD is 2.7 times higher. Mainline llama.cpp has supported the architecture since August 27 ({{< link href="https://github.com/ggml-org/llama.cpp/pull/27742" >}}PR #27742{{< /link >}}). Leave mmap on, which is the default, since that's what makes the table pageable.
+
+### Add a small model next to it
+
+That headroom is enough for a second model, and a good way to use it is to pair Flash-Next as the workhorse with {{< link href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF" >}}Gemma 4 26B-A4B{{< /link >}} for quick jobs and images. Gemma is a mixture-of-experts model with about 4B active parameters, Artificial Analysis estimates it at 17 on the same index, and Unsloth's QAT build is 14.2GB.
+
+| Model | Build | GPU memory |
+|---|---|---|
+| Qwen3.8-Flash-Next | Atomic Chat `AD-4.27bpw-Q4_K_M-M64`, table on SSD | 56.1GB |
+| Gemma 4 26B-A4B | Unsloth QAT `UD-Q4_K_XL` | 14.2GB |
+| **Total weights** | | **~70GB of the ~96GB default** |
+
+OpenCode already splits work this way. Its `small_model` option handles lightweight calls like session titles, and without one those go to your main model, where they compete with the agent turn you're waiting on. Run each model in its own `llama-server`:
+
+```bash
+# Workhorse on port 8080 (Q4_K_M picks the 4.27bpw build)
+llama-server -hf AtomicChat/Qwen3.8-Flash-Next-GGUF:Q4_K_M \
+  --jinja -ngl 99 -c 65536 -fa on -fit off --port 8080
+
+# Small model on port 8081
+llama-server -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
+  --jinja -ngl 99 -c 32768 --port 8081
+```
+
+Flash-Next needs `--jinja` (without it, turns can come out malformed) and `-fit off`, because llama.cpp's automatic memory fitting fails on this architecture. The card doesn't publish KV cache sizes and its own examples stop at 32K, so watch memory pressure in Activity Monitor the first time you push a session toward the 64K that OpenCode needs. Then point OpenCode at both servers in `opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "mac": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Flash-Next on this Mac",
+      "options": { "baseURL": "http://localhost:8080/v1" },
+      "models": { "flash-next": { "name": "Qwen3.8-Flash-Next" } }
+    },
+    "mac-small": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Gemma on this Mac",
+      "options": { "baseURL": "http://localhost:8081/v1" },
+      "models": { "gemma-4-26b": { "name": "Gemma 4 26B-A4B" } }
+    }
+  },
+  "model": "mac/flash-next",
+  "small_model": "mac-small/gemma-4-26b"
+}
+```
+
+The tradeoff is 14GB that Flash-Next could spend on context, so if long sessions start to squeeze, drop Gemma first. You don't need it for images, either: Flash-Next reads them itself through the 0.9GB `mmproj-Qwen3.8-Flash-Next-F16.gguf` projector in the same repo. And if you'd rather skip the terminal, the {{< link href="https://atomic.chat/" >}}Atomic Chat{{< /link >}} desktop app runs the same builds.
+
 ## Running the model on a GPU box and coding from your laptop
 
 A common setup is a workstation with the GPU at home or in the office and a laptop everywhere else. Ollama only listens on localhost, and it rejects requests whose `Host` header isn't a local name, so a plain tunnel gets `403 Forbidden`. A [Pinggy](https://pinggy.io/) tunnel can rewrite the header and require a key. On the GPU machine, run:
@@ -338,6 +411,6 @@ Once you've picked a model, these guides cover the rest:
 
 ## Conclusion
 
-Your hardware picks the model, not the leaderboard. With **one GPU**, run Qwen3.8-27B: Apache 2.0, 16-19GB at 4-bit, and it scores 34 on the index to the next-best small model's 25. With a **128GB Mac**, run Qwen3.8-Flash-Next if its license works for you. With **three or four 80GB GPUs**, run GLM-5.3-Flash under MIT. With **eight H200s**, MiMo-V2.6-Pro is the top open weight and comes with the simplest license of the leaders. Kimi K3 needs at least eight GB300-class GPUs.
+Your hardware picks the model, not the leaderboard. With **one GPU**, run Qwen3.8-27B: Apache 2.0, 16-19GB at 4-bit, and it scores 34 on the index to the next-best small model's 25. With a **128GB Mac**, run Qwen3.8-Flash-Next if its license works for you, in Atomic Chat's build that leaves the n-gram table on SSD; at 56GB it still leaves room for a small second model. With **three or four 80GB GPUs**, run GLM-5.3-Flash under MIT. With **eight H200s**, MiMo-V2.6-Pro is the top open weight and comes with the simplest license of the leaders. Kimi K3 needs at least eight GB300-class GPUs.
 
 On Artificial Analysis's current scale, the best open weight scores 46 to Claude Opus 5.5's 58. On vendor-reported Terminal-Bench 2.1, open weights have caught up. Check both again in a month; this field moves that fast.

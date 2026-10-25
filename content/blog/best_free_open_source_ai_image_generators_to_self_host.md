@@ -142,6 +142,8 @@ The catch is the license. The Qwen Research License allows use "FOR NON-COMMERCI
 
 {{< image "best_free_open_source_ai_image_generators/ideogram4.webp" "Collage of Ideogram 4.0 sample generations, from photoreal portraits to a typographic food logo and a circus poster" >}}
 
+For creators who prefer a hosted solution instead of managing open-weight models themselves, {{< link href="https://ideogram.ai/" >}}Ideogram AI{{< /link >}} offers an accessible platform for generating high-quality images with precise text and layout control.
+
 Ideogram's first open-weight release, shipped June 3, 2026, is a 9.3B diffusion transformer built around **structured JSON prompts**: you specify layout, color palettes and text placement directly, with bounding boxes, instead of hoping the model interprets your wording. The nf4 quantized checkpoint fits a single 24GB consumer GPU, and there's an fp8 checkpoint too. On the Arena, the Quality entry (generated through Ideogram's API) is the #2 open-weight model at 1,012, and the plain entry scores 1,004. Ideogram's newer 4.5 model (September 30) has no open weights yet.
 
 Read the license before you deploy anything: the weights are under the Ideogram 4 Non-Commercial license, which counts generating material to advertise or promote revenue-generating products as commercial use. With a commercial agreement from Ideogram in place, the marketing layouts, product brochures and brand assets it produces can be assembled into an interactive digital {{< link href="https://www.flipsnack.com/" >}}flipbook{{< /link >}}.

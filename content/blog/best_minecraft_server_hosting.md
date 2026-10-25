@@ -21,8 +21,8 @@ So here are seven hosts compared on the things that actually change how a server
 Seven Minecraft hosts, sorted by what each one is actually good at:
 
 1. **<a href="https://godlike.host/" target="_blank">Godlike.Host</a> - best overall.** In-house bare metal on Ryzen 9 9950X3D and EPYC 9474F, 12 regions, one-click installer for 1000+ CurseForge and Modrinth modpacks, Path.net DDoS filtering. No hourly billing.
-2. **<a href="https://serverprism.com/" target="_blank">ServerPrism</a> - best for running multiple servers.** One plan splits into a proxy, lobby and as many game servers as you need, 30+ switchable server engines, 1,500+ one-click modpacks. Fewer regions than the biggest hosts.
-3. **<a href="https://cloudnord.net/" target="_blank">CloudNord</a> - best for SMPs and public servers.** In-house, always-on DDoS protection, nodes kept below capacity, 18 locations, support replies in under 15 minutes on average. 3-day refund window.
+2. **<a href="https://serverprism.com/minecraft-server-hosting" target="_blank">ServerPrism</a> - best for modpacks and networks.** One plan splits into a proxy, lobby and as many game servers as you need, 30+ switchable server engines, 1,500+ one-click modpacks. Fewer regions than the biggest hosts.
+3. **<a href="https://cloudnord.net/minecraft-server-hosting" target="_blank">CloudNord</a> - best for DDoS-protected SMPs.** In-house, always-on DDoS protection, nodes kept below capacity, 18 locations, support replies in under 15 minutes on average. 3-day refund window.
 4. **<a href="https://nodecraft.com/" target="_blank">Nodecraft</a> - best if you play more than Minecraft.** Swap the same server between games at no extra fee, 4.9 on Trustpilot from 1,700+ reviews. The cheap Lite tier sleeps when idle.
 5. **<a href="https://pinehosting.com/" target="_blank">Pine Hosting</a> - best value for modded.** Ryzen 9 and NVMe, 8 locations, 4.9 on Trustpilot, 99.99% uptime claim. Newer company with a shorter track record.
 6. **<a href="https://ggservers.com/" target="_blank">GG Servers</a> - cheapest sane entry.** From $3/month, 9 locations, running since 2013, Java and Bedrock. Standard plans are DDR4 and SSD, and the refund window is 24 hours.
@@ -64,11 +64,11 @@ The panel installs Fabric, Forge, and Paper, plus a one-click installer for over
 
 **Best for:** first servers, casual groups, and communities that are growing and want the best price-to-performance ratio without managing anything.
 
-## 2. ServerPrism: best for running multiple servers
+## 2. ServerPrism: best Minecraft hosting for modpacks and networks
 
 {{< image "best_minecraft_server_hosting/serverprism.webp" "ServerPrism Minecraft Java Edition server hosting page with a One plan, split your way panel dividing a 12GB plan between Minecraft, Velocity, MariaDB and a Discord bot" >}}
 
-Running more than one server, whether a network, a test copy of your world or a second modpack, usually means paying for each one separately. <a href="https://serverprism.com/" target="_blank">ServerPrism</a> sells you a pool of RAM instead and lets you split it however you like: a 16GB plan can run a Velocity proxy, a lobby, a survival world and a minigames server side by side, each with its own IP and console, at no extra cost per split. Splits can be resized on the fly without restarting the others.
+Running more than one server, whether a network, a test copy of your world or a second modpack, usually means paying for each one separately. <a href="https://serverprism.com/minecraft-server-hosting" target="_blank">ServerPrism</a> sells you a pool of RAM instead and lets you split it however you like: a 16GB plan can run a Velocity proxy, a lobby, a survival world and a minigames server side by side, each with its own IP and console, at no extra cost per split. Splits can be resized on the fly without restarting the others. Underneath, the nodes run Ryzen 7 and Ryzen 9 CPUs with DDR5 ECC memory and PCIe Gen4 NVMe storage.
 
 Over 30 server engines, including Velocity, BungeeCord, Paper, Purpur, Fabric, NeoForge and Folia, can be switched from the panel without a reinstall, and more than <a href="https://serverprism.com/minecraft-server-hosting" target="_blank">1,500 modpacks</a> from CurseForge, Modrinth and FTB install in one click. Sub-users can also pay their share of the invoice with their own card, which helps when a whole staff team chips in.
 
@@ -86,13 +86,13 @@ Over 30 server engines, including Velocity, BungeeCord, Paper, Purpur, Fabric, N
 
 **Best for:** proxy networks, multi-server communities, and anyone running a test server alongside their main world.
 
-## 3. CloudNord: best for SMPs and public servers
+## 3. CloudNord: best DDoS-protected Minecraft SMP hosting
 
 {{< image "best_minecraft_server_hosting/cloudnord.webp" "CloudNord game server hosting homepage headline Game servers, close to your players, with 18 locations, support replies under 15 minutes and starting prices for Minecraft Java and Crossplay servers" >}}
 
-Once a server's IP is posted on Discord or shown on stream, it starts drawing DDoS attempts and sudden player spikes. <a href="https://cloudnord.net/" target="_blank">CloudNord</a> builds its own CloudShield DDoS filtering, which is always on and tuned to game traffic so real players stay connected. It also keeps spare capacity on every node, so a neighbour's busy evening doesn't drag down your TPS.
+Once a server's IP is posted on Discord or shown on stream, it starts drawing DDoS attempts and sudden player spikes. <a href="https://cloudnord.net/minecraft-server-hosting" target="_blank">CloudNord</a> builds its own CloudShield DDoS filtering, which is always on and tuned to game traffic so real players stay connected. It also keeps spare capacity on every node, so a neighbour's busy evening doesn't drag down your TPS.
 
-It's a UK company that has hosted only game servers since 2021, and creators and mod teams, including the Distant Horizons team, run their servers there. Locations span <a href="https://cloudnord.net/locations" target="_blank">18 cities on four continents</a>, backups are automatic, and support tickets get a reply in under 15 minutes on average.
+It's a UK company that has hosted only game servers since 2021, and creators and mod teams, including the Distant Horizons team, run their servers there. Locations span <a href="https://cloudnord.net/locations" target="_blank">18 cities on four continents</a>, backups are automatic, and support tickets get a reply in under 15 minutes on average. In the panel, modpacks install or switch in a few clicks, and every plan includes a full file manager and SFTP.
 
 **Pros**
 
