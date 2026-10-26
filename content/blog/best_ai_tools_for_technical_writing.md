@@ -60,12 +60,15 @@ A developer's week has more writing in it than the job title suggests, and each 
 
 ## 4 ways AI-written docs fail and how to catch each one
 
-AI for technical documentation speeds up drafting, but on its own it doesn't make docs more accurate or easier to read. These are the four failures we run into most often, each with its own check:
+AI for technical documentation speeds up drafting, but on its own it doesn't make docs more accurate or easier to read. These are the four failures we run into most often, each with its own check.
 
-- **Commands and code that look right but fail.** A model fills gaps with plausible names, so a flag or an endpoint may not exist. Run every sample before you merge.
-- **Examples written for an older version.** Training data lags behind your latest release, so drafts often use deprecated syntax. Give the model the current code or spec, and pin versions in install commands.
-- **Generic text with no project context.** "This tool helps developers work more efficiently" could describe any project. Replace it with the real command output or the error users actually hit.
-- **Docs that read like marketing copy.** Words like "powerful" and "effortless" make a README sound like a landing page, and developers skim right past them. A prose linter or an editing pass catches most of them.
+**Commands and code that look right but fail.** A model fills gaps with plausible names, so a flag or an endpoint may not exist. Run every sample before you merge.
+
+**Examples written for an older version.** Training data lags behind your latest release, so drafts often use deprecated syntax. Give the model the current code or spec, and pin versions in install commands.
+
+**Generic text with no project context.** "This tool helps developers work more efficiently" could describe any project. Replace it with the real command output or the error users actually hit.
+
+**Docs that read like marketing copy.** Words like "powerful" and "effortless" make a README sound like a landing page, and developers skim right past them. A prose linter or an editing pass catches most of them.
 
 ## The 10 best AI tools for technical writing and developer docs
 
@@ -79,21 +82,9 @@ Tools 1 to 3 draft, 4 to 6 host and organize docs, and 7 to 10 edit, capture and
 
 It's less useful when a doc needs context that isn't in the diff. For its coding features, see Pinggy's guide to the [best AI tools for coding](https://pinggy.io/blog/best_ai_tools_for_coding/).
 
-**Key features:**
+**Key features:** Pull request summaries on GitHub.com, chat and agent mode in VS Code, Visual Studio, JetBrains IDEs and Xcode, and, on Pro and up, a cloud agent that turns tasks into pull requests.
 
-- Pull request summaries on GitHub.com
-- Chat and agent mode in VS Code, Visual Studio, JetBrains IDEs and Xcode
-- A cloud agent that turns tasks into pull requests, on Pro and up
-
-**Pros:**
-
-- Works where you already write code
-- A free plan to try it on a real repo
-
-**Cons:**
-
-- PR summaries are English only and don't refresh when the PR changes
-- Paid usage is metered in AI credits
+**Pros and cons:** It works where you already write code, and the free plan is enough to try it on a real repo. The catch is that PR summaries are English only and don't refresh when the PR changes, and paid usage is metered in AI credits.
 
 **Pricing:** The Free plan includes 2,000 inline suggestions a month and limited chat. Pro costs $10 a month, and Pro+ costs $39.
 
@@ -103,21 +94,9 @@ It's less useful when a doc needs context that isn't in the diff. For its coding
 
 {{< link href="https://chatgpt.com/" >}}ChatGPT{{< /link >}} is the quickest way to turn rough notes into a first draft. To write a README with AI, paste your install steps, a few usage examples and one line on what the project does, then ask for installation, usage and troubleshooting sections. Projects let one style note guide every draft. The GitHub plugin can read repositories you allow, depending on your plan, but it's read-only and doesn't index them.
 
-**Key features:**
+**Key features:** Projects with shared files and instructions, a GitHub plugin for reading permitted repositories, and deep research for longer explainers.
 
-- Projects with shared files and instructions
-- A GitHub plugin for reading permitted repositories
-- Deep research for longer explainers
-
-**Pros:**
-
-- Fast, well-structured first drafts
-- A free plan that covers everyday drafting
-
-**Cons:**
-
-- Can present invented commands and flags with full confidence
-- The GitHub plugin can't sync or index a repository
+**Pros and cons:** First drafts come back fast and well structured, and the free plan covers everyday drafting. But it can present invented commands and flags with full confidence, and the GitHub plugin can't sync or index a repository.
 
 **Pricing:** A free plan is available. Go costs $8 a month in the US, with local pricing in some markets, and Plus costs $20 a month.
 
@@ -127,21 +106,9 @@ It's less useful when a doc needs context that isn't in the diff. For its coding
 
 {{< link href="https://claude.ai/" >}}Claude{{< /link >}} suits docs that depend on a lot of source material at once. Its context window goes up to 1M tokens, depending on the model, which is enough for a full OpenAPI spec and much of a codebase. The GitHub integration adds a branch's files to a chat or project, so a reference page can follow the actual code. It reads files, not commit history or pull requests, so a changelog still needs the PR list pasted in.
 
-**Key features:**
+**Key features:** A context window of up to 1M tokens (depending on the model), a GitHub integration for chats and projects, and Projects for shared files and instructions.
 
-- A context window of up to 1M tokens, depending on the model
-- A GitHub integration for chats and projects
-- Projects for shared files and instructions
-
-**Pros:**
-
-- Handles long specs and many files in one conversation
-- Up to five Projects on the Free plan
-
-**Cons:**
-
-- A synced repo must fit in the context window
-- Session limits reset every five hours, with weekly limits on top
+**Pros and cons:** It handles long specs and many files in one conversation, and the Free plan includes up to five Projects. On the other side, a synced repo has to fit in the context window, and session limits reset every five hours, with weekly limits on top.
 
 **Pricing:** A free plan is available. Pro costs $20 a month, or $17 a month billed annually, and Max starts at $100 a month.
 
@@ -151,21 +118,9 @@ It's less useful when a doc needs context that isn't in the diff. For its coding
 
 {{< link href="https://mintlify.com/" >}}Mintlify{{< /link >}} is a docs-as-code platform: pages live as MDX files in your Git repo, and a push deploys the site. It builds an interactive API playground from an OpenAPI file and publishes `llms.txt` and an MCP server, so coding assistants can read your docs directly. On Pro, its agent drafts doc changes as pull requests, and the Assistant answers readers' questions from your docs, using monthly AI credits.
 
-**Key features:**
+**Key features:** Git sync with GitHub, GitLab and Bitbucket Cloud, an API playground generated from OpenAPI, and CI checks for broken links and Vale linting on Pro.
 
-- Git sync with GitHub, GitLab and Bitbucket Cloud
-- An API playground generated from OpenAPI
-- CI checks for broken links and Vale linting on Pro
-
-**Pros:**
-
-- Docs go through normal code review
-- Free Pro for approved non-commercial open-source projects
-
-**Cons:**
-
-- The free plan has no AI assistant or writing agent
-- A steep price step from Starter to Pro
+**Pros and cons:** Docs go through normal code review, and approved non-commercial open-source projects get Pro for free. The free plan has no AI assistant or writing agent, though, and the price jump from Starter to Pro is steep.
 
 **Pricing:** Starter is free with five editor seats. Pro costs $450 a month billed annually, or $540 billed monthly.
 
@@ -175,21 +130,9 @@ It's less useful when a doc needs context that isn't in the diff. For its coding
 
 {{< link href="https://readme.com/" >}}ReadMe{{< /link >}} takes a different route from a generic AI API documentation generator. It builds an interactive API reference from your OpenAPI spec and syncs both ways with GitHub, so the reference follows the spec rather than a model's description of it. Every plan publishes `llms.txt` and an MCP server. Pro adds an AI Linter that checks pages against style rules written in plain language, and an AI Writer that proposes doc updates from pull requests.
 
-**Key features:**
+**Key features:** An interactive API reference generated from OpenAPI, bi-directional GitHub sync, and the AI Linter and AI Writer on Pro.
 
-- An interactive API reference generated from OpenAPI
-- Bi-directional GitHub sync
-- AI Linter and AI Writer on Pro
-
-**Pros:**
-
-- Reference pages come from the spec, not from generated prose
-- A free Starter plan with a custom domain
-
-**Cons:**
-
-- Starter covers one project, one version and one admin
-- The AI Linter skips API reference endpoints
+**Pros and cons:** Reference pages come from the spec, not from generated prose, and the free Starter plan includes a custom domain. Starter is limited to one project, one version and one admin, and the AI Linter skips API reference endpoints.
 
 **Pricing:** Starter is free. Pro costs $250 a month billed annually, and the Ask AI assistant for readers is a $150 monthly add-on.
 
@@ -199,21 +142,9 @@ It's less useful when a doc needs context that isn't in the diff. For its coding
 
 {{< link href="https://www.notion.com/product/ai" >}}Notion AI{{< /link >}} fits internal docs: runbooks, onboarding pages and architecture notes. On Business and Enterprise it answers questions from your workspace and connected apps, and its GitHub connector indexes code, pull requests, issues and READMEs, so "how do we rotate the staging certificate?" can draw on the runbook and the repo together. It's a wiki, not a docs-as-code tool, so pages live in Notion rather than in your repo.
 
-**Key features:**
+**Key features:** Enterprise Search (in beta) across pages and apps such as GitHub and Slack, Notion Agent for drafting and editing pages, and AI Meeting Notes for decisions that belong in a runbook.
 
-- Enterprise Search (in beta) across pages and apps such as GitHub and Slack
-- Notion Agent for drafting and editing pages
-- AI Meeting Notes for decisions that belong in a runbook
-
-**Pros:**
-
-- Suits runbooks and onboarding docs that change often
-- Members see only the GitHub repos they can access
-
-**Cons:**
-
-- Free and Plus plans get only a trial of Notion AI
-- The GitHub connector doesn't support wikis or forked repos
+**Pros and cons:** It suits runbooks and onboarding docs that change often, and members only see the GitHub repos they can access. Free and Plus plans get just a trial of Notion AI, and the GitHub connector doesn't support wikis or forked repos.
 
 **Pricing:** Full Notion AI starts with Business at $20 per seat a month billed yearly, or $24 billed monthly.
 
@@ -223,21 +154,9 @@ It's less useful when a doc needs context that isn't in the diff. For its coding
 
 GPTinf is an {{< link href="https://www.gptinf.com/humanize-text" >}}AI humanizer{{< /link >}} for the prose around your code: tutorials, blog posts and release announcements that read flat after an AI draft. It rebuilds sentences instead of swapping synonyms, so a paragraph that leans on "Additionally" and "Furthermore" comes back with varied structure. Paste the paragraphs without code blocks, then compare the result with your original: a rewrite can loosen a precise term, turning a "flag" into a "switch".
 
-**Key features:**
+**Key features:** Sentence-level rewriting in Standard or Academic mode, pasted text or uploaded PDF, Word and plain-text files, and a built-in check that scores the rewrite.
 
-- Sentence-level rewriting in Standard or Academic mode
-- Paste text or upload a PDF, Word or plain-text file
-- A built-in check that scores the rewrite
-
-**Pros:**
-
-- No account needed for free use
-- Grammar and readability checkers on the same site
-
-**Cons:**
-
-- Built for prose: it doesn't help with code or check technical accuracy
-- A rewrite can change a technical term, so every result needs a reread
+**Pros and cons:** Free use needs no account, and the same site has grammar and readability checkers. It's built for prose, so it won't help with code or check technical accuracy, and since a rewrite can change a technical term, every result needs a reread.
 
 **Pricing:** Free use covers 300 words per request without an account and 500 with a free account. Lite costs $9.99 a month for 5,000 words of rewriting, and yearly billing halves the monthly rate.
 
@@ -247,21 +166,9 @@ GPTinf is an {{< link href="https://www.gptinf.com/humanize-text" >}}AI humanize
 
 {{< link href="https://www.grammarly.com/" >}}Grammarly{{< /link >}} helps with clarity and tone, which matters most for maintainers who write in English as a second language. Pro adds full-sentence rewrites, tone adjustment and a fluency feature for non-native writers. It runs in browsers, desktop apps, Confluence, Jira and Slack, but it isn't built for code: its editor won't take Markdown uploads, and VS Code on Mac isn't supported.
 
-**Key features:**
+**Key features:** Full-sentence rewrites, tone adjustment and one custom style guide for terminology on Pro, plus browser extensions for Chrome, Safari, Firefox and Edge.
 
-- Full-sentence rewrites and tone adjustment on Pro
-- One custom style guide for terminology on Pro
-- Browser extensions for Chrome, Safari, Firefox and Edge
-
-**Pros:**
-
-- Useful help for non-native English writers
-- Works where docs get reviewed
-
-**Cons:**
-
-- Markdown files can't be uploaded to its editor
-- Most rewriting features need Pro
+**Pros and cons:** It's useful help for non-native English writers, and it works where docs get reviewed. But Markdown files can't be uploaded to its editor, and most rewriting features need Pro.
 
 **Pricing:** The free plan includes 100 AI prompts a month. Pro costs $12 per member a month billed annually, or $30 billed monthly.
 
@@ -271,21 +178,9 @@ GPTinf is an {{< link href="https://www.gptinf.com/humanize-text" >}}AI humanize
 
 {{< link href="https://scribe.com/" >}}Scribe{{< /link >}} records a process while you click through it and turns each click into a step with a screenshot. That makes quick work of console walkthroughs, like registering an OAuth app, adding a webhook or creating a DNS record in a provider's dashboard. It's built around clicks, so terminal-heavy procedures still need a written guide with code blocks.
 
-**Key features:**
+**Key features:** Automatic step capture with the Chrome or Edge extension, plus screenshot editing, manual redaction and export to PDF, HTML and Markdown on Pro.
 
-- Automatic step capture with the Chrome or Edge extension
-- Screenshot editing and manual redaction on Pro
-- Export to PDF, HTML and Markdown on Pro
-
-**Pros:**
-
-- Unlimited guides on the free plan
-- Saves writing UI steps by hand
-
-**Cons:**
-
-- Desktop capture and exports need a paid plan
-- Exports are snapshots, so a changed guide has to be exported again
+**Pros and cons:** The free plan allows unlimited guides, and you stop writing UI steps by hand. Desktop capture and exports need a paid plan, and exports are snapshots, so a changed guide has to be exported again.
 
 **Pricing:** Basic is free. Pro Personal costs $25 per seat a month billed yearly, or $35 billed monthly.
 
@@ -295,31 +190,21 @@ GPTinf is an {{< link href="https://www.gptinf.com/humanize-text" >}}AI humanize
 
 {{< link href="https://www.perplexity.ai/" >}}Perplexity{{< /link >}} answers research questions with inline citations, which is what comparison posts and explainers need. Ask how QUIC handles connection migration, and each claim in the answer links to its source, so you can check it before it goes into a draft. Citations make checking faster, not optional: a source can be out of date or say less than the summary suggests.
 
-**Key features:**
+**Key features:** Inline citations in every answer on every plan, a choice of AI models on Pro, and file uploads, with higher limits on paid plans.
 
-- Inline citations in every answer, on every plan
-- A choice of AI models on Pro
-- File uploads, with higher limits on paid plans
-
-**Pros:**
-
-- Every claim comes with a visible source
-- A free plan for occasional research
-
-**Cons:**
-
-- Pro limits are described only as weekly limits, with no numbers
-- Not built for drafting long docs
+**Pros and cons:** Every claim comes with a visible source, and the free plan is enough for occasional research. It isn't built for drafting long docs, and Pro's limits are described only as weekly limits, with no actual numbers.
 
 **Pricing:** A free plan is available. Pro costs $17 a month billed annually.
 
 ## Honorable mentions: 3 more tools for docs sites and style checks
 
-These three solve narrower problems:
+These three solve narrower problems.
 
-- **{{< link href="https://docusaurus.io/" >}}Docusaurus{{< /link >}}:** Meta's MIT-licensed static site generator has no built-in AI, but its Algolia DocSearch integration can add Ask AI, which runs on your own LLM provider, so you pay only for that usage.
-- **{{< link href="https://vale.sh/" >}}Vale{{< /link >}}:** an MIT-licensed command-line prose linter that skips code blocks and has packages for the Microsoft style guide and the {{< link href="https://developers.google.com/style" >}}Google developer documentation style guide{{< /link >}}. It's rule-based, so the same text gets the same result in every CI run.
-- **{{< link href="https://swimm.io/" >}}Swimm{{< /link >}}:** known for code-coupled docs that flag outdated pages. It now sells enterprise legacy modernization through sales, with no public pricing, so it suits large legacy codebases more than small teams.
+**{{< link href="https://docusaurus.io/" >}}Docusaurus{{< /link >}}**, Meta's MIT-licensed static site generator, has no built-in AI, but its Algolia DocSearch integration can add Ask AI. That runs on your own LLM provider, so you pay only for that usage.
+
+**{{< link href="https://vale.sh/" >}}Vale{{< /link >}}** is an MIT-licensed command-line prose linter that skips code blocks and has packages for the Microsoft style guide and the {{< link href="https://developers.google.com/style" >}}Google developer documentation style guide{{< /link >}}. It's rule-based, so the same text gets the same result in every CI run.
+
+**{{< link href="https://swimm.io/" >}}Swimm{{< /link >}}** is known for code-coupled docs that flag outdated pages. It now sells enterprise legacy modernization through sales, with no public pricing, so it suits large legacy codebases more than small teams.
 
 ## A 5-step workflow for publishing AI-assisted docs
 
@@ -360,13 +245,6 @@ Docs work pulls real configs and logs into prompts, and that's where secrets lea
 
 ## Pick two or three tools that fit your stack
 
-Using AI for technical writing gets you a first draft of almost any doc, but the maintainer still owns accuracy and voice. Pick by the doc you write most:
-
-- **Doc comments and PR summaries:** GitHub Copilot.
-- **READMEs and tutorials from notes or a repo:** ChatGPT or Claude.
-- **A public docs site or API reference:** Mintlify or ReadMe.
-- **Internal runbooks and onboarding:** Notion AI.
-- **Console walkthroughs and sourced research:** Scribe and Perplexity.
-- **Public prose that reads flat or unclear:** GPTinf or Grammarly, with Vale in CI.
+Using AI for technical writing gets you a first draft of almost any doc, but the maintainer still owns accuracy and voice. Pick by the doc you write most. GitHub Copilot covers doc comments and PR summaries, and ChatGPT or Claude handle READMEs and tutorials from notes or a repo. For a public docs site or API reference, go with Mintlify or ReadMe, and for internal runbooks and onboarding, Notion AI. Scribe and Perplexity take care of console walkthroughs and sourced research. When public prose reads flat or unclear, use GPTinf or Grammarly, with Vale in CI.
 
 This week, pick one drafting tool and one checking step, run every code sample before you merge, and add a third tool only when a doc type keeps slowing you down.
