@@ -2,7 +2,7 @@
 title: "localhost:3080 - Guía del puerto de la aplicación web LibreChat"
 description: "Guía completa de localhost:3080 - el puerto por defecto de LibreChat, un clon de ChatGPT de código abierto muy completo."
 date: 2026-03-06T10:00:00+05:30
-lastmod: 2026-08-01T10:00:00+05:30
+lastmod: 2026-10-24T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "librechat", "llm", "ai", "chatgpt"]
 schemahowto: true
@@ -11,13 +11,13 @@ outputs:
   - AMP
 ---
 
-<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px;">
-  <h2 style="margin: 0 0 15px 0; color: white; font-size: 2.2em;">localhost:3080</h2>
-  <p style="margin: 0 0 20px 0; color: rgba(255,255,255,0.9); font-size: 1.1em;">Puerto de la aplicación web LibreChat</p>
-  <a href="http://localhost:3080" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); transition: all 0.3s ease; border: none;">
-    🤖 Abrir localhost:3080
+<div class="kyp-hero">
+  <p class="kyp-hero__port">localhost:3080</p>
+  <p class="kyp-hero__sub">Puerto de la aplicación web LibreChat</p>
+  <a href="http://localhost:3080" target="_blank" class="kyp-hero__btn">
+    Abrir localhost:3080
   </a>
-  <p style="margin: 15px 0 0 0; font-size: 13px; color: rgba(255,255,255,0.8); font-style: italic;">
+  <p class="kyp-hero__note">
     Accede a tu interfaz de LibreChat en el puerto 3080
   </p>
 </div>
@@ -42,11 +42,11 @@ Así expones el chatbot al instante. Mantienes el control total sobre tus prompt
 
 ## Servicios y programas que usan el puerto 3080
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+<div class="kyp-grid">
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🤖 IA e interfaces multimodales</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>IA e interfaces multimodales</h3>
+<ul>
 <li><strong>{{< link href="https://librechat.ai/" >}}LibreChat{{< /link >}}</strong>: el principal clon de ChatGPT con soporte multimodelo</li>
 </ul>
 </div>
@@ -61,22 +61,22 @@ Cuando trabajas en local, configuras un archivo `.env` con las distintas claves 
 
 Si no consigues abrir `localhost:3080`, así puedes diagnosticar y solucionar los fallos más comunes del servidor de LibreChat:
 
-<div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #856404; margin: 0 0 15px 0;">🔍 Paso 1: comprueba que LibreChat está en marcha</h3>
-<p style="margin: 0 0 10px 0;"><strong>Acción:</strong> confirma que el stack de Docker Compose arrancó correctamente.</p>
-<p style="margin: 0;"><strong>Cómo comprobarlo:</strong> ejecuta <code>docker ps</code> y busca los contenedores de la API y la interfaz de LibreChat.</p>
+<div class="kyp-step">
+<h3>Paso 1: comprueba que LibreChat está en marcha</h3>
+<p><strong>Acción:</strong> confirma que el stack de Docker Compose arrancó correctamente.</p>
+<p><strong>Cómo comprobarlo:</strong> ejecuta <code>docker ps</code> y busca el contenedor <code>LibreChat</code>, que sirve tanto la interfaz como la API, junto a <code>chat-mongodb</code> y <code>chat-meilisearch</code>.</p>
 </div>
 
-<div style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #0c5460; margin: 0 0 15px 0;">🚫 Paso 2: resuelve los conflictos de puerto</h3>
-<p style="margin: 0 0 10px 0;"><strong>Acción:</strong> asegúrate de que ningún otro programa está usando el puerto 3080.</p>
-<p style="margin: 0;"><strong>Cómo arreglarlo:</strong> usa <code>lsof -i :3080</code> (macOS/Linux) o <code>netstat -ano | findstr :3080</code> (Windows) para comprobar si está libre.</p>
+<div class="kyp-step">
+<h3>Paso 2: resuelve los conflictos de puerto</h3>
+<p><strong>Acción:</strong> asegúrate de que ningún otro programa está usando el puerto 3080.</p>
+<p><strong>Cómo arreglarlo:</strong> usa <code>lsof -i :3080</code> (macOS/Linux) o <code>netstat -ano | findstr :3080</code> (Windows) para comprobar si está libre. Desde la v0.8.7, el <code>docker-compose.yml</code> por defecto también arranca un panel de administración en el puerto 3000; si el 3000 ya está ocupado, define <code>ADMIN_PANEL_PORT</code> en el <code>.env</code>.</p>
 </div>
 
-<div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #155724; margin: 0 0 15px 0;">🌐 Paso 3: prueba la conexión</h3>
-<p style="margin: 0 0 10px 0;"><strong>Acción:</strong> verifica que la interfaz local responde.</p>
-<p style="margin: 0;"><strong>Cómo probarlo:</strong> abre <code>http://localhost:3080</code> en tu navegador.</p>
+<div class="kyp-step">
+<h3>Paso 3: prueba la conexión</h3>
+<p><strong>Acción:</strong> verifica que la interfaz local responde.</p>
+<p><strong>Cómo probarlo:</strong> abre <code>http://localhost:3080</code> en tu navegador.</p>
 </div>
 
 ---
@@ -85,18 +85,18 @@ Si no consigues abrir `localhost:3080`, así puedes diagnosticar y solucionar lo
 
 Estos son los fallos típicos con `localhost:3080` y cómo resolverlos:
 
-<div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 25px 0;">
+<div class="kyp-problems">
 
-<div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e74c3c; margin: 0 0 10px 0;">❌ Error «Something went wrong»</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problema:</strong> la interfaz carga, pero los chats fallan al momento.</p>
-<p style="margin: 0;"><strong>Solución:</strong> revisa tu archivo <code>.env</code> y comprueba que los contenedores de MongoDB y Meilisearch también están sanos y funcionando.</p>
+<div class="kyp-problem">
+<h3>Error «Something went wrong»</h3>
+<p><strong>Problema:</strong> la interfaz carga, pero los chats fallan al momento.</p>
+<p><strong>Solución:</strong> revisa tu archivo <code>.env</code> y comprueba que los contenedores de MongoDB y Meilisearch también están sanos y funcionando.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #f39c12; margin: 0 0 10px 0;">⚠️ El registro falla</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problema:</strong> iniciar sesión o crear un usuario nuevo da error.</p>
-<p style="margin: 0;"><strong>Solución:</strong> revisa los ajustes de registro de usuarios en el archivo de configuración. Algunas versiones desactivan el registro público por defecto.</p>
+<div class="kyp-problem">
+<h3>El registro falla</h3>
+<p><strong>Problema:</strong> iniciar sesión o crear un usuario nuevo da error.</p>
+<p><strong>Solución:</strong> revisa <code>ALLOW_REGISTRATION</code> en tu <code>.env</code>: si vale <code>false</code>, se bloquean las altas nuevas (el <code>.env.example</code> que trae el proyecto lo deja en <code>true</code>).</p>
 </div>
 
 </div>
@@ -107,10 +107,10 @@ Estos son los fallos típicos con `localhost:3080` y cómo resolverlos:
 
 * **Qué es**: `localhost:3080` es el puerto por defecto de la interfaz de LibreChat.
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;">
-<h3 style="margin: 0 0 15px 0; font-size: 1.4em;">🚀 Comandos rápidos</h3>
-<div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin: 15px 0;">
-<code style="display: block; color: #fff; font-size: 14px; line-height: 1.6;">
+<div class="kyp-quick">
+<h3>Comandos rápidos</h3>
+<div class="kyp-quick__code">
+<code>
 # Arrancar LibreChat<br>
 docker compose up -d
 </code>

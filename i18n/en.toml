@@ -77,6 +77,8 @@ enterYourToken = "Enter your token"
 # Know your ports
 readMore = "Read More…"
 knowYourPorts = "Know Your Ports"
+knowYourPortsIntro = "What usually runs on common localhost ports, and how to fix them when they won't load."
+openPortInNewTab = "Open {{ .Port }} in a new tab"
 
 # Product navbar
 navUseCases = "Use Cases"

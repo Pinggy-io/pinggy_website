@@ -2,7 +2,7 @@
 title: "localhost:11434 - Ollama Local LLM Port Guide"
 description: "Complete guide to localhost:11434 - the default port for Ollama, the popular open-source tool for running local LLMs."
 date: 2026-03-06T10:00:00+05:30
-lastmod: 2026-07-31T10:00:00+05:30
+lastmod: 2026-10-24T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "ollama", "llm", "ai", "development"]
 schemahowto: true
@@ -11,13 +11,13 @@ outputs:
   - AMP
 ---
 
-<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px;">
-  <h2 style="margin: 0 0 15px 0; color: white; font-size: 2.2em;">localhost:11434</h2>
-  <p style="margin: 0 0 20px 0; color: rgba(255,255,255,0.9); font-size: 1.1em;">Ollama API Server Port</p>
-  <a href="http://localhost:11434" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); transition: all 0.3s ease; border: none;">
-    🦙 Open localhost:11434
+<div class="kyp-hero">
+  <p class="kyp-hero__port">localhost:11434</p>
+  <p class="kyp-hero__sub">Ollama API Server Port</p>
+  <a href="http://localhost:11434" target="_blank" class="kyp-hero__btn">
+    Open localhost:11434
   </a>
-  <p style="margin: 15px 0 0 0; font-size: 13px; color: rgba(255,255,255,0.8); font-style: italic;">
+  <p class="kyp-hero__note">
     Access your local Ollama instance running on port 11434
   </p>
 </div>
@@ -41,28 +41,30 @@ This command creates a secure tunnel that forwards traffic from a public URL to 
 - **Integrate AI tools** without paying for expensive cloud GPUs
 - **Build applications** using a secure external endpoint for your local AI backend
 
+Ollama answers `403 Forbidden` to any request whose `Host` header isn't a local name like `localhost`, so to call the API through the tunnel, rewrite the header: `ssh -p 443 -R0:localhost:11434 -t free.pinggy.io "u:Host:localhost:11434"`.
+
 ---
 
 ## Services and Software That Use Port 11434
 
 Port 11434 is deeply entrenched in the local AI ecosystem. Here are the main applications that connect with this port:
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+<div class="kyp-grid">
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🦙 Core AI Engine</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Core AI Engine</h3>
+<ul>
 <li><strong>{{< link href="https://ollama.com/" >}}Ollama API{{< /link >}}</strong>: The main server for managing local LLMs</li>
 <li><strong>Ollama CLI</strong>: Tool to manually pull and run models</li>
 </ul>
 </div>
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🖥️ Frontend AI Clients</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Frontend AI Clients</h3>
+<ul>
 <li><strong>{{< link href="https://openwebui.com/" >}}Open WebUI{{< /link >}}</strong>: Connects to 11434 for model inference</li>
-<li><strong>{{< link href="https://lobechat.com/" >}}LobeChat{{< /link >}}</strong>: Modern interface connecting to Ollama</li>
-<li><strong>{{< link href="https://useanything.com/" >}}AnythingLLM{{< /link >}}</strong>: Connects to use Ollama models natively</li>
+<li><strong>{{< link href="https://lobehub.com/" >}}LobeHub{{< /link >}}</strong>: Formerly LobeChat, a modern interface connecting to Ollama</li>
+<li><strong>{{< link href="https://anythingllm.com/" >}}AnythingLLM{{< /link >}}</strong>: Connects to use Ollama models natively</li>
 </ul>
 </div>
 
@@ -76,40 +78,40 @@ When you launch Ollama, it automatically starts its server in the background, li
 
 If you can't access `localhost:11434`, here's how to diagnose and fix common Ollama server issues:
 
-<div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #856404; margin: 0 0 15px 0;">🔍 Step 1: Check if the Server is Running</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Confirm that your Ollama server is active.</p>
-<p style="margin: 0;"><strong>How to check:</strong> Run <code>ollama serve</code> in your terminal or ensure the Ollama desktop app is open.</p>
+<div class="kyp-step">
+<h3>Step 1: Check if the Server is Running</h3>
+<p><strong>Action:</strong> Confirm that your Ollama server is active.</p>
+<p><strong>How to check:</strong> Run <code>ollama serve</code> in your terminal or ensure the Ollama desktop app is open.</p>
 </div>
 
-<div style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #0c5460; margin: 0 0 15px 0;">🚫 Step 2: Resolve Port Conflicts</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Ensure no other program is using port 11434.</p>
-<p style="margin: 0;"><strong>How to fix:</strong> Use <code>lsof -i :11434</code> (macOS/Linux) or <code>netstat -ano | findstr :11434</code> (Windows) to see if another process took the port.</p>
+<div class="kyp-step">
+<h3>Step 2: Resolve Port Conflicts</h3>
+<p><strong>Action:</strong> Ensure no other program is using port 11434.</p>
+<p><strong>How to fix:</strong> Use <code>lsof -i :11434</code> (macOS/Linux) or <code>netstat -ano | findstr :11434</code> (Windows) to see if another process took the port.</p>
 </div>
 
-<div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #155724; margin: 0 0 15px 0;">🌐 Step 3: Test the Connection</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the server is accessible.</p>
-<p style="margin: 0;"><strong>How to test:</strong> Navigate to <code>http://localhost:11434</code> in a browser. You should see a simple message saying "Ollama is running".</p>
+<div class="kyp-step">
+<h3>Step 3: Test the Connection</h3>
+<p><strong>Action:</strong> Verify that the server is accessible.</p>
+<p><strong>How to test:</strong> Navigate to <code>http://localhost:11434</code> in a browser. You should see a simple message saying "Ollama is running".</p>
 </div>
 
 ---
 
 ## Common Problems and Solutions
 
-<div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 25px 0;">
+<div class="kyp-problems">
 
-<div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e74c3c; margin: 0 0 10px 0;">❌ "ollama is running" Text Missing</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> Localhost doesn't load.</p>
-<p style="margin: 0;"><strong>Solution:</strong> Ollama likely stopped. Restart the application or run <code>ollama serve</code> in the terminal.</p>
+<div class="kyp-problem">
+<h3>"ollama is running" Text Missing</h3>
+<p><strong>Problem:</strong> Localhost doesn't load.</p>
+<p><strong>Solution:</strong> Ollama likely stopped. Restart the application or run <code>ollama serve</code> in the terminal.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #f39c12; margin: 0 0 10px 0;">⚠️ Cross-Origin (CORS) Errors</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> A web-based UI rejects the connection.</p>
-<p style="margin: 0;"><strong>Solution:</strong> Set the environment variable <code>OLLAMA_ORIGINS="*"</code> before starting your server.</p>
+<div class="kyp-problem">
+<h3>Cross-Origin (CORS) Errors</h3>
+<p><strong>Problem:</strong> A web-based UI rejects the connection.</p>
+<p><strong>Solution:</strong> Set the environment variable <code>OLLAMA_ORIGINS="*"</code> before starting your server.</p>
 </div>
 
 </div>
@@ -123,14 +125,14 @@ If you can't access `localhost:11434`, here's how to diagnose and fix common Oll
 * **Troubleshooting**: Check if the app is running in the background, ensure you don't have overlapping port bindings, and configure CORS if needed.
 * **Common fixes**: Restart the Ollama daemon or service to re-claim port 11434.
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;">
-<h3 style="margin: 0 0 15px 0; font-size: 1.4em;">🚀 Quick Start Commands</h3>
-<div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin: 15px 0;">
-<code style="display: block; color: #fff; font-size: 14px; line-height: 1.6;">
+<div class="kyp-quick">
+<h3>Quick Start Commands</h3>
+<div class="kyp-quick__code">
+<code>
 # Start Ollama server<br>
 ollama serve<br><br>
 # Download and run a test model<br>
-ollama run llama3
+ollama run gemma4
 </code>
 </div>
 </div>
