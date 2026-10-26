@@ -440,6 +440,8 @@ While the eleven platforms above cover most marketing team needs, several other 
 
 **{{< link href="https://invideo.io/remote-agents/" >}}invideo remote agents{{< /link >}}** - Connects the AI agents you already use, such as Claude, ChatGPT, Claude Code, Codex, or Cursor, to invideo editor over MCP. You ask your agent for the cut, and it edits the timeline in invideo editor while you watch, with each edit showing under its own cursor. It is a normal editable timeline, so you can change any edit yourself, then export a video or a project for Premiere Pro, Final Cut Pro, or DaVinci Resolve. An invideo account is required.
 
+{{< image "best_ai_agents_for_marketing/invideo.webp" "invideo Remote Agents MCP Video Editor" >}}
+
 **{{< link href="https://www.canva.com" >}}Canva (Magic Studio){{< /link >}}** - Canva's AI suite includes Magic Write for copy, Magic Design for instant layouts, Magic Edit for image manipulation, and text-to-image generation. The most accessible design AI for non-designers, integrated into the platform used by 190+ million users.
 
 {{< image "best_ai_agents_for_marketing/canva.webp" "Canva Magic Studio AI Design" >}}
