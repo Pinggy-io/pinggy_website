@@ -2,7 +2,7 @@
 title: "localhost:5173 - Vite Development Server Port Guide"
 description: "Complete guide to localhost:5173 - the default port for Vite development server used by Vue.js, React, and modern frontend frameworks."
 date: 2025-01-30T10:00:00+05:30
-lastmod: 2026-07-31T10:00:00+05:30
+lastmod: 2026-10-24T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "vite", "vue", "react", "frontend", "development"]
 schemahowto: true
@@ -11,13 +11,13 @@ outputs:
   - AMP
 ---
 
-<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px;">
-  <h2 style="margin: 0 0 15px 0; color: white; font-size: 2.2em;">localhost:5173</h2>
-  <p style="margin: 0 0 20px 0; color: rgba(255,255,255,0.9); font-size: 1.1em;">Vite Development Server Port</p>
-  <a href="http://localhost:5173" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); transition: all 0.3s ease; border: none;">
-    ⚡ Open localhost:5173
+<div class="kyp-hero">
+  <p class="kyp-hero__port">localhost:5173</p>
+  <p class="kyp-hero__sub">Vite Development Server Port</p>
+  <a href="http://localhost:5173" target="_blank" class="kyp-hero__btn">
+    Open localhost:5173
   </a>
-  <p style="margin: 15px 0 0 0; font-size: 13px; color: rgba(255,255,255,0.8); font-style: italic;">
+  <p class="kyp-hero__note">
     Vite's default dev server, with HMR over native ES modules
   </p>
 </div>
@@ -26,7 +26,7 @@ outputs:
 
 There's a small joke in the number itself: 5-1-7-3 reads as V-I-T-E if you squint at a phone keypad. Cute, but the reason most frontend projects you touch in 2026 land on this port is more boring - Vite is the default dev server for almost every modern framework.
 
-As of 2026, Vite 8 ships with **{{< link href="https://rolldown.rs/" >}}Rolldown{{< /link >}}**, a Rust-based bundler that replaces the old Rollup + esbuild split. Production builds are 1.6x to 7.7x faster than Vite 7 on real codebases (Linear reported 46s -> 6s; Ramp -57%; Beehiiv -64%). Plugin API compatibility was preserved, but some Rollup plugins that reach into internals still need updates - check before upgrading large monorepos. The dev server on `localhost:5173` works the same as before, though under the hood it now uses the **Environment API** (introduced in Vite 6) to handle client, SSR, and edge runtimes as separate, configurable environments - the foundation TanStack Start, Nuxt, and SvelteKit build on for unified dev/prod parity. Around it, the ecosystem has picked up **{{< link href="https://tanstack.com/start" >}}TanStack Start{{< /link >}}** (full-stack React on Vite, v1 RC since early 2026), **{{< link href="https://voidzero.dev/posts/announcing-vite-plus" >}}Vite+{{< /link >}}** (VoidZero's integrated toolchain), and coding agents like Claude Code and Cursor that drive the Vite server for browser automation.
+As of 2026, Vite 8 ships with **{{< link href="https://rolldown.rs/" >}}Rolldown{{< /link >}}**, a Rust-based bundler that replaces the old Rollup + esbuild split. Production builds are 1.6x to 7.7x faster than Vite 7 on real codebases (Linear reported 46s -> 6s; Ramp -57%; Beehiiv -64%). Plugin API compatibility was preserved, but some Rollup plugins that reach into internals still need updates - check before upgrading large monorepos. The dev server on `localhost:5173` works the same as before, though under the hood it now uses the **Environment API** (introduced in Vite 6) to handle client, SSR, and edge runtimes as separate, configurable environments - the foundation TanStack Start, Nuxt, and SvelteKit build on for unified dev/prod parity. Around it, the ecosystem has picked up **{{< link href="https://tanstack.com/start" >}}TanStack Start{{< /link >}}** (full-stack React on Vite, 1.0 stable since October 2026), **{{< link href="https://voidzero.dev/posts/announcing-vite-plus" >}}Vite+{{< /link >}}** (VoidZero's integrated toolchain), and coding agents like Claude Code and Cursor that drive the Vite server for browser automation.
 
 ---
 
@@ -46,12 +46,12 @@ You'll get back a public HTTPS URL that proxies to `localhost:5173`. Useful for 
 
 Port 5173 is primarily used by Vite and Vite-powered applications across the modern frontend ecosystem. Here are the main applications:
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+<div class="kyp-grid">
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">⚡ Vite-Powered Frameworks</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-<li><strong>{{< link href="https://tanstack.com/start" >}}TanStack Start{{< /link >}}</strong>: Full-stack React (and Solid) on Vite. v1 RC since early 2026 - production-usable, ecosystem still filling in</li>
+<div class="kyp-card">
+<h3>Vite-Powered Frameworks</h3>
+<ul>
+<li><strong>{{< link href="https://tanstack.com/start" >}}TanStack Start{{< /link >}}</strong>: Full-stack React (and Solid) on Vite. 1.0 went stable on October 13, 2026, after a release candidate that had been out since September 2025</li>
 <li><strong>{{< link href="https://vuejs.org/" >}}Vue.js 3{{< /link >}}</strong>: Default scaffold (<code>npm create vue@latest</code>) wires up Vite</li>
 <li><strong>{{< link href="https://reactjs.org/" >}}React{{< /link >}}</strong>: Vite is the React team's recommended starter since CRA was retired in 2025</li>
 <li><strong>{{< link href="https://kit.svelte.dev/" >}}SvelteKit{{< /link >}}</strong>: Svelte's full-stack framework, Vite-powered</li>
@@ -67,9 +67,9 @@ Port 5173 is primarily used by Vite and Vite-powered applications across the mod
 </ul>
 </div>
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🛠️ Development Tools</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Development Tools</h3>
+<ul>
 <li><strong>{{< link href="https://vite.dev/" >}}Vite 8 Dev Server{{< /link >}}</strong>: The actual process listening on 5173. v8 ships Rolldown as the bundler (10x to 30x faster builds vs Rollup)</li>
 <li><strong>{{< link href="https://voidzero.dev/posts/announcing-vite-plus" >}}Vite+{{< /link >}}</strong>: VoidZero's integrated toolchain bundling Vite, Vitest, Rolldown, and Oxc behind one CLI</li>
 <li><strong>{{< link href="https://vitest.dev/" >}}Vitest{{< /link >}}</strong>: Vite-native unit test runner; reuses your <code>vite.config.js</code></li>
@@ -79,15 +79,15 @@ Port 5173 is primarily used by Vite and Vite-powered applications across the mod
 <li><strong>AI coding agents</strong>: Cursor, Claude Code, and similar tools commonly start Vite with <code>server.open: false</code> + <code>strictPort: true</code> so the URL is predictable for headless browser steps</li>
 <li><strong>{{< link href="https://mswjs.io/" >}}MSW{{< /link >}}</strong>: Mock Service Worker - intercepts <code>fetch</code> during dev so you can build against an API that doesn't exist yet</li>
 <li><strong>{{< link href="https://vite-pwa-org.netlify.app/" >}}vite-plugin-pwa{{< /link >}}</strong>: Drops a service worker and manifest into your build; works on 5173 in dev with <code>devOptions.enabled: true</code></li>
-<li><strong>{{< link href="https://github.com/web-infra-dev/oxc" >}}Oxc{{< /link >}} / <strong>{{< link href="https://biomejs.dev/" >}}Biome{{< /link >}}</strong></strong>: Rust-based lint/format toolchains; Oxc now powers <code>@vitejs/plugin-react-oxc</code> for faster transforms</li>
+<li><strong>{{< link href="https://github.com/oxc-project/oxc" >}}Oxc{{< /link >}} / <strong>{{< link href="https://biomejs.dev/" >}}Biome{{< /link >}}</strong></strong>: Rust-based lint/format toolchains; on Vite 8 the regular <code>@vitejs/plugin-react</code> uses Oxc for the Fast Refresh transform, so the separate <code>@vitejs/plugin-react-oxc</code> package is deprecated</li>
 <li><strong>{{< link href="https://hono.dev/" >}}Hono{{< /link >}}</strong>: Edge-first web framework with first-class Vite integration (<code>@hono/vite-dev-server</code>) for full-stack apps on a single port</li>
-<li><strong>{{< link href="https://vite.dev/plugins/" >}}Vite plugins{{< /link >}}</strong>: Anything from <code>vite-plugin-svelte</code> to <code>@vitejs/plugin-react-oxc</code></li>
+<li><strong>{{< link href="https://vite.dev/plugins/" >}}Vite plugins{{< /link >}}</strong>: Anything from <code>vite-plugin-svelte</code> to <code>@vitejs/plugin-react</code></li>
 </ul>
 </div>
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">📱 Modern Web Applications</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Modern Web Applications</h3>
+<ul>
 <li><strong>Single Page Applications (SPAs)</strong>: Full-featured apps that run entirely in the browser</li>
 <li><strong>Progressive Web Apps (PWAs)</strong>: Offline-capable apps with app-like experience</li>
 <li><strong>{{< link href="https://www.typescriptlang.org/" >}}TypeScript{{< /link >}} Projects</strong>: Full type safety out of the box</li>
@@ -97,13 +97,13 @@ Port 5173 is primarily used by Vite and Vite-powered applications across the mod
 </ul>
 </div>
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🎨 Frontend Tooling</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Frontend Tooling</h3>
+<ul>
 <li><strong>CSS Frameworks</strong>: {{< link href="https://tailwindcss.com/" >}}Tailwind CSS{{< /link >}}, {{< link href="https://unocss.dev/" >}}UnoCSS{{< /link >}}, {{< link href="https://sass-lang.com/" >}}Sass{{< /link >}}</li>
 <li><strong>Component Libraries</strong>: Build and test UI components with live reload</li>
 <li><strong>Micro-frontends</strong>: Module federation for composable apps</li>
-<li><strong>Documentation Sites</strong>: {{< link href="https://vitepress.dev/" >}}VitePress{{< /link >}}, {{< link href="https://v1.d.umijs.org/" >}}Dumi{{< /link >}} for docs</li>
+<li><strong>Documentation Sites</strong>: {{< link href="https://vitepress.dev/" >}}VitePress{{< /link >}}, {{< link href="https://d.umijs.org/" >}}Dumi{{< /link >}} for docs</li>
 <li><strong>Design Systems</strong>: Build and maintain component systems</li>
 <li><strong>Blog Generators</strong>: {{< link href="https://astro.build/" >}}Astro{{< /link >}} for content-heavy sites</li>
 </ul>
@@ -119,11 +119,11 @@ Run `npm run dev`, `yarn dev`, or `pnpm dev` and Vite starts on 5173 with no con
 
 When the dev server isn't reachable on 5173, it's almost always one of four things:
 
-<div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #856404; margin: 0 0 15px 0;">🔍 Step 1: Make Sure Vite is Actually Running</h3>
-<p style="margin: 0 0 10px 0;"><strong>The Fix:</strong> Fire up your dev server if it's not already going.</p>
-<p style="margin: 0;"><strong>What to do:</strong></p>
-<ul style="margin: 10px 0 0 20px;">
+<div class="kyp-step">
+<h3>Step 1: Make Sure Vite is Actually Running</h3>
+<p><strong>The Fix:</strong> Fire up your dev server if it's not already going.</p>
+<p><strong>What to do:</strong></p>
+<ul>
 <li><strong>Start Vite:</strong> <code>npm run dev</code>, <code>yarn dev</code>, or <code>pnpm dev</code></li>
 <li><strong>Check terminal:</strong> Look for "Local: http://localhost:5173/" message</li>
 <li><strong>Verify project setup:</strong> Ensure you're in a Vite project directory</li>
@@ -131,33 +131,33 @@ When the dev server isn't reachable on 5173, it's almost always one of four thin
 </ul>
 </div>
 
-<div style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #0c5460; margin: 0 0 15px 0;">🚫 Step 2: Free Up Port 5173</h3>
-<p style="margin: 0 0 10px 0;"><strong>The Fix:</strong> Port 5173 is already taken by something else.</p>
-<p style="margin: 0;"><strong>Quick wins:</strong></p>
-<ul style="margin: 10px 0 0 20px;">
+<div class="kyp-step">
+<h3>Step 2: Free Up Port 5173</h3>
+<p><strong>The Fix:</strong> Port 5173 is already taken by something else.</p>
+<p><strong>Quick wins:</strong></p>
+<ul>
 <li><strong>Find conflicting process:</strong> <code>lsof -i :5173</code> (Linux/macOS) or <code>netstat -ano | findstr :5173</code> (Windows)</li>
 <li><strong>Stop the process:</strong> <code>kill -9 &lt;PID&gt;</code></li>
 <li><strong>Use different port:</strong> <code>npm run dev -- --port 5174</code></li>
 </ul>
 </div>
 
-<div style="background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #721c24; margin: 0 0 15px 0;">🔧 Step 3: Config or Dependency Issues</h3>
-<p style="margin: 0 0 10px 0;"><strong>The Fix:</strong> Something's wrong with your setup.</p>
-<p style="margin: 0;"><strong>Try these:</strong></p>
-<ul style="margin: 10px 0 0 20px;">
+<div class="kyp-step">
+<h3>Step 3: Config or Dependency Issues</h3>
+<p><strong>The Fix:</strong> Something's wrong with your setup.</p>
+<p><strong>Try these:</strong></p>
+<ul>
 <li><strong>Check vite.config.js:</strong> Verify configuration syntax and plugins</li>
 <li><strong>Install dependencies:</strong> <code>npm install</code> or <code>yarn install</code></li>
 <li><strong>Clear cache:</strong> Remove <code>node_modules/.vite</code> directory</li>
 </ul>
 </div>
 
-<div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #155724; margin: 0 0 15px 0;">🌐 Step 4: Verify It's Working</h3>
-<p style="margin: 0 0 10px 0;"><strong>The Fix:</strong> Test if your server is actually reachable.</p>
-<p style="margin: 0;"><strong>Check it:</strong></p>
-<ul style="margin: 10px 0 0 20px;">
+<div class="kyp-step">
+<h3>Step 4: Verify It's Working</h3>
+<p><strong>The Fix:</strong> Test if your server is actually reachable.</p>
+<p><strong>Check it:</strong></p>
+<ul>
 <li><strong>Browser:</strong> Navigate to <code>http://localhost:5173</code></li>
 <li><strong>Command line:</strong> <code>curl http://localhost:5173</code></li>
 <li><strong>Network access:</strong> Use <code>npm run dev -- --host</code> for external access</li>
@@ -183,54 +183,54 @@ A few things about how Vite handles 5173 that trip people up:
 
 Here are typical issues with `localhost:5173` and how to resolve them:
 
-<div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 25px 0;">
+<div class="kyp-problems">
 
-<div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e74c3c; margin: 0 0 10px 0;">❌ "Port Already in Use" Error</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> "Port 5173 is in use..."</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> <code>lsof -i :5173</code> to find who's using it, <code>kill -9 &lt;PID&gt;</code> to kill it, or just switch ports with <code>npm run dev -- --port 5174</code></p>
+<div class="kyp-problem">
+<h3>"Port Already in Use" Error</h3>
+<p><strong>You'll see:</strong> "Port 5173 is in use..."</p>
+<p><strong>Quick fix:</strong> <code>lsof -i :5173</code> to find who's using it, <code>kill -9 &lt;PID&gt;</code> to kill it, or just switch ports with <code>npm run dev -- --port 5174</code></p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #f39c12; margin: 0 0 10px 0;">⚠️ Vite Server Won't Start</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> Errors during startup or fails immediately</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> <code>npm install</code> to reinstall deps, check vite.config.js for typos, or nuke <code>node_modules/.vite</code> cache</p>
+<div class="kyp-problem">
+<h3>Vite Server Won't Start</h3>
+<p><strong>You'll see:</strong> Errors during startup or fails immediately</p>
+<p><strong>Quick fix:</strong> <code>npm install</code> to reinstall deps, check vite.config.js for typos, or nuke <code>node_modules/.vite</code> cache</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #9b59b6; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #9b59b6; margin: 0 0 10px 0;">🔄 HMR Not Working (Changes Don't Auto-Reload)</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> Save a file but browser doesn't update</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> Check browser console for WebSocket errors, make sure your IDE is watching files, or just restart Vite</p>
+<div class="kyp-problem">
+<h3>HMR Not Working (Changes Don't Auto-Reload)</h3>
+<p><strong>You'll see:</strong> Save a file but browser doesn't update</p>
+<p><strong>Quick fix:</strong> Check browser console for WebSocket errors, make sure your IDE is watching files, or just restart Vite</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #3498db; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #3498db; margin: 0 0 10px 0;">🌐 Can't Access from Other Machines on Network</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> Works on localhost but not from phone or other PC</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> <code>npm run dev -- --host</code> then access via your machine's IP like <code>http://192.168.1.100:5173</code></p>
+<div class="kyp-problem">
+<h3>Can't Access from Other Machines on Network</h3>
+<p><strong>You'll see:</strong> Works on localhost but not from phone or other PC</p>
+<p><strong>Quick fix:</strong> <code>npm run dev -- --host</code> then access via your machine's IP like <code>http://192.168.1.100:5173</code></p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #27ae60; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #27ae60; margin: 0 0 10px 0;">🐌 Slow Initial Load or Server Startup</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> Takes forever to start or first page load is sluggish</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> <code>rm -rf node_modules package-lock.json && npm install</code>, remove the <code>node_modules/.vite</code> folder, or optimize dependencies in vite.config.js</p>
+<div class="kyp-problem">
+<h3>Slow Initial Load or Server Startup</h3>
+<p><strong>You'll see:</strong> Takes forever to start or first page load is sluggish</p>
+<p><strong>Quick fix:</strong> <code>rm -rf node_modules package-lock.json && npm install</code>, remove the <code>node_modules/.vite</code> folder, or optimize dependencies in vite.config.js</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #e67e22; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e67e22; margin: 0 0 10px 0;">🔌 Plugin Errors</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> Vite starts but complains about a plugin</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> Check plugin versions match your Vite version, verify the config is correct, and update plugins with <code>npm update</code></p>
+<div class="kyp-problem">
+<h3>Plugin Errors</h3>
+<p><strong>You'll see:</strong> Vite starts but complains about a plugin</p>
+<p><strong>Quick fix:</strong> Check plugin versions match your Vite version, verify the config is correct, and update plugins with <code>npm update</code></p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #16a085; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #16a085; margin: 0 0 10px 0;">🔄 HMR Disconnects Behind a Tunnel or Reverse Proxy</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> Page loads fine, but the console shows <code>WebSocket connection to 'wss://...:5173' failed</code> and edits don't hot-reload</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> Vite's client tries to open the WebSocket on port 5173, but tunnels/proxies only expose 443. Set <code>server.hmr.clientPort: 443</code> (and <code>server.hmr.protocol: 'wss'</code> if needed) in <code>vite.config.js</code>, and add the public host to <code>server.allowedHosts</code>.</p>
+<div class="kyp-problem">
+<h3>HMR Disconnects Behind a Tunnel or Reverse Proxy</h3>
+<p><strong>You'll see:</strong> Page loads fine, but the console shows <code>WebSocket connection to 'wss://...:5173' failed</code> and edits don't hot-reload</p>
+<p><strong>Quick fix:</strong> Vite's client tries to open the WebSocket on port 5173, but tunnels/proxies only expose 443. Set <code>server.hmr.clientPort: 443</code> (and <code>server.hmr.protocol: 'wss'</code> if needed) in <code>vite.config.js</code>, and add the public host to <code>server.allowedHosts</code>.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #34495e; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #34495e; margin: 0 0 10px 0;">📦 Monorepo: "The request url ... is outside of Vite serving allow list"</h3>
-<p style="margin: 0 0 10px 0;"><strong>You'll see:</strong> Importing a sibling package in a pnpm/npm workspace 403s with that error</p>
-<p style="margin: 0;"><strong>Quick fix:</strong> Add the workspace root (or the specific package paths) to <code>server.fs.allow</code> in your <code>vite.config.js</code>. Default is the project root only; in a monorepo, Vite refuses to serve files above it for security.</p>
+<div class="kyp-problem">
+<h3>Monorepo: "The request url ... is outside of Vite serving allow list"</h3>
+<p><strong>You'll see:</strong> Importing a sibling package in a pnpm/npm workspace 403s with that error</p>
+<p><strong>Quick fix:</strong> Add the workspace root (or the specific package paths) to <code>server.fs.allow</code> in your <code>vite.config.js</code>. Default is the project root only; in a monorepo, Vite refuses to serve files above it for security.</p>
 </div>
 
 </div>
@@ -244,10 +244,10 @@ Here are typical issues with `localhost:5173` and how to resolve them:
 * **First debug step**: `lsof -i :5173` to see what's bound, then `npm run dev` and watch the terminal for the "Local: http://localhost:5173/" line.
 * **Common fixes**: kill whatever owns the port, pass `--port 5174`, wipe `node_modules/.vite`, or use `--host` to expose it on your LAN.
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;">
-<h3 style="margin: 0 0 15px 0; font-size: 1.4em;">🚀 Quick Start Commands</h3>
-<div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin: 15px 0;">
-<code style="display: block; color: #fff; font-size: 14px; line-height: 1.6;">
+<div class="kyp-quick">
+<h3>Quick Start Commands</h3>
+<div class="kyp-quick__code">
+<code>
 # Vue<br>
 npm create vue@latest my-app && cd my-app && npm install<br><br>
 # React (Vite template)<br>
@@ -260,7 +260,7 @@ bunx create-vite@latest my-app --template svelte-ts<br><br>
 npm run dev
 </code>
 </div>
-<p style="margin: 15px 0 0 0; font-size: 14px; opacity: 0.9;">
+<p class="kyp-quick__note">
 Use these commands to quickly get started with Vite on localhost:5173
 </p>
 </div>

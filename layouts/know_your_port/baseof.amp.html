@@ -201,6 +201,187 @@
           margin-bottom: 0.25rem;
         }
       }
+      /* Know Your Ports. Literal-value copy of the kyp-* rules in
+         assets/css/customization.css (AMP pages don't load that file). */
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+      .kyp { padding: 32px 0 64px; color: #374151; }
+      .kyp-eyebrow {
+        display: inline-block;
+        margin-bottom: 16px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #6b7280;
+        text-decoration: none;
+      }
+      .kyp-title {
+        margin: 0;
+        color: #0b0f19;
+        font-size: 2.25rem;
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+      }
+      .kyp-title__port {
+        display: inline-block;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        color: inherit;
+        text-decoration: none;
+        word-break: normal;
+      }
+      .kyp-title__port::after {
+        content: "\2197";
+        margin-left: 0.1em;
+        font-family: "Inter", sans-serif;
+        font-size: 0.4em;
+        font-weight: 500;
+        vertical-align: 1.2em;
+        color: #9ca3af;
+        opacity: 0.6;
+      }
+      .kyp-title__rest {
+        display: block;
+        margin-top: 12px;
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #6b7280;
+      }
+      .kyp-meta { margin: 16px 0 32px; font-size: 0.875rem; color: #6b7280; }
+      .kyp-body { font-size: 1rem; line-height: 1.6; }
+      .kyp-body p,
+      .kyp-body ul { margin: 0 0 16px; }
+      .kyp-body h2 {
+        margin: 48px 0 16px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.015em;
+        color: #111827;
+      }
+      .kyp-body h3 {
+        margin: 0 0 8px;
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #111827;
+      }
+      .kyp-body hr { margin: 48px 0; border: 0; border-top: 1px solid #e5e7eb; }
+      .kyp-body hr + h2 { margin-top: 0; }
+      .kyp-body strong { font-weight: 600; color: #111827; }
+      .kyp-body a { color: #3b6fe0; word-break: normal; text-decoration: underline; }
+      .kyp-body code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: #f1f3f7;
+        color: #111827;
+        font-size: 0.875em;
+      }
+      .kyp-body pre {
+        padding: 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        background: #f7f8fa;
+        overflow-x: auto;
+      }
+      .kyp-hero,
+      .kyp-card,
+      .kyp-problems {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+      }
+      .kyp-hero { margin: 0 0 32px; padding: 20px; }
+      .kyp-hero > * { margin: 0; }
+      .kyp-hero__port { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.875rem; color: #6b7280; }
+      .kyp-hero__sub { margin-top: 4px; font-size: 1.125rem; font-weight: 600; color: #111827; }
+      .kyp-hero__note { margin-top: 4px; font-size: 0.875rem; color: #6b7280; }
+      .kyp-body a.kyp-hero__btn {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 10px 18px;
+        border-radius: 10px;
+        background: #3b6fe0;
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .kyp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 24px 0 32px; }
+      .kyp-card { padding: 24px; }
+      .kyp-card h3 { margin-bottom: 12px; }
+      .kyp-card ul { margin: 0; padding: 0; list-style: none; font-size: 0.9375rem; }
+      .kyp-card li { padding: 10px 0; border-top: 1px solid #f1f3f7; }
+      .kyp-card li:first-child { padding-top: 0; border-top: 0; }
+      .kyp-step {
+        position: relative;
+        margin: 0 0 0 6px;
+        padding: 0 0 32px 28px;
+        border-left: 1px solid #e5e7eb;
+        font-size: 0.9375rem;
+      }
+      .kyp-step::before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: -6px;
+        width: 11px;
+        height: 11px;
+        border: 2px solid #d1d5db;
+        border-radius: 999px;
+        background: #fff;
+        box-sizing: border-box;
+      }
+      .kyp-step p { margin-bottom: 4px; }
+      .kyp-step ul { margin: 8px 0 0; padding-left: 20px; }
+      .kyp-problems { margin: 24px 0 32px; overflow: hidden; }
+      .kyp-problem { padding: 20px 24px; font-size: 0.9375rem; }
+      .kyp-problem + .kyp-problem { border-top: 1px solid #e5e7eb; }
+      .kyp-problem p { margin-bottom: 4px; }
+      .kyp-quick {
+        margin: 48px 0 32px;
+        background: #0e1116;
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .kyp-body .kyp-quick h3 {
+        margin: 0;
+        padding: 8px 20px;
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: #6b7280;
+      }
+      .kyp-quick__code { padding: 20px 24px; overflow-x: auto; }
+      .kyp-body .kyp-quick__code code {
+        display: block;
+        padding: 0;
+        background: transparent;
+        color: #e5e7eb;
+        font-size: 0.875rem;
+        line-height: 1.7;
+      }
+      .kyp-body .kyp-quick__note {
+        margin: 0;
+        padding: 12px 24px;
+        background: #fff;
+        border-top: 1px solid #e5e7eb;
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
     </style>
     <noscript
       ><style amp-boilerplate>

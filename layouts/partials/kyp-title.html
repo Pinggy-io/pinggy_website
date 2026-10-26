@@ -1,0 +1,20 @@
+{{/* Know Your Ports headline, shared by know_your_port/single.html and its
+     AMP twin. Titles read "localhost:3000 - Development Server Port Guide":
+     the port becomes the headline and the rest a subhead, with the " - " kept
+     for screen readers and search so the h1 text is unchanged.
+
+     The port opens the local app in a new tab. Its URL is taken from the
+     page's "Open localhost:NNNN" hero button so the two can't drift (most are
+     http://, localhost:11501 is https://); pages without one fall back to
+     http://. */}}
+{{ $parts := split .Title " - " }}
+<h1 class="kyp-title">
+  {{- if gt (len $parts) 1 -}}
+  {{ $port := index $parts 0 }}
+  {{ $url := printf "http://%s" $port }}
+  {{ with findRESubmatch `<a href="([^"]+)"[^>]*class="kyp-hero__btn"` .RawContent 1 }}{{ $url = index (index . 0) 1 }}{{ end }}
+  <a class="kyp-title__port" href="{{ $url }}" target="_blank" rel="noopener" title="{{ i18n "openPortInNewTab" (dict "Port" $port) }}">{{ $port }}</a><span class="visually-hidden"> - </span><span class="kyp-title__rest">{{ delimit (after 1 $parts) " - " }}</span>
+  {{- else -}}
+  {{ .Title }}
+  {{- end -}}
+</h1>

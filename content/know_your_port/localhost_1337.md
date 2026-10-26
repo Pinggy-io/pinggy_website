@@ -2,7 +2,7 @@
 title: "localhost:1337 - Jan Local AI Port Guide"
 description: "Complete guide to localhost:1337 - the default port for Jan, an open-source alternative to ChatGPT that runs entirely offline."
 date: 2026-03-06T10:00:00+05:30
-lastmod: 2026-07-31T10:00:00+05:30
+lastmod: 2026-10-24T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "jan", "llm", "ai", "offline"]
 schemahowto: true
@@ -11,13 +11,13 @@ outputs:
   - AMP
 ---
 
-<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px;">
-  <h2 style="margin: 0 0 15px 0; color: white; font-size: 2.2em;">localhost:1337</h2>
-  <p style="margin: 0 0 20px 0; color: rgba(255,255,255,0.9); font-size: 1.1em;">Jan Local AI Server Port</p>
-  <a href="http://localhost:1337" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); transition: all 0.3s ease; border: none;">
-    💠 Open localhost:1337
+<div class="kyp-hero">
+  <p class="kyp-hero__port">localhost:1337</p>
+  <p class="kyp-hero__sub">Jan Local AI Server Port</p>
+  <a href="http://localhost:1337" target="_blank" class="kyp-hero__btn">
+    Open localhost:1337
   </a>
-  <p style="margin: 15px 0 0 0; font-size: 13px; color: rgba(255,255,255,0.8); font-style: italic;">
+  <p class="kyp-hero__note">
     Access your Jan local AI model server running on port 1337
   </p>
 </div>
@@ -38,23 +38,25 @@ Use {{< link href="https://pinggy.io/" >}}Pinggy tunnel{{< /link >}} to share yo
 
 This allows other applications on foreign networks to communicate securely with your local Jan models.
 
+Jan's API rejects requests whose `Host` header isn't `localhost`, a local IP or an entry in its Trusted Hosts setting (`403 Invalid host header`), so rewrite the header when you tunnel: `ssh -p 443 -R0:localhost:1337 -t free.pinggy.io "u:Host:localhost:1337"`.
+
 ---
 
 ## Services and Software That Use Port 1337
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+<div class="kyp-grid">
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">💠 Jan AI Ecosystem</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Jan AI Ecosystem</h3>
+<ul>
 <li><strong>{{< link href="https://jan.ai/" >}}Jan Desktop{{< /link >}}</strong>: The core UI and AI engine server</li>
 <li><strong>Jan API</strong>: The OpenAI-compatible local AI serving endpoint</li>
 </ul>
 </div>
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🕹️ Legacy / General</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Legacy / General</h3>
+<ul>
 <li><strong>Game Servers</strong>: Often used in vintage gaming setups</li>
 <li><strong>Various Peer2Peer Clients</strong>: Traditional fallback port</li>
 </ul>
@@ -70,22 +72,22 @@ When Jan boots up its inference server, replacing the endpoint inside your Pytho
 
 If you can't access `localhost:1337`, here's how to diagnose and fix common Jan development server issues:
 
-<div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #856404; margin: 0 0 15px 0;">🔍 Step 1: Check if Jan is Running</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Confirm that Jan application is active.</p>
-<p style="margin: 0;"><strong>How to check:</strong> Ensure the Jan desktop app is open and the local API server feature is enabled in its settings.</p>
+<div class="kyp-step">
+<h3>Step 1: Check if Jan is Running</h3>
+<p><strong>Action:</strong> Confirm that Jan application is active.</p>
+<p><strong>How to check:</strong> Ensure the Jan desktop app is open and the local API server feature is enabled in its settings.</p>
 </div>
 
-<div style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #0c5460; margin: 0 0 15px 0;">🚫 Step 2: Resolve Port Conflicts</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Ensure no other program is using port 1337.</p>
-<p style="margin: 0;"><strong>How to fix:</strong> Use <code>lsof -i :1337</code> (macOS/Linux) or <code>netstat -ano | findstr :1337</code> (Windows) to see if another process is taking the port.</p>
+<div class="kyp-step">
+<h3>Step 2: Resolve Port Conflicts</h3>
+<p><strong>Action:</strong> Ensure no other program is using port 1337.</p>
+<p><strong>How to fix:</strong> Use <code>lsof -i :1337</code> (macOS/Linux) or <code>netstat -ano | findstr :1337</code> (Windows) to see if another process is taking the port.</p>
 </div>
 
-<div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #155724; margin: 0 0 15px 0;">🌐 Step 3: Test the Connection</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Verify that the local API is accessible.</p>
-<p style="margin: 0;"><strong>How to test:</strong> Run <code>curl http://localhost:1337/v1/models</code> to see if it responds with a list of models.</p>
+<div class="kyp-step">
+<h3>Step 3: Test the Connection</h3>
+<p><strong>Action:</strong> Verify that the local API is accessible.</p>
+<p><strong>How to test:</strong> Run <code>curl http://localhost:1337/v1/models</code> to see if it responds with a list of models. If you set an API key in Jan, add <code>-H "Authorization: Bearer YOUR_API_KEY"</code>, otherwise you get <code>401 Unauthorized</code>.</p>
 </div>
 
 ---
@@ -94,24 +96,24 @@ If you can't access `localhost:1337`, here's how to diagnose and fix common Jan 
 
 Here are typical issues with `localhost:1337` and how to resolve them:
 
-<div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 25px 0;">
+<div class="kyp-problems">
 
-<div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e74c3c; margin: 0 0 10px 0;">❌ "Connection Refused" Error</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> Jan's API server is down.</p>
-<p style="margin: 0;"><strong>Solution:</strong> Open Jan Desktop and ensure the local API server button is switched on in the settings.</p>
+<div class="kyp-problem">
+<h3>"Connection Refused" Error</h3>
+<p><strong>Problem:</strong> Jan's API server is down.</p>
+<p><strong>Solution:</strong> Open Jan Desktop and ensure the local API server button is switched on in the settings.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #f39c12; margin: 0 0 10px 0;">⚠️ "Port Already in Use" Error</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> Another application is occupying port 1337.</p>
-<p style="margin: 0;"><strong>Solution:</strong> Find the conflicting process (often a local dev server or game server) and stop it, or configure Jan to use a different port if needed.</p>
+<div class="kyp-problem">
+<h3>"Port Already in Use" Error</h3>
+<p><strong>Problem:</strong> Another application is occupying port 1337.</p>
+<p><strong>Solution:</strong> Find the conflicting process (often a local dev server or game server) and stop it, or configure Jan to use a different port if needed.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #9b59b6; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #9b59b6; margin: 0 0 10px 0;">🤖 Model Not Loading</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> The API responds but requests time out or fail to generate.</p>
-<p style="margin: 0;"><strong>Solution:</strong> Ensure a model is downloaded and actively loaded into Jan's memory before sending API requests.</p>
+<div class="kyp-problem">
+<h3>Model Not Loading</h3>
+<p><strong>Problem:</strong> The API responds but requests time out or fail to generate.</p>
+<p><strong>Solution:</strong> Ensure a model is downloaded and actively loaded into Jan's memory before sending API requests.</p>
 </div>
 
 </div>
@@ -123,12 +125,12 @@ Here are typical issues with `localhost:1337` and how to resolve them:
 * **What it is**: `localhost:1337` is the default port for the Jan offline local LLM.
 * **Who uses it**: AI engineers testing open-source capabilities using existing OpenAI SDK integrations.
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;">
-<h3 style="margin: 0 0 15px 0; font-size: 1.4em;">🚀 Quick Start Commands</h3>
-<div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin: 15px 0;">
-<code style="display: block; color: #fff; font-size: 14px; line-height: 1.6;">
+<div class="kyp-quick">
+<h3>Quick Start Commands</h3>
+<div class="kyp-quick__code">
+<code>
 # Connect OpenAI SDK to Jan<br>
-export OPENAI_API_BASE="http://localhost:1337/v1"
+export OPENAI_BASE_URL="http://localhost:1337/v1"
 </code>
 </div>
 </div>

@@ -1,37 +1,33 @@
 {{ define "main" }}
-<main>
-  <div class="container my-5">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <header>
-          <h1 class="display-4">{{ .Title }}</h1>
-        </header>
-        <hr />
-        {{.Content}}
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          {{ range .Paginator.Pages.ByDate.Reverse }}
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body">
-                <a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">
-                  <h2 class="card-title h4">{{ .Title }}</h2>
-                </a>
-                <p class="card-text">{{ .Description }}</p>
-              </div>
-              {{ if .Truncated }}
-              <div class="card-footer bg-transparent border-0">
-                <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-sm">{{ i18n "readMore" }}</a>
-              </div>
-              {{ end }}
-            </div>
-          </div>
-          {{ end }}
-        </div>
-        <div class="mt-4">
-          {{ template "_internal/pagination.html" . }}
-        </div>
-      </div>
-    </div>
+{{/* Sorted by port number rather than date, so the index reads like a port
+     table. The number comes from the "localhost:NNNN - ..." title. */}}
+{{ $items := slice }}
+{{ range .Pages }}
+  {{ $parts := split .Title " - " }}
+  {{ $num := 0 }}
+  {{ with findRE `\d+` (index $parts 0) 1 }}{{ $num = int (index . 0) }}{{ end }}
+  {{/* Every title ends in "Port Guide" / starts with "Guía del puerto de" and
+       every description opens with "Complete guide to localhost:NNNN - ";
+       next to the port number on a card that is noise, so trim it here. */}}
+  {{ $name := delimit (after 1 $parts) " - " }}
+  {{ $name = $name | replaceRE ` Port Guide$` "" | replaceRE `^Guía del puerto (del |de la |de los |de )` "" | strings.FirstUpper }}
+  {{ $desc := .Description | replaceRE `^(Complete guide to|Guide to|Guía completa de) (https?://)?localhost:\d+ - ` "" | strings.FirstUpper }}
+  {{ $items = $items | append (dict "num" $num "page" . "name" $name "desc" $desc) }}
+{{ end }}
+<main class="kyp-index">
+  <header>
+    <h1 class="kyp-index__title">{{ .Title }}</h1>
+    <p class="kyp-index__intro">{{ i18n "knowYourPortsIntro" }}</p>
+  </header>
+  {{ .Content }}
+  <div class="kyp-ports">
+    {{ range sort $items "num" }}
+    <a class="kyp-port" href="{{ .page.RelPermalink }}">
+      <span class="kyp-port__num"><span class="kyp-port__host">localhost:</span>{{ .num }}</span>
+      <span class="kyp-port__name">{{ .name }}</span>
+      <span class="kyp-port__desc">{{ .desc }}</span>
+    </a>
+    {{ end }}
   </div>
 </main>
 {{ end }}

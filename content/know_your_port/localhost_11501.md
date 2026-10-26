@@ -11,13 +11,13 @@ outputs:
   - AMP
 ---
 
-<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px;">
-  <h2 style="margin: 0 0 15px 0; color: white; font-size: 2.2em;">localhost:11501</h2>
-  <p style="margin: 0 0 20px 0; color: rgba(255,255,255,0.9); font-size: 1.1em;">Khajane 2 (K2) Local App Port</p>
-  <a href="https://localhost:11501" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); transition: all 0.3s ease; border: none;">
-    🏛️ Open https://localhost:11501
+<div class="kyp-hero">
+  <p class="kyp-hero__port">localhost:11501</p>
+  <p class="kyp-hero__sub">Khajane 2 (K2) Local App Port</p>
+  <a href="https://localhost:11501" target="_blank" class="kyp-hero__btn">
+    Open https://localhost:11501
   </a>
-  <p style="margin: 15px 0 0 0; font-size: 13px; color: rgba(255,255,255,0.8); font-style: italic;">
+  <p class="kyp-hero__note">
     Opens the Khajane 2 app running on this computer. Note the https://
   </p>
 </div>
@@ -53,19 +53,19 @@ That's useful for showing a work-in-progress app to a teammate, testing it on a 
 
 ## What Uses Port 11501
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+<div class="kyp-grid">
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🏛️ Khajane II (K2)</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Khajane II (K2)</h3>
+<ul>
 <li><strong>Khajane II Application</strong>: The Windows app from the Department of Treasuries that serves <code>https://localhost:11501</code></li>
 <li><strong>K2 web portal</strong>: The treasury site your browser has open, which calls the local app</li>
 </ul>
 </div>
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🔐 What K2 Works Alongside</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>What K2 Works Alongside</h3>
+<ul>
 <li><strong>DSC USB token</strong>: Your Digital Signature Certificate, plus the token driver from its vendor</li>
 <li><strong>Biometric registration</strong>: Done in person at your treasury, as the department requires for all K2 users</li>
 </ul>
@@ -81,52 +81,52 @@ Get the K2 installer from your district treasury office rather than a third-part
 
 If `https://localhost:11501` won't open, work through these in order:
 
-<div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #856404; margin: 0 0 15px 0;">🔍 Step 1: Check That the K2 App Is Running</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Start the Khajane II app from the Start menu or its desktop shortcut, then give it a few seconds.</p>
-<p style="margin: 0;"><strong>How to check:</strong> Run <code>netstat -ano | findstr :11501</code> in Command Prompt. A line ending in <code>LISTENING</code> means something is serving the port.</p>
+<div class="kyp-step">
+<h3>Step 1: Check That the K2 App Is Running</h3>
+<p><strong>Action:</strong> Start the Khajane II app from the Start menu or its desktop shortcut, then give it a few seconds.</p>
+<p><strong>How to check:</strong> Run <code>netstat -ano | findstr :11501</code> in Command Prompt. A line ending in <code>LISTENING</code> means something is serving the port.</p>
 </div>
 
-<div style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #0c5460; margin: 0 0 15px 0;">🔒 Step 2: Use https:// and Accept the Certificate</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Open <code>https://localhost:11501</code> with the <code>s</code>.</p>
-<p style="margin: 0;"><strong>How to fix the warning:</strong> In Chrome or Edge, click <em>Advanced</em>, then <em>Proceed to localhost (unsafe)</em> or <em>Continue to localhost (unsafe)</em>. In Firefox, click <em>Advanced</em>, then <em>Accept the Risk and Continue</em>. Then go back to the K2 portal and retry.</p>
+<div class="kyp-step">
+<h3>Step 2: Use https:// and Accept the Certificate</h3>
+<p><strong>Action:</strong> Open <code>https://localhost:11501</code> with the <code>s</code>.</p>
+<p><strong>How to fix the warning:</strong> In Chrome or Edge, click <em>Advanced</em>, then <em>Proceed to localhost (unsafe)</em> or <em>Continue to localhost (unsafe)</em>. In Firefox, click <em>Advanced</em>, then <em>Accept the Risk and Continue</em>. Then go back to the K2 portal and retry.</p>
 </div>
 
-<div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #155724; margin: 0 0 15px 0;">🚫 Step 3: Look for a Port Conflict</h3>
-<p style="margin: 0 0 10px 0;"><strong>Action:</strong> Make sure the program on 11501 is actually K2.</p>
-<p style="margin: 0;"><strong>How to check:</strong> Take the PID from the last column of the <code>netstat</code> output and run <code>tasklist /FI "PID eq &lt;pid&gt;"</code>. If it's some other program, close it and restart K2.</p>
+<div class="kyp-step">
+<h3>Step 3: Look for a Port Conflict</h3>
+<p><strong>Action:</strong> Make sure the program on 11501 is actually K2.</p>
+<p><strong>How to check:</strong> Take the PID from the last column of the <code>netstat</code> output and run <code>tasklist /FI "PID eq &lt;pid&gt;"</code>. If it's some other program, close it and restart K2.</p>
 </div>
 
 ---
 
 ## Common Problems and Solutions
 
-<div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 25px 0;">
+<div class="kyp-problems">
 
-<div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e74c3c; margin: 0 0 10px 0;">❌ "This site can't be reached" (ERR_CONNECTION_REFUSED)</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> Nothing is listening on port 11501.</p>
-<p style="margin: 0;"><strong>Solution:</strong> The K2 app isn't running, or it crashed. Start it again. If it closes straight away, check whether your antivirus quarantined it.</p>
+<div class="kyp-problem">
+<h3>"This site can't be reached" (ERR_CONNECTION_REFUSED)</h3>
+<p><strong>Problem:</strong> Nothing is listening on port 11501.</p>
+<p><strong>Solution:</strong> The K2 app isn't running, or it crashed. Start it again. If it closes straight away, check whether your antivirus quarantined it.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #f39c12; margin: 0 0 10px 0;">⚠️ "Your connection is not private" (NET::ERR_CERT_AUTHORITY_INVALID)</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> The browser doesn't trust K2's self-signed certificate.</p>
-<p style="margin: 0;"><strong>Solution:</strong> This is expected for the K2 app on your own computer. Click <em>Advanced</em> and proceed. Only do this for <code>localhost</code>, never for a site on the internet.</p>
+<div class="kyp-problem">
+<h3>"Your connection is not private" (NET::ERR_CERT_AUTHORITY_INVALID)</h3>
+<p><strong>Problem:</strong> The browser doesn't trust K2's self-signed certificate.</p>
+<p><strong>Solution:</strong> This is expected for the K2 app on your own computer. Click <em>Advanced</em> and proceed. Only do this for <code>localhost</code>, never for a site on the internet.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #f39c12; margin: 0 0 10px 0;">⚠️ 404 or Blank Page After Proceeding</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> You accepted the warning and got a 404 or an empty page.</p>
-<p style="margin: 0;"><strong>Solution:</strong> That usually just means the app is up and the certificate is accepted. The local app isn't meant to be browsed directly, so go back to the K2 portal and try again.</p>
+<div class="kyp-problem">
+<h3>404 or Blank Page After Proceeding</h3>
+<p><strong>Problem:</strong> You accepted the warning and got a 404 or an empty page.</p>
+<p><strong>Solution:</strong> That usually just means the app is up and the certificate is accepted. The local app isn't meant to be browsed directly, so go back to the K2 portal and try again.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e74c3c; margin: 0 0 10px 0;">❌ DSC Token Not Detected</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problem:</strong> K2 loads, but signing fails or finds no certificate.</p>
-<p style="margin: 0;"><strong>Solution:</strong> Install the driver for your token's make, plug the token straight into the PC (not a hub), and check the certificate hasn't expired. If it still fails, contact your district treasury help desk.</p>
+<div class="kyp-problem">
+<h3>DSC Token Not Detected</h3>
+<p><strong>Problem:</strong> K2 loads, but signing fails or finds no certificate.</p>
+<p><strong>Solution:</strong> Install the driver for your token's make, plug the token straight into the PC (not a hub), and check the certificate hasn't expired. If it still fails, contact your district treasury help desk.</p>
 </div>
 
 </div>
@@ -140,10 +140,10 @@ If `https://localhost:11501` won't open, work through these in order:
 * **Troubleshooting**: Make sure the app is running, use `https://`, and accept the self-signed certificate warning.
 * **Remote access**: Don't tunnel it. K2 needs to run on the same computer as your browser and DSC token.
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;">
-<h3 style="margin: 0 0 15px 0; font-size: 1.4em;">🚀 Quick Check Commands (Windows)</h3>
-<div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin: 15px 0;">
-<code style="display: block; color: #fff; font-size: 14px; line-height: 1.6;">
+<div class="kyp-quick">
+<h3>Quick Check Commands (Windows)</h3>
+<div class="kyp-quick__code">
+<code>
 # Is anything listening on 11501?<br>
 netstat -ano | findstr :11501<br><br>
 # Which program owns that PID?<br>
