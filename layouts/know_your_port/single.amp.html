@@ -1,16 +1,17 @@
 {{ define "main" }}
-<h1 class="blogtitle">{{.Title}}</h1>
+<article class="kyp">
+  <header>
+    {{ with .Parent }}<a class="kyp-eyebrow" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+    {{ partial "kyp-title.html" . }}
+    <p class="kyp-meta">
+      {{ if ne .Lastmod .Date }}
+      {{ i18n "updatedOn" }} {{ time.Format (i18n "datefmtAmp") .Lastmod }}
+      {{ else }}
+      {{ time.Format (i18n "datefmtAmp") .Date }}
+      {{ end }}
+    </p>
+  </header>
 
-<div class="blogbody">
-  {{ if ne .Lastmod .Date }}
-  <span class="info">
-    <br />
-    {{ i18n "updatedOn" }} {{ time.Format (i18n "datefmtAmp") .Lastmod }}</span
-  >
-  {{ else }}
-  <span class="info">{{ time.Format (i18n "datefmtAmp") .Date }}</span>
-  {{ end }}
-</div>
-
-<div class="blogbody">{{ .Content }}</div>
+  <div class="kyp-body">{{ .Content }}</div>
+</article>
 {{ end }}

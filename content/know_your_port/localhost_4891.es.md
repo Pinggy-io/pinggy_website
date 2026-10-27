@@ -2,7 +2,7 @@
 title: "localhost:4891 - Guía del puerto de la API de GPT4All"
 description: "Guía completa de localhost:4891 - el puerto por defecto del servidor de API local de GPT4All."
 date: 2026-03-06T10:00:00+05:30
-lastmod: 2026-08-01T10:00:00+05:30
+lastmod: 2026-10-24T10:00:00+05:30
 draft: false
 tags: ["localhost", "port", "gpt4all", "llm", "ai", "development"]
 schemahowto: true
@@ -11,18 +11,18 @@ outputs:
   - AMP
 ---
 
-<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px;">
-  <h2 style="margin: 0 0 15px 0; color: white; font-size: 2.2em;">localhost:4891</h2>
-  <p style="margin: 0 0 20px 0; color: rgba(255,255,255,0.9); font-size: 1.1em;">Puerto del servidor de API de GPT4All</p>
-  <a href="http://localhost:4891" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); transition: all 0.3s ease; border: none;">
-    🧠 Abrir localhost:4891
+<div class="kyp-hero">
+  <p class="kyp-hero__port">localhost:4891</p>
+  <p class="kyp-hero__sub">Puerto del servidor de API de GPT4All</p>
+  <a href="http://localhost:4891" target="_blank" class="kyp-hero__btn">
+    Abrir localhost:4891
   </a>
-  <p style="margin: 15px 0 0 0; font-size: 13px; color: rgba(255,255,255,0.8); font-style: italic;">
+  <p class="kyp-hero__note">
     Accede a tu servidor de API de GPT4All en el puerto 4891
   </p>
 </div>
 
-**Localhost:4891** es el puerto por defecto de **GPT4All**, un ecosistema pensado para que cualquiera pueda ejecutar modelos de lenguaje grandes en CPUs y GPUs de consumo. Cuando activas el modo servidor en la aplicación de escritorio de GPT4All, esta escucha en el puerto 4891.
+**Localhost:4891** es el puerto por defecto de **GPT4All**, un ecosistema pensado para que cualquiera pueda ejecutar modelos de lenguaje grandes en CPUs y GPUs de consumo. Cuando activas el modo servidor en la aplicación de escritorio de GPT4All, esta escucha en el puerto 4891. A fecha de octubre de 2026, la última versión de GPT4All es la v3.10.0 (febrero de 2025), y su {{< link href="https://github.com/nomic-ai/gpt4all" >}}repositorio de GitHub{{< /link >}} no tiene commits desde mayo de 2025.
 
 Como muchas herramientas de IA local recientes, GPT4All usa este puerto para exponer una API REST que imita la estructura de la API de OpenAI, lo que la convierte en un sustituto sin conexión de ChatGPT en scripts, agentes de LangChain o tareas automatizadas.
 
@@ -42,18 +42,18 @@ Así otros dispositivos pueden enviar prompts a tu instancia local de GPT4All de
 
 ## Servicios y programas que usan el puerto 4891
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+<div class="kyp-grid">
 
-<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px;">
-<h3 style="color: #007bff; margin: 0 0 15px 0; font-size: 1.3em;">🧠 Aplicación de escritorio GPT4All</h3>
-<ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<div class="kyp-card">
+<h3>Aplicación de escritorio GPT4All</h3>
+<ul>
 <li><strong>Backend de la API de GPT4All</strong>: cuando está activo, simula una interfaz de OpenAI</li>
 </ul>
 </div>
 
 </div>
 
-Cuando activas el servidor en Ajustes -> «Enable API Server» dentro de GPT4All, cualquier script que llame a `http://localhost:4891/v1/chat/completions` va directo al modelo cargado en ese momento en la interfaz de GPT4All.
+Cuando activas el servidor en Ajustes -> «Enable Local API Server» dentro de GPT4All, cualquier script que llame a `http://localhost:4891/v1/chat/completions` va directo al modelo cargado en ese momento en la interfaz de GPT4All.
 
 ---
 
@@ -61,22 +61,22 @@ Cuando activas el servidor en Ajustes -> «Enable API Server» dentro de GPT4All
 
 Si no consigues acceder a `localhost:4891`, así puedes diagnosticar y solucionar los fallos más comunes del servidor de GPT4All:
 
-<div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #856404; margin: 0 0 15px 0;">🔍 Paso 1: comprueba que el servidor está activado</h3>
-<p style="margin: 0 0 10px 0;"><strong>Acción:</strong> confirma que el servidor de API de GPT4All está en marcha.</p>
-<p style="margin: 0;"><strong>Cómo comprobarlo:</strong> abre la aplicación de GPT4All, ve a Ajustes > Aplicación y verifica que «Enable API Server» está marcado.</p>
+<div class="kyp-step">
+<h3>Paso 1: comprueba que el servidor está activado</h3>
+<p><strong>Acción:</strong> confirma que el servidor de API de GPT4All está en marcha.</p>
+<p><strong>Cómo comprobarlo:</strong> abre la aplicación de GPT4All, ve a Ajustes > Aplicación > Avanzado y verifica que «Enable Local API Server» está marcado.</p>
 </div>
 
-<div style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #0c5460; margin: 0 0 15px 0;">🚫 Paso 2: resuelve los conflictos de puerto</h3>
-<p style="margin: 0 0 10px 0;"><strong>Acción:</strong> asegúrate de que ningún otro programa está usando el puerto 4891.</p>
-<p style="margin: 0;"><strong>Cómo arreglarlo:</strong> usa <code>lsof -i :4891</code> (macOS/Linux) o <code>netstat -ano | findstr :4891</code> (Windows) para encontrar el proceso que da conflicto.</p>
+<div class="kyp-step">
+<h3>Paso 2: resuelve los conflictos de puerto</h3>
+<p><strong>Acción:</strong> asegúrate de que ningún otro programa está usando el puerto 4891.</p>
+<p><strong>Cómo arreglarlo:</strong> usa <code>lsof -i :4891</code> (macOS/Linux) o <code>netstat -ano | findstr :4891</code> (Windows) para encontrar el proceso que da conflicto.</p>
 </div>
 
-<div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 20px; margin: 20px 0;">
-<h3 style="color: #155724; margin: 0 0 15px 0;">🌐 Paso 3: prueba la conexión</h3>
-<p style="margin: 0 0 10px 0;"><strong>Acción:</strong> verifica que la API local responde.</p>
-<p style="margin: 0;"><strong>Cómo probarlo:</strong> ejecuta <code>curl http://localhost:4891/v1/models</code> para ver si el servidor contesta.</p>
+<div class="kyp-step">
+<h3>Paso 3: prueba la conexión</h3>
+<p><strong>Acción:</strong> verifica que la API local responde.</p>
+<p><strong>Cómo probarlo:</strong> ejecuta <code>curl http://localhost:4891/v1/models</code> para ver si el servidor contesta.</p>
 </div>
 
 ---
@@ -85,18 +85,18 @@ Si no consigues acceder a `localhost:4891`, así puedes diagnosticar y soluciona
 
 Estos son los fallos típicos con `localhost:4891` y cómo resolverlos:
 
-<div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 25px 0;">
+<div class="kyp-problems">
 
-<div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #e74c3c; margin: 0 0 10px 0;">❌ Error «Connection Refused»</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problema:</strong> el servidor de la API no está funcionando.</p>
-<p style="margin: 0;"><strong>Solución:</strong> abre GPT4All, ve a los ajustes y asegúrate de que el servidor de API está activado.</p>
+<div class="kyp-problem">
+<h3>Error «Connection Refused»</h3>
+<p><strong>Problema:</strong> el servidor de la API no está funcionando.</p>
+<p><strong>Solución:</strong> abre GPT4All, ve a los ajustes y asegúrate de que el servidor de API está activado.</p>
 </div>
 
-<div style="background: #fff; border-left: 4px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h3 style="color: #f39c12; margin: 0 0 10px 0;">⚠️ Error «Model Not Found»</h3>
-<p style="margin: 0 0 10px 0;"><strong>Problema:</strong> las peticiones a la API fallan porque el modelo indicado no está cargado.</p>
-<p style="margin: 0;"><strong>Solución:</strong> comprueba que has descargado ese modelo en GPT4All y que está cargado en la interfaz antes de llamar a la API.</p>
+<div class="kyp-problem">
+<h3>Error «Model Not Found»</h3>
+<p><strong>Problema:</strong> las peticiones a la API fallan porque el modelo indicado no está cargado.</p>
+<p><strong>Solución:</strong> comprueba que has descargado ese modelo en GPT4All y que está cargado en la interfaz antes de llamar a la API.</p>
 </div>
 
 </div>
@@ -108,12 +108,12 @@ Estos son los fallos típicos con `localhost:4891` y cómo resolverlos:
 * **Qué es**: `localhost:4891` es el puerto del servidor de API de GPT4All.
 * **Quién lo usa**: ingenieros de IA que prueban modelos íntegramente en hardware de consumo.
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;">
-<h3 style="margin: 0 0 15px 0; font-size: 1.4em;">🚀 Comandos rápidos</h3>
-<div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin: 15px 0;">
-<code style="display: block; color: #fff; font-size: 14px; line-height: 1.6;">
+<div class="kyp-quick">
+<h3>Comandos rápidos</h3>
+<div class="kyp-quick__code">
+<code>
 # Apuntar las librerías de OpenAI a GPT4All:<br>
-export OPENAI_API_BASE="http://localhost:4891/v1"
+export OPENAI_BASE_URL="http://localhost:4891/v1"
 </code>
 </div>
 </div>

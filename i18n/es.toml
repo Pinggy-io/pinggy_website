@@ -76,6 +76,8 @@ enterYourToken = "Introduce tu token"
 # Know your ports
 readMore = "Leer más…"
 knowYourPorts = "Conoce tus puertos"
+knowYourPortsIntro = "Qué suele ejecutarse en los puertos localhost más comunes y cómo arreglarlos cuando no cargan."
+openPortInNewTab = "Abrir {{ .Port }} en una pestaña nueva"
 
 # Product navbar
 navUseCases = "Casos de uso"

@@ -2067,3 +2067,386 @@ pre {
   .lang-switch__cur { display: none; }
   .lang-switch__toggle { gap: 4px; padding: 0 7px; }
 }
+
+/* ============================================================
+   Know Your Ports (/know_your_port/)
+   Port guides and their index. Page content uses the kyp-* classes
+   (hero, grid/card, step, problems/problem, quick); the AMP twin of
+   these rules lives in layouts/know_your_port/baseof.amp.html.
+   ============================================================ */
+.kyp,
+.kyp-index {
+  margin: 0 auto;
+  padding: 48px 0 96px;
+  color: var(--ink-700);
+}
+.kyp { max-width: 800px; }
+.kyp-index { max-width: 1200px; }
+
+.kyp-eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+a.kyp-eyebrow:hover { color: var(--ink-900); }
+a.kyp-eyebrow:focus-visible { outline: none; box-shadow: var(--shadow-focus); border-radius: var(--radius-sm); }
+
+.kyp-title,
+.kyp-index__title {
+  margin: 0;
+  color: var(--ink-950);
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+/* The port is a link to the local app, but reads as the headline: no link
+   color or underline, just an arrow that fades in on hover. */
+.kyp-title__port {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+.kyp-title__port:hover { color: inherit; }
+.kyp-title__port:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.kyp-title__port::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.1em;
+  font-family: var(--font-sans);
+  font-size: 0.4em;
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: 1.2em;
+  color: var(--ink-400);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+.kyp-title__port:hover::after,
+.kyp-title__port:focus-visible::after {
+  opacity: 1;
+  transform: none;
+}
+@media (hover: none) {
+  .kyp-title__port::after { opacity: 0.6; transform: none; }
+}
+.kyp-title__rest,
+.kyp-index__intro {
+  display: block;
+  margin-top: 12px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  color: var(--ink-500);
+}
+.kyp-index__intro { max-width: 560px; margin-bottom: 0; }
+.kyp-meta {
+  margin: 16px 0 32px;
+  font-size: 0.875rem;
+  color: var(--ink-500);
+}
+
+/* Article body */
+.kyp-body { font-size: 1rem; line-height: 1.6; }
+.kyp-body p,
+.kyp-body ul,
+.kyp-body ol { margin: 0 0 16px; }
+.kyp-body li { margin-bottom: 4px; }
+.kyp-body h2 {
+  margin: 48px 0 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink-900);
+}
+.kyp-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+.kyp-body hr {
+  margin: 48px 0;
+  border: 0;
+  border-top: 1px solid var(--ink-200);
+  opacity: 1;
+}
+.kyp-body hr + h2 { margin-top: 0; }
+.kyp-body strong { font-weight: 600; color: var(--ink-900); }
+.kyp-body a {
+  color: var(--brand-600);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-100);
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-out),
+    text-decoration-color var(--duration-fast) var(--ease-out);
+}
+.kyp-body a:hover { color: var(--brand-700); text-decoration-color: currentColor; }
+.kyp-body :not(pre) > code:not([x-text]) {
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--ink-100);
+  color: var(--ink-900);
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  word-break: break-word;
+}
+
+/* Hero: the port, what runs there, and an open button */
+.kyp-body .kyp-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 24px;
+  align-items: center;
+  margin: 0 0 32px;
+  padding: 24px 28px;
+  background: #fff;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.kyp-body .kyp-hero > * { grid-column: 1; margin: 0; }
+.kyp-body .kyp-hero__port {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-500);
+}
+.kyp-body .kyp-hero__sub {
+  margin-top: 4px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+.kyp-body .kyp-hero__note {
+  margin-top: 4px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-500);
+}
+.kyp-body a.kyp-hero__btn {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  background: var(--brand-600);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+.kyp-body a.kyp-hero__btn::after { content: "\2197"; font-weight: 400; }
+.kyp-body a.kyp-hero__btn:hover { background: var(--brand-700); color: #fff; }
+.kyp-body a.kyp-hero__btn:active { transform: translateY(1px); }
+.kyp-body a.kyp-hero__btn:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+
+/* "What uses this port" cards */
+.kyp-body .kyp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 24px 0 32px;
+}
+.kyp-body .kyp-card {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.kyp-body .kyp-card h3 { margin-bottom: 12px; }
+.kyp-body .kyp-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.kyp-body .kyp-card li {
+  margin: 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--ink-100);
+}
+.kyp-body .kyp-card li:first-child { padding-top: 0; border-top: 0; }
+.kyp-body .kyp-card li:last-child { padding-bottom: 0; }
+
+/* Troubleshooting steps, drawn as a timeline */
+.kyp-body .kyp-step {
+  position: relative;
+  margin: 0 0 0 6px;
+  padding: 0 0 32px 28px;
+  border-left: 1px solid var(--ink-200);
+  font-size: 0.9375rem;
+}
+.kyp-body .kyp-step::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: -6px;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--ink-300);
+  border-radius: var(--radius-pill);
+  background: #fff;
+}
+.kyp-body .kyp-step:not(:has(+ .kyp-step)) { padding-bottom: 8px; border-left-color: transparent; }
+.kyp-body .kyp-step p { margin-bottom: 4px; }
+.kyp-body .kyp-step p:last-child,
+.kyp-body .kyp-step ul:last-child { margin-bottom: 0; }
+.kyp-body .kyp-step ul { margin: 8px 0 0; padding-left: 20px; }
+
+/* Common problems, one bordered list */
+.kyp-body .kyp-problems {
+  margin: 24px 0 32px;
+  background: #fff;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.kyp-body .kyp-problem { padding: 20px 24px; font-size: 0.9375rem; }
+.kyp-body .kyp-problem + .kyp-problem { border-top: 1px solid var(--ink-200); }
+.kyp-body .kyp-problem p { margin-bottom: 4px; }
+.kyp-body .kyp-problem p:last-child { margin-bottom: 0; }
+
+/* Quick-start commands, as a terminal window */
+.kyp-body .kyp-quick {
+  margin: 48px 0 32px;
+  background: #0e1116;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.kyp-body .kyp-quick h3 {
+  margin: 0;
+  padding: 8px 20px;
+  background: #fff;
+  border-bottom: 1px solid var(--ink-200);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--ink-500);
+}
+.kyp-body .kyp-quick__code { margin: 0; padding: 20px 24px; overflow-x: auto; }
+.kyp-body .kyp-quick .kyp-quick__code code {
+  display: block;
+  padding: 0;
+  background: transparent;
+  color: #e5e7eb;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.kyp-body .kyp-quick__note {
+  margin: 0;
+  padding: 12px 24px;
+  background: #fff;
+  border-top: 1px solid var(--ink-200);
+  font-size: 0.875rem;
+  color: var(--ink-500);
+}
+
+/* Index of ports */
+.kyp-ports {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+.kyp-port {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink-700);
+  text-decoration: none;
+  transition: box-shadow var(--duration-slow) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+.kyp-port:hover {
+  border-color: var(--ink-300);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  color: var(--ink-700);
+}
+.kyp-port:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.kyp-port__num {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink-950);
+}
+.kyp-port__host { color: var(--ink-400); font-weight: 500; }
+.kyp-port__name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink-900);
+}
+.kyp-port__desc {
+  display: -webkit-box;
+  margin-top: 4px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-500);
+}
+
+@media (max-width: 640px) {
+  .kyp,
+  .kyp-index { padding-top: 32px; }
+  .kyp-title,
+  .kyp-index__title { font-size: 2.25rem; }
+  .kyp-body .kyp-hero { grid-template-columns: 1fr; padding: 20px; }
+  .kyp-body a.kyp-hero__btn {
+    grid-column: 1;
+    grid-row: auto;
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kyp-eyebrow,
+  .kyp-title__port::after,
+  .kyp-body a,
+  .kyp-body a.kyp-hero__btn,
+  .kyp-port { transition: none; }
+  .kyp-port:hover { transform: none; }
+}
