@@ -2,7 +2,7 @@
 title: "How to get Free AI Model APIs with 'Unlimited' Tokens"
 description: "How to get free AI model APIs on OpenRouter in late 2026: the real limits (20 requests a minute, 50 or 1,000 a day), the current free catalog (Inkling, Nemotron 3 Ultra, Nemotron 3.5 Super VL, Gemma 4), what free endpoints log, and working code."
 date: 2026-07-10T11:30:00+05:30
-lastmod: 2026-10-26T11:30:00+05:30
+lastmod: 2026-10-27T11:30:00+05:30
 draft: false
 tags: ["OpenRouter", "AI Models", "API", "LLM router"]
 categories: ["AI", "Development", "APIs"]
@@ -19,7 +19,7 @@ Most developers hit the same wall once they start building with large language m
 
 Search "free AI API unlimited tokens" and you'll find a pile of posts promising a way around that. The honest version is less exciting but more useful: {{< link href="https://openrouter.ai" >}}OpenRouter{{< /link >}} gives you no-credit-card access to a rotating set of models at **$0 per token**, but "unlimited" isn't the right word. You get 20 requests per minute and either 50 or 1,000 requests per day, depending on whether you've bought $10 of credits. No token cap, but a very real request cap.
 
-We first published this guide in July 2026, and the free list has turned over almost completely since then. Four of the six models we featured (Owl Alpha, Tencent Hy3, Qwen3 Coder and gpt-oss-120b) are no longer free, and the lineup is now led by Thinking Machines' 975-billion-parameter Inkling and NVIDIA's Nemotron family. This update rechecks every limit, price and model ID against OpenRouter's live API and model pages as of October 27, 2026.
+The free list also turns over fast. In July 2026, Owl Alpha, Tencent Hy3, Qwen3 Coder and gpt-oss-120b were all free on OpenRouter; none of them is free today, and the lineup is led by Thinking Machines' 975-billion-parameter Inkling and NVIDIA's Nemotron family. Every limit, price and model ID below was checked against OpenRouter's live API and model pages on October 27, 2026.
 
 Here's the current free lineup at a glance before we get into the mechanics:
 
@@ -80,7 +80,7 @@ That table covers the six worth knowing individually. Counting embedding, rerank
 
 **Getting started**: Create an account at <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai/keys</a> (email or GitHub, no card needed), generate an API key, and call the OpenAI-compatible endpoint at `https://openrouter.ai/api/v1/chat/completions` with any model ID ending in `:free`. A `GET` to `https://openrouter.ai/api/v1/key` tells you how many free requests you have left today.
 
-**Free models worth knowing right now** (October 2026, verify before you rely on one): Inkling, Nemotron 3 Ultra, Nemotron 3.5 Super VL, Gemma 4 and Laguna S 2.1 (until October 31), plus the `openrouter/free` router. Owl Alpha, Tencent Hy3, Qwen3 Coder and gpt-oss have all lost their free variants since July.
+**Free models worth knowing right now** (October 2026, verify before you rely on one): Inkling, Nemotron 3 Ultra, Nemotron 3.5 Super VL, Gemma 4 and Laguna S 2.1 (until October 31), plus the `openrouter/free` router. Owl Alpha, Tencent Hy3, Qwen3 Coder and gpt-oss were free in July and aren't anymore.
 
 **The catch beyond rate limits**: free endpoints often log what you send. NVIDIA, Thinking Machines and Poolside all say on their OpenRouter model pages that free-tier traffic is logged or may be used to improve their models, so keep confidential data off them.
 
@@ -162,7 +162,7 @@ No OpenRouter-specific SDK, no custom client library. If your code already talks
 
 ### Handling Rotation and Rate Limits with Fallback Models
 
-The single most important production tip for the free tier: **don't hardcode one free model**. Free variants get pulled or repriced without much warning. Since July, `qwen/qwen3-coder:free`, `openai/gpt-oss-120b:free`, `tencent/hy3:free` and `nvidia/nemotron-3-super-120b-a12b:free` have all disappeared, and any code pinned to them now fails. OpenRouter's <a href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank">`models` array</a> lets you list several candidates in priority order in one request:
+The single most important production tip for the free tier: **don't hardcode one free model**. Free variants get pulled or repriced without much warning. Between July and late October 2026, `qwen/qwen3-coder:free`, `openai/gpt-oss-120b:free`, `tencent/hy3:free` and `nvidia/nemotron-3-super-120b-a12b:free` have all disappeared, and any code pinned to them now fails. OpenRouter's <a href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank">`models` array</a> lets you list several candidates in priority order in one request:
 
 ```json
 {
@@ -181,13 +181,13 @@ By default any error can send the request to the next model, including context-l
 
 If you'd rather not manage a list at all, `openrouter/free` is a router that picks a free model at random from the ones that support what your request needs, such as tool calling, structured outputs or image input. It trades predictability for convenience: you don't control which model answers, but your code keeps working as the free lineup changes.
 
-## What Changed Since July
+## How Free Models Leave OpenRouter
 
 {{< image "free_ai_model_apis_unlimited_tokens_openrouter/openrouter_free_models_july_vs_october.webp" "Status of OpenRouter's July 2026 free models in October 2026: Nemotron 3 Ultra and Gemma 4 still free, Owl Alpha (now LongCat-2.0), Tencent Hy3, Qwen3 Coder and gpt-oss-120b now paid" >}}
 
 *Prices: cheapest OpenRouter provider per million input tokens, October 27, 2026.*
 
-Of the six models this guide featured in July, two are still free. The other four show the different ways a free listing ends.
+Three months ago the free list looked different. In July, Nemotron 3 Ultra, Gemma 4, Owl Alpha, Tencent Hy3, Qwen3 Coder and gpt-oss-120b were all free. Only the first two still are, and the other four show the different ways a free listing ends.
 
 **Owl Alpha turned out to be Meituan's LongCat-2.0.** It was a stealth model, a prerelease checkpoint OpenRouter serves for free under a codename while the lab collects real-world usage. At the end of June, Meituan's LongCat team <a href="https://x.com/Meituan_LongCat/status/2071783587205308721" target="_blank">introduced LongCat-2.0</a> as "the full model behind Owl Alpha": 1.6 trillion parameters, about 48B active per token, and a 1M-token context. The weights are on <a href="https://huggingface.co/meituan-longcat/LongCat-2.0" target="_blank">Hugging Face</a> under the MIT license, and on OpenRouter `meituan/longcat-2.0` costs $0.30/M input and $1.20/M output, currently shown as a discounted price.
 
@@ -195,7 +195,7 @@ The same thing happened again this fall. A stealth model called Space Bunny left
 
 **Tencent Hy3's free window closed.** Tencent had set July 21 as the end date for the free listing, and Hy3 is now paid only, from $0.0825/M input and $0.33/M output through Tencent's own endpoint.
 
-**Qwen3 Coder and gpt-oss-120b lost their `:free` variants.** Both are still on OpenRouter as paid models: Qwen3 Coder from $0.22/M input, and gpt-oss-120b from $0.03/M input and $0.15/M output across about two dozen providers. At that price gpt-oss is close to free anyway. The smaller July entries went the same way: the free Llama 3.3 70B, Llama 3.2 3B and Hermes 3 405B variants are gone, and NVIDIA's Nemotron 3 Super lost its free endpoint in late October (paid from $0.08/M input). DeepSeek still has no free model, though V4.1 Flash is listed at $0.14/M input and $0.42/M output.
+**Qwen3 Coder and gpt-oss-120b lost their `:free` variants.** Both are still on OpenRouter as paid models: Qwen3 Coder from $0.22/M input, and gpt-oss-120b from $0.03/M input and $0.15/M output across about two dozen providers. At that price gpt-oss is close to free anyway. Smaller free models from July went the same way: the free Llama 3.3 70B, Llama 3.2 3B and Hermes 3 405B variants are gone, and NVIDIA's Nemotron 3 Super lost its free endpoint in late October (paid from $0.08/M input). DeepSeek still has no free model, though V4.1 Flash is listed at $0.14/M input and $0.42/M output.
 
 ## The Free Model Catalog Right Now
 
@@ -243,7 +243,7 @@ Google DeepMind's {{< link href="https://openrouter.ai/google/gemma-4-31b-it:fre
 
 {{< link href="https://openrouter.ai/poolside/laguna-s-2.1:free" >}}Laguna S 2.1{{< /link >}} is Poolside's coding-agent model: 118B total parameters, 8B active, open-weight under the OpenMDW-1.1 license, with a 262K context on the free endpoint. Poolside reports 70.2% on Terminal-Bench 2.1 and 40.4% on DeepSWE. Those are vendor numbers, but strong ones for a model with 8B active parameters, and of everything on the free list it's the one most directly built for {{< link href="/blog/best_ai_tools_for_coding/" newtab=false >}}coding agents{{< /link >}}. That's exactly the problem: the model page says "Going away October 31, 2026", and the smaller `poolside/laguna-xs-2.1:free` (33B total, 3B active) expires the same day. Poolside also says it may use free-tier inputs and outputs to train its models. And it isn't only the free tier that's ending: the paid listing ($0.09/M input, $0.18/M output, 1M context) shows the same "Going away October 31, 2026" date, as does the paid Laguna XS 2.1.
 
-We're calling it out for the same reason we called out Tencent Hy3 in July: free-tier listicles go stale within weeks. After October 31, 2026, check <a href="https://openrouter.ai/poolside/laguna-s-2.1:free" target="_blank">its current listing</a> before you use it.
+We're calling it out because free-tier listicles go stale within weeks. After October 31, 2026, check <a href="https://openrouter.ai/poolside/laguna-s-2.1:free" target="_blank">its current listing</a> before you use it.
 
 ### The Rest of the Current Free Roster
 

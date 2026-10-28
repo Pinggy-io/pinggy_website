@@ -2,7 +2,7 @@
 title: "Best Self-Hosted Open Source DNS Servers in 2026 (PowerDNS, BIND, Unbound & More)"
 description: "A technical comparison of the best open source DNS servers you can self-host in 2026 - PowerDNS, BIND9, Unbound, NSD, Knot DNS, CoreDNS, Technitium, AdGuard Home, Pi-hole, Blocky, SmartDNS, and dnsmasq - with GitHub stars, license, language, latest versions, and the security releases each shipped through October 2026."
 date: 2026-07-31T14:15:25+05:30
-lastmod: 2026-10-26T14:15:25+05:30
+lastmod: 2026-10-27T14:15:25+05:30
 draft: false
 og_image: "images/best_open_source_dns_servers_for_self_hosting/best_open_source_dns_servers_for_self_hosting_banner.webp"
 tags: ["DNS", "self-hosted", "open source", "networking", "privacy"]
@@ -18,7 +18,7 @@ Every time a device on your network looks up a hostname, that query goes to what
 
 The open source DNS ecosystem splits into two fairly different categories, and mixing them up is the most common mistake people make when picking a server. The first category is authoritative nameservers and infrastructure-grade software - PowerDNS, BIND, NSD, Knot DNS, and CoreDNS - built to host zones, sign them with DNSSEC, and handle high query volumes. The second is home and small-office resolvers and forwarders - Unbound, Pi-hole, AdGuard Home, Blocky, and SmartDNS - most of which forward to an upstream resolver, cache answers, and block ad/tracker domains; Unbound is the exception that resolves recursively on its own. Technitium DNS Server straddles both.
 
-This update rechecks every version, star count and license as of October 27, 2026, and the biggest change since our July version is security. Between August and October, BIND fixed 18 CVEs across two releases, Unbound fixed 14, NSD fixed 8, and Pi-hole patched two high-severity remote code execution bugs in its FTL engine. Whichever server you pick, plan to patch it monthly.
+If you run any of these in 2026, the thing to plan for is security. Between August and October, BIND fixed 18 CVEs across two releases, Unbound fixed 14, NSD fixed 8, and Pi-hole patched two high-severity remote code execution bugs in its FTL engine. Whichever server you pick, plan to patch it monthly. Versions, star counts and licenses below were checked on October 27, 2026.
 
 {{% tldr %}}
 
@@ -158,7 +158,7 @@ The most immediate reason is privacy. Every domain you resolve tells your DNS pr
 </tbody>
 </table>
 
-## What Changed Since July: A Heavy Quarter for DNS Security
+## Why DNS Servers Ship So Many Security Fixes in 2026
 
 {{< image "best_open_source_dns_servers_for_self_hosting/dns_server_security_releases_2026.webp" "Timeline of security releases from BIND 9, Unbound, NSD, PowerDNS, Knot DNS, Technitium, Pi-hole, AdGuard Home and CoreDNS between August and October 2026" >}}
 
@@ -180,7 +180,7 @@ These are the servers you reach for when you need real internet-facing DNS infra
 
 {{< link href="https://coredns.io" >}}CoreDNS{{< /link >}} takes a completely different architectural approach: instead of one monolithic daemon with built-in features, it's a Caddy-style plugin chain, where each plugin does one job and you compose them into a `Corefile`. The `kubernetes` plugin turns it into cluster-wide service discovery, the `forward` plugin makes it a forwarder, the `file`/`auto` plugins serve authoritative zones (including pre-signed DNSSEC zones), and the `dnssec` plugin signs answers on the fly. There is no built-in recursive resolver; for that you compile in the external `unbound` plugin, which wraps libunbound. So what CoreDNS is depends entirely on which plugins you load. That flexibility, plus CNCF graduation in January 2019, is why it has been Kubernetes' default DNS server since version 1.13, though it works fine as a standalone server too.
 
-The two releases since July added a lot. v1.14.7 (August 19) brought ACME-managed TLS, topology-aware Kubernetes services, HTTP/2 forwarding and secondary zone management, and fixed two ACL bugs, including one where `autopath` could bypass ACL checks. v1.15.0 (October 21) lets the `forward` plugin use DNS-over-QUIC upstreams and adds opt-in JSON query logging, authenticated RFC 2136 dynamic updates and PROXY protocol v2 metadata. Both were also rebuilt on newer Go versions for Go's own CVE fixes.
+Its two most recent releases added a lot. v1.14.7 (August 19) brought ACME-managed TLS, topology-aware Kubernetes services, HTTP/2 forwarding and secondary zone management, and fixed two ACL bugs, including one where `autopath` could bypass ACL checks. v1.15.0 (October 21) lets the `forward` plugin use DNS-over-QUIC upstreams and adds opt-in JSON query logging, authenticated RFC 2136 dynamic updates and PROXY protocol v2 metadata. Both were also rebuilt on newer Go versions for Go's own CVE fixes.
 
 **Key Features:**
 - Caddy-style plugin-chain architecture - compose exactly the features you need
@@ -234,7 +234,7 @@ The Recursor can use DoT toward forwarders and authoritative servers, sends DNS 
 
 {{< link href="https://www.isc.org/bind/" >}}BIND 9{{< /link >}} from the Internet Systems Consortium (ISC) descends from the Berkeley Internet Name Domain package, written at UC Berkeley in the early 1980s, and ISC describes it as "the first, oldest, and most commonly deployed" DNS solution. The `named` daemon handles both authoritative and recursive roles in a single binary, with a feature set built up over decades: DNSSEC signing and validation, DoT and DoH (since BIND 9.18), zone transfers over TLS (XoT), Response Policy Zones for policy-based filtering, catalog zones for managing many zones as a group, and GSS-TSIG for secure dynamic updates in Windows/Active Directory environments.
 
-2026 is the year security fixes became routine in BIND's monthly releases. Since our July update, 9.20.29 (September 16) fixed 14 CVEs, mostly resolver crashes, resource exhaustion and DNSSEC validation bypasses, and 9.20.30 (October 21) fixed four more; 9.20.28 was withdrawn after a regression turned up in pre-release testing. The 9.18 branch reached end of life in June 2026, so 9.20 is now the only stable line, and ISC has deferred BIND 9.22 "until at least the end of 2026". ISC says it will review the situation in Q4, aiming to "return to our normal release cadence in Q1 2027." Until then, budget for a monthly patch window. Development happens on ISC's own GitLab; the GitHub repository is a read-only mirror.
+2026 is the year security fixes became routine in BIND's monthly releases. Version 9.20.29 (September 16) fixed 14 CVEs, mostly resolver crashes, resource exhaustion and DNSSEC validation bypasses, and 9.20.30 (October 21) fixed four more; 9.20.28 was withdrawn after a regression turned up in pre-release testing. Six months ago ISC was still supporting two branches, 9.18 and 9.20, but 9.18 reached end of life in June 2026, so 9.20 is now the only stable line, and ISC has deferred BIND 9.22 "until at least the end of 2026". ISC says it will review the situation in Q4, aiming to "return to our normal release cadence in Q1 2027." Until then, budget for a monthly patch window. Development happens on ISC's own GitLab; the GitHub repository is a read-only mirror.
 
 **Key Features:**
 - DNSSEC signing and validation, with a dedicated key-signing-request (KSR) utility
@@ -252,7 +252,7 @@ The Recursor can use DoT toward forwarders and authoritative servers, sends DNS 
 
 {{< link href="https://nlnetlabs.nl/projects/nsd/about/" >}}NSD{{< /link >}} (Name Server Daemon), also from NLnet Labs, takes the opposite approach from Unbound: it is authoritative-only by design, with no recursive resolution code at all. That narrow focus is deliberate - fewer code paths means a smaller attack surface and predictable, very high query throughput - and NLnet Labs says three DNS root servers and many top-level domain registries use NSD. It's often paired with Unbound: one box for authoritative zones, another for recursive lookups.
 
-NSD supports AXFR/IXFR zone transfers with DoT, catalog zones, and `nsd-control` for remote management. Since July it has shipped two security releases: 4.15.1 (August 26) fixed four CVEs, including an IP access-control bypass and two remote denial-of-service bugs, and 4.15.3 (October 14) fixed four bugs in its zone file parser that only trigger on crafted zone files, which matters if a multi-tenant provisioning system lets third parties supply zone data. Feature release 4.15.2 (September 2) added EDNS0 padding over TLS and an `allow-proxy` access list for the PROXYv2 port, and 4.15.4 (October 21) added a `report-channel` option for DNS error reporting plus more bug fixes.
+NSD supports AXFR/IXFR zone transfers with DoT, catalog zones, and `nsd-control` for remote management. It shipped two security releases between August and October: 4.15.1 (August 26) fixed four CVEs, including an IP access-control bypass and two remote denial-of-service bugs, and 4.15.3 (October 14) fixed four bugs in its zone file parser that only trigger on crafted zone files, which matters if a multi-tenant provisioning system lets third parties supply zone data. Feature release 4.15.2 (September 2) added EDNS0 padding over TLS and an `allow-proxy` access list for the PROXYv2 port, and 4.15.4 (October 21) added a `report-channel` option for DNS error reporting plus more bug fixes.
 
 **Key Features:**
 - Multi-process query serving (`server-count`) for very high queries-per-second
@@ -270,7 +270,7 @@ NSD supports AXFR/IXFR zone transfers with DoT, catalog zones, and `nsd-control`
 
 {{< link href="https://www.knot-dns.cz" >}}Knot DNS{{< /link >}} is built by CZ.NIC, the registry that runs the `.cz` ccTLD, and like NSD it is authoritative-only (CZ.NIC ships a separate product, Knot Resolver, for recursive lookups). What makes Knot DNS distinctive is its **AF_XDP mode**: it uses Linux's eXpress Data Path to process UDP, TCP and QUIC DNS traffic close to the network interface, skipping most of the kernel's network stack for much higher packet throughput.
 
-Knot DNS 3.6.0 (September 8) is the first new feature line since our July update. It adds early support for DELEG, the new delegation record type the IETF is working on, a "trash bin" that lets you recover deleted DNSSEC keys, and DNSSEC answer validation in `kdig` with `+validate`. It also removes TCP Fast Open support and drops packages for Debian 11 and Ubuntu 20.04. 3.6.1 and 3.6.2 (October 21) followed with hardening, including fixes for DoT 0-RTT memory exhaustion and compression-pointer abuse, and 3.5.8 fixed a TSIG bug that could let an attacker forge dynamic DNS updates. Development happens on CZ.NIC's GitLab; GitHub hosts a mirror.
+Knot DNS 3.6.0 (September 8) opened a new feature line. It adds early support for DELEG, the new delegation record type the IETF is working on, a "trash bin" that lets you recover deleted DNSSEC keys, and DNSSEC answer validation in `kdig` with `+validate`. It also removes TCP Fast Open support and drops packages for Debian 11 and Ubuntu 20.04. 3.6.1 and 3.6.2 (October 21) followed with hardening, including fixes for DoT 0-RTT memory exhaustion and compression-pointer abuse, and 3.5.8 fixed a TSIG bug that could let an attacker forge dynamic DNS updates. Development happens on CZ.NIC's GitLab; GitHub hosts a mirror.
 
 **Key Features:**
 - Automatic DNSSEC signing with automatic or manual key rollover
@@ -310,7 +310,7 @@ AdGuard Home explicitly collects no usage statistics, which matters if privacy i
 
 {{< link href="https://pi-hole.net" >}}Pi-hole{{< /link >}} is the project most people mean when they say "self-hosted DNS ad blocker," and it has the largest community of anything in this guide, with 61.5K GitHub stars on its core repository. Since FTL v4.0 in 2018, the resolver engine (a fork of dnsmasq) has been compiled directly into **FTL** rather than running as a separate process, and Pi-hole v6 moved the web server and REST API into the same binary, dropping lighttpd and PHP. The project ships three coordinated version numbers per release: FTL (the resolver), Web (the dashboard), and Core (install/update scripts). The current set, released October 17, is Core v6.5, FTL v6.8 and Web v6.6.1.
 
-Pi-hole uses the EUPL-1.2 license, an EU-originated copyleft license that's uncommon in this space compared to the GPL, Apache, BSD and MPL licenses the rest of this list uses - worth knowing if your organization has a license-approval process. The security picture since July is busy. FTL v6.7.1 (September 19) fixed two high-severity remote code execution bugs through the `webserver.advancedOpts` and `misc.dnsmasq_lines` settings, and those two options can no longer be changed from the API or web interface, only in `pihole.toml`, environment variables or `pihole-FTL --config`. The October release fixed another batch, including root privilege issues in Core and a bug that let read-only app sessions read password hashes and the TOTP secret. Its docs ask for just 512MB of RAM, so it runs on very small hardware, but "simple to set up" doesn't mean "safe to leave unpatched."
+Pi-hole uses the EUPL-1.2 license, an EU-originated copyleft license that's uncommon in this space compared to the GPL, Apache, BSD and MPL licenses the rest of this list uses - worth knowing if your organization has a license-approval process. September and October were busy on the security side. FTL v6.7.1 (September 19) fixed two high-severity remote code execution bugs through the `webserver.advancedOpts` and `misc.dnsmasq_lines` settings, and those two options can no longer be changed from the API or web interface, only in `pihole.toml`, environment variables or `pihole-FTL --config`. The October release fixed another batch, including root privilege issues in Core and a bug that let read-only app sessions read password hashes and the TOTP secret. Its docs ask for just 512MB of RAM, so it runs on very small hardware, but "simple to set up" doesn't mean "safe to leave unpatched."
 
 **Key Features:**
 - Simplest, most widely documented ad-blocking DNS sinkhole to set up
@@ -412,4 +412,4 @@ One important caution: this pattern is for the **web UI**, not the raw DNS port.
 
 ## Conclusion
 
-There's no single "best" open source DNS server - it depends on whether you need real infrastructure (**PowerDNS**, **BIND**, **NSD**, **Knot DNS**, **CoreDNS**, **Technitium**) or a home-network resolver or ad blocker (**Unbound**, **Pi-hole**, **AdGuard Home**, **Blocky**, **SmartDNS**). What changed in 2026 is the maintenance load: with AI-assisted bug hunting driving a wave of CVEs, monthly security releases are now normal for the biggest projects. Whichever you pick, keep it patched, restrict who can query it, and verify it's resolving correctly with `dig` before switching your network over.
+There's no single "best" open source DNS server - it depends on whether you need real infrastructure (**PowerDNS**, **BIND**, **NSD**, **Knot DNS**, **CoreDNS**, **Technitium**) or a home-network resolver or ad blocker (**Unbound**, **Pi-hole**, **AdGuard Home**, **Blocky**, **SmartDNS**). The harder part in 2026 is the maintenance load: with AI-assisted bug hunting driving a wave of CVEs, monthly security releases are now normal for the biggest projects. Whichever you pick, keep it patched, restrict who can query it, and verify it's resolving correctly with `dig` before switching your network over.
