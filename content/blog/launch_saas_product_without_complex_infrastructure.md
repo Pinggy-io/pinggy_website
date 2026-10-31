@@ -20,7 +20,7 @@ Launching a SaaS is often a hard process, because it asks you to create a large-
 
 Founders also over-engineer at launch, standing up infrastructure and databases that sit underused for years.
 
-An early-stage product does not need an extensive, sophisticated version of the future platform. It's better to build something that gives the first users a decent experience, collect their feedback, and iterate on the prototype quickly.
+An early-stage product does not need an extensive, sophisticated version of the future platform. It's better to build something that gives the first users a decent experience, collect their feedback through <a href="https://forms.app/en/templates/feedback-forms" target="_blank">feedback forms</a>, and iterate on the prototype quickly.
 
 The lean approach to product development usually works better, because it prioritizes speed and cuts down on wasted resources.
 
