@@ -413,9 +413,6 @@ A few models that don't compete head-on with the list above but solve adjacent p
 {{< image "best_video_generation_ai_models/synthesia.webp" "Synthesia" >}}
 **{{< link href="https://www.synthesia.io" >}}Synthesia{{< /link >}}** - AI avatar video for corporate communications, training, marketing. More than 240 avatars and 140+ languages. The right pick for localized training content at scale.
 
-{{< image "best_video_generation_ai_models/hedra.webp" "Hedra" >}}
-**{{< link href="https://www.hedra.com" >}}Hedra{{< /link >}}** - Character-driven video with strong lip-syncing and emotional expression. Its Character-3 model generates talking-head videos up to 10 minutes long from audio inputs.
-
 {{< image "best_video_generation_ai_models/d_id.webp" "D-ID" >}}
 **{{< link href="https://www.d-id.com" >}}D-ID{{< /link >}}** - Digital humans and real-time streaming avatars. Strong API support; common pick for customer-service and interactive web apps.
 
