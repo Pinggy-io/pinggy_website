@@ -417,9 +417,6 @@ Algunos modelos que no compiten de tú a tú con la lista de arriba, pero que re
 {{< image "best_video_generation_ai_models/synthesia.webp" "Synthesia" >}}
 **{{< link href="https://www.synthesia.io" >}}Synthesia{{< /link >}}** - Vídeo con avatares de IA para comunicación corporativa, formación y marketing. Más de 240 avatares y más de 140 idiomas. La opción adecuada para contenido de formación localizado a gran escala.
 
-{{< image "best_video_generation_ai_models/hedra.webp" "Hedra" >}}
-**{{< link href="https://www.hedra.com" >}}Hedra{{< /link >}}** - Vídeo centrado en personajes, con buena sincronización labial y expresión emocional. Su modelo Character-3 genera vídeos de cabezas parlantes de hasta 10 minutos a partir de audio.
-
 {{< image "best_video_generation_ai_models/d_id.webp" "D-ID" >}}
 **{{< link href="https://www.d-id.com" >}}D-ID{{< /link >}}** - Humanos digitales y avatares en streaming en tiempo real. Buen soporte de API; una elección habitual para atención al cliente y aplicaciones web interactivas.
 
