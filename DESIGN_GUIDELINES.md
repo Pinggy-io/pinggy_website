@@ -147,7 +147,7 @@ Mono runs wide, so sizes sit a step below a sans scale.
 
 ### 4.4 Grids inside cells
 
-- **Hero:** `1.05fr / 1fr`, gaps `48px` (rows) / `64px` (columns), `align-items: end`, padding `0 48px 64px`. The first row (min `48px`) holds the announcement tag right under the navbar; the columns start one row gap below it.
+- **Hero:** `1.05fr / 1fr`, gap `48px`, `align-items: center` (the copy centers on the configurator), padding `0 48px 64px`, with the sides widened to `96px` (two grid cells) from 1280px up so the two columns sit as one compact block, about 1100px wide, instead of spreading to the frame rules. The first row (min `48px`) holds the announcement tag right under the navbar; the columns start one row gap below it.
 - **Split:** `1fr / 1.15fr`, gap `64px`, vertically centered; `.split--flip` mirrors it.
 - **FAQ:** `1fr / 2fr`, gap `48px`.
 - **Pillars and pricing:** equal columns with no gap, separated by rules.

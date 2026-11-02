@@ -1750,14 +1750,24 @@ body.home:not(.is-scrolled) .navbar.navbar-expand-lg {
 
 /* ---- Hero ------------------------------------------------ */
 /* No top padding: the announcement tag sits in the first 48px row, right
-   under the navbar, and the columns start one row gap (48px) below it. */
+   under the navbar, and the columns start one row gap (48px) below it.
+   The copy centers vertically on the configurator, and on wide screens the
+   pair is inset by two grid cells (96px) a side, so the two columns read
+   as one compact block instead of spreading to the frame rules. */
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   grid-template-rows: minmax(var(--space-8), auto);
-  align-items: end;
-  gap: var(--space-8) var(--space-10);
+  align-items: center;
+  gap: var(--space-8);
   padding: 0 var(--cell-pad-x) var(--space-10);
+}
+
+@media (min-width: 1280px) {
+  .hero {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
 }
 
 /* The announcement tag: its own row, centered over both columns, slim
