@@ -2,13 +2,13 @@
 title: "Pinggy CLI"
 description: "Robust HTTP, TCP, UDP, or TLS tunnels to localhost for sharing your apps, websites, and games. Manage tunnels from the command line with a background daemon, lifecycle commands, and saved configs."
 date: 2026-04-29T00:00:00+05:30
-lastmod: 2026-08-24T12:28:00+05:30
+lastmod: 2026-11-01T12:28:00+05:30
 draft: false
 ---
 
 # Pinggy CLI
 
-Create secure, shareable tunnels to your localhost and manage them from the command line. Pinggy CLI supports HTTP(S), TCP, UDP, TLS, and TLSTCP tunnels, and it can also be used for  [Remote Devices](/docs/remote_devices/).
+Create secure, shareable tunnels to your localhost and manage them from the command line. Pinggy CLI supports HTTP(S), TCP, UDP, TLS, and TLSTCP tunnels. It also connects a machine to the Pinggy dashboard as a [Pinggy Device](/docs/devices/), with a remote terminal in the browser.
 
 Every tunnel runs inside a background daemon, so you can start tunnels detached, list and stop them later, follow their logs, and even run them at boot as a system service.
 
@@ -23,23 +23,48 @@ Every tunnel runs inside a background daemon, so you can start tunnels detached,
 
 ## Requirements
 
-- Node.js 22 or newer is recommended for the npm install. The CLI uses modern ESM and WebSocket features.
 - A network connection that allows outgoing WebSocket and HTTPS traffic.
+- Node.js 22 or newer, only if you install with npm. The CLI uses modern ESM and WebSocket features.
 
-The standalone binaries from the {{< link href="/cli/" >}}download page{{</ link >}} bundle their own runtime, so Node.js is only needed when you install via npm.
+The install command and the standalone binaries bundle their own runtime, so they need no Node.js.
 
 ## Installation
 
-Pinggy CLI is available for Windows, Mac, and Linux. Global install is recommended for the system-wide `pinggy` command.
+Pinggy CLI is available for Windows, Mac, and Linux.
 
-**Install using npm:**
+### Install command (recommended)
+
+{{< tabs groupId="install" >}}
+{{% tab name="macOS / Linux" %}}
+```bash
+curl -fsSL https://pinggy.io/install.sh | sh
+```
+{{% /tab %}}
+{{% tab name="Windows (PowerShell)" %}}
+```powershell
+irm https://pinggy.io/install.ps1 | iex
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+The command installs the latest release, or updates an older one, and puts `pinggy` on your `PATH`. It needs no `sudo` or administrator rights.
+
+- macOS and Linux: the binary goes to `~/.pinggy/bin/pinggy`, with a link in `~/.local/bin`. When `~/.local/bin` is not on your `PATH`, the script adds 1 line to your shell's rc file.
+- Windows: the binary goes to `%LOCALAPPDATA%\Pinggy\bin\pinggy.exe`, and that folder is added to your user `PATH`.
+
+After installing, the command signs the machine in as a [Pinggy Device](/docs/devices/): it asks for your email. Press `Ctrl+C` at the email prompt to skip this step. You can sign in later with `pinggy device login`.
+
+The Linux binaries need glibc, as on Debian, Ubuntu, and Fedora. On Alpine and other musl-based systems, use npm.
+
+### Other ways to install
+
+**npm:**
 
 ```bash
 npm install -g pinggy
 ```
 
-**Or download Pinggy CLI from {{< link href="/cli/" >}}here{{</ link >}}.**
-
+**Standalone binary:** download it for your platform from the {{< link href="/cli/" >}}download page{{</ link >}}.
 
 After install, verify the command:
 
@@ -49,7 +74,7 @@ pinggy --help
 
 ## Getting Started
 
-Before starting a tunnel, navigate to the directory where the Pinggy CLI is installed. You can start a tunnel by running:
+If you installed with the install command or npm, `pinggy` is on your `PATH`. If you downloaded the binary, run it as `./pinggy` from the folder it is in. The examples below use `./pinggy`. You can start a tunnel by running:
 
 ```bash
 ./pinggy <options>
@@ -280,11 +305,39 @@ The daemon starts automatically when needed, so most users never touch these com
 pinggy daemon start                # start the daemon (lists which configs will auto-start)
 pinggy daemon status               # show PID, port, start time, and uptime
 pinggy daemon stop                 # stop every tunnel and shut the daemon down cleanly
+pinggy daemon service-install      # start the daemon at boot (systemd, launchd, Task Scheduler)
+pinggy daemon service-uninstall    # remove that system service
 ```
+
+## Pinggy Devices
+
+`pinggy device` connects this machine to the Pinggy dashboard as a [Pinggy Device](/docs/devices/). From the dashboard you can then open a terminal on the machine in your browser, see its CPU and memory, and start, stop, and edit its tunnels.
+
+The [install command](#install-command-recommended) runs `pinggy device login` for you. With the CLI already installed:
+
+```bash
+pinggy device login                     # sign in with your email, then stay connected
+pinggy device connect --token <TOKEN>   # connect with a device token from the dashboard
+pinggy device connect                   # reconnect with the saved token
+pinggy device connect -b                # run the agent in the background, in the daemon
+pinggy device stop                      # stop the background agent
+pinggy device status                    # show the saved device and the background agent
+pinggy device remove                    # forget the saved token (the device stays in the dashboard)
+```
+
+| Option | Applies to | Meaning |
+|--------|------------|---------|
+| `-b` | `login`, `connect` | Run the agent in the background. It keeps running after the terminal closes |
+| `--token <TOKEN>` | `connect` | The device token from the dashboard |
+| `--name <NAME>` | `login` | The device name. Default: the machine's hostname |
+
+`--token` here is the device token. It is not the tunnel token that `--token` sets when you start a tunnel. Without `-b`, the agent runs in the foreground until you press `Ctrl+C`. Stopping the agent leaves running tunnels alone.
+
+1 command runs per invocation: `pinggy device connect start my-tunnel` connects the device and ignores `start my-tunnel`. Run tunnel commands separately.
 
 ## Remote management
 
-You can control tunnels remotely using a secure WebSocket connection.
+Remote management is the older way to control tunnels from the dashboard. It uses an API key and controls tunnels only. For a remote terminal and machine metrics, use [Pinggy Devices](#pinggy-devices). See [Remote management](/docs/remote_devices/) for the dashboard side.
 
 - Start remote management with a token:
 
@@ -387,6 +440,7 @@ Run `pinggy log path` to print the exact resolved paths on your system.
 - Lifecycle commands: `ps`, `start`, `stop`, `restart`, `attach`
 - Per-tunnel and per-daemon log files with `pinggy logs` (tail, follow, rotation-safe)
 - System-service install for auto-start at boot (systemd, launchd, Task Scheduler)
+- Pinggy Devices: connect the machine to the Pinggy dashboard, with a remote terminal in the browser, machine metrics, and tunnel control
 - Remote management via secure WebSocket connection, works with Pinggy Dashboard
 - Save and load configuration files
 - Config store for saving, listing, updating, and starting named tunnel configs

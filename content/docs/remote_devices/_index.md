@@ -3,12 +3,17 @@ title: "Remote Devices - remotely manage your tunnels with Pinggy"
 description: "Manage your tunnels remotely from the Pinggy dashboard using the remote devices feature. Run Pinggy CLI in remote-management mode to control tunnels."
 og_image: "doc_img/remote_device/remote_device_illustration.webp"
 date: 2024-01-24T14:15:25+05:30
+lastmod: 2026-11-01T14:15:25+05:30
 draft: false
 ---
 
 
 
 # Remote Devices
+
+> **Looking for a remote terminal, or to connect a whole machine?** Use [Pinggy Devices](/docs/devices/). 1 install command connects the machine to the dashboard. From there you can open a terminal on it in your browser, see its CPU and memory, and manage its tunnels.
+>
+> This page covers remote management, the older mode. It uses an API key and controls tunnels only.
 
 You can manage your tunnels remotely from the {{< link href="https://dashboard.pinggy.io/activedevices" >}}Pinggy dashboard{{</ link >}} using the remote devices feature. All you need to do is run the Pinggy CLI and connect it in remote-management mode. This allows you to create, edit, and stop tunnels directly from the dashboard without needing physical access to your device.
 
@@ -19,7 +24,7 @@ You can manage your tunnels remotely from the {{< link href="https://dashboard.p
 
 ## Connecting a remote device
 
-For connecting a remote device, you need to intall {{< link href="https://pinggy.io/cli/" >}}Pinggy CLI{{</ link >}}, and get an {{< link href="https://dashboard.pinggy.io/api-keys" >}}API Key{{</ link >}}.
+For connecting a remote device, you need to install {{< link href="https://pinggy.io/cli/" >}}Pinggy CLI{{</ link >}}, and get an {{< link href="https://dashboard.pinggy.io/api-keys" >}}API Key{{</ link >}}.
 
 **Step 1.** Install the  {{< link href="https://pinggy.io/cli/" >}}Pinggy CLI{{</ link >}} by following the instructions {{< link href="https://pinggy.io/cli/" >}}here{{</ link >}}.
 
@@ -63,7 +68,7 @@ To view your active remote devices, log in to {{< link href="https://dashboard.p
 
 There you will find a list of your active devices. Click on the device you want to manage.
 
-You can achive the following using remote device management:
+You can achieve the following using remote device management:
 
 - Keep your remote device connected and initiate new tunnels whenever you want without physically accessing the device
 - Create new HTTP(S) / TCP / UDP / TLS tunnels

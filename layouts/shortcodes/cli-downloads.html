@@ -14,7 +14,7 @@
             box-shadow: 0px 10px 30px rgba(35, 39, 55, 0.08);
           "
           >
-          <div class="mb-5 pb-4 border-bottom">
+          <div class="mb-5 pb-4 border-bottom" id="install-command">
             <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
               <div>
                 <div
@@ -23,16 +23,87 @@
                 >
                   Install
                 </div>
-                <h2 class="fw-bold mb-2">Start with npm</h2>
+                <h2 class="fw-bold mb-2">Install with 1 command</h2>
                 <p class="mb-0 text-secondary">
-                  Use npm to install Pinggy CLI globally if you want a package-managed setup.
+                  Installs the latest Pinggy CLI, or updates an older one, and puts <kbd>pinggy</kbd> on your PATH. No sudo or administrator rights needed.
                 </p>
               </div>
               <div
                 class="px-3 py-2 rounded-pill fw-bold"
                 style="background: rgba(116, 96, 255, 0.12); color: #4d3bd6;"
               >
-                Recommended for Node.js users
+                Recommended
+              </div>
+            </div>
+
+            <ul class="nav nav-tabs" id="cliInstallTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="install-unix-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tab-install-unix"
+                  type="button"
+                  role="tab"
+                  aria-controls="tab-install-unix"
+                  aria-selected="true"
+                >
+                  <i class="bi bi-apple"></i> Mac OS / <i class="bi bi-terminal"></i> Linux
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="install-windows-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tab-install-windows"
+                  type="button"
+                  role="tab"
+                  aria-controls="tab-install-windows"
+                  aria-selected="false"
+                >
+                  <i class="bi bi-windows"></i> Windows (PowerShell)
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content pt-4" id="cliInstallTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="tab-install-unix"
+                role="tabpanel"
+                aria-labelledby="install-unix-tab"
+              >
+                <pre class="mb-0"><code>curl -fsSL https://pinggy.io/install.sh | sh</code></pre>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="tab-install-windows"
+                role="tabpanel"
+                aria-labelledby="install-windows-tab"
+              >
+                <pre class="mb-0"><code>irm https://pinggy.io/install.ps1 | iex</code></pre>
+              </div>
+            </div>
+
+            <p class="mt-3 mb-0 text-secondary">
+              After installing, it signs this machine in as a <a href="/docs/devices/" class="pinggy-link">Pinggy Device</a>, so you can open a terminal on it from the dashboard. Press <kbd>Ctrl+C</kbd> at the email prompt to skip that step.
+            </p>
+          </div>
+
+          <div class="mb-5 pb-4 border-bottom">
+            <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+              <div>
+                <div
+                  class="text-uppercase fw-semibold mb-2"
+                  style="letter-spacing: 0.08em; color: #7460ff; font-size: 0.78rem;"
+                >
+                  npm
+                </div>
+                <h2 class="fw-bold mb-2">Install with npm</h2>
+                <p class="mb-0 text-secondary">
+                  Use npm to install Pinggy CLI globally if you want a package-managed setup. Needs Node.js 22 or newer.
+                </p>
               </div>
             </div>
 
