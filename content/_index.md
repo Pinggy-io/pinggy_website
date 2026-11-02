@@ -616,6 +616,19 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
                     </li>
                     <li>
                       <i class="bi bi-check2-circle pricing-check"></i>
+                      <span
+                        >1 Pinggy Device with a remote terminal
+                        <a
+                          href="/docs/devices/"
+                          target="_blank"
+                          class="link-dark"
+                          aria-label="About Pinggy Devices"
+                          ><i class="bi bi-info-circle"></i
+                        ></a>
+                      </span>
+                    </li>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
                       <span>Random subdomains</span>
                     </li>
                     <li>
@@ -785,7 +798,16 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
                       <i
                         class="bi bi-check2-circle pricing-check pricing-check--featured"
                       ></i>
-                      <span>Remote Device Management</span>
+                      <span
+                        >25 Pinggy Devices, 3 terminals each
+                        <a
+                          href="/docs/devices/"
+                          target="_blank"
+                          class="link-dark"
+                          aria-label="About Pinggy Devices"
+                          ><i class="bi bi-info-circle"></i
+                        ></a>
+                      </span>
                     </li>
                     <li>
                       <i
@@ -886,6 +908,19 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
                           target="_blank"
                           class="link-dark"
                           aria-label="About the API"
+                          ><i class="bi bi-info-circle"></i
+                        ></a>
+                      </span>
+                    </li>
+                    <li>
+                      <i class="bi bi-check2-circle pricing-check"></i>
+                      <span
+                        >Unlimited Pinggy Devices and terminals
+                        <a
+                          href="/docs/devices/"
+                          target="_blank"
+                          class="link-dark"
+                          aria-label="About Pinggy Devices"
                           ><i class="bi bi-info-circle"></i
                         ></a>
                       </span>
