@@ -1502,15 +1502,23 @@ body.home:not(.is-scrolled) .navbar.navbar-expand-lg {
   width: auto;
 }
 
-/* Links sit beside the logo; the Dashboard button takes the far right. */
+/* Logo on the left; the links group on the right, just before the
+   Dashboard button. */
 @media (min-width: 992px) {
   .navbar .navbar-collapse {
     flex-grow: 1;
   }
+
+  .navbar .navbar-collapse .navbar-nav {
+    margin-left: auto;
+  }
+
+  .navbar .nav-button {
+    margin-left: var(--space-4);
+  }
 }
 
 .navbar .navbar-collapse .navbar-nav {
-  margin-right: auto;
   align-items: center;
 }
 
