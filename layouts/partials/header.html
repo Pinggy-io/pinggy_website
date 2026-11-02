@@ -13,6 +13,15 @@
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="/assets/favicon2.ico" />
 
+{{/* IBM Plex Mono carries headings, nav and buttons (DESIGN_GUIDELINES.md
+     section 3), so the two weights that render above the fold are preloaded to
+     avoid a late swap. The blog has its own type system and preloads its own
+     faces in blog/baseof.html. */}}
+{{- if ne .Section "blog" }}
+<link rel="preload" href="/fonts/ibm-plex-mono-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+{{- end }}
+
 <!-- Core theme CSS (includes Bootstrap)-->
 {{/* Fingerprinted so netlify.toml can serve /css/* as immutable. Without the
      content hash these sit at stable URLs and a year-long cache would strand

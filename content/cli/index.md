@@ -11,7 +11,7 @@
     <div class="col-lg-5">
       <div class="text-left my-lg-5">
         <h1 class="display-5 fw-bolder d-inline">
-          Pinggy Command Line Tool <span style="color: #7460ff">(Beta)</span>
+          Pinggy Command Line Tool <span class="text-brand">(Beta)</span>
         </h1>
         <span class="d-block" id="lead2">
           Pinggy Command Line Tool provides more robust tunnels with quicker
@@ -78,15 +78,12 @@ pinggy attach my-tunnel</pre>
         <div class="mt-5 d-flex flex-wrap align-items-center gap-3">
           <a
             href="/docs/cli/"
-            class="d-inline-flex align-items-center gap-2"
-            style="background-color: #3B6FE0; color: #fff; font-weight: 600; font-size: 16px; padding: 14px 24px; border-radius: 10px; text-decoration: none; transition: background-color 120ms cubic-bezier(0.4, 0, 0.2, 1);"
-            onmouseover="this.style.backgroundColor='#2F58B8'"
-            onmouseout="this.style.backgroundColor='#3B6FE0'"
+            class="btn btn-pinggy-blue btn-lg d-inline-flex align-items-center gap-2"
           >
             Visit the Pinggy CLI documentation
             <i class="bi bi-arrow-right"></i>
           </a>
-          <span style="color: #6B7280; font-size: 15px;">Commands, flags, and full reference</span>
+          <span class="text-muted">Commands, flags, and full reference</span>
         </div>
       </div>
     </div>

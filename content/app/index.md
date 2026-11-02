@@ -10,7 +10,7 @@ outputs: ["HTML", "appversion"]
     <div class="col-lg-5">
       <div class="text-left mb-5 mt-2">
         <h1 class="display-5 fw-bolder biggestheader d-inline">
-          Pinggy App <span style="color: #4589df">(Beta)</span>
+          Pinggy App <span class="text-brand">(Beta)</span>
         </h1>
         <span class="mb-2 mt-4 fs-3 d-block"
           >Easiest way to deploy your websites and apps from localhost!</span
@@ -21,7 +21,7 @@ outputs: ["HTML", "appversion"]
         </div>
         <div class="mt-3 text-muted small">
           <i class="bi bi-box-seam me-1"></i> Latest version:
-          <span style="color: #4589df; font-weight: 600">v{{< app-latest-version >}}</span>
+          <span class="text-brand fw-semibold">v{{< app-latest-version >}}</span>
         </div>
       </div>
       {{< app-downloads >}}

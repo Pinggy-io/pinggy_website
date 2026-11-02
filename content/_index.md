@@ -2,9 +2,11 @@
 title: "Pinggy - Simple Localhost Tunnels"
 ---
 
-<!-- Banner -->
+<main class="frame">
+
+<!-- Hero: headline + trial on the left, tunnel configurator on the right -->
 <header
-  class="pt-1 contentcontainer"
+  class="cell hero"
   x-data="{ data : $store.advModal }"
   x-init="data.tryItYourself = JSON.parse(localStorage.getItem('tryItYourself')) || {
         selectedProtocol: 'HTTP',
@@ -16,198 +18,167 @@ title: "Pinggy - Simple Localhost Tunnels"
         localStorage.setItem('tryItYourself', JSON.stringify(value));
     })"
 >
-  <div class="container">
-    <div class="text-center">
-      <div class="alert alert-info" role="alert">
-The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify, and replay your tunnel traffic right in the browser. <a href="/docs/http_tunnels/web_debugger/" target="_blank">Learn more →</a>
-      </div>
+  <canvas id="grid-canvas" class="hero__grid" aria-hidden="true" data-scope="parent" data-cell="48" data-base-rgb="21, 21, 21" data-base-alpha="0.07" data-glow-radius="260" data-glow-peak="0.5" data-pulse-max="4" data-head="square"></canvas>
+  <a class="tag" href="/docs/http_tunnels/web_debugger/" target="_blank"><span class="tag__new">New</span>Web Debugger in the Dashboard <span aria-hidden="true">&rarr;</span></a>
+  <div class="hero__left">
+    <h1 class="biggestheader">Public URLs for Localhost.</h1>
+    <p class="hero__sub">Without downloading any binary!</p>
+    <div id="lead2">
+      Create HTTP, TCP, UDP, or TLS tunnels to your Mac/PC. Even if it is
+      sitting behind firewalls and NATs.
     </div>
-    <div class="row justify-content-evenly">
-      <div class="col-lg-5">
-        <div class="text-left my-5">
-          <h1 class="display-5 fw-bolder biggestheader d-inline">
-            Public URLs for Localhost.
-          </h1>
-          <span class="mb-2 mt-2 fs-3 d-block"
-            >Without downloading any binary!</span
-          >
-          <div class="mt-4" id="lead2">
-            Create HTTP, TCP, UDP, or TLS tunnels to your Mac/PC.<br />Even if it is
-            sitting behind firewalls and NATs.
+    <div class="hero__trial">
+      <span class="eyebrow"><mark>Free persistent URL</mark> for 7 days &amp; custom domain support</span>
+      <div class="input-group trial-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          aria-label="Email"
+          aria-describedby="button-addon2"
+          id="trialemail"
+        />
+        <div class="invalid-tooltip" id="emailinvalidtooltip">
+          Please enter a valid email
+        </div>
+        <button
+          class="btn btn-pinggy-blue"
+          type="button"
+          id="button-addon2"
+          onclick="starttrial()"
+        >
+          Start 7 days free trial
+        </button>
+      </div>
+      <button type="button" onclick="trynow()" id="trynow" class="link-rule">
+        Or just try it for free <span aria-hidden="true">&rarr;</span>
+      </button>
+    </div>
+  </div>
+  <div class="hero__right">
+    <div class="text-left card" id="bigcodecolumn">
+      <div class="spec-card__head">
+        <h2 class="h6 m-0 eyebrow text-reset">Configure your free tunnel</h2>
+      </div>
+      <div class="configurator__body">
+        <form>
+          <label for="localaddress">Your local address:</label>
+          <div class="input-group mt-2">
+            <select
+              class="form-select"
+              id="protocolSelect"
+              x-model="data.tryItYourself.selectedProtocol"
+              aria-label="Select protocol"
+            >
+              <option value="HTTP">HTTP</option>
+              <option value="TCP">TCP</option>
+              <option value="UDP">UDP</option>
+            </select>
+            <input
+              class="form-control"
+              id="localaddress"
+              type="text"
+              :placeholder="data.tryItYourself.localaddress || 'localhost:8000'"
+              x-model="data.tryItYourself.localaddress"
+              aria-label="Local address"
+            />
           </div>
-          <div style="margin-top: 4em; max-width: 28em">
-            <div style="font-weight: 500">
-              <span class="highlight">&nbsp;Free persistent URL&nbsp;</span>for
-              7 days & custom domain support:
-            </div>
-            <div class="input-group mt-1">
+        </form>
+        <div class="configurator__toggles">
+          <div>
+            <label class="switch" aria-label="Web Debugger">
               <input
-                type="email"
-                class="form-control"
-                placeholder="Email"
-                aria-label="Email"
-                aria-describedby="button-addon2"
-                id="trialemail"
+                type="checkbox"
+                id="webdebuggerinput"
+                x-model="data.tryItYourself.webdebugCheck"
               />
-              <div
-                style="border-radius: 0.2em"
-                class="invalid-tooltip"
-                id="emailinvalidtooltip"
+              <span class="slider round"></span>
+            </label>
+            <span class="enablewebdebuglabel">Web Debugger</span>
+          </div>
+          <div>
+            <label class="switch" aria-label="QR Code">
+              <input
+                type="checkbox"
+                id="qrinput"
+                x-model="data.tryItYourself.qrCheck"
+              />
+              <span class="slider round"></span>
+            </label>
+            <span class="enablewebdebuglabel"
+              >QR Code
+              <i
+                class="bi bi-info-circle"
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                data-bs-html="true"
+                title="Show QR Code for the URL"
               >
-                Please enter a valid email
-              </div>
-              <button
-                class="btn btn-pinggy-blue"
-                type="button"
-                id="button-addon2"
-                onclick="starttrial()"
-              >
-                Start 7 days free trial
-              </button>
-            </div>
-            <button onclick="trynow()" id="trynow">
-              Or just try it for free →
-            </button>
+              </i>
+            </span>
           </div>
         </div>
+        <div class="alert alert-warning" x-show="$store.advModal.getError()" x-text="$store.advModal.getError()" role="alert">
+          A simple warning alert-check it out!
+        </div>
       </div>
-      <div class="col-lg-5 mt-5">
-        <div class="text-left card" id="bigcodecolumn">
-          <div class="px-4">
-            <h2 class="h5 mt-3">Configure your free tunnel</h2>
-            <form class="mt-3">
-              <label for="localaddress" class="text-bold"
-                ><strong>Your local address:</strong></label
-              >
-              <div class="input-group mt-2">
-                <div class="input-group-prepend">
-                  <select
-                    class="form-select"
-                    id="protocolSelect"
-                    x-model="data.tryItYourself.selectedProtocol"
-                    aria-label="Select protocol"
-                  >
-                    <option value="HTTP">HTTP</option>
-                    <option value="TCP">TCP</option>
-                    <option value="UDP">UDP</option>
-                  </select>
-                </div>
-                <input
-                  class="form-control"
-                  id="localaddress"
-                  type="text"
-                  :placeholder="data.tryItYourself.localaddress || 'localhost:8000'"
-                  x-model="data.tryItYourself.localaddress"
-                  aria-label="Local address"
-                />
-              </div>
-            </form>
-            <div class="mt-3 row">
-              <div class="col-md-6">
-                <label class="switch" aria-label="Web Debugger">
-                  <input
-                    type="checkbox"
-                    id="webdebuggerinput"
-                    x-model="data.tryItYourself.webdebugCheck"
-                  />
-                  <span class="slider round"></span>
-                </label>
-                <span class="align-middle enablewebdebuglabel">
-                  Web Debugger
-                </span>
-              </div>
-              <div class="col-md-6">
-                <label class="switch" aria-label="QR Code">
-                  <input
-                    type="checkbox"
-                    id="qrinput"
-                    x-model="data.tryItYourself.qrCheck"
-                  />
-                  <span class="slider round"></span>
-                </label>
-                <span class="align-middle enablewebdebuglabel"
-                  >QR Code
-                  <i
-                    class="bi bi-info-circle"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="right"
-                    data-bs-html="true"
-                    title="Show QR Code for the URL"
-                  >
-                  </i>
-                </span>
-              </div>
-            </div>
-            <div class="alert alert-warning mt-3 mb-0" x-show="$store.advModal.getError()" x-text="$store.advModal.getError()" role="alert">
-              A simple warning alert-check it out!
-            </div>
-          </div>
-          <div id="finalcommand" class="border-top mt-3 px-4 py-3">
-            <label class="text-bold mt-2" x-show="data.tryItYourself.selectedProtocol == 'UDP'">
-              <strong>First Download the <a target="_blank" href="/cli/">Pinggy CLI</a></strong><br>
-            </label>
-            <label class="text-bold mt-2"
-              ><strong>Paste this command to start tunnel:</strong></label
-            >
-            <div class="input-group mt-2">
-              <textarea
-                id="portcommand"
-                class="form-control"
-                aria-label="Command to start tunnel"
-                readonly="readonly"
-                x-text="$store.advModal.tryItYourselfCommand()"
-              ></textarea>
-              <button
-                class="btn btn-dark"
-                type="button"
-                id="copybutton_tryityourselfcommand"
-                aria-label="Copy SSH URL to Clipboard"
-                onclick="copytoclipboard(this,'#portcommand')"
-              >
-                <i class="bi bi-clipboard"></i>
-              </button>
-            </div>
-            <div class="mt-2" id="instructions">
-              Enter "yes" to continue connecting. Enter blank password if
-              prompted.
-            </div>
-            <div
-              class="mt-2"
-              id="webdebugurl"
-              x-show="data.tryItYourself.webdebugCheck"
-            >
-              Default Web Debugger URL:
-              <a href="http://localhost:4300" target="_blank"
-                >http://localhost:4300</a
-              >
-            </div>
-            <div class="mt-3">
-            <button
-              type="button"
-              class="ml-1 btn btn-light text-decoration-none float-end border"
-              data-bs-toggle="modal"
-              data-bs-target="#advancedModal"
-              id="advancedModalButton"
-            >
-              <i class="bi bi-gear"></i> Advanced Settings
-              <i class="bi bi-chevron-right" style="font-size: 0.8rem"></i>
-            </button>
-            <a
-              href="/docs/"
-              target="_blank"
-              type="button"
-              class="mx-1 btn btn-light text-decoration-none float-end border"
-            >
-              <i class="bi bi-file-text"></i> Docs
-              <i class="bi bi-chevron-right" style="font-size: 0.8rem"></i>
-            </a>
-            </div>
-          </div>
+      <div id="finalcommand">
+        <label class="configurator__note" x-show="data.tryItYourself.selectedProtocol == 'UDP'">
+          First Download the <a target="_blank" href="/cli/">Pinggy CLI</a>
+        </label>
+        <label class="configurator__label" for="portcommand">Paste this command to start tunnel:</label>
+        <div class="input-group cmd mt-2">
+          <textarea
+            id="portcommand"
+            class="form-control"
+            aria-label="Command to start tunnel"
+            readonly="readonly"
+            rows="2"
+            x-text="$store.advModal.tryItYourselfCommand()"
+          ></textarea>
+          <button
+            class="btn"
+            type="button"
+            id="copybutton_tryityourselfcommand"
+            aria-label="Copy SSH URL to Clipboard"
+            onclick="copytoclipboard(this,'#portcommand')"
+          >
+            <i class="bi bi-clipboard"></i>
+          </button>
+        </div>
+        <div class="mt-2" id="instructions">
+          Enter "yes" to continue connecting. Enter blank password if
+          prompted.
+        </div>
+        <div
+          class="mt-2"
+          id="webdebugurl"
+          x-show="data.tryItYourself.webdebugCheck"
+        >
+          Default Web Debugger URL:
+          <a href="http://localhost:4300" target="_blank"
+            >http://localhost:4300</a
+          >
+        </div>
+        <div class="configurator__actions">
+          <a href="/docs/" target="_blank" class="btn btn-outline-pinggy">
+            <i class="bi bi-file-text"></i> Docs
+          </a>
+          <button
+            type="button"
+            class="btn btn-outline-pinggy"
+            data-bs-toggle="modal"
+            data-bs-target="#advancedModal"
+            id="advancedModalButton"
+          >
+            <i class="bi bi-gear"></i> Advanced Settings
+          </button>
         </div>
       </div>
     </div>
   </div>
 </header>
+
 <!-- Modal -->
 <div class="modal fade" id="advancedModal" tabindex="-1" 
     aria-labelledby="advancedModalLabel" aria-hidden="true" 
@@ -233,308 +204,134 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
     </div>
 </div>
 
-
-{{% terminal_animation %}}
-
+{{< terminal_animation >}}
 
 <!-- Feature: sharing -->
-<section class="py-5" id="feature-share">
-  <div class="container">
-    <div class="row align-items-center justify-content-evenly g-4 g-lg-5">
-      <div class="col-lg-6">
-        <div class="videocontainer ratio ratio-16x9">
-          <video
-            preload="none"
-            onclick="if(this.paused && !this.controls){ this.controls=true; this.play() }"
-            poster="/assets/tunnelvideothumb.webp"
-          >
-            <source src="/assets/pinggy_demo.webm" type="video/webm" />
-            Your browser does not support HTML video.
-          </video>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-          <i class="bi bi-collection"></i>
-        </div>
-        <h2 class="fw-bold mb-3">Share your websites and apps in seconds.</h2>
-        <ul class="list-unstyled featurelist mb-4">
-          <li><i class="bi bi-check2-circle me-2"></i>Skip uploading to the cloud.</li>
-          <li><i class="bi bi-check2-circle me-2"></i>No tool to download.</li>
-          <li><i class="bi bi-check2-circle me-2"></i>Link your own domain.</li>
-          <li><i class="bi bi-check2-circle me-2"></i>Basic authentication built in.</li>
-        </ul>
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <a class="btn btn-pinggy-blue" href="/quickstart/">Quickstart</a>
-          <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
-            Learn more <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-      </div>
+<section class="cell split" id="feature-share">
+  <div class="split__text">
+    <span class="eyebrow">Share</span>
+    <h2>Share your websites and apps in seconds.</h2>
+    <ul class="featurelist">
+      <li><i class="bi bi-check2-circle me-2"></i>Skip uploading to the cloud.</li>
+      <li><i class="bi bi-check2-circle me-2"></i>No tool to download.</li>
+      <li><i class="bi bi-check2-circle me-2"></i>Link your own domain.</li>
+      <li><i class="bi bi-check2-circle me-2"></i>Basic authentication built in.</li>
+    </ul>
+    <div class="split__actions">
+      <a class="btn btn-pinggy-blue" href="/quickstart/">Quickstart</a>
+      <a class="link-rule" href="/docs/http_tunnels/">
+        Learn more <i class="bi bi-arrow-right"></i>
+      </a>
     </div>
   </div>
+  <figure class="spec-card split__media">
+    <figcaption class="spec-card__head">
+      <span>Video: How to share a local app</span>
+      <span class="spec-card__meta">1:51</span>
+    </figcaption>
+    <div class="spec-card__body">
+      <div class="videocontainer ratio ratio-16x9">
+        <video
+          preload="none"
+          onclick="if(this.paused && !this.controls){ this.controls=true; this.play(); this.parentNode.classList.add('is-playing') }"
+          poster="/assets/tunnelvideoposter.webp"
+          aria-label="Screen recording: sharing a local Next.js app with Pinggy"
+        >
+          <source src="/assets/pinggy_demo.webm" type="video/webm" />
+          Your browser does not support HTML video.
+        </video>
+      </div>
+    </div>
+  </figure>
 </section>
 
 <!-- Feature: debug -->
-<section class="py-5" id="feature-debug">
-  <div class="container">
-    <div class="row align-items-center justify-content-evenly g-4 g-lg-5">
-      <div class="col-lg-5 order-lg-1">
-        <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-          <i class="bi bi-bug"></i>
-        </div>
-        <h2 class="fw-bold mb-3">Debug on the go.</h2>
-        <ul class="list-unstyled featurelist mb-4">
-          <li><i class="bi bi-check2-circle me-2"></i>Inspect HTTP / HTTPS requests live.</li>
-          <li><i class="bi bi-check2-circle me-2"></i>No tool to download.</li>
-          <li><i class="bi bi-check2-circle me-2"></i>Replay any request.</li>
-        </ul>
-        <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
-          Learn more <i class="bi bi-arrow-right"></i>
-        </a>
-      </div>
-      <div class="col-lg-6 order-lg-2">
-        <img
-          src="/assets/webdebugger.webp"
-          class="img-fluid featureimage"
-          alt="Pinggy web debugger screenshot"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Feature: terminal interface -->
-<section class="py-5" id="feature-tui">
-  <div class="container">
-    <div class="row align-items-center justify-content-evenly g-4 g-lg-5">
-      <div class="col-lg-6">
-        <div id="carouselTUI" class="carousel slide featureimage" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="2000">
-              <img
-                src="/assets/tui1.webp"
-                class="d-block w-100 img-fluid"
-                alt="Pinggy terminal user interface (TUI) screenshot showing list of requests"
-              />
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-              <img
-                src="/assets/tui2.webp"
-                class="d-block w-100 img-fluid"
-                alt="Pinggy terminal user interface (TUI) screenshot showing request and response headers of an HTTP request"
-              />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselTUI"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselTUI"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-          <i class="bi bi-terminal"></i>
-        </div>
-        <h2 class="fw-bold mb-3">Rich terminal interface.</h2>
-        <ul class="list-unstyled featurelist mb-4">
-          <li><i class="bi bi-check2-circle me-2"></i>Live request logs.</li>
-          <li><i class="bi bi-check2-circle me-2"></i>View request and response headers.</li>
-          <li><i class="bi bi-check2-circle me-2"></i>Stats on bandwidth and more.</li>
-        </ul>
-        <a class="pinggy-link text-decoration-none" href="/docs/http_tunnels/">
-          Learn more <i class="bi bi-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Features section-->
-<section class="py-5 border-bottom" id="features">
-  <div class="container my-5">
-    <div class="my-3 row justify-content-center">
-      <div class="col-lg-12">
-        <h2 class="text-center fw-light">
-          Secure tunnels to your private network.
-        </h2>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <img
-          class="img-fluid"
-          src="/assets/header.webp"
-          alt="Pinggy tunnel network diagram showing how the tunnel works"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- App / CLI section-->
-<section class="border-bottom" id="appcli">
-  <div class="container my-5">
-    <div class="my-3 row justify-content-center">
-      <div class="col-lg-12">
-        <h2 class="text-center">
-          Easy to use apps
-        </h2>
-      </div>
-    </div>
-    <div class="row justify-content-evenly">
-      <div class="col-lg-5 mb-5 mb-lg-0">
-        <h2 class="h3 fw-bolder mt-3">Desktop App</h2>
-        <ul class="list-unstyled text-muted">
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Available for Windows, Mac, and Linux
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Easy to use GUI to manage your tunnels
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Auto start tunnels on boot
-          </li>
-        </ul>
-        <a class="pinggy-link text-decoration-none" href="/app/">
-          Learn more <i class="bi bi-arrow-right"></i>
-        </a>
-        <h2 class="h3 fw-bolder mt-5">Command Line App</h2>
-        <ul class="list-unstyled text-muted">
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> Robust auto reconnection
-          </li>
-          <li class="my-3">
-            <i class="bi bi-check2-circle me-2"></i> JSON configuration
-          </li>
-        </ul>
-        <a class="pinggy-link text-decoration-none" href="/cli/">
-          Learn more <i class="bi bi-arrow-right"></i>
-        </a>
-      </div>
-      <div class="col-lg-6 mb-5 mb-lg-0">
-      <a href="./app/">
-        <img
-          src="/assets/app5.webp"
-          class="img-fluid featureimage my-4"
-          alt="Pinggy desktop app screenshot"
-        />
+<section class="cell split split--flip" id="feature-debug">
+  <div class="split__text">
+    <span class="eyebrow">Debug</span>
+    <h2>Debug on the go.</h2>
+    <p class="prose">
+      The Web Debugger is now built into the Pinggy Dashboard. Inspect,
+      modify, and replay your tunnel traffic right in the browser.
+    </p>
+    <ul class="featurelist">
+      <li><i class="bi bi-check2-circle me-2"></i>Inspect HTTP / HTTPS requests live.</li>
+      <li><i class="bi bi-check2-circle me-2"></i>No tool to download.</li>
+      <li><i class="bi bi-check2-circle me-2"></i>Replay any request.</li>
+    </ul>
+    <div class="split__actions">
+      <a class="link-rule" href="/docs/http_tunnels/">
+        Learn more <i class="bi bi-arrow-right"></i>
       </a>
-      </div>
     </div>
   </div>
+  <figure class="spec-card split__media">
+    <figcaption class="spec-card__head">
+      <span>Web Debugger</span>
+      <span class="spec-card__meta">dashboard.pinggy.io</span>
+    </figcaption>
+    <div class="spec-card__body">
+      <img
+        src="/assets/webdebugger.webp"
+        alt="Pinggy web debugger screenshot"
+        width="2048"
+        height="1249"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </figure>
 </section>
 
-<!-- Features section-->
-<section class="py-5" id="features-grid">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold mb-1">Features</h2>
-      <p class="text-secondary mb-0">Everything you need to ship and debug tunnels.</p>
+<!-- Feature: terminal interface: copy on the left, the two TUI screenshots
+     sliding on the right (Bootstrap carousel, prev/next in the card head). -->
+<section class="cell split" id="feature-tui">
+  <div class="split__text">
+    <span class="eyebrow">Terminal UI</span>
+    <h2>Rich terminal interface.</h2>
+    <ul class="featurelist">
+      <li><i class="bi bi-check2-circle me-2"></i>Live request logs.</li>
+      <li><i class="bi bi-check2-circle me-2"></i>View request and response headers.</li>
+      <li><i class="bi bi-check2-circle me-2"></i>Stats on bandwidth and more.</li>
+    </ul>
+    <div class="split__actions">
+      <a class="link-rule" href="/docs/http_tunnels/">
+        Learn more <i class="bi bi-arrow-right"></i>
+      </a>
     </div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <div class="col">
-        <div class="card featurecard h-100">
-          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-            <i class="bi bi-window-stack"></i>
+  </div>
+  <div class="spec-card split__media tui-card">
+    <div class="spec-card__head">
+      <span>Pinggy terminal UI</span>
+      <span class="tui-card__nav">
+        <button class="tui-card__btn" type="button" data-bs-target="#carouselTUI" data-bs-slide="prev" aria-label="Previous screenshot"><i class="bi bi-chevron-left"></i></button>
+        <button class="tui-card__btn" type="button" data-bs-target="#carouselTUI" data-bs-slide="next" aria-label="Next screenshot"><i class="bi bi-chevron-right"></i></button>
+      </span>
+    </div>
+    <div class="spec-card__body">
+      <div id="carouselTUI" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="/assets/tui1.webp"
+              alt="Pinggy terminal user interface (TUI) screenshot showing list of requests"
+              width="1500"
+              height="944"
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="tui-card__caption"><span>01</span>Live request log, with bandwidth and request counters</p>
           </div>
-          <h3 class="h4 fw-bold mb-1">No downloads</h3>
-          <p class="text-secondary small mb-3">Runs everywhere</p>
-          <ul class="list-unstyled featurelist mb-0">
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Windows</strong></li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Mac</strong></li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Linux</strong></li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Docker</strong></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card featurecard h-100">
-          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-            <i class="bi bi-hdd-network"></i>
-          </div>
-          <h3 class="h4 fw-bold mb-3">Multiple Protocols</h3>
-          <ul class="list-unstyled featurelist mb-0">
-            <li><i class="bi bi-check2-circle me-2"></i><strong>HTTPS</strong> tunnels with built-in Let's Encrypt certificates.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>TCP</strong> tunnels for other applications.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>UDP</strong> tunnels.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>TLS</strong> tunnels for end-to-end encryption.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card featurecard h-100">
-          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-            <i class="bi bi-link-45deg"></i>
-          </div>
-          <h3 class="h4 fw-bold mb-3">Instant Domains</h3>
-          <ul class="list-unstyled featurelist mb-0">
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Subdomain</strong>: custom persistent subdomains.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Custom domain</strong>: bring your own with built-in HTTPS.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Wildcard domains</strong>: <code>*.yourdomain.com</code> routes different subdomains to different ports.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card featurecard h-100">
-          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-            <i class="bi bi-shield-lock"></i>
-          </div>
-          <h3 class="h4 fw-bold mb-3">Access Control</h3>
-          <ul class="list-unstyled featurelist mb-0">
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Password</strong> authentication with HTTP Basic auth.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Bearer token</strong> / key based authentication.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>IP whitelisting</strong> for restricted access.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card featurecard h-100">
-          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-            <i class="bi bi-bug"></i>
-          </div>
-          <h3 class="h4 fw-bold mb-3">Inspect & Debug</h3>
-          <ul class="list-unstyled featurelist mb-0">
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Live debugger</strong>: inspect HTTP requests, responses, and headers on the fly.</li>
-            <li><i class="bi bi-check2-circle me-2"></i><strong>Header manipulation</strong>: change HTTP request headers before they reach your server.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card featurecard h-100">
-          <div class="feature bg-subtlegray border-subtlegray text-gray rounded-3 mb-3">
-            <i class="bi bi-globe-americas"></i>
-          </div>
-          <h3 class="h4 fw-bold mb-1">Multiple Regions</h3>
-          <p class="text-secondary small mb-3">Fast tunnels worldwide</p>
-          <div class="row g-1">
-            <div class="col-6">
-              <ul class="list-unstyled featurelist mb-0" id="loc1">
-                <li><i class="bi bi-check2-circle me-2"></i><strong>USA</strong></li>
-                <li><i class="bi bi-check2-circle me-2"></i><strong>Europe</strong></li>
-                <li><i class="bi bi-check2-circle me-2"></i><strong>Asia</strong></li>
-              </ul>
-            </div>
-            <div class="col-6">
-              <ul class="list-unstyled featurelist mb-0" id="loc2">
-                <li><i class="bi bi-check2-circle me-2"></i><strong>Brazil</strong></li>
-                <li><i class="bi bi-check2-circle me-2"></i><strong>Australia</strong></li>
-              </ul>
-            </div>
+          <div class="carousel-item">
+            <img
+              src="/assets/tui2.webp"
+              alt="Pinggy terminal user interface (TUI) screenshot showing request and response headers of an HTTP request"
+              width="1500"
+              height="944"
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="tui-card__caption"><span>02</span>Request and response headers of a single request</p>
           </div>
         </div>
       </div>
@@ -542,409 +339,517 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
   </div>
 </section>
 
-<header class="bg-light py-5" id="prices" x-init="$store.location.detectCountry()">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <!-- Begin Page Content -->
-      <div class="col-lg-12">
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-          <h1 class="text-bold fw-normal">
-            Subscribe to the easiest localhost tunneling.
-          </h1>
-          <p class="fs-5" style="color: rgb(80, 80, 80)">
-            Make your developement experience smoother by unlocking the full
-            potential of Pinggy.
-          </p>
-        </div>
-        <main>
-          <div class="pricing-toggle d-flex justify-content-center align-items-center flex-wrap mb-4">
-            <label
-              class="toggler toggler--is-active align-middle mb-0"
-              id="filt-monthly"
-              >Monthly</label
-            >
-            <label
-              class="switch mx-2"
-              aria-label="Toggle between monthly and yearly plans"
-            >
-              <input id="toggleswitch" type="checkbox" checked="" />
-              <span class="slider round"></span>
-            </label>
-            <label class="toggler align-middle mb-0" id="filt-hourly"
-              >Yearly</label
-            >
-            <span class="pricing-toggle__savings ms-2">Save up to 17%</span>
+<!-- Private network -->
+<section class="cell split split--flip" id="private-network">
+  <div class="split__text">
+    <span class="eyebrow">How it works</span>
+    <h2>Secure tunnels to your private network.</h2>
+    <p class="prose">
+      Your machine opens one outbound SSH connection to Pinggy, and visitors
+      reach it through a public URL. No port forwarding, no firewall changes.
+    </p>
+  </div>
+  <div class="split__media">
+    {{< network-diagram >}}
+  </div>
+</section>
+
+<!-- App / CLI -->
+<section class="cell split" id="appcli">
+  <div class="split__text">
+    <span class="eyebrow">Apps</span>
+    <h2>Easy to use apps</h2>
+    <div class="split__sub">
+      <h3>Desktop App</h3>
+      <ul class="featurelist">
+        <li><i class="bi bi-check2-circle me-2"></i>Available for Windows, Mac, and Linux</li>
+        <li><i class="bi bi-check2-circle me-2"></i>Easy to use GUI to manage your tunnels</li>
+        <li><i class="bi bi-check2-circle me-2"></i>Auto start tunnels on boot</li>
+      </ul>
+      <a class="link-rule" href="/app/">
+        Learn more <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+    <div class="split__sub">
+      <h3>Command Line App</h3>
+      <ul class="featurelist">
+        <li><i class="bi bi-check2-circle me-2"></i>Robust auto reconnection</li>
+        <li><i class="bi bi-check2-circle me-2"></i>JSON configuration</li>
+      </ul>
+      <a class="link-rule" href="/cli/">
+        Learn more <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+  <a class="spec-card split__media" href="/app/">
+    <span class="spec-card__head">
+      <span>Pinggy App</span>
+      <span class="spec-card__meta">Windows / macOS / Linux</span>
+    </span>
+    <span class="spec-card__body">
+      <img
+        src="/assets/app5.webp"
+        alt="Pinggy desktop app screenshot"
+        width="1394"
+        height="736"
+        loading="lazy"
+        decoding="async"
+      />
+    </span>
+  </a>
+</section>
+
+<!-- Features grid -->
+<section class="cell cell--flush" id="features-grid">
+  <div class="cell__head">
+    <span class="eyebrow">Features</span>
+    <h2>Everything you need to ship and debug tunnels.</h2>
+  </div>
+  <div class="pillars">
+    <article class="pillar">
+      <span class="pillar__n"><i class="bi bi-window-stack" aria-hidden="true"></i>01</span>
+      <h3>No downloads</h3>
+      <p class="pillar__sub">Runs everywhere</p>
+      <ul class="featurelist">
+        <li><i class="bi bi-check2-circle me-2"></i><strong>Windows</strong></li>
+        <li><i class="bi bi-check2-circle me-2"></i><strong>Mac</strong></li>
+        <li><i class="bi bi-check2-circle me-2"></i><strong>Linux</strong></li>
+        <li><i class="bi bi-check2-circle me-2"></i><strong>Docker</strong></li>
+      </ul>
+    </article>
+    <article class="pillar">
+      <span class="pillar__n"><i class="bi bi-hdd-network" aria-hidden="true"></i>02</span>
+      <h3>Multiple Protocols</h3>
+      <ul class="featurelist">
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>HTTPS</strong> tunnels with built-in Let's Encrypt certificates.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>TCP</strong> tunnels for other applications.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>UDP</strong> tunnels.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>TLS</strong> tunnels for end-to-end encryption.</span></li>
+      </ul>
+    </article>
+    <article class="pillar">
+      <span class="pillar__n"><i class="bi bi-link-45deg" aria-hidden="true"></i>03</span>
+      <h3>Instant Domains</h3>
+      <ul class="featurelist">
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>Subdomain</strong>: custom persistent subdomains.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>Custom domain</strong>: bring your own with built-in HTTPS.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>Wildcard domains</strong>: <code>*.yourdomain.com</code> routes different subdomains to different ports.</span></li>
+      </ul>
+    </article>
+    <article class="pillar">
+      <span class="pillar__n"><i class="bi bi-shield-lock" aria-hidden="true"></i>04</span>
+      <h3>Access Control</h3>
+      <ul class="featurelist">
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>Password</strong> authentication with HTTP Basic auth.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>Bearer token</strong> / key based authentication.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>IP whitelisting</strong> for restricted access.</span></li>
+      </ul>
+    </article>
+    <article class="pillar">
+      <span class="pillar__n"><i class="bi bi-bug" aria-hidden="true"></i>05</span>
+      <h3>Inspect &amp; Debug</h3>
+      <ul class="featurelist">
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>Live debugger</strong>: inspect HTTP requests, responses, and headers on the fly.</span></li>
+        <li><i class="bi bi-check2-circle me-2"></i><span><strong>Header manipulation</strong>: change HTTP request headers before they reach your server.</span></li>
+      </ul>
+    </article>
+    <article class="pillar">
+      <span class="pillar__n"><i class="bi bi-globe-americas" aria-hidden="true"></i>06</span>
+      <h3>Multiple Regions</h3>
+      <p class="pillar__sub">Fast tunnels worldwide</p>
+      <div class="pillar__cols">
+        <ul class="featurelist mb-0" id="loc1">
+          <li><i class="bi bi-check2-circle me-2"></i><strong>USA</strong></li>
+          <li><i class="bi bi-check2-circle me-2"></i><strong>Europe</strong></li>
+          <li><i class="bi bi-check2-circle me-2"></i><strong>Asia</strong></li>
+        </ul>
+        <ul class="featurelist mb-0" id="loc2">
+          <li><i class="bi bi-check2-circle me-2"></i><strong>Brazil</strong></li>
+          <li><i class="bi bi-check2-circle me-2"></i><strong>Australia</strong></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="cell cell--flush" id="prices" x-init="$store.location.detectCountry()">
+  <div class="cell__head cell__head--center">
+    <span class="eyebrow">Pricing</span>
+    <h2>Subscribe to the easiest localhost tunneling.</h2>
+    <p class="prose">
+      Make your development experience smoother by unlocking the full
+      potential of Pinggy.
+    </p>
+    <div class="pricing-toggle">
+      <label class="toggler toggler--is-active mb-0" id="filt-monthly">Monthly</label>
+      <label class="switch mb-0" aria-label="Toggle between monthly and yearly plans">
+        <input id="toggleswitch" type="checkbox" checked="" />
+        <span class="slider round"></span>
+      </label>
+      <span class="pricing-toggle__yearly">
+        <label class="toggler mb-0" id="filt-hourly">Yearly</label>
+        <span class="chip pricing-toggle__savings">Save up to 17%</span>
+      </span>
+    </div>
+  </div>
+  <div class="pricing-grid">
+        <div class="pricing-grid__item">
+          <div class="pricecard card">
+            <div class="card-header">
+              <h3>Free</h3>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <div class="pricing-price-block">
+                <p class="card-title pricing-card-title">
+                  <span x-text="$store.location.currency"></span> 0<small>/month</small>
+                </p>
+                <p class="pricing-note">Free for life</p>
+              </div>
+              <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Single command tunneling</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>HTTP(S), TCP, UDP, TLS tunnels</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Live header manipulation</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Request-response inspection &amp; replays</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>60 minutes tunnel timeout</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span
+                    >1 Pinggy Device with a remote terminal
+                    <a
+                      href="/docs/devices/"
+                      target="_blank"
+                      class="link-dark"
+                      aria-label="About Pinggy Devices"
+                      ><i class="bi bi-info-circle"></i
+                    ></a>
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Random subdomains</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Unlimited Data Transfer</span>
+                </li>
+              </ul>
+              <a
+                class="mt-auto w-100 btn btn-lg btn-outline-pinggy"
+                href="https://dashboard.pinggy.io/"
+                >Go to dashboard</a
+              >
+            </div>
           </div>
-          <div
-            class="row row-cols-1 row-cols-md-3 g-4 mb-3 align-items-stretch justify-content-center pricing-grid"
-          >
-            <div class="col">
-              <div class="pricecard card rounded-3 shadow-sm h-100">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Free</h4>
-                </div>
-                <div class="card-body d-flex flex-column">
-                  <div class="pricing-price-block">
-                    <h1 class="card-title pricing-card-title">
-                      <span x-text="$store.location.currency"></span> 0<small
-                        class="text-muted fw-light"
-                        >/month</small
-                      >
-                    </h1>
-                    <p class="text-muted fw-light mb-0">Free for life</p>
-                  </div>
-                  <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Single command tunneling</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>HTTP(S), TCP, UDP, TLS tunnels</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Live header manipulation</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Request-response inspection &amp; replays</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>60 minutes tunnel timeout</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span
-                        >1 Pinggy Device with a remote terminal
-                        <a
-                          href="/docs/devices/"
-                          target="_blank"
-                          class="link-dark"
-                          aria-label="About Pinggy Devices"
-                          ><i class="bi bi-info-circle"></i
-                        ></a>
-                      </span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Random subdomains</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Unlimited Data Transfer</span>
-                    </li>
-                  </ul>
-                  <a class="mt-auto" href="https://dashboard.pinggy.io/"
-                    ><button
-                      type="button"
-                      class="w-100 btn btn-lg btn-outline-pinggy"
+        </div>
+        <div x-data="{ seatVal: 1 }" class="pricing-grid__item">
+          <div class="pricecard pricecard--featured card">
+            <div class="card-header">
+              <h3>Pro</h3>
+              <span class="pricing-badge">Most Popular</span>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <div class="pricing-price-block">
+                <div class="yearly">
+                  <p class="card-title pricing-card-title">
+                    <span x-text="$store.location.currency"></span>
+                    <span
+                      x-text="$store.location.currency === 'INR' ? (204.89 * seatVal).toFixed(2) : (2.50 * seatVal).toFixed(2)"
+                      id="yearprice"
+                    ></span
+                    ><small>/month</small>
+                  </p>
+                  <p class="pricing-note">
+                    billed annually<span x-show="seatVal > 1">
+                      · <span x-text="seatVal"></span> seats</span
                     >
-                      Go to dashboard
-                    </button></a
-                  >
+                  </p>
+                </div>
+                <div class="monthly">
+                  <p class="card-title pricing-card-title">
+                    <span x-text="$store.location.currency"></span>
+                    <span
+                      x-text="$store.location.currency === 'INR' ? (245.87 * seatVal).toFixed(2) : (3.00 * seatVal).toFixed(2)"
+                      id="monthprice"
+                    ></span
+                    ><small>/month</small>
+                  </p>
+                  <p class="pricing-note">
+                    billed monthly<span x-show="seatVal > 1">
+                      · <span x-text="seatVal"></span> seats</span
+                    >
+                  </p>
                 </div>
               </div>
-            </div>
-            <div x-data="{ seatVal: 1 }" class="col">
-              <div
-                class="pricecard pricecard--featured card rounded-3 shadow h-100"
-              >
-                <div class="pricing-badge">Most Popular</div>
-                <div class="card-header py-3 text-white bg-gray border-gray">
-                  <h4 class="my-0 fw-normal">Pro</h4>
-                </div>
-                <div class="card-body d-flex flex-column">
-                  <div class="pricing-price-block">
-                    <div class="yearly">
-                      <h1 class="card-title pricing-card-title">
-                        <span x-text="$store.location.currency"></span>
-                        <span
-                          x-text="$store.location.currency === 'INR' ? (204.89 * seatVal).toFixed(2) : (2.50 * seatVal).toFixed(2)"
-                          id="yearprice"
-                        ></span
-                        ><small class="text-muted fw-light">/month</small>
-                      </h1>
-                      <p class="text-muted fw-light mb-0">
-                        billed annually<span x-show="seatVal > 1">
-                          · <span x-text="seatVal"></span> seats</span
-                        >
-                      </p>
-                    </div>
-                    <div class="monthly">
-                      <h1 class="card-title pricing-card-title">
-                        <span x-text="$store.location.currency"></span>
-                        <span
-                          x-text="$store.location.currency === 'INR' ? (245.87 * seatVal).toFixed(2) : (3.00 * seatVal).toFixed(2)"
-                          id="monthprice"
-                        ></span
-                        ><small class="text-muted fw-light">/month</small>
-                      </h1>
-                      <p class="text-muted fw-light mb-0">
-                        billed monthly<span x-show="seatVal > 1">
-                          · <span x-text="seatVal"></span> seats</span
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="seat-selector mt-2">
-                    <span class="seat-selector__label">Seats</span>
-                    <div class="input-group seat-spinner">
-                      <button
-                        type="button"
-                        @click="seatVal = Math.max(1, parseInt(seatVal) - 1)"
-                        class="btn btn-outline-secondary"
-                        aria-label="Decrease seats"
-                      >
-                        −
-                      </button>
-                      <input
-                        type="number"
-                        x-model="seatVal"
-                        class="form-control text-center"
-                        aria-label="Number of seats"
-                        x-on:input="seatVal = isNaN(parseFloat(seatVal)) 
-                                                    || seatVal < 1 ? 1 : seatVal"
-                      />
-                      <button
-                        type="button"
-                        @click="seatVal = parseInt(seatVal) + 1"
-                        class="btn btn-outline-secondary"
-                        aria-label="Increase seats"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <template x-if="seatVal > 20">
-                    <div class="alert alert-info text-center my-2" role="alert">
-                      <a href="/contact_us/" target="_blank"
-                        ><b>Contact us</b></a
-                      >
-                      to get volume discounts!
-                    </div>
-                  </template>
-                  <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span>Everything in Free plan</span>
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span
-                        ><span x-text="seatVal"></span> Persistent tunnel<span
-                          x-show="seatVal > 1"
-                          >s</span
-                        ></span
-                      >
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span
-                        ><span x-text="seatVal"></span> Custom subdomain<span
-                          x-show="seatVal > 1"
-                          >s</span
-                        ></span
-                      >
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span
-                        ><span x-text="seatVal"></span> Custom domain<span
-                          x-show="seatVal > 1"
-                          >s</span
-                        ></span
-                      >
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span
-                        ><span x-text="seatVal"></span> Persistent TCP/UDP port<span
-                          x-show="seatVal > 1"
-                          >s</span
-                        ></span
-                      >
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span
-                        ><span x-text="seatVal"></span> Team<span
-                          x-show="seatVal > 1"
-                          >s</span
-                        >
-                        <a
-                          href="/docs/teams/"
-                          target="_blank"
-                          class="link-dark"
-                          aria-label="About Teams"
-                          ><i class="bi bi-info-circle"></i
-                        ></a>
-                      </span>
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span
-                        >25 Pinggy Devices, 3 terminals each
-                        <a
-                          href="/docs/devices/"
-                          target="_blank"
-                          class="link-dark"
-                          aria-label="About Pinggy Devices"
-                          ><i class="bi bi-info-circle"></i
-                        ></a>
-                      </span>
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span>Wildcard Domain Support</span>
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span>Unlimited Data Transfer</span>
-                    </li>
-                    <li>
-                      <i
-                        class="bi bi-check2-circle pricing-check pricing-check--featured"
-                      ></i>
-                      <span>Priority mail / Discord support</span>
-                    </li>
-                  </ul>
-                  <a
-                    x-show="seatVal > 1"
-                    class="mt-auto w-100 btn btn-lg btn-pinggy"
-                    id="checkout-and-portal-button"
-                    href="https://dashboard.pinggy.io"
-                    >Get Started</a
-                  >
+              <div class="seat-selector mt-3">
+                <span class="seat-selector__label">Seats</span>
+                <div class="input-group seat-spinner">
                   <button
-                    x-show="seatVal == 1"
                     type="button"
-                    class="mt-auto w-100 btn btn-lg btn-pinggy"
-                    data-bs-toggle="modal"
-                    data-bs-target="#trialModal"
-                    id="trialModalButton"
+                    @click="seatVal = Math.max(1, parseInt(seatVal) - 1)"
+                    class="btn btn-outline-secondary"
+                    aria-label="Decrease seats"
                   >
-                    <span>Start 7 Days Free Trial</span>
+                    −
+                  </button>
+                  <input
+                    type="number"
+                    x-model="seatVal"
+                    class="form-control text-center"
+                    aria-label="Number of seats"
+                    x-on:input="seatVal = isNaN(parseFloat(seatVal)) 
+                                                || seatVal < 1 ? 1 : seatVal"
+                  />
+                  <button
+                    type="button"
+                    @click="seatVal = parseInt(seatVal) + 1"
+                    class="btn btn-outline-secondary"
+                    aria-label="Increase seats"
+                  >
+                    +
                   </button>
                 </div>
               </div>
-            </div>
-            <div class="col">
-              <div class="pricecard card rounded-3 shadow-sm h-100">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">Enterprise</h4>
-                </div>
-                <div class="card-body d-flex flex-column">
-                  <div class="pricing-price-block">
-                    <h1 class="card-title pricing-card-title">Custom</h1>
-                    <p class="text-muted fw-light mb-1">
-                      For teams that need dedicated infrastructure
-                    </p>
-                    <a
-                      href="mailto:contact@pinggy.io"
-                      class="pinggy-link small text-decoration-none"
-                      >contact@pinggy.io</a
-                    >
-                  </div>
-                  <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Dedicated Servers / On Premise</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Unlimited persistent tunnels</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Unlimited custom subdomains</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Unlimited custom domains</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Unlimited persistent TCP/UDP ports</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span
-                        >Unlimited Teams
-                        <a
-                          href="/docs/teams/"
-                          target="_blank"
-                          class="link-dark"
-                          aria-label="About Teams"
-                          ><i class="bi bi-info-circle"></i
-                        ></a>
-                      </span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span
-                        >API to monitor and manage tunnels
-                        <a
-                          href="/docs/api/api/"
-                          target="_blank"
-                          class="link-dark"
-                          aria-label="About the API"
-                          ><i class="bi bi-info-circle"></i
-                        ></a>
-                      </span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span
-                        >Unlimited Pinggy Devices and terminals
-                        <a
-                          href="/docs/devices/"
-                          target="_blank"
-                          class="link-dark"
-                          aria-label="About Pinggy Devices"
-                          ><i class="bi bi-info-circle"></i
-                        ></a>
-                      </span>
-                    </li>
-                    <li>
-                      <i class="bi bi-check2-circle pricing-check"></i>
-                      <span>Priority Discord &amp; Call Support</span>
-                    </li>
-                  </ul>
-                  <a
-                    class="mt-auto w-100 btn btn-lg btn-outline-pinggy"
-                    id="checkout-and-portal-button-1"
-                    href="/contact_us/"
-                    >Contact Sales</a
+              <template x-if="seatVal > 20">
+                <div class="alert alert-info text-center my-2" role="alert">
+                  <a href="/contact_us/" target="_blank"
+                    ><b>Contact us</b></a
                   >
+                  to get volume discounts!
                 </div>
-              </div>
+              </template>
+              <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span>Everything in Free plan</span>
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span
+                    ><span x-text="seatVal"></span> Persistent tunnel<span
+                      x-show="seatVal > 1"
+                      >s</span
+                    ></span
+                  >
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span
+                    ><span x-text="seatVal"></span> Custom subdomain<span
+                      x-show="seatVal > 1"
+                      >s</span
+                    ></span
+                  >
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span
+                    ><span x-text="seatVal"></span> Custom domain<span
+                      x-show="seatVal > 1"
+                      >s</span
+                    ></span
+                  >
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span
+                    ><span x-text="seatVal"></span> Persistent TCP/UDP port<span
+                      x-show="seatVal > 1"
+                      >s</span
+                    ></span
+                  >
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span
+                    ><span x-text="seatVal"></span> Team<span
+                      x-show="seatVal > 1"
+                      >s</span
+                    >
+                    <a
+                      href="/docs/teams/"
+                      target="_blank"
+                      class="link-dark"
+                      aria-label="About Teams"
+                      ><i class="bi bi-info-circle"></i
+                    ></a>
+                  </span>
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span
+                    >25 Pinggy Devices, 3 terminals each
+                    <a
+                      href="/docs/devices/"
+                      target="_blank"
+                      class="link-dark"
+                      aria-label="About Pinggy Devices"
+                      ><i class="bi bi-info-circle"></i
+                    ></a>
+                  </span>
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span>Wildcard Domain Support</span>
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span>Unlimited Data Transfer</span>
+                </li>
+                <li>
+                  <i
+                    class="bi bi-check2-circle pricing-check pricing-check--featured"
+                  ></i>
+                  <span>Priority mail / Discord support</span>
+                </li>
+              </ul>
+              <a
+                x-show="seatVal > 1"
+                class="mt-auto w-100 btn btn-lg btn-pinggy-blue"
+                id="checkout-and-portal-button"
+                href="https://dashboard.pinggy.io"
+                >Get Started</a
+              >
+              <button
+                x-show="seatVal == 1"
+                type="button"
+                class="mt-auto w-100 btn btn-lg btn-pinggy-blue"
+                data-bs-toggle="modal"
+                data-bs-target="#trialModal"
+                id="trialModalButton"
+              >
+                <span>Start 7 Days Free Trial</span>
+              </button>
             </div>
           </div>
-        </main>
-      </div>
-    </div>
+        </div>
+        <div class="pricing-grid__item">
+          <div class="pricecard card">
+            <div class="card-header">
+              <h3>Enterprise</h3>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <div class="pricing-price-block">
+                <p class="card-title pricing-card-title">Custom</p>
+                <p class="pricing-note mb-2">
+                  For teams that need dedicated infrastructure
+                </p>
+                <a
+                  href="mailto:contact@pinggy.io"
+                  class="link-rule"
+                  >contact@pinggy.io</a
+                >
+              </div>
+              <ul class="list-unstyled pricing-features text-left mt-3 mb-3">
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Dedicated Servers / On Premise</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Unlimited persistent tunnels</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Unlimited custom subdomains</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Unlimited custom domains</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Unlimited persistent TCP/UDP ports</span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span
+                    >Unlimited Teams
+                    <a
+                      href="/docs/teams/"
+                      target="_blank"
+                      class="link-dark"
+                      aria-label="About Teams"
+                      ><i class="bi bi-info-circle"></i
+                    ></a>
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span
+                    >API to monitor and manage tunnels
+                    <a
+                      href="/docs/api/api/"
+                      target="_blank"
+                      class="link-dark"
+                      aria-label="About the API"
+                      ><i class="bi bi-info-circle"></i
+                    ></a>
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span
+                    >Unlimited Pinggy Devices and terminals
+                    <a
+                      href="/docs/devices/"
+                      target="_blank"
+                      class="link-dark"
+                      aria-label="About Pinggy Devices"
+                      ><i class="bi bi-info-circle"></i
+                    ></a>
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-check2-circle pricing-check"></i>
+                  <span>Priority Discord &amp; Call Support</span>
+                </li>
+              </ul>
+              <a
+                class="mt-auto w-100 btn btn-lg btn-outline-pinggy"
+                id="checkout-and-portal-button-1"
+                href="/contact_us/"
+                >Contact Sales</a
+              >
+            </div>
+          </div>
+        </div>
   </div>
-</header>
+</section>
+
 <!-- Trial Modal -->
 <div class="modal fade" id="trialModal" tabindex="-1"
     aria-labelledby="trialModalLabel" aria-hidden="true"
@@ -956,38 +861,24 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body pt-4">
-            <div style="margin-top: 4em; max-width: 28em; margin: 0 auto">
-              <div style="font-weight: 500">
-                <span class="highlight">Free Pinggy Pro for
-                7 days:
-              </div>
-              <div class="input-group mt-1">
+            <div class="trial-block">
+              <span class="eyebrow"><mark>Free Pinggy Pro</mark> for 7 days:</span>
+              <div class="input-group trial-group">
                 <input
                   type="email"
                   class="form-control"
                   placeholder="Email"
                   aria-label="Email"
-                  aria-describedby="button-addon2"
+                  aria-describedby="button-addon3"
                   id="trialemail2"
                 />
-                <div
-                  style="border-radius: 0.2em"
-                  class="invalid-tooltip"
-                  id="emailinvalidtooltip2"
-                >
+                <div class="invalid-tooltip" id="emailinvalidtooltip2">
                   Please enter a valid email
                 </div>
                 <button
-                  style="
-                    border-color: rgb(71, 117, 198);
-                    background-color: rgba(70, 117, 199, 1);
-                    padding: 0.6em 1em;
-                    box-shadow: 0 0 4px 0px #a3599b8c;
-                    font-weight: 500;
-                  "
-                  class="btn btn-secondary"
+                  class="btn btn-pinggy-blue"
                   type="button"
-                  id="button-addon2"
+                  id="button-addon3"
                   onclick="starttrial2()"
                 >
                   Start Trial
@@ -1000,9 +891,8 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
 </div>
 
 <!-- Featured-on badge marquee -->
-<section class="py-5" id="featured-on">
-  <div class="container">
-    <p class="badge-marquee-label text-center">Featured on</p>
+<section class="cell featured" id="featured-on">
+  <span class="eyebrow">Featured on</span>
     <div class="badge-marquee" aria-label="Directories and sites featuring Pinggy">
     <div class="badge-marquee-track">
       <div class="badge-marquee-group">
@@ -1036,8 +926,37 @@ The <b>Web Debugger</b> is now built into the Pinggy Dashboard. Inspect, modify,
         <a href="https://fazier.com/launches/pinggy.io" target="_blank" rel="noopener" tabindex="-1"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&amp;theme=neutral" alt="" width="250" loading="lazy" /></a>
       </div>
       </div>
-    </div>
   </div>
 </section>
 
 {{< faq >}}
+
+<!-- Closing call to action -->
+<section class="cell cta" id="get-started">
+  <h2>Share localhost in one command.<span>No signup. No download.</span></h2>
+  <div class="cta__actions">
+    <div class="cmd">
+      <input
+        class="cmd__text"
+        id="ctacommand"
+        type="text"
+        readonly
+        value="ssh -p 443 -R0:localhost:8000 free.pinggy.io"
+        aria-label="Command to start a tunnel"
+      />
+      <button
+        class="cmd__copy"
+        type="button"
+        aria-label="Copy command to clipboard"
+        onclick="copytoclipboard(this,'#ctacommand')"
+      >
+        <i class="bi bi-clipboard"></i>
+      </button>
+    </div>
+    <a class="btn btn-outline-pinggy btn-lg" href="/docs/">
+      Read the docs <span aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+</main>

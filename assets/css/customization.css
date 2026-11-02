@@ -1,50 +1,130 @@
 /* ============================================================
+   IBM Plex Mono, self-hosted (static/fonts/README.md). It carries
+   headings, nav, buttons, labels and prices; Uncut Sans stays the
+   prose face. 400 and 600 latin are preloaded in partials/header.html.
+   ============================================================ */
+/* IBM Plex Mono 400 - latin-ext */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBM Plex Mono 400 - latin */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* IBM Plex Mono 500 - latin-ext */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-500-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBM Plex Mono 500 - latin */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* IBM Plex Mono 600 - latin-ext */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBM Plex Mono 600 - latin */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ============================================================
    Design Tokens (see DESIGN_GUIDELINES.md)
    ============================================================ */
 :root {
-  /* Brand */
+  /* Brand - the one accent: primary buttons, links, focus, pixel art */
   --brand-600: #3b6fe0;
   --brand-700: #2f58b8;
   --brand-500: #5b86e5;
   --brand-50: #eef3fe;
   --brand-100: #dce6fc;
 
-  /* Neutrals (ink ramp) */
-  --ink-950: #0b0f19;
-  --ink-900: #111827;
-  --ink-700: #374151;
-  --ink-500: #6b7280;
-  --ink-400: #9ca3af;
-  --ink-300: #d1d5db;
-  --ink-200: #e5e7eB;
-  --ink-100: #f1f3f7;
-  --ink-50: #f7f8fa;
+  /* Neutrals - one warm "paper and ink" ramp */
+  --ink-950: #151515;
+  --ink-900: #1f1f1d;
+  --ink-800: #2b2b29;
+  --ink-700: #3e3d3a;
+  --ink-500: #6d6c67;
+  --ink-400: #9a9893;
+  --ink-300: #c8c7c1;
+  --ink-200: #dcdcd7;
+  --ink-100: #ededea;
+  --ink-50: #f5f5f3;
+  --paper: #fafaf8;
+  --white: #ffffff;
 
   /* Semantic */
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
 
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  /* Radius - page chrome is square. sm..xl stay defined (at 0) so every
+     older consumer squares with them. Rounded corners are reserved for
+     product artifacts (terminal mocks, screenshots, video) and the pill
+     for toggle switches. */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-artifact: 10px;
   --radius-pill: 999px;
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.06),
-    0 1px 2px -1px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08),
-    0 2px 4px -2px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 12px 32px -8px rgba(15, 23, 42, 0.12),
-    0 4px 8px -4px rgba(15, 23, 42, 0.06);
-  --shadow-focus: 0 0 0 3px rgba(91, 134, 229, 0.25);
+  /* Shadows - chrome is flat and ruled. xs..lg are for overlays only
+     (dropdowns, modals); --shadow-artifact lifts the one product mock
+     in the stage band. */
+  --shadow-xs: 0 1px 2px 0 rgba(21, 21, 21, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(21, 21, 21, 0.06),
+    0 1px 2px -1px rgba(21, 21, 21, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(21, 21, 21, 0.08),
+    0 2px 4px -2px rgba(21, 21, 21, 0.04);
+  --shadow-lg: 0 12px 32px -8px rgba(21, 21, 21, 0.14),
+    0 4px 8px -4px rgba(21, 21, 21, 0.06);
+  --shadow-artifact: 0 30px 80px -24px rgba(21, 21, 21, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-focus: 0 0 0 3px rgba(91, 134, 229, 0.3);
+
+  /* Product mock surfaces (terminal windows, dark panels) */
+  --mock-bg: #161616;
+  --mock-bar: #121212;
+  --mock-panel: #1d1d1c;
+  --mock-line: #2c2c2a;
+  --mock-fg: #e9e7e2;
+  --mock-dim: #8a8883;
 
   /* Motion */
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.6, 1);
+  --ease-rise: cubic-bezier(0.2, 0.7, 0.2, 1);
   --duration-fast: 120ms;
   --duration-base: 180ms;
   --duration-slow: 240ms;
@@ -52,13 +132,89 @@
   /* Typography */
   --font-sans: "Uncut Sans", "Inter", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
+  --font-display: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+    monospace;
+  --font-mono: var(--font-display);
+
+  --text-display: clamp(2.25rem, 4.3vw, 3.5rem);
+  --text-h2: clamp(1.625rem, 2.6vw, 2.125rem);
+  --text-h3: 1.3125rem;
+  --text-ui: 0.8125rem;
+  --text-eyebrow: 0.75rem;
+  --track-display: -0.035em;
+  --track-h2: -0.03em;
+  --track-h3: -0.02em;
+  --track-eyebrow: 0.08em;
+
+  /* Spacing (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-8: 48px;
+  --space-10: 64px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  /* Ruled frame layout */
+  --nav-h: 73px;
+  --frame-max: 1296px;
+  --cell-pad-y: var(--space-12);
+  --cell-pad-x: var(--space-8);
+}
+
+@media (max-width: 1023.98px) {
+  :root {
+    --cell-pad-y: var(--space-10);
+  }
+}
+
+@media (max-width: 639.98px) {
+  :root {
+    --cell-pad-x: var(--space-5);
+  }
+}
+
+/* The blog keeps its own visual system (CLAUDE.md "Blog post exception").
+   Restore the previous neutral, radius and mono values inside its wrappers
+   (.bp = list + post body, .bp-nav = blog navbar) so the retune above does
+   not reach blog cards, posts or the blog nav. */
+.bp,
+.bp-nav {
+  --ink-950: #0b0f19;
+  --ink-900: #111827;
+  --ink-800: #1f2937;
+  --ink-700: #374151;
+  --ink-500: #6b7280;
+  --ink-400: #9ca3af;
+  --ink-300: #d1d5db;
+  --ink-200: #e5e7eb;
+  --ink-100: #f1f3f7;
+  --ink-50: #f7f8fa;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --shadow-focus: 0 0 0 3px rgba(91, 134, 229, 0.25);
   --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas,
     monospace;
 }
 
-/* QuickStart Ribbon */
+/* QuickStart logo marquee (homepage logo strip). Logos rest desaturated
+   and come back to full color on hover, like the badge strip below. */
 .ribbon-element img {
-  width: 3em;
+  width: 2.5em;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: filter var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+.ribbon-element:hover img,
+.ribbon-element:focus-visible img {
+  filter: none;
+  opacity: 1;
 }
 .marquee {
   width: 100%;
@@ -69,7 +225,7 @@
 .marquee-content {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 4rem;
   animation: scrolling 40s linear infinite;
 }
 .marquee-content:hover {
@@ -80,7 +236,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-320em);
+    transform: translateX(-280em);
   }
 }
 /* Featured-on badge marquee (homepage). The track holds two copies of
@@ -132,41 +288,34 @@
   filter: none;
   opacity: 1;
 }
-.badge-marquee-label {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-500);
-  margin-bottom: 1.5rem;
-}
 @keyframes badge-scrolling {
   to {
     transform: translateX(-50%);
   }
 }
 
-@media (min-width: 768px) {
-  .marquee:before,
-  .marquee:after {
-    position: absolute;
-    top: 0;
-    width: 10rem;
-    height: 100%;
-    content: "";
-    z-index: 1;
-  }
-  .marquee:before {
-    left: 0;
-    background: linear-gradient(to right, var(--ink-50) 0%, transparent 50%);
-  }
-  .marquee:after {
-    right: 0;
-    background: linear-gradient(to left, var(--ink-50) 0%, transparent 50%);
-  }
+/* Logo marquee edges fade into the page. */
+.marquee {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
 }
-/*  */
 
+/* ---- Page ------------------------------------------------ */
+/* Flat paper. The ruled frame (see "Ruled frame layout" below) replaced
+   the grid canvas and the fixed wash; both now live in blog.css, the
+   blog being the only template that still draws them. */
 html {
   background: var(--ink-50);
 }
@@ -175,73 +324,68 @@ body {
   font-family: var(--font-sans);
   color: var(--ink-700);
   background-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Page bg wash. Hosted on a position:fixed pseudo-element instead of
-   background-attachment:fixed on body: Firefox repaints the fixed body
-   bg on every scroll event, and combined with the navbar backdrop-filter
-   the compositor backlogs on fast scroll, dropping the hero's paint
-   until the next input event. A position:fixed element is promoted to
-   its own GPU layer and is cheap to keep in view.
-
-   Layered ABOVE the grid canvas (canvas z=-2, wash z=-1): in the
-   negative-z paint step, less-negative paints later, so the wash tones
-   the grid down. Still below in-flow content (z=auto). docs.css and
-   blog.css override just the background-image to wash more aggressively. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(247, 248, 250, 0.2) 0%,
-      rgba(247, 248, 250, 0.75) 45%,
-      rgba(247, 248, 250, 0.92) 80%,
-      #f7f8fa 100%
-    ),
-    radial-gradient(
-      ellipse 80% 50% at 50% -10%,
-      rgba(91, 134, 229, 0.06),
-      transparent 60%
-    );
-}
-
-/* Background grid canvas - fills the viewport, sits behind all in-flow
-   content (cards mask it with their opaque white backgrounds) and
-   beneath the body::before wash that tones it down. Body bg-color must
-   be transparent so this layer is visible. --canvas-opacity is updated
-   by /js/cursorglow.js on scroll to fade the grid out past the hero. */
-.grid-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  pointer-events: none;
-  display: block;
-  opacity: var(--canvas-opacity, 1);
-  will-change: opacity;
-}
-
-/* Skip the canvas grid on small screens - no hover affordance, viewport
-   is too narrow for the effect to read, and it saves the JS/draw cost
-   on the lowest-power devices. */
-@media (max-width: 767.98px) {
-  .grid-canvas {
-    display: none;
-  }
+::selection {
+  background: var(--brand-100);
+  color: var(--ink-950);
 }
 
 /* ---- Typography ------------------------------------------ */
-.biggestheader {
-  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+/* Headings and UI chrome speak in IBM Plex Mono; paragraphs stay in
+   Uncut Sans. Zero-specificity :where() so any component can still set
+   its own face, and scoped away from the blog, which has its own type
+   system (Plus Jakarta Sans / Source Sans 3). */
+:where(body:not(.blog))
+  :where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .display-1,
+    .display-2, .display-3, .display-4, .display-5, .display-6) {
+  font-family: var(--font-display);
+  font-weight: 600;
   color: var(--ink-950);
+}
+
+:where(body:not(.blog)) :where(h1, .h1) {
+  letter-spacing: var(--track-display);
+  line-height: 1.1;
+}
+
+:where(body:not(.blog)) :where(h2, .h2, h3, .h3) {
+  letter-spacing: var(--track-h2);
+  line-height: 1.2;
+}
+
+:where(body:not(.blog)) :where(h4, .h4, h5, .h5, h6, .h6) {
+  letter-spacing: var(--track-h3);
+  line-height: 1.3;
+}
+
+:where(body:not(.blog))
+  :where(.btn, .nav-link, .dropdown-item, .badge, .form-label, th,
+    .accordion-button, .eyebrow, .modal-title) {
+  font-family: var(--font-display);
+}
+
+.biggestheader {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: var(--track-display);
+  color: var(--ink-950);
+}
+
+/* Eyebrow: the small uppercase label above a heading. */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-500);
 }
 
 code,
@@ -258,6 +402,46 @@ samp,
      Rendering code literally avoids both. */
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0, "calt" 0;
+}
+
+/* ---- Bootstrap squaring ----------------------------------- */
+/* Bootstrap 5.1 hard-codes radii on its components. Square them on every
+   product page; the blog keeps its own rounded system. */
+body:not(.blog)
+  :is(.btn, .card, .card-header, .alert, .badge, .dropdown-menu,
+    .modal-content, .accordion-item, .accordion-button, .list-group,
+    .list-group-item, .input-group-text, .page-link, .nav-tabs .nav-link,
+    .toast, .popover, .tooltip-inner) {
+  border-radius: 0;
+}
+
+body:not(.blog) :is(.card, .modal-content) {
+  border-color: var(--ink-200);
+}
+
+/* Bootstrap's shadow and gradient utilities (cards on /about/, icon
+   tiles) predate the flat system. Chrome stays flat outside the blog;
+   overlays get --shadow-lg from their own rules. */
+body:not(.blog) :is(.shadow, .shadow-sm, .shadow-lg) {
+  box-shadow: none !important;
+}
+
+body:not(.blog) .bg-gradient {
+  background-image: none !important;
+}
+
+body:not(.blog) .modal-content {
+  box-shadow: var(--shadow-lg);
+}
+
+body:not(.blog) .modal-header {
+  border-bottom-color: var(--ink-200);
+}
+
+body:not(.blog) .modal-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-950);
 }
 
 /* ---- Blog list: sort toggle + cards ---------------------- */
@@ -476,7 +660,64 @@ a:hover {
   color: var(--brand-700);
 }
 
-/* ---- Info banner pill (Node.js / Python SDK alert) ------- */
+/* Brand-colored inline text ("(Beta)", a version number). */
+.text-brand {
+  color: var(--brand-600);
+}
+
+/* Bootstrap's muted grays are cool; keep secondary text on the warm ramp. */
+body:not(.blog) .text-muted,
+body:not(.blog) .text-secondary {
+  color: var(--ink-500) !important;
+}
+
+/* Ruled text link ("Learn more ->"): mono, ink, a 1px rule under it.
+   The quiet secondary action next to a button or under a list. */
+.link-rule,
+.pinggy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0 0 2px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-950);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.link-rule:hover,
+.link-rule:focus,
+.pinggy-link:hover,
+.pinggy-link:focus {
+  color: var(--brand-700);
+  text-decoration: none;
+}
+
+.link-rule:focus-visible,
+.pinggy-link:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.link-rule > i,
+.pinggy-link > i {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.link-rule:hover > i,
+.pinggy-link:hover > i {
+  transform: translateX(2px);
+}
+
+/* ---- Info banner (inline notices, e.g. SDK / volume-discount alerts) */
 .alert.alert-info {
   display: inline-block;
   width: auto;
@@ -490,6 +731,10 @@ a:hover {
   font-size: 0.875rem;
   font-weight: 500;
   padding: 8px 16px !important;
+}
+
+body:not(.blog) .alert.alert-info {
+  border-radius: 0;
 }
 
 .alert.alert-info b,
@@ -509,6 +754,72 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Announcement tag: the square white chip above the hero headline. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 10px 18px;
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  line-height: 1.5;
+  color: var(--ink-950);
+  text-decoration: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.tag:hover {
+  color: var(--ink-950);
+  border-color: var(--ink-950);
+}
+
+.tag:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.tag__new {
+  padding: 1px 6px;
+  background: var(--brand-600);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+}
+
+/* Chip: a square inline label for a status or a version ("Recommended",
+   "v0.6.3", "Save up to 17%"). Brand tint by default, neutral with
+   --muted. Not a button; links and actions use .btn or .link-rule. */
+.chip {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-radius: 0;
+  color: var(--brand-700);
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.chip--muted {
+  background: var(--ink-100);
+  border-color: var(--ink-200);
+  color: var(--ink-950);
+}
+
+/* /cli/ install and download card (cli-downloads shortcode). */
+.cli-card {
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+}
+
 /* ---- Install callout (highlighted quick-start command) --- */
 .install-callout {
   background-color: var(--brand-50);
@@ -521,9 +832,10 @@ a:hover {
 
 .install-callout > p:first-child {
   margin: 0 0 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
   color: var(--brand-700);
 }
@@ -545,24 +857,33 @@ a:hover {
   }
 }
 
+.hero .tag,
 .biggestheader,
+.hero__sub,
 #lead2,
-#trialemail,
+.hero__trial,
 #bigcodecolumn {
   animation: heroFadeUp 400ms var(--ease-out) both;
 }
 
-#lead2 {
+.biggestheader {
+  animation-delay: 60ms;
+}
+
+.hero__sub {
   animation-delay: 120ms;
 }
 
-#trialemail,
-.input-group:has(#trialemail) {
+#lead2 {
   animation-delay: 180ms;
 }
 
+.hero__trial {
+  animation-delay: 240ms;
+}
+
 #bigcodecolumn {
-  animation-delay: 60ms;
+  animation-delay: 120ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -757,16 +1078,37 @@ input[type="number"] {
   width: 100%;
 }
 
+/* Hero command textarea. Sits inside the ink command panel (.cmd, see
+   the configurator rules under "Ruled frame layout"). */
 #portcommand {
-  background: #fff;
-  color: var(--ink-900) !important;
+  background: transparent;
+  color: var(--paper) !important;
   font-size: 0.875rem;
+  font-weight: 500;
   font-family: var(--font-mono);
   line-height: 1.6;
-  border: 1px solid var(--ink-200);
-  /* Square right corners so the textarea joins the copy button cleanly. */
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
-  padding: 12px 14px;
+  border: 0;
+  border-radius: 0;
+  padding: 14px 16px;
+  resize: none;
+  /* Grow with the command (long advanced-settings commands, narrow
+     phones). Browsers without field-sizing get a taller fixed box on
+     phones instead, below. */
+  field-sizing: content;
+  min-height: calc(2 * 1.6em + 28px);
+}
+
+@supports not (field-sizing: content) {
+  @media (max-width: 639.98px) {
+    #portcommand {
+      min-height: calc(4 * 1.6em + 28px);
+    }
+  }
+}
+
+#portcommand:focus {
+  background: transparent;
+  box-shadow: none;
 }
 
 .page-link {
@@ -779,91 +1121,88 @@ input[type="number"] {
   color: var(--ink-900);
 }
 
-#finalcommand {
-  background-color: var(--ink-50);
-  border: 1px solid var(--ink-200);
-  border-radius: var(--radius-lg);
+/* ---- Buttons --------------------------------------------- */
+/* Square, flat, mono. Primary = brand blue (conversion), secondary = ink
+   (utility: Dashboard, copy), ghost = paper with a rule that darkens on
+   hover. No shadows, no lift. */
+.btn-pinggy,
+.btn-pinggy-blue,
+.btn-outline-pinggy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 22px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  line-height: 1.4;
   box-shadow: none;
-  padding: 20px !important;
-  margin-top: 24px;
-}
-
-#finalcommand .btn-light {
-  background-color: var(--ink-100);
-  border: none;
-  color: var(--ink-900);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  transition: background-color var(--duration-fast) var(--ease-out);
-}
-
-#finalcommand .btn-light:hover {
-  background-color: var(--ink-200);
-  color: var(--ink-900);
-}
-
-.btn-pinggy {
-  background-color: var(--ink-900);
-  color: #fff;
-  border-color: var(--ink-900);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  box-shadow: var(--shadow-xs);
   transition: background-color var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-slow) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
     transform var(--duration-fast) var(--ease-out);
+}
+
+.btn-pinggy.btn-lg,
+.btn-pinggy-blue.btn-lg,
+.btn-outline-pinggy.btn-lg {
+  padding: 15px 24px;
+  font-size: 0.875rem;
 }
 
 .btn-pinggy-blue {
   background-color: var(--brand-600);
-  color: #fff;
   border-color: var(--brand-600);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  transition: background-color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
+  color: #fff;
 }
 
-.btn-pinggy-blue:hover {
+.btn-pinggy-blue:hover,
+.btn-pinggy-blue:focus {
   background-color: var(--brand-700);
-  color: #fff;
   border-color: var(--brand-700);
+  color: #fff;
 }
 
-.btn-pinggy:hover {
+.btn-pinggy {
   background-color: var(--ink-950);
-  color: #fff;
   border-color: var(--ink-950);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+  color: #fff;
+}
+
+.btn-pinggy:hover,
+.btn-pinggy:focus {
+  background-color: var(--ink-800);
+  border-color: var(--ink-800);
+  color: #fff;
+}
+
+.btn-outline-pinggy {
+  background-color: var(--paper);
+  border-color: var(--ink-200);
+  color: var(--ink-950);
+}
+
+.btn-outline-pinggy:hover,
+.btn-outline-pinggy:focus {
+  background-color: var(--paper);
+  border-color: var(--ink-950);
+  color: var(--ink-950);
 }
 
 .btn-pinggy:active,
-.btn-pinggy-blue:active {
+.btn-pinggy-blue:active,
+.btn-outline-pinggy:active {
   transform: translateY(1px);
 }
 
 .btn-pinggy:focus-visible,
-.btn-pinggy-blue:focus-visible {
+.btn-pinggy-blue:focus-visible,
+.btn-outline-pinggy:focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus);
-}
-
-.btn-outline-pinggy {
-  border: 1px solid var(--ink-300);
-  color: var(--ink-900);
-  background-color: #fff;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  transition: background-color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
-}
-
-.btn-outline-pinggy:hover {
-  background-color: var(--ink-100);
-  border-color: var(--ink-300);
-  color: var(--ink-900);
 }
 
 .bg-subtlegray {
@@ -871,11 +1210,11 @@ input[type="number"] {
 }
 
 .bg-gray {
-  background-color: var(--ink-900);
+  background-color: var(--ink-950);
 }
 
 .border-gray {
-  border-color: var(--ink-900);
+  border-color: var(--ink-950);
   border-width: 1px;
   border-style: solid;
 }
@@ -890,72 +1229,47 @@ input[type="number"] {
   border-color: var(--ink-300) !important;
 }
 
-.pinggy-link {
-  color: var(--brand-600);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.pinggy-link:hover,
-.pinggy-link:focus {
-  color: var(--brand-700);
-}
-
-.pinggy-link > i {
-  transition: transform var(--duration-fast) var(--ease-out);
-}
-
-.pinggy-link:hover > i,
-.pinggy-link:focus > i {
-  transform: translateX(2px);
-}
-
-.pinggy-link :hover {
-  color: var(--brand-700);
-}
-
 #webdebugurl {
   display: block;
 }
 
 .enablewebdebuglabel {
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
   font-weight: 500;
+  color: var(--ink-950);
 }
 
+/* Screenshots are product artifacts: the only images with rounded
+   corners. They sit flat on the page, edged by a rule. */
 .featureimage {
-  transition: transform var(--duration-slow) var(--ease-out),
-    box-shadow var(--duration-slow) var(--ease-out);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-lg);
+  display: block;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-artifact);
   overflow: hidden;
 }
 
-.featureimage:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-lg);
-}
-
+/* Feature card (used outside the homepage, e.g. /cli/): a flat ruled cell
+   that fills with paper on hover. */
 .featurecard {
   min-height: 18em;
-  border-radius: var(--radius-lg);
   margin-bottom: 1.6em;
-  background-color: #fff;
+  background-color: var(--white);
   border: 1px solid var(--ink-200);
-  box-shadow: var(--shadow-sm);
-  padding: 20px;
-  transition: box-shadow var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 24px;
+  transition: background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 
 .featurecard:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  background-color: var(--paper);
+  border-color: var(--ink-300);
 }
 .featurecard h3 {
-  color: var(--ink-900);
+  color: var(--ink-950);
+  font-size: var(--text-h3);
 }
 .featurecard b,
 .featurecard strong {
@@ -977,12 +1291,13 @@ input[type="number"] {
 .featurelist li .bi-check2-circle {
   color: var(--brand-600);
 }
-.featurecard code {
-  font-size: 0.85em;
+/* Inline code on site pages: ink on a light band (the docs rule, site
+   wide) instead of Bootstrap's pink. The blog styles its own. */
+body:not(.blog) :not(pre) > code {
+  padding: 0.125em 0.4em;
   background-color: var(--ink-100);
   color: var(--ink-900);
-  padding: 0.1em 0.35em;
-  border-radius: var(--radius-sm);
+  font-size: 0.875em;
 }
 
 /* Sidebar  -------------------------- */
@@ -1039,12 +1354,15 @@ input[type="number"] {
   }
 }
 
+/* Docs sidebar: all sans, so the long list stays calm and every level
+   reads the same (they are .btn elements, which default to Plex). */
 .btn-toggle,
 .btn-non-toggle {
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
   width: 100%;
+  font-family: var(--font-sans);
   font-weight: 500;
   font-size: 0.9375rem;
   color: var(--ink-700);
@@ -1064,8 +1382,9 @@ input[type="number"] {
 }
 
 li.doclink.active > a {
-  color: var(--brand-700);
-  background-color: var(--brand-50);
+  color: var(--ink-950);
+  background-color: var(--ink-100);
+  box-shadow: inset 2px 0 0 var(--brand-600);
   font-weight: 600;
 }
 
@@ -1141,141 +1460,85 @@ pre > code {
 }
 
 /* Navbar --------------------------------- */
+/* Paper bar with a single bottom rule. On the homepage the ruled frame's
+   top border sits right under the bar, so the bar's own rule only shows
+   once content scrolls beneath it (body.is-scrolled, set in navbar.html). */
 .navbar.navbar-expand-lg {
   font-size: 1rem;
   display: block;
   padding: 0;
-  box-shadow: var(--shadow-xs);
-  border-bottom: 1px solid var(--ink-300);
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--ink-200);
+  background-color: rgba(245, 245, 243, 0.9) !important;
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  backdrop-filter: saturate(160%) blur(12px);
+  transition: border-color var(--duration-base) var(--ease-out);
 }
 
-/* Brand-tinted comet that travels along the bottom edge of the navbar.
-   Mirrors the additive grid pulses in assets/js/cursorglow.js - same
-   brand-500 RGB (91, 134, 229), similar lifecycle (~5.5s, slow fade
-   in/out). The comet is a no-repeat background gradient sized to 25%
-   of the navbar; animating background-position-x slides it across and
-   naturally clips it to the navbar bounds (no overflow:hidden needed,
-   so dropdowns stay visible). drop-shadow gives the additive bloom. */
-.navbar.navbar-expand-lg::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  pointer-events: none;
-  background-image: linear-gradient(
-    90deg,
-    rgba(91, 134, 229, 0) 0%,
-    rgba(91, 134, 229, 0.2) 30%,
-    rgba(91, 134, 229, 0.95) 50%,
-    rgba(91, 134, 229, 0.2) 70%,
-    rgba(91, 134, 229, 0) 100%
-  );
-  background-size: 25% 100%;
-  background-repeat: no-repeat;
-  background-position-x: 0%;
-  /* opacity() in the filter list (not the opacity property) is what the
-     scroll-past-hero fade rides on: the animation drives `opacity` per
-     cycle, and filter:opacity() multiplies the rendered visibility, so
-     the two compose. Both lists below must keep the same function
-     shape (drop-shadow, drop-shadow, opacity) so filter interpolation
-     can smooth the transition; mismatched shapes snap. */
-  filter: drop-shadow(0 0 5px rgba(91, 134, 229, 0.55))
-          drop-shadow(0 0 12px rgba(91, 134, 229, 0.25))
-          opacity(1);
-  opacity: 0;
-  animation: navbarPulse 5.5s var(--ease-in-out) infinite;
-  animation-delay: -2.75s;
-  transition: filter 500ms var(--ease-out);
-}
-
-@keyframes navbarPulse {
-  0% {
-    background-position-x: 0%;
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  100% {
-    background-position-x: 100%;
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .navbar.navbar-expand-lg::after {
-    animation: none;
-    opacity: 0;
-  }
-}
-
-/* Past the hero the pulse is pure decoration. Fading the filter's
-   opacity() multiplier to 0 hides it smoothly in both directions
-   without snapping the animation phase. body.is-scrolled is toggled
-   by the inline script in layouts/partials/navbar.html past ~200px. */
-body.is-scrolled .navbar.navbar-expand-lg::after {
-  filter: drop-shadow(0 0 5px rgba(91, 134, 229, 0.55))
-          drop-shadow(0 0 12px rgba(91, 134, 229, 0.25))
-          opacity(0);
+body.home:not(.is-scrolled) .navbar.navbar-expand-lg {
+  border-bottom-color: transparent;
 }
 
 @supports not (backdrop-filter: blur(12px)) {
   .navbar.navbar-expand-lg {
-    background-color: #fff !important;
+    background-color: var(--ink-50) !important;
   }
 }
 
-.navbar .container {
+/* Inner width matches the frame, so the logo and the Dashboard button
+   line up with the frame's side rules. */
+.navbar > .navbar__inner {
   min-height: 72px;
+  max-width: calc(var(--frame-max) + 24px);
+  padding: 8px 12px;
+}
+
+.navbar .logo {
+  padding: 0;
+  margin-right: 20px;
 }
 
 .navbar .logo img {
-  height: 36px !important;
+  height: 30px !important;
   width: auto;
 }
 
-.navbar .rainbowborder {
-  height: 0.06em;
-  background-image: linear-gradient(
-    90deg,
-    #44ff9b3a -0.55%,
-    #44b1ff3b 22.86%,
-    #8c44ff3b 48.36%,
-    #ff664433 73.33%,
-    #ecff703f 99.34%
-  );
-  opacity: 0.6;
+/* Links sit beside the logo; the Dashboard button takes the far right. */
+@media (min-width: 992px) {
+  .navbar .navbar-collapse {
+    flex-grow: 1;
+  }
+}
+
+.navbar .navbar-collapse .navbar-nav {
+  margin-right: auto;
+  align-items: center;
+}
+
+.navbar .nav-item.mx-2 {
+  margin-left: 2px !important;
+  margin-right: 2px !important;
 }
 
 .nav-link {
-  padding: 6px 12px !important;
-  border-radius: 8px;
-  transition: background-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out);
+  padding: 6px 10px !important;
+  border-radius: 0;
+  color: var(--ink-950);
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .nav-link span {
-  color: var(--ink-900);
-  font-weight: 500;
-  font-size: 0.9375rem;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  background-color: var(--ink-100);
+  font-family: var(--font-display);
+  color: var(--ink-950);
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
 }
 
 .nav-link:hover span,
 .nav-link:focus span {
-  color: var(--ink-900);
+  color: var(--ink-950);
+  text-decoration: underline;
 }
 
 .nav-link.active span,
@@ -1284,63 +1547,39 @@ body.is-scrolled .navbar.navbar-expand-lg::after {
   font-weight: 600;
 }
 
+.nav-link:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
 .nav-item {
-  border-radius: 8px;
-  transition: background-color var(--duration-fast) var(--ease-out);
-}
-
-.nav-item:hover {
-  background-color: transparent;
-}
-
-.navbar #LoginBtn {
-  text-decoration: none;
-  border: 1px solid var(--ink-300);
-  border-radius: var(--radius-md);
-  color: var(--ink-900);
-  font-weight: 600;
-  padding: 8px 16px !important;
-  transition: border-color var(--duration-fast) var(--ease-out),
-    background-color var(--duration-fast) var(--ease-out);
-}
-
-.navbar #LoginBtn:hover {
-  border: 1px solid var(--ink-900);
-  background-color: transparent;
-}
-
-.navbar #FreeTrailBtn {
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  color: #fff;
-  font-weight: 600;
-  background-color: var(--ink-900);
-  padding: 8px 16px !important;
-  transition: background-color var(--duration-fast) var(--ease-out);
-}
-
-.navbar #FreeTrailBtn:hover {
-  background-color: var(--ink-950) !important;
+  border-radius: 0;
 }
 
 .navbar .dropdown-toggle::after {
-  vertical-align: 0.155em;
+  vertical-align: 0.15em;
+  margin-left: 0.35em;
+  border-top-width: 0.28em;
+  border-right-width: 0.28em;
+  border-left-width: 0.28em;
+  color: var(--ink-500);
 }
 
 .navbar .dropdown-menu {
   border: 1px solid var(--ink-200);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   box-shadow: var(--shadow-lg);
   padding: 6px;
-  margin-top: 6px;
+  margin-top: 10px;
+  background: var(--white);
 }
 
 .navbar .dropdown-item {
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   padding: 8px 12px;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--ink-700);
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color var(--duration-fast) var(--ease-out),
     color var(--duration-fast) var(--ease-out);
 }
@@ -1348,135 +1587,899 @@ body.is-scrolled .navbar.navbar-expand-lg::after {
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:focus {
   background-color: var(--ink-100);
-  color: var(--ink-900);
+  color: var(--ink-950);
 }
 
-/* Footer ----------------------------------------------- */
-footer.bg-dark h1,
-footer.bg-dark h2,
-footer.bg-dark h3,
-footer.bg-dark h4,
-footer.bg-dark h5,
-footer.bg-dark h6,
-footer.bg-dark .h1,
-footer.bg-dark .h2,
-footer.bg-dark .h3,
-footer.bg-dark .h4,
-footer.bg-dark .h5,
-footer.bg-dark .h6 {
+/* Dashboard: square ink button, the nav's one call to action. */
+.navbar #LoginBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px !important;
+  margin: 0 !important;
+  border: 1px solid var(--ink-950);
+  border-radius: 0;
+  background-color: var(--ink-950);
   color: #fff;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
 }
 
-footer.bg-dark a.link-light {
-  color: rgba(255, 255, 255, 0.78) !important;
-  transition: color var(--duration-fast) var(--ease-out);
+.navbar #LoginBtn::after {
+  content: "\2197";
+  font-size: 0.875rem;
+  line-height: 1;
 }
 
-footer.bg-dark a.link-light:hover,
-footer.bg-dark a.link-light:focus {
-  color: #fff !important;
+.navbar #LoginBtn:hover,
+.navbar #LoginBtn:focus {
+  background-color: var(--ink-800);
+  border-color: var(--ink-800);
+  color: #fff;
 }
 
-footer.bg-dark .border-color-subtlegray {
-  border-color: rgba(255, 255, 255, 0.12) !important;
+.navbar #LoginBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
 }
 
-/* Footer column separators: only show between side-by-side columns */
+@media (max-width: 991.98px) {
+  .navbar .navbar-collapse {
+    padding: 8px 0 16px;
+  }
+  .navbar .navbar-collapse .navbar-nav {
+    align-items: flex-start;
+  }
+  .navbar .navbar-toggler {
+    border-radius: 0;
+    border-color: var(--ink-200);
+  }
+  .navbar .navbar-toggler:focus {
+    box-shadow: var(--shadow-focus);
+  }
+}
+
+/* ============================================================
+   Ruled frame layout (homepage)
+   One bordered frame holds every section. Sections are cells split by
+   1px rules; columns inside a cell are split by vertical rules. Chrome
+   is square and flat; only product artifacts (terminal, screenshots,
+   video) round their corners, and only the stage terminal floats.
+   ============================================================ */
+.frame {
+  max-width: var(--frame-max);
+  margin: var(--nav-h) auto 0;
+  border: 1px solid var(--ink-200);
+  border-bottom: 0;
+  background: var(--ink-50);
+}
+
+.cell {
+  position: relative;
+  padding: var(--cell-pad-y) var(--cell-pad-x);
+  border-bottom: 1px solid var(--ink-200);
+}
+
+.cell--flush {
+  padding: 0;
+}
+
+/* Section head: eyebrow over a mono h2, with an optional right column for
+   a line of prose or a control (bottom-aligned). */
+.cell__head {
+  max-width: 44rem;
+}
+
+.cell__head h2,
+.split h2 {
+  margin: 12px 0 0;
+  font-size: var(--text-h2);
+  letter-spacing: var(--track-h2);
+  line-height: 1.15;
+  max-width: 22ch;
+}
+
+.cell__head--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: var(--space-8);
+  max-width: none;
+}
+
+.cell--flush > .cell__head {
+  padding: var(--cell-pad-y) var(--cell-pad-x) var(--space-8);
+}
+
+/* Centered head: only for a section whose head carries a control that
+   governs everything below it (the pricing monthly/yearly switch). */
+.cell__head--center {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.cell__head--center h2 {
+  margin-top: var(--space-2);
+  max-width: 26ch;
+}
+
+.cell__head--center .prose {
+  margin-top: var(--space-3);
+}
+
+/* Compact: the centered head is a short block, so it takes one 48px step
+   above and 32px below instead of the full cell padding. */
+.cell--flush > .cell__head--center {
+  padding: var(--space-8) var(--cell-pad-x) var(--space-6);
+}
+
+.prose {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-700);
+  max-width: 50ch;
+  margin: 0;
+}
+
+/* Check list used by splits, pillars and pricing. */
+.featurelist {
+  list-style: none;
+  padding: 0;
+}
+
+.featurelist li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.featurelist li > .bi {
+  flex: none;
+  margin-right: 0 !important;
+  font-size: 0.875rem;
+}
+
+/* ---- Hero ------------------------------------------------ */
+/* No top padding: the announcement tag sits in the first 48px row, right
+   under the navbar, and the columns start one row gap (48px) below it. */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-rows: minmax(var(--space-8), auto);
+  align-items: end;
+  gap: var(--space-8) var(--space-10);
+  padding: 0 var(--cell-pad-x) var(--space-10);
+}
+
+/* The announcement tag: its own row, centered over both columns, slim
+   enough to sit inside the first hero-grid cell with a few px of air. */
+.hero > .tag {
+  grid-column: 1 / -1;
+  justify-self: center;
+  align-self: center;
+  margin: 4px 0;
+  padding: 7px 16px;
+}
+
+.hero > .tag,
+.hero__left,
+.hero__right {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero grid: graph paper drawn by js/cursorglow.js in "parent" mode (see the
+   data-* settings on the canvas in content/_index.md). The 48px cell
+   matches --cell-pad-x and the hero's first row, so the copy's left edge
+   sits on a grid line and the tag sits inside the first row of cells. Lines are ink at 7% (lighter than the
+   frame rules), with brand-blue pulses running along them and a soft
+   brand tint near the cursor. A radial mask keeps it strongest around the
+   centered tag and lets it dissolve before the stage band. */
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 100% at 50% 0%,
+    #000 25%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 70% 100% at 50% 0%,
+    #000 25%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%
+  );
+}
+
+/* Same cut-off as the blog grid: no hover on small screens, and it saves
+   the draw loop on low-power devices (the script bails there too). */
 @media (max-width: 767.98px) {
-  .footer-cols > .footer-col {
-    border-right: 0 !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .footer-cols > .footer-col:nth-child(2n) {
-    border-right: 0 !important;
+  .hero__grid {
+    display: none;
   }
 }
 
-/* Big header --------------------------------- */
+.hero .biggestheader {
+  display: block;
+  max-width: 14ch;
+  margin: 0;
+}
+
+.hero__sub {
+  margin: 16px 0 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 500;
+  letter-spacing: var(--track-h3);
+  line-height: 1.3;
+  color: var(--ink-500);
+}
 
 #lead2 {
-  color: var(--ink-500);
-  margin-top: 0.6em;
-  font-size: 1.125rem;
+  margin-top: var(--space-5);
+  font-size: 1.0625rem;
   line-height: 1.6;
-  max-width: 460px;
-}
-
-#tryityourselftext {
-  background: var(--ink-100);
-}
-
-#tryityourselfprecommand {
   color: var(--ink-700);
-  background-color: var(--white, #fff);
+  max-width: 46ch;
 }
 
-#signinbutton {
-  display: inline-block;
-  background-color: var(--ink-900);
-  border: 1px solid var(--ink-900);
-  padding: 0.6em;
+.hero__trial {
+  margin-top: var(--space-8);
+  max-width: 30rem;
+}
+
+.trial-block {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.hero__trial .eyebrow,
+.trial-block .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.hero__trial mark,
+.trial-block mark {
+  padding: 0 3px;
+  background: var(--brand-50);
+  color: var(--brand-700);
+}
+
+/* Email + button share one square shell. */
+.trial-group {
+  flex-wrap: wrap;
+  border: 1px solid var(--ink-200);
+  background: var(--white);
+  transition: border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.trial-group:focus-within {
+  border-color: var(--brand-500);
+  box-shadow: var(--shadow-focus);
+}
+
+.trial-group .form-control {
+  border: 0;
+  background: transparent;
+  padding: 13px 16px;
+  font-size: 0.9375rem;
+}
+
+.trial-group .form-control:focus {
+  box-shadow: none;
+}
+
+.trial-group .btn-pinggy-blue {
+  margin: -1px -1px -1px 0 !important;
+  padding: 13px 20px;
+  white-space: nowrap;
+}
+
+/* The "valid email" error sits in flow as a red strip along the bottom
+   of the shell, instead of Bootstrap's floating tooltip, which covered
+   the "Or just try it for free" link below. */
+.trial-group .invalid-tooltip {
+  position: static;
+  order: 3;
+  flex: none;
+  width: calc(100% + 2px);
+  margin: 0 -1px -1px;
+  padding: 6px 16px;
+  border-radius: 0;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
 }
 
 #trynow {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  text-align: right;
-  margin-top: 0.6em;
-  border: 0;
-  background: transparent;
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  font-weight: 500;
-  vertical-align: text-bottom;
-  color: var(--ink-500);
-  transition: color var(--duration-fast) var(--ease-out);
+  width: auto;
+  margin-top: var(--space-4);
+  font-size: var(--text-ui);
+  color: var(--ink-950);
 }
 
 #trynow:hover {
   color: var(--brand-700);
 }
 
-.btn-outline-dark {
+@media (max-width: 1023.98px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 639.98px) {
+  .trial-group .form-control {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+  .trial-group .btn-pinggy-blue {
+    width: calc(100% + 2px);
+    margin: 0 -1px -1px !important;
+  }
+}
+
+/* ---- Spec card ------------------------------------------- */
+/* White card with a mono header bar on a rule: the frame for a config
+   form, a screenshot or a video. */
+.spec-card {
+  display: block;
+  margin: 0;
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+  color: inherit;
+  text-decoration: none;
+}
+
+a.spec-card:hover {
+  color: inherit;
   border-color: var(--ink-300);
 }
 
-#bigcodecolumn {
-  background-color: #fff;
-  border: 1px solid var(--ink-200);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
-  padding: 12px;
+.spec-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ink-200);
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-950);
 }
 
-#bigcodecolumn h2,
-#bigcodecolumn h5 {
-  color: var(--ink-900);
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 20px;
+.spec-card__head > :first-child {
+  flex: none;
+  white-space: nowrap;
+}
+
+.spec-card__meta {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ink-500);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Block even when the markup uses a <span> (the apps card is a link). */
+.spec-card__body {
+  display: block;
+  padding: var(--space-4);
+}
+
+.spec-card__body > img,
+.spec-card__body > .videocontainer {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius-artifact) - 4px);
+  overflow: hidden;
+}
+
+/* ---- Configurator (hero right) ----------------------------- */
+#bigcodecolumn {
+  padding: 0;
+  border: 1px solid var(--ink-200);
+  border-radius: 0;
+  background-color: var(--white);
+  box-shadow: none;
+  transition: outline-color var(--duration-slow) var(--ease-out),
+    border-color var(--duration-slow) var(--ease-out);
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+
+/* "Or just try it for free" flashes the configurator (index.js trynow). */
+#bigcodecolumn.shadowhighlight {
+  outline-color: var(--brand-500);
+}
+
+.configurator__body {
+  padding: 20px 20px 4px;
 }
 
 #bigcodecolumn label,
 #bigcodecolumn strong {
-  color: var(--ink-900);
+  font-family: var(--font-display);
+  color: var(--ink-950);
+  font-size: var(--text-ui);
+  font-weight: 500;
+}
+
+#bigcodecolumn .form-select,
+#bigcodecolumn #localaddress {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  background-color: var(--white);
+}
+
+#bigcodecolumn .form-select {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 6.5rem;
+  font-weight: 500;
+}
+
+.configurator__label,
+.configurator__note {
+  display: block;
+}
+
+.configurator__note {
+  margin-bottom: 8px;
+}
+
+#webdebugurl {
   font-size: 0.8125rem;
-  font-weight: 600;
+  color: var(--ink-500);
+}
+
+#webdebugurl a {
+  font-family: var(--font-mono);
+}
+
+.configurator__toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin-top: 18px;
+  padding: 14px 0;
+  border-top: 1px solid var(--ink-200);
+}
+
+.configurator__toggles > div {
+  display: flex;
+  align-items: center;
+}
+
+.configurator__toggles .bi-info-circle {
+  color: var(--ink-500);
+  margin-left: 4px;
+}
+
+#bigcodecolumn .alert-warning {
+  border-radius: 0;
+  font-size: 0.875rem;
+  margin-bottom: 16px !important;
+}
+
+#finalcommand {
+  padding: 20px !important;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--ink-200);
+  border-radius: 0;
+  background-color: var(--paper);
+  box-shadow: none;
+}
+
+/* Ink command panel: the command in Plex on near-black, with the copy
+   button joined to its right edge. Also used by the closing CTA. */
+.cmd {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  background: var(--ink-950);
+  border: 1px solid var(--ink-950);
+}
+
+.cmd > .form-control,
+.cmd__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cmd__text {
+  padding: 15px 18px;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+.cmd > .btn,
+.cmd__copy {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  margin: 0 !important;
+  border: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  background: transparent;
+  color: var(--paper);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.cmd > .btn:hover,
+.cmd__copy:hover {
+  background: var(--ink-800);
+  color: #fff;
+}
+
+.cmd > .btn:focus-visible,
+.cmd__copy:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--brand-500);
+}
+
+.cmd:focus-within {
+  box-shadow: var(--shadow-focus);
+}
+
+#instructions {
+  color: var(--ink-500);
+  font-size: 0.8125rem;
+}
+
+.configurator__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.configurator__actions .btn-outline-pinggy {
+  width: 100%;
+}
+
+/* ---- Stage: pixel field + terminal mock --------------------- */
+.stage {
+  padding: 16px 16px 0;
+  background: var(--ink-100);
+  overflow: hidden;
+}
+
+.stage__art {
+  display: block;
+  width: 100%;
+  height: 560px;
+  object-fit: fill;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  user-select: none;
+}
+
+.stage__mock {
+  position: absolute;
+  top: 96px;
+  left: 50%;
+  width: min(820px, 100% - 64px);
+  transform: translateX(-50%);
+}
+
+.stage__tag {
+  position: absolute;
+  right: 16px;
+  bottom: 0;
+  margin: 0;
+  padding: 16px 24px;
+  background: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--ink-700);
 }
 
 #textchanger {
-  color: var(--ink-900);
-  font-weight: 700;
+  color: var(--ink-950);
+  font-weight: 600;
+}
+
+@media (max-width: 1023.98px) {
+  .stage {
+    padding: 56px 24px;
+  }
+  .stage__art {
+    position: absolute;
+    inset: 16px;
+    width: calc(100% - 32px);
+    height: calc(100% - 16px);
+  }
+  .stage__mock {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    transform: none;
+  }
+  .stage__tag {
+    display: none;
+  }
+}
+
+/* Terminal mock (terminal_animation shortcode). Dark titlebar, artifact
+   radius, the page's one big shadow. */
+.termgif-terminal {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #000;
+  border-radius: var(--radius-artifact);
+  background-color: var(--mock-bg);
+  box-shadow: var(--shadow-artifact);
+  animation: mockRise 0.6s var(--ease-rise) both;
+}
+
+.termgif-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 40px;
+  padding: 0 14px;
+  background: var(--mock-bar);
+  border-bottom: 1px solid var(--mock-line);
+}
+
+.termgif-dots {
+  display: flex;
+  gap: 7px;
+}
+
+.termgif-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.termgif-dot.red { background-color: #ff5f57; }
+.termgif-dot.yellow { background-color: #febc2e; }
+.termgif-dot.green { background-color: #28c840; }
+
+.termgif-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mock-dim);
+}
+
+.termgif-title b {
+  color: var(--mock-fg);
+  font-weight: 500;
+}
+
+@media (max-width: 479.98px) {
+  .termgif-pill {
+    display: none;
+  }
+}
+
+.termgif-pill {
+  padding: 1px 8px;
+  border: 1px solid var(--mock-line);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mock-dim);
+}
+
+.termgif-content {
+  min-height: 260px;
+  padding: 22px 24px;
+  background-color: var(--mock-bg);
+  color: var(--mock-fg);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.termgif-step {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--mock-fg);
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.termgif-step .t-prompt { color: #7ee2a8; }
+.termgif-step .t-dim { color: var(--mock-dim); }
+.termgif-step .t-url { color: #9bb8f4; }
+.termgif-step .t-method { color: #9bb8f4; }
+.termgif-step .t-ok { color: #7ee2a8; }
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes mockRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+  color: var(--mock-fg);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ---- Logo strip -------------------------------------------- */
+.logos {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.logos__label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.logos__label .link-rule {
+  font-size: var(--text-ui);
+}
+
+@media (max-width: 767.98px) {
+  .logos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* ---- Split ---------------------------------------------------- */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.split--flip {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+.split--flip > .split__text {
+  order: 2;
+}
+
+.split__text > .prose {
+  margin-top: var(--space-4);
+}
+
+.split__text > .featurelist {
+  margin: var(--space-5) 0 0;
+}
+
+.split__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.split__sub {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--ink-200);
+}
+
+.split__sub h3 {
+  margin: 0;
+  font-size: var(--text-h3);
+  letter-spacing: var(--track-h3);
+}
+
+.split__sub .featurelist {
+  margin: var(--space-3) 0 var(--space-4);
 }
 
 .videocontainer {
   cursor: pointer;
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  background: var(--mock-bg);
+}
+
+/* Play button over the dark poster: a primary-blue square with a white
+   triangle and a label, so it reads clearly on near-black. The video's
+   inline onclick (content/_index.md) adds .is-playing on first click. */
+.videocontainer::after {
+  content: "Watch the demo";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 14px 22px 14px 46px;
+  transform: translate(-50%, -50%);
+  background: var(--brand-600)
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M4 2.5v11l9-5.5z'/%3e%3c/svg%3e")
+    20px center / 16px no-repeat;
+  border: 1px solid var(--brand-600);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: background-color var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.videocontainer:hover::after {
+  background-color: var(--brand-700);
+  border-color: var(--brand-700);
+}
+
+.videocontainer.is-playing::after {
+  opacity: 0;
+}
+
+.videocontainer > video {
+  object-fit: cover;
 }
 
 /* Stand-in for <video poster>, so the still can be lazy-loaded. Bootstrap's
@@ -1488,85 +2491,632 @@ footer.bg-dark .border-color-subtlegray {
   display: none;
 }
 
+@media (max-width: 1023.98px) {
+  .split,
+  .split--flip {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+  .split--flip > .split__text {
+    order: 0;
+  }
+}
+
+/* ---- Terminal UI carousel ----------------------------------- */
+/* A spec card holding a Bootstrap carousel of the two TUI screenshots.
+   Prev/next sit in the card head as small square ghost buttons; each
+   slide carries its own numbered caption. */
+.tui-card .spec-card__head {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.tui-card__nav {
+  display: flex;
+  gap: 4px;
+}
+
+.tui-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--ink-200);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink-950);
+  font-size: 0.75rem;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.tui-card__btn:hover {
+  border-color: var(--ink-950);
+}
+
+.tui-card__btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.tui-card .carousel-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ink-950);
+  border-radius: calc(var(--radius-artifact) - 4px);
+}
+
+.tui-card__caption {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--ink-500);
+}
+
+.tui-card__caption span {
+  margin-right: 10px;
+  color: var(--ink-950);
+}
+
+/* ---- Network diagram (network-diagram shortcode) ---------------- */
+.netdiagram {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Wide drawing by default, stacked drawing on phones (see the shortcode). */
+.netdiagram--tall {
+  display: none;
+}
+
+@media (max-width: 639.98px) {
+  .netdiagram--wide {
+    display: none;
+  }
+
+  .netdiagram--tall {
+    display: block;
+  }
+}
+
+.netdiagram-card .spec-card__meta {
+  font-family: var(--font-mono);
+}
+
+.netdiagram text {
+  font-family: var(--font-display);
+}
+
+.netdiagram .nd-box {
+  fill: var(--paper);
+  stroke: var(--ink-300);
+  stroke-width: 1;
+}
+
+.netdiagram .nd-box--edge {
+  fill: var(--ink-950);
+  stroke: var(--ink-950);
+}
+
+.netdiagram .nd-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: var(--ink-500);
+}
+
+.netdiagram .nd-title {
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--ink-950);
+}
+
+.netdiagram .nd-meta {
+  font-size: 12px;
+  fill: var(--ink-500);
+}
+
+.netdiagram .nd-on-dark {
+  fill: var(--mock-dim);
+}
+
+.netdiagram .nd-on-dark.nd-title {
+  fill: var(--paper);
+}
+
+.netdiagram .nd-wire {
+  fill: none;
+  stroke: var(--ink-300);
+  stroke-width: 1;
+}
+
+.netdiagram .nd-wire--live {
+  stroke: var(--brand-600);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+  animation: ndDash 0.9s linear infinite;
+}
+
+.netdiagram .nd-dot {
+  fill: var(--brand-600);
+}
+
+/* Line icons (<use> of the <symbol>s in the shortcode): the paths inherit
+   fill and stroke from these rules. */
+.netdiagram .nd-icon {
+  fill: none;
+  stroke: var(--ink-500);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.netdiagram .nd-icon--edge {
+  stroke: var(--brand-500);
+}
+
+.netdiagram .nd-icon--lock {
+  stroke: var(--brand-600);
+  stroke-width: 1.4;
+}
+
+/* The lock sits on the live connector in a small paper square. */
+.netdiagram .nd-lockbox {
+  fill: var(--paper);
+  stroke: var(--brand-600);
+  stroke-width: 1;
+}
+
+.netdiagram .nd-grid {
+  stroke: var(--ink-100);
+  stroke-width: 1;
+}
+
+@keyframes ndDash {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .netdiagram .nd-wire--live {
+    animation: none;
+  }
+}
+
+/* ---- Pillars: ruled grid of feature cells ------------------------ */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--ink-200);
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--space-8) var(--space-6) var(--space-6);
+  border-bottom: 1px solid var(--ink-200);
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.pillar:not(:nth-child(3n + 1)) {
+  border-left: 1px solid var(--ink-200);
+}
+
+.pillar:nth-last-child(-n + 3):nth-child(3n + 1),
+.pillar:nth-last-child(-n + 3):nth-child(3n + 1) ~ .pillar {
+  border-bottom: 0;
+}
+
+.pillar:hover {
+  background-color: var(--paper);
+}
+
+.pillar__n {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-500);
+}
+
+.pillar__n .bi {
+  font-size: 0.9375rem;
+}
+
+.pillar h3 {
+  margin: 0;
+  font-size: var(--text-h3);
+  letter-spacing: var(--track-h3);
+  line-height: 1.25;
+}
+
+.pillar__sub {
+  margin: -6px 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-500);
+}
+
+.pillar .featurelist {
+  margin: 0;
+}
+
+.pillar .featurelist strong {
+  color: var(--ink-950);
+  font-weight: 600;
+}
+
+.pillar__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
+@media (max-width: 1023.98px) {
+  .pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pillar,
+  .pillar:nth-last-child(-n + 3):nth-child(3n + 1),
+  .pillar:nth-last-child(-n + 3):nth-child(3n + 1) ~ .pillar {
+    border-left: 0;
+    border-bottom: 1px solid var(--ink-200);
+  }
+  .pillar:nth-child(2n) {
+    border-left: 1px solid var(--ink-200);
+  }
+  .pillar:nth-last-child(-n + 2):nth-child(2n + 1),
+  .pillar:nth-last-child(-n + 2):nth-child(2n + 1) ~ .pillar {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .pillars {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pillar,
+  .pillar:nth-child(2n),
+  .pillar:nth-last-child(-n + 2):nth-child(2n + 1) {
+    border-left: 0;
+    border-bottom: 1px solid var(--ink-200);
+  }
+  .pillar:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ---- Featured-on strip ---------------------------------------- */
+.featured {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+@media (max-width: 767.98px) {
+  .featured {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* ---- FAQ (faq shortcode) ---------------------------------------- */
+.faq {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.faq__head h2 {
+  margin: 0 0 var(--space-5);
+  font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+  letter-spacing: var(--track-h2);
+  max-width: 14ch;
+}
+
+.faq__head .form-control {
+  max-width: 20rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+}
+
+.faq .accordion {
+  border-bottom: 1px solid var(--ink-200);
+}
+
+.faq .accordion-item,
+.faq .accordion-item:first-of-type,
+.faq .accordion-item:last-of-type {
+  border: 0;
+  border-top: 1px solid var(--ink-200);
+  border-radius: 0;
+  background: transparent;
+}
+
+.faq .accordion-item:first-of-type .accordion-button,
+.faq .accordion-item:last-of-type .accordion-button.collapsed,
+.faq .accordion-button {
+  border-radius: 0;
+}
+
+.faq .accordion-header {
+  margin: 0;
+}
+
+.faq .accordion-button {
+  gap: var(--space-4);
+  padding: 18px 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-950);
+}
+
+.faq .accordion-button:not(.collapsed) {
+  background: transparent;
+  color: var(--ink-950);
+  box-shadow: none;
+}
+
+.faq .accordion-button:hover {
+  color: var(--brand-700);
+}
+
+.faq .accordion-button:focus {
+  box-shadow: none;
+}
+
+.faq .accordion-button:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+/* +/- markers instead of Bootstrap's chevron. */
+.faq .accordion-button::after,
+.faq .accordion-button:not(.collapsed)::after {
+  content: "+";
+  width: auto;
+  height: auto;
+  background-image: none;
+  transform: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink-500);
+}
+
+.faq .accordion-button:not(.collapsed)::after {
+  content: "\2212";
+}
+
+.faq .accordion-body {
+  padding: 0 0 20px;
+  max-width: 62ch;
+  font-size: 0.96875rem;
+  line-height: 1.6;
+  color: var(--ink-700);
+}
+
+.faq .accordion-body p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1023.98px) {
+  .faq {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+  .faq__head h2 {
+    max-width: none;
+  }
+}
+
+/* ---- Closing CTA ------------------------------------------------- */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.cta h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  letter-spacing: var(--track-display);
+  line-height: 1.15;
+}
+
+.cta h2 span {
+  display: block;
+  color: var(--ink-500);
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* Wide enough for the whole 44-character command in Plex Mono at 14px
+   (0.6em advance), plus padding and the copy button. */
+.cta__actions .cmd {
+  width: min(30rem, 100%);
+}
+
+/* Homepage cells hold full-bleed inner borders, so Bootstrap's
+   .container gutters are not used inside the frame. */
+.frame .container {
+  max-width: none;
+  padding: 0;
+}
+
 /* Pricing section --------------------------  */
 /* ------ Hide monthly prices by default ---- */
 .monthly {
   display: none;
 }
 
-.pricecard {
-  height: 100%;
-  border: 1px solid var(--ink-200);
-  background-color: #fff;
-  transition: transform var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-fast) var(--ease-out);
-}
-
-.pricecard:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md) !important;
-}
-
-.pricecard .card-header {
-  background-color: #fff;
-  border-bottom: 1px solid var(--ink-200);
-}
-
-.pricecard--featured {
-  position: relative;
-  border-color: var(--ink-900);
-}
-
-@media (min-width: 768px) {
-  .pricecard--featured {
-    transform: translateY(-12px);
-  }
-  .pricecard--featured:hover {
-    transform: translateY(-14px);
-  }
-}
-
-.pricing-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--brand-600);
-  color: #fff;
-  padding: 4px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  z-index: 2;
-  box-shadow: var(--shadow-sm);
-}
-
+/* Three columns with equal outer tracks, so the switch sits on the head's
+   center line and the savings chip hangs off the Yearly side. */
 .pricing-toggle {
-  gap: 4px;
-  margin-bottom: 3rem !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  color: var(--ink-950);
 }
 
-.pricing-toggle__savings {
-  color: var(--brand-600);
-  background: var(--brand-50, #eaf1ff);
-  border-radius: var(--radius-pill);
-  padding: 2px 10px;
-  font-size: 0.78rem;
+.pricing-toggle .toggler {
   font-weight: 500;
 }
 
+.pricing-toggle > .toggler {
+  justify-self: end;
+}
+
+.pricing-toggle .switch {
+  margin: 0;
+}
+
+.pricing-toggle__yearly {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Phones: the savings chip drops to its own centered row under the switch. */
+@media (max-width: 479.98px) {
+  .pricing-toggle__yearly {
+    display: contents;
+  }
+
+  .pricing-toggle__yearly .toggler {
+    justify-self: start;
+  }
+
+  .pricing-toggle__savings {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: var(--space-3);
+  }
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--ink-200);
+}
+
+.pricing-grid > * + * {
+  border-left: 1px solid var(--ink-200);
+}
+
+.pricecard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.pricecard:hover {
+  background-color: var(--paper);
+}
+
+.pricecard .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  padding: 16px var(--space-6);
+  background-color: transparent;
+  border-bottom: 1px solid var(--ink-200);
+}
+
+.pricecard .card-header h3 {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-950);
+}
+
+.pricecard .card-body {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+}
+
+/* Pro: white surface and a 2px brand rule on top. */
+.pricecard--featured,
+.pricecard--featured:hover {
+  background-color: var(--white);
+  box-shadow: inset 0 2px 0 var(--brand-600);
+}
+
+.pricing-badge {
+  padding: 3px 8px;
+  background: var(--brand-600);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .pricing-price-block {
-  min-height: 3.5rem;
-  text-align: center;
+  min-height: 5.75rem;
 }
 
 .pricing-card-title {
-  font-weight: 700;
-  margin-bottom: 0.15rem;
-  font-size: 1.85rem;
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--ink-950);
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-card-title small {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ink-500);
+}
+
+.pricing-note {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ink-500);
 }
 
 .pricing-features {
@@ -1582,14 +3132,18 @@ footer.bg-dark .border-color-subtlegray {
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--ink-800);
-  line-height: 1.4;
+  line-height: 1.45;
+}
+
+.pricing-features .link-dark {
+  color: var(--ink-500) !important;
 }
 
 .pricing-check {
   color: var(--brand-600);
   font-size: 1rem;
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.05rem;
 }
 
 .pricing-check--featured {
@@ -1598,15 +3152,39 @@ footer.bg-dark .border-color-subtlegray {
 
 .seat-selector {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.25rem;
+  gap: 12px;
 }
 
 .seat-selector__label {
-  font-size: 0.875rem;
-  color: var(--ink-700);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  color: var(--ink-500);
   font-weight: 500;
+}
+
+.pricecard .btn-lg {
+  width: 100%;
+}
+
+@media (max-width: 1023.98px) {
+  .cell__head--split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+/* Three plan columns need about 300px each before prices and feature
+   lines start wrapping, so stack them below the desktop breakpoint. */
+@media (max-width: 1023.98px) {
+  .pricing-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pricing-grid > * + * {
+    border-left: 0;
+    border-top: 1px solid var(--ink-200);
+  }
 }
 
 /* ----------  Toggle button ------------- */
@@ -1671,26 +3249,6 @@ input:checked + .slider:before {
   transform: translateX(18px);
 }
 
-#bigcodecolumn {
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.shadowhighlight {
-  box-shadow: 0px 0px 10px -6px blue !important;
-  transform: scale(1.02);
-}
-
-.shadowhighlight2 {
-  box-shadow: 0px 0px 10px -1px blue !important;
-}
-
-#instructions {
-  color: var(--ink-500);
-  font-size: 0.8125rem;
-}
 
 /* Inline icons - see layouts/partials/icon.html. Sized and baseline-shifted to
    match how the bootstrap-icons webfont used to render, so swapping a glyph
@@ -1764,14 +3322,17 @@ pre {
 /* TABS ==== */
 .tab-nav-button {
   border-width: 1px 1px 1px 1px !important;
-  border-color: #d5d5d5 !important;
-  border-radius: 4px 4px 0 0 !important;
-  background-color: #f1f1f1 !important;
+  border-color: var(--ink-200) !important;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+  background-color: var(--ink-100) !important;
   float: left;
   display: block;
   position: relative;
   margin-left: 4px;
   bottom: -1px;
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  color: var(--ink-700);
 }
 
 .tab-nav-button:first-child {
@@ -1779,8 +3340,9 @@ pre {
 }
 
 .tab-nav-button.active {
-  background-color: #fff !important;
-  border-bottom-color: #fff !important;
+  background-color: var(--white) !important;
+  border-bottom-color: var(--white) !important;
+  color: var(--ink-950);
 }
 
 .tab-panel {
@@ -1798,8 +3360,8 @@ pre {
   padding: 8px;
   border-width: 1px;
   border-style: solid;
-  border-color: #d5d5d5;
-  border-radius: 0em 4px 4px 4px;
+  border-color: var(--ink-200);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) var(--radius-sm);
 }
 
 .tab-content .tab-item {
@@ -1815,19 +3377,224 @@ pre {
   margin-top: 0;
 }
 
-/* ===== Site footer (adapted to design tokens) ===== */
-.pgf {
-  --pgf-gutter: clamp(20px, 5vw, 48px);
-  margin-top: 72px;
-  border-top: 1px solid var(--ink-700);
+/* ===== Single pages (layouts/_default/single.html) ========== */
+/* /cli/, /app/, /help/, about, terms...: the homepage's ruled sheet with
+   side rules only, so every page sits on the same frame. The frame
+   replaces .contentcontainer's navbar offset. */
+.page-frame {
+  max-width: var(--frame-max);
+  min-height: calc(100vh - var(--nav-h));
+  margin: var(--nav-h) auto 0;
+  border-left: 1px solid var(--ink-200);
+  border-right: 1px solid var(--ink-200);
+}
+
+.page-frame > .contentcontainer {
+  margin-top: 0;
+  padding-bottom: var(--space-10) !important;
+}
+
+/* The side rules run straight into the footer's top rule. */
+.page-frame + .pgf {
+  margin-top: 0;
+}
+
+/* A homepage cell reused inside a page (the FAQ on /help/) sits in the
+   container, so its full-width bottom rule would float mid-page. */
+.page-frame .cell {
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  border-bottom: 0;
+}
+
+/* ===== Compare pages (layouts/compare/single.html) ========== */
+/* Flat paper hero, then the comparison table as a ruled grid with
+   mono column heads and square status chips. */
+.comparison-container {
+  padding: var(--space-8) 0;
+}
+
+.compare__hero {
+  padding: var(--space-10) 0 var(--space-8);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--ink-200);
+}
+
+.compare__title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-display);
+  letter-spacing: var(--track-display);
+  line-height: 1.1;
+}
+
+.compare__sub {
+  max-width: 60ch;
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6;
+  color: var(--ink-700);
+}
+
+.compare__picker {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: 100%;
+  border: 1px solid var(--ink-200);
+  background: var(--white);
+}
+
+.compare__picker-label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 14px;
+  border-right: 1px solid var(--ink-200);
+  background: var(--ink-100);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  color: var(--ink-950);
+  white-space: nowrap;
+}
+
+.compare__picker .form-select {
+  width: auto;
+  min-width: 14rem;
+  border: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 500;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 14px 16px;
+  border: 1px solid var(--ink-200);
+  vertical-align: middle;
+}
+
+.comparison-table th {
   background: var(--ink-950);
+  border-color: var(--ink-950);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.comparison-table td {
+  font-size: 0.9375rem;
+  color: var(--ink-700);
+}
+
+.comparison-table td:first-child {
+  background: var(--paper);
+  font-weight: 600;
+  color: var(--ink-950);
+}
+
+.comparison-table tbody tr:hover td {
+  background: var(--ink-50);
+}
+
+/* The Pinggy column, where it wins: a brand tint and a 2px left rule. */
+.comparison-table .pinggy-better {
+  background: var(--brand-50);
+  box-shadow: inset 2px 0 0 var(--brand-600);
+  color: var(--ink-950);
+  font-weight: 600;
+}
+
+.comparison-table tbody tr:hover .pinggy-better {
+  background: var(--brand-100);
+}
+
+.tag-yes,
+.tag-no,
+.tag-partial {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.tag-yes {
+  background: color-mix(in srgb, var(--success) 12%, var(--white));
+  border-color: color-mix(in srgb, var(--success) 35%, var(--white));
+  color: color-mix(in srgb, var(--success) 55%, var(--ink-950));
+}
+
+.tag-no {
+  background: color-mix(in srgb, var(--danger) 10%, var(--white));
+  border-color: color-mix(in srgb, var(--danger) 30%, var(--white));
+  color: color-mix(in srgb, var(--danger) 60%, var(--ink-950));
+}
+
+.tag-partial {
+  background: color-mix(in srgb, var(--warning) 14%, var(--white));
+  border-color: color-mix(in srgb, var(--warning) 40%, var(--white));
+  color: color-mix(in srgb, var(--warning) 45%, var(--ink-950));
+}
+
+@media (max-width: 767.98px) {
+  .comparison-container {
+    padding: var(--space-4) 0;
+  }
+
+  .compare__hero {
+    padding-top: var(--space-6);
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 10px 12px;
+    font-size: 0.8125rem;
+  }
+
+  .compare__picker .form-select {
+    min-width: 0;
+  }
+}
+
+/* ===== Site footer (light, ruled, aligned to the frame) ===== */
+.pgf {
+  margin-top: 72px;
+  border-top: 1px solid var(--ink-200);
+  background: var(--ink-50);
   font-family: var(--font-sans);
 }
 
-.pgf__inner {
-  max-width: 1240px;
+/* On the homepage the frame's last rule is the footer's top edge. */
+body.home .pgf {
+  margin-top: 0;
+  border-top: 0;
+}
+
+.pgf__inner,
+.pgf__bar {
+  width: min(var(--frame-max), 100% - 48px);
   margin: 0 auto;
-  padding: 56px var(--pgf-gutter) 32px;
+}
+
+.pgf__inner {
+  padding: 56px 0 40px;
   display: grid;
   grid-template-columns: 1.3fr repeat(3, 1fr);
   gap: 40px;
@@ -1839,18 +3606,16 @@ pre {
   text-decoration: none;
 }
 .pgf__logo img {
-  height: 32px;
+  height: 28px;
   width: auto;
-  /* Render the wordmark light for the dark footer (no white asset exists). */
-  filter: brightness(0) invert(1);
   /* Nudge left to align the wordmark's visual edge with the text below it. */
-  transform: translate(-7px, 0px);
+  transform: translate(-6px, 0px);
 }
 
 .pgf__tag {
   font-size: 14px;
   line-height: 1.55;
-  color: var(--ink-400);
+  color: var(--ink-500);
   margin: 14px 0 18px;
   max-width: 240px;
 }
@@ -1858,49 +3623,49 @@ pre {
 .pgf__social {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 .pgf__social a {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
+  width: 34px;
+  height: 34px;
+  border-radius: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink-400);
-  background: var(--ink-900);
-  border: 1px solid var(--ink-700);
+  color: var(--ink-700);
+  background: var(--paper);
+  border: 1px solid var(--ink-200);
   transition: color var(--duration-fast) var(--ease-out),
-    background var(--duration-fast) var(--ease-out),
     border-color var(--duration-fast) var(--ease-out);
 }
 .pgf__social a:hover {
-  color: #fff;
-  background: var(--brand-600);
-  border-color: var(--brand-600);
+  color: var(--ink-950);
+  border-color: var(--ink-950);
 }
 .pgf__social a:focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus);
 }
 .pgf__social svg {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
 }
 .pgf__forum-icon {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   background-color: currentColor;
   -webkit-mask: url(/assets/pinggy_forum_logo.png) center / contain no-repeat;
   mask: url(/assets/pinggy_forum_logo.png) center / contain no-repeat;
 }
 
 .pgf__h {
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.09em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--track-eyebrow);
+  line-height: 1.6;
   text-transform: uppercase;
-  color: var(--ink-400);
+  color: var(--ink-500);
   margin: 0 0 16px;
 }
 .pgf__col ul {
@@ -1909,39 +3674,40 @@ pre {
   padding: 0;
 }
 .pgf__col li {
-  margin: 0 0 11px;
+  margin: 0 0 10px;
   padding: 0;
 }
 .pgf__col li a {
   font-size: 14.5px;
-  color: var(--ink-300);
+  color: var(--ink-700);
   text-decoration: none;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
   transition: color var(--duration-fast) var(--ease-out);
 }
 .pgf__col li a:hover {
-  color: var(--brand-500);
+  color: var(--ink-950);
+  text-decoration: underline;
 }
 .pgf__col li a:focus-visible,
 .pgf__legal a:focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus);
-  border-radius: var(--radius-sm);
 }
 
 .pgf__bar {
-  border-top: 1px solid var(--ink-700);
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 20px var(--pgf-gutter);
+  border-top: 1px solid var(--ink-200);
+  padding: 20px 0 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px 24px;
+  font-family: var(--font-display);
 }
 .pgf__bar > span {
-  font-size: 13.5px;
-  color: var(--ink-400);
+  font-size: 12.5px;
+  color: var(--ink-500);
 }
 .pgf__legal {
   display: flex;
@@ -1949,13 +3715,13 @@ pre {
   gap: 8px 18px;
 }
 .pgf__legal a {
-  font-size: 13.5px;
-  color: var(--ink-400);
+  font-size: 12.5px;
+  color: var(--ink-500);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
 .pgf__legal a:hover {
-  color: var(--brand-500);
+  color: var(--ink-950);
 }
 
 @media (max-width: 860px) {

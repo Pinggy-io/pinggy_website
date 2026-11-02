@@ -1,8 +1,6 @@
+/* Flat paper like the rest of the site (the grid wash is blog-only). */
 body {
-  font-family: Uncut Sans, sans-serif;
-  background-image: linear-gradient(to bottom, #effaff8c, #ffffff 11em),
-    url(../assets/header_grid2.png);
-  background-repeat: repeat;
+  font-family: var(--font-sans);
 }
 
 .toolcontent {
@@ -37,7 +35,7 @@ body {
 .toolcontent img {
   max-width: 100%;
   padding: 1em 0.8em;
-  border-radius: 1%;
+  border-radius: var(--radius-artifact);
 }
 
 .toolbody h2 {

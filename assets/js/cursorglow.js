@@ -16,7 +16,17 @@
    out smoothly as the user moves past the hero.
 
    Reduced-motion: pulses are disabled. Cursor glow still tracks (it's
-   a passive effect, not motion). Touch (hover: none) skips mousemove. */
+   a passive effect, not motion). Touch (hover: none) skips mousemove.
+
+   Two modes, picked by the canvas's data-scope attribute:
+   - default (blog, partials/grid_canvas.html): fills the viewport, fades
+     with --canvas-opacity on scroll, bottom fade drawn in the canvas.
+   - data-scope="parent" (homepage hero): fills its positioned parent,
+     skips the first row and column so no line doubles the parent's own
+     border, pauses while the parent is off screen, and leaves the fade to
+     a CSS mask on the canvas.
+   Optional data-* settings override the defaults below: cell, base-rgb,
+   base-alpha, glow-radius, glow-peak, pulse-max, head ("round"/"square"). */
 (function () {
   if (typeof window === "undefined" || typeof document === "undefined") return;
 
@@ -30,18 +40,36 @@
     var ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    function opt(name, fallback) {
+      var v = canvas.getAttribute("data-" + name);
+      return v === null || v === "" ? fallback : v;
+    }
+    function numOpt(name, fallback) {
+      var v = parseFloat(opt(name, ""));
+      return isNaN(v) ? fallback : v;
+    }
+
+    var scoped = opt("scope", "") === "parent";
+    var host = scoped ? canvas.parentElement : null;
+    if (scoped && !host) return;
+
     // --- config --------------------------------------------------------
-    var CELL = 35;
-    var GLOW_RADIUS = 320;
+    var CELL = numOpt("cell", 35);
+    var GLOW_RADIUS = numOpt("glow-radius", 320);
+    var GLOW_PEAK = numOpt("glow-peak", 0.95); // alpha at the cursor
     var EASE = 0.06;
     var SCROLL_FADE_END = 700;            // px scrolled where canvas hits 0 opacity
 
     var GLOW_RGB = "91, 134, 229";        // --brand-500
-    var BASE_RGB = "15, 23, 42";          // ink-950
-    var BASE_ALPHA = 0.07;
+    var BASE_RGB = opt("base-rgb", "15, 23, 42"); // ink-950
+    var BASE_ALPHA = numOpt("base-alpha", 0.07);
 
     var PULSE_SPAWN_MS = 520;             // avg spawn interval
-    var PULSE_MAX = 5;
+    var PULSE_MAX = numOpt("pulse-max", 5);
+    var SQUARE_HEAD = opt("head", "round") === "square";
+    // First grid line: scoped canvases skip line 0, which would sit right
+    // against the parent's border and read as a doubled rule.
+    var FIRST = scoped ? 1 : 0;
     var PULSE_TAIL_MIN = 130;             // visible tail length
     var PULSE_TAIL_MAX = 230;
     var PULSE_TRAVEL_MIN = 110;           // how far the head moves
@@ -70,8 +98,8 @@
 
     // --- sizing --------------------------------------------------------
     function resize() {
-      width = window.innerWidth;
-      height = window.innerHeight;
+      width = scoped ? host.clientWidth : window.innerWidth;
+      height = scoped ? host.clientHeight : window.innerHeight;
       canvas.style.width = width + "px";
       canvas.style.height = height + "px";
       canvas.width = Math.round(width * dpr);
@@ -99,6 +127,7 @@
       } else {
         lineIndex = Math.floor(Math.random() * lineCount);
       }
+      if (lineIndex < FIRST) lineIndex = FIRST;
 
       var dir = Math.random() < 0.5 ? 1 : -1;
       var tail =
@@ -206,12 +235,17 @@
       ctx.lineTo(x1, y1);
       ctx.stroke();
 
-      // Small brand-tinted head dot
-      ctx.beginPath();
-      ctx.arc(x1, y1, 1.6, 0, Math.PI * 2);
+      // Small brand-tinted head: a dot, or a 3px square in "square" mode
+      // (matches the square chrome and the pixel field on the homepage).
       ctx.fillStyle =
         "rgba(" + GLOW_RGB + ", " + (alpha * 0.9).toFixed(3) + ")";
-      ctx.fill();
+      if (SQUARE_HEAD) {
+        ctx.fillRect(Math.round(x1) - 1.5, Math.round(y1) - 1.5, 3, 3);
+      } else {
+        ctx.beginPath();
+        ctx.arc(x1, y1, 1.6, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
       return true;
     }
@@ -224,21 +258,23 @@
       var cx = currentX !== undefined ? currentX : -99999;
       var cy = currentY !== undefined ? currentY : -99999;
       var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, GLOW_RADIUS);
-      grad.addColorStop(0.0, "rgba(" + GLOW_RGB + ", 0.95)");
-      grad.addColorStop(0.25, "rgba(" + GLOW_RGB + ", 0.55)");
-      grad.addColorStop(0.55, "rgba(" + GLOW_RGB + ", 0.15)");
+      // Stops scale with GLOW_PEAK; at the default 0.95 they are the
+      // original 0.95 / 0.55 / 0.15.
+      grad.addColorStop(0.0, "rgba(" + GLOW_RGB + ", " + GLOW_PEAK + ")");
+      grad.addColorStop(0.25, "rgba(" + GLOW_RGB + ", " + (GLOW_PEAK * 0.55 / 0.95).toFixed(3) + ")");
+      grad.addColorStop(0.55, "rgba(" + GLOW_RGB + ", " + (GLOW_PEAK * 0.15 / 0.95).toFixed(3) + ")");
       grad.addColorStop(0.85, "rgba(" + BASE_RGB + ", " + BASE_ALPHA + ")");
       grad.addColorStop(1.0, "rgba(" + BASE_RGB + ", " + BASE_ALPHA + ")");
 
       ctx.lineWidth = 1;
       ctx.strokeStyle = grad;
       ctx.beginPath();
-      for (var x = 0; x <= width + CELL; x += CELL) {
+      for (var x = FIRST * CELL; x <= width + CELL; x += CELL) {
         var xp = Math.floor(x) + 0.5;
         ctx.moveTo(xp, 0);
         ctx.lineTo(xp, height);
       }
-      for (var y = 0; y <= height + CELL; y += CELL) {
+      for (var y = FIRST * CELL; y <= height + CELL; y += CELL) {
         var yp = Math.floor(y) + 0.5;
         ctx.moveTo(0, yp);
         ctx.lineTo(width, yp);
@@ -256,7 +292,9 @@
         ctx.restore();
       }
 
-      // 3) Vertical fade - keep grid emphasized in upper portion of viewport
+      // 3) Vertical fade - keep grid emphasized in upper portion of viewport.
+      // Scoped canvases fade with a CSS mask instead.
+      if (scoped) return;
       ctx.save();
       ctx.globalCompositeOperation = "destination-out";
       var fade = ctx.createLinearGradient(0, 0, 0, height);
@@ -314,9 +352,26 @@
     }
 
     // --- events --------------------------------------------------------
+    // Cursor position in canvas coordinates. Scoped canvases are offset by
+    // their parent's position, which also moves on scroll, so the last
+    // client position is kept and re-projected in onScroll.
+    var clientX, clientY;
+    function track() {
+      if (clientX === undefined) return;
+      if (scoped) {
+        var r = host.getBoundingClientRect();
+        targetX = clientX - r.left;
+        targetY = clientY - r.top;
+      } else {
+        targetX = clientX;
+        targetY = clientY;
+      }
+    }
+
     function onMove(e) {
-      targetX = e.clientX;
-      targetY = e.clientY;
+      clientX = e.clientX;
+      clientY = e.clientY;
+      track();
       requestFrame();
     }
 
@@ -334,6 +389,12 @@
       if (scrollRaf !== null) return;
       scrollRaf = requestAnimationFrame(function () {
         scrollRaf = null;
+        if (scoped) {
+          // Visibility comes from the IntersectionObserver below.
+          track();
+          requestFrame();
+          return;
+        }
         var op = 1 - window.scrollY / SCROLL_FADE_END;
         if (op < 0) op = 0;
         else if (op > 1) op = 1;
@@ -353,6 +414,21 @@
     onScroll();
     window.addEventListener("resize", onResize, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
+
+    if (scoped) {
+      // The parent's height changes with fonts, validation messages and
+      // layout breakpoints, not only with the window.
+      if (window.ResizeObserver) new ResizeObserver(onResize).observe(host);
+      // Stop drawing while the parent is off screen.
+      if (window.IntersectionObserver) {
+        new IntersectionObserver(function (entries) {
+          var visible = entries[entries.length - 1].isIntersecting;
+          var wasSuspended = canvasOpacity <= 0;
+          canvasOpacity = visible ? 1 : 0;
+          if (wasSuspended && visible) requestFrame();
+        }).observe(host);
+      }
+    }
 
     if (!noHover) {
       window.addEventListener("mousemove", onMove, { passive: true });

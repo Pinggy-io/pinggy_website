@@ -85,20 +85,58 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Blog page background color: #fbfaf8 (warm off-white). The grid canvas and
-   the wash animation are kept; only the colour changes. html provides the base
-   colour (overrides customization.css's --ink-50), body stays transparent so
-   the grid canvas shows through, and the wash gradient is retinted to #fbfaf8
-   so it fades to the same colour. blog.css loads only on blog pages. */
+/* Blog page background color: #fbfaf8 (warm off-white). The blog draws the
+   full-viewport background grid (partials/grid_canvas.html, animated by
+   js/cursorglow.js) under a fixed wash; product pages use the flat
+   ruled-frame layout (only the homepage hero has a grid, scoped to that
+   cell and styled in customization.css), so both rules live here. html provides the base
+   colour, body stays transparent so the grid canvas shows through, and the
+   wash fades to the same #fbfaf8. Scoped to body.blog because blog.css also
+   loads on quickstart pages, which use the flat product look. */
 html { background: #fbfaf8; }
 body { background-color: transparent; }
-body::before {
+
+/* Wash, hosted on a position:fixed pseudo-element instead of
+   background-attachment:fixed on body: Firefox repaints the fixed body bg on
+   every scroll event, and combined with the navbar backdrop-filter the
+   compositor backlogs on fast scroll. A position:fixed element is promoted to
+   its own GPU layer. Layered above the grid canvas (canvas z=-2, wash z=-1) so
+   the wash tones the grid down, still below in-flow content. */
+body.blog::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image: linear-gradient(
     to bottom,
     rgba(251, 250, 248, 0.3) 0%,
     rgba(251, 250, 248, 0.75) 30%,
     rgba(251, 250, 248, 1) 65%
   );
+}
+
+/* Background grid canvas: fills the viewport behind in-flow content and
+   beneath the wash. --canvas-opacity is updated by js/cursorglow.js on
+   scroll to fade the grid out past the masthead. */
+.grid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+  display: block;
+  opacity: var(--canvas-opacity, 1);
+  will-change: opacity;
+}
+
+/* Skip the canvas grid on small screens: no hover affordance, and it saves
+   the JS/draw cost on the lowest-power devices. */
+@media (max-width: 767.98px) {
+  .grid-canvas {
+    display: none;
+  }
 }
 
 /* On a single post, drop the Bootstrap container so the redesign controls
