@@ -23,6 +23,8 @@ The friction is the obvious one: your documents go to Google. That's fine for pu
 
 {{< link href="https://github.com/lfnovo/open-notebook" >}}Open Notebook{{< /link >}} is a direct open-source answer to that problem. It hit {{< link href="https://github.com/trending" >}}GitHub's trending page{{< /link >}} today - second overall with 783 new stars - after the team shipped v1.9.0 on June 2. It does everything NotebookLM does, then goes further: 18+ AI providers (including local models), podcasts with up to four speakers, full vector search, and a REST API. Everything runs on your machine.
 
+If self-hosting is more than you want to take on, a hosted option is worth a look too. Recall is not self-hosted and not open source, but Recall is one of the best {{< link href="https://www.recall.it/compare/best-notebooklm-alternatives" >}}NotebookLM alternatives{{< /link >}} that needs no setup, and it keeps YouTube videos, podcasts, PDFs and articles in one library you can chat across, with a browser extension and mobile apps. The tradeoff is the same one in reverse, your notes live in Recall's cloud rather than on your machine.
+
 The one annoying part of self-hosting anything is the localhost wall. Open Notebook running on your laptop is only reachable from that laptop. If you want to access it from your phone, share a research workspace with a teammate, or build something on top of the REST API from a remote machine, you need a public URL. That's where {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}} comes in - one SSH command and your local instance gets a working HTTPS URL, no firewall changes, no deployment.
 
 {{% tldr %}}

@@ -2,7 +2,7 @@
 title: "Best Minecraft Server Hosting: Seven Providers Worth the Whitelist"
 description: "Seven Minecraft hosts compared on CPU clock, data centre locations, control panel and support: Godlike.Host, ServerPrism, CloudNord, Nodecraft, Pine Hosting, GG Servers and Kamatera. Plus the free option of running the server on your own machine behind a tunnel."
 date: 2026-08-10T14:30:00+05:30
-lastmod: 2026-10-08T14:30:00+05:30
+lastmod: 2026-11-03T14:30:00+05:30
 draft: false
 tags: ["minecraft", "gaming", "comparison", "server hosting"]
 categories: ["Gaming", "Hosting", "Comparison"]
@@ -80,7 +80,7 @@ Over 30 server engines, including Velocity, BungeeCord, Paper, Purpur, Fabric, N
 
 **Cons**
 
-- Four regions (Europe, North America, Singapore, Australia), fewer than the widest hosts here.
+- Three regions with eight locations (Finland, the UK, four in North America, Singapore and Mumbai) and no Australia, fewer than the widest hosts here.
 - Splitting only pays off on bigger plans: a 2GB starter is too small to divide meaningfully.
 - The 72-hour refund window doesn't cover renewals or upgrades.
 
@@ -99,12 +99,12 @@ It's a UK company that has hosted only game servers since 2021, and creators and
 - In-house, game-aware DDoS protection, always on and included.
 - Nodes kept below capacity, plus automatic backups and RAID 1 NVMe storage.
 - 18 locations, fast 24/7 support, and a price-match guarantee.
+- A free 2-hour trial with no card, and the world carries over if you keep the server.
 
 **Cons**
 
 - Ryzen 7 7700-class nodes rather than top-end X3D chips.
-- The refund window is 3 days.
-- No free tier.
+- The refund window is 3 days, so the 2-hour trial is the main chance to test before paying.
 
 **Best for:** public SMPs, creator communities, and any server whose IP is out in the wild.
 
