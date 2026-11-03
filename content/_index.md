@@ -340,14 +340,16 @@ title: "Pinggy - Simple Localhost Tunnels"
 </section>
 
 <!-- Private network -->
-<section class="cell split split--flip" id="private-network">
+<section class="cell split split--flip" id="private-network" x-data="netTabs">
   <div class="split__text">
     <span class="eyebrow">How it works</span>
     <h2>Secure tunnels to your private network.</h2>
     <p class="prose">
-      Your machine opens one outbound SSH connection to Pinggy, and visitors
-      reach it through a public URL. No port forwarding, no firewall changes.
+      Your machine opens one outbound, encrypted connection to Pinggy, and
+      clients reach it through a public address. No port forwarding, no
+      firewall changes. Pick a tunnel type to see how the traffic flows.
     </p>
+    {{< network-diagram part="tabs" >}}
   </div>
   <div class="split__media">
     {{< network-diagram >}}

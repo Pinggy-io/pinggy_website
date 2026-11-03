@@ -2579,15 +2579,180 @@ a.spec-card:hover {
 }
 
 /* ---- Network diagram (network-diagram shortcode) ---------------- */
+/* Vertical tab list in the split's text column. Ruled rows on the
+   48px rhythm; the selected row gets a white fill and a 2px brand rule on
+   the side that faces the diagram. */
+.nd-tabs {
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--ink-200);
+}
+
+.nd-tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.25rem 3.75rem minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-bottom: 1px solid var(--ink-200);
+  background: transparent;
+  color: var(--ink-700);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.nd-tab:hover {
+  background: var(--paper);
+  color: var(--ink-950);
+}
+
+.nd-tab__n {
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+}
+
+.nd-tab__name {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nd-tab__use {
+  overflow: hidden;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--ink-500);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nd-tab[aria-selected="true"] {
+  background: var(--white);
+  color: var(--ink-950);
+  box-shadow: inset 2px 0 0 var(--brand-600);
+}
+
+.nd-tab[aria-selected="true"] .nd-tab__n {
+  color: var(--brand-600);
+}
+
+/* While the tabs rotate on their own, a 2px brand rule grows along the
+   bottom of the selected row and the next tab comes up when it is full.
+   Driven by --nd-progress (0 to 1) from the netTabs component. */
+.nd-tabs.is-rotating .nd-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--brand-600);
+  transform: scaleX(var(--nd-progress, 0));
+  transform-origin: left center;
+  transition: transform 100ms linear;
+}
+
+.nd-tab:focus-visible {
+  outline: none;
+  box-shadow: inset 2px 0 0 var(--brand-600), var(--shadow-focus);
+  position: relative;
+  z-index: 1;
+}
+
+/* Only the pieces for the selected protocol show. SVG groups switch with
+   display (which also restarts their packet animations); the HTML command
+   and caption share one grid cell, so the card keeps the height of the
+   longest one and nothing on the page shifts between tabs. */
+.netdiagram-card .nd-p {
+  display: none;
+}
+
+.netdiagram-card[data-proto="https"] .nd-p.nd-for-https,
+.netdiagram-card[data-proto="tcp"] .nd-p.nd-for-tcp,
+.netdiagram-card[data-proto="tls"] .nd-p.nd-for-tls,
+.netdiagram-card[data-proto="udp"] .nd-p.nd-for-udp,
+.netdiagram-card[data-proto="tlstcp"] .nd-p.nd-for-tlstcp {
+  display: inline;
+  animation: ndIn var(--duration-slow) var(--ease-out);
+}
+
+.netdiagram-card .nd-x {
+  grid-area: 1 / 1;
+  visibility: hidden;
+}
+
+.netdiagram-card[data-proto="https"] .nd-x.nd-for-https,
+.netdiagram-card[data-proto="tcp"] .nd-x.nd-for-tcp,
+.netdiagram-card[data-proto="tls"] .nd-x.nd-for-tls,
+.netdiagram-card[data-proto="udp"] .nd-x.nd-for-udp,
+.netdiagram-card[data-proto="tlstcp"] .nd-x.nd-for-tlstcp {
+  visibility: visible;
+}
+
+.nd-cmds {
+  display: grid;
+}
+
+.nd-cmds > .nd-x {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nd-foot {
+  display: grid;
+  padding: 14px 16px;
+  border-top: 1px solid var(--ink-200);
+}
+
+.netdiagram-card .nd-foot p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ink-700);
+}
+
 .netdiagram {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* Wide drawing by default, stacked drawing on phones (see the shortcode). */
+/* One tunnel type on its own (docs pages): a figure in the prose column,
+   capped so the 12px labels stay close to their homepage size. */
+.netdiagram-card--single {
+  max-width: 40rem;
+  margin: var(--space-6) 0;
+}
+
+/* Wide drawing by default, stacked drawing on phones (see the shortcode).
+   Each drawing names its packet route: the unit direction from the users
+   box toward the machine (--ux, --uy) and three distances along it in
+   SVG units, --b fully inside the edge box, --c about to leave it, --d
+   fully inside the machine box. Packets start just inside the users box. */
+.netdiagram--wide {
+  --ux: -1;
+  --uy: 0;
+  --b: 83;
+  --c: 210;
+  --d: 291;
+}
+
 .netdiagram--tall {
   display: none;
+  --ux: 0;
+  --uy: -1;
+  --b: 90;
+  --c: 201;
+  --d: 290;
 }
 
 @media (max-width: 639.98px) {
@@ -2644,21 +2809,27 @@ a.spec-card:hover {
   fill: var(--paper);
 }
 
-.netdiagram .nd-wire {
+/* Encrypted leg: a light blue tube between two brand rules. Over the dark
+   edge box (TLS passthrough) only the rules show. */
+.netdiagram .nd-pipe {
+  fill: var(--brand-50);
+}
+
+.netdiagram .nd-pipe-rule {
   fill: none;
-  stroke: var(--ink-300);
+  stroke: var(--brand-600);
   stroke-width: 1;
 }
 
-.netdiagram .nd-wire--live {
-  stroke: var(--brand-600);
-  stroke-width: 1.5;
-  stroke-dasharray: 6 6;
-  animation: ndDash 0.9s linear infinite;
+.netdiagram .nd-pipe-rule--dark {
+  stroke: var(--brand-500);
 }
 
-.netdiagram .nd-dot {
-  fill: var(--brand-600);
+/* Raw public leg (TCP, UDP): the client's bytes, passed through as is. */
+.netdiagram .nd-raw {
+  fill: none;
+  stroke: var(--ink-950);
+  stroke-width: 1;
 }
 
 /* Line icons (<use> of the <symbol>s in the shortcode): the paths inherit
@@ -2680,26 +2851,203 @@ a.spec-card:hover {
   stroke-width: 1.4;
 }
 
-/* The lock sits on the live connector in a small paper square. */
-.netdiagram .nd-lockbox {
-  fill: var(--paper);
-  stroke: var(--brand-600);
-  stroke-width: 1;
-}
-
 .netdiagram .nd-grid {
   stroke: var(--ink-100);
   stroke-width: 1;
 }
 
-@keyframes ndDash {
-  to {
-    stroke-dashoffset: -12;
+/* Edge activity light (HTTPS): on while a request sits at the edge, where
+   TLS ends and auth or the web debugger see it. */
+.netdiagram .nd-led {
+  fill: var(--brand-500);
+  opacity: 0;
+  animation: ndLed 4.2s linear infinite;
+}
+
+/* TLSTCP: TLS ends at the edge for the whole stream, so the light stays
+   on and breathes. */
+.netdiagram .nd-led--stream {
+  animation: ndLedStream 2.4s var(--ease-in-out) infinite alternate;
+}
+
+/* Packets */
+.netdiagram .nd-pk {
+  animation-delay: var(--lag, 0s);
+  animation-iteration-count: infinite;
+}
+
+.netdiagram .nd-pk--req,
+.netdiagram .nd-pk--resp {
+  fill: var(--brand-600);
+  animation-duration: 4.2s;
+  animation-timing-function: var(--ease-in-out);
+}
+
+.netdiagram .nd-pk--req {
+  animation-name: ndHttpsReq;
+}
+
+.netdiagram .nd-pk--resp {
+  animation-name: ndHttpsResp;
+}
+
+/* TCP: a steady stream both ways, in two lanes. A packet is ink on the raw
+   public leg and turns blue while hidden in the edge box, where it enters
+   the tunnel. TLSTCP reuses the stream with the public leg encrypted too,
+   so its packets stay blue (--nd-raw-fill). */
+.netdiagram .nd-pk--tin,
+.netdiagram .nd-pk--tout {
+  animation-duration: 2.4s;
+  animation-timing-function: linear;
+}
+
+.netdiagram .nd-pk--tin {
+  fill: var(--nd-raw-fill, var(--ink-950));
+  animation-name: ndTcpIn;
+}
+
+.netdiagram .nd-pk--tout {
+  fill: var(--brand-600);
+  animation-name: ndTcpOut;
+}
+
+.netdiagram .nd-p--sealed .nd-pk {
+  --nd-raw-fill: var(--brand-600);
+}
+
+/* UDP: hollow datagrams in short bursts, no round trip. */
+.netdiagram .nd-pk--uin,
+.netdiagram .nd-pk--uout {
+  stroke-width: 1.2;
+  animation-duration: 3.2s;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+}
+
+.netdiagram .nd-pk--uin {
+  fill: var(--paper);
+  stroke: var(--ink-950);
+  animation-name: ndUdpIn;
+}
+
+.netdiagram .nd-pk--uout {
+  fill: var(--brand-50);
+  stroke: var(--brand-600);
+  animation-name: ndUdpOut;
+}
+
+/* TLS: one sealed packet crossing the edge in view, at constant speed. */
+.netdiagram .nd-seal {
+  fill: var(--brand-600);
+}
+
+.netdiagram .nd-seal__core {
+  fill: var(--paper);
+}
+
+.netdiagram .nd-pk--sreq,
+.netdiagram .nd-pk--sresp {
+  animation-duration: 4s;
+  animation-timing-function: linear;
+}
+
+.netdiagram .nd-pk--sreq {
+  animation-name: ndTlsReq;
+}
+
+.netdiagram .nd-pk--sresp {
+  animation-name: ndTlsResp;
+}
+
+@keyframes ndIn {
+  from {
+    opacity: 0;
   }
 }
 
+@keyframes ndLed {
+  0%, 15.5% { opacity: 0; }
+  16.5%, 30% { opacity: 1; }
+  31%, 65.5% { opacity: 0; }
+  66.5%, 76% { opacity: 1; }
+  77%, 100% { opacity: 0; }
+}
+
+@keyframes ndLedStream {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+@keyframes ndHttpsReq {
+  0% { transform: translate(0, 0); }
+  16% { transform: translate(calc(var(--ux) * var(--b) * 1px), calc(var(--uy) * var(--b) * 1px)); }
+  30% { transform: translate(calc(var(--ux) * var(--b) * 1px), calc(var(--uy) * var(--b) * 1px)); }
+  31% { transform: translate(calc(var(--ux) * var(--c) * 1px), calc(var(--uy) * var(--c) * 1px)); }
+  46% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); }
+  100% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); }
+}
+
+@keyframes ndHttpsResp {
+  0%, 52% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); }
+  66% { transform: translate(calc(var(--ux) * var(--c) * 1px), calc(var(--uy) * var(--c) * 1px)); }
+  76% { transform: translate(calc(var(--ux) * var(--c) * 1px), calc(var(--uy) * var(--c) * 1px)); }
+  77% { transform: translate(calc(var(--ux) * var(--b) * 1px), calc(var(--uy) * var(--b) * 1px)); }
+  92%, 100% { transform: translate(0, 0); }
+}
+
+@keyframes ndTcpIn {
+  0% { transform: translate(0, 0); fill: var(--nd-raw-fill, var(--ink-950)); }
+  40% { transform: translate(calc(var(--ux) * var(--b) * 1px), calc(var(--uy) * var(--b) * 1px)); fill: var(--nd-raw-fill, var(--ink-950)); }
+  47% { fill: var(--brand-600); }
+  55% { transform: translate(calc(var(--ux) * var(--c) * 1px), calc(var(--uy) * var(--c) * 1px)); }
+  100% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); fill: var(--brand-600); }
+}
+
+@keyframes ndTcpOut {
+  0% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); fill: var(--brand-600); }
+  45% { transform: translate(calc(var(--ux) * var(--c) * 1px), calc(var(--uy) * var(--c) * 1px)); fill: var(--brand-600); }
+  53% { fill: var(--nd-raw-fill, var(--ink-950)); }
+  60% { transform: translate(calc(var(--ux) * var(--b) * 1px), calc(var(--uy) * var(--b) * 1px)); }
+  100% { transform: translate(0, 0); fill: var(--nd-raw-fill, var(--ink-950)); }
+}
+
+@keyframes ndUdpIn {
+  0% { transform: translate(0, 0); fill: var(--paper); stroke: var(--ink-950); }
+  14% { transform: translate(calc(var(--ux) * var(--b) * 1px), calc(var(--uy) * var(--b) * 1px)); fill: var(--paper); stroke: var(--ink-950); }
+  16% { fill: var(--brand-50); stroke: var(--brand-600); }
+  18% { transform: translate(calc(var(--ux) * var(--c) * 1px), calc(var(--uy) * var(--c) * 1px)); }
+  32%, 100% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); fill: var(--brand-50); stroke: var(--brand-600); }
+}
+
+@keyframes ndUdpOut {
+  0% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); fill: var(--brand-50); stroke: var(--brand-600); }
+  14% { transform: translate(calc(var(--ux) * var(--c) * 1px), calc(var(--uy) * var(--c) * 1px)); fill: var(--brand-50); stroke: var(--brand-600); }
+  16% { fill: var(--paper); stroke: var(--ink-950); }
+  18% { transform: translate(calc(var(--ux) * var(--b) * 1px), calc(var(--uy) * var(--b) * 1px)); }
+  32%, 100% { transform: translate(0, 0); fill: var(--paper); stroke: var(--ink-950); }
+}
+
+@keyframes ndTlsReq {
+  0% { transform: translate(0, 0); }
+  42%, 100% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); }
+}
+
+@keyframes ndTlsResp {
+  0%, 50% { transform: translate(calc(var(--ux) * var(--d) * 1px), calc(var(--uy) * var(--d) * 1px)); }
+  92%, 100% { transform: translate(0, 0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .netdiagram .nd-wire--live {
+  .netdiagram .nd-pk,
+  .netdiagram .nd-led {
+    display: none;
+  }
+
+  .netdiagram-card .nd-p.nd-for-https,
+  .netdiagram-card .nd-p.nd-for-tcp,
+  .netdiagram-card .nd-p.nd-for-tls,
+  .netdiagram-card .nd-p.nd-for-udp,
+  .netdiagram-card .nd-p.nd-for-tlstcp {
     animation: none;
   }
 }

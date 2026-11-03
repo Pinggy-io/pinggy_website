@@ -2,6 +2,7 @@
  title: "UDP Tunnels" 
  description: "Effortlessly create UDP tunnels with Pinggy using a single command. Reserve a port on the dashboard for consistent connections and seamless localhost tunneling."
  date: 2024-07-10T14:15:25+05:30 
+ lastmod: 2026-11-02T14:15:25+05:30
  draft: false 
 ---
 
@@ -18,3 +19,5 @@ Step 2. Start the UDP tunnel using the CLI with the following command:
 {{</ ssh_command >}}
 
 This command present user with a URL and a UDP port. Port allocation changes per connection. However, Pro users can reserve a persistent port on <https://dashboard.pinggy.io>
+
+{{< network-diagram proto="udp" port="8000" >}}

@@ -2,6 +2,7 @@
  title: "TCP Tunnels" 
  description: "Effortlessly create TCP tunnels with Pinggy using a single command. Reserve a port on the dashboard for consistent connections and seamless localhost tunneling."
  date: 2023-01-10T14:15:25+05:30 
+ lastmod: 2026-11-02T14:15:25+05:30
  draft: false 
 ---
 
@@ -14,6 +15,8 @@ Create a tunnel using a single command.
 {{</ ssh_command >}}
 
 This command present user with a URL and a TCP port. Port allocation changes per connection. However, one can reserve a port on <https://dashboard.pinggy.io>
+
+{{< network-diagram proto="tcp" port="8000" >}}
 
 To pass the client's original IP address to your upstream service, see the [HAProxy PROXY Protocol](/docs/tcp_tunnels/haproxy/) guide.
 
