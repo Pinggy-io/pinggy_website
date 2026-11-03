@@ -381,7 +381,7 @@ Centered: a two-line h2 (second line muted), then the command panel and a ghost 
 - **Artifact rise-in** (`mockRise`): fade + 16px rise, `0.6s --ease-rise`, once.
 - **Hero grid pulses:** brand comets easing along grid lines, a few at a time (§7.5).
 - **Live connector:** dashed stroke offset, linear.
-- **Marquees:** linear, edge mask into `--ink-50`, logos grayscale at rest.
+- **Marquees:** linear, edge mask into `--ink-50`, logos grayscale at rest. Hovering a marquee pauses it, and only the hovered (or focused) logo regains its color.
 - Everything above is off under `prefers-reduced-motion: reduce`.
 
 ### Forbidden

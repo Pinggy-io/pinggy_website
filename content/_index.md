@@ -903,7 +903,6 @@ title: "Pinggy - Simple Localhost Tunnels"
         <a href="https://easylaunch.dev/ai/pinggy" target="_blank" rel="noopener"><img src="https://easylaunch.dev/badge/easylaunch-badge-light.svg" alt="Featured on EasyLaunch" width="188" height="56" loading="lazy" /></a>
         <a href="https://easydofollow.dev/ai/pinggy" target="_blank" rel="noopener"><img src="https://easydofollow.dev/badge/easydofollow-badge-light.svg" alt="Featured on EasyDoFollow" width="188" height="56" loading="lazy" /></a>
         <a href="https://wired.business" target="_blank" rel="noopener"><img src="https://wired.business/badge1-light.svg" alt="Featured on Wired Business" width="200" height="54" loading="lazy" /></a>
-        <a href="https://dironix.com" target="_blank" rel="noopener"><img src="https://dironix.com/bage.png" alt="Featured on dironix.com" loading="lazy" /></a>
         <a href="https://uno.directory" target="_blank" rel="noopener"><img src="https://uno.directory/uno-directory.svg" alt="Listed on Uno Directory" width="120" height="30" loading="lazy" /></a>
         <a href="https://apphublist.com/products/pinggy" target="_blank" rel="noopener"><img src="https://apphublist.com/assets/images/badge.png" alt="App Hub List" height="54" loading="lazy" /></a>
         <a href="https://saasavenue.com/products/pinggy" target="_blank" rel="noopener"><img src="https://saasavenue.com/assets/images/badge.png" alt="SaaS Avenue" height="54" loading="lazy" /></a>
@@ -918,7 +917,6 @@ title: "Pinggy - Simple Localhost Tunnels"
         <a href="https://easylaunch.dev/ai/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://easylaunch.dev/badge/easylaunch-badge-light.svg" alt="" width="188" height="56" loading="lazy" /></a>
         <a href="https://easydofollow.dev/ai/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://easydofollow.dev/badge/easydofollow-badge-light.svg" alt="" width="188" height="56" loading="lazy" /></a>
         <a href="https://wired.business" target="_blank" rel="noopener" tabindex="-1"><img src="https://wired.business/badge1-light.svg" alt="" width="200" height="54" loading="lazy" /></a>
-        <a href="https://dironix.com" target="_blank" rel="noopener" tabindex="-1"><img src="https://dironix.com/bage.png" alt="" loading="lazy" /></a>
         <a href="https://uno.directory" target="_blank" rel="noopener" tabindex="-1"><img src="https://uno.directory/uno-directory.svg" alt="" width="120" height="30" loading="lazy" /></a>
         <a href="https://apphublist.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://apphublist.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>
         <a href="https://saasavenue.com/products/pinggy" target="_blank" rel="noopener" tabindex="-1"><img src="https://saasavenue.com/assets/images/badge.png" alt="" height="54" loading="lazy" /></a>

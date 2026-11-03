@@ -241,8 +241,9 @@
 }
 /* Featured-on badge marquee (homepage). The track holds two copies of
    the badge set; animating to -50% loops seamlessly. Badges rest dimmed
-   and desaturated; hovering the strip pauses the scroll and restores
-   full color. Edges fade out via a mask so it works on any background. */
+   and desaturated; hovering the strip pauses the scroll, and only the
+   badge under the pointer (or with keyboard focus) gets its full color.
+   Edges fade out via a mask so it works on any background. */
 .badge-marquee {
   width: 100%;
   overflow: hidden;
@@ -284,7 +285,8 @@
   transition: filter var(--duration-fast) var(--ease-out),
     opacity var(--duration-fast) var(--ease-out);
 }
-.badge-marquee:hover img {
+.badge-marquee a:hover img,
+.badge-marquee a:focus-visible img {
   filter: none;
   opacity: 1;
 }
