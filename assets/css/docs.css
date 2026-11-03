@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap");
-
 /* Docs uses the same token system as the rest of the site
    (defined in customization.css :root). */
 
@@ -9,28 +7,11 @@ body {
   background-color: transparent;
 }
 
-/* Docs pages: canvas is barely a hint at the very top, fully washed
-   out by ~30% of the viewport. The page is content-heavy and the
-   grid shouldn't compete with text. Overrides customization.css's
-   body::before background-image; other props (position:fixed, inset,
-   z-index, pointer-events, content) cascade from there. */
-body::before {
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(247, 248, 250, 0.5) 0%,
-      rgba(247, 248, 250, 0.9) 25%,
-      rgba(247, 248, 250, 1) 55%
-    ),
-    radial-gradient(
-      ellipse 80% 30% at 50% -5%,
-      rgba(91, 134, 229, 0.04),
-      transparent 60%
-    );
-}
-
+/* Docs prose is Uncut Sans like the rest of the site (the Google Open Sans
+   import used to render-block every docs page). Headings pick up IBM Plex
+   Mono from customization.css. */
 .contentcontainer {
-  font-family: "Open Sans", var(--font-sans);
+  font-family: var(--font-sans);
 }
 
 /* ---------- Headings ---------- */
@@ -51,7 +32,7 @@ h6,
   margin-bottom: 0.5rem;
   color: var(--ink-900);
   line-height: 1.25;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--track-h3);
 }
 
 h2,
@@ -69,65 +50,54 @@ h6,
 
 h1,
 .h1 {
-  font-size: calc(1.375rem + 1.5vw);
-  font-weight: 700;
+  font-size: calc(1.375rem + 1vw);
+  font-weight: 600;
   color: var(--ink-950);
-  letter-spacing: -0.025em;
+  letter-spacing: var(--track-display);
   line-height: 1.15;
 }
 @media (min-width: 1200px) {
   h1,
   .h1 {
-    font-size: 2.5rem;
+    font-size: 2.125rem;
   }
 }
 
 h2,
 .h2 {
-  font-size: calc(1.325rem + 0.9vw);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: calc(1.25rem + 0.5vw);
+  font-weight: 600;
+  letter-spacing: var(--track-h2);
 }
 @media (min-width: 1200px) {
   h2,
   .h2 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 }
 
 h3,
 .h3 {
-  font-size: calc(1.3rem + 0.4vw);
+  font-size: 1.25rem;
   font-weight: 600;
-}
-@media (min-width: 1200px) {
-  h3,
-  .h3 {
-    font-size: 1.5rem;
-  }
+  letter-spacing: var(--track-h3);
 }
 
 h4,
 .h4 {
-  font-size: calc(1.275rem + 0.2vw);
+  font-size: 1.0625rem;
   font-weight: 600;
-}
-@media (min-width: 1200px) {
-  h4,
-  .h4 {
-    font-size: 1.25rem;
-  }
 }
 
 h5,
 .h5 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 h6,
 .h6 {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 600;
 }
 
@@ -278,9 +248,10 @@ blockquote {
 /* ---------- Docs search trigger button ---------- */
 
 #docsearch-trigger {
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
   color: var(--ink-500);
-  background: #fff;
+  background: var(--white);
   border: 1px solid var(--ink-200);
   border-radius: var(--radius-md);
   padding: 8px 12px;

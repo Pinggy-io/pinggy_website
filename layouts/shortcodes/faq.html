@@ -1,24 +1,19 @@
-<!-- FAQ section-->
-<section class="py-5" id="faq" x-data="{ searchTerm: '' }">
-  <div class="container">
-    <div class="my-3 row justify-content-center">
-      <div class="col-lg-12">
-        <h2 class="mb-5 text-center fw-light">Frequently Asked Questions</h2>
-      </div>
-    </div>
-    <div class="row justify-content-center mb-3">
-      <div class="col-lg-8">
+<!-- FAQ section: heading + search on the left, ruled +/- rows on the right
+     (styles: customization.css "FAQ"). Also rendered on /help/. -->
+<section class="cell faq" id="faq" x-data="{ searchTerm: '' }">
+    <div class="faq__head">
+        <h2>Frequently Asked Questions</h2>
         <input
           type="text"
           id="faqSearch"
           class="form-control"
           placeholder="Search..."
+          aria-label="Search the FAQ"
           x-model="searchTerm"
         />
-      </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
+    <div class="faq__list">
+      <div>
         <div class="accordion" id="accordionFaq">
           <div
             class="accordion-item"
@@ -434,5 +429,4 @@
         </div>
       </div>
     </div>
-  </div>
 </section>

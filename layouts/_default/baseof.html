@@ -6,8 +6,7 @@
     {{- partial "seoindex.html" . -}}
   </head>
 
-  <body>
-    {{- partial "grid_canvas.html" . }}
+  <body{{ if .IsHome }} class="home"{{ end }}>
     {{- partial "navbar.html" .}} {{- block "main" . }}{{- end }} {{- partial
     "footer.html" . -}}
   </body>

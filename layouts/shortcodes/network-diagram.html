@@ -1,0 +1,136 @@
+{{/* Tunnel topology diagram for the homepage "How it works" split.
+     Drawn in the page's own language (ruled boxes, mono labels, line icons,
+     one live brand-blue connector) instead of an illustration. Colors come
+     from classes styled in customization.css ("Network diagram"), so the SVG
+     has no hard-coded palette. Two drawings of the same diagram: a wide one
+     (boxes left to right, labels above the boxes, icons top-left inside)
+     and a tall one for phones (boxes stacked, labels inside, icons top
+     right), so the 12px labels never scale down to an unreadable size. CSS
+     shows one at a time. Icons are <symbol>s on a 20px grid, defined in each
+     drawing (ids must stay unique). The homepage has no AMP output, so there
+     is no .amp.html twin. */}}
+<figure class="spec-card netdiagram-card">
+  <figcaption class="spec-card__head">
+    <span>Tunnel topology</span>
+    <span class="spec-card__meta">ssh -p 443 -R0:localhost:8080 free.pinggy.io</span>
+  </figcaption>
+  <svg class="netdiagram netdiagram--wide" viewBox="0 0 600 330" role="img" aria-labelledby="nd-title nd-desc">
+    <title id="nd-title">Pinggy tunnel network diagram showing how the tunnel works</title>
+    <desc id="nd-desc">A machine on a private network opens an outbound, encrypted SSH connection on port 443 to the Pinggy edge, which serves it on a public URL to users on the internet.</desc>
+    <defs>
+      <pattern id="nd-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <path d="M24 0H0V24" class="nd-grid" fill="none" />
+      </pattern>
+      <symbol id="nd-i-laptop" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="9" rx="1" /><path d="M1 16.5h18M8 10.5h4" /></symbol>
+      <symbol id="nd-i-server" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="6" rx="1" /><rect x="2" y="11" width="16" height="6" rx="1" /><path d="M5 6h2M5 14h2M13 6h2M13 14h2" /></symbol>
+      <symbol id="nd-i-globe" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" /><ellipse cx="10" cy="10" rx="3.5" ry="8" /><path d="M2 10h16" /></symbol>
+      <symbol id="nd-i-lock" viewBox="0 0 12 12"><rect x="2" y="5.5" width="8" height="5.5" rx="1" /><path d="M3.75 5.5V4a2.25 2.25 0 0 1 4.5 0v1.5" /></symbol>
+    </defs>
+    <rect width="600" height="330" fill="url(#nd-grid)" />
+
+    <!-- Private network -->
+    <text class="nd-label" x="24" y="62">PRIVATE NETWORK</text>
+    <rect class="nd-box" x="24.5" y="72.5" width="150" height="120" />
+    <use class="nd-icon" href="#nd-i-laptop" x="40" y="86" width="20" height="20" />
+    <text class="nd-title" x="40" y="136">Your machine</text>
+    <text class="nd-meta" x="40" y="160">localhost:8080</text>
+
+    <!-- Pinggy edge -->
+    <text class="nd-label" x="225" y="62">PINGGY EDGE</text>
+    <rect class="nd-box nd-box--edge" x="225.5" y="72.5" width="150" height="120" />
+    <use class="nd-icon nd-icon--edge" href="#nd-i-server" x="241" y="86" width="20" height="20" />
+    <text class="nd-title nd-on-dark" x="241" y="136">Pinggy</text>
+    <text class="nd-meta nd-on-dark" x="241" y="160">*.a.pinggy.link</text>
+
+    <!-- Internet -->
+    <text class="nd-label" x="426" y="62">INTERNET</text>
+    <rect class="nd-box" x="426.5" y="72.5" width="150" height="120" />
+    <use class="nd-icon" href="#nd-i-globe" x="442" y="86" width="20" height="20" />
+    <text class="nd-title" x="442" y="136">Your users</text>
+    <text class="nd-meta" x="442" y="160">public URL</text>
+
+    <!-- Tunnel: outbound, encrypted SSH from the private network -->
+    <path class="nd-wire nd-wire--live" d="M175 132.5H225" />
+    <rect class="nd-dot" x="172" y="130" width="5" height="5" />
+    <rect class="nd-dot" x="223" y="130" width="5" height="5" />
+    <rect class="nd-lockbox" x="191.5" y="123.5" width="17" height="17" />
+    <use class="nd-icon nd-icon--lock" href="#nd-i-lock" x="194" y="126" width="12" height="12" />
+    <text class="nd-meta" x="200" y="117" text-anchor="middle">ssh</text>
+    <text class="nd-meta" x="200" y="157" text-anchor="middle">:443</text>
+
+    <!-- Public traffic -->
+    <path class="nd-wire" d="M376 132.5H426" />
+    <text class="nd-meta" x="401" y="117" text-anchor="middle">https</text>
+    <text class="nd-meta" x="401" y="157" text-anchor="middle">tcp</text>
+
+    <!-- Notes under each box -->
+    <text class="nd-meta" x="24" y="222">behind NAT or firewall</text>
+    <text class="nd-meta" x="24" y="240">no port forwarding</text>
+    <text class="nd-meta" x="225" y="222">TLS certificates</text>
+    <text class="nd-meta" x="225" y="240">auth, web debugger</text>
+    <text class="nd-meta" x="426" y="222">any browser or client</text>
+    <text class="nd-meta" x="426" y="240">no install needed</text>
+
+    <!-- Legend -->
+    <path class="nd-wire nd-wire--live" d="M24 292.5H56" />
+    <text class="nd-meta" x="66" y="296">encrypted SSH tunnel</text>
+    <path class="nd-wire" d="M246 292.5H278" />
+    <text class="nd-meta" x="288" y="296">public traffic</text>
+  </svg>
+  <svg class="netdiagram netdiagram--tall" viewBox="0 0 320 630" role="img" aria-labelledby="nd-title-s nd-desc-s">
+    <title id="nd-title-s">Pinggy tunnel network diagram showing how the tunnel works</title>
+    <desc id="nd-desc-s">A machine on a private network opens an outbound, encrypted SSH connection on port 443 to the Pinggy edge, which serves it on a public URL to users on the internet.</desc>
+    <defs>
+      <pattern id="nd-grid-s" width="24" height="24" patternUnits="userSpaceOnUse">
+        <path d="M24 0H0V24" class="nd-grid" fill="none" />
+      </pattern>
+      <symbol id="nd-i-laptop-s" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="9" rx="1" /><path d="M1 16.5h18M8 10.5h4" /></symbol>
+      <symbol id="nd-i-server-s" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="6" rx="1" /><rect x="2" y="11" width="16" height="6" rx="1" /><path d="M5 6h2M5 14h2M13 6h2M13 14h2" /></symbol>
+      <symbol id="nd-i-globe-s" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" /><ellipse cx="10" cy="10" rx="3.5" ry="8" /><path d="M2 10h16" /></symbol>
+      <symbol id="nd-i-lock-s" viewBox="0 0 12 12"><rect x="2" y="5.5" width="8" height="5.5" rx="1" /><path d="M3.75 5.5V4a2.25 2.25 0 0 1 4.5 0v1.5" /></symbol>
+    </defs>
+    <rect width="320" height="630" fill="url(#nd-grid-s)" />
+
+    <!-- Private network -->
+    <rect class="nd-box" x="24.5" y="24.5" width="271" height="120" />
+    <use class="nd-icon" href="#nd-i-laptop-s" x="260" y="36" width="20" height="20" />
+    <text class="nd-label" x="40" y="50">PRIVATE NETWORK</text>
+    <text class="nd-title" x="40" y="80">Your machine</text>
+    <text class="nd-meta" x="40" y="100">localhost:8080</text>
+    <text class="nd-meta" x="40" y="128">behind NAT, no port forwarding</text>
+
+    <!-- Tunnel: outbound, encrypted SSH from the private network -->
+    <path class="nd-wire nd-wire--live" d="M60.5 145V224" />
+    <rect class="nd-dot" x="58" y="142" width="5" height="5" />
+    <rect class="nd-dot" x="58" y="222" width="5" height="5" />
+    <rect class="nd-lockbox" x="52" y="176" width="17" height="17" />
+    <use class="nd-icon nd-icon--lock" href="#nd-i-lock-s" x="54.5" y="178.5" width="12" height="12" />
+    <text class="nd-meta" x="80" y="189">ssh on port 443</text>
+
+    <!-- Pinggy edge -->
+    <rect class="nd-box nd-box--edge" x="24.5" y="224.5" width="271" height="120" />
+    <use class="nd-icon nd-icon--edge" href="#nd-i-server-s" x="260" y="236" width="20" height="20" />
+    <text class="nd-label nd-on-dark" x="40" y="250">PINGGY EDGE</text>
+    <text class="nd-title nd-on-dark" x="40" y="280">Pinggy</text>
+    <text class="nd-meta nd-on-dark" x="40" y="300">*.a.pinggy.link</text>
+    <text class="nd-meta nd-on-dark" x="40" y="328">TLS, auth, web debugger</text>
+
+    <!-- Public traffic -->
+    <path class="nd-wire" d="M60.5 345V424" />
+    <text class="nd-meta" x="80" y="389">https or tcp</text>
+
+    <!-- Internet -->
+    <rect class="nd-box" x="24.5" y="424.5" width="271" height="120" />
+    <use class="nd-icon" href="#nd-i-globe-s" x="260" y="436" width="20" height="20" />
+    <text class="nd-label" x="40" y="450">INTERNET</text>
+    <text class="nd-title" x="40" y="480">Your users</text>
+    <text class="nd-meta" x="40" y="500">public URL</text>
+    <text class="nd-meta" x="40" y="528">any browser, no install</text>
+
+    <!-- Legend -->
+    <path class="nd-wire nd-wire--live" d="M24 580.5H56" />
+    <text class="nd-meta" x="66" y="584">encrypted SSH tunnel</text>
+    <path class="nd-wire" d="M24 604.5H56" />
+    <text class="nd-meta" x="66" y="608">public traffic</text>
+  </svg>
+</figure>

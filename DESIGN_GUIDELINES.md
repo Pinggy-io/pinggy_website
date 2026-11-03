@@ -1,17 +1,19 @@
 # Pinggy - Design Language
 
-The visual system for every Pinggy surface. Clean, calm, modern. One accent, one type stack, one shadow ramp, one neutral ramp. Use this document when designing or styling any UI in the product.
+The visual system for every Pinggy surface outside the blog. The site reads like a typeset engineering spec on warm paper: one ruled frame, a monospace voice for structure, sans for prose, one blue accent, and almost no decoration. Use this document when designing or styling any UI in the product. Tokens live in `assets/css/customization.css` under `:root`.
+
+The blog post and list templates keep their own system (see CLAUDE.md, "Blog post exception"). A legacy token block on `.bp, .bp-nav` restores the older neutrals, radii and mono font inside them, so nothing here reaches blog cards or posts. The shared footer is the one blog surface that follows this document.
 
 ---
 
 ## 1. Principles
 
-1. **Calm hierarchy.** One element looks most important per region. Establish hierarchy with weight and size - not color. Reserve color for action.
-2. **Quiet surfaces.** Backgrounds fade behind content; they don't compete.
-3. **Sharp typography.** Tighter tracking on display text, looser tracking on small text, consistent line-heights.
-4. **One accent, used sparingly.** Blue is for primary action and links - not decoration.
-5. **Soft, single-layer shadows.** Cards rest on the page; they don't levitate. No multi-color glows.
-6. **Motion is invisible until needed.** Transitions soften state changes; they don't draw attention.
+1. **Ruled, not floating.** Content sits in cells of one bordered frame, split by 1px rules. Structure comes from lines and alignment, not from cards, shadows or gaps.
+2. **Artifacts float, chrome doesn't.** Page chrome (buttons, inputs, cards, tags, tabs) is square and flat. Only product artifacts (terminal mocks, screenshots, video) get rounded corners, and only the stage terminal gets a shadow. That contrast tells the reader "this is the product".
+3. **Mono for structure, sans for reading.** IBM Plex Mono carries headings, labels, navigation, buttons and numbers. Uncut Sans carries paragraphs.
+4. **Calm hierarchy.** One element looks most important per region. Establish hierarchy with weight and size, not color. Reserve color for action.
+5. **One accent, used sparingly.** Blue (`--brand-600`) is for the primary action, links and focus. Not decoration.
+6. **Motion is invisible until needed.** Transitions soften state changes. Product mocks may rise in once. The only loops are the hero grid's pulses and the live tunnel connector, both quiet.
 
 ---
 
@@ -19,43 +21,62 @@ The visual system for every Pinggy surface. Clean, calm, modern. One accent, one
 
 ### 2.1 Brand & accent
 
-| Token         | Hex        | Usage                                            |
-| ------------- | ---------- | ------------------------------------------------ |
-| `--brand-600` | `#3B6FE0`  | Primary buttons, primary links (rest)            |
-| `--brand-700` | `#2F58B8`  | Primary button hover, link hover                 |
-| `--brand-500` | `#5B86E5`  | Focus rings, subtle accents                      |
-| `--brand-50`  | `#EEF3FE`  | Accent tints (banner background, selection)     |
-| `--brand-100` | `#DCE6FC`  | Accent borders on tinted surfaces                |
+| Token         | Hex       | Usage                                                     |
+| ------------- | --------- | --------------------------------------------------------- |
+| `--brand-600` | `#3B6FE0` | Primary buttons, links, active rules, pixel field         |
+| `--brand-700` | `#2F58B8` | Primary button hover, link hover, chip text               |
+| `--brand-500` | `#5B86E5` | Focus rings, highlight outline                            |
+| `--brand-50`  | `#EEF3FE` | Tints: `mark`, chips, selection, winning compare cells    |
+| `--brand-100` | `#DCE6FC` | Borders on tinted surfaces                                |
 
-### 2.2 Neutrals (single warm-gray ramp)
+White on `--brand-600` is about 4.6:1 (AA).
 
-| Token       | Hex        | Usage                                                   |
-| ----------- | ---------- | ------------------------------------------------------- |
-| `--ink-950` | `#0B0F19`  | Display headings, max-contrast text                     |
-| `--ink-900` | `#111827`  | Body headings (h2–h4), strong text                      |
-| `--ink-700` | `#374151`  | Default body text                                       |
-| `--ink-500` | `#6B7280`  | Secondary text, captions, helper labels                 |
-| `--ink-400` | `#9CA3AF`  | Placeholder text, disabled labels                       |
-| `--ink-300` | `#D1D5DB`  | Strong borders (active inputs, dividers above-the-fold) |
-| `--ink-200` | `#E5E7EB`  | Default borders (cards, inputs at rest)                 |
-| `--ink-100` | `#F1F3F7`  | Hover surfaces, subtle fills                            |
-| `--ink-50`  | `#F7F8FA`  | Page background base                                    |
-| `--white`   | `#FFFFFF`  | Card and elevated-surface fills                         |
+### 2.2 Neutrals (one warm "paper and ink" ramp)
+
+| Token       | Hex       | Usage                                                     |
+| ----------- | --------- | --------------------------------------------------------- |
+| `--ink-950` | `#151515` | Display text, secondary (ink) buttons, command panel      |
+| `--ink-900` | `#1F1F1D` | Headings, strong text                                     |
+| `--ink-800` | `#2B2B29` | Ink button hover                                          |
+| `--ink-700` | `#3E3D3A` | Prose                                                     |
+| `--ink-500` | `#6D6C67` | Muted text, eyebrows, meta (about 4.8:1 on `--ink-50`)     |
+| `--ink-400` | `#9A9893` | Placeholders, disabled labels                             |
+| `--ink-300` | `#C8C7C1` | Strong rules, diagram connectors                          |
+| `--ink-200` | `#DCDCD7` | Frame rules, default borders                              |
+| `--ink-100` | `#EDEDEA` | Stage band, hover fills, inline code background           |
+| `--ink-50`  | `#F5F5F3` | Page background                                           |
+| `--paper`   | `#FAFAF8` | Ghost buttons, cell hover, table label column             |
+| `--white`   | `#FFFFFF` | Spec cards, inputs, tags                                  |
+
+Bootstrap's `.text-muted` / `.text-secondary` are remapped to `--ink-500` outside the blog.
 
 ### 2.3 Semantic
 
-| Token       | Hex        | Usage                                          |
-| ----------- | ---------- | ---------------------------------------------- |
-| `--success` | `#10B981`  | Success states, copy-confirmed                 |
-| `--warning` | `#F59E0B`  | Warning alerts                                 |
-| `--danger`  | `#EF4444`  | Form validation, destructive actions           |
-| `--info`    | `#3B6FE0`  | Info banner accent (same as `--brand-600`)     |
+| Token       | Hex       | Usage                                          |
+| ----------- | --------- | ---------------------------------------------- |
+| `--success` | `#10B981` | Success states, "Yes" chips                    |
+| `--warning` | `#F59E0B` | Warnings, "Limited" chips                      |
+| `--danger`  | `#EF4444` | Form validation, "No" chips                    |
+
+Status chips derive their tint, border and text from these with `color-mix()` (see §7.15). Don't add new status hexes.
 
 ### 2.4 Surfaces
 
-- **Page background:** flat `--ink-50`, optionally with a soft brand-tinted radial halo behind a hero section.
-- **Card surface:** pure `--white`, never tinted.
-- **Code / terminal surface:** `#0E1116` (near-black, slight blue undertone).
+- **Page:** flat `--ink-50`. No page-wide grid, wash or halo (the full-viewport grid and wash are blog-only, in `blog.css`). The homepage hero has its own grid, scoped to that cell (§7.5).
+- **Cells:** transparent on the page; hover may fill with `--paper`.
+- **Spec cards, inputs, tags:** `--white`.
+- **Product mocks** (terminal windows, dark panels): the `--mock-*` tokens.
+
+| Token          | Hex       | Usage                         |
+| -------------- | --------- | ----------------------------- |
+| `--mock-bg`    | `#161616` | Terminal body                 |
+| `--mock-bar`   | `#121212` | Terminal titlebar             |
+| `--mock-panel` | `#1D1D1C` | Inner panels                  |
+| `--mock-line`  | `#2C2C2A` | Rules inside mocks            |
+| `--mock-fg`    | `#E9E7E2` | Mock text                     |
+| `--mock-dim`   | `#8A8883` | Mock secondary text           |
+
+Hue inside a mock (prompt green, URL blue, status colors) is fine; it is product, not chrome.
 
 ---
 
@@ -64,101 +85,107 @@ The visual system for every Pinggy surface. Clean, calm, modern. One accent, one
 ### 3.1 Font stack
 
 ```
---font-sans: "Uncut Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
---font-mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+--font-sans:    "Uncut Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+--font-display: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+--font-mono:    var(--font-display);
 ```
+
+IBM Plex Mono is self-hosted (400, 500, 600; latin + latin-ext) from `static/fonts/`, with the 400 and 600 latin files preloaded in `layouts/partials/header.html`. See `static/fonts/README.md`.
+
+**Plex Mono:** h1 to h6, `.display-*`, `.btn`, `.nav-link`, `.dropdown-item`, `.badge`, `.form-label`, `th`, `.accordion-button`, `.eyebrow`, `.modal-title`, prices, code. **Uncut Sans:** paragraphs, list items, table cells, footer links, the docs sidebar.
 
 ### 3.2 Type scale
 
-| Role                    | Size                              | Weight | Line-height | Tracking   |
-| ----------------------- | --------------------------------- | ------ | ----------- | ---------- |
-| Display (hero h1)       | `clamp(2.5rem, 4.5vw, 3.75rem)`   | 700    | 1.05        | `-0.025em` |
-| H2 (section title)      | `2rem`                            | 700    | 1.15        | `-0.02em`  |
-| H3                      | `1.5rem`                          | 600    | 1.25        | `-0.015em` |
-| H4                      | `1.125rem`                        | 600    | 1.4         | `-0.01em`  |
-| Lead (hero sub)         | `1.25rem`                         | 500    | 1.5         | `-0.005em` |
-| Body                    | `1rem`                            | 400    | 1.6         | `0`        |
-| Body-sm (helper, meta)  | `0.875rem`                        | 400    | 1.5         | `0`        |
-| Caption                 | `0.75rem`                         | 500    | 1.4         | `0.01em`   |
-| Mono / code             | `0.9375rem`                       | 500    | 1.5         | `0`        |
+Mono runs wide, so sizes sit a step below a sans scale.
+
+| Role                     | Token / size                          | Weight | Line-height | Tracking                 |
+| ------------------------ | ------------------------------------- | ------ | ----------- | ------------------------ |
+| Display (h1)             | `--text-display` `clamp(2.25rem, 4.3vw, 3.5rem)` | 600 | 1.1 | `--track-display` `-0.035em` |
+| H2 (section)             | `--text-h2` `clamp(1.625rem, 2.6vw, 2.125rem)`   | 600 | 1.15 | `--track-h2` `-0.03em` |
+| H3 (pillar, sub-block)   | `--text-h3` `1.3125rem`               | 600    | 1.25        | `--track-h3` `-0.02em`   |
+| CTA headline             | `clamp(1.75rem, 3.4vw, 2.75rem)`      | 600    | 1.15        | `--track-display`        |
+| Lead / prose             | `1.0625rem` sans                      | 400    | 1.6         | `0`                      |
+| Body                     | `1rem` sans                           | 400    | 1.6         | `0`                      |
+| UI (buttons, nav, labels)| `--text-ui` `0.8125rem` to `0.875rem` | 500    | 1.4         | `0`                      |
+| Eyebrow                  | `--text-eyebrow` `0.75rem`, uppercase | 400    | 1.6         | `--track-eyebrow` `0.08em` |
 
 ### 3.3 Heading rules
 
-- Display headlines: `--ink-950`, weight 700, tight tracking.
-- Section headings: `--ink-900`.
-- Subheads under a headline use the next step **down** in the scale to create clear hierarchy.
-- Body copy: `--ink-700` on `--ink-50`/`--white`; secondary copy: `--ink-500` on white only.
-- Never use uppercase for prose. Caption-level eyebrow labels may use uppercase with `0.08em` tracking.
+- Headings are left-aligned. Centered text is for the closing CTA and for a section head that carries a control governing everything below it (the pricing head, `.cell__head--center`).
+- A second line can be muted (`--ink-500`) to pair a statement with its qualifier ("Share localhost in one command. / No signup. No download.").
+- Hero subhead: H3-ish mono line in `--ink-500`.
+- Uppercase only on eyebrows, spec-card heads and table heads, always with `--track-eyebrow`. Never on prose.
 
 ---
 
 ## 4. Spacing & layout
 
-### 4.1 8-pt grid
-
-Use multiples of `4px` only.
+### 4.1 4px grid
 
 ```
---space-1:  4px
---space-2:  8px
---space-3:  12px
---space-4:  16px
---space-5:  24px
---space-6:  32px
---space-8:  48px
---space-10: 64px
---space-12: 96px
---space-16: 128px
+--space-1:  4px     --space-6:  32px
+--space-2:  8px     --space-8:  48px
+--space-3:  12px    --space-10: 64px
+--space-4:  16px    --space-12: 96px
+--space-5:  24px    --space-16: 128px
 ```
 
-### 4.2 Container
+### 4.2 The frame
 
-- Max width: `1200px`.
-- Side gutters: `24px` mobile, `48px` desktop.
-- Hero vertical padding: `96px` top / `64px` bottom on desktop.
+- `--frame-max: 1296px` (a 1200px measure plus 2 x 48px cell padding).
+- `--nav-h: 73px`: the fixed navbar's height; the frame starts below it.
+- Homepage: `main.frame` has a 1px `--ink-200` border on left, right and top. Every section is a `.cell` with a 1px bottom rule; the footer's top edge closes it.
+- Single pages (`layouts/_default/single.html`): `main.page-frame`, side rules only, running into the footer's top rule.
+- Navbar and footer inner widths align with the frame.
 
-### 4.3 Two-column hero
+### 4.3 Cells
 
-- Text-block max-width: `520px`.
-- Column gap: `64px` desktop.
-- Columns are top-aligned by default; explicitly center when content allows.
+- `--cell-pad-y`: `96px`, `64px` below 1024px.
+- `--cell-pad-x`: `48px`, `24px` below 640px.
+- `.cell--flush` drops the padding for cells whose children carry their own rules (pillars, pricing grid).
+- `.cell__head` (max `44rem`) holds eyebrow + h2 (+ prose). `.cell__head--split` puts the h2 left and the prose right, bottom-aligned. `.cell__head--center` centers the whole head (pricing only, see §3.3).
 
-### 4.4 Section rhythm
+### 4.4 Grids inside cells
 
-- Between major sections: `96px` vertical space.
-- Within a section: `48px` between heading and content, `32px` between content rows.
+- **Hero:** `1.05fr / 1fr`, gap `48px`, `align-items: center` (the copy centers on the configurator), padding `0 48px 64px`, with the sides widened to `96px` (two grid cells) from 1280px up so the two columns sit as one compact block, about 1100px wide, instead of spreading to the frame rules. The first row (min `48px`) holds the announcement tag right under the navbar; the columns start one row gap below it.
+- **Split:** `1fr / 1.15fr`, gap `64px`, vertically centered; `.split--flip` mirrors it.
+- **FAQ:** `1fr / 2fr`, gap `48px`.
+- **Pillars and pricing:** equal columns with no gap, separated by rules.
+- Below 1024px every grid stacks to one column (pillars go to two, then one below 640px).
 
 ---
 
 ## 5. Border radius
 
-| Token           | Value   | Usage                                                       |
-| --------------- | ------- | ----------------------------------------------------------- |
-| `--radius-sm`   | `6px`   | Small chips, inline tags                                    |
-| `--radius-md`   | `10px`  | Buttons, inputs, selects                                    |
-| `--radius-lg`   | `14px`  | Cards, nested groups inside cards                           |
-| `--radius-xl`   | `20px`  | Hero CTA card outer shell, terminal window                  |
-| `--radius-pill` | `999px` | Toggle slider, badge pills                                  |
+| Token               | Value   | Usage                                                     |
+| ------------------- | ------- | --------------------------------------------------------- |
+| `--radius-sm` to `--radius-xl` | `0` | All chrome. Kept defined so older consumers square with them |
+| `--radius-artifact` | `10px`  | Terminal mocks, screenshots, video                         |
+| `--radius-pill`     | `999px` | Toggle switch track only                                   |
+
+Bootstrap components are squared outside the blog (`.btn`, `.card`, `.form-control`, `.form-select`, `.input-group > *`, `.alert`, `.badge`, `.dropdown-menu`, `.modal-content`, `.nav-tabs .nav-link`, `.accordion-*`, `.list-group*`, `.page-link`, `.toast`, `.popover`, `.tooltip-inner`).
 
 ---
 
 ## 6. Shadows & elevation
 
 ```
---shadow-xs:    0 1px 2px 0 rgba(15, 23, 42, 0.04);
---shadow-sm:    0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
---shadow-md:    0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
---shadow-lg:    0 12px 32px -8px rgba(15, 23, 42, 0.12), 0 4px 8px -4px rgba(15, 23, 42, 0.06);
---shadow-focus: 0 0 0 3px rgba(91, 134, 229, 0.25);
+--shadow-xs:       0 1px 2px 0 rgba(21, 21, 21, 0.04);
+--shadow-sm:       0 1px 3px 0 rgba(21, 21, 21, 0.06), 0 1px 2px -1px rgba(21, 21, 21, 0.04);
+--shadow-md:       0 4px 12px -2px rgba(21, 21, 21, 0.08), 0 2px 4px -2px rgba(21, 21, 21, 0.04);
+--shadow-lg:       0 12px 32px -8px rgba(21, 21, 21, 0.14), 0 4px 8px -4px rgba(21, 21, 21, 0.06);
+--shadow-artifact: 0 30px 80px -24px rgba(21, 21, 21, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+--shadow-focus:    0 0 0 3px rgba(91, 134, 229, 0.3);
 ```
 
 ### Elevation rules
 
-- **Navbar:** `--shadow-xs` only.
-- **Cards at rest:** `--shadow-sm` + 1px `--ink-200` border. Border provides edge definition; shadow provides lift.
-- **Cards on hover:** `--shadow-md`. Subtle.
-- **Modals / dropdowns:** `--shadow-lg`.
-- **Focus state:** `--shadow-focus` ring on `:focus-visible`.
+- **Chrome:** no shadow. Edges come from 1px rules. Bootstrap's `.shadow*` utilities and `.bg-gradient` are neutralized outside the blog.
+- **Navbar:** no shadow; a bottom rule appears on scroll.
+- **Overlays** (dropdowns, modals): `--shadow-lg`.
+- **The stage terminal:** `--shadow-artifact`. It is the only floating thing on the page.
+- **Focus:** `--shadow-focus` on `:focus-visible`.
+- No glows, no colored shadows, no hover lift.
 
 ---
 
@@ -166,116 +193,159 @@ Use multiples of `4px` only.
 
 ### 7.1 Navbar
 
-- Height: `72px`.
-- Background: `rgba(255, 255, 255, 0.85)` with `backdrop-filter: saturate(180%) blur(12px)`. On scroll add `--shadow-xs` and `border-bottom: 1px solid var(--ink-200)`.
-- Logo height: `36px`.
-- Nav links: `15px`, weight `500`, color `--ink-700`; hover background `--ink-100`, radius `8px`, padding `6px 12px`.
-- Active link: weight `600`, color `--ink-950`, no background.
-- Outlined buttons in the nav: border `1px solid --ink-300`, radius `--radius-md`, padding `8px 16px`, color `--ink-900`. Hover: border `--ink-900`, no fill change.
+- Fixed, height `--nav-h`. Background `rgba(245, 245, 243, 0.9)` with `backdrop-filter: blur`. A 1px `--ink-200` bottom rule (transparent at the top of the homepage, shown once `body.is-scrolled`).
+- Inner width aligns with the frame. Links sit left, next to the logo.
+- Links: Plex 14px, `--ink-950`, hover underline with a 4px offset. No pill background.
+- Dropdowns: square, 1px `--ink-200`, `--shadow-lg`.
+- "Dashboard" (`#LoginBtn`): square ink button with a `↗` glyph.
 
-### 7.2 Info banner
+### 7.2 Eyebrow
 
-- Pill-shaped, centered, max-width `fit-content`, inside the section container - not full bleed.
-- Background `--brand-50`, border `1px solid --brand-100`, radius `--radius-pill`, padding `8px 16px`.
-- Text: `--ink-700`, `14px`, weight 500. Bold product names use `--ink-900`.
-- Links: `--brand-700` with an inline `→` arrow.
+`.eyebrow`: Plex 12px uppercase, `--track-eyebrow`, `--ink-500`. Sits above a section h2 ("SHARE", "PRICING"). A `mark` inside it gets a `--brand-50` tint.
 
-### 7.3 Hero copy block
+### 7.3 Announcement tag
 
-- Headline: display size (see §3.2), `--ink-950`, weight 700, tight tracking.
-- Subhead: H3 size, `--ink-900`, weight 500. Gap above: `12px`.
-- Description: body size, `--ink-500`, max-width `460px`, line-height `1.6`. Gap above: `24px`.
+`.tag`: square, `--white`, 1px `--ink-200`, Plex `--text-ui`, padding `10px 18px`; border turns `--ink-950` on hover. A `.tag__new` label inside: `--brand-600` fill, white, 11px uppercase. Used once, in its own row at the top of the hero, centered across both columns. In the hero it is slimmer (padding `7px 16px`, about 36px tall) and sits inside the first 48px hero-grid row, a few px under the navbar, the way the old full-width notice did.
 
-### 7.4 Email / single-field form
+### 7.4 Hero
 
-- Group: `--white` background, single border `1px solid --ink-200`, radius `--radius-md`, `overflow: hidden` so input + button share one rounded shell.
-- Input: borderless, padding `14px 16px`, `15px`, placeholder `--ink-400`.
-- Button: `--brand-600`, white text, weight 600, padding `14px 20px`, no shadow.
-- Hover button: `--brand-700`, transition `120ms ease-out`.
-- Focus state goes on the wrapper (not the input alone): `--shadow-focus`.
-- Helper text above: `13px`, `--ink-500`, weight 500.
+- Top row: the centered tag (§7.3).
+- Left: h1 (max about 14ch), muted mono subhead, `#lead2` prose (sans 17px, `--ink-700`), trial block, `#trynow` ruled link.
+- Right: the configurator spec card (§7.8).
+- Background: the hero grid (§7.5).
+- Entrance: `heroFadeUp` (fade + 8px rise) on tag, h1, sub, lead, trial and configurator, staggered. Off under reduced motion.
 
-### 7.5 Card with primary action
+### 7.5 Hero grid
 
-- Outer shell: `--white`, border `1px solid --ink-200`, radius `--radius-xl`, shadow `--shadow-md`, padding `28px`.
-- Inner heading: H4 size, `--ink-900`, weight 600.
-- Form labels: `13px`, weight 600, `--ink-900`.
-- Input groups: single-bordered, radius `--radius-md`, height `44px`, inner divider `1px solid --ink-200` between adjacent controls.
-- Nested action panel: background `--ink-50`, radius `--radius-lg`, padding `20px`.
-- Action row buttons: `--ink-100` fill, `--ink-900` text, no border, radius `--radius-md`, padding `10px 14px`. Hover: `--ink-200` fill.
+Graph paper behind the hero, the one place outside the blog with a grid.
 
-### 7.6 Buttons (global)
+- `<canvas id="grid-canvas" class="hero__grid" data-scope="parent">` inside the hero cell, drawn by `assets/js/cursorglow.js` in its parent-scoped mode (the blog uses the same script full-viewport). Settings come from the canvas's `data-*` attributes.
+- 48px cells, matching `--cell-pad-x` and the hero's first row, so the copy's left edge sits on a grid line and the tag sits inside the first row of cells. The first row and column are skipped so no line doubles the frame border.
+- Lines: ink at 7% alpha (lighter than the frame rules). Pulses: `--brand-500` comets with a 3px square head, at most 4 at a time. Cursor: a soft `--brand-500` tint on nearby lines (peak 0.5 alpha, 260px radius).
+- A radial CSS mask keeps it strongest around the tag and dissolves it before the stage band. Content sits above it (`z-index: 1`); the configurator's white card hides it.
+- Pulses are off under reduced motion; the canvas is hidden below 768px and the loop pauses while the hero is off screen.
 
-| Variant   | Background    | Text          | Border                | Hover bg              |
-| --------- | ------------- | ------------- | --------------------- | --------------------- |
-| Primary   | `--brand-600` | `#fff`        | none                  | `--brand-700`         |
-| Secondary | `--ink-900`   | `#fff`        | none                  | `--ink-950`           |
-| Outline   | transparent   | `--ink-900`   | `1px solid --ink-300` | `--ink-100`           |
-| Ghost     | transparent   | `--ink-700`   | none                  | `--ink-100`           |
-| Link      | none          | `--brand-600` | none                  | `--brand-700` (text)  |
+### 7.6 Email / single-field form
 
-- All buttons: padding `10px 18px`, weight `600`, size `14px`, radius `--radius-md`, transition `background-color 120ms ease-out, box-shadow 120ms ease-out, transform 120ms ease-out`.
-- Active (mousedown): `transform: translateY(1px)`.
-- Disabled: 50% opacity, `cursor: not-allowed`, no hover effect.
-- No glow shadows, no gradient sweeps.
+- `.trial-group`: one square shell, `--white`, 1px `--ink-200`; focus moves to the shell (`--brand-500` border + `--shadow-focus`).
+- Input borderless, padding `13px 16px`, `15px`.
+- Button: primary blue, flush with the shell edge.
+- Invalid email: a red strip in flow along the bottom of the shell (not a floating tooltip).
+- Below 640px the button stacks under the input at full width.
 
-### 7.7 Toggle switch
+### 7.7 Buttons
 
-- Off track: `--ink-200`. On track: `--brand-600`.
-- Thumb: `--white`, shadow `--shadow-xs`.
-- Size: 40 × 20 px.
-- Focus: `--shadow-focus` ring on the track.
-- Transition: `--duration-slow cubic-bezier(0.4, 0, 0.2, 1)`.
+| Variant                           | Fill          | Text          | Border               | Hover                 |
+| --------------------------------- | ------------- | ------------- | -------------------- | --------------------- |
+| Primary `.btn-pinggy-blue`        | `--brand-600` | `#fff`        | 1px `--brand-600`    | `--brand-700`         |
+| Secondary `.btn-pinggy`           | `--ink-950`   | `#fff`        | none                 | `--ink-800`           |
+| Ghost `.btn-outline-pinggy`       | `--paper`     | `--ink-950`   | 1px `--ink-200`      | border `--ink-950`    |
+| Ruled link `.link-rule`           | none          | `--ink-950`   | 1px bottom rule      | `--brand-700` text    |
 
-### 7.8 Inputs & selects
+- Square, Plex `--text-ui` weight 500, padding `11px 22px`; `.btn-lg` `15px 24px`.
+- Active: `translateY(1px)`. Disabled: 50% opacity.
+- `.link-rule` ("Learn more →") is the quiet secondary action next to a button or under a list. `.pinggy-link` shares its style.
+- No glows, no gradient sweeps, no hover lift.
 
-- Height: `44px` desktop, `48px` mobile.
-- Border `1px solid --ink-200`, background `--white`.
-- Text: `15px`, `--ink-900`. Placeholder: `--ink-400`.
-- Padding: `0 14px`.
-- Focus: border `--brand-500`, ring `--shadow-focus`.
-- Invalid: border `--danger`, helper text `--danger` `13px`.
+### 7.8 Spec card
 
-### 7.9 Terminal preview
+The frame for a form, screenshot, video or diagram.
 
-- Window chrome: `--white` titlebar `36px` tall, traffic-light dots (`#FF5F57`, `#FEBC2E`, `#28C840`), title text `--ink-500` `13px` weight 500.
-- Body: background `#0E1116`, text `#E5E7EB`, mono font, `14px`, line-height `1.7`, padding `20px 24px`.
-- Outer radius `--radius-xl`, shadow `--shadow-lg`, border `1px solid --ink-200`.
+- `.spec-card`: `--white`, 1px `--ink-200`, square.
+- `.spec-card__head`: Plex 12px uppercase title on the left, `.spec-card__meta` (lowercase, `--ink-500`, ellipsis) on the right, padding `12px 16px`, bottom rule.
+- `.spec-card__body`: padding `16px`. Media inside gets `--radius-artifact` minus 4px.
+- The hero configurator (`#bigcodecolumn`) is a spec card with a title-only head (no meta): form rows on rules, pill toggles with mono labels, the command panel (§7.9), then Docs / Advanced Settings as two ghost buttons. The `#trynow` flash is a 2px `--brand-500` outline, not a glow.
 
-### 7.10 Feature card
+### 7.9 Command panel
 
-- `--white`, `--shadow-sm`, border `1px solid --ink-200`, radius `--radius-lg`, padding `20–28px`.
-- Hover: `--shadow-md`, `transform: translateY(-2px)`, transition `180ms ease-out`.
-- Title: H4 size, `--ink-900`.
-- Body: `--ink-500`, `15px`. Bullets: `--ink-700`, weight 600 on key terms via `<strong>`.
-- Check icons in lists: `--brand-600`.
+`.cmd`: `--ink-950` fill, the command in Plex 14px/500 `--paper`, a 48px copy button joined on the right behind a faint rule. Focus ring on the whole panel. Used in the hero configurator (a growing textarea) and the closing CTA (a readonly input sized for the full command).
 
-### 7.11 Imagery
+### 7.10 Split
 
-- Box-shadow `--shadow-md`, radius `--radius-lg`.
-- Hover scale `1.02` with transition `transform 240ms ease-out`.
+- `.split`: text column (eyebrow, h2, prose or `.featurelist`, actions) beside a spec card. `.split__sub` blocks stack inside the text column with a rule between them.
+- Homepage feature splits zig-zag: text then media, `.split--flip` for media then text, alternating down the page.
+- Spec-card heads name the content in words ("Video: How to share a local app", "Pinggy terminal UI"), never a file name.
+- **Video card:** the poster carries a "Watch the demo" play button: primary blue fill (`--brand-600`, hover `--brand-700`), a white triangle, Plex `--text-ui`/500. It must read on a dark poster, so never an ink or ghost button there. Hidden once the video plays.
+- **Screenshot carousel** (`.tui-card`, terminal UI): one spec card holding a Bootstrap carousel (`#carouselTUI`, 4s interval). Prev/next are 28px square ghost buttons (`.tui-card__btn`) in the card head; each slide has a Plex 12px caption (`.tui-card__caption`) with a `01`/`02` number in `--ink-950`. Screenshots get a 1px `--ink-950` border and `--radius-artifact` minus 4px.
 
-### 7.12 Accordion
+### 7.11 Pillars
 
-- Flush style (no outer borders).
-- Header button: padding `12px 16px`, radius `--radius-md`, transparent at rest.
-- Hover: `--ink-100` fill.
-- Expanded: `--ink-100` fill, no extra shadow.
-- Focus-visible: `--shadow-focus`.
+`.pillars`: a 3-column ruled grid (2 below 1024px, 1 below 640px), no gaps. Each `.pillar` has a number line (`01` with a 16px `--ink-500` icon, Plex 12px), an h3, an optional muted sub, and a list. Hover fills the cell with `--paper`.
 
-### 7.13 Pricing card (featured variant)
+### 7.12 Stage + pixel field
 
-- White, `--shadow-md`, border `1px solid --ink-200`, radius `--radius-lg`.
-- "Most Popular" badge: pill, `--brand-600` fill, `--white` text, weight 700.
-- Internal price block: `min-height` matched across plan cards for vertical alignment of plan headers.
-- Number spinner: single outer border on the group; inner buttons borderless with shared dividers from the input's left/right borders; buttons fixed-width for symmetric `+`/`−`.
+- `.stage`: an `--ink-100` band, padding `16px 16px 0`.
+- `.stage__art`: the pixel field, a 64 x 26 PNG generated by `scripts/pixel-field/generate.py`, upscaled with `image-rendering: pixelated` to 560px tall. It is a backdrop, so keep it light and quiet: four broad sky bands in tints between `--brand-100` and `--brand-50` (one step deeper at the top) joined by a sparse ordered dither, a few white clouds where the terminal doesn't cover them, and two soft hill layers. No per-pixel noise, no small details. Regenerate it with the script; don't hand-edit the PNG.
+- `.stage__mock`: the terminal mock (§7.13), absolutely placed over the field, `--radius-artifact`, `--shadow-artifact`, rising in once (`mockRise`).
+- `.stage__tag`: a white square label pinned bottom-right ("Quickest way to …" typewriter). Hidden below 1024px.
+
+### 7.13 Terminal mock
+
+- Dark titlebar (`--mock-bar`, 40px) with traffic-light dots (`#FF5F57`, `#FEBC2E`, `#28C840`), a mono title (ellipsis) and a small outlined pill (hidden below 480px).
+- Body `--mock-bg`, text `--mock-fg`, Plex 14px, line-height 1.75, padding `22px 24px`. Status colors in `.t-*` classes.
+
+### 7.14 Network diagram
+
+`{{< network-diagram >}}`: an inline SVG in a spec card. Ruled boxes (`--paper` fill, `--ink-300` stroke), the Pinggy edge box in `--ink-950`, Plex labels, one live dashed connector in `--brand-600` animating `stroke-dashoffset` (static under reduced motion). Two drawings: wide (left to right, uppercase labels above the boxes) and tall (stacked, below 640px) so labels never shrink below about 12px. Colors come from `.nd-*` classes, not the SVG.
+
+- Icons: 20px line glyphs on a 20-unit grid (laptop, server stack, globe), drawn as `<symbol>`s and placed with `<use>`; 1.5 stroke, round caps, no fill. `--ink-500` on light boxes, `--brand-500` on the ink edge box. Top-left inside the box in the wide drawing, top-right in the tall one.
+- The live connector carries a 12px lock glyph in a 17px `--paper` square with a 1px `--brand-600` rule (`.nd-lockbox`), marking the tunnel as encrypted.
+- Keep it to these few glyphs. No filled illustrations, no extra colors.
+
+### 7.15 Chips and status chips
+
+- `.chip`: square inline label, Plex 12px/500, `--brand-50` fill, `--brand-100` border, `--brand-700` text ("Recommended", "v0.6.3", "Save up to 17%"). `.chip--muted`: `--ink-100` / `--ink-200` / `--ink-950`. Not a button.
+- `.tag-yes`, `.tag-no`, `.tag-partial` (compare tables): the same shape, tinted from `--success`, `--danger`, `--warning` with `color-mix()`.
+
+### 7.16 Toggle switch
+
+- Off track `--ink-200`, on track `--brand-600`, thumb `--white`. The pill track is the one place `--radius-pill` is used.
+- Focus: `--shadow-focus` on the track.
+
+### 7.17 Inputs & selects
+
+- Square, 1px `--ink-200`, `--white`. Text 15px `--ink-900`, placeholder `--ink-400`.
+- Focus: border `--brand-500` + `--shadow-focus`.
+- Joined controls (protocol select + address) share one border with a rule between them.
+
+### 7.18 FAQ
+
+`{{< faq >}}` renders a `.cell.faq`: h2 and `#faqSearch` on the left, flush accordion rows on the right. Rows have a top rule (last row also bottom), transparent background, questions in Plex 14px/500, a `+` / `−` marker in `--ink-500` instead of a chevron, answers in sans `--ink-700`, max 62ch.
+
+### 7.19 Pricing
+
+- Head: `.cell__head--center`: eyebrow, h2 (max 26ch), prose, then the monthly/yearly toggle, packed tight (8px under the eyebrow, 12px to the prose, 24px to the toggle; `48px` above and `32px` below the block instead of the full cell padding; `text-wrap: balance`). The toggle is a `1fr auto 1fr` grid, so the switch sits exactly on the center line with "Monthly" to its left and "Yearly" plus the `.chip` saving note to its right. Below 480px the chip drops to its own centered row.
+- `.pricing-grid`: three plan cells in one ruled box (stacked below 1024px). Plan names Plex uppercase in a header row.
+- Featured plan (`.pricecard--featured`): `--white` fill with a 2px `--brand-600` top rule and a square blue "Most popular" badge.
+- Prices: Plex 600, `font-variant-numeric: tabular-nums`. Seat spinner square, single outer border.
+- Pro CTAs primary blue; Free and Enterprise ghost or ruled link.
+
+### 7.20 Closing CTA
+
+Centered: a two-line h2 (second line muted), then the command panel and a ghost "Read the docs →".
+
+### 7.21 Footer
+
+- Light: `--ink-50` with a 1px `--ink-200` top rule (none on the homepage, where the frame's last rule closes it). Inner width aligned with the frame.
+- Column heads are eyebrows. Links sans 14px `--ink-700`, hover `--ink-950` + underline.
+- Bottom bar: Plex 12px muted. Social icons: 32px square ghost tiles.
+
+### 7.22 Compare pages
+
+`layouts/compare/single.html`: flat hero (h1, sans sub, a square "Pinggy vs" picker), then `.comparison-table` as a ruled grid with an `--ink-950` mono header row, a `--paper` label column, and `.pinggy-better` cells tinted `--brand-50` with a 2px `--brand-600` left rule.
+
+### 7.23 Docs
+
+- Body sans, headings Plex. No web-font `@import` in `docs.css`.
+- Sidebar: sans at every level. Active item: `--ink-100` fill with a 2px `--brand-600` inset left rule.
+- Inline code: `--ink-100` band, `--ink-900` text (site-wide outside the blog).
 
 ---
 
 ## 8. Iconography
 
 - Library: Bootstrap Icons.
-- Default icon color: `--ink-500`. Active / CTA contexts: `--ink-900` (or `--brand-600` for an affordance like a list check).
+- Default icon color: `--ink-500`. List checks: `--brand-600`.
 - Size: `16px` inline with `14px` text, `20px` inline with `16px+` text.
 
 ---
@@ -283,8 +353,9 @@ Use multiples of `4px` only.
 ## 9. Motion
 
 ```
---ease-out:     cubic-bezier(0.4, 0, 0.2, 1);
---ease-in-out:  cubic-bezier(0.4, 0, 0.6, 1);
+--ease-out:      cubic-bezier(0.4, 0, 0.2, 1);
+--ease-in-out:   cubic-bezier(0.4, 0, 0.6, 1);
+--ease-rise:     cubic-bezier(0.2, 0.7, 0.2, 1);
 
 --duration-fast: 120ms;
 --duration-base: 180ms;
@@ -293,28 +364,29 @@ Use multiples of `4px` only.
 
 ### Rules
 
-- **Hover transitions** (color, background, border): `--duration-fast --ease-out`.
-- **Movement transitions** (transform, translate, scale): `--duration-base --ease-out`.
-- **Shadow / elevation changes**: `--duration-slow --ease-out`.
-- **Toggles / switches**: `--duration-slow --ease-out`.
-- **Marquees**: linear, gradient mask edges blended into `--ink-50`.
-- **Hero entrance** (optional): fade + 8px translate-up on headline / sub / lead / form - stagger `0 / 60 / 120 / 180ms`, duration `400ms ease-out`. Honor `prefers-reduced-motion: reduce`.
+- **Hover** (color, border, background): `--duration-fast --ease-out`.
+- **Hero entrance:** fade + 8px rise, staggered, about 400ms `--ease-out`.
+- **Artifact rise-in** (`mockRise`): fade + 16px rise, `0.6s --ease-rise`, once.
+- **Hero grid pulses:** brand comets easing along grid lines, a few at a time (§7.5).
+- **Live connector:** dashed stroke offset, linear.
+- **Marquees:** linear, edge mask into `--ink-50`, logos grayscale at rest.
+- Everything above is off under `prefers-reduced-motion: reduce`.
 
 ### Forbidden
 
-- Bouncy springs.
-- Background-color animations on hover for primary CTAs (the color change is the affordance).
-- Parallax.
+- Bouncy springs, parallax, hover lift.
+- Animated background color on primary CTAs beyond the hover swap.
+- Cursor-follow effects beyond the hero grid's soft line tint (the blog's full-page glow stays blog-only).
 
 ---
 
 ## 10. Focus & accessibility
 
-- All interactive elements: visible focus ring `--shadow-focus` on `:focus-visible`. Never remove without replacing.
-- Body text on `--ink-50` clears WCAG AA. Secondary text (`--ink-500`) only on white surfaces.
-- Minimum touch target: `44 × 44px`.
+- All interactive elements: visible `--shadow-focus` (or a 2px `--brand-500` inset/outline where a box-shadow would clip) on `:focus-visible`. Never remove without replacing.
+- `--ink-500` on `--ink-50` and `--white` clears AA for text; `--paper` on `--ink-950` and white on `--brand-600` clear AA.
+- Minimum touch target: `44 x 44px`.
 - Form labels always rendered (no placeholder-only labels). `aria-label` retained where used.
-- Honor `prefers-reduced-motion: reduce` for all transitions and decorative motion.
+- Decorative art (`.stage__art`) is `aria-hidden`; diagrams carry `title` + `desc`.
 
 ---
 
@@ -329,5 +401,6 @@ Use multiples of `4px` only.
 
 ### Behavior
 
-- `< lg`: two-column layouts stack; CTA cards move below copy with max-width `560px`, centered. Hero top padding drops to `48px`.
-- `< sm`: hero headline drops to `2.25rem`. Form buttons stack under inputs at full width.
+- `< lg (1024px)`: hero, splits, FAQ, pricing and split cell heads stack to one column; pillars go to two columns; the stage tag hides; `--cell-pad-y` drops to 64px.
+- `< md (768px)`: the hero grid is hidden.
+- `< sm (640px)`: `--cell-pad-x` drops to 24px; pillars go to one column; trial button stacks under the input; the network diagram switches to its tall drawing.

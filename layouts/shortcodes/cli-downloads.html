@@ -5,22 +5,11 @@
   <div class="container">
     <div class="row justify-content-center align-items-center gap-2 my-3">
       <div class="col-lg-10">
-        <div
-          class="p-4 p-lg-5"
-          style="
-            background: linear-gradient(180deg, rgba(247, 248, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            border: 1px solid rgba(116, 96, 255, 0.14);
-            border-radius: 18px;
-            box-shadow: 0px 10px 30px rgba(35, 39, 55, 0.08);
-          "
-          >
+        <div class="cli-card p-4 p-lg-5">
           <div class="mb-5 pb-4 border-bottom" id="install-command">
             <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
               <div>
-                <div
-                  class="text-uppercase fw-semibold mb-2"
-                  style="letter-spacing: 0.08em; color: #7460ff; font-size: 0.78rem;"
-                >
+                <div class="eyebrow mb-2">
                   Install
                 </div>
                 <h2 class="fw-bold mb-2">Install with 1 command</h2>
@@ -28,10 +17,7 @@
                   Installs the latest Pinggy CLI, or updates an older one, and puts <kbd>pinggy</kbd> on your PATH. No sudo or administrator rights needed.
                 </p>
               </div>
-              <div
-                class="px-3 py-2 rounded-pill fw-bold"
-                style="background: rgba(116, 96, 255, 0.12); color: #4d3bd6;"
-              >
+              <div class="chip">
                 Recommended
               </div>
             </div>
@@ -94,10 +80,7 @@
           <div class="mb-5 pb-4 border-bottom">
             <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
               <div>
-                <div
-                  class="text-uppercase fw-semibold mb-2"
-                  style="letter-spacing: 0.08em; color: #7460ff; font-size: 0.78rem;"
-                >
+                <div class="eyebrow mb-2">
                   npm
                 </div>
                 <h2 class="fw-bold mb-2">Install with npm</h2>
@@ -116,10 +99,7 @@
 
           <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
             <div>
-              <div
-                class="text-uppercase fw-semibold mb-2"
-                style="letter-spacing: 0.08em; color: #7460ff; font-size: 0.78rem;"
-              >
+              <div class="eyebrow mb-2">
                 Download
               </div>
               <h2 class="fw-bold mb-2">Download and Run</h2>
@@ -127,10 +107,7 @@
                 Download the latest stable CLI or browse older versions below.
               </p>
             </div>
-            <div
-              class="px-3 py-2 rounded-pill fw-bold"
-              style="background: rgba(116, 96, 255, 0.12); color: #4d3bd6;"
-            >
+            <div class="chip">
               v{{ $latest }}
             </div>
           </div>
@@ -192,8 +169,7 @@
                   <a
                     href="{{ $base }}/v{{ $latest }}/pinggy-win-x64.exe"
                     target="_blank"
-                    class="btn btn-primary w-100 py-3"
-                    style="background-color: rgba(70, 117, 199, 1); border-color: rgba(70, 117, 199, 1);"
+                    class="btn btn-pinggy-blue w-100 py-3"
                     >Download for Windows x86-64</a
                   >
                 </div>
@@ -201,7 +177,7 @@
                   <a
                     href="{{ $base }}/v{{ $latest }}/pinggy-win-arm64.exe"
                     target="_blank"
-                    class="btn btn-outline-primary w-100 py-3"
+                    class="btn btn-outline-pinggy w-100 py-3"
                     >Download for Windows ARM64</a
                   >
                 </div>
@@ -228,8 +204,7 @@
                   <a
                     href="{{ $base }}/v{{ $latest }}/pinggy-macos-arm64"
                     target="_blank"
-                    class="btn btn-primary w-100 py-3"
-                    style="background-color: rgba(70, 117, 199, 1); border-color: rgba(70, 117, 199, 1);"
+                    class="btn btn-pinggy-blue w-100 py-3"
                     >Download for Mac OS - Apple Silicon</a
                   >
                 </div>
@@ -237,7 +212,7 @@
                   <a
                     href="{{ $base }}/v{{ $latest }}/pinggy-macos-x64"
                     target="_blank"
-                    class="btn btn-outline-primary w-100 py-3"
+                    class="btn btn-outline-pinggy w-100 py-3"
                     >Download for Mac OS - Intel</a
                   >
                 </div>
@@ -270,8 +245,7 @@
                   <a
                     href="{{ $base }}/v{{ $latest }}/pinggy-linux-x64"
                     target="_blank"
-                    class="btn btn-primary w-100 py-3"
-                    style="background-color: rgba(70, 117, 199, 1); border-color: rgba(70, 117, 199, 1);"
+                    class="btn btn-pinggy-blue w-100 py-3"
                     >Download for Linux x86-64</a
                   >
                 </div>
@@ -279,7 +253,7 @@
                   <a
                     href="{{ $base }}/v{{ $latest }}/pinggy-linux-arm64"
                     target="_blank"
-                    class="btn btn-outline-primary w-100 py-3"
+                    class="btn btn-outline-pinggy w-100 py-3"
                     >Download for Linux ARM64</a
                   >
                 </div>
@@ -305,20 +279,20 @@
           <style>
             #olderVersionsAccordion .accordion-button {
               background-color: transparent;
-              border-radius: 10px !important;
-              transition: background-color 120ms cubic-bezier(0.4, 0, 0.2, 1);
+              border-radius: var(--radius-sm) !important;
+              transition: background-color var(--duration-fast) var(--ease-out);
               cursor: pointer;
             }
             #olderVersionsAccordion .accordion-button:hover {
-              background-color: #F1F3F7;
+              background-color: var(--ink-100);
             }
             #olderVersionsAccordion .accordion-button:not(.collapsed) {
               color: inherit;
-              background-color: #F1F3F7;
+              background-color: var(--ink-100);
               box-shadow: none;
             }
             #olderVersionsAccordion .accordion-button:focus {
-              box-shadow: 0 0 0 3px rgba(91, 134, 229, 0.25);
+              box-shadow: var(--shadow-focus);
               border-color: transparent;
             }
           </style>
@@ -366,8 +340,7 @@
                   <tr>
                     <th scope="row">
                       <span
-                        class="badge rounded-pill"
-                        style="background-color: #e9ecef; color: #212529;"
+                        class="chip chip--muted"
                       >{{ $v }}</span>
                     </th>
                     <td>

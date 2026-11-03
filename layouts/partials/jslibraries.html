@@ -25,6 +25,10 @@
      (`.bp-code .copy-to-clipboard { display: none }`), and blog.js does its own
      copying via navigator.clipboard. Dropping those six files keeps ~32KB of
      source - and jQuery walking every <pre><code> - off every article. */}}
+{{/* cursorglow.js draws the blog's background grid (partials/grid_canvas.html)
+     and, in its parent-scoped mode, the homepage hero grid (the canvas in
+     content/_index.md). It returns immediately on pages without a
+     #grid-canvas, so the main bundle carries it for the homepage. */}}
 {{ $isBlog := eq .Section "blog" }}
 {{ $sources := cond $isBlog
   (slice $jquery $alpine $bootstrap $getos $pinggyshortcode $pinggycommand $cidrvalidation $cursorglow $tooltips)

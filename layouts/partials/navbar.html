@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light">
-  <div class="container py-2">
+  <div class="container navbar__inner">
     <div class="logo navbar-brand">
       <a href="/">
         <img
@@ -51,6 +51,7 @@
                     <a target="_blank" class="dropdown-item" href="https://pinggy-io.github.io/sdk-nodejs/">Node.js SDK</a>
                     <a target="_blank" class="dropdown-item" href="https://pypi.org/project/pinggy/">Python SDK</a>
                 </div>
+            </div>
             {{ else if eq .Identifier "compare" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="compareDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -137,14 +138,11 @@
   </div>
 </nav>
 <script>
-  // Toggle body.is-scrolled past the hero so customization.css can fade
-  // out the navbar's decorative pulse animation (it's pure top-of-page
-  // ambience and competes for attention with content lower on the page).
-  // The fade rides on filter:opacity() multiplied with the keyframed
-  // opacity, so the underlying animation keeps phase and the pulse
-  // fades back in cleanly when the user scrolls back up.
+  // Toggle body.is-scrolled once the page moves, so customization.css can
+  // draw the navbar's bottom rule. On the homepage the ruled frame's own
+  // top border plays that role until content starts sliding under the bar.
   (function () {
-    var THRESHOLD = 200;
+    var THRESHOLD = 8;
     var scrolled = false;
     var ticking = false;
     function update() {
