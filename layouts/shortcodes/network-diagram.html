@@ -1,26 +1,98 @@
-{{/* Tunnel topology diagram for the homepage "How it works" split.
-     Drawn in the page's own language (ruled boxes, mono labels, line icons,
-     one live brand-blue connector) instead of an illustration. Colors come
-     from classes styled in customization.css ("Network diagram"), so the SVG
-     has no hard-coded palette. Two drawings of the same diagram: a wide one
-     (boxes left to right, labels above the boxes, icons top-left inside)
-     and a tall one for phones (boxes stacked, labels inside, icons top
-     right), so the 12px labels never scale down to an unreadable size. CSS
-     shows one at a time. Icons are <symbol>s on a 20px grid, defined in each
-     drawing (ids must stay unique). The homepage has no AMP output, so there
-     is no .amp.html twin. */}}
-<figure class="spec-card netdiagram-card">
+{{/* Animated tunnel topology diagram. The tunnel types and every string in
+     the drawing live in data/network_diagram.yaml.
+
+       {{< network-diagram part="tabs" >}}   homepage: the vertical tab list
+       {{< network-diagram >}}               homepage: the card (tab panel)
+       {{< network-diagram proto="tcp" port="8000" >}}
+                                             one tunnel type on its own (docs
+                                             pages); port optionally swaps the
+                                             example local port
+
+     Homepage: the tabs and the card share state through the netTabs Alpine
+     component on the enclosing section (x-data="netTabs" in
+     content/_index.md, defined in assets/js/index.js), which rotates the
+     tunnel type every 4s until a tab is clicked. The card carries
+     data-proto; CSS shows only the .nd-for-<proto> pieces that match
+     ("Network diagram" in customization.css). With proto= the card is
+     static: data-proto is fixed and only that type's pieces are emitted.
+
+     Encrypted legs are drawn as a blue tube with a lock and packets riding
+     inside it; a raw public leg (TCP, UDP: bytes passed through as is) is a
+     solid ink line. Motion per type: HTTPS round trip that pauses at the
+     edge (TLS terminated there), a steady two-way stream for TCP and
+     TLSTCP, a sealed TLS packet that crosses the edge without stopping,
+     and UDP datagrams in bursts. Packets under the boxes disappear into
+     them; the TLS packet sits above the edge box and is clipped to the gap
+     between the outer boxes instead.
+
+     Two drawings: wide (boxes left to right) and tall (stacked, phones),
+     so the 12px labels never scale below a readable size. SVG ids are
+     fixed, so use the card once per page. The Markdown twin
+     (network-diagram.md) writes the same data out as text for the docs'
+     Markdown output. The pages using it have no AMP output. */}}
+{{- $all := hugo.Data.network_diagram.protocols -}}
+{{- $proto := .Get "proto" | default "" -}}
+{{- $single := ne $proto "" -}}
+{{- $port := .Get "port" | default "" -}}
+{{- $items := slice -}}
+{{- range cond $single (where $all "id" $proto) (where $all "tab" true) -}}
+  {{- $p := . -}}
+  {{- with $port -}}
+    {{- $from := printf "localhost:%v" $p.lport -}}
+    {{- $to := printf "localhost:%v" . -}}
+    {{- $p = merge $p (dict "cmd" (replace $p.cmd $from $to) "local" (replace $p.local $from $to) "foot" (replace $p.foot $from $to)) -}}
+  {{- end -}}
+  {{- $items = $items | append $p -}}
+{{- end -}}
+{{- if and $single (eq (len $items) 0) -}}
+  {{- errorf "network-diagram: unknown proto %q in %s" $proto .Position -}}
+{{- end -}}
+
+{{- if eq (.Get "part") "tabs" -}}
+<div class="nd-tabs" role="tablist" aria-orientation="vertical" aria-label="Tunnel type"
+  x-bind:class="{ 'is-rotating': rotating }" x-bind:style="progress()"
+  x-on:focusin="focused = true" x-on:focusout="focused = false">
+  {{- range $i, $p := $items }}
+  {{- $sel := eq $i 0 }}
+  <button type="button" role="tab" class="nd-tab" id="nd-tab-{{ $p.id }}" aria-controls="nd-panel"
+    aria-selected="{{ $sel }}" tabindex="{{ if $sel }}0{{ else }}-1{{ end }}"
+    x-bind:aria-selected="(proto === '{{ $p.id }}').toString()"
+    x-bind:tabindex="proto === '{{ $p.id }}' ? 0 : -1"
+    x-on:click="pick('{{ $p.id }}')"
+    x-on:keydown.arrow-down.prevent="step(1)" x-on:keydown.arrow-up.prevent="step(-1)"
+    x-on:keydown.home.prevent="step('first')" x-on:keydown.end.prevent="step('last')">
+    <span class="nd-tab__n" aria-hidden="true">0{{ add $i 1 }}</span>
+    <span class="nd-tab__name">{{ $p.name }}</span>
+    <span class="nd-tab__use">{{ $p.use }}</span>
+  </button>
+  {{- end }}
+</div>
+{{- else -}}
+{{- $first := index $items 0 -}}
+{{- $title := cond $single (printf "How a Pinggy %s tunnel works" $first.name) "Pinggy tunnel diagram" -}}
+{{- $desc := cond $single $first.foot "Your machine opens an outbound, encrypted tunnel to the Pinggy edge, and clients on the internet reach it through a public address. The selected tunnel type decides how traffic crosses the edge." -}}
+{{- if $single }}
+<figure class="spec-card netdiagram-card netdiagram-card--single" data-proto="{{ $proto }}">
+{{- else }}
+<figure class="spec-card netdiagram-card" id="nd-panel" role="tabpanel" data-proto="{{ $first.id }}"
+  aria-labelledby="nd-tab-{{ $first.id }}" x-bind:data-proto="proto" x-bind:aria-labelledby="'nd-tab-' + proto">
+{{- end }}
   <figcaption class="spec-card__head">
-    <span>Tunnel topology</span>
-    <span class="spec-card__meta">ssh -p 443 -R0:localhost:8080 free.pinggy.io</span>
+    <span>{{ if $single }}{{ $first.name }} tunnel{{ else }}Tunnel topology{{ end }}</span>
+    <span class="spec-card__meta nd-cmds">
+      {{- range $items }}<span class="nd-x nd-for-{{ .id }}">{{ .cmd }}</span>{{ end -}}
+    </span>
   </figcaption>
-  <svg class="netdiagram netdiagram--wide" viewBox="0 0 600 330" role="img" aria-labelledby="nd-title nd-desc">
-    <title id="nd-title">Pinggy tunnel network diagram showing how the tunnel works</title>
-    <desc id="nd-desc">A machine on a private network opens an outbound, encrypted SSH connection on port 443 to the Pinggy edge, which serves it on a public URL to users on the internet.</desc>
+
+  {{/* ---------- Wide drawing (viewBox 600 x 294 from y=24) ---------- */}}
+  <svg class="netdiagram netdiagram--wide" viewBox="0 24 600 294" role="img" aria-labelledby="nd-title nd-desc">
+    <title id="nd-title">{{ $title }}</title>
+    <desc id="nd-desc">{{ $desc }}</desc>
     <defs>
       <pattern id="nd-grid" width="24" height="24" patternUnits="userSpaceOnUse">
         <path d="M24 0H0V24" class="nd-grid" fill="none" />
       </pattern>
+      <clipPath id="nd-clip-w"><rect x="161" y="0" width="279" height="330" /></clipPath>
       <symbol id="nd-i-laptop" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="9" rx="1" /><path d="M1 16.5h18M8 10.5h4" /></symbol>
       <symbol id="nd-i-server" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="6" rx="1" /><rect x="2" y="11" width="16" height="6" rx="1" /><path d="M5 6h2M5 14h2M13 6h2M13 14h2" /></symbol>
       <symbol id="nd-i-globe" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" /><ellipse cx="10" cy="10" rx="3.5" ry="8" /><path d="M2 10h16" /></symbol>
@@ -28,62 +100,135 @@
     </defs>
     <rect width="600" height="330" fill="url(#nd-grid)" />
 
-    <!-- Private network -->
+    {{/* Legs between the boxes: the SSH tube is shared, the public leg
+         depends on the protocol. */}}
+    <rect class="nd-pipe" x="161" y="164.5" width="71" height="12" />
+    <path class="nd-pipe-rule" d="M161 164.5H232M161 176.5H232" />
+    {{- range $items }}
+    <g class="nd-p nd-for-{{ .id }}">
+      {{- if .enc }}
+      <rect class="nd-pipe" x="369" y="164.5" width="71" height="12" />
+      <path class="nd-pipe-rule" d="M369 164.5H440M369 176.5H440" />
+      {{- else }}
+      <path class="nd-raw" d="M369 170.5H440" />
+      {{- end }}
+    </g>
+    {{- end }}
+
+    {{/* Packets that travel under the boxes (they vanish into them). Base
+         position is just inside the users box; CSS moves them along the
+         route toward the machine (see --b, --c, --d). */}}
+    {{- range $items }}
+    {{- if eq .id "https" }}
+    <g class="nd-p nd-for-https">
+      <rect class="nd-pk nd-pk--req" x="443" y="167.5" width="8" height="6" />
+      <rect class="nd-pk nd-pk--resp" x="443" y="167.5" width="8" height="6" />
+    </g>
+    {{- else if .stream }}
+    <g class="nd-p nd-for-{{ .id }}{{ if .enc }} nd-p--sealed{{ end }}">
+      <rect class="nd-pk nd-pk--tin" x="444" y="165.5" width="6" height="4" />
+      <rect class="nd-pk nd-pk--tin" x="444" y="165.5" width="6" height="4" style="--lag: -0.8s" />
+      <rect class="nd-pk nd-pk--tin" x="444" y="165.5" width="6" height="4" style="--lag: -1.6s" />
+      <rect class="nd-pk nd-pk--tout" x="444" y="171.5" width="6" height="4" style="--lag: -0.4s" />
+      <rect class="nd-pk nd-pk--tout" x="444" y="171.5" width="6" height="4" style="--lag: -1.2s" />
+      <rect class="nd-pk nd-pk--tout" x="444" y="171.5" width="6" height="4" style="--lag: -2s" />
+    </g>
+    {{- else if eq .id "udp" }}
+    <g class="nd-p nd-for-udp">
+      <rect class="nd-pk nd-pk--uin" x="444" y="167.5" width="6" height="6" />
+      <rect class="nd-pk nd-pk--uin" x="444" y="167.5" width="6" height="6" style="--lag: 0.12s" />
+      <rect class="nd-pk nd-pk--uin" x="444" y="167.5" width="6" height="6" style="--lag: 0.24s" />
+      <rect class="nd-pk nd-pk--uout" x="444" y="167.5" width="6" height="6" style="--lag: 1.6s" />
+      <rect class="nd-pk nd-pk--uout" x="444" y="167.5" width="6" height="6" style="--lag: 1.72s" />
+    </g>
+    {{- end }}
+    {{- end }}
+
+    {{/* Boxes */}}
     <text class="nd-label" x="24" y="62">PRIVATE NETWORK</text>
-    <rect class="nd-box" x="24.5" y="72.5" width="150" height="120" />
+    <rect class="nd-box" x="24.5" y="72.5" width="136" height="120" />
     <use class="nd-icon" href="#nd-i-laptop" x="40" y="86" width="20" height="20" />
-    <text class="nd-title" x="40" y="136">Your machine</text>
-    <text class="nd-meta" x="40" y="160">localhost:8080</text>
+    <text class="nd-title" x="40" y="130">Your machine</text>
 
-    <!-- Pinggy edge -->
-    <text class="nd-label" x="225" y="62">PINGGY EDGE</text>
-    <rect class="nd-box nd-box--edge" x="225.5" y="72.5" width="150" height="120" />
-    <use class="nd-icon nd-icon--edge" href="#nd-i-server" x="241" y="86" width="20" height="20" />
-    <text class="nd-title nd-on-dark" x="241" y="136">Pinggy</text>
-    <text class="nd-meta nd-on-dark" x="241" y="160">*.a.pinggy.link</text>
+    <text class="nd-label" x="232" y="62">PINGGY EDGE</text>
+    <rect class="nd-box nd-box--edge" x="232.5" y="72.5" width="136" height="120" />
+    <use class="nd-icon nd-icon--edge" href="#nd-i-server" x="248" y="86" width="20" height="20" />
+    <text class="nd-title nd-on-dark" x="248" y="130">Pinggy</text>
+    <text class="nd-meta nd-on-dark" x="248" y="150">*.a.pinggy.link</text>
 
-    <!-- Internet -->
-    <text class="nd-label" x="426" y="62">INTERNET</text>
-    <rect class="nd-box" x="426.5" y="72.5" width="150" height="120" />
-    <use class="nd-icon" href="#nd-i-globe" x="442" y="86" width="20" height="20" />
-    <text class="nd-title" x="442" y="136">Your users</text>
-    <text class="nd-meta" x="442" y="160">public URL</text>
+    <text class="nd-label" x="440" y="62">INTERNET</text>
+    <rect class="nd-box" x="440.5" y="72.5" width="136" height="120" />
+    <use class="nd-icon" href="#nd-i-globe" x="456" y="86" width="20" height="20" />
 
-    <!-- Tunnel: outbound, encrypted SSH from the private network -->
-    <path class="nd-wire nd-wire--live" d="M175 132.5H225" />
-    <rect class="nd-dot" x="172" y="130" width="5" height="5" />
-    <rect class="nd-dot" x="223" y="130" width="5" height="5" />
-    <rect class="nd-lockbox" x="191.5" y="123.5" width="17" height="17" />
-    <use class="nd-icon nd-icon--lock" href="#nd-i-lock" x="194" y="126" width="12" height="12" />
-    <text class="nd-meta" x="200" y="117" text-anchor="middle">ssh</text>
-    <text class="nd-meta" x="200" y="157" text-anchor="middle">:443</text>
+    {{- range $items }}
+    <g class="nd-p nd-for-{{ .id }}">
+      <text class="nd-meta" x="40" y="150">{{ .local }}</text>
+      <text class="nd-title" x="456" y="130">{{ .users }}</text>
+      <text class="nd-meta" x="456" y="150">{{ .umeta }}</text>
+      {{- if eq .id "https" }}
+      <rect class="nd-led" x="349" y="87" width="6" height="6" />
+      {{- else if and .enc .stream }}
+      <rect class="nd-led nd-led--stream" x="349" y="87" width="6" height="6" />
+      {{- end }}
+      {{- if .through }}
+      <path class="nd-pipe-rule nd-pipe-rule--dark" d="M233 164.5H368M233 176.5H368" />
+      {{- end }}
+    </g>
+    {{- end }}
 
-    <!-- Public traffic -->
-    <path class="nd-wire" d="M376 132.5H426" />
-    <text class="nd-meta" x="401" y="117" text-anchor="middle">https</text>
-    <text class="nd-meta" x="401" y="157" text-anchor="middle">tcp</text>
+    {{/* TLS: the sealed packet crosses the edge box in view. */}}
+    {{- range $items }}
+    {{- if .through }}
+    <g class="nd-p nd-for-{{ .id }}" clip-path="url(#nd-clip-w)">
+      <g class="nd-pk nd-pk--sreq"><rect class="nd-seal" x="443" y="166.5" width="8" height="8" /><rect class="nd-seal__core" x="445" y="168.5" width="4" height="4" /></g>
+      <g class="nd-pk nd-pk--sresp"><rect class="nd-seal" x="443" y="166.5" width="8" height="8" /><rect class="nd-seal__core" x="445" y="168.5" width="4" height="4" /></g>
+    </g>
+    {{- end }}
+    {{- end }}
 
-    <!-- Notes under each box -->
-    <text class="nd-meta" x="24" y="222">behind NAT or firewall</text>
-    <text class="nd-meta" x="24" y="240">no port forwarding</text>
-    <text class="nd-meta" x="225" y="222">TLS certificates</text>
-    <text class="nd-meta" x="225" y="240">auth, web debugger</text>
-    <text class="nd-meta" x="426" y="222">any browser or client</text>
-    <text class="nd-meta" x="426" y="240">no install needed</text>
+    {{/* Locks and leg labels. A lock and its label are centered on the leg
+         as a pair: 12px icon, 4px gap, then 7.2px per character. */}}
+    <use class="nd-icon nd-icon--lock" href="#nd-i-lock" x="177.5" y="141" width="12" height="12" />
+    {{- range $items }}
+    <g class="nd-p nd-for-{{ .id }}">
+      <text class="nd-meta" x="193.5" y="152">{{ .tun }}</text>
+      <text class="nd-meta" x="196.5" y="196" text-anchor="middle">:443</text>
+      {{- if .enc }}
+      {{- $x := sub 404.5 (div (add 16 (mul (len .pub) 7.2)) 2) }}
+      <use class="nd-icon nd-icon--lock" href="#nd-i-lock" x="{{ $x }}" y="141" width="12" height="12" />
+      <text class="nd-meta" x="{{ add $x 16 }}" y="152">{{ .pub }}</text>
+      {{- else }}
+      <text class="nd-meta" x="404.5" y="152" text-anchor="middle">{{ .pub }}</text>
+      {{- end }}
+      <text class="nd-meta" x="404.5" y="196" text-anchor="middle">{{ .port }}</text>
 
-    <!-- Legend -->
-    <path class="nd-wire nd-wire--live" d="M24 292.5H56" />
-    <text class="nd-meta" x="66" y="296">encrypted SSH tunnel</text>
-    <path class="nd-wire" d="M246 292.5H278" />
-    <text class="nd-meta" x="288" y="296">public traffic</text>
+      <text class="nd-meta" x="24" y="222">{{ .m1 }}</text>
+      <text class="nd-meta" x="24" y="240">{{ .m2 }}</text>
+      <text class="nd-meta" x="232" y="222">{{ .e1 }}</text>
+      <text class="nd-meta" x="232" y="240">{{ .e2 }}</text>
+      <text class="nd-meta" x="440" y="222">{{ .u1 }}</text>
+      <text class="nd-meta" x="440" y="240">{{ .u2 }}</text>
+
+      <rect class="nd-pipe" x="24" y="286.5" width="32" height="12" />
+      <path class="nd-pipe-rule" d="M24 286.5H56M24 298.5H56" />
+      <text class="nd-meta" x="66" y="296">{{ .l1 }}</text>
+      {{- with .l2 }}
+      <path class="nd-raw" d="M276 292.5H308" />
+      <text class="nd-meta" x="318" y="296">{{ . }}</text>
+      {{- end }}
+    </g>
+    {{- end }}
   </svg>
+
+  {{/* ---------- Tall drawing (viewBox 320 x 630), phones ---------- */}}
   <svg class="netdiagram netdiagram--tall" viewBox="0 0 320 630" role="img" aria-labelledby="nd-title-s nd-desc-s">
-    <title id="nd-title-s">Pinggy tunnel network diagram showing how the tunnel works</title>
-    <desc id="nd-desc-s">A machine on a private network opens an outbound, encrypted SSH connection on port 443 to the Pinggy edge, which serves it on a public URL to users on the internet.</desc>
+    <title id="nd-title-s">{{ $title }}</title>
+    <desc id="nd-desc-s">{{ $desc }}</desc>
     <defs>
       <pattern id="nd-grid-s" width="24" height="24" patternUnits="userSpaceOnUse">
         <path d="M24 0H0V24" class="nd-grid" fill="none" />
       </pattern>
+      <clipPath id="nd-clip-t"><rect x="0" y="145" width="320" height="279" /></clipPath>
       <symbol id="nd-i-laptop-s" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="9" rx="1" /><path d="M1 16.5h18M8 10.5h4" /></symbol>
       <symbol id="nd-i-server-s" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="6" rx="1" /><rect x="2" y="11" width="16" height="6" rx="1" /><path d="M5 6h2M5 14h2M13 6h2M13 14h2" /></symbol>
       <symbol id="nd-i-globe-s" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" /><ellipse cx="10" cy="10" rx="3.5" ry="8" /><path d="M2 10h16" /></symbol>
@@ -91,46 +236,112 @@
     </defs>
     <rect width="320" height="630" fill="url(#nd-grid-s)" />
 
-    <!-- Private network -->
+    <rect class="nd-pipe" x="258.5" y="145" width="12" height="79" />
+    <path class="nd-pipe-rule" d="M258.5 145V224M270.5 145V224" />
+    {{- range $items }}
+    <g class="nd-p nd-for-{{ .id }}">
+      {{- if .enc }}
+      <rect class="nd-pipe" x="258.5" y="345" width="12" height="79" />
+      <path class="nd-pipe-rule" d="M258.5 345V424M270.5 345V424" />
+      {{- else }}
+      <path class="nd-raw" d="M264.5 345V424" />
+      {{- end }}
+    </g>
+    {{- end }}
+
+    {{- range $items }}
+    {{- if eq .id "https" }}
+    <g class="nd-p nd-for-https">
+      <rect class="nd-pk nd-pk--req" x="261.5" y="426" width="6" height="8" />
+      <rect class="nd-pk nd-pk--resp" x="261.5" y="426" width="6" height="8" />
+    </g>
+    {{- else if .stream }}
+    <g class="nd-p nd-for-{{ .id }}{{ if .enc }} nd-p--sealed{{ end }}">
+      <rect class="nd-pk nd-pk--tin" x="259.5" y="427" width="4" height="6" />
+      <rect class="nd-pk nd-pk--tin" x="259.5" y="427" width="4" height="6" style="--lag: -0.8s" />
+      <rect class="nd-pk nd-pk--tin" x="259.5" y="427" width="4" height="6" style="--lag: -1.6s" />
+      <rect class="nd-pk nd-pk--tout" x="265.5" y="427" width="4" height="6" style="--lag: -0.4s" />
+      <rect class="nd-pk nd-pk--tout" x="265.5" y="427" width="4" height="6" style="--lag: -1.2s" />
+      <rect class="nd-pk nd-pk--tout" x="265.5" y="427" width="4" height="6" style="--lag: -2s" />
+    </g>
+    {{- else if eq .id "udp" }}
+    <g class="nd-p nd-for-udp">
+      <rect class="nd-pk nd-pk--uin" x="261.5" y="427" width="6" height="6" />
+      <rect class="nd-pk nd-pk--uin" x="261.5" y="427" width="6" height="6" style="--lag: 0.12s" />
+      <rect class="nd-pk nd-pk--uin" x="261.5" y="427" width="6" height="6" style="--lag: 0.24s" />
+      <rect class="nd-pk nd-pk--uout" x="261.5" y="427" width="6" height="6" style="--lag: 1.6s" />
+      <rect class="nd-pk nd-pk--uout" x="261.5" y="427" width="6" height="6" style="--lag: 1.72s" />
+    </g>
+    {{- end }}
+    {{- end }}
+
     <rect class="nd-box" x="24.5" y="24.5" width="271" height="120" />
-    <use class="nd-icon" href="#nd-i-laptop-s" x="260" y="36" width="20" height="20" />
-    <text class="nd-label" x="40" y="50">PRIVATE NETWORK</text>
-    <text class="nd-title" x="40" y="80">Your machine</text>
-    <text class="nd-meta" x="40" y="100">localhost:8080</text>
-    <text class="nd-meta" x="40" y="128">behind NAT, no port forwarding</text>
+    <use class="nd-icon" href="#nd-i-laptop-s" x="40" y="38" width="20" height="20" />
+    <text class="nd-label" x="68" y="53">PRIVATE NETWORK</text>
+    <text class="nd-title" x="40" y="87">Your machine</text>
 
-    <!-- Tunnel: outbound, encrypted SSH from the private network -->
-    <path class="nd-wire nd-wire--live" d="M60.5 145V224" />
-    <rect class="nd-dot" x="58" y="142" width="5" height="5" />
-    <rect class="nd-dot" x="58" y="222" width="5" height="5" />
-    <rect class="nd-lockbox" x="52" y="176" width="17" height="17" />
-    <use class="nd-icon nd-icon--lock" href="#nd-i-lock-s" x="54.5" y="178.5" width="12" height="12" />
-    <text class="nd-meta" x="80" y="189">ssh on port 443</text>
-
-    <!-- Pinggy edge -->
     <rect class="nd-box nd-box--edge" x="24.5" y="224.5" width="271" height="120" />
-    <use class="nd-icon nd-icon--edge" href="#nd-i-server-s" x="260" y="236" width="20" height="20" />
-    <text class="nd-label nd-on-dark" x="40" y="250">PINGGY EDGE</text>
-    <text class="nd-title nd-on-dark" x="40" y="280">Pinggy</text>
-    <text class="nd-meta nd-on-dark" x="40" y="300">*.a.pinggy.link</text>
-    <text class="nd-meta nd-on-dark" x="40" y="328">TLS, auth, web debugger</text>
+    <use class="nd-icon nd-icon--edge" href="#nd-i-server-s" x="40" y="238" width="20" height="20" />
+    <text class="nd-label nd-on-dark" x="68" y="253">PINGGY EDGE</text>
+    <text class="nd-title nd-on-dark" x="40" y="287">Pinggy</text>
+    <text class="nd-meta nd-on-dark" x="40" y="307">*.a.pinggy.link</text>
 
-    <!-- Public traffic -->
-    <path class="nd-wire" d="M60.5 345V424" />
-    <text class="nd-meta" x="80" y="389">https or tcp</text>
-
-    <!-- Internet -->
     <rect class="nd-box" x="24.5" y="424.5" width="271" height="120" />
-    <use class="nd-icon" href="#nd-i-globe-s" x="260" y="436" width="20" height="20" />
-    <text class="nd-label" x="40" y="450">INTERNET</text>
-    <text class="nd-title" x="40" y="480">Your users</text>
-    <text class="nd-meta" x="40" y="500">public URL</text>
-    <text class="nd-meta" x="40" y="528">any browser, no install</text>
+    <use class="nd-icon" href="#nd-i-globe-s" x="40" y="438" width="20" height="20" />
+    <text class="nd-label" x="68" y="453">INTERNET</text>
 
-    <!-- Legend -->
-    <path class="nd-wire nd-wire--live" d="M24 580.5H56" />
-    <text class="nd-meta" x="66" y="584">encrypted SSH tunnel</text>
-    <path class="nd-wire" d="M24 604.5H56" />
-    <text class="nd-meta" x="66" y="608">public traffic</text>
+    {{- range $items }}
+    <g class="nd-p nd-for-{{ .id }}">
+      <text class="nd-meta" x="40" y="107">{{ .local }}</text>
+      <text class="nd-meta" x="40" y="131">{{ .tm }}</text>
+      <text class="nd-meta nd-on-dark" x="40" y="331">{{ .te }}</text>
+      <text class="nd-title" x="40" y="487">{{ .users }}</text>
+      <text class="nd-meta" x="40" y="507">{{ .umeta }}</text>
+      <text class="nd-meta" x="40" y="531">{{ .tu }}</text>
+      {{- if eq .id "https" }}
+      <rect class="nd-led" x="276" y="239" width="6" height="6" />
+      {{- else if and .enc .stream }}
+      <rect class="nd-led nd-led--stream" x="276" y="239" width="6" height="6" />
+      {{- end }}
+      {{- if .through }}
+      <path class="nd-pipe-rule nd-pipe-rule--dark" d="M258.5 225V344M270.5 225V344" />
+      {{- end }}
+    </g>
+    {{- end }}
+
+    {{- range $items }}
+    {{- if .through }}
+    <g class="nd-p nd-for-{{ .id }}" clip-path="url(#nd-clip-t)">
+      <g class="nd-pk nd-pk--sreq"><rect class="nd-seal" x="260.5" y="426" width="8" height="8" /><rect class="nd-seal__core" x="262.5" y="428" width="4" height="4" /></g>
+      <g class="nd-pk nd-pk--sresp"><rect class="nd-seal" x="260.5" y="426" width="8" height="8" /><rect class="nd-seal__core" x="262.5" y="428" width="4" height="4" /></g>
+    </g>
+    {{- end }}
+    {{- end }}
+
+    <use class="nd-icon nd-icon--lock" href="#nd-i-lock-s" x="238" y="178.5" width="12" height="12" />
+    {{- range $items }}
+    <g class="nd-p nd-for-{{ .id }}">
+      <text class="nd-meta" x="232" y="189" text-anchor="end">{{ .tun }} :443</text>
+      {{- if .enc }}
+      <use class="nd-icon nd-icon--lock" href="#nd-i-lock-s" x="238" y="378.5" width="12" height="12" />
+      {{- end }}
+      <text class="nd-meta" x="232" y="389" text-anchor="end">{{ .pub }} {{ .port }}</text>
+
+      <rect class="nd-pipe" x="24" y="574" width="32" height="12" />
+      <path class="nd-pipe-rule" d="M24 574H56M24 586H56" />
+      <text class="nd-meta" x="66" y="584">{{ .l1 }}</text>
+      {{- with .l2 }}
+      <path class="nd-raw" d="M24 604.5H56" />
+      <text class="nd-meta" x="66" y="608">{{ . }}</text>
+      {{- end }}
+    </g>
+    {{- end }}
   </svg>
+
+  <div class="nd-foot">
+    {{- range $items }}
+    <p class="nd-x nd-for-{{ .id }}">{{ .foot }}</p>
+    {{- end }}
+  </div>
 </figure>
+{{- end -}}

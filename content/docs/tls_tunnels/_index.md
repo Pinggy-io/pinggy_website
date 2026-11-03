@@ -2,6 +2,7 @@
  title: "TLS Tunnels" 
  description: "Create TLS tunnels with Pinggy in a single command. Establish SSL/TLS connections to your localhost using unique domains. Follow the guide for TLS tunnels."
  date: 2023-01-10T14:15:25+05:30 
+ lastmod: 2026-11-02T14:15:25+05:30
  draft: false 
 ---
 
@@ -15,3 +16,5 @@ Create a tunnel using a single command.
 
 TLS tunnel does not provide any port. It present with a unique domain and SSL/TLS connection to be made to that domain at TCP port 443.
 In case of TLS tunnel, Pinggy does not terminate the SSL/TLS, instead it forward as it is to the client. The client needs to terminate SSL/TLS.
+
+{{< network-diagram proto="tls" port="8000" >}}

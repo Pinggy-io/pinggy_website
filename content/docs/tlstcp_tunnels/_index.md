@@ -2,6 +2,7 @@
  title: "TLSTCP Tunnels" 
  description: "Create TLSTCP tunnels with Pinggy in a single command. Establish TLS-wrapped connections to your localhost using unique domains. Follow the guide for TLSTCP tunnels."
  date: 2023-01-10T14:15:25+05:30 
+ lastmod: 2026-11-02T14:15:25+05:30
  draft: false 
 ---
 
@@ -14,3 +15,5 @@ Create a tunnel using a single command.
 {{</ ssh_command >}}
 
 TLSTCP is the wrapper on top TCP. It provides an option to connection to a TCP based service via TLS.
+
+{{< network-diagram proto="tlstcp" port="8000" >}}

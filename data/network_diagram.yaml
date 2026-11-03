@@ -1,0 +1,149 @@
+# Tunnel types drawn by the network-diagram shortcode (HTML and .md
+# variants). `tab: true` puts a type in the homepage "How it works" tabs;
+# every type can be drawn on its own with {{< network-diagram proto="id" >}}.
+# `lport` is the local port the strings below use; the shortcode's `port`
+# parameter swaps "localhost:<lport>" in cmd, local and foot. Keep the
+# public port numbers as examples and the commands in sync with the docs.
+#
+# Box text is drawn in 12px Plex Mono: keep umeta under 17 characters,
+# m*/e*/u* notes under 23 and the tall-drawing notes (tm, te, tu) under 30.
+protocols:
+  - id: https
+    tab: true
+    name: HTTPS
+    use: Web apps, APIs, webhooks
+    lport: 8080
+    cmd: ssh -p 443 -R0:localhost:8080 free.pinggy.io
+    local: localhost:8080
+    tun: ssh
+    pub: https
+    port: ":443"
+    users: Your users
+    umeta: browsers, apps
+    m1: behind NAT or firewall
+    m2: no port forwarding
+    e1: terminates TLS
+    e2: auth, web debugger
+    u1: any browser or app
+    u2: no install needed
+    tm: behind NAT or firewall
+    te: terminates TLS, debugger
+    tu: any browser, no install
+    enc: true
+    through: false
+    stream: false
+    l1: "encrypted: HTTPS, then SSH"
+    l2: ""
+    foot: Visitors get an https:// URL. Pinggy terminates TLS with a certificate it issues for that URL, then sends each request down the encrypted SSH tunnel to localhost:8080.
+
+  - id: tcp
+    tab: true
+    name: TCP
+    use: SSH, databases, RDP
+    lport: 22
+    cmd: ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
+    local: localhost:22
+    tun: ssh
+    pub: tcp
+    port: ":40527"
+    users: Your clients
+    umeta: ssh, psql, rdp
+    m1: SSH, database, RDP
+    m2: behind NAT or firewall
+    e1: public TCP port
+    e2: IP whitelist
+    u1: bytes pass as is
+    u2: connect to host:port
+    tm: SSH, database or RDP
+    te: public TCP port
+    tu: bytes pass through as is
+    enc: false
+    through: false
+    stream: true
+    l1: encrypted SSH tunnel
+    l2: your bytes, as is
+    foot: Clients connect to a public TCP port. Pinggy forwards the bytes as they are through the encrypted SSH tunnel, so protocols with their own encryption, like SSH or a database over TLS, stay encrypted end to end.
+
+  - id: tls
+    tab: true
+    name: TLS
+    use: End-to-end encrypted
+    lport: 443
+    cmd: ssh -p 443 -R0:localhost:443 tls@free.pinggy.io
+    local: localhost:443
+    tun: ssh
+    pub: tls
+    port: ":443"
+    users: Your clients
+    umeta: TLS on port 443
+    m1: holds the certificate
+    m2: terminates TLS
+    e1: routes by SNI
+    e2: never decrypts
+    u1: encrypted end to end
+    u2: no port in the URL
+    tm: holds the certificate
+    te: routes by SNI, never decrypts
+    tu: encrypted end to end
+    enc: true
+    through: true
+    stream: false
+    l1: encrypted end to end
+    l2: ""
+    foot: Pinggy reads only the hostname (SNI) to route the connection and never decrypts it. Your server holds the certificate, so traffic stays encrypted from the client all the way to localhost:443.
+
+  - id: udp
+    tab: true
+    name: UDP
+    use: Games, VoIP, DNS
+    lport: 19132
+    cmd: pinggy -p 443 -R0:localhost:19132 udp@free.pinggy.io
+    local: localhost:19132
+    tun: cli
+    pub: udp
+    port: ":43210"
+    users: Your clients
+    umeta: games, VoIP, DNS
+    m1: game, VoIP, DNS server
+    m2: runs the Pinggy CLI
+    e1: public UDP port
+    e2: forwards datagrams
+    u1: any UDP client
+    u2: send to host:port
+    tm: runs the Pinggy CLI
+    te: public UDP port
+    tu: games, VoIP, DNS clients
+    enc: false
+    through: false
+    stream: false
+    l1: encrypted tunnel (CLI)
+    l2: your datagrams, as is
+    foot: Datagrams sent to a public UDP port travel through the encrypted tunnel opened by the Pinggy CLI to localhost:19132. UDP tunnels need the CLI, since plain SSH only carries TCP.
+
+  - id: tlstcp
+    tab: false
+    name: TLSTCP
+    use: TCP services over TLS
+    lport: 8000
+    cmd: ssh -p 443 -R0:localhost:8000 tlstcp@free.pinggy.io
+    local: localhost:8000
+    tun: ssh
+    pub: tls
+    port: ":443"
+    users: Your clients
+    umeta: TLS on port 443
+    m1: plain TCP service
+    m2: no certificate needed
+    e1: terminates TLS
+    e2: forwards plain TCP
+    u1: TLS to port 443
+    u2: encrypted to the edge
+    tm: plain TCP service
+    te: terminates TLS
+    tu: encrypted up to the edge
+    enc: true
+    through: false
+    stream: true
+    l1: "encrypted: TLS, then SSH"
+    l2: ""
+    foot: Clients reach your TCP service over TLS on port 443. Pinggy terminates TLS at the edge and sends the plain TCP stream down the encrypted SSH tunnel to localhost:8000, so the service itself needs no certificate.

@@ -167,6 +167,79 @@ document.addEventListener("alpine:init", () => {
     }
   });
 
+  // Homepage "How it works" tunnel tabs (layouts/shortcodes/network-diagram.html).
+  // Rotates through the tunnel types every ROTATE_MS while the diagram is on
+  // screen, with a progress rule under the selected tab. Any click or key on
+  // a tab stops the rotation for good; keyboard focus inside the tab list
+  // pauses it. Off under prefers-reduced-motion.
+  const ROTATE_MS = 4000;
+  const TICK_MS = 100;
+
+  Alpine.data("netTabs", () => ({
+    order: ["https", "tcp", "tls", "udp"],
+    proto: "https",
+    rotating: true,
+    elapsed: 0,
+    focused: false,
+    visible: false,
+    timer: null,
+
+    init() {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        this.rotating = false;
+        return;
+      }
+      const card = this.$el.querySelector("#nd-panel");
+      if (card && "IntersectionObserver" in window) {
+        new IntersectionObserver(
+          ([entry]) => { this.visible = entry.isIntersecting; },
+          { threshold: 0.5 }
+        ).observe(card);
+      } else {
+        this.visible = true;
+      }
+      this.timer = setInterval(() => this.tick(), TICK_MS);
+    },
+
+    destroy() {
+      clearInterval(this.timer);
+    },
+
+    tick() {
+      if (!this.rotating || this.focused || !this.visible) return;
+      this.elapsed += TICK_MS;
+      if (this.elapsed >= ROTATE_MS) {
+        this.elapsed = 0;
+        const i = this.order.indexOf(this.proto);
+        this.proto = this.order[(i + 1) % this.order.length];
+      }
+    },
+
+    progress() {
+      return "--nd-progress: " + (this.elapsed / ROTATE_MS);
+    },
+
+    stop() {
+      this.rotating = false;
+      this.elapsed = 0;
+      clearInterval(this.timer);
+    },
+
+    pick(id) {
+      this.stop();
+      this.proto = id;
+    },
+
+    step(d) {
+      this.stop();
+      const n = this.order.length;
+      let i = this.order.indexOf(this.proto);
+      i = d === "first" ? 0 : d === "last" ? n - 1 : (i + d + n) % n;
+      this.proto = this.order[i];
+      this.$nextTick(() => document.getElementById("nd-tab-" + this.proto).focus());
+    },
+  }));
+
 });
 
 

@@ -286,10 +286,22 @@ The frame for a form, screenshot, video or diagram.
 
 ### 7.14 Network diagram
 
-`{{< network-diagram >}}`: an inline SVG in a spec card. Ruled boxes (`--paper` fill, `--ink-300` stroke), the Pinggy edge box in `--ink-950`, Plex labels, one live dashed connector in `--brand-600` animating `stroke-dashoffset` (static under reduced motion). Two drawings: wide (left to right, uppercase labels above the boxes) and tall (stacked, below 640px) so labels never shrink below about 12px. Colors come from `.nd-*` classes, not the SVG.
+`{{< network-diagram >}}` (the card) and `{{< network-diagram part="tabs" >}}` (the tab list) on the homepage "How it works" split. They share the `netTabs` Alpine component (`assets/js/index.js`) on the section. Every tunnel type and every string in the drawing lives in `data/network_diagram.yaml`; `tab: true` puts a type in the homepage tabs.
 
-- Icons: 20px line glyphs on a 20-unit grid (laptop, server stack, globe), drawn as `<symbol>`s and placed with `<use>`; 1.5 stroke, round caps, no fill. `--ink-500` on light boxes, `--brand-500` on the ink edge box. Top-left inside the box in the wide drawing, top-right in the tall one.
-- The live connector carries a 12px lock glyph in a 17px `--paper` square with a 1px `--brand-600` rule (`.nd-lockbox`), marking the tunnel as encrypted.
+- **Single type (docs):** `{{< network-diagram proto="tcp" port="8000" >}}` draws one tunnel type as a static figure in the prose column (`.netdiagram-card--single`, max 40rem, `--space-6` above and below), with the same motion and no tabs. `port` swaps the example local port so the figure matches the page's commands. The tunnel docs pages (HTTP, TCP, TLS, UDP, TLSTCP) carry one each, after the first command and its explanation. A Markdown twin (`network-diagram.md`) writes the same entry out as text for the docs' Markdown output.
+
+- **Tabs:** a vertical ARIA tablist (HTTPS, TCP, TLS, UDP) in the text column. Ruled rows, 48px tall: a `01` number, the protocol name (Plex 600) and a short use case (sans, `--ink-500`, ellipsis). Selected: `--white` fill, a 2px `--brand-600` inset rule on the side facing the diagram, number in `--brand-600`. Arrow keys, Home and End move selection and focus.
+- **Rotation:** by default the tabs advance every 4s, but only while the diagram is on screen. A 2px `--brand-600` rule grows along the bottom of the selected row as the next change approaches. Any click or key on a tab stops the rotation for good; keyboard focus inside the list pauses it; it never starts under reduced motion.
+- **Card:** a spec card whose head meta is the command for the selected protocol and whose footer is one sentence on what happens to the traffic. Commands and captions share one grid cell, so the card keeps a fixed height and nothing shifts between tabs.
+- **Drawing:** ruled boxes (`--paper` fill, `--ink-300` stroke), the Pinggy edge box in `--ink-950`, Plex labels, 20px line icons (laptop, server stack, globe) as `<symbol>`s. Two drawings: wide (left to right) and tall (stacked, below 640px) so labels never shrink below about 12px. Colors come from `.nd-*` classes, not the SVG.
+- **Encryption is drawn, never implied by color alone:** an encrypted leg is a 12px tube (`--brand-50` fill between two `--brand-600` rules) with a lock glyph on its label line. A raw public leg (TCP, UDP: the client's bytes passed through as is) is a 1px `--ink-950` line, never a faint grey one that reads as broken or insecure. For TLS passthrough the tube's rules continue across the dark edge box (`--brand-500`), because Pinggy never opens it.
+- **Motion, one signature per protocol** (packets run inside the tube or along the line; packets under the boxes vanish into them):
+  - HTTPS: a request and its response, pausing at the edge while a small `--brand-500` activity light shows TLS ending there.
+  - TCP: a steady two-way stream in two lanes; packets are ink on the raw leg and turn blue where they enter the tunnel.
+  - TLS: one sealed packet (blue square with a paper core) crossing the edge box in view at constant speed.
+  - UDP: hollow datagrams in short bursts, no round trip.
+  - TLSTCP (docs only): the TCP stream with both legs encrypted, so its packets stay blue, and the edge light stays on and breathes while TLS ends there.
+- Packets move along a route described per drawing by CSS variables (`--ux`, `--uy`, `--b`, `--c`, `--d`), so one set of keyframes serves both drawings. Switching tabs restarts the motion. Under reduced motion the packets and the light are hidden; tubes, locks and labels stay.
 - Keep it to these few glyphs. No filled illustrations, no extra colors.
 
 ### 7.15 Chips and status chips
@@ -369,7 +381,7 @@ Centered: a two-line h2 (second line muted), then the command panel and a ghost 
 - **Artifact rise-in** (`mockRise`): fade + 16px rise, `0.6s --ease-rise`, once.
 - **Hero grid pulses:** brand comets easing along grid lines, a few at a time (§7.5).
 - **Live connector:** dashed stroke offset, linear.
-- **Marquees:** linear, edge mask into `--ink-50`, logos grayscale at rest.
+- **Marquees:** linear, edge mask into `--ink-50`, logos grayscale at rest. Hovering a marquee pauses it, and only the hovered (or focused) logo regains its color.
 - Everything above is off under `prefers-reduced-motion: reduce`.
 
 ### Forbidden

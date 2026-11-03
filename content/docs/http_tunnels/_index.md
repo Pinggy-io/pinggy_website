@@ -2,6 +2,7 @@
  title: "HTTP / HTTPS Tunnels" 
  description: "Create HTTP/HTTPS tunnels to your localhost effortlessly with Pinggy. Use a single command to share your service and access it through dynamic URLs."
  date: 2023-01-10T14:15:25+05:30 
+ lastmod: 2026-11-02T14:15:25+05:30
  draft: false 
 ---
 
@@ -28,6 +29,8 @@ https://fakqxzqrohxxx.a.pinggy.link
 You can access your localhost service using these URLs.
 
 **These URLs will change every time you create a new tunnel.<br> If you want a persistent subdomain** <b><a target="_blank" href="https://pinggy.io/#prices">upgrade to Pinggy Pro</a></b>.
+
+{{< network-diagram proto="https" port="8000" >}}
 
 
 ## Force HTTPS redirect
