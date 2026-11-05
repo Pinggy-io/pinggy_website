@@ -29,10 +29,21 @@
     <nav class="pgf__col" aria-label="{{ i18n "footerProduct" }}">
       <h2 class="pgf__h">{{ i18n "footerProduct" }}</h2>
       <ul>
+        <li><a href="/">{{ i18n "footerTunnels" }}</a></li>
+        <li><a href="/remote-terminal/">{{ i18n "footerRemoteTerminal" }}</a></li>
         <li><a href="/app/">Pinggy App</a></li>
         <li><a href="/cli/">Pinggy CLI</a></li>
         <li><a href="/docs/">Pinggy SSH</a></li>
         <li><a href="/#prices">{{ i18n "footerPricing" }}</a></li>
+      </ul>
+    </nav>
+
+    <nav class="pgf__col" aria-label="{{ i18n "navUseCases" }}">
+      <h2 class="pgf__h">{{ i18n "navUseCases" }}</h2>
+      <ul>
+        <li><a href="/ingress_for_dev_test_environments/">{{ i18n "navIngress" }}</a></li>
+        <li><a href="/quickstart/">{{ i18n "footerQuickstart" }}</a></li>
+        <li><a href="/docs/guides/ssh_iot/">{{ i18n "footerIotSsh" }}</a></li>
       </ul>
     </nav>
 
@@ -50,7 +61,6 @@
       <h2 class="pgf__h">{{ i18n "footerResources" }}</h2>
       <ul>
         <li><a href="/docs/">{{ i18n "footerDocumentation" }}</a></li>
-        <li><a href="/quickstart/">{{ i18n "footerQuickstart" }}</a></li>
         <li><a href="/blog/">{{ i18n "footerBlog" }}</a></li>
         <li><a href="/tools/">{{ i18n "footerTools" }}</a></li>
         <li><a href="/know_your_port/">{{ i18n "footerKnowYourPorts" }}</a></li>
@@ -63,6 +73,7 @@
   <div class="pgf__bar">
     <span>{{ i18n "copyright" }} &copy; {{ site.Title | default "Pinggy" }} {{ now.Year }}</span>
     <nav class="pgf__legal" aria-label="{{ i18n "footerCompany" }}">
+      <a href="/">{{ i18n "footerHome" }}</a>
       <a href="/about/">{{ i18n "footerAbout" }}</a>
       <a href="/contact_us/">{{ i18n "footerContact" }}</a>
       <a href="/terms_of_service/">{{ i18n "footerTerms" }}</a>

@@ -120,6 +120,9 @@
   --mock-line: #2c2c2a;
   --mock-fg: #e9e7e2;
   --mock-dim: #8a8883;
+  /* Claude's own orange, only for its mark and mascot on
+     /remote-terminal/ (third-party brand art, never UI color). */
+  --mock-claude: #d97757;
 
   /* Motion */
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -864,7 +867,9 @@ body:not(.blog) .alert.alert-info {
 .hero__sub,
 #lead2,
 .hero__trial,
-#bigcodecolumn {
+#bigcodecolumn,
+.hero__points,
+.hero__launch {
   animation: heroFadeUp 400ms var(--ease-out) both;
 }
 
@@ -886,6 +891,14 @@ body:not(.blog) .alert.alert-info {
 
 #bigcodecolumn {
   animation-delay: 120ms;
+}
+
+.hero__points {
+  animation-delay: 210ms;
+}
+
+.hero__launch {
+  animation-delay: 240ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1462,7 +1475,7 @@ pre > code {
 }
 
 /* Navbar --------------------------------- */
-/* Paper bar with a single bottom rule. On the homepage the ruled frame's
+/* Paper bar with a single bottom rule. On framed pages the ruled frame's
    top border sits right under the bar, so the bar's own rule only shows
    once content scrolls beneath it (body.is-scrolled, set in navbar.html). */
 .navbar.navbar-expand-lg {
@@ -1476,7 +1489,7 @@ pre > code {
   transition: border-color var(--duration-base) var(--ease-out);
 }
 
-body.home:not(.is-scrolled) .navbar.navbar-expand-lg {
+body.has-frame:not(.is-scrolled) .navbar.navbar-expand-lg {
   border-bottom-color: transparent;
 }
 
@@ -2011,7 +2024,8 @@ a.spec-card:hover {
 }
 
 .spec-card__body > img,
-.spec-card__body > .videocontainer {
+.spec-card__body > .videocontainer,
+.spec-card__body > .videoph {
   display: block;
   width: 100%;
   height: auto;
@@ -3334,6 +3348,1443 @@ a.spec-card:hover {
   padding: 0;
 }
 
+/* ============================================================
+   Remote terminal landing (/remote-terminal/, layout: landing)
+   The page reuses the homepage frame, hero grid, stage band, splits,
+   pillars, FAQ and CTA. New here: the centered hero with its launch card
+   and segmented OS switch, the two-window demo stage, the connection
+   diagram, and the ruled spec rows and spec table.
+   DESIGN_GUIDELINES.md 7.24.
+   ============================================================ */
+
+/* Centered hero: headline, lead, then the launch card on the center
+   line over the hero grid. The radial mask on the grid is already
+   centered, so the copy sits in its strongest part. */
+.hero--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+  padding: var(--space-12) var(--cell-pad-x) var(--space-10);
+}
+
+.hero--center > :not(.hero__grid) {
+  position: relative;
+  z-index: 1;
+}
+
+.hero--center .biggestheader {
+  max-width: none;
+  text-wrap: balance;
+}
+
+/* The headline's qualifier: a smaller, muted second line. */
+.hero__title-sub {
+  display: block;
+  margin-top: var(--space-3);
+  font-size: var(--text-h2);
+  font-weight: 500;
+  letter-spacing: var(--track-h2);
+  line-height: 1.2;
+  color: var(--ink-500);
+}
+
+.hero--center #lead2 {
+  max-width: 44ch;
+  margin: var(--space-5) auto 0;
+  text-wrap: balance;
+}
+
+/* Three short points under the lead, each led by a brand check: one
+   line on wide screens, a left-aligned column on phones. */
+.hero__points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-6);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-950);
+}
+
+.hero__points li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hero__points .bi {
+  font-size: 1rem;
+  color: var(--brand-600);
+}
+
+@media (max-width: 639.98px) {
+  .hero__points {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.hero__launch {
+  width: min(44rem, 100%);
+  margin-top: var(--space-8);
+}
+
+/* Launch card: one ruled shell. The head carries the title on the left
+   and the OS switch flush on the right; the ink command panel fills the
+   body edge to edge, with a muted shell prompt before the command. */
+.launch {
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+  text-align: left;
+}
+
+.launch__head {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ink-200);
+}
+
+.launch__title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--ink-950);
+}
+
+.launch .segmented {
+  border: 0;
+  border-left: 1px solid var(--ink-200);
+}
+
+.launch .segmented > button {
+  flex: none;
+  padding: 0 var(--space-4);
+}
+
+.launch .cmd {
+  border: 0;
+}
+
+.launch .cmd__text {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 0.9375rem;
+}
+
+.cmd__prompt {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--mock-dim);
+  user-select: none;
+}
+
+.cmd__prompt + .cmd__text {
+  padding-left: 12px;
+}
+
+/* Tux, drawn to sit with the Bootstrap Icons font glyphs (1em box). */
+.icon-linux {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  flex: none;
+}
+
+.launch__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: var(--space-4) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-500);
+}
+
+.launch__meta > span + span::before {
+  content: "\00b7";
+  margin: 0 var(--space-3);
+  color: var(--ink-400);
+}
+
+@media (max-width: 639.98px) {
+  .launch__head {
+    flex-direction: column;
+  }
+  .launch__title {
+    padding: 12px var(--space-4);
+  }
+  .launch .segmented {
+    border-left: 0;
+    border-top: 1px solid var(--ink-200);
+  }
+  .launch .segmented > button {
+    flex: 1 1 0;
+    padding: 0 var(--space-2);
+  }
+  .launch__meta {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .launch__meta > span + span::before {
+    content: none;
+  }
+}
+
+/* Segmented switch: square options in one ruled shell. The selected
+   option is white with a 2px brand rule along its bottom, the marker the
+   network diagram tabs use. Buttons carry aria-pressed. */
+.segmented {
+  display: flex;
+  border: 1px solid var(--ink-200);
+  background: var(--paper);
+}
+
+.segmented > button {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-500);
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.segmented > button + button {
+  border-left: 1px solid var(--ink-200);
+}
+
+.segmented > button:hover {
+  color: var(--ink-950);
+}
+
+.segmented > button[aria-pressed="true"] {
+  background: var(--white);
+  color: var(--ink-950);
+  box-shadow: inset 0 -2px 0 var(--brand-600);
+}
+
+.segmented > button:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--brand-500);
+}
+
+.segmented .bi {
+  font-size: 0.875rem;
+}
+
+/* Shell tabs in the demo's dashboard: one tab per shell, led by the
+   program's mark and named by the program and the directory. */
+.shell-tabs {
+  display: flex;
+  overflow: hidden;
+  padding: 0 var(--space-2);
+  background: var(--mock-bar);
+  border-bottom: 1px solid var(--mock-line);
+}
+
+.shell-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: -1px;
+  padding: 9px 16px;
+  border-right: 1px solid var(--mock-line);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--mock-dim);
+  white-space: nowrap;
+}
+
+.shell-tab b {
+  color: var(--mock-fg);
+  font-weight: 500;
+}
+
+.shell-tab b {
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.shell-tab:not(.is-active):not(.shell-tab--new) b {
+  color: var(--mock-dim);
+}
+
+.shell-tab.is-active {
+  background: var(--mock-bg);
+  color: var(--mock-fg);
+  box-shadow: inset 0 2px 0 var(--brand-500);
+}
+
+.shell-tab--new {
+  border-right: 0;
+}
+
+.shell-tab .bi,
+.shell-tab__mark {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  font-size: 0.8125rem;
+  line-height: 1;
+  fill: currentColor;
+}
+
+.shell-tab__dir {
+  color: var(--mock-dim);
+}
+
+.stage--duo.is-ready .shell-tab[data-i] {
+  cursor: pointer;
+}
+
+/* ---- Remote terminal demo (remote-terminal-demo shortcode) ---- */
+/* The stage band with two windows over the pixel field: the machine's
+   terminal on the left, the dashboard in a browser on the right, and the
+   live connector through Pinggy between them. Both windows are stage
+   artifacts, so both float (--shadow-artifact). The windows take the
+   whole field and stand the same height: the browser sets it, and the
+   terminal's screen fills what is left. assets/js/rtdemo.js sets
+   .is-linked and .is-online on the section as the story plays. */
+.stage--duo {
+  padding: 16px;
+}
+
+.duo__field {
+  position: relative;
+  padding: var(--space-6);
+}
+
+.duo__field > .stage__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.duo {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9.5rem minmax(0, 1.2fr);
+  align-items: center;
+  margin: 0 auto;
+}
+
+.duo .termgif-terminal {
+  margin: 0;
+}
+
+.duo__screen {
+  overflow: hidden;
+  padding: 16px 18px;
+  background: var(--mock-bg);
+  color: var(--mock-fg);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.duo .termgif-title,
+.duo .termgif-pill {
+  font-size: 0.8125rem;
+}
+
+/* A fixed height that fits the finished transcript, so typing never
+   grows the window. Shorter than the browser, centered beside it. */
+.duo__local .duo__screen {
+  height: 23rem;
+}
+
+.duo__browser .duo__screen {
+  height: 18.75rem;
+  padding: 14px 16px;
+  line-height: 1.6;
+}
+
+/* The QR code `pinggy device login` prints after sign-in. */
+.duo__qr {
+  display: block;
+  width: 111px;
+  height: 111px;
+  margin: 4px 0;
+  image-rendering: pixelated;
+}
+
+.duo__browser .duo__line {
+  min-height: 1.6em;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.duo__line {
+  min-height: 1.7em;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.duo__line b {
+  color: #fff;
+  font-weight: 600;
+}
+
+.duo__line--in {
+  opacity: 0;
+  animation: fadeIn 0.35s var(--ease-out) forwards;
+}
+
+/* Mock hues. Green prompt and blue paths match the homepage terminal;
+   red and amber are mixed from the status tokens. */
+.duo .t-prompt,
+.duo .t-ok {
+  color: #7ee2a8;
+}
+
+.duo .t-url,
+.duo .t-accent {
+  color: #9bb8f4;
+}
+
+.duo .t-dim {
+  color: var(--mock-dim);
+}
+
+.duo .t-err {
+  color: color-mix(in srgb, var(--danger) 55%, var(--mock-fg));
+}
+
+.duo .t-warn {
+  color: color-mix(in srgb, var(--warning) 70%, var(--mock-fg));
+}
+
+/* Claude Code: the mascot banner (its 9 x 3 block-character drawing,
+   redrawn as pixels so no font has to carry the glyphs) and the diff
+   rows tinted from the status tokens. Codex: the boxed header and the
+   shaded row behind the user's message. */
+.duo .t-claude {
+  color: var(--mock-claude);
+}
+
+.cc-banner {
+  display: flex;
+  align-items: center;
+  gap: 2ch;
+  padding-left: 1ch;
+}
+
+.cc-mascot {
+  flex: none;
+  width: 5.4em;
+  height: 3.3em;
+  fill: var(--mock-claude);
+}
+
+.duo .g {
+  display: inline-block;
+  width: 1ch;
+  text-align: center;
+}
+
+.duo .t-add,
+.duo .t-del {
+  display: inline-block;
+  min-width: 26ch;
+}
+
+.duo .t-add {
+  background: color-mix(in srgb, var(--success) 22%, var(--mock-bg));
+}
+
+.duo .t-del {
+  background: color-mix(in srgb, var(--danger) 26%, var(--mock-bg));
+}
+
+.cx-box {
+  display: inline-block;
+  padding: 2px 1ch;
+  border: 1px solid color-mix(in srgb, var(--mock-dim) 55%, var(--mock-bg));
+  border-radius: 4px;
+}
+
+.cx-user {
+  display: block;
+  margin: 0 -16px;
+  padding: 0 16px;
+  background: var(--mock-panel);
+}
+
+.duo__caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.15em;
+  margin-left: 1px;
+  vertical-align: -0.2em;
+  background: var(--mock-fg);
+  animation: blink 1s step-end infinite;
+}
+
+/* The browser: a light Chrome window (tab strip with one tab and a
+   Chrome badge where the terminal has its pill, then the toolbar with the
+   omnibox) showing the dashboard in its light theme. Only the shell panel
+   inside the page is dark. A stage artifact, like the terminal. */
+.chrome-win {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--ink-300);
+  border-radius: var(--radius-artifact);
+  background: var(--white);
+  box-shadow: var(--shadow-artifact);
+  animation: mockRise 0.6s var(--ease-rise) both;
+}
+
+.chrome-win__strip {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 12px 0 14px;
+  background: var(--ink-100);
+}
+
+.chrome-win__strip .termgif-dots {
+  align-self: center;
+  margin-right: var(--space-3);
+}
+
+/* The active tab: white, rounded on top, flaring into the toolbar. */
+.chrome-win__tab {
+  position: relative;
+  flex: 0 1 15.5rem;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 35px;
+  padding: 0 10px 0 12px;
+  background: var(--white);
+  border-radius: 8px 8px 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--ink-950);
+}
+
+.chrome-win__tab::before,
+.chrome-win__tab::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+}
+
+.chrome-win__tab::before {
+  left: -8px;
+  background: radial-gradient(circle at 0 0, transparent 7.5px, var(--white) 8px);
+}
+
+.chrome-win__tab::after {
+  right: -8px;
+  background: radial-gradient(circle at 100% 0, transparent 7.5px, var(--white) 8px);
+}
+
+.chrome-win__tab img {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.chrome-win__title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chrome-win__tab .bi {
+  font-size: 0.625rem;
+  color: var(--ink-500);
+}
+
+.chrome-win__new {
+  align-self: center;
+  margin-left: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--ink-500);
+}
+
+.chrome-win__brand {
+  align-self: center;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 2px 9px;
+  border: 1px solid var(--ink-300);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ink-700);
+}
+
+.chrome-logo {
+  width: 15px;
+  height: 15px;
+}
+
+.chrome-win__bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 46px;
+  padding: 0 14px 0 16px;
+  background: var(--white);
+  border-bottom: 1px solid var(--ink-200);
+  font-size: 1rem;
+  color: var(--ink-500);
+}
+
+.chrome-win__off {
+  color: var(--ink-300);
+}
+
+.chrome-win__omni {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 32px;
+  padding: 0 14px;
+  background: var(--ink-100);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--ink-950);
+  white-space: nowrap;
+}
+
+.chrome-win__omni > span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chrome-win__omni svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--ink-700);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+}
+
+.chrome-win__omni .bi {
+  font-size: 0.875rem;
+}
+
+.duo__page {
+  position: relative;
+  background: var(--paper);
+}
+
+/* One header row: the device and its status, then the page tabs. */
+.duo__device {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 46px;
+  padding: 0 18px;
+  background: var(--white);
+  border-bottom: 1px solid var(--ink-200);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ink-500);
+  white-space: nowrap;
+}
+
+.duo__device b {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-950);
+}
+
+.duo__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-700);
+}
+
+.duo__status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.duo__nav {
+  align-self: stretch;
+  display: flex;
+  gap: var(--space-5);
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.duo__nav span {
+  display: flex;
+  align-items: center;
+}
+
+.duo__nav .is-active {
+  color: var(--ink-950);
+  box-shadow: inset 0 -2px 0 var(--brand-600);
+}
+
+/* The dashboard's shell panel: the one dark surface in the page. */
+.duo__term {
+  margin: 12px;
+  overflow: hidden;
+  border: 1px solid var(--ink-950);
+  border-radius: calc(var(--radius-artifact) - 4px);
+  background: var(--mock-bg);
+}
+
+.duo__browser .shell-tabs {
+  min-height: 38px;
+}
+
+/* Empty state until the machine signs in, then the device view. */
+.duo__view {
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.duo__empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--space-6);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-500);
+  text-align: center;
+  transition: opacity var(--duration-slow) var(--ease-out),
+    visibility 0s linear var(--duration-slow);
+}
+
+.duo__empty .bi {
+  margin-bottom: var(--space-2);
+  font-size: 1.375rem;
+  color: var(--ink-400);
+}
+
+.duo__empty b {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-950);
+}
+
+.stage--duo.is-online .duo__view {
+  opacity: 1;
+}
+
+.stage--duo.is-online .duo__empty {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Connector: machine to Pinggy to browser. Grey and still until the
+   machine signs in, then the live connector: brand dashes running into
+   the Pinggy box from both sides, since both ends dial out to it. */
+.duo__link {
+  position: relative;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-2);
+}
+
+.duo__wire {
+  flex: 1;
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--ink-300) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.duo__hub {
+  flex: none;
+  padding: 7px 10px;
+  background: var(--paper);
+  border: 1px solid var(--ink-300);
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink-500);
+  transition: background-color var(--duration-slow) var(--ease-out),
+    border-color var(--duration-slow) var(--ease-out),
+    color var(--duration-slow) var(--ease-out);
+}
+
+.duo__caption {
+  position: absolute;
+  top: calc(50% + 24px);
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  line-height: 1.3;
+  color: var(--ink-700);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.duo__caption svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: var(--brand-600);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stage--duo.is-linked .duo__wire {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--brand-600) 0 6px,
+    transparent 6px 12px
+  );
+  animation: duoFlow 0.9s linear infinite;
+}
+
+.stage--duo.is-linked .duo__wire--rev {
+  animation-direction: reverse;
+}
+
+.stage--duo.is-linked .duo__hub {
+  background: var(--ink-950);
+  border-color: var(--ink-950);
+  color: var(--paper);
+}
+
+.stage--duo.is-linked .duo__caption {
+  opacity: 1;
+}
+
+@keyframes duoFlow {
+  to {
+    background-position: 12px 0;
+  }
+}
+
+@keyframes duoFlowY {
+  to {
+    background-position: 0 12px;
+  }
+}
+
+/* Below 1280px the windows stack (side by side they need about 1030px
+   to keep the 14px lines whole), and the connector turns vertical with
+   its caption to the right of the Pinggy box. */
+@media (max-width: 1279.98px) {
+  .duo__field {
+    padding: var(--space-8) var(--space-5);
+  }
+  .duo {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    max-width: 44rem;
+  }
+  .duo__local .duo__screen {
+    height: 23rem;
+  }
+  .duo__link {
+    flex-direction: column;
+    height: 8rem;
+    padding: var(--space-2) 0;
+  }
+  .duo__wire {
+    width: 2px;
+    height: auto;
+    background-image: repeating-linear-gradient(
+      180deg,
+      var(--ink-300) 0 6px,
+      transparent 6px 12px
+    );
+  }
+  .stage--duo.is-linked .duo__wire {
+    background-image: repeating-linear-gradient(
+      180deg,
+      var(--brand-600) 0 6px,
+      transparent 6px 12px
+    );
+    animation-name: duoFlowY;
+  }
+  .duo__caption {
+    top: 50%;
+    left: calc(50% + 48px);
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 639.98px) {
+  .duo__field {
+    padding: var(--space-6) var(--space-3);
+  }
+  .duo__browser .duo__nav span:nth-child(n + 3) {
+    display: none;
+  }
+  .shell-tab__dir,
+  .cx-hint,
+  .chrome-win__new,
+  .chrome-win__bar .bi-arrow-right,
+  .chrome-win__omni .bi {
+    display: none;
+  }
+  .duo__screen {
+    font-size: 0.8125rem;
+  }
+  /* The command and the install path wrap on phones. */
+  .duo__local .duo__screen {
+    height: 30.5rem;
+  }
+}
+
+/* Device map (#control on /remote-terminal/): a compact tree in the
+   text column of a split, beside the video card. The rail on the left
+   stacks the device and Pinggy: Pinggy sits at the rail's vertical middle
+   (rows 1fr auto 1fr) and the device above it, joined by a short dashed
+   wire running down. From Pinggy a stub runs right to a 2px spine, which
+   branches into one ruled list, one arrow per row. The device cycles
+   through the kinds of machine it can be (Pi, cloud VM, home PC): the
+   drawings share one grid cell and crossfade, 3s each. Below 768px only
+   the list stays. Each row draws its own stretch of the spine (::before;
+   the first starts at its center, the last stops at its center) and its
+   arrow (::after, a line and head in one clipped box), so the tree fits
+   rows of any height. */
+.devmap {
+  --devmap-stub: var(--space-5);
+  --devmap-branch: var(--space-5);
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--devmap-stub);
+  max-width: 36rem;
+  margin-top: var(--space-6);
+}
+
+.devmap__rail {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-self: stretch;
+}
+
+.devmap__src {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: end;
+}
+
+.devmap__device {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding: var(--space-3) var(--space-2) var(--space-2);
+  background: var(--paper);
+  border: 1px solid var(--ink-300);
+  text-align: center;
+}
+
+.devmap__dev {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  opacity: 0;
+  animation: devmapCycle 9s var(--ease-in-out) infinite both;
+}
+
+.devmap__dev:first-of-type {
+  opacity: 1;
+}
+
+.devmap__dev:nth-of-type(2) {
+  animation-delay: 3s;
+}
+
+.devmap__dev:nth-of-type(3) {
+  animation-delay: 6s;
+}
+
+@keyframes devmapCycle {
+  0% {
+    opacity: 0;
+  }
+  5.5%,
+  33.3% {
+    opacity: 1;
+  }
+  38.9%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.devmap__board {
+  width: 100%;
+  max-width: 5.5rem;
+  height: auto;
+}
+
+.devmap__board .b-board,
+.devmap__board .b-cloud-out {
+  fill: var(--white);
+  stroke: var(--ink-950);
+  stroke-width: 1.5;
+}
+
+/* The cloud's outline: the shapes stroked at 3 (half shows outside),
+   then filled again on top to hide the strokes inside the union. */
+.devmap__board .b-cloud-out {
+  stroke-width: 3;
+}
+
+.devmap__board .b-cloud-in {
+  fill: var(--white);
+}
+
+.devmap__board .b-hole,
+.devmap__board .b-port {
+  fill: var(--ink-100);
+  stroke: var(--ink-950);
+  stroke-width: 1.2;
+}
+
+.devmap__board .b-header {
+  fill: var(--ink-100);
+  stroke: var(--ink-950);
+  stroke-width: 1;
+}
+
+.devmap__board pattern rect {
+  fill: var(--ink-950);
+}
+
+.devmap__board .b-chip {
+  fill: var(--ink-950);
+}
+
+.devmap__board .b-die {
+  fill: var(--ink-800);
+}
+
+.devmap__board .b-ram {
+  fill: var(--ink-700);
+}
+
+.devmap__board .b-slot {
+  fill: none;
+  stroke: var(--ink-500);
+  stroke-width: 1;
+}
+
+/* The home PC's screen: a dark mock panel with a prompt. */
+.devmap__board .b-screen {
+  fill: var(--mock-bg);
+}
+
+.devmap__board .b-text {
+  fill: none;
+  stroke: var(--mock-dim);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.devmap__board .b-prompt {
+  stroke: var(--mock-fg);
+}
+
+.devmap__device b {
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  color: var(--ink-950);
+}
+
+/* The live link: brand dashes running down from the device to Pinggy. */
+.devmap__link {
+  width: 2px;
+  height: var(--space-5);
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--brand-600) 0 6px,
+    transparent 6px 12px
+  );
+  animation: duoFlowY 0.9s linear infinite;
+}
+
+.devmap__hub {
+  position: relative;
+  padding: 9px 0;
+  background: var(--ink-950);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--paper);
+  text-align: center;
+}
+
+/* From Pinggy to the spine. */
+.devmap__hub::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 100%;
+  width: calc(var(--devmap-stub) + 2px);
+  height: 2px;
+  background: var(--brand-600);
+}
+
+.devmap__points {
+  display: grid;
+  margin: 0;
+  padding: 0 0 0 var(--devmap-branch);
+  list-style: none;
+}
+
+/* Rows share their rules: each after the first pulls up over the one
+   above it by 1px. */
+.devmap__point {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+}
+
+.devmap__point + .devmap__point {
+  margin-top: -1px;
+}
+
+/* This row's stretch of the spine. */
+.devmap__point::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: calc(-1 * var(--devmap-branch) - 1px);
+  width: 2px;
+  background: var(--brand-600);
+}
+
+.devmap__point:first-child::before {
+  top: calc(50% - 1px);
+}
+
+.devmap__point:last-child::before {
+  bottom: calc(50% - 1px);
+}
+
+/* Its arrow: a 2px line off the spine and an 8px head at the row. */
+.devmap__point::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(-1 * var(--devmap-branch) - 1px);
+  width: calc(var(--devmap-branch) + 1px);
+  height: 10px;
+  background: var(--brand-600);
+  clip-path: polygon(0 4px, calc(100% - 8px) 4px, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, calc(100% - 8px) 6px, 0 6px);
+}
+
+.devmap__icon {
+  grid-row: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--paper);
+  border: 1px solid var(--ink-200);
+  font-size: 1rem;
+  color: var(--ink-950);
+}
+
+.devmap__point h3 {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: var(--track-h3);
+  line-height: 1.3;
+}
+
+/* A small, concrete sample under each title: meters, agents, a status,
+   protocols. Plex 12px. */
+.devmap__art {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  min-height: 22px;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-700);
+}
+
+.devmap__art--chips {
+  gap: 6px;
+}
+
+.devmap__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.devmap__stat .meter {
+  flex-basis: 56px;
+}
+
+/* Command, agent and protocol chips, one height. Agent marks are
+   third-party brand art in their own color: Claude orange, the others
+   ink. */
+.devmap__art code,
+.devmap__mark,
+.devmap__tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 7px;
+  background: var(--ink-50);
+  border: 1px solid var(--ink-200);
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  line-height: 1;
+  color: var(--ink-950);
+}
+
+.devmap__art .chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+}
+
+.devmap__mark svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.devmap__mark--claude {
+  color: var(--mock-claude);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .devmap__dev {
+    animation: none;
+  }
+}
+
+/* Below 768px: just the facts. No device, wire, Pinggy or arrows; the
+   rows become a plain ruled list. */
+@media (max-width: 767.98px) {
+  .devmap {
+    display: block;
+    max-width: none;
+  }
+  .devmap__rail,
+  .devmap__point::before,
+  .devmap__point::after {
+    display: none;
+  }
+  .devmap__points {
+    padding: 0;
+    border-top: 1px solid var(--ink-200);
+  }
+  .devmap__point,
+  .devmap__point + .devmap__point {
+    margin: 0;
+    padding: var(--space-4) 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--ink-200);
+  }
+}
+
+/* Placeholder for a video that isn't recorded yet: the dark poster of a
+   video card with a ruled play mark and a note, not a button. */
+.videoph {
+  background: var(--mock-bg);
+}
+
+.videoph__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  color: var(--mock-dim);
+}
+
+.videoph__play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--mock-line);
+  font-size: 1.5rem;
+  color: var(--mock-fg);
+}
+
+/* Tabular Plex for numbers in a spec table. */
+.spec-table .num {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-950);
+}
+
+/* Usage meter: an ink bar on a ruled --ink-100 track; --v sets the fill. */
+.meter {
+  position: relative;
+  flex: 0 0 96px;
+  height: 8px;
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+}
+
+.meter > span {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  width: var(--v, 0%);
+  background: var(--ink-950);
+}
+
+/* Spec table: a ruled table inside a spec card. Uppercase Plex heads,
+   sans cells, the first column in Plex. Scrolls sideways when narrow. */
+.spec-table-wrap {
+  overflow-x: auto;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.spec-table th {
+  padding: 0 var(--space-4) var(--space-2) 0;
+  border-bottom: 1px solid var(--ink-200);
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 400;
+  letter-spacing: var(--track-eyebrow);
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  white-space: nowrap;
+}
+
+.spec-table td {
+  padding: 10px var(--space-4) 10px 0;
+  border-bottom: 1px solid var(--ink-200);
+  color: var(--ink-700);
+  vertical-align: middle;
+}
+
+.spec-table th:last-child,
+.spec-table td:last-child {
+  padding-right: 0;
+}
+
+.spec-table tbody tr:last-child td {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.spec-table td:first-child {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink-950);
+  white-space: nowrap;
+}
+
+.spec-table td.num {
+  white-space: nowrap;
+}
+
+.spec-table b {
+  font-weight: 600;
+  color: var(--ink-950);
+}
+
 /* Pricing section --------------------------  */
 /* ------ Hide monthly prices by default ---- */
 .monthly {
@@ -3949,8 +5400,9 @@ pre {
   font-family: var(--font-sans);
 }
 
-/* On the homepage the frame's last rule is the footer's top edge. */
-body.home .pgf {
+/* On framed pages (the homepage, /remote-terminal/) the frame's last rule
+   is the footer's top edge. */
+body.has-frame .pgf {
   margin-top: 0;
   border-top: 0;
 }
@@ -3964,7 +5416,7 @@ body.home .pgf {
 .pgf__inner {
   padding: 56px 0 40px;
   display: grid;
-  grid-template-columns: 1.3fr repeat(3, 1fr);
+  grid-template-columns: 1.3fr repeat(4, 1fr);
   gap: 40px;
 }
 
@@ -4092,6 +5544,16 @@ body.home .pgf {
   color: var(--ink-950);
 }
 
+/* Four link columns stop fitting beside the brand block around 1100px,
+   so the brand takes its own row above them. */
+@media (max-width: 1100px) {
+  .pgf__inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .pgf__brand {
+    grid-column: 1 / -1;
+  }
+}
 @media (max-width: 860px) {
   .pgf__inner {
     grid-template-columns: 1fr 1fr;
