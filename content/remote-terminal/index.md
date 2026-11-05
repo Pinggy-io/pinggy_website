@@ -28,9 +28,9 @@ draft: false
   <h1 class="biggestheader">Instant Remote Terminals <span class="hero__title-sub">in your browser.</span></h1>
   <p id="lead2">Run one command on any machine, then open its shell from your browser. Works behind NAT and firewalls.</p>
   <ul class="hero__points">
-    <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Run Claude Code, Codex or any long task</li>
-    <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Close the browser, it keeps running</li>
-    <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Come back to the same screen</li>
+    <li class="hero__point--no-phone"><span class="hero__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.75" y="4.75" width="18.5" height="14.5" rx="2" /><path d="M6.5 10l2.5 2-2.5 2M11 15h2.5" /><path class="ac-fill" d="M17 6.9l.75 2.1 2.1.75-2.1.75L17 12.6l-.75-2.1-2.1-.75 2.1-.75z" /></svg></span>Run Claude Code, Codex or any long task</li>
+    <li class="hero__point--no-phone"><span class="hero__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="dash" d="M4.75 4.75h14.5a2 2 0 0 1 2 2v10.5a2 2 0 0 1-2 2H4.75a2 2 0 0 1-2-2V6.75a2 2 0 0 1 2-2zM2.75 8.25h18.5" /><path class="ac" d="M1.5 14h5l1.75-3.5 2.5 6.5 2-4.5 1.25 1.5h8.5" /></svg></span>Close the browser, it keeps running</li>
+    <li><span class="hero__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.75" y="4.75" width="18.5" height="14.5" rx="2" /><path d="M2.75 8.25h18.5" /><path class="ac" d="M16.5 10.75v2a2 2 0 0 1-2 2H8.5M10.75 12.5L8.5 14.75 10.75 17" /></svg></span>Come back to the same screen</li>
   </ul>
   <div class="hero__launch" x-data="{ os: (typeof getOS === 'function' && { windows: 'win', linux: 'linux' }[getOS()]) || 'mac' }">
   <div class="launch">

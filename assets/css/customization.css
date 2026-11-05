@@ -819,12 +819,6 @@ body:not(.blog) .alert.alert-info {
   color: var(--ink-950);
 }
 
-/* /cli/ install and download card (cli-downloads shortcode). */
-.cli-card {
-  background: var(--white);
-  border: 1px solid var(--ink-200);
-}
-
 /* ---- Install callout (highlighted quick-start command) --- */
 .install-callout {
   background-color: var(--brand-50);
@@ -3418,15 +3412,46 @@ a.spec-card:hover {
   gap: var(--space-2);
 }
 
-.hero__points .bi {
-  font-size: 1rem;
-  color: var(--brand-600);
+/* Custom 20px line icons, one per point, bare (no tile): ink strokes at
+   1.5 with one --brand-600 detail each (.ac stroke, .ac-fill fill);
+   .dash draws a closed window. */
+.hero__icon {
+  display: inline-flex;
+  flex: none;
+}
+
+.hero__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--ink-950);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__icon .ac {
+  stroke: var(--brand-600);
+}
+
+.hero__icon .ac-fill {
+  fill: var(--brand-600);
+  stroke: none;
+}
+
+.hero__icon .dash {
+  stroke: var(--ink-400);
+  stroke-dasharray: 2.5 2;
 }
 
 @media (max-width: 639.98px) {
   .hero__points {
     flex-direction: column;
     align-items: flex-start;
+  }
+  /* Phones keep the hero short: only the last point stays. */
+  .hero__points .hero__point--no-phone {
+    display: none;
   }
 }
 
@@ -3501,8 +3526,10 @@ a.spec-card:hover {
   padding-left: 12px;
 }
 
-/* Tux, drawn to sit with the Bootstrap Icons font glyphs (1em box). */
-.icon-linux {
+/* Tux and the npm mark, drawn to sit with the Bootstrap Icons font
+   glyphs (1em box). */
+.icon-linux,
+.icon-npm {
   width: 1em;
   height: 1em;
   fill: currentColor;
@@ -4516,7 +4543,7 @@ a.spec-card:hover {
   align-items: center;
   column-gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  background: var(--white);
+  background: var(--paper);
   border: 1px solid var(--ink-200);
 }
 
@@ -4562,7 +4589,7 @@ a.spec-card:hover {
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  background: var(--paper);
+  background: var(--ink-50);
   border: 1px solid var(--ink-200);
   font-size: 1rem;
   color: var(--ink-950);
@@ -5194,6 +5221,302 @@ pre {
 .tab-item pre {
   margin-bottom: 0;
   margin-top: 0;
+}
+
+/* ============================================================
+   CLI page (/cli/, layout: landing)
+   The page keeps its structure from before the redesign: a two-column
+   hero with the illustration, one card holding Install in One Command,
+   Download and Run and Older versions, then Example Usage as two stacked
+   cards and the docs link. It wears the remote terminal landing's parts:
+   the hero grid, the segmented OS switch, ink command panels, ruled
+   cards. DESIGN_GUIDELINES.md 7.25.
+   ============================================================ */
+
+/* Two-column hero without the announcement tag row. */
+.hero--plain {
+  padding-top: var(--space-10);
+}
+
+.hero--plain .hero__right img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The centered column the card and the examples share. */
+.cli-col {
+  width: min(100%, 60rem);
+  margin: 0 auto;
+}
+
+.cli-col__title {
+  margin: 0 0 var(--space-8);
+  font-size: var(--text-h2);
+  letter-spacing: var(--track-h2);
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* One ruled white card, its parts split by rules. */
+.cli-card {
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+}
+
+.cli-part {
+  padding: var(--space-8);
+}
+
+.cli-part + .cli-part {
+  border-top: 1px solid var(--ink-200);
+}
+
+/* Part head: eyebrow, h2 and a short lead on the left, a chip on the
+   right ("Recommended", the version). */
+.cli-part__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.cli-part__head h2 {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-h2);
+  letter-spacing: var(--track-h2);
+  line-height: 1.15;
+}
+
+.cli-part__head p {
+  max-width: 60ch;
+  margin: var(--space-2) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-700);
+}
+
+.cli-part__note {
+  max-width: 72ch;
+  margin: var(--space-4) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-500);
+}
+
+/* A launch card whose head is only the switch, flush left, like a tab
+   strip over its panel. */
+.launch--tabs .launch__head {
+  justify-content: flex-start;
+}
+
+.launch--tabs .segmented {
+  border-left: 0;
+  border-right: 1px solid var(--ink-200);
+}
+
+/* Download panel: two buttons, a note, the steps, the other build. */
+.dl-panel {
+  padding: var(--space-5);
+}
+
+.dl-panel__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.dl-panel__note {
+  margin: var(--space-4) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-500);
+}
+
+/* Multi-line commands in the command panel's ink. Written as a bare
+   <pre>, so the docs copy button and pre > code colors stay out. */
+.cli-code {
+  margin: var(--space-2) 0 0;
+  padding: 14px 18px;
+  overflow-x: auto;
+  background: var(--ink-950);
+  border: 0;
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--paper);
+}
+
+.cli-code__dim {
+  color: var(--mock-dim);
+}
+
+/* Older versions: the card's last part opens like the FAQ (+ and minus
+   markers), with the title over a muted line. */
+.dl-older > summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--space-4);
+  row-gap: 2px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.dl-older > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dl-older__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: var(--track-h3);
+  color: var(--ink-950);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.dl-older__sub {
+  grid-column: 1;
+  font-size: 0.875rem;
+  color: var(--ink-500);
+}
+
+.dl-older > summary::after {
+  content: "+";
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink-500);
+}
+
+.dl-older[open] > summary::after {
+  content: "\2212";
+}
+
+.dl-older > summary:hover .dl-older__title {
+  color: var(--brand-700);
+}
+
+.dl-older > summary:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.dl-older .spec-table-wrap {
+  margin-top: var(--space-5);
+}
+
+.dl-table td {
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+/* Older releases are a grid of small links: ink with a light underline,
+   brand on hover, so the table doesn't turn into a wall of blue. */
+.dl-table td a {
+  display: block;
+  width: fit-content;
+  color: var(--ink-950);
+  text-decoration-color: var(--ink-300);
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.dl-table td a + a {
+  margin-top: var(--space-1);
+}
+
+.dl-table td a:hover {
+  color: var(--brand-700);
+  text-decoration-color: currentColor;
+}
+
+/* Example Usage: stacked ruled cards, each led by a ruled icon box, with
+   a bold sans label above each command. */
+.cli-example {
+  padding: var(--space-8);
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+}
+
+.cli-example + .cli-example {
+  margin-top: var(--space-4);
+}
+
+.cli-example__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--ink-50);
+  border: 1px solid var(--ink-200);
+  font-size: 1.125rem;
+  color: var(--ink-950);
+}
+
+.cli-example h3 {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-h3);
+  letter-spacing: var(--track-h3);
+}
+
+.cli-example__label {
+  margin: var(--space-5) 0 var(--space-2);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink-950);
+}
+
+.cli-example h3 + .cli-example__label {
+  margin-top: var(--space-3);
+}
+
+.cli-docs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+}
+
+.cli-docs > span {
+  font-size: 0.875rem;
+  color: var(--ink-500);
+}
+
+@media (max-width: 639.98px) {
+  .cli-part,
+  .cli-example {
+    padding: var(--space-4);
+  }
+  .cli-part__head {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .launch--tabs .segmented {
+    border-top: 0;
+    border-right: 0;
+  }
+  /* Four install options (npm included) fit a phone only when each
+     takes its label's width, with a 4px icon gap and padding. */
+  .launch--tabs .segmented > button {
+    flex: 1 1 auto;
+    gap: var(--space-1);
+    padding: 0 var(--space-1);
+  }
+  .dl-panel {
+    padding: var(--space-4);
+  }
+  .dl-panel__buttons {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===== Single pages (layouts/_default/single.html) ========== */
