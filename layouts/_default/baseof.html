@@ -6,7 +6,11 @@
     {{- partial "seoindex.html" . -}}
   </head>
 
-  <body{{ if .IsHome }} class="home"{{ end }}>
+  {{- /* has-frame: the page is one ruled main.frame (homepage and the
+       "landing" layout), so the navbar hides its rule at the top and the
+       footer drops its own (customization.css). */}}
+  {{- $framed := or .IsHome (eq .Layout "landing") }}
+  <body{{ if .IsHome }} class="home has-frame"{{ else if $framed }} class="has-frame"{{ end }}>
     {{- partial "navbar.html" .}} {{- block "main" . }}{{- end }} {{- partial
     "footer.html" . -}}
   </body>

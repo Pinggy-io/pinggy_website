@@ -14,6 +14,7 @@
 {{ $docsearch := resources.Get "/js/docsearch.js" }}
 {{ $cursorglow := resources.Get "/js/cursorglow.js" }}
 {{ $tooltips := resources.Get "/js/tooltips.js" }}
+{{ $rtdemo := resources.Get "/js/rtdemo.js" }}
 
 {{/* Blog articles get a trimmed bundle. The only interactive markup they carry
      comes from the ssh_command, pinggytunnel and tabs shortcodes, which need
@@ -28,11 +29,13 @@
 {{/* cursorglow.js draws the blog's background grid (partials/grid_canvas.html)
      and, in its parent-scoped mode, the homepage hero grid (the canvas in
      content/_index.md). It returns immediately on pages without a
-     #grid-canvas, so the main bundle carries it for the homepage. */}}
+     #grid-canvas, so the main bundle carries it for the homepage. rtdemo.js
+     (the /remote-terminal/ stage) likewise returns at once without its
+     [data-rt-demo] section. */}}
 {{ $isBlog := eq .Section "blog" }}
 {{ $sources := cond $isBlog
   (slice $jquery $alpine $bootstrap $getos $pinggyshortcode $pinggycommand $cidrvalidation $cursorglow $tooltips)
-  (slice $jquery $alpine $bootstrap $getos $typewriter $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc $quickstart $docsearch $cursorglow $tooltips) }}
+  (slice $jquery $alpine $bootstrap $getos $typewriter $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc $quickstart $docsearch $cursorglow $tooltips $rtdemo) }}
 
 {{ $js := $sources | resources.Concat (cond $isBlog "js/blog-bundle.js" "js/bundle.js") | resources.Minify | resources.Fingerprint }}
 

@@ -19,11 +19,11 @@
 />
 <meta
   property="og:description"
-  content="Pinggy is the simplest way to bring your localhost projects online. It the the fastest way to create secure tunnels to localhost with a public url."
+  content="{{ with .Params.description }}{{ . }}{{ else }}Pinggy is the simplest way to bring your localhost projects online. It the the fastest way to create secure tunnels to localhost with a public url.{{ end }}"
 />
 <meta
   name="twitter:description"
-  content="Pinggy is the simplest way to bring your localhost projects online. It the the fastest way to create secure tunnels to localhost with a public url."
+  content="{{ with .Params.description }}{{ . }}{{ else }}Pinggy is the simplest way to bring your localhost projects online. It the the fastest way to create secure tunnels to localhost with a public url.{{ end }}"
 />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="Pinggy" />
