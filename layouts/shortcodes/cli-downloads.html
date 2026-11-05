@@ -1,4 +1,4 @@
-{{- $releases := site.Data.cli_releases -}}
+{{- $releases := hugo.Data.cli_releases -}}
 {{- $latest := (index $releases 0).version -}}
 {{- $base := "https://github.com/Pinggy-io/cli-js/releases/download" -}}
 <section class="" id="downloads">

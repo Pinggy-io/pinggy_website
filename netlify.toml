@@ -2,8 +2,13 @@
 command = "hugo --gc --minify && npx -y pagefind@1.1.0 --site public --glob \"{docs,quickstart}/**/*.html\""
 publish = "public"
 
-[context.production.environment]
+# Pin Hugo for every deploy context (production, deploy previews, branch
+# deploys). Without this, non-production builds fall back to Netlify's much
+# older default Hugo, which lacks hugo.Data and fails the build.
+[build.environment]
 HUGO_VERSION = "0.164.0"
+
+[context.production.environment]
 HUGO_ENV = "production"
 
 # Hugo does not build /es/ (the Spanish home kind is disabled), so send it to
