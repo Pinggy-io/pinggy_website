@@ -19,38 +19,32 @@ languages:
       ogLocale: "en_US"
     menus:
       main:
-        - name: Home
-          identifier: home
-          url: "/"
-          weight: 90
-        - name: Pricing
-          identifier: pricing
-          url: /#prices
+        # Remote Terminal is the second product after tunnels, so it leads
+        # the nav. Home, Compare and Use Cases moved to the footer.
+        - name: Remote Terminal
+          identifier: remote-terminal
+          pageRef: /remote-terminal
+          weight: 95
+        - name: Download
+          identifier: download
+          url: /app/
           weight: 100
         - name: Docs
           identifier: docs
           url: /docs/
+          weight: 110
+        - name: Pricing
+          identifier: pricing
+          url: /#prices
           weight: 120
-        - name: Download
-          identifier: download
-          url: /app/
-          weight: 123
-        - name: Compare
-          identifier: compare
-          url: /compare/
-          weight: 125
-        - name: Quickstart
-          identifier: quickstart
-          url: /quickstart/
+        - name: Help
+          identifier: help
+          url: /help/
           weight: 130
         - name: Blog
           identifier: blog
           url: /blog/
           weight: 140
-        - name: Help
-          identifier: help
-          url: /help/
-          weight: 150
   es:
     label: "Español"
     weight: 2
@@ -59,38 +53,32 @@ languages:
       ogLocale: "es_ES"
     menus:
       main:
-        - name: Inicio
-          identifier: home
-          url: "/"
-          weight: 90
-        - name: Precios
-          identifier: pricing
-          url: /#prices
+        # /remote-terminal/ is English only, so this links by URL: a pageRef
+        # would not resolve on the Spanish site.
+        - name: Terminal remota
+          identifier: remote-terminal
+          url: /remote-terminal/
+          weight: 95
+        - name: Descargar
+          identifier: download
+          url: /app/
           weight: 100
         - name: Documentación
           identifier: docs
           url: /docs/
+          weight: 110
+        - name: Precios
+          identifier: pricing
+          url: /#prices
           weight: 120
-        - name: Descargar
-          identifier: download
-          url: /app/
-          weight: 123
-        - name: Comparativas
-          identifier: compare
-          url: /compare/
-          weight: 125
-        - name: Quickstart
-          identifier: quickstart
-          url: /quickstart/
+        - name: Ayuda
+          identifier: help
+          url: /help/
           weight: 130
         - name: Blog
           identifier: blog
           url: /blog/
           weight: 140
-        - name: Ayuda
-          identifier: help
-          url: /help/
-          weight: 150
 
 markup:
   highlight:

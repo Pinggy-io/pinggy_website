@@ -24,20 +24,7 @@
       <ul class="navbar-nav mb-2 mb-lg-0">
         {{ range .Site.Menus.main }}
         <li class="nav-item mx-2">
-            {{ if eq .Identifier "quickstart" }}
-            <div class="nav-item dropdown">
-                <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="quickstartDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ .Pre }}
-                    <span style="display:inline-block;">
-                        {{ i18n "navUseCases" }}
-                    </span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="quickstartDropdown">
-                    <a class="dropdown-item" href="/ingress_for_dev_test_environments/">{{ i18n "navIngress" }}</a>
-                    <a class="dropdown-item" href="/quickstart/">{{ i18n "footerQuickstart" }}</a>
-                </div>
-            </div>
-            {{ else if eq .Identifier "download" }}
+            {{ if eq .Identifier "download" }}
             <div class="nav-item dropdown">
                 <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="downloadDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ .Pre }}
@@ -46,27 +33,11 @@
                     </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="downloadDropdown">
-                    <a class="dropdown-item" href="/app/">{{ i18n "navGuiApp" }}</a>
                     <a class="dropdown-item" href="/cli/">CLI</a>
+                    <a class="dropdown-item" href="/app/">{{ i18n "navGuiApp" }}</a>
                     <a target="_blank" class="dropdown-item" href="https://pinggy-io.github.io/sdk-nodejs/">Node.js SDK</a>
                     <a target="_blank" class="dropdown-item" href="https://pypi.org/project/pinggy/">Python SDK</a>
                 </div>
-            </div>
-            {{ else if eq .Identifier "compare" }}
-            <div class="nav-item dropdown">
-                <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }} dropdown-toggle" href="#" id="compareDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ .Pre }}
-                    <span style="display:inline-block;">
-                        {{ .Name }}
-                    </span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="compareDropdown">
-                    <a class="dropdown-item" href="/compare/pinggy-vs-ngrok/">Pinggy vs Ngrok</a>
-                    <a class="dropdown-item" href="/compare/pinggy-vs-localxpose/">Pinggy vs Localxpose</a>
-                    <a class="dropdown-item" href="/compare/pinggy-vs-localtunnel/">Pinggy vs LocalTunnel</a>
-                    <a class="dropdown-item" href="/compare/pinggy-vs-cloudflare-tunnel/">Pinggy vs Cloudflare</a>
-                </div>
-                
             </div>
             {{ else if eq .Identifier "help" }}
             <div class="nav-item dropdown">
@@ -139,7 +110,7 @@
 </nav>
 <script>
   // Toggle body.is-scrolled once the page moves, so customization.css can
-  // draw the navbar's bottom rule. On the homepage the ruled frame's own
+  // draw the navbar's bottom rule. On framed pages the ruled frame's own
   // top border plays that role until content starts sliding under the bar.
   (function () {
     var THRESHOLD = 8;

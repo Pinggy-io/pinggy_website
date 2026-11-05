@@ -1,378 +1,130 @@
-{{- $releases := site.Data.cli_releases -}}
+{{/* The install and download card on /cli/: one ruled card in three parts.
+     Install in One Command: a switch (macOS, Linux, Windows, npm) over the
+     ink command panel. Download and Run: a switch (Windows, macOS, Linux)
+     over two download buttons and the steps to run the binary. Older
+     versions: a collapsed table of every earlier release. Versions and
+     links come from data/cli_releases.yaml (newest first), which the
+     cli-js release workflow prepends to, so a release needs no edit here.
+     The steps are a bare <pre> (no <code>), so doc.js adds no copy button
+     and the docs' pre > code colors stay out. Styles: "CLI page" in
+     customization.css; DESIGN_GUIDELINES.md 7.25. */}}
+{{- $releases := hugo.Data.cli_releases -}}
 {{- $latest := (index $releases 0).version -}}
 {{- $base := "https://github.com/Pinggy-io/cli-js/releases/download" -}}
-<section class="" id="downloads">
-  <div class="container">
-    <div class="row justify-content-center align-items-center gap-2 my-3">
-      <div class="col-lg-10">
-        <div class="cli-card p-4 p-lg-5">
-          <div class="mb-5 pb-4 border-bottom" id="install-command">
-            <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
-              <div>
-                <div class="eyebrow mb-2">
-                  Install
-                </div>
-                <h2 class="fw-bold mb-2">Install with 1 command</h2>
-                <p class="mb-0 text-secondary">
-                  Installs the latest Pinggy CLI, or updates an older one, and puts <kbd>pinggy</kbd> on your PATH. No sudo or administrator rights needed.
-                </p>
-              </div>
-              <div class="chip">
-                Recommended
-              </div>
-            </div>
-
-            <ul class="nav nav-tabs" id="cliInstallTabs" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link active"
-                  id="install-unix-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#tab-install-unix"
-                  type="button"
-                  role="tab"
-                  aria-controls="tab-install-unix"
-                  aria-selected="true"
-                >
-                  <i class="bi bi-apple"></i> Mac OS / <i class="bi bi-terminal"></i> Linux
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link"
-                  id="install-windows-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#tab-install-windows"
-                  type="button"
-                  role="tab"
-                  aria-controls="tab-install-windows"
-                  aria-selected="false"
-                >
-                  <i class="bi bi-windows"></i> Windows (PowerShell)
-                </button>
-              </li>
-            </ul>
-
-            <div class="tab-content pt-4" id="cliInstallTabContent">
-              <div
-                class="tab-pane fade show active"
-                id="tab-install-unix"
-                role="tabpanel"
-                aria-labelledby="install-unix-tab"
-              >
-                <pre class="mb-0"><code>curl -fsSL https://pinggy.io/install.sh | sh</code></pre>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="tab-install-windows"
-                role="tabpanel"
-                aria-labelledby="install-windows-tab"
-              >
-                <pre class="mb-0"><code>irm https://pinggy.io/install.ps1 | iex</code></pre>
-              </div>
-            </div>
-
-            <p class="mt-3 mb-0 text-secondary">
-              After installing, it signs this machine in as a <a href="/docs/devices/" class="pinggy-link">Pinggy Device</a>, so you can open a terminal on it from the dashboard. Press <kbd>Ctrl+C</kbd> at the email prompt to skip that step.
-            </p>
+{{- $apple := `<i class="bi bi-apple" aria-hidden="true"></i>` -}}
+{{- $windows := `<i class="bi bi-windows" aria-hidden="true"></i>` -}}
+{{- $tux := `<svg class="icon-linux" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .6c1.95 0 3.15 1.5 3.15 3.6 0 .95.3 1.65.9 2.5 1.05 1.5 1.75 3 1.75 4.6 0 2.2-2.35 3.45-5.8 3.45s-5.8-1.25-5.8-3.45c0-1.6.7-3.1 1.75-4.6.6-.85.9-1.55.9-2.5C4.85 2.1 6.05.6 8 .6ZM8 6.95c1.5 0 2.85 2.05 2.85 4.35 0 1.6-1.25 2.5-2.85 2.5s-2.85-.9-2.85-2.5c0-2.3 1.35-4.35 2.85-4.35ZM6.8 2.95a.65.65 0 1 0 0 1.3.65.65 0 0 0 0-1.3Zm2.4 0a.65.65 0 1 0 0 1.3.65.65 0 0 0 0-1.3ZM6.75 5h2.5L8 6.25Z"/><path d="M.9 14.35c.45-.85 2.45-1.2 3.75-.55.8.4.85 1.2.15 1.5-1.15.5-3.05.55-3.7.1-.3-.25-.35-.65-.2-1.05Zm14.2 0c-.45-.85-2.45-1.2-3.75-.55-.8.4-.85 1.2-.15 1.5 1.15.5 3.05.55 3.7.1.3-.25.35-.65.2-1.05Z"/></svg>` -}}
+{{- $npm := `<svg class="icon-npm" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.113z"/></svg>` -}}
+{{- $unixCmd := "curl -fsSL https://pinggy.io/install.sh | sh" -}}
+{{- $installs := slice
+  (dict "key" "mac" "os" "macOS" "icon" $apple "cmd" $unixCmd "prompt" "$")
+  (dict "key" "linux" "os" "Linux" "icon" $tux "cmd" $unixCmd "prompt" "$")
+  (dict "key" "win" "os" "Windows" "icon" $windows "cmd" "irm https://pinggy.io/install.ps1 | iex" "prompt" "PS>")
+  (dict "key" "npm" "os" "npm" "icon" $npm "cmd" "npm install -g pinggy" "prompt" "$")
+-}}
+{{- $platforms := slice
+  (dict "key" "win" "os" "Windows" "icon" $windows "unix" false
+    "files" (slice (dict "arch" "x86-64" "file" "pinggy-win-x64.exe") (dict "arch" "ARM64" "file" "pinggy-win-arm64.exe")))
+  (dict "key" "mac" "os" "macOS" "icon" $apple "unix" true
+    "files" (slice (dict "arch" "Apple Silicon" "file" "pinggy-macos-arm64") (dict "arch" "Intel" "file" "pinggy-macos-x64")))
+  (dict "key" "linux" "os" "Linux" "icon" $tux "unix" true
+    "files" (slice (dict "arch" "x86-64" "file" "pinggy-linux-x64") (dict "arch" "ARM64" "file" "pinggy-linux-arm64")))
+-}}
+<section class="cell" id="downloads" x-data="{ os: (typeof getOS === 'function' && { windows: 'win', linux: 'linux' }[getOS()]) || 'mac', dl: (typeof getOS === 'function' && { mac: 'mac', linux: 'linux' }[getOS()]) || 'win' }">
+  <div class="cli-col">
+    <div class="cli-card">
+      <div class="cli-part" id="install-command">
+        <div class="cli-part__head">
+          <div>
+            <span class="eyebrow">{{ i18n "cliInstallEyebrow" }}</span>
+            <h2 id="cliInstallTitle">{{ i18n "cliInstallTitle" }}</h2>
+            <p>{{ i18n "cliInstallLead" | safeHTML }}</p>
           </div>
-
-          <div class="mb-5 pb-4 border-bottom">
-            <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
-              <div>
-                <div class="eyebrow mb-2">
-                  npm
-                </div>
-                <h2 class="fw-bold mb-2">Install with npm</h2>
-                <p class="mb-0 text-secondary">
-                  Use npm to install Pinggy CLI globally if you want a package-managed setup. Needs Node.js 22 or newer.
-                </p>
-              </div>
-            </div>
-
-            <pre class="mb-3"><code>npm install -g pinggy</code></pre>
-
-            <p class="mb-0 text-secondary">
-              Prefer a standalone binary? Download the release for your platform and use the install options below.
-            </p>
-          </div>
-
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
-            <div>
-              <div class="eyebrow mb-2">
-                Download
-              </div>
-              <h2 class="fw-bold mb-2">Download and Run</h2>
-              <p class="mb-0 text-secondary">
-                Download the latest stable CLI or browse older versions below.
-              </p>
-            </div>
-            <div class="chip">
-              v{{ $latest }}
+          <span class="chip">{{ i18n "cliInstallRecommended" }}</span>
+        </div>
+        <div class="launch launch--tabs">
+          <div class="launch__head">
+            <div class="segmented" role="group" aria-label="{{ i18n "cliInstallOsLabel" }}">
+              {{- range $installs }}
+              <button type="button" aria-pressed="{{ cond (eq .key "mac") "true" "false" }}" :aria-pressed="(os === '{{ .key }}').toString()" @click="os = '{{ .key }}'">{{ .icon | safeHTML }}{{ .os }}</button>
+              {{- end }}
             </div>
           </div>
-
-          <ul class="nav nav-tabs" id="cliDownloadTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="windows-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#tab-windows"
-                type="button"
-                role="tab"
-                aria-controls="tab-windows"
-                aria-selected="true"
-              >
-                <i class="bi bi-windows"></i> Windows
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="mac-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#tab-mac"
-                type="button"
-                role="tab"
-                aria-controls="tab-mac"
-                aria-selected="false"
-              >
-                <i class="bi bi-apple"></i> Mac OS
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="linux-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#tab-linux"
-                type="button"
-                role="tab"
-                aria-controls="tab-linux"
-                aria-selected="false"
-              >
-                <i class="bi bi-terminal"></i> Linux
-              </button>
-            </li>
-          </ul>
-
-          <div class="tab-content pt-4" id="cliDownloadTabContent">
-            <div
-              class="tab-pane fade show active"
-              id="tab-windows"
-              role="tabpanel"
-              aria-labelledby="windows-tab"
-            >
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <a
-                    href="{{ $base }}/v{{ $latest }}/pinggy-win-x64.exe"
-                    target="_blank"
-                    class="btn btn-pinggy-blue w-100 py-3"
-                    >Download for Windows x86-64</a
-                  >
-                </div>
-                <div class="col-12 col-md-6">
-                  <a
-                    href="{{ $base }}/v{{ $latest }}/pinggy-win-arm64.exe"
-                    target="_blank"
-                    class="btn btn-outline-pinggy w-100 py-3"
-                    >Download for Windows ARM64</a
-                  >
-                </div>
-              </div>
-              <p class="mt-3 mb-2 text-secondary small">
-                After downloading the binary, rename it to <kbd>pinggy.exe</kbd> and run it from the command line:
-              </p>
-              <p class="mb-1 text-secondary small">
-                <kbd>ren pinggy-win-x64.exe pinggy.exe</kbd>
-              </p>
-              <p class="mb-0 text-secondary small">
-                <kbd>pinggy.exe -h</kbd>
-              </p>
-            </div>
-
-            <div
-              class="tab-pane fade"
-              id="tab-mac"
-              role="tabpanel"
-              aria-labelledby="mac-tab"
-            >
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <a
-                    href="{{ $base }}/v{{ $latest }}/pinggy-macos-arm64"
-                    target="_blank"
-                    class="btn btn-pinggy-blue w-100 py-3"
-                    >Download for Mac OS - Apple Silicon</a
-                  >
-                </div>
-                <div class="col-12 col-md-6">
-                  <a
-                    href="{{ $base }}/v{{ $latest }}/pinggy-macos-x64"
-                    target="_blank"
-                    class="btn btn-outline-pinggy w-100 py-3"
-                    >Download for Mac OS - Intel</a
-                  >
-                </div>
-              </div>
-              <p class="mt-3 mb-2 text-secondary small">
-                After downloading the binary, rename it to <kbd>pinggy</kbd>, make it executable, and run it:
-              </p>
-              <p class="mb-1 text-secondary small">
-                <kbd>mv pinggy-macos-arm64 pinggy</kbd>
-              </p>
-              <p class="mb-1 text-secondary small">
-                <kbd>chmod +x pinggy</kbd>
-              </p>
-              <p class="mb-2 text-secondary small">
-                <kbd>./pinggy -h</kbd>
-              </p>
-              <p class="mb-0 text-secondary small">
-                Replace <kbd>pinggy-macos-arm64</kbd> with <kbd>pinggy-macos-x64</kbd> if you downloaded the Intel build.
-              </p>
-            </div>
-
-            <div
-              class="tab-pane fade"
-              id="tab-linux"
-              role="tabpanel"
-              aria-labelledby="linux-tab"
-            >
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <a
-                    href="{{ $base }}/v{{ $latest }}/pinggy-linux-x64"
-                    target="_blank"
-                    class="btn btn-pinggy-blue w-100 py-3"
-                    >Download for Linux x86-64</a
-                  >
-                </div>
-                <div class="col-12 col-md-6">
-                  <a
-                    href="{{ $base }}/v{{ $latest }}/pinggy-linux-arm64"
-                    target="_blank"
-                    class="btn btn-outline-pinggy w-100 py-3"
-                    >Download for Linux ARM64</a
-                  >
-                </div>
-              </div>
-              <p class="mt-3 mb-2 text-secondary small">
-                After downloading the binary, rename it to <kbd>pinggy</kbd>, make it executable, and run it:
-              </p>
-              <p class="mb-1 text-secondary small">
-                <kbd>mv pinggy-linux-x64 pinggy</kbd>
-              </p>
-              <p class="mb-1 text-secondary small">
-                <kbd>chmod +x pinggy</kbd>
-              </p>
-              <p class="mb-2 text-secondary small">
-                <kbd>./pinggy -h</kbd>
-              </p>
-              <p class="mb-0 text-secondary small">
-                Replace <kbd>pinggy-linux-x64</kbd> with <kbd>pinggy-linux-arm64</kbd> if you downloaded the ARM64 build.
-              </p>
-            </div>
-          </div>
-
-          <style>
-            #olderVersionsAccordion .accordion-button {
-              background-color: transparent;
-              border-radius: var(--radius-sm) !important;
-              transition: background-color var(--duration-fast) var(--ease-out);
-              cursor: pointer;
-            }
-            #olderVersionsAccordion .accordion-button:hover {
-              background-color: var(--ink-100);
-            }
-            #olderVersionsAccordion .accordion-button:not(.collapsed) {
-              color: inherit;
-              background-color: var(--ink-100);
-              box-shadow: none;
-            }
-            #olderVersionsAccordion .accordion-button:focus {
-              box-shadow: var(--shadow-focus);
-              border-color: transparent;
-            }
-          </style>
-          <div class="mt-5 pt-4 border-top">
-            <div class="accordion accordion-flush" id="olderVersionsAccordion">
-              <div class="accordion-item" style="background-color: transparent;">
-                <h3 class="accordion-header" id="olderVersionsHeading">
-                  <button
-                    class="accordion-button collapsed shadow-none"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#olderVersionsCollapse"
-                    aria-expanded="false"
-                    aria-controls="olderVersionsCollapse"
-                    style="padding: 12px 16px;"
-                  >
-                    <div>
-                      <span class="h5 fw-bold d-block mb-1">Older versions</span>
-                      <span class="text-secondary small fw-normal">
-                        Previous releases remain available for compatibility and rollback.
-                      </span>
-                    </div>
-                  </button>
-                </h3>
-                <div
-                  id="olderVersionsCollapse"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="olderVersionsHeading"
-                  data-bs-parent="#olderVersionsAccordion"
-                >
-                  <div class="accordion-body px-0 pt-3">
-            <div class="table-responsive">
-              <table class="table table-hover align-middle mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col">Version</th>
-                    <th scope="col">Windows</th>
-                    <th scope="col">Mac OS</th>
-                    <th scope="col">Linux</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {{- range after 1 $releases }}
-                  {{- $v := .version }}
-                  <tr>
-                    <th scope="row">
-                      <span
-                        class="chip chip--muted"
-                      >{{ $v }}</span>
-                    </th>
-                    <td>
-                      <div class="d-flex flex-column gap-1">
-                        <a href="{{ $base }}/v{{ $v }}/pinggy-win-x64.exe" target="_blank" class="link-primary text-decoration-none">x86-64</a>
-                        <a href="{{ $base }}/v{{ $v }}/pinggy-win-arm64.exe" target="_blank" class="link-primary text-decoration-none">ARM64</a>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex flex-column gap-1">
-                        <a href="{{ $base }}/v{{ $v }}/pinggy-macos-arm64" target="_blank" class="link-primary text-decoration-none">Apple Silicon</a>
-                        <a href="{{ $base }}/v{{ $v }}/pinggy-macos-x64" target="_blank" class="link-primary text-decoration-none">Intel</a>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex flex-column gap-1">
-                        <a href="{{ $base }}/v{{ $v }}/pinggy-linux-x64" target="_blank" class="link-primary text-decoration-none">x86-64</a>
-                        <a href="{{ $base }}/v{{ $v }}/pinggy-linux-arm64" target="_blank" class="link-primary text-decoration-none">ARM64</a>
-                      </div>
-                    </td>
-                  </tr>
-                  {{- end }}
-                </tbody>
-              </table>
-            </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="cmd">
+            <span class="cmd__prompt" aria-hidden="true" x-text="{ {{- range $i, $x := $installs }}{{ if $i }}, {{ end }}{{ $x.key }}: '{{ $x.prompt }}'{{ end -}} }[os]">$</span>
+            <input class="cmd__text" id="cliInstallCmd" type="text" readonly value="{{ $unixCmd }}" :value="{ {{- range $i, $x := $installs }}{{ if $i }}, {{ end }}{{ $x.key }}: '{{ $x.cmd }}'{{ end -}} }[os]" aria-labelledby="cliInstallTitle" />
+            <button class="cmd__copy" type="button" aria-label="{{ i18n "cliInstallCopy" }}" onclick="copytoclipboard(this,'#cliInstallCmd')"><i class="bi bi-clipboard"></i></button>
           </div>
         </div>
+        <p class="cli-part__note" :hidden="os === 'npm'">{{ i18n "cliInstallNote" | safeHTML }}</p>
+        <p class="cli-part__note" hidden :hidden="os !== 'npm'">{{ i18n "cliInstallNpmNote" | safeHTML }}</p>
       </div>
+      <div class="cli-part">
+        <div class="cli-part__head">
+          <div>
+            <span class="eyebrow">{{ i18n "cliDlEyebrow" }}</span>
+            <h2>{{ i18n "cliDlTitle" }}</h2>
+            <p>{{ i18n "cliDlLead" }}</p>
+          </div>
+          <span class="chip">v{{ $latest }}</span>
+        </div>
+        <div class="launch launch--tabs">
+          <div class="launch__head">
+            <div class="segmented" role="group" aria-label="{{ i18n "cliDlOsLabel" }}">
+              {{- range $platforms }}
+              <button type="button" aria-pressed="{{ cond (eq .key "win") "true" "false" }}" :aria-pressed="(dl === '{{ .key }}').toString()" @click="dl = '{{ .key }}'">{{ .icon | safeHTML }}{{ .os }}</button>
+              {{- end }}
+            </div>
+          </div>
+          {{- range $platforms }}
+          {{- $p := . }}
+          {{- $first := index .files 0 }}
+          {{- $second := index .files 1 }}
+          <div class="dl-panel"{{ if ne .key "win" }} hidden{{ end }} :hidden="dl !== '{{ .key }}'">
+            <div class="dl-panel__buttons">
+              {{- range $i, $f := .files }}
+              <a class="btn {{ cond (eq $i 0) "btn-pinggy-blue" "btn-outline-pinggy" }}" href="{{ $base }}/v{{ $latest }}/{{ $f.file }}" target="_blank" rel="noopener">{{ i18n "cliDlFor" }} {{ $p.os }} - {{ $f.arch }}</a>
+              {{- end }}
+            </div>
+            {{- if .unix }}
+            <p class="dl-panel__note">{{ i18n "cliDlRunUnix" | safeHTML }}</p>
+            <pre class="cli-code">mv {{ $first.file }} pinggy
+chmod +x pinggy
+./pinggy -h</pre>
+            {{- else }}
+            <p class="dl-panel__note">{{ i18n "cliDlRunWin" | safeHTML }}</p>
+            <pre class="cli-code">ren {{ $first.file }} pinggy.exe
+pinggy.exe -h</pre>
+            {{- end }}
+            <p class="dl-panel__note">{{ printf (i18n "cliDlReplace") $first.file $second.file $second.arch | safeHTML }}</p>
+          </div>
+          {{- end }}
+        </div>
+      </div>
+      {{- with after 1 $releases }}
+      <details class="cli-part dl-older">
+        <summary>
+          <span class="dl-older__title">{{ i18n "cliDlOlder" }}</span>
+          <span class="dl-older__sub">{{ i18n "cliDlOlderSub" }}</span>
+        </summary>
+        <div class="spec-table-wrap">
+          <table class="spec-table dl-table">
+            <thead><tr><th scope="col">{{ i18n "cliDlVersion" }}</th>{{ range $platforms }}<th scope="col">{{ .os }}</th>{{ end }}</tr></thead>
+            <tbody>
+              {{- range . }}
+              {{- $v := .version }}
+              <tr>
+                <td>v{{ $v }}</td>
+                {{- range $platforms }}
+                <td>{{ range .files }}<a href="{{ $base }}/v{{ $v }}/{{ .file }}" target="_blank" rel="noopener" aria-label="{{ .file }} v{{ $v }}">{{ .arch }}</a>{{ end }}</td>
+                {{- end }}
+              </tr>
+              {{- end }}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      {{- end }}
     </div>
   </div>
 </section>

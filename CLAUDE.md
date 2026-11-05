@@ -9,7 +9,7 @@ Guidance for Claude when working in this repository.
 - Use the documented tokens (`--brand-*`, `--ink-*`, `--paper`, `--mock-*`, `--radius-*`, `--shadow-*`, `--duration-*`, `--text-*`, `--space-*`) defined in `assets/css/customization.css`. Do not introduce ad-hoc hex values, drop shadows, gradients, or border radii.
 - The look is a ruled spec sheet on warm paper: the homepage is one bordered frame (`main.frame`) of `.cell` sections split by 1px `--ink-200` rules, and single pages sit in a side-ruled `.page-frame`. Structure comes from rules, not floating cards.
 - IBM Plex Mono (self-hosted, `--font-display`) for headings, nav, buttons, labels and prices; Uncut Sans (`--font-sans`) for prose.
-- Chrome is square and flat (`--radius-sm`..`--radius-xl` are `0`). Only product artifacts (terminal mocks, screenshots, video) get `--radius-artifact`, and only the homepage stage terminal gets `--shadow-artifact`.
+- Chrome is square and flat (`--radius-sm`..`--radius-xl` are `0`). Only product artifacts (terminal mocks, screenshots, video) get `--radius-artifact`, and only stage artifacts (the homepage stage terminal, the two windows in the `/remote-terminal/` demo stage) get `--shadow-artifact`.
 - One accent (`--brand-600`), kept for the primary button, links and focus. Rely on weight and size for hierarchy. No glows, no multi-color shadows.
 - Type, spacing, radius, and motion all come from the scales in the guidelines. Pick the closest token; do not invent new sizes.
 - Components have canonical specs in §7 (buttons, inputs, cards, navbar, accordion, pricing card, etc.). When building a new surface, look for an existing pattern there first.

@@ -134,7 +134,7 @@ List price on fal is $0.17 per second at 720p, or $1.70 per 10-second clip. From
 | Oct 19 - Nov 7 | 75% off | $0.0425 | ~$0.43 |
 | List | - | $0.17 | $1.70 |
 
-To put that in campaign terms: a library of 500 ten-second clips costs about $212.50 at 75% off (500 × $0.425) and $850 at list. On Seedance 2.5 at 720p it's about $2,365 (500 × ~$4.73). For volume beyond that, enterprise teams can contact fal sales for further discounts.
+To put that in campaign terms: a library of 500 ten-second clips costs about $212.50 at 75% off (500 × $0.425) and $850 at list. On Seedance 2.5 at 720p it's about $2,365 (500 × ~$4.73). For volume beyond that, enterprise teams can contact fal sales for further discounts. Teams publishing that library on YouTube sometimes add {{< link href="https://buzzoid.com/buy-youtube-views" >}}paid views on YouTube{{< /link >}} so new uploads gain traction faster.
 
 **Why:** During the launch discount, it's about 11x cheaper per second than Seedance 2.5 at 720p on fal, with the same #1-tier score. You also pay only for successful outputs; queue time and failed generations aren't billed.
 

@@ -3,7 +3,7 @@
   except the first (latest) one. Installer paths mirror the S3 layout written
   by Pinggy-io/app's .github/workflows/release.yml.
 */ -}}
-{{- $releases := site.Data.app_releases -}}
+{{- $releases := hugo.Data.app_releases -}}
 {{- $base := "https://djmq1sj6bh3a5.cloudfront.net/app" -}}
 <section class="pt-5 mt-5" id="previous-versions">
   <div class="container my-5">
