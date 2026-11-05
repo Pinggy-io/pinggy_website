@@ -214,7 +214,8 @@ function Install-Pinggy {
         }
     }
 
-    # Runs the installed file by its full path, so an npm-installed pinggy earlier on PATH does not answer.
+    # Runs the installed file by its full path, so an npm-installed pinggy earlier on PATH does not answer. -b is the
+    # default now. It is passed anyway, so an older pinggy the user kept runs the agent in its daemon too.
     function Invoke-DeviceLogin {
         $loginArguments = @('device', 'login')
         if ($env:PINGGY_MANAGE) { $loginArguments += @('--manage', $env:PINGGY_MANAGE) }
@@ -226,13 +227,13 @@ function Install-Pinggy {
             return
         }
         Write-Host ''
-        & $installPath @loginArguments
+        & $installPath @loginArguments -b
     }
 
-    # Runs the installed file by its full path, as Invoke-DeviceLogin does. connect reads DEVICE_AGENT_TOKEN from
-    # the environment it inherits, and reads no key, so it runs the same with no console.
+    # Runs the installed file by its full path, with -b, as Invoke-DeviceLogin does. connect reads DEVICE_AGENT_TOKEN
+    # from the environment it inherits, and reads no key, so it runs the same with no console.
     function Invoke-DeviceConnect {
-        $connectArguments = @('device', 'connect')
+        $connectArguments = @('device', 'connect', '-b')
         if ($env:PINGGY_MANAGE) { $connectArguments += @('--manage', $env:PINGGY_MANAGE) }
         Write-Host ''
         & $installPath @connectArguments
