@@ -19,7 +19,7 @@ title: "Pinggy - Simple Localhost Tunnels"
     })"
 >
   <canvas id="grid-canvas" class="hero__grid" aria-hidden="true" data-scope="parent" data-cell="48" data-base-rgb="21, 21, 21" data-base-alpha="0.07" data-glow-radius="260" data-glow-peak="0.5" data-pulse-max="4" data-head="square"></canvas>
-  <a class="tag" href="/docs/http_tunnels/web_debugger/" target="_blank"><span class="tag__new">New</span>Web Debugger in the Dashboard <span aria-hidden="true">&rarr;</span></a>
+  <a class="tag" href="/remote-terminal/"><span class="tag__new">New</span>Instant Remote Terminals in your browser <span aria-hidden="true">&rarr;</span></a>
   <div class="hero__left">
     <h1 class="biggestheader">Public URLs for Localhost.</h1>
     <p class="hero__sub">Without downloading any binary!</p>

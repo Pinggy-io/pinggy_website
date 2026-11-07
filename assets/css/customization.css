@@ -2519,6 +2519,29 @@ a.spec-card:hover {
   display: none;
 }
 
+/* YouTube video card: a button holding the poster, which its inline
+   onclick (content/remote-terminal/index.md) swaps for a youtube-nocookie
+   iframe, so the player loads only on play. The ring goes on the card,
+   since the card's overflow clip would hide one on the button. */
+.videocontainer > .videoplay {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.videocontainer > .videoplay:focus-visible {
+  outline: none;
+}
+.videocontainer:has(> .videoplay:focus-visible) {
+  box-shadow: var(--shadow-focus);
+}
+.videocontainer > .videoplay > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 1023.98px) {
   .split,
   .split--flip {
