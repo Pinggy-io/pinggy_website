@@ -52,7 +52,7 @@ The command installs the latest release, or updates an older one, and puts `ping
 - macOS and Linux: the binary goes to `~/.pinggy/bin/pinggy`, with a link in `~/.local/bin`. When `~/.local/bin` is not on your `PATH`, the script adds 1 line to your shell's rc file.
 - Windows: the binary goes to `%LOCALAPPDATA%\Pinggy\bin\pinggy.exe`, and that folder is added to your user `PATH`.
 
-After installing, the command signs the machine in as a [Pinggy Device](/docs/devices/): it asks for your email. Press `Ctrl+C` at the email prompt to skip this step. You can sign in later with `pinggy device login`.
+After installing, the command signs the machine in as a [Pinggy Device](/docs/devices/) and runs the device agent in the background: it asks for your email. Press `Ctrl+C` at the email prompt to skip this step. You can sign in later with `pinggy device login`.
 
 The Linux binaries need glibc, as on Debian, Ubuntu, and Fedora. On Alpine and other musl-based systems, use npm.
 
@@ -316,10 +316,10 @@ pinggy daemon service-uninstall    # remove that system service
 The [install command](#install-command-recommended) runs `pinggy device login` for you. With the CLI already installed:
 
 ```bash
-pinggy device login                     # sign in with your email, then stay connected
+pinggy device login                     # sign in with your email, then run the agent in the background
 pinggy device connect --token <TOKEN>   # connect with a device token from the dashboard
-pinggy device connect                   # reconnect with the saved token
-pinggy device connect -b                # run the agent in the background, in the daemon
+pinggy device connect                   # start the agent again with the saved token
+pinggy device connect --foreground      # run the agent in this terminal until Ctrl+C
 pinggy device stop                      # stop the background agent
 pinggy device status                    # show the saved device and the background agent
 pinggy device remove                    # forget the saved token (the device stays in the dashboard)
@@ -327,11 +327,12 @@ pinggy device remove                    # forget the saved token (the device sta
 
 | Option | Applies to | Meaning |
 |--------|------------|---------|
-| `-b` | `login`, `connect` | Run the agent in the background. It keeps running after the terminal closes |
+| `--foreground` | `login`, `connect` | Run the agent in this terminal until `Ctrl+C`, not in the background |
+| `-b` | `login`, `connect` | Run the agent in the background. This is the default |
 | `--token <TOKEN>` | `connect` | The device token from the dashboard |
 | `--name <NAME>` | `login` | The device name. Default: the machine's hostname |
 
-`--token` here is the device token. It is not the tunnel token that `--token` sets when you start a tunnel. Without `-b`, the agent runs in the foreground until you press `Ctrl+C`. Stopping the agent leaves running tunnels alone.
+`--token` here is the device token. It is not the tunnel token that `--token` sets when you start a tunnel. The agent runs in the daemon and keeps running after the terminal closes. Before `login` and `connect` exit, they print the commands that manage the device. With `--foreground`, the agent runs until you press `Ctrl+C`. Stopping the agent leaves running tunnels alone.
 
 1 command runs per invocation: `pinggy device connect start my-tunnel` connects the device and ignores `start my-tunnel`. Run tunnel commands separately.
 

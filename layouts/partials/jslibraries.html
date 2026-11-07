@@ -3,7 +3,6 @@
 {{ $alpine := resources.GetRemote "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" }}
 {{ $bootstrap := resources.GetRemote "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" }}
 {{ $getos := resources.Get "/js/getos.js" }}
-{{ $typewriter := resources.Get "/js/typewriter.js" }}
 {{ $pinggyshortcode := resources.Get "/js/pinggytunnelshortcode.js" }}
 {{ $pinggycommand := resources.Get "/js/pinggycommand.js" }}
 {{ $cidrvalidation := resources.Get "/js/cidrformatvalidation.js" }}
@@ -30,12 +29,12 @@
      and, in its parent-scoped mode, the homepage hero grid (the canvas in
      content/_index.md). It returns immediately on pages without a
      #grid-canvas, so the main bundle carries it for the homepage. rtdemo.js
-     (the /remote-terminal/ stage) likewise returns at once without its
+     (the demo stage on /remote-terminal/ and the homepage) likewise returns at once without its
      [data-rt-demo] section. */}}
 {{ $isBlog := eq .Section "blog" }}
 {{ $sources := cond $isBlog
   (slice $jquery $alpine $bootstrap $getos $pinggyshortcode $pinggycommand $cidrvalidation $cursorglow $tooltips)
-  (slice $jquery $alpine $bootstrap $getos $typewriter $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc $quickstart $docsearch $cursorglow $tooltips $rtdemo) }}
+  (slice $jquery $alpine $bootstrap $getos $pinggyshortcode $pinggycommand $cidrvalidation $main $clipboard $doc $quickstart $docsearch $cursorglow $tooltips $rtdemo) }}
 
 {{ $js := $sources | resources.Concat (cond $isBlog "js/blog-bundle.js" "js/bundle.js") | resources.Minify | resources.Fingerprint }}
 

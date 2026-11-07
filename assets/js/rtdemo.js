@@ -1,12 +1,21 @@
 /* Remote terminal demo (layouts/shortcodes/remote-terminal-demo.html, the
-   stage on /remote-terminal/). Plays once when the stage scrolls into view:
-   the install command is typed on the machine, the email sign-in runs, the
-   link to Pinggy goes live and the dashboard in the browser opens shells on
-   the machine, one tab at a time: `ls` in bash, then claude, then codex.
-   After that it cycles the shell tabs, only while the stage is on screen;
-   clicking a tab shows it and stops the cycle. Under reduced motion it
-   draws the end state at once and never cycles. Returns at once on pages
-   without the demo. */
+   stage on /remote-terminal/ and the homepage). Plays once when the stage
+   scrolls into view: the install command is typed on the machine, the
+   email sign-in runs, the link to Pinggy goes live and the dashboard in
+   the browser opens shells on the machine, one tab at a time: `ls` in
+   bash, then claude, then codex. After that it cycles the shell tabs,
+   only while the stage is on screen; clicking a tab shows it and stops
+   the cycle. Under reduced motion it draws the end state at once and
+   never cycles. Returns at once on pages without the demo.
+
+   With data-rt-scenes (the homepage) the same windows also play a
+   localhost tunnel: the terminal shares port 3000 over SSH, the browser
+   opens the public URL and the to-do app loads while the terminal logs
+   each request, then one task is ticked off (.is-checked). The tunnel
+   plays first, then the remote terminal, and
+   the two keep alternating while the stage is on screen. A click on the
+   scene switch plays that scene and stops the alternation; so does a
+   click on a shell tab. */
 (function () {
   var root = document.querySelector("[data-rt-demo]");
   if (!root) return;
@@ -14,12 +23,18 @@
   var reduce =
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var scenes = root.hasAttribute("data-rt-scenes");
   var local = root.querySelector("[data-rt-local]");
   var remote = root.querySelector("[data-rt-remote]");
   var tabBar = root.querySelector("[data-rt-tabs]");
   var newTab = tabBar.querySelector(".shell-tab--new");
+  var titleEl = root.querySelector("[data-rt-title]");
+  var omniEl = root.querySelector("[data-rt-omni]");
+  var todo = root.querySelector("[data-rt-todo]");
+  var sceneBtns = root.querySelectorAll("[data-rt-scene]");
   var version = root.getAttribute("data-cli-version") || "";
   var qr = root.getAttribute("data-qr");
+  var dash = { title: titleEl.textContent, omni: omniEl.textContent };
 
   function prompt(dir) {
     return (
@@ -55,6 +70,34 @@
     { html: qr ? '<img class="duo__qr" src="' + qr + '" alt="" width="111" height="111" />' : "", wait: 250 },
     { html: "Connected. Press Ctrl+C to disconnect.", cls: "t-dim", wait: 0 }
   ];
+
+  /* The tunnel scene's terminal: a free tunnel to port 3000, as
+     `ssh -p 443 -R0:localhost:3000 free.pinggy.io` prints it (the upgrade
+     hint and the second URL trimmed). The browser then loads HOST, and
+     REQUESTS are logged as the page and its assets come in. */
+  var HOST = "rkxqd-203-0-113-7.run.pinggy-free.link";
+  var TUNNEL = [
+    { html: '<span class="t-prompt">$</span> ', type: "ssh -p 443 -R0:localhost:3000 free.pinggy.io", speed: 22, wait: 450 },
+    { html: "You are not authenticated.", cls: "t-dim", wait: 120 },
+    { html: "Your tunnel will expire in 60 minutes.", cls: "t-dim", wait: 350 },
+    { html: "&nbsp;", wait: 0 },
+    { link: true, html: '<span class="t-url">https://' + HOST + "</span>", wait: 0 },
+    { html: "&nbsp;", wait: 600 }
+  ];
+  var REQUESTS = [
+    ["GET", "/"],
+    ["GET", "/assets/index.css"],
+    ["GET", "/assets/index.js"],
+    ["GET", "/api/todos"]
+  ];
+  var CHECK = ["PATCH", "/api/todos/4"];
+
+  function request(r) {
+    return (
+      '<span class="t-dim">' + (r[0] + "      ").slice(0, 6) +
+      '</span> <span class="t-ok">200 OK</span>  ' + r[1]
+    );
+  }
 
   /* Shells in the dashboard, opened in this order. Each types `cmd` at
      the prompt, then prints `lines`; `hold` is how long the tab stays up
@@ -116,14 +159,21 @@
     }
   ];
 
+  // How long a finished scene stays up before the other one plays.
+  var HOLD = { tunnel: 3000, rt: 3800 };
+
   var runId = 0;
   var timers = [];
   var cycleTimer = null;
+  var nextTimer = null;
   var active = 0;
   var visible = false;
   var started = false;
   var ready = false;
   var pinned = false;
+  var scene = scenes ? "tunnel" : "rt";
+  var scenePinned = false;
+  var pendingNext = false;
 
   /* A pause that rejects once a newer run supersedes this one. */
   function wait(ms) {
@@ -143,6 +193,8 @@
     timers.forEach(clearTimeout);
     timers = [];
     stopCycle();
+    clearTimeout(nextTimer);
+    pendingNext = false;
   }
 
   function addLine(html, cls) {
@@ -155,7 +207,7 @@
   }
 
   function typeInto(el, text, speed) {
-    var out = el.querySelector("[data-typed]");
+    var out = el.querySelector("[data-typed]") || el;
     var i = 0;
     function next() {
       if (i >= text.length) return Promise.resolve();
@@ -164,6 +216,36 @@
       return wait(speed + Math.floor(Math.random() * speed * 0.7)).then(next);
     }
     return next();
+  }
+
+  /* Play terminal rows in order: plain rows print, rows with `type` get
+     a caret and are typed out. */
+  function runRows(rows, chain) {
+    rows.forEach(function (row) {
+      chain = chain.then(function () {
+        if (row.link) root.classList.add("is-linked");
+        if (!row.type) {
+          addLine(row.html, row.cls);
+          return wait(row.wait);
+        }
+        var el = addLine(
+          row.html + '<span data-typed></span><span class="duo__caret"></span>',
+          row.cls
+        );
+        return wait(350)
+          .then(function () {
+            return typeInto(el, row.type, row.speed);
+          })
+          .then(function () {
+            return wait(row.wait);
+          })
+          .then(function () {
+            var c = el.querySelector(".duo__caret");
+            if (c) c.parentNode.removeChild(c);
+          });
+      });
+    });
+    return chain;
   }
 
   function addTab(i) {
@@ -237,7 +319,8 @@
 
   function startCycle() {
     stopCycle();
-    if (reduce || !ready || !visible || pinned) return;
+    if (reduce || !ready || !visible || pinned || scene !== "rt") return;
+    if (scenes && !scenePinned) return;
     cycleTimer = setInterval(function () {
       showShell((active + 1) % SHELLS.length, true);
     }, 3800);
@@ -248,15 +331,28 @@
     cycleTimer = null;
   }
 
-  function reset() {
+  /* Clear both windows and set the browser up for scene `s`: the
+     dashboard for the remote terminal, an empty new tab for the tunnel. */
+  function reset(s) {
     ready = false;
     pinned = false;
+    scene = s;
     local.innerHTML = "";
     remote.innerHTML = "";
     tabBar.querySelectorAll("[data-i]").forEach(function (t) {
       t.parentNode.removeChild(t);
     });
-    root.classList.remove("is-linked", "is-online", "is-ready");
+    root.classList.remove("is-linked", "is-online", "is-ready", "is-served", "is-checked");
+    if (!scenes) return;
+    root.setAttribute("data-scene", s);
+    sceneBtns.forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-rt-scene") === s));
+    });
+    var tunnel = s === "tunnel";
+    titleEl.textContent = tunnel ? root.getAttribute("data-new-tab") : dash.title;
+    omniEl.textContent = tunnel ? root.getAttribute("data-omni-hint") : dash.omni;
+    omniEl.classList.toggle("is-hint", tunnel);
+    if (todo) todo.classList.remove("is-done");
   }
 
   function markReady() {
@@ -264,34 +360,14 @@
     root.classList.add("is-ready");
   }
 
-  function play() {
-    stopAll();
-    reset();
-    var chain = wait(400);
-    TRANSCRIPT.forEach(function (row) {
-      chain = chain.then(function () {
-        if (row.link) root.classList.add("is-linked");
-        if (!row.type) {
-          addLine(row.html, row.cls);
-          return wait(row.wait);
-        }
-        var el = addLine(
-          row.html + '<span data-typed></span><span class="duo__caret"></span>',
-          row.cls
-        );
-        return wait(350)
-          .then(function () {
-            return typeInto(el, row.type, row.speed);
-          })
-          .then(function () {
-            return wait(row.wait);
-          })
-          .then(function () {
-            var c = el.querySelector(".duo__caret");
-            if (c) c.parentNode.removeChild(c);
-          });
-      });
-    });
+  /* The app has loaded at the public URL. */
+  function serve() {
+    root.classList.add("is-served");
+    titleEl.textContent = root.getAttribute("data-site-title");
+  }
+
+  function playRemote(chain) {
+    chain = runRows(TRANSCRIPT, chain);
     SHELLS.forEach(function (_, i) {
       chain = chain.then(function () {
         if (i > 0) return openShell(i);
@@ -306,35 +382,107 @@
           });
       });
     });
+    return chain;
+  }
+
+  /* The tunnel comes up, the URL goes into the omnibox, and the page and
+     its assets load one request at a time. Then a to-do gets checked off
+     in the browser and the terminal logs the PATCH. */
+  function playTunnel(chain) {
+    return runRows(TUNNEL, chain)
+      .then(function () {
+        omniEl.textContent = "";
+        omniEl.classList.remove("is-hint");
+        return typeInto(omniEl, HOST, 16);
+      })
+      .then(function () {
+        return wait(350);
+      })
+      .then(function () {
+        addLine(request(REQUESTS[0]));
+        return wait(220);
+      })
+      .then(function () {
+        serve();
+        var c = wait(0);
+        REQUESTS.slice(1).forEach(function (r) {
+          c = c.then(function () {
+            addLine(request(r));
+            return wait(130);
+          });
+        });
+        return c;
+      })
+      .then(function () {
+        return wait(1500);
+      })
+      .then(function () {
+        if (todo) todo.classList.add("is-done");
+        root.classList.add("is-checked");
+        addLine(request(CHECK));
+      });
+  }
+
+  function play(s) {
+    stopAll();
+    reset(s);
+    var chain = wait(400);
+    chain = s === "tunnel" ? playTunnel(chain) : playRemote(chain);
     chain
       .then(function () {
         markReady();
         startCycle();
+        queueNext();
       })
       .catch(function () {
         /* A newer run took over. */
       });
   }
 
-  function drawEndState() {
+  /* Alternate scenes while nobody has picked one: hold the finished
+     scene, then play the other. Off screen, wait until it's back. */
+  function queueNext() {
+    if (!scenes || scenePinned || reduce) return;
+    nextTimer = setTimeout(function () {
+      if (visible) play(scene === "tunnel" ? "rt" : "tunnel");
+      else pendingNext = true;
+    }, HOLD[scene]);
+  }
+
+  function drawEndState(s) {
     stopAll();
-    reset();
-    TRANSCRIPT.forEach(function (row) {
-      addLine(row.html + (row.type || ""), row.cls);
-    });
-    root.classList.add("is-linked", "is-online");
-    SHELLS.forEach(function (_, i) {
-      addTab(i);
-    });
-    showShell(1, false);
+    reset(s);
+    if (s === "tunnel") {
+      TUNNEL.forEach(function (row) {
+        addLine(row.html + (row.type || ""), row.cls);
+      });
+      REQUESTS.concat([CHECK]).forEach(function (r) {
+        addLine(request(r));
+      });
+      root.classList.add("is-linked");
+      omniEl.textContent = HOST;
+      omniEl.classList.remove("is-hint");
+      serve();
+      if (todo) todo.classList.add("is-done");
+      root.classList.add("is-checked");
+    } else {
+      TRANSCRIPT.forEach(function (row) {
+        addLine(row.html + (row.type || ""), row.cls);
+      });
+      root.classList.add("is-linked", "is-online");
+      SHELLS.forEach(function (_, i) {
+        addTab(i);
+      });
+      showShell(1, false);
+    }
     markReady();
   }
 
   function begin() {
     if (started) return;
     started = true;
-    if (reduce) drawEndState();
-    else play();
+    if (reduce) drawEndState(scene);
+    else play(scene);
   }
 
   // Once every shell is open, a click on a tab shows it and stops the cycle.
@@ -342,8 +490,22 @@
     var t = e.target.closest("[data-i]");
     if (!t || !ready) return;
     pinned = true;
+    scenePinned = true;
     stopCycle();
+    clearTimeout(nextTimer);
+    pendingNext = false;
     showShell(Number(t.getAttribute("data-i")), false);
+  });
+
+  // The scene switch: play the picked scene and stop alternating.
+  sceneBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var s = b.getAttribute("data-rt-scene");
+      scenePinned = true;
+      started = true;
+      if (reduce) drawEndState(s);
+      else play(s);
+    });
   });
 
   if ("IntersectionObserver" in window) {
@@ -351,7 +513,10 @@
       function (entries) {
         visible = entries[0].isIntersecting;
         if (visible && !started) begin();
-        else if (visible) startCycle();
+        else if (visible && pendingNext) {
+          pendingNext = false;
+          play(scene === "tunnel" ? "rt" : "tunnel");
+        } else if (visible) startCycle();
         else stopCycle();
       },
       { threshold: 0.35 }

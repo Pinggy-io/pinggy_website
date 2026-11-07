@@ -19,7 +19,7 @@ title: "Pinggy - Simple Localhost Tunnels"
     })"
 >
   <canvas id="grid-canvas" class="hero__grid" aria-hidden="true" data-scope="parent" data-cell="48" data-base-rgb="21, 21, 21" data-base-alpha="0.07" data-glow-radius="260" data-glow-peak="0.5" data-pulse-max="4" data-head="square"></canvas>
-  <a class="tag" href="/docs/http_tunnels/web_debugger/" target="_blank"><span class="tag__new">New</span>Web Debugger in the Dashboard <span aria-hidden="true">&rarr;</span></a>
+  <a class="tag" href="/remote-terminal/"><span class="tag__new">New</span>Instant Remote Terminals in your browser <span aria-hidden="true">&rarr;</span></a>
   <div class="hero__left">
     <h1 class="biggestheader">Public URLs for Localhost.</h1>
     <p class="hero__sub">Without downloading any binary!</p>
@@ -204,7 +204,45 @@ title: "Pinggy - Simple Localhost Tunnels"
     </div>
 </div>
 
-{{< terminal_animation >}}
+<!-- Instant Remote Terminals (Pinggy Devices), right under the hero: a
+     short centered cell in the closing CTA's shape (DESIGN_GUIDELINES.md
+     7.24), kept tight so its heading shows above the fold. Heading, one
+     line of copy, the launch card set to the visitor's OS, three facts.
+     The stage below plays it after a localhost tunnel. -->
+<section class="cell cta rt-promo" id="remote-terminal" x-data="{ os: (typeof getOS === 'function' && { windows: 'win', linux: 'linux' }[getOS()]) || 'mac' }">
+  <h2><span class="tag__new">New</span>Instant Remote Terminals<span>in your browser.</span></h2>
+  <p class="rt-promo__lead">Run one command on any machine, then open its shell from your browser. <a href="/remote-terminal/">Learn more</a></p>
+  <div class="rt-promo__launch">
+    <div class="launch">
+      <div class="launch__head">
+        <h3 class="launch__title" id="homeRtLaunchTitle">Start a remote terminal</h3>
+        <div class="segmented" role="group" aria-label="Operating system of the machine">
+          <button type="button" aria-pressed="true" :aria-pressed="(os === 'mac').toString()" @click="os = 'mac'"><i class="bi bi-apple" aria-hidden="true"></i>macOS</button>
+          <button type="button" aria-pressed="false" :aria-pressed="(os === 'linux').toString()" @click="os = 'linux'"><svg class="icon-linux" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .6c1.95 0 3.15 1.5 3.15 3.6 0 .95.3 1.65.9 2.5 1.05 1.5 1.75 3 1.75 4.6 0 2.2-2.35 3.45-5.8 3.45s-5.8-1.25-5.8-3.45c0-1.6.7-3.1 1.75-4.6.6-.85.9-1.55.9-2.5C4.85 2.1 6.05.6 8 .6ZM8 6.95c1.5 0 2.85 2.05 2.85 4.35 0 1.6-1.25 2.5-2.85 2.5s-2.85-.9-2.85-2.5c0-2.3 1.35-4.35 2.85-4.35ZM6.8 2.95a.65.65 0 1 0 0 1.3.65.65 0 0 0 0-1.3Zm2.4 0a.65.65 0 1 0 0 1.3.65.65 0 0 0 0-1.3ZM6.75 5h2.5L8 6.25Z"/><path d="M.9 14.35c.45-.85 2.45-1.2 3.75-.55.8.4.85 1.2.15 1.5-1.15.5-3.05.55-3.7.1-.3-.25-.35-.65-.2-1.05Zm14.2 0c-.45-.85-2.45-1.2-3.75-.55-.8.4-.85 1.2-.15 1.5 1.15.5 3.05.55 3.7.1.3-.25.35-.65.2-1.05Z"/></svg>Linux</button>
+          <button type="button" aria-pressed="false" :aria-pressed="(os === 'win').toString()" @click="os = 'win'"><i class="bi bi-windows" aria-hidden="true"></i>Windows</button>
+        </div>
+      </div>
+      <div class="cmd">
+        <span class="cmd__prompt" aria-hidden="true" x-text="os === 'win' ? 'PS>' : '$'">$</span>
+        <input class="cmd__text" id="homeRtInstallCmd" type="text" readonly value="curl -fsSL https://pinggy.io/install.sh | sh" :value="os === 'win' ? 'irm https://pinggy.io/install.ps1 | iex' : 'curl -fsSL https://pinggy.io/install.sh | sh'" aria-labelledby="homeRtLaunchTitle" />
+        <button class="cmd__copy" type="button" aria-label="Copy install command to clipboard" onclick="copytoclipboard(this,'#homeRtInstallCmd')"><i class="bi bi-clipboard"></i></button>
+      </div>
+    </div>
+    <p class="launch__meta">
+      <span>Works behind NAT and firewalls</span>
+      <span>No sudo or admin rights</span>
+      <span>Free for 1 device</span>
+    </p>
+  </div>
+</section>
+
+<!-- Demo stage: one pair of windows, two scenes. A localhost tunnel
+     (terminal shares port 3000, the browser opens the public URL), then
+     the remote terminal (install, sign in, shells in the dashboard). See
+     layouts/shortcodes/remote-terminal-demo.html and assets/js/rtdemo.js. -->
+{{< remote-terminal-demo tunnel="true" >}}
+
+{{< quickstart-logos >}}
 
 <!-- Feature: sharing -->
 <section class="cell split" id="feature-share">
