@@ -38,13 +38,13 @@ The command does 2 things:
 1. **It installs the Pinggy CLI, or updates it.** It needs no `sudo` or administrator rights.
    - macOS and Linux: the binary goes to `~/.pinggy/bin/pinggy`, with a link in `~/.local/bin`. When `~/.local/bin` is not on your `PATH`, the script adds 1 line to your shell's rc file.
    - Windows: the binary goes to `%LOCALAPPDATA%\Pinggy\bin\pinggy.exe`, and that folder is added to your user `PATH`.
-2. **It signs the machine in.** It runs `pinggy device login`, which asks for your email and sends you a 6-digit code and an **Approve sign-in** link:
-   - Type the code in the terminal, or click the link in the email.
-   - If you click the link, approve only when the page shows the same code the terminal printed. A different code means someone else started that sign-in.
+2. **It signs the machine in.** It runs `pinggy device login -b`, which asks for your email, prints a **Device Code**, and sends you a 6-digit code and an **Approve sign-in** button:
+   - Type the code in the terminal, or click the button in the email.
+   - If you click the button, approve only when the page shows the same Device Code the terminal printed. A different code means someone else started that sign-in.
    - If your account has 2-factor authentication on, the CLI also asks for your authenticator code.
    - An email with no Pinggy account gets a new free account.
 
-When the sign-in finishes, the CLI prints a link and a QR code to the device's page in the dashboard. The device is named after the machine's hostname. The agent stays connected in that terminal until you press `Ctrl+C`.
+When the sign-in finishes, the CLI prints a link and a QR code to the device's page in the dashboard, and the commands that manage the device. Then it starts the agent in the background and exits. The agent stays connected after you close the terminal. The device is named after the machine's hostname.
 
 > The Linux binaries need glibc, as on Debian, Ubuntu, and Fedora. On Alpine and other musl-based systems, install with `npm install -g pinggy` instead.
 
@@ -65,7 +65,7 @@ $env:DEVICE_AGENT_TOKEN='<TOKEN>'; irm https://pinggy.io/install.ps1 | iex
 {{% /tab %}}
 {{< /tabs >}}
 
-This command installs or updates the CLI, then connects the machine as that device. It asks for no email and no code, and it needs no keyboard, so it also works in CI jobs, in `docker run` without `-t`, and on machines you reach only through a script. The token reaches the CLI in an environment variable, never on a command line, and the CLI removes the variable before it starts anything else.
+This command installs or updates the CLI, then connects the machine as that device, with the agent in the background. It asks for no email and no code, and it needs no keyboard, so it also works in CI jobs, in `docker run` without `-t`, and on machines you reach only through a script. The token reaches the CLI in an environment variable, never on a command line, and the CLI removes the variable before it starts anything else.
 
 ### If the CLI is already installed
 
@@ -74,18 +74,30 @@ pinggy device login                     # sign in with your email
 pinggy device connect --token <TOKEN>   # or connect with a token from the dashboard
 ```
 
-The first successful connect saves the token on the machine, so later runs need only `pinggy device connect`.
+Both run the agent in the background and exit once the device connects. The first successful connect saves the token on the machine, so later runs need only `pinggy device connect`.
 
-## Keep the device connected in the background
+## The agent runs in the background
 
-Add `-b` to run the agent in the background. It keeps running after you close the terminal.
+The Pinggy CLI daemon runs the agent, the same daemon that runs background tunnels. The agent keeps running after you close the terminal. Before `login` and `connect` exit, they print the commands that manage the device:
 
-```bash
-pinggy device connect -b
-pinggy device login -b
+```
+Manage this device:
+  pinggy device status   Show this device, and whether its agent runs
+  pinggy device stop     Stop the agent. The device shows offline
+  pinggy device connect  Start the agent again, after a stop or a reboot
+  pinggy device remove   Forget this machine's credential
 ```
 
-The Pinggy CLI daemon runs the background agent, the same daemon that runs background tunnels. Stop it with `pinggy device stop`. It also stops when the daemon stops (`pinggy daemon stop`) and when the machine reboots. After a reboot, run `pinggy device connect -b` again. The token is saved, so it asks nothing.
+The agent stops with `pinggy device stop`, when the daemon stops (`pinggy daemon stop`), and when the machine reboots. After a reboot, run `pinggy device connect` again. The token is saved, so it asks nothing.
+
+To keep the agent in the terminal instead, add `--foreground`. It runs until you press `Ctrl+C`:
+
+```bash
+pinggy device connect --foreground
+pinggy device login --foreground
+```
+
+An older CLI runs the agent in the terminal unless you add `-b`. Run the install command again to update it.
 
 ## Open a remote terminal
 
@@ -100,7 +112,7 @@ A shell ends when you close it or type `exit`. It also ends:
 
 - After 30 minutes with no activity.
 - After 8 hours, whatever its activity.
-- When the agent stops: `Ctrl+C` on a foreground agent, `pinggy device stop`, or `pinggy daemon stop`.
+- When the agent stops: `pinggy device stop`, `pinggy daemon stop`, or `Ctrl+C` on an agent started with `--foreground`.
 
 If the Terminal tab is greyed out, the CLI on that machine is too old to open a shell. Run the install command again to update it.
 
@@ -129,15 +141,16 @@ See [pricing](/#prices) for the plans.
 
 | Command | What it does |
 |---------|--------------|
-| `pinggy device login` | Sign this machine in with your email, then stay connected |
-| `pinggy device connect` | Connect with the saved token, or with `--token <TOKEN>`, then stay connected |
+| `pinggy device login` | Sign this machine in with your email, then run the agent in the background |
+| `pinggy device connect` | Connect with the saved token, or with `--token <TOKEN>`, then run the agent in the background |
 | `pinggy device stop` | Stop the agent running in the background |
 | `pinggy device status` | Show the saved device id, dashboard, and masked token, and whether a background agent runs |
 | `pinggy device remove` | Forget the saved token on this machine. The device stays in the dashboard |
 
 | Option | Applies to | Meaning |
 |--------|------------|---------|
-| `-b` | `login`, `connect` | Run the agent in the background, in the daemon |
+| `--foreground` | `login`, `connect` | Run the agent in this terminal until `Ctrl+C`, not in the background |
+| `-b` | `login`, `connect` | Run the agent in the background, in the daemon. This is the default |
 | `--token <TOKEN>` | `connect` | The device token from the dashboard. It is not the tunnel token of the same name |
 | `--name <NAME>` | `login` | The device name. Default: the machine's hostname |
 
@@ -163,7 +176,8 @@ Anyone signed in to your Pinggy account can open a shell on your devices. Turn o
 |---------|------------|
 | `"pinggy devices" is now "pinggy device"` | Use `pinggy device`, without the `s` |
 | `Your plan allows 1 device. Delete one in the dashboard, or upgrade, to add another.` | Delete a device in the dashboard, or upgrade your plan |
-| `This machine already runs as device <id> in the background. Stop it first: pinggy device stop` | A background agent is running. Stop it before you run `login` or `connect` in the foreground |
+| `This machine already runs as device <id> in the background. Stop it first: pinggy device stop` | A background agent is running. Stop it before you run `login` or `connect` with `--foreground` |
+| `-b and --foreground contradict each other` | Use 1 of the 2. Without either, the agent runs in the background |
 | The agent stops and says the token was refused or revoked | The device was deleted or its token was rotated. Add the device again |
 | `this Linux uses musl libc, as Alpine does` | Install with `npm install -g pinggy` |
 | Terminal tab greyed out | Update the CLI: run the install command again |
