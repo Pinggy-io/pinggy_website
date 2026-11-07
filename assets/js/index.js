@@ -324,17 +324,6 @@ os_arch_to_link = {
   },
 };
 
-/*** typewriter ***/
-$("#textchanger").teletype({
-  delay: 70,
-  pause: 3000,
-  text: [
-    "share your web apps!",
-    "access your IoT devices!",
-    "share your files!",
-  ],
-});
-
 // OS detection script
 document.addEventListener('DOMContentLoaded', function () {
   var userOS = getOS();
