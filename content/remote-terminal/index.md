@@ -3,7 +3,7 @@ title: "Remote Terminal in Your Browser - Pinggy"
 description: "Open a terminal on any Mac, Linux or Windows machine from your browser. One install command, no SSH server, no open port. Works behind NAT, CGNAT and firewalls."
 layout: landing
 date: 2026-11-04T12:00:00+05:30
-lastmod: 2026-11-06T12:00:00+05:30
+lastmod: 2026-11-07T12:00:00+05:30
 draft: false
 ---
 
@@ -64,7 +64,7 @@ draft: false
      Pinggy, and from Pinggy four arrows branch into one ruled list. Below
      768px only the list stays. The agent marks: Claude (Simple Icons), the
      OpenAI mark Codex ships under, Gemini's spark. Right: the Pinggy
-     Devices video (YouTube FNj9WTlHllY) as a click-to-load video card:
+     Remote Terminals video (YouTube dL8CL37-cSo) as a click-to-load video card:
      the button shows a self-hosted poster and swaps itself for a
      youtube-nocookie iframe on click, so YouTube loads nothing until play.
      Styles: "Device map" in customization.css, DESIGN_GUIDELINES.md 7.24. -->
@@ -151,13 +151,13 @@ draft: false
   </div>
   <figure class="spec-card split__media">
     <figcaption class="spec-card__head">
-      <span>Video: Run Claude Code from your browser</span>
-      <span class="spec-card__meta">1:45</span>
+      <span>Video: Instant remote terminals in your browser</span>
+      <span class="spec-card__meta">1:14</span>
     </figcaption>
     <div class="spec-card__body">
       <div class="videocontainer ratio ratio-16x9">
-        <button type="button" class="videoplay" data-yt="FNj9WTlHllY" aria-label="Play video: Access your terminal and run Claude Code from anywhere in the browser" onclick="var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+this.dataset.yt+'?autoplay=1&amp;rel=0';f.title='Access your terminal and run Claude Code from anywhere in the browser';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;this.parentNode.classList.add('is-playing');this.replaceWith(f);f.focus();">
-          <img src="/assets/remote-terminal-video-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+        <button type="button" class="videoplay" data-yt="dL8CL37-cSo" aria-label="Play video: Get instant remote terminals in your browser" onclick="var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+this.dataset.yt+'?autoplay=1&amp;rel=0';f.title='Get Instant Remote Terminals in your browser - Pinggy Remote Terminals';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;this.parentNode.classList.add('is-playing');this.replaceWith(f);f.focus();">
+          <img src="/assets/remote-terminal-launch-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
         </button>
       </div>
     </div>
