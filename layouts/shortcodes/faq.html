@@ -146,6 +146,42 @@
           </div>
           <div
             class="accordion-item"
+            x-show="$refs.faq10.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
+          >
+            <h2 class="accordion-header" id="headingHostKey">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseHostKey"
+                aria-expanded="false"
+                aria-controls="collapseHostKey"
+              >
+                What is the SSH host key fingerprint of Pinggy servers?
+              </button>
+            </h2>
+            <div
+              id="collapseHostKey"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingHostKey"
+              data-bs-parent="#accordionFaq"
+            >
+              <div class="accordion-body" x-ref="faq10">
+                <p>
+                  All Pinggy edge servers use the same RSA host key:
+                </p>
+                <div class="alert alert-dark bg-light bg-gradient">
+                  <code>ssh-rsa SHA256:nFd5rfJMGuZXvfeRzJ/BtT3TfksAxTWMajcrHRcI7AM</code>
+                </div>
+                <p>
+                  When SSH asks you to confirm the host key on first connect,
+                  type <code>yes</code> only if the fingerprint matches.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="accordion-item"
             x-show="$refs.faq3.innerText.toLowerCase().includes(searchTerm.toLowerCase())"
           >
             <h2 class="accordion-header" id="headingServerLocation">
