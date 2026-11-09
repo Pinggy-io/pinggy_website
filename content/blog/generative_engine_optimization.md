@@ -236,7 +236,7 @@ E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is Google's 
 
 **Authoritativeness** - Built through external recognition: citations from authoritative sources, respected publications, Wikipedia presence, and inbound references from academia or industry.
 
-**Trustworthiness** - The most important of the four. Accurate, verifiable information with transparent sourcing and clear publication dates. Unsubstantiated claims risk being systematically downweighted in AI retrieval.
+**Trustworthiness** - The most important of the four. Accurate, verifiable information with transparent sourcing and clear publication dates. Content teams can also use an {{< link href="https://proaichecker.com/" >}}AI detector{{< /link >}} to review AI-generated passages as part of their editorial quality checks before publishing. Unsubstantiated claims risk being systematically downweighted in AI retrieval.
 
 ## Entity Optimization and Topical Authority
 
