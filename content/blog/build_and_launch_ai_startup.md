@@ -62,6 +62,8 @@ You can also run your own customer interviews or a survey, which gets you answer
 
 Finally, turn the research into an ideal customer profile that covers age group, gender and socioeconomic position. Your website design and branding will follow from it.
 
+With the profile in hand, {{< link href="https://pipeline.zoominfo.com/sales/ai-lead-generation-tools" >}}AI-powered lead generation tools{{< /link >}} can find businesses and contacts that match it, so you have a list of real people to interview or pitch before you launch.
+
 ## 3. Prepare the data your product runs on
 
 Data is the core asset of any AI system or startup. The more relevant and accurate the data you feed in, the better the output.
