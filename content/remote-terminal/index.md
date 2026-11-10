@@ -3,7 +3,7 @@ title: "Remote Terminal in Your Browser - Pinggy"
 description: "Open a terminal on any Mac, Linux or Windows machine from your browser. One install command, no SSH server, no open port. Works behind NAT, CGNAT and firewalls."
 layout: landing
 date: 2026-11-04T12:00:00+05:30
-lastmod: 2026-11-04T12:00:00+05:30
+lastmod: 2026-11-07T12:00:00+05:30
 draft: false
 ---
 
@@ -63,10 +63,11 @@ draft: false
      PC: a CSS crossfade, reduced motion shows the Pi) dials down to
      Pinggy, and from Pinggy four arrows branch into one ruled list. Below
      768px only the list stays. The agent marks: Claude (Simple Icons), the
-     OpenAI mark Codex ships under, Gemini's spark. Right: a placeholder
-     until the Pinggy Devices video is recorded; swap .videoph for the
-     homepage video card markup (.videocontainer with a <video>). Styles:
-     "Device map" in customization.css, DESIGN_GUIDELINES.md 7.24. -->
+     OpenAI mark Codex ships under, Gemini's spark. Right: the Pinggy
+     Remote Terminals video (YouTube dL8CL37-cSo) as a click-to-load video card:
+     the button shows a self-hosted poster and swaps itself for a
+     youtube-nocookie iframe on click, so YouTube loads nothing until play.
+     Styles: "Device map" in customization.css, DESIGN_GUIDELINES.md 7.24. -->
 <section class="cell split" id="control">
   <div class="split__text">
     <span class="eyebrow">Pinggy Devices</span>
@@ -150,12 +151,14 @@ draft: false
   </div>
   <figure class="spec-card split__media">
     <figcaption class="spec-card__head">
-      <span>Video: Pinggy Devices tour</span>
-      <span class="spec-card__meta">coming soon</span>
+      <span>Video: Instant remote terminals in your browser</span>
+      <span class="spec-card__meta">1:14</span>
     </figcaption>
     <div class="spec-card__body">
-      <div class="videoph ratio ratio-16x9" role="img" aria-label="Placeholder for the Pinggy Devices video">
-        <div class="videoph__inner"><span class="videoph__play"><i class="bi bi-play-fill" aria-hidden="true"></i></span><span>Video coming soon</span></div>
+      <div class="videocontainer ratio ratio-16x9">
+        <button type="button" class="videoplay" data-yt="dL8CL37-cSo" aria-label="Play video: Get instant remote terminals in your browser" onclick="var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+this.dataset.yt+'?autoplay=1&amp;rel=0';f.title='Get Instant Remote Terminals in your browser - Pinggy Remote Terminals';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;this.parentNode.classList.add('is-playing');this.replaceWith(f);f.focus();">
+          <img src="/assets/remote-terminal-launch-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+        </button>
       </div>
     </div>
   </figure>

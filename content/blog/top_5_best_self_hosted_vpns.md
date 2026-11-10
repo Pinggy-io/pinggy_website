@@ -87,7 +87,7 @@ Perfect for: Home lab access, point-to-point tunnels, mobile devices, Kubernetes
 
 {{< image "top_5_best_self_hosted_vpns/amnezia.webp" "AmneziaVPN" >}}
 
-{{< link href="https://amnezia.org/" >}}AmneziaVPN{{< /link >}} has surged in popularity for one specific reason: it makes hosting your own VPN incredibly easy, even if your goal is to bypass heavy censorship. Unlike traditional server-side setups, Amnezia is a **client-first** solution to self-hosting. You download the app on your computer, provide it with your VPS credentials (SSH), and *it* installs the VPN server for you.
+{{< link href="https://amnezia.org/" >}}AmneziaVPN{{< /link >}} has surged in popularity for one specific reason: it makes hosting your own VPN incredibly easy, even if your goal is to bypass heavy censorship. Unlike traditional server-side setups, Amnezia is a **client-first** solution to self-hosting. You download the app on your computer, provide it with {{< link href="https://cloudzy.com/linux-vps/" >}}a reliable Linux VPS{{< /link >}} credentials (SSH), and *it* installs the VPN server for you.
 
 But it’s not just an installer. Amnezia specializes in **obfuscation**. It supports its own AmneziaWG (a fork of WireGuard designed to fool Deep Packet Inspection), OpenVPN with Cloak, Shadowsocks, and XRay. If you are in a location with restrictive internet or just want maximum privacy that doesn't look like VPN traffic, this is your tool.
 

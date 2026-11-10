@@ -123,6 +123,11 @@
   /* Claude's own orange, only for its mark and mascot on
      /remote-terminal/ (third-party brand art, never UI color). */
   --mock-claude: #d97757;
+  /* The to-do app in the homepage demo's tunnel scene. It stands for
+     the visitor's own app, so it carries its own hues (with the status
+     colors); never UI color. */
+  --mock-app-violet: #7c5cfa;
+  --mock-app-pink: #e5488f;
 
   /* Motion */
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1776,8 +1781,8 @@ body.has-frame:not(.is-scrolled) .navbar.navbar-expand-lg {
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   grid-template-rows: minmax(var(--space-8), auto);
   align-items: center;
-  gap: var(--space-8);
-  padding: 0 var(--cell-pad-x) var(--space-10);
+  gap: var(--space-6) var(--space-8);
+  padding: 0 var(--cell-pad-x) var(--space-8);
 }
 
 @media (min-width: 1280px) {
@@ -1866,7 +1871,7 @@ body.has-frame:not(.is-scrolled) .navbar.navbar-expand-lg {
 }
 
 .hero__trial {
-  margin-top: var(--space-8);
+  margin-top: var(--space-6);
   max-width: 30rem;
 }
 
@@ -2046,7 +2051,7 @@ a.spec-card:hover {
 }
 
 .configurator__body {
-  padding: 20px 20px 4px;
+  padding: 16px 20px 2px;
 }
 
 #bigcodecolumn label,
@@ -2093,8 +2098,8 @@ a.spec-card:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 12px 32px;
-  margin-top: 18px;
-  padding: 14px 0;
+  margin-top: 14px;
+  padding: 10px 0;
   border-top: 1px solid var(--ink-200);
 }
 
@@ -2115,7 +2120,7 @@ a.spec-card:hover {
 }
 
 #finalcommand {
-  padding: 20px !important;
+  padding: 16px 20px !important;
   margin: 0;
   border: 0;
   border-top: 1px solid var(--ink-200);
@@ -2194,7 +2199,7 @@ a.spec-card:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 .configurator__actions .btn-outline-pinggy {
@@ -2218,55 +2223,8 @@ a.spec-card:hover {
   user-select: none;
 }
 
-.stage__mock {
-  position: absolute;
-  top: 96px;
-  left: 50%;
-  width: min(820px, 100% - 64px);
-  transform: translateX(-50%);
-}
-
-.stage__tag {
-  position: absolute;
-  right: 16px;
-  bottom: 0;
-  margin: 0;
-  padding: 16px 24px;
-  background: var(--white);
-  font-family: var(--font-display);
-  font-size: 0.875rem;
-  color: var(--ink-700);
-}
-
-#textchanger {
-  color: var(--ink-950);
-  font-weight: 600;
-}
-
-@media (max-width: 1023.98px) {
-  .stage {
-    padding: 56px 24px;
-  }
-  .stage__art {
-    position: absolute;
-    inset: 16px;
-    width: calc(100% - 32px);
-    height: calc(100% - 16px);
-  }
-  .stage__mock {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    transform: none;
-  }
-  .stage__tag {
-    display: none;
-  }
-}
-
-/* Terminal mock (terminal_animation shortcode). Dark titlebar, artifact
-   radius, the page's one big shadow. */
+/* Terminal mock (the machine's window in the remote-terminal-demo
+   stage). Dark titlebar, artifact radius, the stage shadow. */
 .termgif-terminal {
   display: flex;
   flex-direction: column;
@@ -2335,33 +2293,6 @@ a.spec-card:hover {
   font-size: 0.75rem;
   color: var(--mock-dim);
 }
-
-.termgif-content {
-  min-height: 260px;
-  padding: 22px 24px;
-  background-color: var(--mock-bg);
-  color: var(--mock-fg);
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  line-height: 1.75;
-}
-
-.termgif-step {
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--mock-fg);
-  line-height: 1.75;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.termgif-step .t-prompt { color: #7ee2a8; }
-.termgif-step .t-dim { color: var(--mock-dim); }
-.termgif-step .t-url { color: #9bb8f4; }
-.termgif-step .t-method { color: #9bb8f4; }
-.termgif-step .t-ok { color: #7ee2a8; }
 
 @keyframes fadeIn {
   to { opacity: 1; }
@@ -2517,6 +2448,29 @@ a.spec-card:hover {
 }
 .videocontainer .videoposter[hidden] {
   display: none;
+}
+
+/* YouTube video card: a button holding the poster, which its inline
+   onclick (content/remote-terminal/index.md) swaps for a youtube-nocookie
+   iframe, so the player loads only on play. The ring goes on the card,
+   since the card's overflow clip would hide one on the button. */
+.videocontainer > .videoplay {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.videocontainer > .videoplay:focus-visible {
+  outline: none;
+}
+.videocontainer:has(> .videoplay:focus-visible) {
+  box-shadow: var(--shadow-focus);
+}
+.videocontainer > .videoplay > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 1023.98px) {
@@ -3333,6 +3287,39 @@ a.spec-card:hover {
    (0.6em advance), plus padding and the copy button. */
 .cta__actions .cmd {
   width: min(30rem, 100%);
+}
+
+/* Remote terminal promo (homepage, right under the hero): the closing
+   CTA's centered shape, tightened so its heading shows above the fold.
+   A "New" flag leads the heading's first line; one line of copy, then
+   the launch card (§7.24) and its three facts. */
+.rt-promo {
+  gap: 0;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-10);
+}
+
+.rt-promo h2 .tag__new {
+  display: inline-block;
+  margin-right: var(--space-3);
+  vertical-align: middle;
+  font-family: var(--font-display);
+  line-height: 1.5;
+  color: var(--white);
+}
+
+.rt-promo__lead {
+  max-width: 52ch;
+  margin: var(--space-4) 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink-700);
+  text-wrap: balance;
+}
+
+.rt-promo__launch {
+  width: min(44rem, 100%);
+  margin-top: var(--space-6);
 }
 
 /* Homepage cells hold full-bleed inner borders, so Bootstrap's
@@ -4258,6 +4245,436 @@ a.spec-card:hover {
 @keyframes duoFlowY {
   to {
     background-position: 0 12px;
+  }
+}
+
+/* Homepage stage (remote-terminal-demo tunnel="true"): the same two
+   windows play two scenes, a localhost tunnel and the remote terminal,
+   picked with a segmented switch (§7.24) centered over the field.
+   rtdemo.js sets data-scene, and .is-served once the browser has loaded
+   the app at the tunnel URL, and .is-checked when a task is ticked. In
+   the tunnel scene the browser opens on an empty new tab, then a to-do
+   app (.duo__site) covers the dashboard view, which keeps its place so
+   the window never resizes. */
+.duo__scenes {
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto var(--space-6);
+}
+
+.duo__scenes > button {
+  flex: none;
+  padding: 0 var(--space-4);
+}
+
+.chrome-win__app {
+  display: none;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--mock-app-violet);
+  color: var(--white);
+}
+
+.chrome-win__tab .chrome-win__app .bi {
+  font-size: 0.6875rem;
+  color: inherit;
+}
+
+.stage--scenes[data-scene="tunnel"] .chrome-win__tab img {
+  display: none;
+}
+
+.stage--scenes.is-served .chrome-win__app {
+  display: inline-flex;
+}
+
+.chrome-win__omni .is-hint {
+  color: var(--ink-500);
+}
+
+/* The to-do app at the tunnel URL. It stands for the visitor's own app,
+   not Pinggy UI, so it has its own look: Uncut Sans throughout, rounded
+   controls, and a palette of its own (the --mock-app-* tokens with the
+   status colors), each hue tinted with color-mix() for chips and
+   avatars. A sidebar (lists, projects, the dev server badge) beside the
+   main column (header with avatars, progress, five tasks, a toast).
+   Rows rise in one after another once the page is served; .is-checked
+   ticks task 4, grows the progress bar and shows the toast. */
+.site--violet { --c: var(--mock-app-violet); }
+.site--pink { --c: var(--mock-app-pink); }
+.site--green { --c: var(--success); }
+.site--red { --c: var(--danger); }
+.site--blue { --c: var(--brand-600); }
+.site--amber { --c: var(--warning); }
+
+.duo__site {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: none;
+  background: var(--white);
+  font-family: var(--font-sans);
+  color: var(--ink-950);
+}
+
+.stage--scenes[data-scene="tunnel"] .duo__site {
+  display: flex;
+}
+
+.duo__site > * {
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.stage--scenes.is-served .duo__site > * {
+  opacity: 1;
+}
+
+.site__side {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: 9.5rem;
+  padding: 14px 10px;
+  background: color-mix(in srgb, var(--mock-app-violet) 6%, var(--white));
+  border-right: 1px solid color-mix(in srgb, var(--mock-app-violet) 14%, var(--white));
+  font-size: 0.8125rem;
+}
+
+.site__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4) 6px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.site__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: calc(var(--radius-artifact) - 4px);
+  background: var(--mock-app-violet);
+  color: var(--white);
+  font-size: 0.875rem;
+}
+
+.site__nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site__nav li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 5px 6px;
+  border-radius: calc(var(--radius-artifact) - 4px);
+  color: var(--ink-700);
+  white-space: nowrap;
+}
+
+.site__nav .bi {
+  font-size: 0.8125rem;
+  color: var(--ink-400);
+}
+
+.site__nav .is-active {
+  background: color-mix(in srgb, var(--mock-app-violet) 14%, var(--white));
+  color: color-mix(in srgb, var(--mock-app-violet) 75%, var(--ink-950));
+  font-weight: 600;
+}
+
+.site__nav .is-active .bi {
+  color: var(--mock-app-violet);
+}
+
+.site__count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-400);
+}
+
+.site__nav .is-active .site__count {
+  color: inherit;
+}
+
+.site__label {
+  margin: var(--space-4) 0 var(--space-1) 6px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.site__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--c);
+}
+
+.site__env {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: auto 0 0 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--ink-500);
+}
+
+.site__live {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--success);
+}
+
+.site__main {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 16px 20px;
+}
+
+.site__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site__head b {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.site__avatars {
+  display: flex;
+}
+
+.site__avatars > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: -6px;
+  border: 2px solid var(--white);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--c) 24%, var(--white));
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--c) 70%, var(--ink-950));
+}
+
+.site__progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 10px 0 12px;
+  font-size: 0.75rem;
+  color: var(--ink-500);
+  white-space: nowrap;
+}
+
+.site__progress b {
+  font-weight: 600;
+  color: var(--ink-950);
+}
+
+.site__track {
+  flex: 1;
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--mock-app-violet) 12%, var(--white));
+}
+
+.site__fill {
+  display: block;
+  width: 20%;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--mock-app-violet);
+  transition: width 0.6s var(--ease-out);
+}
+
+.stage--scenes.is-checked .site__fill {
+  width: 40%;
+}
+
+.site__n2,
+.stage--scenes.is-checked .site__n1 {
+  display: none;
+}
+
+.stage--scenes.is-checked .site__n2 {
+  display: inline;
+}
+
+.site__tasks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site__task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--ink-100);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  transition: color var(--duration-slow) var(--ease-out);
+}
+
+.stage--scenes.is-served .site__task {
+  animation: siteRowIn 0.4s var(--ease-out) both;
+  animation-delay: calc(0.15s + var(--i) * 70ms);
+}
+
+.site__box {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--ink-300);
+  border-radius: var(--radius-pill);
+  color: transparent;
+  font-size: 0.75rem;
+  transition: background-color var(--duration-slow) var(--ease-out),
+    border-color var(--duration-slow) var(--ease-out),
+    color var(--duration-slow) var(--ease-out);
+}
+
+.site__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.site__flag {
+  font-size: 0.75rem;
+  color: var(--danger);
+}
+
+.site__tag {
+  flex: none;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--c) 14%, var(--white));
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--c) 75%, var(--ink-950));
+}
+
+.site__task.is-done {
+  color: var(--ink-400);
+}
+
+.site__task.is-done .site__name {
+  text-decoration: line-through;
+}
+
+.site__task.is-done .site__box {
+  background: var(--mock-app-violet);
+  border-color: var(--mock-app-violet);
+  color: var(--white);
+}
+
+.stage--scenes.is-checked [data-rt-todo] .site__box {
+  animation: sitePop 0.35s var(--ease-out);
+}
+
+.site__add {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 0 1px;
+  font-size: 0.8125rem;
+  color: var(--ink-400);
+}
+
+.site__toast {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 12px;
+  border-radius: calc(var(--radius-artifact) - 4px);
+  background: var(--ink-950);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.site__toast .bi {
+  color: var(--success);
+}
+
+.stage--scenes.is-checked .site__toast {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes siteRowIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sitePop {
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@media (max-width: 639.98px) {
+  .duo__scenes {
+    width: 100%;
+  }
+  .duo__scenes > button {
+    flex: 1 1 0;
+    padding: 0 var(--space-2);
+  }
+  .duo__scenes .bi,
+  .site__side,
+  .site__avatars,
+  .site__flag {
+    display: none;
+  }
+  .site__main {
+    padding: 14px 16px;
   }
 }
 

@@ -9,7 +9,7 @@ The blog post and list templates keep their own system (see CLAUDE.md, "Blog pos
 ## 1. Principles
 
 1. **Ruled, not floating.** Content sits in cells of one bordered frame, split by 1px rules. Structure comes from lines and alignment, not from cards, shadows or gaps.
-2. **Artifacts float, chrome doesn't.** Page chrome (buttons, inputs, cards, tags, tabs) is square and flat. Only product artifacts (terminal mocks, screenshots, video) get rounded corners, and only the stage terminal gets a shadow. That contrast tells the reader "this is the product".
+2. **Artifacts float, chrome doesn't.** Page chrome (buttons, inputs, cards, tags, tabs) is square and flat. Only product artifacts (terminal mocks, screenshots, video) get rounded corners, and only the stage windows get a shadow. That contrast tells the reader "this is the product".
 3. **Mono for structure, sans for reading.** IBM Plex Mono carries headings, labels, navigation, buttons and numbers. Uncut Sans carries paragraphs.
 4. **Calm hierarchy.** One element looks most important per region. Establish hierarchy with weight and size, not color. Reserve color for action.
 5. **One accent, used sparingly.** Blue (`--brand-600`) is for the primary action, links and focus. Not decoration.
@@ -76,6 +76,8 @@ Status chips derive their tint, border and text from these with `color-mix()` (s
 | `--mock-fg`    | `#E9E7E2` | Mock text                     |
 | `--mock-dim`   | `#8A8883` | Mock secondary text           |
 | `--mock-claude` | `#D97757` | Claude's mark and mascot in the remote terminal demo and the device map (third-party brand art, never UI color) |
+| `--mock-app-violet` | `#7C5CFA` | The to-do app in the homepage demo's tunnel scene: its brand, active nav, checks, progress (the visitor's own app, never UI color) |
+| `--mock-app-pink` | `#E5488F` | A tag and avatar hue in that app, beside the status colors |
 
 Hue inside a mock (prompt green, URL blue, status colors) is fine; it is product, not chrome.
 
@@ -149,7 +151,7 @@ Mono runs wide, so sizes sit a step below a sans scale.
 
 ### 4.4 Grids inside cells
 
-- **Hero:** `1.05fr / 1fr`, gap `48px`, `align-items: center` (the copy centers on the configurator), padding `0 48px 64px`, with the sides widened to `96px` (two grid cells) from 1280px up so the two columns sit as one compact block, about 1100px wide, instead of spreading to the frame rules. The first row (min `48px`) holds the announcement tag right under the navbar; the columns start one row gap below it.
+- **Hero:** `1.05fr / 1fr`, gap `32px 48px` (rows, columns), `align-items: center` (the copy centers on the configurator), padding `0 48px 48px`, with the sides widened to `96px` (two grid cells) from 1280px up so the two columns sit as one compact block, about 1100px wide, instead of spreading to the frame rules. The first row (min `48px`) holds the announcement tag right under the navbar; the columns start one row gap below it. The hero is kept compact (configurator rows on 16/10px padding, 32px above the trial block) so the Remote Terminal heading under it shows above the fold on a 1440 x 900 laptop.
 - **Split:** `1fr / 1.15fr`, gap `64px`, vertically centered; `.split--flip` mirrors it.
 - **FAQ:** `1fr / 2fr`, gap `48px`.
 - **Pillars and pricing:** equal columns with no gap, separated by rules.
@@ -185,7 +187,7 @@ Bootstrap components are squared outside the blog (`.btn`, `.card`, `.form-contr
 - **Chrome:** no shadow. Edges come from 1px rules. Bootstrap's `.shadow*` utilities and `.bg-gradient` are neutralized outside the blog.
 - **Navbar:** no shadow; a bottom rule appears on scroll.
 - **Overlays** (dropdowns, modals): `--shadow-lg`.
-- **The stage terminal:** `--shadow-artifact`. It is the only floating thing on the page. On `/remote-terminal/` the stage holds two windows (the machine's terminal and the dashboard browser); both are stage artifacts and both float. Nothing outside a stage band does.
+- **The stage windows:** `--shadow-artifact`. They are the only floating things on the page. The demo stage on the homepage and on `/remote-terminal/` holds two windows (the machine's terminal and the browser); both are stage artifacts and both float. Nothing outside a stage band does.
 - **Focus:** `--shadow-focus` on `:focus-visible`.
 - No glows, no colored shadows, no hover lift.
 
@@ -267,7 +269,7 @@ The frame for a form, screenshot, video or diagram.
 - `.split`: text column (eyebrow, h2, prose or `.featurelist`, actions) beside a spec card. `.split__sub` blocks stack inside the text column with a rule between them.
 - Homepage feature splits zig-zag: text then media, `.split--flip` for media then text, alternating down the page.
 - Spec-card heads name the content in words ("Video: How to share a local app", "Pinggy terminal UI"), never a file name.
-- **Video card:** the poster carries a "Watch the demo" play button: primary blue fill (`--brand-600`, hover `--brand-700`), a white triangle, Plex `--text-ui`/500. It must read on a dark poster, so never an ink or ghost button there. Hidden once the video plays.
+- **Video card:** the poster carries a "Watch the demo" play button: primary blue fill (`--brand-600`, hover `--brand-700`), a white triangle, Plex `--text-ui`/500. It must read on a dark poster, so never an ink or ghost button there. Hidden once the video plays. A YouTube video uses the same card with a click-to-load facade (`.videoplay`, a `<button>` holding a self-hosted poster) that swaps itself for a `youtube-nocookie.com` iframe on click, so no YouTube code loads before play; focus puts `--shadow-focus` on the card.
 - **Video placeholder** (`.videoph` in a spec card): until a video is recorded, the card holds a 16:9 `--mock-bg` poster with a 48px `--mock-line` ruled play mark and a Plex 13px `--mock-dim` note ("Video coming soon"); the head's meta says "coming soon". It is not a button and takes no pointer cursor. Swap it for the video card markup when the video exists.
 - **Screenshot carousel** (`.tui-card`, terminal UI): one spec card holding a Bootstrap carousel (`#carouselTUI`, 4s interval). Prev/next are 28px square ghost buttons (`.tui-card__btn`) in the card head; each slide has a Plex 12px caption (`.tui-card__caption`) with a `01`/`02` number in `--ink-950`. Screenshots get a 1px `--ink-950` border and `--radius-artifact` minus 4px.
 
@@ -279,8 +281,7 @@ The frame for a form, screenshot, video or diagram.
 
 - `.stage`: an `--ink-100` band, padding `16px 16px 0`.
 - `.stage__art`: the pixel field, a 64 x 26 PNG generated by `scripts/pixel-field/generate.py`, upscaled with `image-rendering: pixelated` to 560px tall. It is a backdrop, so keep it light and quiet: four broad sky bands in tints between `--brand-100` and `--brand-50` (one step deeper at the top) joined by a sparse ordered dither, a few white clouds where the terminal doesn't cover them, and two soft hill layers. No per-pixel noise, no small details. Regenerate it with the script; don't hand-edit the PNG.
-- `.stage__mock`: the terminal mock (§7.13), absolutely placed over the field, `--radius-artifact`, `--shadow-artifact`, rising in once (`mockRise`).
-- `.stage__tag`: a white square label pinned bottom-right ("Quickest way to …" typewriter). Hidden below 1024px.
+- What floats over the field is the demo stage's pair of windows (§7.24), `--radius-artifact`, `--shadow-artifact`, rising in once (`mockRise`). The homepage and `/remote-terminal/` both use it.
 
 ### 7.13 Terminal mock
 
@@ -339,6 +340,8 @@ The frame for a form, screenshot, video or diagram.
 
 Centered: a two-line h2 (second line muted), then the command panel and a ghost "Read the docs →".
 
+**Remote terminal promo** (`.cta.rt-promo`, `#remote-terminal`, right under the homepage hero): the same centered shape, kept short. The h2's first line is led by a `.tag__new` "New" flag (11px Plex on `--brand-600`, middle-aligned), its second line muted; then one line of sans 17px `--ink-700` copy ending in a "Learn more" link, the launch card (§7.24, set to the visitor's OS, max 44rem) and its meta line with three facts. Spacing: 48px above, 16px to the copy, 32px to the card, 64px below. Nothing else goes in it: the demo stage right below does the explaining.
+
 ### 7.21 Footer
 
 - Light: `--ink-50` with a 1px `--ink-200` top rule (none on the homepage, where the frame's last rule closes it). Inner width aligned with the frame.
@@ -368,6 +371,7 @@ The Pinggy Devices landing page reuses the hero grid, stage band, splits, pillar
   - **Shell tabs** (`.shell-tab`): Plex 12px on `--mock-bar` with `--mock-line` rules. Each leads with the program's mark (`bi-terminal` for bash, the Claude mark in `--mock-claude`, the OpenAI mark for Codex in `currentColor`) and names the program and directory (the directory hides on phones). Inactive tabs are `--mock-dim`; the active one takes `--mock-bg`, `--mock-fg` and a 2px `--brand-500` top rule. The new-tab control is a bare `+`.
   - **CLI screens:** draw third-party CLIs as they really look, checked against their current releases. Claude Code: the mascot banner (its block-character drawing redrawn as an SVG in `--mock-claude`, so no font has to carry the glyphs) beside bold "Claude Code", a dim version, model and directory; `❯` before the prompt; green `●` before tool calls with `⎿` results; diff rows tinted with `color-mix()` from `--danger` / `--success` into `--mock-bg`. Codex: the `>_ OpenAI Codex` header, model and directory in a thin rounded box; the user's `›` message on a `--mock-panel` band; dim `•` actions with `└` results. Glyphs that come from fallback fonts sit in a one-cell box (`.g`) so columns hold. In the browser the shell is 14px / 1.6 and lines never wrap: they end in an ellipsis.
   - **Third-party marks** (Chrome, Claude, OpenAI, Gemini) keep their own colors and shapes: they identify real products, they are not UI color. Gradient marks (Gemini) are drawn flat in `--ink-950`. Keep them small (12 to 14px), and use them only inside product mocks or as agent chips in the device map, where each carries a `title` and an `aria-label` with the product's name.
+  - **Two scenes** (`{{< remote-terminal-demo tunnel="true" >}}`, the homepage stage, right under the Remote Terminal promo): the same windows also play a localhost tunnel. A segmented switch (Localhost tunnel / Remote terminal, each with a `bi` icon) sits centered over the top of the field, 32px above the windows; below 640px it spans the field and drops the icons. In the tunnel scene the browser opens on an empty "New Tab" with the omnibox hint in `--ink-500`; the terminal types `ssh -p 443 -R0:localhost:3000 free.pinggy.io` and prints the free tunnel's output (the upgrade hint and second URL trimmed), the connector goes live with the URL, the URL types into the omnibox, and a to-do app (`.duo__site`) loads over the dashboard view, its rows rising in one after another, while the terminal logs `GET ... 200 OK` per request. Then task 4 is ticked (the box pops, the progress bar grows from 1/5 to 2/5, the Today count drops, a dark "Task completed" toast slides up) and the `PATCH` is logged. The app stands for the visitor's own app, so unlike everything else on the site it is colorful and rounded: Uncut Sans throughout, a violet brand (`--mock-app-violet`), and tag, project and avatar hues from `--mock-app-violet`, `--mock-app-pink` and the status colors, each tinted with `color-mix()` into `--white` for chips (pill, 11px 600) and avatars (24px circles with initials). A 9.5rem sidebar on a violet-tinted ground (logo tile and name, Today / Upcoming / Flagged with counts, the active one violet, three colored projects, a green-dot `localhost:3000` dev badge at the foot) beside the main column: an 18px 700 "Today" with an avatar stack, a 6px violet progress bar, five rows (round 18px checkboxes, ellipsized names, a red flag on one, a colored tag each) and "Add a task". Radii come from `--radius-pill` and `calc(--radius-artifact - 4px)`. Below 640px the sidebar, avatars and flag go. The tunnel plays first, then the remote terminal, and they alternate (3s and 3.8s holds) while the stage is on screen. A click on the switch plays that scene and stops the alternation, as does a click on a shell tab. Under reduced motion each scene draws its end state and nothing alternates.
   - **Mock hues:** green prompt and blue paths as on the homepage terminal; red and amber are `color-mix()`ed from `--danger` and `--warning` with `--mock-fg`.
 - **Device map** (`.devmap`, the `#control` section): what one device lets you do, as a compact tree in the text column of a split (§7.10), under the eyebrow and h2, with the video card on the other side. It sits straight on the page, no frame or grid, max 36rem wide. A 7.5rem rail on the left stacks the device and Pinggy: Pinggy (an `--ink-950` box, Plex 13px) sits at the rail's vertical middle, the device card above it (`--paper`, 1px `--ink-300`) joined by a short dashed brand wire running down. The device cycles through line drawings of the machines it can be (a Raspberry Pi, a cloud VM, a home PC drawn as a laptop: `--ink-950` 1.5px strokes, `--ink-100` ports, a dark `--mock-bg` screen), each with its hostname in Plex 12px; a visually hidden caption names them all. From Pinggy a 24px stub runs to a 2px `--brand-600` spine, which branches into one ruled `--paper` list (a step off the `--ink-50` page, not white), a 24px arrow with an 8px head per row. Rows share their rules (no gaps, no floating cards): a 32px ruled `--ink-50` icon box, a Plex 15px/600 title that states the fact, and one row of concrete sample in Plex 12px (meters, agent chips, `code` commands, protocol tags, a `.chip` status), no description line. Every chip in a sample is 22px tall. Each row draws its own stretch of spine and its arrow, so rows keep their natural heights. Below 1024px the split stacks (diagram, then video); below 768px the rail and arrows go and the rows become a plain ruled list.
 - **Meter** (`.meter`, used in the device map's stats card): a 96 x 8px ruled `--ink-100` track with an `--ink-950` fill set by `--v`. Ink, not brand: it is data, not an action.
@@ -416,7 +420,7 @@ A download page with a fixed structure, kept from before the redesign: a two-col
 - **Artifact rise-in** (`mockRise`): fade + 16px rise, `0.6s --ease-rise`, once.
 - **Hero grid pulses:** brand comets easing along grid lines, a few at a time (§7.5).
 - **Live connector:** dashed stroke offset, linear. The remote terminal demo's two wires use the same motion once the machine signs in (§7.24).
-- **Demo playback** (`/remote-terminal/`): typed lines with a little jitter, a 1s step caret, output that falls in line by line (60ms apart), and shell tabs that change every 3.8s. It plays once when the stage scrolls into view, and the tab cycle runs only while the stage is on screen and stops for good once someone clicks a tab. Under reduced motion the end state is drawn at once and nothing cycles.
+- **Demo playback** (`/remote-terminal/` and the homepage): typed lines with a little jitter, a 1s step caret, output that falls in line by line (60ms apart), and shell tabs that change every 3.8s. It plays once when the stage scrolls into view, and the tab cycle runs only while the stage is on screen and stops for good once someone clicks a tab. On the homepage the tunnel and remote terminal scenes alternate instead of cycling tabs, until someone clicks the scene switch or a tab. Under reduced motion the end state is drawn at once and nothing cycles.
 - **Device cycle** (the device map): the three device drawings crossfade in a 9s loop, 3s each, the next fading in as the last fades out (0.5s, `--ease-in-out`). Under reduced motion the first drawing stays and nothing cycles; below 768px the device is not shown at all.
 - **Marquees:** linear, edge mask into `--ink-50`, logos grayscale at rest. Hovering a marquee pauses it, and only the hovered (or focused) logo regains its color.
 - Everything above is off under `prefers-reduced-motion: reduce`.
@@ -450,6 +454,6 @@ A download page with a fixed structure, kept from before the redesign: a two-col
 
 ### Behavior
 
-- `< lg (1024px)`: hero, splits, FAQ, pricing and split cell heads stack to one column; pillars go to two columns; the stage tag hides; `--cell-pad-y` drops to 64px.
+- `< lg (1024px)`: hero, splits, FAQ, pricing and split cell heads stack to one column; pillars go to two columns; `--cell-pad-y` drops to 64px.
 - `< md (768px)`: the hero grid is hidden.
 - `< sm (640px)`: `--cell-pad-x` drops to 24px; pillars go to one column; trial button stacks under the input; the network diagram switches to its tall drawing.

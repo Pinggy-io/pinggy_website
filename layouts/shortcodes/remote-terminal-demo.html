@@ -10,13 +10,23 @@
      visually hidden heading and paragraph describe them. The hidden sprite
      holds the marks rtdemo.js draws into the shell tabs and banners: the
      Claude mark (Simple Icons), the OpenAI mark Codex ships under, and the
-     Claude Code mascot redrawn from its terminal block characters. */}}
+     Claude Code mascot redrawn from its terminal block characters.
+
+     tunnel="true" (the homepage) adds a second scene in the same windows:
+     a localhost tunnel, where the terminal shares port 3000 over SSH and
+     the browser opens the public URL on a to-do app (.duo__site) with
+     its own palette (the --mock-app-* tokens).
+     A segmented switch over the field picks the scene; rtdemo.js plays
+     the tunnel first, then the remote terminal, and keeps alternating
+     until someone clicks the switch or a shell tab. The new-tab strings
+     ride on data attributes, so the JS carries no page copy. */}}
 {{- $px := resources.Get "images/home/pixel-field.png" -}}
 {{- $version := (index hugo.Data.cli_releases 0).version -}}
 {{- $qr := images.QR "https://dashboard.pinggy.io/pinggy-devices" (dict "level" "low" "scale" 2) -}}
-<section class="cell stage stage--duo" id="demo" aria-labelledby="rt-demo-title" data-rt-demo data-cli-version="{{ $version }}" data-qr="{{ $qr.RelPermalink }}">
-  <h2 class="visually-hidden" id="rt-demo-title">{{ i18n "rtDemoTitle" }}</h2>
-  <p class="visually-hidden">{{ i18n "rtDemoDesc" }}</p>
+{{- $tunnel := eq (.Get "tunnel") "true" -}}
+<section class="cell stage stage--duo{{ if $tunnel }} stage--scenes{{ end }}" id="demo" aria-labelledby="rt-demo-title" data-rt-demo data-cli-version="{{ $version }}" data-qr="{{ $qr.RelPermalink }}"{{ if $tunnel }} data-rt-scenes data-scene="tunnel" data-new-tab="{{ i18n "homeDemoNewTab" }}" data-omni-hint="{{ i18n "homeDemoOmniHint" }}" data-site-title="{{ i18n "homeDemoSiteTitle" }}"{{ end }}>
+  <h2 class="visually-hidden" id="rt-demo-title">{{ i18n (cond $tunnel "homeDemoTitle" "rtDemoTitle") }}</h2>
+  <p class="visually-hidden">{{ i18n (cond $tunnel "homeDemoDesc" "rtDemoDesc") }}</p>
   <svg class="visually-hidden" aria-hidden="true" focusable="false">
     <symbol id="rt-mark-claude" viewBox="0 0 24 24"><path d="m4.714 15.956 4.718-2.648.079-.23-.08-.128h-.23l-.79-.048-2.695-.073-2.337-.097-2.265-.122-.57-.121-.535-.704.055-.353.48-.321.685.06 1.518.104 2.277.157 1.651.098 2.447.255h.389l.054-.158-.133-.097-.103-.098-2.356-1.596-2.55-1.688-1.336-.972-.722-.491L2 6.223l-.158-1.008.656-.722.88.06.224.061.893.686 1.906 1.476 2.49 1.833.364.304.146-.104.018-.072-.164-.274-1.354-2.446-1.445-2.49-.644-1.032-.17-.619a3 3 0 0 1-.103-.729L6.287.133 6.7 0l.995.134.42.364.619 1.415L9.735 4.14l1.555 3.03.455.898.243.832.09.255h.159V9.01l.127-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.583.28.48.685-.067.444-.286 1.851-.558 2.903-.365 1.942h.213l.243-.242.983-1.306 1.652-2.064.728-.82.85-.904.547-.431h1.032l.759 1.129-.34 1.166-1.063 1.347-.88 1.142-1.263 1.7-.79 1.36.074.11.188-.02 2.853-.606 1.542-.28 1.84-.315.832.388.09.395-.327.807-1.967.486-2.307.462-3.436.813-.043.03.049.061 1.548.146.662.036h1.62l3.018.225.79.522.473.638-.08.485-1.213.62-1.64-.389-3.825-.91-1.31-.329h-.183v.11l1.093 1.068 2.003 1.81 2.508 2.33.127.578-.321.455-.34-.049-2.204-1.657-.85-.747-1.925-1.62h-.127v.17l.443.649 2.343 3.521.122 1.08-.17.353-.607.213-.668-.122-1.372-1.924-1.415-2.168-1.141-1.943-.14.08-.674 7.254-.316.37-.728.28-.607-.461-.322-.747.322-1.476.388-1.924.316-1.53.285-1.9.17-.632-.012-.042-.14.018-1.432 1.967-2.18 2.945-1.724 1.845-.413.164-.716-.37.066-.662.401-.589 2.386-3.036 1.439-1.882.929-1.086-.006-.158h-.055L4.138 18.56l-1.13.146-.485-.456.06-.746.231-.243 1.907-1.312Z"/></symbol>
     <symbol id="rt-mark-openai" viewBox="0 0 24 24"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></symbol>
@@ -24,6 +34,12 @@
   </svg>
   <div class="duo__field">
     <img class="stage__art" src="{{ $px.RelPermalink }}" alt="" aria-hidden="true" width="{{ $px.Width }}" height="{{ $px.Height }}" />
+    {{- if $tunnel }}
+    <div class="segmented duo__scenes" role="group" aria-label="{{ i18n "homeDemoScenes" }}">
+      <button type="button" aria-pressed="true" data-rt-scene="tunnel"><i class="bi bi-globe2" aria-hidden="true"></i>{{ i18n "homeDemoSceneTunnel" }}</button>
+      <button type="button" aria-pressed="false" data-rt-scene="rt"><i class="bi bi-terminal" aria-hidden="true"></i>{{ i18n "homeDemoSceneTerminal" }}</button>
+    </div>
+    {{- end }}
     <div class="duo" aria-hidden="true">
       <div class="termgif-terminal duo__local">
         <div class="termgif-header">
@@ -42,7 +58,7 @@
       <div class="chrome-win duo__browser">
         <div class="chrome-win__strip">
           <div class="termgif-dots"><div class="termgif-dot red"></div><div class="termgif-dot yellow"></div><div class="termgif-dot green"></div></div>
-          <span class="chrome-win__tab"><img src="/assets/favicon2.ico" alt="" width="14" height="14" /><span class="chrome-win__title">Devices &middot; Pinggy Dashboard</span><i class="bi bi-x-lg"></i></span>
+          <span class="chrome-win__tab"><img src="/assets/favicon2.ico" alt="" width="14" height="14" />{{ if $tunnel }}<span class="chrome-win__app"><i class="bi bi-check-lg"></i></span>{{ end }}<span class="chrome-win__title" data-rt-title>Devices &middot; Pinggy Dashboard</span><i class="bi bi-x-lg"></i></span>
           <i class="bi bi-plus-lg chrome-win__new"></i>
           <span class="chrome-win__brand"><svg class="chrome-logo" viewBox="0 0 48 48"><path fill="#ea4335" d="M6.68 14A20 20 0 0 1 41.32 14H24A10 10 0 0 0 15.34 29Z" /><path fill="#fbbc04" d="M41.32 14A20 20 0 0 1 24 44L32.66 29A10 10 0 0 0 24 14Z" /><path fill="#34a853" d="M24 44A20 20 0 0 1 6.68 14L15.34 29A10 10 0 0 0 32.66 29Z" /><circle cx="24" cy="24" r="10" fill="#fff" /><circle cx="24" cy="24" r="8" fill="#1a73e8" /></svg>Chrome</span>
         </div>
@@ -50,7 +66,7 @@
           <i class="bi bi-arrow-left"></i>
           <i class="bi bi-arrow-right chrome-win__off"></i>
           <i class="bi bi-arrow-clockwise"></i>
-          <span class="chrome-win__omni"><svg viewBox="0 0 16 16"><path d="M2 5h6.5M12.5 5H14M2 11h1.5M7.5 11H14" /><circle cx="10.5" cy="5" r="1.75" /><circle cx="5.5" cy="11" r="1.75" /></svg><span>dashboard.pinggy.io/pinggy-devices</span><i class="bi bi-star"></i></span>
+          <span class="chrome-win__omni"><svg viewBox="0 0 16 16"><path d="M2 5h6.5M12.5 5H14M2 11h1.5M7.5 11H14" /><circle cx="10.5" cy="5" r="1.75" /><circle cx="5.5" cy="11" r="1.75" /></svg><span data-rt-omni>dashboard.pinggy.io/pinggy-devices</span><i class="bi bi-star"></i></span>
           <i class="bi bi-three-dots-vertical"></i>
         </div>
         <div class="duo__page">
@@ -69,6 +85,44 @@
             <b>{{ i18n "rtDemoWaiting" }}</b>
             <span>{{ i18n "rtDemoWaitingSub" }}</span>
           </div>
+          {{- if $tunnel }}
+          <div class="duo__site">
+            <div class="site__side">
+              <div class="site__brand"><span class="site__logo"><i class="bi bi-check-lg"></i></span>{{ i18n "homeDemoSiteTitle" }}</div>
+              <ul class="site__nav">
+                <li class="is-active"><i class="bi bi-sun"></i>{{ i18n "homeDemoSiteToday" }}<span class="site__count"><span class="site__n1">4</span><span class="site__n2">3</span></span></li>
+                <li><i class="bi bi-calendar3"></i>{{ i18n "homeDemoSiteUpcoming" }}<span class="site__count">12</span></li>
+                <li><i class="bi bi-flag"></i>{{ i18n "homeDemoSiteFlagged" }}<span class="site__count">2</span></li>
+              </ul>
+              <span class="site__label">{{ i18n "homeDemoSiteProjects" }}</span>
+              <ul class="site__nav">
+                <li><span class="site__dot site--violet"></span>{{ i18n "homeDemoSiteTagLaunch" }}</li>
+                <li><span class="site__dot site--pink"></span>{{ i18n "homeDemoSiteTagDesign" }}</li>
+                <li><span class="site__dot site--green"></span>{{ i18n "homeDemoSiteTagPersonal" }}</li>
+              </ul>
+              <span class="site__env"><span class="site__live"></span>localhost:3000</span>
+            </div>
+            <div class="site__main">
+              <div class="site__head">
+                <b>{{ i18n "homeDemoSiteToday" }}</b>
+                <span class="site__avatars"><span class="site--violet">AK</span><span class="site--pink">JS</span><span class="site--amber">MR</span></span>
+              </div>
+              <div class="site__progress">
+                <span><b><span class="site__n1">1</span><span class="site__n2">2</span>/5</b> {{ i18n "homeDemoSiteDone" }}</span>
+                <span class="site__track"><span class="site__fill"></span></span>
+              </div>
+              <ul class="site__tasks">
+                <li class="site__task" style="--i: 0;"><span class="site__box"><i class="bi bi-check-lg"></i></span><span class="site__name">{{ i18n "homeDemoSiteItem1" }}</span><i class="bi bi-flag-fill site__flag"></i><span class="site__tag site--violet">{{ i18n "homeDemoSiteTagLaunch" }}</span></li>
+                <li class="site__task is-done" style="--i: 1;"><span class="site__box"><i class="bi bi-check-lg"></i></span><span class="site__name">{{ i18n "homeDemoSiteItem2" }}</span><span class="site__tag site--pink">{{ i18n "homeDemoSiteTagDesign" }}</span></li>
+                <li class="site__task" style="--i: 2;"><span class="site__box"><i class="bi bi-check-lg"></i></span><span class="site__name">{{ i18n "homeDemoSiteItem3" }}</span><span class="site__tag site--red">{{ i18n "homeDemoSiteTagBug" }}</span></li>
+                <li class="site__task" style="--i: 3;" data-rt-todo><span class="site__box"><i class="bi bi-check-lg"></i></span><span class="site__name">{{ i18n "homeDemoSiteItem4" }}</span><span class="site__tag site--blue">{{ i18n "homeDemoSiteTagTeam" }}</span></li>
+                <li class="site__task" style="--i: 4;"><span class="site__box"><i class="bi bi-check-lg"></i></span><span class="site__name">{{ i18n "homeDemoSiteItem5" }}</span><span class="site__tag site--green">{{ i18n "homeDemoSiteTagPersonal" }}</span></li>
+              </ul>
+              <span class="site__add"><i class="bi bi-plus-lg"></i>{{ i18n "homeDemoSiteAdd" }}</span>
+              <span class="site__toast"><i class="bi bi-check-circle-fill"></i>{{ i18n "homeDemoSiteToast" }}</span>
+            </div>
+          </div>
+          {{- end }}
         </div>
       </div>
     </div>

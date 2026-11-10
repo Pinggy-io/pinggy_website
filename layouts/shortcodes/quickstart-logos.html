@@ -1,27 +1,6 @@
-{{/* Homepage stage band + quickstart logo strip.
-     The stage is a pixel-art field (assets/images/home/pixel-field.png, drawn
-     by scripts/pixel-field/generate.py) with the terminal mock floating over it,
-     the one artifact on the page that carries a shadow. Styles live in
-     customization.css under "Stage" and "Logo strip". */}}
-{{- $px := resources.Get "images/home/pixel-field.png" -}}
-<section class="cell stage" aria-label="A Pinggy tunnel starting in a terminal">
-  <img class="stage__art" src="{{ $px.RelPermalink }}" alt="" aria-hidden="true" width="{{ $px.Width }}" height="{{ $px.Height }}" />
-  <div class="stage__mock">
-    <div class="termgif-terminal">
-      <div class="termgif-header">
-        <div class="termgif-dots" aria-hidden="true">
-          <div class="termgif-dot red"></div>
-          <div class="termgif-dot yellow"></div>
-          <div class="termgif-dot green"></div>
-        </div>
-        <span class="termgif-title">bash &middot; <b>pinggy</b> tunnel</span>
-        <span class="termgif-pill">localhost:3000</span>
-      </div>
-      <div class="termgif-content" id="terminalContent"></div>
-    </div>
-  </div>
-  <p class="stage__tag">Quickest way to <span id="textchanger"></span></p>
-</section>
+{{/* Quickstart logo strip: a marquee of framework logos, each linking to
+     its quickstart guide. Styles live in customization.css under "Logo
+     strip". */}}
 <section class="cell logos" aria-label="Quickstart guides">
   <div class="logos__label">
     <span class="eyebrow">Quickstarts</span>
@@ -392,17 +371,3 @@
     </div>
   </div>
 </section>
-<script>
-function renderTerminalContent() {
-    const content = document.getElementById('terminalContent');
-    content.innerHTML = `
-    <div class="termgif-step" style="animation-delay: 0s;"><span class="t-prompt">$</span> ssh -p 443 -R0:localhost:3000 tok+qr@pro.pinggy.io</div>
-    <div class="termgif-step" style="margin-top: 1em; animation-delay: 0.7s;"><span>You are authenticated as user@example.com</span><br><span class="t-url">https://myapp.a.pinggy.link</span></div>
-    <div class="termgif-step" style="animation-delay: 1.5s; margin-top: 1.5em;"><span class="t-method">  GET </span><span class="t-ok">200 OK      </span><span class="t-dim">/index.html</span></div>
-    <div class="termgif-step" style="animation-delay: 2s;"><span class="t-method">  GET </span><span class="t-ok">200 OK      </span><span class="t-dim">/_next/static/css/8b418144d8f6049f.css</span></div>
-    <div class="termgif-step" style="animation-delay: 2.2s;"><span class="t-method">  GET </span><span class="t-ok">200 OK      </span><span class="t-dim">/icon.svg?d1cd45fef217606d</span></div>
-    `;
-}
-renderTerminalContent();
-setInterval(renderTerminalContent, 6000);
-</script>
