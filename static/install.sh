@@ -1,5 +1,6 @@
 #!/bin/sh
-# Installs or updates the Pinggy CLI on macOS and Linux, then signs this machine in as a Pinggy device.
+# Installs or updates the Pinggy CLI on macOS and Linux, then asks whether to sign this machine in as a Pinggy device.
+# Once the device connects, it asks whether to start pinggy at login, unless that service is already installed.
 #
 #   curl -fsSL https://pinggy.io/install.sh | sh
 #   curl -fsSL https://pinggy.io/install.sh | DEVICE_AGENT_TOKEN=<token> sh
@@ -333,17 +334,64 @@ add_link_dir_to_rc_file() {
     say "In this terminal, run: source $(shown "$rc_file")"
 }
 
+# The service file `pinggy daemon service-install` writes. Its paths live in src/daemon/lifecycle/serviceInstaller.ts.
+# The service counts only when it runs the binary this script installs. A service left by a pinggy elsewhere gets the
+# question, and service-install replaces it.
+login_service_installed() {
+    case "$os" in
+        macos) service_file="$HOME/Library/LaunchAgents/io.pinggy.agent.plist" ;;
+        linux) service_file="$HOME/.config/systemd/user/pinggy.service" ;;
+    esac
+    [ -f "$service_file" ] && grep -qF "$INSTALL_PATH" "$service_file"
+}
+
+# A container or a session with no systemd user manager cannot run the Linux service.
+login_service_supported() {
+    if [ "$os" = macos ]; then
+        return 0
+    fi
+    has_command systemctl && systemctl --user show-environment >/dev/null 2>&1
+}
+
+# Asks once the device connects, so the agent starts again after a restart. Leaves an installed service as it is.
+offer_login_service() {
+    if login_service_installed || ! login_service_supported; then
+        return 0
+    fi
+    if ! has_terminal; then
+        say "To start pinggy when this computer starts, run: pinggy daemon service-install"
+        return 0
+    fi
+
+    say ""
+    if ! confirm "Start pinggy automatically when this computer starts? [Y/n] "; then
+        say "To start pinggy when this computer starts, run: pinggy daemon service-install"
+        return 0
+    fi
+    if ! "$INSTALL_PATH" daemon service-install </dev/null; then
+        say "Could not set up the login service. To try again, run: pinggy daemon service-install"
+    fi
+}
+
 # Runs the installed file by its full path, so an npm-installed pinggy earlier on PATH does not answer. connect reads
 # DEVICE_AGENT_TOKEN from the environment this script passes on, and reads no key, so it runs the same with no
 # terminal. -b is the default now. It is passed anyway, so an older pinggy the user kept runs the agent in its daemon
-# too.
+# too. The token leaves the environment before the service question, so no later command inherits it.
 connect_with_device_token() {
     export DEVICE_AGENT_TOKEN
     say ""
+    status=0
     if [ -n "${PINGGY_MANAGE:-}" ]; then
-        exec "$INSTALL_PATH" device connect -b --manage "$PINGGY_MANAGE" </dev/null
+        "$INSTALL_PATH" device connect -b --manage "$PINGGY_MANAGE" </dev/null || status=$?
+    else
+        "$INSTALL_PATH" device connect -b </dev/null || status=$?
     fi
-    exec "$INSTALL_PATH" device connect -b </dev/null
+    unset DEVICE_AGENT_TOKEN
+    if [ "$status" -ne 0 ]; then
+        exit "$status"
+    fi
+    offer_login_service
+    exit 0
 }
 
 # Runs the installed file by its full path, so an npm-installed pinggy earlier on PATH does not answer. -b as above.
@@ -361,10 +409,21 @@ start_sign_in() {
     fi
 
     say ""
-    if [ -n "${PINGGY_MANAGE:-}" ]; then
-        exec "$INSTALL_PATH" device login -b --manage "$PINGGY_MANAGE" </dev/tty
+    if ! confirm "Connect this device to Pinggy? [Y/n] "; then
+        say "Installed. To connect this device later, run: $login_command"
+        return 0
     fi
-    exec "$INSTALL_PATH" device login -b </dev/tty
+
+    status=0
+    if [ -n "${PINGGY_MANAGE:-}" ]; then
+        "$INSTALL_PATH" device login -b --manage "$PINGGY_MANAGE" </dev/tty || status=$?
+    else
+        "$INSTALL_PATH" device login -b </dev/tty || status=$?
+    fi
+    if [ "$status" -ne 0 ]; then
+        exit "$status"
+    fi
+    offer_login_service
 }
 
 main() {
