@@ -1,6 +1,8 @@
 # Pinggy CLI releases, newest first. The first entry is the latest release.
 # Binaries are served from https://github.com/Pinggy-io/cli-js/releases/download/v<version>/
 # The release workflow in cli-js prepends a new entry here on every release.
+- version: 0.6.6
+- version: 0.6.5
 - version: 0.6.4
 - version: 0.6.3
 - version: 0.6.1
@@ -12,4 +14,3 @@
 - version: 0.5.5
 - version: 0.5.3
 - version: 0.5.2
-- version: 0.5.1
