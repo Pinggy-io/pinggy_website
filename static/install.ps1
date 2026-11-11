@@ -17,7 +17,6 @@
 #   $env:PINGGY_MANAGE      a non-production dashboard host, passed to `pinggy device login` or `connect` as --manage
 #
 # The source lives in Pinggy-io/cli-js, scripts/install/. A release copies it to pinggy.io.
-# Design: docs/pinggy-devices/install-script-plan.md in the pinggy_backend repo.
 #
 # iex runs this inside the user's own session. So it never calls exit, which would close their window, and every
 # helper and preference is local to Install-Pinggy. Nothing runs until the last line.
@@ -35,6 +34,7 @@ function Install-Pinggy {
     $installDir = Join-Path $env:LOCALAPPDATA 'Pinggy\bin'
     $installPath = Join-Path $installDir 'pinggy.exe'
     $versionPattern = 'Pinggy CLI version:\s*(\S+)'
+    $autoUpdatePinLine = 'Auto-update replaces this version. Set PINGGY_AUTO_UPDATE=false to keep it.'
     # The task `pinggy daemon service-install` registers. Its name lives in src/daemon/lifecycle/serviceInstaller.ts.
     $loginTaskName = 'PinggyDaemon'
     $cpuArchitectureX64 = 9
@@ -184,6 +184,7 @@ function Install-Pinggy {
             Install-Binary $tag $cpu
         } else {
             Write-Host "Keeping pinggy $installedVersion."
+            if (-not $env:PINGGY_VERSION) { Write-Host $autoUpdatePinLine }
         }
     }
 
@@ -288,6 +289,7 @@ function Install-Pinggy {
     try {
         $cpu = Get-Cpu
         Install-OrUpdate $cpu
+        if ($env:PINGGY_VERSION) { Write-Host $autoUpdatePinLine }
         Add-InstallDirToPath
         if ($env:DEVICE_AGENT_TOKEN) {
             Invoke-DeviceConnect

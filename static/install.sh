@@ -5,8 +5,9 @@
 #   curl -fsSL https://pinggy.io/install.sh | sh
 #   curl -fsSL https://pinggy.io/install.sh | DEVICE_AGENT_TOKEN=<token> sh
 #
-# The binary goes to ~/.pinggy/bin/pinggy, and a symlink in ~/.local/bin puts it on PATH. No sudo: every write is
-# under $HOME. When ~/.local/bin is not on PATH, 1 marked block goes into the shell's rc file, once.
+# The binary goes to ~/.pinggy/versions/<version>/pinggy. ~/.pinggy/bin/pinggy links to it, and a symlink in
+# ~/.local/bin puts it on PATH. No sudo: every write is under $HOME. When ~/.local/bin is not on PATH, 1 marked block
+# goes into the shell's rc file, once.
 #
 # Setting, from the dashboard's command:
 #   DEVICE_AGENT_TOKEN  a device token. An older pinggy updates without asking, then `pinggy device connect` runs
@@ -19,7 +20,6 @@
 #   PINGGY_MANAGE      a non-production dashboard host, passed to `pinggy device login` or `connect` as --manage
 #
 # The source lives in Pinggy-io/cli-js, scripts/install/. A release copies it to pinggy.io.
-# Design: docs/pinggy-devices/install-script-plan.md in the pinggy_backend repo.
 #
 # Nothing runs until the last line. A download cut off halfway defines some functions and runs no command.
 
@@ -28,6 +28,7 @@ set -eu
 RELEASES_URL="https://github.com/Pinggy-io/cli-js/releases"
 INSTALL_DIR="$HOME/.pinggy/bin"
 INSTALL_PATH="$INSTALL_DIR/pinggy"
+VERSIONS_DIR="$HOME/.pinggy/versions"
 LINK_DIR="$HOME/.local/bin"
 LINK_PATH="$LINK_DIR/pinggy"
 RC_MARKER="# Added by the Pinggy installer"
@@ -198,8 +199,8 @@ remove_partial_download() {
     fi
 }
 
-# Writes the binary to a temp file in the install directory, so the final mv is a rename on 1 filesystem. A
-# running agent keeps the old inode, so replacing the file under it is safe.
+# Writes the binary to a temp file under ~/.pinggy, so the final mv is a rename on 1 filesystem. The binary goes in its
+# own version folder and ~/.pinggy/bin/pinggy links to it. A running agent keeps its own file.
 install_binary() {
     if [ -n "${PINGGY_BINARY_URL:-}" ]; then
         url="$PINGGY_BINARY_URL"
@@ -222,9 +223,27 @@ install_binary() {
         fail_does_not_run
     fi
 
-    mv -f "$download_path" "$INSTALL_PATH"
+    previous_target=$(readlink "$INSTALL_PATH" 2>/dev/null || true)
+    mkdir -p "$VERSIONS_DIR/$downloaded_version"
+    mv -f "$download_path" "$VERSIONS_DIR/$downloaded_version/pinggy"
     download_path=""
+    # A temp link and a rename, because ln -sf removes the old link before it creates the new one.
+    ln -s "$VERSIONS_DIR/$downloaded_version/pinggy" "$INSTALL_DIR/pinggy.link.$$"
+    mv -f "$INSTALL_DIR/pinggy.link.$$" "$INSTALL_PATH"
+    prune_versions "$downloaded_version" "$(basename "$(dirname "${previous_target:-none}")")"
     say "Installed pinggy $downloaded_version to $(shown "$INSTALL_PATH")"
+}
+
+# Keeps the new version and the one the link named before. Only names made of digits and dots are versions. With
+# auto-update off, nothing else removes old versions.
+prune_versions() {
+    for version_dir in "$VERSIONS_DIR"/*/; do
+        version_name=$(basename "$version_dir")
+        case "$version_name" in
+            *[!0-9.]* | "$1" | "$2") continue ;;
+        esac
+        rm -rf "$version_dir"
+    done
 }
 
 # Steps 2 to 6 of the plan: compare with the installed binary, then download only when needed.
@@ -256,6 +275,14 @@ install_or_update() {
         install_binary
     else
         say "Keeping pinggy $installed_version."
+        kept_older_version=1
+    fi
+}
+
+# A pinned or kept version lasts only until the next terminal command, unless auto-update is off.
+warn_auto_update_replaces_it() {
+    if [ -n "${PINGGY_VERSION:-}" ] || [ "${kept_older_version:-0}" = 1 ]; then
+        say "Auto-update replaces this version. Set PINGGY_AUTO_UPDATE=false to keep it."
     fi
 }
 
@@ -437,6 +464,7 @@ main() {
         *) require_downloader ;;
     esac
     install_or_update
+    warn_auto_update_replaces_it
     link_into_path
     if has_device_token; then
         connect_with_device_token
