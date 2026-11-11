@@ -29,6 +29,7 @@ Install the Pinggy CLI on the machine where your code lives, then open that mach
 {{% /tldr %}}
 
 ## How it works
+{{< iframe src="https://www.youtube.com/embed/l8GJAfvGIBU?si=SW5nU5Jo77HRerRG" title="Run OpenCode from Any Browser with Pinggy (No SSH Needed)" >}}
 
 {{< image "run_opencode_remotely_from_any_browser/opencode_pinggy_browser_terminal_architecture.webp" "Diagram of a browser reaching the Pinggy dashboard, which reaches a Pinggy agent on your machine over an outbound connection; the agent starts a shell running the opencode client, which talks to the OpenCode background server on 127.0.0.1:49374 that keeps the sessions" >}}
 
