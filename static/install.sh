@@ -15,7 +15,7 @@
 #                       Set it on sh, not on curl, so curl never holds it
 #
 # Overrides, for dev and tests:
-#   PINGGY_VERSION     a release tag, such as v0.6.1. Default: the latest release
+#   PINGGY_VERSION     a release tag, such as v0.6.1. Default: the version pinggy.io publishes
 #   PINGGY_BINARY_URL  a full binary URL, file:// included. Replaces the installed binary without a version check
 #   PINGGY_MANAGE      a non-production dashboard host, passed to `pinggy device login` or `connect` as --manage
 #
@@ -26,6 +26,7 @@
 set -eu
 
 RELEASES_URL="https://github.com/Pinggy-io/cli-js/releases"
+VERSION_URL="https://pinggy.io/cli/version.json"
 INSTALL_DIR="$HOME/.pinggy/bin"
 INSTALL_PATH="$INSTALL_DIR/pinggy"
 VERSIONS_DIR="$HOME/.pinggy/versions"
@@ -129,8 +130,21 @@ require_downloader() {
     fi
 }
 
-# GitHub redirects /releases/latest to /releases/tag/<tag>. Reading the redirect costs no API call, so the
-# API's 60 requests an hour per IP do not apply.
+fetch_text() {
+    if has_command curl; then
+        curl -fsSL --proto '=https' --tlsv1.2 "$1"
+    else
+        wget -q --https-only -O - "$1"
+    fi
+}
+
+fail_no_latest_version() {
+    fail "$1 $VERSION_URL. Try again later, or set PINGGY_VERSION to a release tag, such as v0.6.1."
+}
+
+# pinggy.io publishes the latest version in the deploy that publishes this script, so the script and the binary
+# come from 1 release. GitHub's /releases/latest can name a newer release, or one whose binaries still upload.
+# sh has no JSON parser, so sed reads the "version" field. The "versions" list has another key and does not match.
 resolve_target_tag() {
     if [ -n "${PINGGY_VERSION:-}" ]; then
         case "$PINGGY_VERSION" in
@@ -139,17 +153,12 @@ resolve_target_tag() {
         esac
         return 0
     fi
-    if has_command curl; then
-        latest_url=$(curl -fsSIL --proto '=https' -o /dev/null -w '%{url_effective}' "$RELEASES_URL/latest") \
-            || fail "could not reach $RELEASES_URL/latest"
-    else
-        latest_url=$(wget -S --spider "$RELEASES_URL/latest" 2>&1 \
-            | sed -n 's/^ *Location: *\([^ ]*\).*/\1/p' | tr -d '\r' | tail -n 1)
-    fi
-    tag=${latest_url##*/}
-    case "$tag" in
-        v[0-9]*) ;;
-        *) fail "could not read the latest release tag from $RELEASES_URL/latest" ;;
+    version_json=$(fetch_text "$VERSION_URL") || fail_no_latest_version "could not reach"
+    latest_version=$(printf '%s\n' "$version_json" \
+        | sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([0-9][0-9.]*\)".*/\1/p' | head -n 1)
+    case "$latest_version" in
+        [0-9]*.[0-9]*.[0-9]*) tag="v$latest_version" ;;
+        *) fail_no_latest_version "could not read the latest version from" ;;
     esac
 }
 

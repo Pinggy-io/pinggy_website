@@ -1,5 +1,6 @@
 ---
 title: "Pinggy - Simple Localhost Tunnels"
+lastmod: 2026-11-11T12:00:00+05:30
 ---
 
 <main class="frame">
@@ -696,18 +697,10 @@ title: "Pinggy - Simple Localhost Tunnels"
                     class="bi bi-check2-circle pricing-check pricing-check--featured"
                   ></i>
                   <span
-                    ><span x-text="seatVal"></span> Custom subdomain<span
+                    ><span x-text="seatVal"></span> Persistent subdomain<span
                       x-show="seatVal > 1"
                       >s</span
-                    ></span
-                  >
-                </li>
-                <li>
-                  <i
-                    class="bi bi-check2-circle pricing-check pricing-check--featured"
-                  ></i>
-                  <span
-                    ><span x-text="seatVal"></span> Custom domain<span
+                    > and custom domain<span
                       x-show="seatVal > 1"
                       >s</span
                     ></span
@@ -747,12 +740,16 @@ title: "Pinggy - Simple Localhost Tunnels"
                     class="bi bi-check2-circle pricing-check pricing-check--featured"
                   ></i>
                   <span
-                    >25 Pinggy Devices, 3 terminals each
+                    ><span x-text="25 * seatVal">25</span> Pinggy Devices,
+                    <span x-text="25 * seatVal">25</span> terminals
                     <a
                       href="/docs/devices/"
                       target="_blank"
                       class="link-dark"
-                      aria-label="About Pinggy Devices"
+                      aria-label="About Pinggy Devices: up to 10 terminals per device"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="Up to 10 terminals per device"
                       ><i class="bi bi-info-circle"></i
                     ></a>
                   </span>
@@ -824,11 +821,7 @@ title: "Pinggy - Simple Localhost Tunnels"
                 </li>
                 <li>
                   <i class="bi bi-check2-circle pricing-check"></i>
-                  <span>Unlimited custom subdomains</span>
-                </li>
-                <li>
-                  <i class="bi bi-check2-circle pricing-check"></i>
-                  <span>Unlimited custom domains</span>
+                  <span>Unlimited persistent subdomains and custom domains</span>
                 </li>
                 <li>
                   <i class="bi bi-check2-circle pricing-check"></i>
