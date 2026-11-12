@@ -5,6 +5,8 @@ layout: landing
 date: 2024-04-14T01:15:25+05:30
 lastmod: 2026-11-04T12:02:00+05:30
 draft: false
+# Also emit /cli/version.json (latest CLI version) via the cliversion format.
+outputs: ["HTML", "cliversion"]
 ---
 
 <!-- The CLI page: a two-column hero, the install and download card
