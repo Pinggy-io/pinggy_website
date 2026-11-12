@@ -1,39 +1,40 @@
 ---
-title: "Best Remote IoT Device Management Software in 2026: 5 Platforms Compared"
-description: "A technical comparison of remote IoT device management software in 2026: balenaCloud, AWS IoT Device Management, SocketXP, RemoteIoT and Dataplicity. Real pricing, agent architecture, NAT traversal, OTA updates and what each one gets wrong."
+title: "Best Remote IoT Device Management Software in 2026: 6 Platforms Compared"
+description: "A technical comparison of remote IoT device management software in 2026: Pinggy Devices, balenaCloud, AWS IoT Device Management, SocketXP, RemoteIoT and Dataplicity. Real pricing, agent architecture, NAT traversal, OTA updates and what each one gets wrong."
 date: 2026-08-13T07:30:00+05:30
-lastmod: 2026-08-24T07:30:00+05:30
+lastmod: 2026-11-11T07:30:00+05:30
 draft: false
 tags: ["IoT", "device management", "remote access", "Raspberry Pi", "edge computing", "OTA updates", "balenaCloud", "AWS IoT", "SocketXP", "RemoteIoT", "Dataplicity", "comparison"]
 categories: ["IoT", "Remote Access", "Comparison"]
 og_image: "images/best_remote_iot_device_management_software/best_remote_iot_device_management_software_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIENob29zZSBhIFJlbW90ZSBJb1QgRGV2aWNlIE1hbmFnZW1lbnQgUGxhdGZvcm0iLAogICJkZXNjcmlwdGlvbiI6ICJBIHByYWN0aWNhbCBjaGVja2xpc3QgZm9yIHBpY2tpbmcgcmVtb3RlIElvVCBkZXZpY2UgbWFuYWdlbWVudCBzb2Z0d2FyZTogY291bnQgeW91ciBmbGVldCwgZGVjaWRlIHdoZXRoZXIgeW91IG5lZWQgT1RBIG9yIG9ubHkgcmVtb3RlIGFjY2VzcywgY2hlY2sgaG93IHRoZSBhZ2VudCBjcm9zc2VzIE5BVCwgcHJpY2UgdGhlIHBsYXRmb3JtIGF0IHlvdXIgcmVhbCBkZXZpY2UgY291bnQsIGFuZCB0ZXN0IHRoZSBleGl0IHBhdGggYmVmb3JlIHlvdSBjb21taXQuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2Jlc3RfcmVtb3RlX2lvdF9kZXZpY2VfbWFuYWdlbWVudF9zb2Z0d2FyZS9iZXN0X3JlbW90ZV9pb3RfZGV2aWNlX21hbmFnZW1lbnRfc29mdHdhcmVfYmFubmVyLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ291bnQgdGhlIGZsZWV0IGFuZCB0aGUgZGV2aWNlIGNsYXNzIiwKICAgICAgInRleHQiOiAiUGVyLWRldmljZSBwcmljaW5nIGlzIHRoZSBzaW5nbGUgYmlnZ2VzdCBjb3N0IGRyaXZlciwgc28gc3RhcnQgZnJvbSBhbiBob25lc3QgZGV2aWNlIGNvdW50IGFuZCB0aGUgaGFyZHdhcmUgY2xhc3MuIEVtYmVkZGVkIExpbnV4IGJvYXJkcyBzdWNoIGFzIFJhc3BiZXJyeSBQaSwgTlZJRElBIEpldHNvbiBhbmQgaW5kdXN0cmlhbCBnYXRld2F5cyBhcmUgc3VwcG9ydGVkIGJ5IGV2ZXJ5IHBsYXRmb3JtIGluIHRoaXMgZ3VpZGUuIE1pY3JvY29udHJvbGxlcnMgcnVubmluZyBaZXBoeXIgb3IgRnJlZVJUT1MgYXJlIG5vdCwgYW5kIHB1c2ggeW91IHRvd2FyZCBBV1MgSW9UIENvcmUsIE1lbWZhdWx0IG9yIEdvbGlvdGggaW5zdGVhZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiRGVjaWRlIHdoZXRoZXIgeW91IG5lZWQgT1RBIG9yIG9ubHkgcmVtb3RlIGFjY2VzcyIsCiAgICAgICJ0ZXh0IjogIlJlbW90ZSBzaGVsbCBhY2Nlc3MgYW5kIG92ZXItdGhlLWFpciB1cGRhdGVzIGFyZSBzZXBhcmF0ZSBwcm9ibGVtcy4gSWYgeW91IG9ubHkgbmVlZCB0byByZWFjaCBhIGRldmljZSB0byBkZWJ1ZyBpdCwgYSByZW1vdGUgYWNjZXNzIHRvb2wgc3VjaCBhcyBTb2NrZXRYUCwgUmVtb3RlSW9UIG9yIERhdGFwbGljaXR5IGlzIGVub3VnaC4gSWYgeW91IHNoaXAgZmlybXdhcmUgb3IgYXBwbGljYXRpb24gdXBkYXRlcyB0byB0aGUgZmxlZXQsIHlvdSBuZWVkIGF0b21pYyB1cGRhdGVzIHdpdGggcm9sbGJhY2ssIHdoaWNoIGlzIHdoZXJlIGJhbGVuYUNsb3VkLCBxYmVlLmlvIGFuZCBNZW5kZXIgZWFybiB0aGVpciBwcmljZS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ2hlY2sgaG93IHRoZSBhZ2VudCBjcm9zc2VzIE5BVCIsCiAgICAgICJ0ZXh0IjogIkFsbW9zdCBldmVyeSBkZXZpY2Ugc2l0cyBiZWhpbmQgTkFULCBDR05BVCBvciBhIGNlbGx1bGFyIGNhcnJpZXIgd2l0aCBubyBpbmJvdW5kIHJvdXRpbmcuIENvbmZpcm0gdGhlIGFnZW50IG1ha2VzIGFuIG91dGJvdW5kIGNvbm5lY3Rpb24gb25seSwgaWRlYWxseSBvdmVyIFRDUCBwb3J0IDQ0Mywgc28gbm8gZmlyZXdhbGwgY2hhbmdlIGlzIG5lZWRlZC4gcWJlZS5pbyB0dW5uZWxzIGV2ZXJ5dGhpbmcgb3ZlciBIVFRQUyBvbiA0NDMsIGJhbGVuYUNsb3VkIGhvbGRzIGFuIG91dGJvdW5kIFZQTiB0byB0aGUgY2xvdWQsIGFuZCBBV1MgSW9UIHNlY3VyZSB0dW5uZWxpbmcgYnJva2VycyB0aGUgY29ubmVjdGlvbiBvdmVyIE1RVFQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlByaWNlIGl0IGF0IHlvdXIgcmVhbCBkZXZpY2UgY291bnQsIG5vdCB0aGUgaGVhZGxpbmUiLAogICAgICAidGV4dCI6ICJDb21wYXJlIHRvdGFsIG1vbnRobHkgY29zdCBhdCB0aGUgZmxlZXQgc2l6ZSB5b3UgZXhwZWN0IGluIGEgeWVhci4gQXQgMTAwIGRldmljZXMgYmFsZW5hQ2xvdWQgUGlsb3QgaXMgMzI5IFVTIGRvbGxhcnMgcGVyIG1vbnRoLCBTb2NrZXRYUCBDb3JlIGlzIDk5IFVTIGRvbGxhcnMgcGVyIG1vbnRoLCBxYmVlLmlvIFN0YXJ0dXAgaXMgMTQ5IGV1cm9zIHBlciBtb250aCBmb3IgNTAgZGV2aWNlcywgUmVtb3RlSW9UIEVudGVycHJpc2UgaXMgYWJvdXQgMTAwIFVTIGRvbGxhcnMgcGVyIG1vbnRoIGF0IDEgZG9sbGFyIHBlciBkZXZpY2UsIGFuZCBEYXRhcGxpY2l0eSBCdXNpbmVzcyBpcyBhYm91dCAzMDAgVVMgZG9sbGFycyBwZXIgbW9udGggYXQgMyBkb2xsYXJzIHBlciBkZXZpY2UuIEFXUyBiaWxscyBwZXIgYWN0aW9uLCBwZXIgaW5kZXggdXBkYXRlIGFuZCBwZXIgdHVubmVsIGluc3RlYWQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlRlc3QgdGhlIGV4aXQgcGF0aCBiZWZvcmUgeW91IGNvbW1pdCIsCiAgICAgICJ0ZXh0IjogIkdvb2dsZSByZXRpcmVkIENsb3VkIElvVCBDb3JlIG9uIDE2IEF1Z3VzdCAyMDIzIGFuZCBnYXZlIGN1c3RvbWVycyBhIHllYXIgdG8gbWlncmF0ZS4gQmVmb3JlIHlvdSBzdGFuZGFyZGl6ZSwgY29uZmlybSB5b3UgY2FuIGV4cG9ydCB0aGUgZGV2aWNlIHJlZ2lzdHJ5LCB0aGF0IHRoZSBhZ2VudCBpcyBvcGVuIHNvdXJjZSBvciByZXBsYWNlYWJsZSwgYW5kIHRoYXQgeW91IGNhbiByZWFjaCBhIGRldmljZSB3aXRob3V0IHRoZSB2ZW5kb3IgZGFzaGJvYXJkLiBLZWVwaW5nIGEgcGxhaW4gU1NIIHJldmVyc2UgdHVubmVsIGFzIGEgZmFsbGJhY2sgcGF0aCBjb3N0cyBub3RoaW5nIGFuZCBzYXZlcyBhIHRydWNrIHJvbGwuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIENob29zZSBhIFJlbW90ZSBJb1QgRGV2aWNlIE1hbmFnZW1lbnQgUGxhdGZvcm0iLAogICJkZXNjcmlwdGlvbiI6ICJBIHByYWN0aWNhbCBjaGVja2xpc3QgZm9yIHBpY2tpbmcgcmVtb3RlIElvVCBkZXZpY2UgbWFuYWdlbWVudCBzb2Z0d2FyZTogY291bnQgeW91ciBmbGVldCwgZGVjaWRlIHdoZXRoZXIgeW91IG5lZWQgT1RBIG9yIG9ubHkgcmVtb3RlIGFjY2VzcywgY2hlY2sgaG93IHRoZSBhZ2VudCBjcm9zc2VzIE5BVCwgcHJpY2UgdGhlIHBsYXRmb3JtIGF0IHlvdXIgcmVhbCBkZXZpY2UgY291bnQsIGFuZCB0ZXN0IHRoZSBleGl0IHBhdGggYmVmb3JlIHlvdSBjb21taXQuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2Jlc3RfcmVtb3RlX2lvdF9kZXZpY2VfbWFuYWdlbWVudF9zb2Z0d2FyZS9iZXN0X3JlbW90ZV9pb3RfZGV2aWNlX21hbmFnZW1lbnRfc29mdHdhcmVfYmFubmVyLndlYnAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiQ291bnQgdGhlIGZsZWV0IGFuZCB0aGUgZGV2aWNlIGNsYXNzIiwKICAgICAgInRleHQiOiAiUGVyLWRldmljZSBwcmljaW5nIGlzIHRoZSBzaW5nbGUgYmlnZ2VzdCBjb3N0IGRyaXZlciwgc28gc3RhcnQgZnJvbSBhbiBob25lc3QgZGV2aWNlIGNvdW50IGFuZCB0aGUgaGFyZHdhcmUgY2xhc3MuIEVtYmVkZGVkIExpbnV4IGJvYXJkcyBzdWNoIGFzIFJhc3BiZXJyeSBQaSwgTlZJRElBIEpldHNvbiBhbmQgaW5kdXN0cmlhbCBnYXRld2F5cyBhcmUgc3VwcG9ydGVkIGJ5IGV2ZXJ5IHBsYXRmb3JtIGluIHRoaXMgZ3VpZGUuIE1pY3JvY29udHJvbGxlcnMgcnVubmluZyBaZXBoeXIgb3IgRnJlZVJUT1MgYXJlIG5vdCwgYW5kIHB1c2ggeW91IHRvd2FyZCBBV1MgSW9UIENvcmUsIE1lbWZhdWx0IG9yIEdvbGlvdGggaW5zdGVhZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiRGVjaWRlIHdoZXRoZXIgeW91IG5lZWQgT1RBIG9yIG9ubHkgcmVtb3RlIGFjY2VzcyIsCiAgICAgICJ0ZXh0IjogIlJlbW90ZSBzaGVsbCBhY2Nlc3MgYW5kIG92ZXItdGhlLWFpciB1cGRhdGVzIGFyZSBzZXBhcmF0ZSBwcm9ibGVtcy4gSWYgeW91IG9ubHkgbmVlZCB0byByZWFjaCBhIGRldmljZSB0byBkZWJ1ZyBpdCwgYSByZW1vdGUgYWNjZXNzIHRvb2wgc3VjaCBhcyBQaW5nZ3kgRGV2aWNlcywgU29ja2V0WFAsIFJlbW90ZUlvVCBvciBEYXRhcGxpY2l0eSBpcyBlbm91Z2guIElmIHlvdSBzaGlwIGZpcm13YXJlIG9yIGFwcGxpY2F0aW9uIHVwZGF0ZXMgdG8gdGhlIGZsZWV0LCB5b3UgbmVlZCBhdG9taWMgdXBkYXRlcyB3aXRoIHJvbGxiYWNrLCB3aGljaCBpcyB3aGVyZSBiYWxlbmFDbG91ZCwgcWJlZS5pbyBhbmQgTWVuZGVyIGVhcm4gdGhlaXIgcHJpY2UuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNoZWNrIGhvdyB0aGUgYWdlbnQgY3Jvc3NlcyBOQVQiLAogICAgICAidGV4dCI6ICJBbG1vc3QgZXZlcnkgZGV2aWNlIHNpdHMgYmVoaW5kIE5BVCwgQ0dOQVQgb3IgYSBjZWxsdWxhciBjYXJyaWVyIHdpdGggbm8gaW5ib3VuZCByb3V0aW5nLiBDb25maXJtIHRoZSBhZ2VudCBtYWtlcyBhbiBvdXRib3VuZCBjb25uZWN0aW9uIG9ubHksIGlkZWFsbHkgb3ZlciBUQ1AgcG9ydCA0NDMsIHNvIG5vIGZpcmV3YWxsIGNoYW5nZSBpcyBuZWVkZWQuIFBpbmdneSBEZXZpY2VzIGhvbGRzIG9uZSBvdXRib3VuZCBjb25uZWN0aW9uIGZyb20gaXRzIENMSSBhZ2VudCB0byB0aGUgZGFzaGJvYXJkLCBxYmVlLmlvIHR1bm5lbHMgZXZlcnl0aGluZyBvdmVyIEhUVFBTIG9uIDQ0MywgYmFsZW5hQ2xvdWQgaG9sZHMgYW4gb3V0Ym91bmQgVlBOIHRvIHRoZSBjbG91ZCwgYW5kIEFXUyBJb1Qgc2VjdXJlIHR1bm5lbGluZyBicm9rZXJzIHRoZSBjb25uZWN0aW9uIG92ZXIgTVFUVC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiUHJpY2UgaXQgYXQgeW91ciByZWFsIGRldmljZSBjb3VudCwgbm90IHRoZSBoZWFkbGluZSIsCiAgICAgICJ0ZXh0IjogIkNvbXBhcmUgdG90YWwgbW9udGhseSBjb3N0IGF0IHRoZSBmbGVldCBzaXplIHlvdSBleHBlY3QgaW4gYSB5ZWFyLiBBdCAxMDAgZGV2aWNlcyBQaW5nZ3kgRGV2aWNlcyBQcm8gaXMgMTAgVVMgZG9sbGFycyBwZXIgbW9udGggZm9yIDQgc2VhdHMgYmlsbGVkIGFubnVhbGx5LCBiYWxlbmFDbG91ZCBQaWxvdCBpcyAzMjkgVVMgZG9sbGFycyBwZXIgbW9udGgsIFNvY2tldFhQIENvcmUgaXMgOTkgVVMgZG9sbGFycyBwZXIgbW9udGgsIHFiZWUuaW8gU3RhcnR1cCBpcyAxNDkgZXVyb3MgcGVyIG1vbnRoIGZvciA1MCBkZXZpY2VzLCBSZW1vdGVJb1QgRW50ZXJwcmlzZSBpcyBhYm91dCAxMDAgVVMgZG9sbGFycyBwZXIgbW9udGggYXQgMSBkb2xsYXIgcGVyIGRldmljZSwgYW5kIERhdGFwbGljaXR5IEJ1c2luZXNzIGlzIGFib3V0IDMwMCBVUyBkb2xsYXJzIHBlciBtb250aCBhdCAzIGRvbGxhcnMgcGVyIGRldmljZS4gQVdTIGJpbGxzIHBlciBhY3Rpb24sIHBlciBpbmRleCB1cGRhdGUgYW5kIHBlciB0dW5uZWwgaW5zdGVhZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiVGVzdCB0aGUgZXhpdCBwYXRoIGJlZm9yZSB5b3UgY29tbWl0IiwKICAgICAgInRleHQiOiAiR29vZ2xlIHJldGlyZWQgQ2xvdWQgSW9UIENvcmUgb24gMTYgQXVndXN0IDIwMjMgYW5kIGdhdmUgY3VzdG9tZXJzIGEgeWVhciB0byBtaWdyYXRlLiBCZWZvcmUgeW91IHN0YW5kYXJkaXplLCBjb25maXJtIHlvdSBjYW4gZXhwb3J0IHRoZSBkZXZpY2UgcmVnaXN0cnksIHRoYXQgdGhlIGFnZW50IGlzIG9wZW4gc291cmNlIG9yIHJlcGxhY2VhYmxlLCBhbmQgdGhhdCB5b3UgY2FuIHJlYWNoIGEgZGV2aWNlIHdpdGhvdXQgdGhlIHZlbmRvciBkYXNoYm9hcmQuIEtlZXBpbmcgYSBwbGFpbiBTU0ggcmV2ZXJzZSB0dW5uZWwgYXMgYSBmYWxsYmFjayBwYXRoIGNvc3RzIG5vdGhpbmcgYW5kIHNhdmVzIGEgdHJ1Y2sgcm9sbC4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "best_remote_iot_device_management_software/best_remote_iot_device_management_software_banner.webp" "Best Remote IoT Device Management Software in 2026" >}}
+{{< image "best_remote_iot_device_management_software/best_remote_iot_device_management_software_banner.webp" "Best Remote IoT Device Management Software in 2026: Pinggy, balenaCloud, AWS IoT Device Management, SocketXP and RemoteIoT" >}}
 
 Managing a fleet of IoT devices such as Raspberry Pis and other single-board computers is not easy, especially once they are out in the wild: behind CGNAT, on cellular data, inside someone else's home network. Easy remote access and management is essential once you can no longer just walk over and plug in a keyboard.
 
-That's the gap this guide is about. The same 100 Raspberry Pis cost $20 a month to manage on RemoteIoT and $409 on balenaCloud, and that gap is not a markup, it's two different products: the cheap half is **access** (a shell or VNC session on a device you can't route to), the expensive half is **lifecycle** (a device registry, atomic updates with rollback, fleet-wide config, audit logs). Buying the wrong half is what actually costs money.
+That's the gap this guide is about. The same 100 Raspberry Pis cost $10 a month to manage on Pinggy Devices and $409 on balenaCloud, and that gap is not a markup, it's two different products: the cheap half is **access** (a shell or VNC session on a device you can't route to), the expensive half is **lifecycle** (a device registry, atomic updates with rollback, fleet-wide config, audit logs). Buying the wrong half is what actually costs money.
 
-This guide compares balenaCloud, SocketXP, RemoteIoT, Dataplicity and AWS IoT Device Management on what decides that call: how the agent crosses NAT, whether updates are atomic, and what the bill looks like at real fleet sizes. Every price and feature here came from the vendor's own pages, checked in August 2026.
+This guide compares Pinggy Devices, balenaCloud, SocketXP, RemoteIoT, Dataplicity and AWS IoT Device Management on what decides that call: how the agent crosses NAT, whether updates are atomic, and what the bill looks like at real fleet sizes. Every price and feature here came from the vendor's own pages and docs, checked in August 2026, and for Pinggy Devices on November 12, 2026.
 
 {{% tldr %}}
 
-**Top 5 remote IoT device management platforms in 2026:**
+**Top 6 remote IoT device management platforms in 2026:**
 
-1. **<a href="https://www.balena.io/cloud" target="_blank">balenaCloud</a>** - Containers on balenaOS, delta updates, 100+ boards. Free for 10 devices, then $159/month.
-2. **<a href="https://www.socketxp.com/" target="_blank">SocketXP</a>** - Static agent, mTLS, no inbound ports. $20/month (40 devices) or $99/month (100 devices).
-3. **<a href="https://remoteiot.com/" target="_blank">RemoteIoT</a>** - Cheapest per device. $0.20 to $1.00 per device/month, free for 5 non-commercial.
-4. **<a href="https://www.dataplicity.com/" target="_blank">Dataplicity</a>** - Bare Pi to browser terminal in one command. 1 free device, then $3.00/device/month.
-5. **<a href="https://aws.amazon.com/iot-device-management/" target="_blank">AWS IoT Device Management</a>** - Jobs, fleet indexing, secure tunneling. Pay per use: $0.003/action, $1.00/tunnel.
+1. **[Pinggy Devices](/remote-terminal/)** - Browser terminal, live CPU and memory, and tunnel control over one outbound connection. Free for 1 device, then $2.50 per seat/month (25 devices per seat).
+2. **<a href="https://www.balena.io/cloud" target="_blank">balenaCloud</a>** - Containers on balenaOS, delta updates, 100+ boards. Free for 10 devices, then $159/month.
+3. **<a href="https://www.socketxp.com/" target="_blank">SocketXP</a>** - Static agent, mTLS, no inbound ports. $20/month (40 devices) or $99/month (100 devices).
+4. **<a href="https://remoteiot.com/" target="_blank">RemoteIoT</a>** - Per-device pricing with SSH and VNC. $0.20 to $1.00 per device/month, free for 5 non-commercial.
+5. **<a href="https://www.dataplicity.com/" target="_blank">Dataplicity</a>** - Bare Pi to browser terminal in one command. 1 free device, then $3.00/device/month.
+6. **<a href="https://aws.amazon.com/iot-device-management/" target="_blank">AWS IoT Device Management</a>** - Jobs, fleet indexing, secure tunneling. Pay per use: $0.003/action, $1.00/tunnel.
 
 **Also worth a look:** <a href="https://qbee.io/" target="_blank">qbee.io</a>, <a href="https://thingsboard.io/" target="_blank">ThingsBoard</a>, <a href="https://memfault.com/" target="_blank">Memfault</a>, <a href="https://mender.io/" target="_blank">Mender</a>.
 
-**Short version:** deploying containers, use balenaCloud. Only need a shell, the access tools cost a tenth as much. Huge fleet already on AWS, use AWS IoT.
+**Short version:** need a shell, live metrics and tunnels on devices behind NAT, use Pinggy Devices. Deploying containers, use balenaCloud. Huge fleet already on AWS, use AWS IoT.
 
 {{% /tldr %}}
 
@@ -66,6 +67,13 @@ One more thing worth weighing before you standardize on anything: Google retired
 </tr>
 </thead>
 <tbody>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Pinggy Devices</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">CLI agent, one outbound connection, browser terminal</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">No</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">1 device, 1 shell</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">$2.50/seat/mo (25 devices), billed annually</td>
+</tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>balenaCloud</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Containers on balenaOS</td>
@@ -104,9 +112,64 @@ One more thing worth weighing before you standardize on anything: Google retired
 </tbody>
 </table>
 
-## The 5 best remote IoT device management platforms in 2026
+## The 6 best remote IoT device management platforms in 2026
 
-### 1. balenaCloud - best all-round for containerized Linux fleets
+### 1. Pinggy Devices - best for a browser shell, live metrics and tunnels on devices behind NAT
+
+{{< image "best_remote_iot_device_management_software/pinggy_devices.webp" "Pinggy Instant Remote Terminals page with the Linux install command curl -fsSL https://pinggy.io/install.sh | sh, noting it needs no sudo and is free for 1 device" >}}
+
+[Pinggy Devices](/docs/devices/) turns the Pinggy CLI into a device agent. You run one command on the device, it signs in, and from then on the agent holds **one outbound connection** to the Pinggy dashboard. Everything else rides on that connection: a terminal in your browser, live CPU and memory, the device's tunnels and an activity log. The device accepts no inbound connection and needs no public IP or SSH server, so a Pi behind a home router, CGNAT or a cellular modem shows up the same way as a server in a rack. This is Pinggy's own blog, so weigh the ranking with that in mind; every limit below comes from teh docs, the pricing page or the CLI source.
+
+Installation is one line on the device:
+
+```bash
+curl -fsSL https://pinggy.io/install.sh | sh
+```
+
+The script needs no `sudo`, installs the CLI to `~/.pinggy/bin`, signs the device in with your email and a 6-digit code (a new email gets a free account) and starts the agent in the background. Typing an email on every unit doesn't scale, so the dashboard also has a token route: **Add device** shows a command with that device's token in it.
+
+{{< image "run_claude_code_remotely_from_any_browser/pinggy_install_script_email_sign_in_terminal.webp" "Terminal running the Pinggy install script: it installs the CLI, asks for an email and a 6-digit code, signs the machine in and prints a dashboard link with a QR code" >}}
+
+*Screenshot: the install script on CLI 0.6.3, where the agent stayed in the terminal; from 0.6.4 it starts in the background. Email, code, link, IDs and the QR code are placeholders.*
+
+```bash
+curl -fsSL https://pinggy.io/install.sh | DEVICE_AGENT_TOKEN=<TOKEN> sh
+```
+
+It asks for no email, no code and no keyboard, so it works in a script, a CI job or a `docker run` without `-t`. The token reaches the CLI in an environment variable, never on a command line, and the CLI removes the variable before it starts anything else. One machine holds one device credential, and the dashboard refuses a second agent using the same one, so a fleet means one device entry and one token per unit. The docs describe no bulk enrolment and no per-device certificates, which matters if you provision thousands of units on a production line.
+
+Surviving a reboot is a seperate step. Since CLI 0.6.5 (November 10, 2026), `pinggy daemon service-install` registers the Pinggy daemon as a systemd user service on Linux, a launchd agent on macOS or a scheduled task on Windows, and the device agent starts with the daemon. On Linux it also runs `loginctl enable-linger` for your user, so the service starts at boot with nobody logged in, which is how most headless Pis run. If that call needs a password it can't ask for, the CLI prints the `loginctl enable-linger <user>` command to run yourself. Without the service, the agent stops at a reboot and `pinggy device connect` brings it back.
+
+The Linux builds are glibc binaries for x64 and arm64, and the installer stops with "unsupported CPU" on anything else. That covers a Pi 3, 4, 5 or Zero 2 W running 64-bit Raspberry Pi OS and most ARM64 gateways on a glibc distro, but not 32-bit Raspberry Pi OS or an original Pi Zero. On Alpine and other musl images, install it with `npm install -g pinggy` instead.
+
+Each device gets four tabs in the dashboard:
+
+- **Overview** shows the hostname, OS, kernel, CPU model and cores, total memory and agent version, next to live CPU, memory, load average and uptime.
+- **Terminal** opens a shell on the device as the user who runs the agent. Closing the browser tab leaves the shell running and redraws the screen when you come back. A shell ends after 30 minutes with no activity or after 8 hours.
+- **Tunnels** lists the tunnels running on the device and the configs saved there with `pinggy config save`. You can start, stop, restart or edit them, or start a new one from a config defined in the dashboard, which is how you reach a Node-RED editor or a camera's web UI on the device.
+- **Activity** lists the device's events with source IP addresses.
+
+{{< image "run_opencode_remotely_from_any_browser/pinggy_device_overview_dark.webp" "Pinggy dashboard device Overview tab in the dark theme, showing the device online, system details including agent version 0.6.4, and live CPU, memory, load average and uptime" >}}
+
+*Screenshot: dashboard.pinggy.io, November 2026. The hostname is a placeholder.*
+
+On security, the device token is stored in `~/.config/pinggy/device.json`, readable only by its user. The agent never logs what you type, and the copy of a shell's screen used to redraw a reopened tab lives in memory only. To cut a device off, delete it or rotate its token in the dashboard; `pinggy device remove` only forgets the token on the device. Anyone signed in to your Pinggy account can open a shell on every device as the user running the agent, so turn on 2-factor authentication and run the agent as an unprivileged user rather than root.
+
+Pricing per the {{< link href="/#prices" newtab=false >}}pricing page{{< /link >}} and the docs on November 12, 2026: **Free** covers 1 device with 1 shell. **Pro** is **$2.50 per seat per month billed annually** or $3.00 billed monthly, and each seat adds 25 devices and 25 open shells, with at most 10 shells on any one device, so 3 seats cover 75 devices. A single Pro seat starts with a 7-day free trial, and Enterprise is custom priced.
+
+What it does not do matters as much. There are **no OTA updates and no rollback**, no fleet-wide configuration or batch jobs (you act on one device at a time from its page), and no alerting in the docs. It is also new: Pinggy Devices shipped in CLI v0.6.2 on November 2, 2026, and the CLI has had five releases since. If you ship firmware, pair it with Mender or another updater from this list.
+
+**Key specs**
+
+- **Device model:** Pinggy CLI as a background agent; glibc binaries for Linux x64 and arm64, macOS and Windows, npm on musl
+- **OTA:** none
+- **Remote access:** browser terminal, plus Pinggy tunnels started, stopped and edited from the dashboard
+- **Monitoring:** live CPU, memory, load and uptime; activity log with source IPs
+- **Provisioning:** email sign-in, or a per-device token with no keyboard; start at boot with `pinggy daemon service-install`
+- **Pricing:** free for 1 device; $2.50 per seat/month billed annually ($3.00 monthly), 25 devices per seat
+- **Weak spot:** no OTA or fleet-wide jobs, no 32-bit ARM builds, and a young product
+
+### 2. balenaCloud - best all-round for containerized Linux fleets
 
 {{< image "best_remote_iot_device_management_software/balenacloud.webp" "balenaCloud container-based IoT fleet management platform" >}}
 
@@ -129,7 +192,7 @@ The catch is cost. The free tier is 10 devices and one user. **Prototype** is $1
 - **Pricing:** free 10 devices; $159/mo (30), $329/mo (60), $1,439/mo (110); extra devices $2 to $3
 - **Weak spot:** price per device, and the container model is a real architectural commitment
 
-### 2. SocketXP - best remote access plus OTA for a mid-size fleet
+### 3. SocketXP - best remote access plus OTA for a mid-size fleet
 
 {{< image "best_remote_iot_device_management_software/socketxp.webp" "SocketXP IoT remote access and device management dashboard" >}}
 
@@ -171,11 +234,11 @@ Watch the data caps. Plans allocate between 100MB and 500MB per device per month
 - **Pricing:** Small Business $20/$39/$79 per month for 40 devices; Enterprise $99/$299/$499/$799 per month for 100 devices; extras $0.30 to $1.99
 - **Weak spot:** per-device data caps of 100MB to 500MB, monitoring and OTA gated behind the $499 Standard plan, no built-in data visualization
 
-### 3. RemoteIoT - cheapest per device for SSH and VNC
+### 4. RemoteIoT - low per-device pricing for SSH and VNC
 
 {{< image "best_remote_iot_device_management_software/remoteiot.webp" "RemoteIoT secure remote IoT access and management platform" >}}
 
-{{< link href="https://remoteiot.com/" >}}RemoteIoT{{< /link >}} is the price leader by a wide margin and is narrower in scope than everything above. It gives you remote SSH and VNC to devices behind firewalls, a browser-based web console, batch jobs across groups of devices, file upload and application update to many devices at once, centralized SSH key management, and monitoring of CPU, memory and disk.
+{{< link href="https://remoteiot.com/" >}}RemoteIoT{{< /link >}} is one of the cheapest options per device and is narrower in scope than balenaCloud or SocketXP. It gives you remote SSH and VNC to devices behind firewalls, a browser-based web console, batch jobs across groups of devices, file upload and application update to many devices at once, centralized SSH key management, and monitoring of CPU, memory and disk.
 
 The setup is a single command with your account's setup key baked in, taken from their documentation:
 
@@ -203,7 +266,7 @@ At 100 devices, Enterprise costs $100/month for capabilities that overlap most o
 - **Pricing:** free for 5 non-commercial devices; $0.20, $0.50, $1.00 and $1.20 per device per month
 - **Weak spot:** JVM dependency, and it is an access tool rather than a full lifecycle platform
 
-### 4. Dataplicity - simplest path from a bare Pi to a browser terminal
+### 5. Dataplicity - simplest path from a bare Pi to a browser terminal
 
 {{< image "best_remote_iot_device_management_software/dataplicity.webp" "Dataplicity remote device management for Linux IoT fleets" >}}
 
@@ -219,7 +282,7 @@ What is less widely known is that Dataplicity is no longer only the hobbyist too
 
 Pricing: **Free** is one device with the remote terminal, Wormhole, port forwarding on standard ports, one dashboard, one display, one monitor, one scheduled task and 24-hour log retention. **Standard** starts at **$3.00 per device per month with a 3 device minimum**, bundling 25 monitors and 25 scheduled tasks with 7-day log retention, still restricted to standard ports. **Business** keeps the $3.00 per device rate through the 1 to 50 device band, steps down on larger bands, and includes 50 monitors, 50 scheduled tasks, 90-day log retention, custom ports, custom Wormhole URLs, alerts, the fleet map, fleet jobs, incidents, on-call escalations, log analytics and the SSO/SCIM security features. Custom quotes are available for larger deployments.
 
-The honest tradeoff: at $3.00 per device Dataplicity is the most expensive per-unit option here. A 100 device fleet lands around $300/month against $100 on RemoteIoT Enterprise, $99 on SocketXP Core and $20 on RemoteIoT Business. You are paying for polish and for the alerting and incident layer. There is also no atomic OTA story, so firmware-heavy products should look elsewhere, and the Python agent means Python has to exist on the image.
+The honest tradeoff: at $3.00 per device Dataplicity is the most expensive per-unit option here. A 100 device fleet lands around $300/month against $100 on RemoteIoT Enterprise, $99 on SocketXP Core, $20 on RemoteIoT Business and $10 on Pinggy Devices Pro. You are paying for polish and for the alerting and incident layer. There is also no atomic OTA story, so firmware-heavy products should look elsewhere, and the Python agent means Python has to exist on the image.
 
 **Key specs**
 
@@ -230,7 +293,7 @@ The honest tradeoff: at $3.00 per device Dataplicity is the most expensive per-u
 - **Pricing:** 1 device free; $3.00/device/month from 3 devices; volume bands and custom quotes above 50
 - **Weak spot:** highest per-device price here, no atomic OTA, Python runtime required on device
 
-### 5. AWS IoT Device Management - best at hyperscale
+### 6. AWS IoT Device Management - best at hyperscale
 
 {{< image "best_remote_iot_device_management_software/aws_iot_device_management.webp" "AWS IoT Device Management product page" >}}
 
@@ -268,6 +331,12 @@ Headline prices are not comparable across these vendors, so here is the same fle
 </tr>
 </thead>
 <tbody>
+<tr style="background:#e8f5e9;">
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>Pinggy Devices</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Pro, 4 seats</td>
+  <td style="border:1px solid #ddd;padding:0.5em;"><strong>$10</strong></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">4 x $2.50 per seat billed annually ($12 billed monthly); each seat covers 25 devices and 1 engineer</td>
+</tr>
 <tr style="background:#e8f5e9;">
   <td style="border:1px solid #ddd;padding:0.5em;"><strong>RemoteIoT</strong></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Business</td>
@@ -309,7 +378,7 @@ Headline prices are not comparable across these vendors, so here is the same fle
 
 The AWS row is the one to read carefully, because it is the only usage-based line and it moves fast. One tunnel per device per month is a light support load. Triple it and AWS becomes the most expensive option in the table, while every per-device plan stays flat. Conversely, if your devices are mostly self-sufficient and you rarely open a session, AWS can undercut everything here. Model your own usage before trusting either intuition.
 
-Also worth noting: balenaCloud's price buys a genuine build-and-deploy pipeline, not just access. Comparing it directly against RemoteIoT is comparing a CI/CD and OTA system against a remote shell. The right comparison for balena is qbee.io or Mender.
+Pinggy's $10 buys a browser shell, live metrics and tunnel control on every device, not OTA, so compare it with RemoteIoT and SocketXP Core rather than with balena. Also worth noting: balenaCloud's price buys a genuine build-and-deploy pipeline, not just access. Comparing it directly against RemoteIoT is comparing a CI/CD and OTA system against a remote shell. The right comparison for balena is qbee.io or Mender.
 
 ## Also worth a look
 
@@ -337,14 +406,15 @@ Also worth noting: balenaCloud's price buys a genuine build-and-deploy pipeline,
 
 An IoT device almost never has an inbound-reachable address. It sits behind a home router doing NAT, a corporate firewall that drops unsolicited inbound traffic, or a carrier doing CGNAT. It has to connect to you, not the other way around.
 
-Vendors solve this three ways: an **outbound tunnel to a broker**, where the agent holds a long-lived TLS or WebSocket connection to a cloud relay (SocketXP, RemoteIoT, Dataplicity and AWS secure tunneling); an **outbound VPN**, where the device joins an overlay network on boot (balenaCloud); and **HTTPS-only on port 443**, the same idea constrained to the one port every egress policy allows (qbee.io). The fourth option is the one you can build yourself: an **SSH reverse tunnel**, which is what `ssh -R` has done since the 1990s. We cover that route separately in {{< link href="/blog/access_iot_devices_from_anywhere/" newtab=false >}}Access IoT Devices from Anywhere{{< /link >}}, {{< link href="/blog/access_raspberry_pi_remotely_to_control_iot_devices/" newtab=false >}}Access Raspberry Pi Remotely to Control IoT Devices{{< /link >}}, {{< link href="/blog/ssh_reverse_tunnelling/" newtab=false >}}SSH Reverse Tunneling{{< /link >}} and {{< link href="/blog/vpn_replacement_for_secure_remote_access/" newtab=false >}}VPN Replacement for Secure Remote Access{{< /link >}}, plus {{< link href="/blog/iot_remote_desktop_raspberry_pi/" newtab=false >}}Remote Desktop for Raspberry Pi{{< /link >}} and {{< link href="/blog/remotely_connect_to_iol__using_vnc/" newtab=false >}}Remotely Connect to IoT Devices Using VNC{{< /link >}} for GUI access.
+Vendors solve this three ways: an **outbound tunnel to a broker**, where the agent holds a long-lived TLS or WebSocket connection to a cloud relay (Pinggy Devices, SocketXP, RemoteIoT, Dataplicity and AWS secure tunneling); an **outbound VPN**, where the device joins an overlay network on boot (balenaCloud); and **HTTPS-only on port 443**, the same idea constrained to the one port every egress policy allows (qbee.io). The fourth option is the one you can build yourself: an **SSH reverse tunnel**, which is what `ssh -R` has done since the 1990s. We cover that route separately in {{< link href="/blog/access_iot_devices_from_anywhere/" newtab=false >}}Access IoT Devices from Anywhere{{< /link >}}, {{< link href="/blog/access_raspberry_pi_remotely_to_control_iot_devices/" newtab=false >}}Access Raspberry Pi Remotely to Control IoT Devices{{< /link >}}, {{< link href="/blog/ssh_reverse_tunnelling/" newtab=false >}}SSH Reverse Tunneling{{< /link >}} and {{< link href="/blog/vpn_replacement_for_secure_remote_access/" newtab=false >}}VPN Replacement for Secure Remote Access{{< /link >}}, plus {{< link href="/blog/iot_remote_desktop_raspberry_pi/" newtab=false >}}Remote Desktop for Raspberry Pi{{< /link >}} and {{< link href="/blog/remotely_connect_to_iol__using_vnc/" newtab=false >}}Remotely Connect to IoT Devices Using VNC{{< /link >}} for GUI access.
 
 ## How to choose
 
+- **Need a shell, live CPU and memory, and tunnels on Pis or Linux boxes behind NAT, for the least money?** Pinggy Devices.
 - **Shipping application code to Linux devices?** balenaCloud. Containers, delta updates and host OS management in one pipeline.
 - **Shipping firmware that must never brick?** Mender, or qbee.io if you also want config management and CVE scanning.
 - **Hundreds of thousands of devices, already on AWS?** AWS IoT Device Management. Model the secure tunneling bill early.
-- **Just need a shell on devices behind firewalls?** SocketXP for a static agent plus OTA, RemoteIoT if price per device dominates.
+- **Need SSH and VNC plus OTA or SD card health on devices behind firewalls?** SocketXP for a static agent with OTA, RemoteIoT for SD card wear monitoring on Pis.
 - **Small fleet, want alerting and on-call included?** Dataplicity.
 - **Want to own the stack?** ThingsBoard for data, Mender for updates, SSH reverse tunnels for access.
 
@@ -360,4 +430,4 @@ The ability to switch platforms also depends on whether your team has the engine
 
 ## Conclusion
 
-There is no single best remote IoT device management software in 2026, but the split is clear. **balenaCloud** is the most complete platform for containerized Linux fleets. **SocketXP**, **RemoteIoT** and **Dataplicity** are access-first tools that cost far less because they solve a smaller problem, which for many teams is the whole requirement. **AWS IoT Device Management** wins at scale inside an AWS estate, if you build the device side yourself. Price your shortlist at the fleet size you expect in twelve months, not today: the same 100 devices cost $20 on RemoteIoT Business and $409 on balenaCloud Pilot. And keep a plain SSH reverse tunnel in your back pocket. It costs nothing, it works when the dashboard does not, and it has outlasted several IoT platforms already.
+There is no single best remote IoT device management software in 2026, but the split is clear. **Pinggy Devices** is the best place to start if what you need is a shell, live metrics and tunnels on devices behind NAT: one install command, one outbound connection, and $10 a month for 100 devices. **balenaCloud** is the most complete platform for containerized Linux fleets. **SocketXP**, **RemoteIoT** and **Dataplicity** are access-first tools that cost far less because they solve a smaller problem, which for many teams is the whole requirement. **AWS IoT Device Management** wins at scale inside an AWS estate, if you build the device side yourself. Price your shortlist at the fleet size you expect in twelve months, not today: the same 100 devices cost $10 on Pinggy Devices and $409 on balenaCloud Pilot. And keep a plain SSH reverse tunnel in your back pocket. It costs nothing, it works when the dashboard does not, and it has outlasted several IoT platforms already.
