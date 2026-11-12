@@ -12,7 +12,7 @@
 #                            command line. The script removes the variable from this window when it ends
 #
 # Overrides, for dev and tests:
-#   $env:PINGGY_VERSION     a release tag, such as v0.6.1. Default: the latest release
+#   $env:PINGGY_VERSION     a release tag, such as v0.6.1. Default: the version pinggy.io publishes
 #   $env:PINGGY_BINARY_URL  a full binary URL, file:// included. Replaces the installed binary without a version check
 #   $env:PINGGY_MANAGE      a non-production dashboard host, passed to `pinggy device login` or `connect` as --manage
 #
@@ -31,6 +31,7 @@ function Install-Pinggy {
     $ProgressPreference = 'SilentlyContinue'
 
     $releasesUrl = 'https://github.com/Pinggy-io/cli-js/releases'
+    $versionUrl = 'https://pinggy.io/cli/version.json'
     $installDir = Join-Path $env:LOCALAPPDATA 'Pinggy\bin'
     $installPath = Join-Path $installDir 'pinggy.exe'
     $versionPattern = 'Pinggy CLI version:\s*(\S+)'
@@ -59,27 +60,24 @@ function Install-Pinggy {
         throw "pinggy install: unsupported CPU: $processArchitecture. The pinggy binaries are built for x64 and arm64."
     }
 
-    # GitHub redirects /releases/latest to /releases/tag/<tag>. Reading the redirect costs no API call, so the
-    # API's 60 requests an hour per IP do not apply.
+    # pinggy.io publishes the latest version in the deploy that publishes this script, so the script and the binary
+    # come from 1 release. GitHub's /releases/latest can name a newer release, or one whose binaries still upload.
     function Get-TargetTag {
         if ($env:PINGGY_VERSION) {
             if ($env:PINGGY_VERSION.StartsWith('v')) { return $env:PINGGY_VERSION }
             return "v$($env:PINGGY_VERSION)"
         }
-        $response = Invoke-WebRequest -Uri "$releasesUrl/latest" -Method Head -UseBasicParsing
-        $baseResponse = $response.BaseResponse
-        if ($baseResponse.PSObject.Properties['ResponseUri']) {
-            # Windows PowerShell 5.1: HttpWebResponse
-            $finalUrl = $baseResponse.ResponseUri.AbsoluteUri
-        } else {
-            # PowerShell 7: HttpResponseMessage
-            $finalUrl = $baseResponse.RequestMessage.RequestUri.AbsoluteUri
+        $retryHint = 'Try again later, or set $env:PINGGY_VERSION to a release tag, such as v0.6.1.'
+        try {
+            $latest = Invoke-RestMethod -Uri $versionUrl -UseBasicParsing
+        } catch {
+            throw "pinggy install: could not reach $versionUrl. $retryHint"
         }
-        $tag = ($finalUrl -split '/')[-1]
-        if ($tag -notmatch '^v\d') {
-            throw "pinggy install: could not read the latest release tag from $releasesUrl/latest"
+        $version = [string] $latest.version
+        if ($version -notmatch '^\d+\.\d+\.\d+$') {
+            throw "pinggy install: could not read the latest version from $versionUrl. $retryHint"
         }
-        return $tag
+        return "v$version"
     }
 
     # The version a binary reports, or '' when it does not run. 'Continue', because Windows PowerShell 5.1 turns a
