@@ -1,4 +1,5 @@
-# Installs or updates the Pinggy CLI on Windows, then signs this machine in as a Pinggy device.
+# Installs or updates the Pinggy CLI on Windows, then asks whether to sign this machine in as a Pinggy device.
+# Once the device connects, it asks whether to start pinggy at login, unless that task is already registered.
 #
 #   irm https://pinggy.io/install.ps1 | iex
 #   $env:DEVICE_AGENT_TOKEN='<token>'; irm https://pinggy.io/install.ps1 | iex
@@ -11,12 +12,11 @@
 #                            command line. The script removes the variable from this window when it ends
 #
 # Overrides, for dev and tests:
-#   $env:PINGGY_VERSION     a release tag, such as v0.6.1. Default: the latest release
+#   $env:PINGGY_VERSION     a release tag, such as v0.6.1. Default: the version pinggy.io publishes
 #   $env:PINGGY_BINARY_URL  a full binary URL, file:// included. Replaces the installed binary without a version check
 #   $env:PINGGY_MANAGE      a non-production dashboard host, passed to `pinggy device login` or `connect` as --manage
 #
 # The source lives in Pinggy-io/cli-js, scripts/install/. A release copies it to pinggy.io.
-# Design: docs/pinggy-devices/install-script-plan.md in the pinggy_backend repo.
 #
 # iex runs this inside the user's own session. So it never calls exit, which would close their window, and every
 # helper and preference is local to Install-Pinggy. Nothing runs until the last line.
@@ -31,9 +31,13 @@ function Install-Pinggy {
     $ProgressPreference = 'SilentlyContinue'
 
     $releasesUrl = 'https://github.com/Pinggy-io/cli-js/releases'
+    $versionUrl = 'https://pinggy.io/cli/version.json'
     $installDir = Join-Path $env:LOCALAPPDATA 'Pinggy\bin'
     $installPath = Join-Path $installDir 'pinggy.exe'
     $versionPattern = 'Pinggy CLI version:\s*(\S+)'
+    $autoUpdatePinLine = 'Auto-update replaces this version. Set PINGGY_AUTO_UPDATE=false to keep it.'
+    # The task `pinggy daemon service-install` registers. Its name lives in src/daemon/lifecycle/serviceInstaller.ts.
+    $loginTaskName = 'PinggyDaemon'
     $cpuArchitectureX64 = 9
     $cpuArchitectureArm64 = 12
 
@@ -56,27 +60,24 @@ function Install-Pinggy {
         throw "pinggy install: unsupported CPU: $processArchitecture. The pinggy binaries are built for x64 and arm64."
     }
 
-    # GitHub redirects /releases/latest to /releases/tag/<tag>. Reading the redirect costs no API call, so the
-    # API's 60 requests an hour per IP do not apply.
+    # pinggy.io publishes the latest version in the deploy that publishes this script, so the script and the binary
+    # come from 1 release. GitHub's /releases/latest can name a newer release, or one whose binaries still upload.
     function Get-TargetTag {
         if ($env:PINGGY_VERSION) {
             if ($env:PINGGY_VERSION.StartsWith('v')) { return $env:PINGGY_VERSION }
             return "v$($env:PINGGY_VERSION)"
         }
-        $response = Invoke-WebRequest -Uri "$releasesUrl/latest" -Method Head -UseBasicParsing
-        $baseResponse = $response.BaseResponse
-        if ($baseResponse.PSObject.Properties['ResponseUri']) {
-            # Windows PowerShell 5.1: HttpWebResponse
-            $finalUrl = $baseResponse.ResponseUri.AbsoluteUri
-        } else {
-            # PowerShell 7: HttpResponseMessage
-            $finalUrl = $baseResponse.RequestMessage.RequestUri.AbsoluteUri
+        $retryHint = 'Try again later, or set $env:PINGGY_VERSION to a release tag, such as v0.6.1.'
+        try {
+            $latest = Invoke-RestMethod -Uri $versionUrl -UseBasicParsing
+        } catch {
+            throw "pinggy install: could not reach $versionUrl. $retryHint"
         }
-        $tag = ($finalUrl -split '/')[-1]
-        if ($tag -notmatch '^v\d') {
-            throw "pinggy install: could not read the latest release tag from $releasesUrl/latest"
+        $version = [string] $latest.version
+        if ($version -notmatch '^\d+\.\d+\.\d+$') {
+            throw "pinggy install: could not read the latest version from $versionUrl. $retryHint"
         }
-        return $tag
+        return "v$version"
     }
 
     # The version a binary reports, or '' when it does not run. 'Continue', because Windows PowerShell 5.1 turns a
@@ -97,7 +98,7 @@ function Install-Pinggy {
     }
 
     # Enter, or no terminal, means yes. Only an answer starting with n means no.
-    function Confirm-Update([string] $question) {
+    function Confirm-Question([string] $question) {
         if (-not (Test-Interactive)) { return $true }
         $answer = Read-Host $question
         return -not ($answer -match '^\s*n')
@@ -177,10 +178,11 @@ function Install-Pinggy {
             # An older CLI ignores DEVICE_AGENT_TOKEN, so keeping it would leave the machine unconnected.
             Write-Host "Updating pinggy $installedVersion to $targetVersion."
             Install-Binary $tag $cpu
-        } elseif (Confirm-Update "pinggy $installedVersion is installed. Update to $($targetVersion)? [Y/n]") {
+        } elseif (Confirm-Question "pinggy $installedVersion is installed. Update to $($targetVersion)? [Y/n]") {
             Install-Binary $tag $cpu
         } else {
             Write-Host "Keeping pinggy $installedVersion."
+            if (-not $env:PINGGY_VERSION) { Write-Host $autoUpdatePinLine }
         }
     }
 
@@ -214,6 +216,36 @@ function Install-Pinggy {
         }
     }
 
+    # The task counts only when it runs the binary this script installs. A task left by a pinggy elsewhere gets the
+    # question, and service-install replaces it. Get-ScheduledTask, because schtasks prints field names in the
+    # language of Windows.
+    function Test-LoginTask {
+        try {
+            $task = Get-ScheduledTask -TaskName $loginTaskName -ErrorAction Stop
+        } catch {
+            return $false
+        }
+        return @($task.Actions | Where-Object { $_.Execute -ieq $installPath }).Count -gt 0
+    }
+
+    # Asks once the device connects, so the agent starts again after a restart. Leaves a registered task as it is.
+    function Invoke-LoginServiceOffer {
+        if (Test-LoginTask) { return }
+        if (-not (Test-Interactive)) {
+            Write-Host 'To start pinggy when this computer starts, run: pinggy daemon service-install'
+            return
+        }
+        Write-Host ''
+        if (-not (Confirm-Question 'Start pinggy automatically when this computer starts? [Y/n]')) {
+            Write-Host 'To start pinggy when this computer starts, run: pinggy daemon service-install'
+            return
+        }
+        & $installPath daemon service-install
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host 'Could not set up the login service. To try again, run: pinggy daemon service-install'
+        }
+    }
+
     # Runs the installed file by its full path, so an npm-installed pinggy earlier on PATH does not answer. -b is the
     # default now. It is passed anyway, so an older pinggy the user kept runs the agent in its daemon too.
     function Invoke-DeviceLogin {
@@ -227,16 +259,25 @@ function Install-Pinggy {
             return
         }
         Write-Host ''
+        if (-not (Confirm-Question 'Connect this device to Pinggy? [Y/n]')) {
+            Write-Host "Installed. To connect this device later, run: pinggy $($loginArguments -join ' ')"
+            return
+        }
         & $installPath @loginArguments -b
+        if ($LASTEXITCODE -eq 0) { Invoke-LoginServiceOffer }
     }
 
     # Runs the installed file by its full path, with -b, as Invoke-DeviceLogin does. connect reads DEVICE_AGENT_TOKEN
-    # from the environment it inherits, and reads no key, so it runs the same with no console.
+    # from the environment it inherits, and reads no key, so it runs the same with no console. The token leaves the
+    # environment before the service question, so no later command inherits it.
     function Invoke-DeviceConnect {
         $connectArguments = @('device', 'connect', '-b')
         if ($env:PINGGY_MANAGE) { $connectArguments += @('--manage', $env:PINGGY_MANAGE) }
         Write-Host ''
         & $installPath @connectArguments
+        $connectExitCode = $LASTEXITCODE
+        Remove-Item -Path Env:\DEVICE_AGENT_TOKEN -ErrorAction SilentlyContinue
+        if ($connectExitCode -eq 0) { Invoke-LoginServiceOffer }
     }
 
     # Older Windows PowerShell 5.1 setups offer less than TLS 1.2, and GitHub refuses them.
@@ -246,6 +287,7 @@ function Install-Pinggy {
     try {
         $cpu = Get-Cpu
         Install-OrUpdate $cpu
+        if ($env:PINGGY_VERSION) { Write-Host $autoUpdatePinLine }
         Add-InstallDirToPath
         if ($env:DEVICE_AGENT_TOKEN) {
             Invoke-DeviceConnect

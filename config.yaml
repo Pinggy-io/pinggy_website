@@ -154,6 +154,15 @@ outputFormats:
     isPlainText: true
     notAlternative: true
 
+  # Machine-readable latest Pinggy CLI version, driven by data/cli_releases.yaml.
+  # Attached to the /cli/ page, so it is served at /cli/version.json.
+  # static/install.sh and static/install.ps1 read it to pick the release to install.
+  cliversion:
+    mediaType: "application/json"
+    baseName: "version"
+    isPlainText: true
+    notAlternative: true
+
 minify:
   minifyOutput: true
   tdewolff:

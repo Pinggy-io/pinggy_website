@@ -2,6 +2,7 @@
 title: "Pinggy Devices - remote terminal and tunnels for your machines"
 description: "Connect a machine to the Pinggy dashboard with 1 install command. Open a terminal on it from your browser, see its CPU and memory, and start or stop its tunnels. Works behind NAT and firewalls."
 date: 2026-11-01T12:00:00+05:30
+lastmod: 2026-11-11T12:00:00+05:30
 draft: false
 ---
 
@@ -131,11 +132,10 @@ Tunnels started from the dashboard run in the background on the machine, as `pin
 | Plan | Devices | Shells open on 1 device | Shells open across all devices |
 |------|---------|-------------------------|--------------------------------|
 | Free | 1 | 1 | 1 |
-| Pro | 25 | 3 | 10 |
-| Pro (team, per seat) | 25 | 3 | 10 per seat |
-| Enterprise | 25 | 5 | 50 |
+| Pro | 25 per seat | 10 | 25 per seat |
+| Enterprise | 25 per seat | 10 | 25 per seat |
 
-See [pricing](/#prices) for the plans.
+A Pro plan with 3 seats allows 75 devices and 75 open shells, with at most 10 on any 1 device. See [pricing](/#prices) for the plans.
 
 ## Commands
 

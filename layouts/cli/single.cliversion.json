@@ -1,0 +1,13 @@
+{{- /* Latest Pinggy CLI version, from data/cli_releases.yaml (first entry is newest). */ -}}
+{{- $releases := hugo.Data.cli_releases -}}
+{{- $latest := index $releases 0 -}}
+{{- $versions := slice -}}
+{{- range $releases -}}
+  {{- $versions = $versions | append (printf "%v" .version) -}}
+{{- end -}}
+{{- $out := dict
+      "version" (printf "%v" $latest.version)
+      "url" (absURL "cli/")
+      "versions" $versions
+-}}
+{{- $out | jsonify (dict "indent" "  ") -}}
