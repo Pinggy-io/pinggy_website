@@ -59,7 +59,7 @@ A harness is not a single thing but a collection of concerns. Regardless of type
 
 **Guardrails and policy enforcement** wrap the loop with safety constraints input filters, output validators, permission boundaries on tool use, and rate controls. These are the harness components that determine whether an agent can be trusted in production without continuous human supervision.
 
-**Telemetry and evaluation** close the loop between deployment and improvement. Traces, latency metrics, pass rates, and LLM-as-judge evaluations let teams measure whether the harness is producing correct outputs and catch regressions before users do.
+**Telemetry and evaluation** close the loop between deployment and improvement. Traces, latency metrics, pass rates, and LLM-as-judge evaluations let teams measure whether the harness is producing correct outputs and catch regressions before users do. Separating model inference time from tool calls and other harness overhead gives teams a starting point to <a href="https://telnyx.com/resources/inference-latency" target="_blank">cut inference latency</a>.
 
 ## The Eight Harness Categories at a Glance
 
