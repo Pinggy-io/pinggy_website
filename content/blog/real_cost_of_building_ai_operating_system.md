@@ -13,7 +13,7 @@ outputs:
   - AMP
 ---
 
-{{< image "real_cost_of_building_ai_operating_system/real_cost_of_building_ai_operating_system_banner.webp" "Dark banner reading The real cost of an AI operating system, beside a sample budget panel: $100,000 to build, $8,000 a month to run, $196,000 for the build plus 12 months in production" >}}
+{{< image "real_cost_of_building_ai_operating_system/real_cost_of_building_ai_operating_system_banner.webp" "A $100,000 build receipt and an $8,000 monthly run receipt on either side of an AI operating system window where an agent connects to mail, Slack, calendar, docs, Drive and a database, with a $196,000 first-year total" >}}
 
 A marketing team gets an agent drafting campaign copy in a week. The pilot looks cheap because a person is still doing the expensive parts: finding the source material, checking the claims, and copying the approved text into the CMS. Once the company wants the system to take over more of that work, the budget starts to change.
 
