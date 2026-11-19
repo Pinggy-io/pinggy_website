@@ -469,10 +469,17 @@ body:not(.blog) .modal-title {
 /* Segmented control. Calm neutral track with a white sliding thumb
    marking the active option; color stays reserved for action, so the
    selection reads through the thumb and text weight, not an accent
-   fill. Thumb follows the toggle-switch spec (white + --shadow-xs). */
+   fill. Thumb follows the toggle-switch spec (white + --shadow-xs).
+   The thumb is a fixed half of the track, so both options must always be
+   exactly half: two minmax(0, 1fr) columns size to the wider label
+   ("Recently updated", "Actualizados recientemente") when there is room,
+   and stay equal halves on a narrow phone, where the label wraps instead.
+   Flex with flex-basis 0 can't do this, because min-width:auto keeps each
+   button at its own text width. */
 .blog-sort {
   position: relative;
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   padding: 3px;
   background: var(--ink-100);
   border: 1px solid var(--ink-200);
@@ -498,7 +505,9 @@ body:not(.blog) .modal-title {
 .blog-sort__btn {
   position: relative;
   z-index: 1;
-  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
   color: var(--ink-500);
@@ -506,7 +515,7 @@ body:not(.blog) .modal-title {
   font-weight: 600;
   padding: 5px 14px;
   border-radius: var(--radius-pill);
-  white-space: nowrap;
+  text-wrap: balance;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
