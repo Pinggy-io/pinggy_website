@@ -1,430 +1,429 @@
 ---
  title: "Top 10 Cloudflare Tunnel Alternatives in 2026" 
- description: "Discover the top 10 Cloudflare Tunnel alternatives in 2026. Explore Pinggy.io, ngrok, Localtunnel, and more. Compare features, ease of use, and prices in this comprehensive guide."
+ description: "The best Cloudflare Tunnel alternatives in 2026, compared on price, free tier limits, TCP and UDP support and self-hosting: Pinggy, ngrok, Tailscale Funnel, LocalXpose, zrok, Localtunnel, localhost.run, Rathole, Pangolin and frp."
  date: 2024-10-17T14:15:25+05:30
- lastmod: 2026-01-06T15:15:25+05:30
+ lastmod: 2026-11-18T15:15:25+05:30
  draft: false 
- tags: ["guide", "comparison"]
+ tags: ["Cloudflare", "tunneling", "comparison", "open source"]
  og_image: "images/best_cloudflare_tunnel_alternatives/New-img1.webp"
  outputs:
   - HTML
   - AMP
 ---
-{{< image "best_cloudflare_tunnel_alternatives/New-img1.webp" "best cloudflare tunnel alternatives" >}}
+{{< image "best_cloudflare_tunnel_alternatives/New-img1.webp" "Best Cloudflare Tunnel alternatives" >}}
 
-<a href="https://www.cloudflare.com/en-in/products/tunnel/" target="_blank">Cloudflare Tunnel</a> provides a seamless way to connect applications and services to the Cloudflare infrastructure without needing a public IP address. While it's a powerful tool, several alternatives offer similar capabilities with unique features and benefits. In this article, we'll explore the **top 10 Cloudflare Tunnel alternatives in 2026**, covering their Pros, Cons,Uses, Installation process, and pricing to help you find the best solution for your needs.
+{{< link href="https://www.cloudflare.com/products/tunnel/" >}}Cloudflare Tunnel{{< /link >}} is how a lot of people put a home server, a Raspberry Pi or a dev box on the internet without opening a port. You run `cloudflared`, it dials out to Cloudflare, and visitors reach your app back through that connection. It's free, and Cloudflare's DDoS protection comes along with it.
 
+It doesn't fit every job, though. A permanent hostname needs your domain's DNS on Cloudflare, raw TCP needs `cloudflared` on the visitor's machine too, there's no public UDP, and every request passes through Cloudflare's edge, where TLS is terminated. If any of that gets in teh way, one of the 10 tools below will probably suit you better. Prices, versions and limits were checked on November 18, 2026.
 
-## List of best Cloudflare Tunnel alternatives
+{{% tldr %}}
 
-1. {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}
-2. {{< link href="https://ngrok.com/" >}}ngrok{{< /link >}}
-3. {{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}}
-4. {{< link href="https://localxpose.io/" >}}LocalXpose{{< /link >}}
-5. {{< link href="https://zrok.io/" >}}Zrok{{< /link >}}
-6. {{< link href="https://theboroer.github.io/localtunnel-www/" >}}Localtunnel{{< /link >}}
-7. {{< link href="https://localhost.run/" >}}localhost.run{{< /link >}}
-8. {{< link href="https://github.com/rapiz1/rathole" >}}Rathole{{< /link >}}
-9. {{< link href="https://tunnelmole.com/" >}}Tunnelmole{{< /link >}}
-10. {{< link href="https://gofrp.org/en/" >}}Frp{{< /link >}}
+1. **The 10 alternatives:** <a href="https://pinggy.io" target="_blank">Pinggy</a>, <a href="https://ngrok.com/" target="_blank">ngrok</a>, <a href="https://tailscale.com/" target="_blank">Tailscale</a>, <a href="https://localxpose.io/" target="_blank">LocalXpose</a>, <a href="https://zrok.io/" target="_blank">zrok</a>, <a href="https://theboroer.github.io/localtunnel-www/" target="_blank">Localtunnel</a>, <a href="https://localhost.run/" target="_blank">localhost.run</a>, <a href="https://github.com/rathole-org/rathole" target="_blank">Rathole</a>, <a href="https://github.com/fosrl/pangolin" target="_blank">Pangolin</a> and <a href="https://github.com/fatedier/frp" target="_blank">frp</a>.
+2. **Closest managed swap:** Pinggy needs nothing installed for HTTP, TCP and TLS tunnels, adds public UDP and apex domains, and costs $3/month ($2.50 billed yearly).
+3. **Self-hosted swaps:** Pangolin is the nearest self-hosted equivalent of Cloudflare Tunnel, with SSO and a dashboard. frp and Rathole are lighter reverse proxies for raw TCP and UDP.
+4. **Staying on Cloudflare:** quick tunnels need no account, and since October they can sit behind an email PIN with `--allowed-mail`.
+
+{{% /tldr %}}
+
+## Cloudflare Tunnel alternatives at a glance
+
+| Tool | Install needed | Free tier | Cheapest paid plan | UDP | Custom domains |
+|---|---|---|---|---|---|
+| Cloudflare Tunnel | `cloudflared` | Free, quick tunnels need no account | Free (named tunnels too) | Private networks only | Named tunnels, DNS on Cloudflare |
+| Pinggy | None for HTTP/TCP/TLS, CLI for UDP | 60-minute tunnels, no sign-up | $2.50/month yearly, $3 monthly | Yes | Yes, including apex |
+| Ngrok | Agent (SSH needs an account and key) | 1GB, 20k requests, interstitial | $8/month yearly, $10 monthly | No | Pay-as-you-go only, no apex |
+| Tailscale Funnel | Tailscale client | Personal, up to 6 users | $8/seat/month | No | No (`ts.net` names) |
+| LocalXpose | `loclx` client | 2 HTTP(S) tunnels | $8/month billed yearly | Paid | Paid |
+| zrok | `zrok2` client | 5GB per day | Self-host, or NetFoundry | Private shares only | Self-hosted, or via NetFoundry |
+| Localtunnel | npm package | Free only | None | No | No |
+| localhost.run | None (SSH) | Rotating domain, speed-limited | $9/month billed yearly | No | Paid |
+| Rathole | Client plus your own server | Open source | Your server | Yes | No HTTP layer |
+| Pangolin | Connector plus your own server, or Pangolin Cloud | Self-hosted, or Cloud Basic | Cloud Team, $4/user/month | Self-hosted only | Yes |
+| frp | `frpc` plus your own `frps` server | Open source | Your server | Yes | Yes |
 
 ## Overview of Cloudflare Tunnel
 
-Before jumping into the alternatives for Cloudflare Tunnel, we will have a brief overview of Cloudflare Tunnel itself.
+{{< link href="https://developers.cloudflare.com/tunnel/" >}}Cloudflare Tunnel{{< /link >}} (formerly Argo Tunnel) comes in two forms. A **quick tunnel** needs no account at all:
 
-[Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) (formerly Argo Tunnel) is a service that allows you to securely expose your local applications to the internet without opening up ports or configuring a firewall. It creates a secure, outbound connection from your server to the Cloudflare network, ensuring that your application is protected by Cloudflare’s extensive security features.
-
-#### Pros of Cloudflare Tunnel:
-
-- Provides DDoS protection and firewall capabilities.
-- Quick setup with minimal configuration required.
-- Offers free SSL certificates to secure connections.
-- Ensures fast response times by routing traffic through Cloudflare’s global network.
-
-#### Cons of Cloudflare Tunnel:
-
-- Requires a Cloudflare account and configuration.
-- It can be costly for high-usage scenarios.
-- Tying your application to Cloudflare’s ecosystem might limit flexibility.
-- No UDP tunnels.
-
-#### Pricing of Cloudflare Tunnel:
-
-Cloudflare Tunnel is included in the Cloudflare Free plan, which offers basic functionality. However, advanced features and higher usage limits are available in the Pro, Business, and Enterprise plans, starting at $20/month, depending on the features and level of support you require.
-
-## 1. Pinggy.io
-
-[Pinggy.io](https://pinggy.io) is a simple and affordable tunneling service that provides public access to your localhost even behind a firewall or NAT. It's designed for developers seeking a quick, no-fuss solution to expose their local environments to the web.
-
-#### Uses:
-
-Pinggy is ideal for developers who need to share their development environments quickly. It’s beneficial for demos, testing webhooks, or remote debugging without complex setups.
-
-{{< video poster="/assets/tunnelvideothumb.webp" src="/assets/pinggy_demo.webm" >}}
-
-#### Pros of Pinggy
-
-- Easy setup with no complex installation.
-- Works directly from the terminal, making it highly convenient for developers who prefer command-line interfaces.
-- You can create {{< link href="https://www.adobe.com/express/feature/image/qr-code-generator" >}}QR code{{</ link >}} which you can generate for tunnel URLs, making it easy to share your local applications with others quickly.
-- Includes a built-in tool for monitoring and inspecting HTTP requests and responses, enabling real-time debugging.
-- Supports custom domain mapping, which is beneficial for branding and user-friendly URLs.
-- Provides tunneling for both TCP and UDP protocols, making it versatile for various applications.
-- Allows for collaborative features that let team members access shared tunnels.
-- More affordable than many alternatives, especially for startups and small businesses.
-
-#### Cons of Pinggy
-
-- No OAuth 2.0 authentication for tunnel visitors.
-- No global server load balancing or edge routing.
-
-#### Installation Process
-
-To get how simple it is to open a tunnel, here is an example. If you want to share your React app running on `localhost:3000`, you can do so using pinggy with the command:
-
+```bash
+cloudflared tunnel --url http://localhost:8080
 ```
+
+You get a random `trycloudflare.com` HTTPS URL that lives as long as the process does. Since October 2, adding `--allowed-mail alice@example.com` (or `'*@example.com'`) puts an email one-time PIN in front of it, still with no Cloudflare account on either side. The flag arrived in `cloudflared` 2026.9.2, and the current release is 2026.11.1. The {{< link href="https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/" >}}Quick Tunnels docs{{< /link >}} cap them at 200 in-flight requests before Cloudflare returns `429`, rule out Server-Sent Events, and promise no uptime.
+
+A **named tunnel** is the production version: a stable hostname on your own domain, Access policies in front of it, and the tunnel managed from the dashboard or a YAML file. It needs a Cloudflare account and your domain's DNS on Cloudflare.
+
+#### Pros of Cloudflare Tunnel
+
+- Free, named tunnels included, with up to 1,000 tunnels and 50,000 routes per account.
+- No inbound ports: `cloudflared` only makes outbound connections.
+- DDoS protection, firewall rules and Cloudflare Access (SSO, email PINs) in front of your app.
+- Quick tunnels work without an account.
+- The broadest AI tooling here: Agent Skills including `cloudflare-one` (which covers Tunnel), an MCP server for the whole Cloudflare API plus product-specific ones, setup guides for 12 coding agents, and `cloudflared tunnel --output json` for scripts and agents.
+
+#### Cons of Cloudflare Tunnel
+
+- A stable hostname needs your domain's DNS on Cloudflare.
+- Quick tunnel URLs change on every restart, which breaks webhook configs.
+- Raw TCP needs `cloudflared access tcp` running on the visitor's machine as well.
+- UDP only reaches private networks through the Cloudflare One client (formerly WARP). There's no public UDP endpoint.
+- Request bodies are capped at 100MB on the Free and Pro plans (200MB on Business), which bites for large uploads.
+- Cloudflare terminates TLS at its edge, so your HTTP traffic is decrypted on Cloudflare's servers.
+
+#### Pricing of Cloudflare Tunnel
+
+Tunnels are free on every plan. Account limits are 1,000 tunnels, 50,000 routes and 500 Access applications, and platforms that need more tunnels can buy them through Tunnels for Platforms at $4.50 per extra tunnel per month.
+
+## 1. Pinggy
+
+[Pinggy](https://pinggy.io) opens a tunnel with a single SSH command, so there's nothing to install for HTTP, TCP or TLS. To share a React app on `localhost:3000`:
+
+```bash
 ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
+{{< video poster="/assets/tunnelvideothumb.webp" src="/assets/pinggy_demo.webm" >}}
+
+It's the closest managed swap for a quick tunnel, and it covers two things Cloudflare doesn't: public UDP tunnels, and raw TCP ports that visitors can reach without installing anything.
+
+#### Pros of Pinggy
+
+- No install and no sign-up on the free tier.
+- HTTP(S), TCP, TLS and UDP tunnels, with unlimited bandwidth.
+- Request inspection and replay in a web debugger, header modification, and a terminal UI with a QR code for the URL.
+- Basic auth, bearer key auth and IP whitelisting.
+- Custom and wildcard domains, and apex domains through a relay with plain A/AAAA records.
+- [Remote terminals](/remote-terminal/) into your devices: 1 device on the free tier, 25 on Pro.
+- An Agent Skill (`npx skills add https://pinggy.io`) and an MCP server that can start, inspect and stop tunnels (still experimental).
+- Node.js and Python SDKs for driving tunnels from code.
+
+#### Cons of Pinggy
+
+- No OAuth for tunnel visitors and no global edge load balancing.
+- Browser visitors to free tunnels see a one-time screening page, while API clients and `curl` recieve responses directly.
+- UDP needs the Pinggy CLI (still in beta), since SSH can't carry UDP.
+
 #### Pricing of Pinggy
 
-Pinggy offers a **free tier** where tunnels last for 60 minutes. Paid plans start at **$2.50 per month**, which includes enhanced features like custom domain support, teams, etc.
+Free tunnels last 60 minutes. **Pro** is $3/month, or $2.50/month billed yearly, and adds persistent subdomains, custom, wildcard and apex domains, persistent TCP and UDP ports and teams, and removes the screening page.
 
 ## 2. Ngrok
 
-{{< link href="https://ngrok.com/" >}}Ngrok{{</ link >}} is one of the most well-known and feature-rich tunneling services that allows you to expose local web servers securely to the internet. It’s packed with advanced features like request inspection, URL rewriting, and webhook verification, making it popular among developers and large organizations alike. Ngrok offers a smooth and secure way to access your localhost over HTTPS and provides dashboards for real time monitoring and analyzing traffic. The tool is extremely user-friendly with support for OAuth, JWT, and IP whitelisting, giving developers control over who can access their tunnels. Its customizable domain options and the ability to handle multiple simultaneous tunnels make it ideal for large-scale or team projects. However, its free tier has limited bandwidth and features, which may require users to upgrade for extended usage.
+{{< link href="https://ngrok.com/" >}}Ngrok{{< /link >}} is the best-known tunnel service and has the deepest feature set on this list: request inspection and replay, webhook verification, traffic policies, endpoint pooling and load balancing, a Kubernetes operator, and visitor auth with Basic Auth, OAuth, OIDC, SAML, JWT validation and mutual TLS.
 
-{{< image "best_cloudflare_tunnel_alternatives/ngrok.webp" "ngrok screenshot" >}}
+{{< image "best_cloudflare_tunnel_alternatives/ngrok.webp" "ngrok diagram of client requests passing through the ngrok edge and tunnel to the ngrok agent" >}}
 
-#### Uses:
+#### Pros of Ngrok
 
-Ngrok is perfect for developers who need a secure, quick, and feature-rich tunnel for testing APIs, integrating webhooks, or running demo applications.
+- Mature traffic inspection, replay and webhook verification.
+- Visitor auth options that rival Cloudflare Access.
+- Nine official Agent Skills (`npx skills add ngrok/skills`) and, since November 16, a hosted MCP server at `mcp.ngrok.com` on every plan. It manages domains, cloud endpoints and policies, but it can't start a tunnel.
+- Official framework packages for Next.js, FastAPI, Axum and Gin, added in October.
 
-#### Pros of Ngrok:
+#### Cons of Ngrok
 
-- Works on Windows, macOS, and Linux, making it versatile across environments.
-- Offers OAuth, JWT, and IP whitelisting for better security.
-- Ability to manage and monitor tunnels remotely via the Ngrok dashboard.
-- Provides an extensive API for programmatic access and automation.
-- Intuitive web interface to inspect requests and responses in real-time.
-- Allows you to use your domain name, enhancing brand visibility.
+- No UDP and no apex domains.
+- Needs an account, and the SSH option only works after you upload an SSH key.
+- The free plan stops at 1GB and 20k HTTP requests and shows browser visitors an interstitial page.
+- Custom domains need the Pay-as-you-go plan, with hourly meters on top of the base price.
 
-#### Cons of Ngrok:
+#### Installation
 
-- No UDP tunnels.
-- Requires account sign-up for use.
-- Limited bandwidth in the free tier, which might not suffice for high-traffic applications.
+Download ngrok from {{< link href="https://ngrok.com/download" >}}ngrok.com{{< /link >}}, add your authtoken, and start a tunnel:
 
-#### Installation Process:
-
-1. Download Ngrok from the {{< link href="https://ngrok.com/download" >}}Download Link{{</ link >}}.
-2. Extract and run the command:
-
-```
-./ngrok http 8080
+```bash
+ngrok config add-authtoken <your-token>
+ngrok http 8080
 ```
 
-#### Pricing of Ngrok:
+#### Pricing of Ngrok
 
-Plans start at $8 per month, with various tiers depending on features such as concurrent connections and custom domains.
+**Free** includes 3 online endpoints, 1GB of transfer, 20k HTTP requests and a $5 one-time credit. **Hobbyist** is $10/month, or $8/month billed yearly, with 5GB and 100k requests; past that it draws on $10 of monthly credit, and when that's gone usage stops. **Pay-as-you-go** is $20/month with $20 of credit and adds custom and wildcard domains, but endpoints outside the free dev domain cost $0.02 per active hour, and a custom domain adds $0.01 for every hour it gets traffic.
 
 ## 3. Tailscale
 
-{{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}} is a peer-to-peer VPN tool built on WireGuard technology. It emphasizes security and ease of use, allowing you to create private mesh networks between devices with minimal configuration. Tailscale bypasses the need for public-facing IP addresses by creating direct connections between devices, regardless of firewalls or NATs. Although Tailscale is primarily a VPN solution, it can serve as an excellent tunneling alternative, providing encrypted access to services on your private network without exposing them to the public internet. It is particularly useful for developers working on sensitive projects that need to remain private and for teams looking to securely collaborate across distributed environments. With automatic NAT traversal and integration with identity providers like Google and Microsoft, Tailscale ensures that only authorized devices can access your network.
+{{< link href="https://tailscale.com/" >}}Tailscale{{< /link >}} is a mesh VPN built on WireGuard, not a tunnel service, but **Tailscale Funnel** turns it into one by routing public internet traffic to a service on one of your nodes. When only your own devices need access, plain Tailscale is often a better answer than any public tunnel, because nothing gets exposed at all.
 
-{{< image "best_cloudflare_tunnel_alternatives/Tailscale.webp" "Tailscale screenshot" >}}
+{{< image "best_cloudflare_tunnel_alternatives/Tailscale.webp" "Tailscale diagram of users and devices in six US cities connected in one tailnet" >}}
 
-#### Uses:
+#### Pros of Tailscale
 
-Tailscale is perfect for securely connecting multiple devices in a private network. It’s often used in scenarios where access control and direct connections are essential.
+- Private access between devices, with MagicDNS, grants-based access control and sign-in through your identity provider.
+- Direct WireGuard connections where NAT allows, with Tailscale's DERP relays as a fallback.
+- Funnel adds a public HTTPS URL without opening ports.
+- A free Personal plan for up to 6 users.
 
-#### Pros of Tailscale:
+#### Cons of Tailscale
 
-- Enhances speed and reliability by allowing direct connections without middlemen.
-- Simple installation and setup process.
-- Works seamlessly on all major platforms, including mobile devices.
-- Ensures that each connection is authenticated and authorized.
-- Automatically manages NAT traversal and firewall rules.
-- Easy management of which devices can connect to your network.
+- Funnel is still in beta, listens only on ports 443, 8443 and 10000, and only serves `ts.net` names, so there's no custom domain.
+- No arbitrary TCP ports or UDP through Funnel.
+- The serving machine has to join a tailnet and run the Tailscale client, with HTTPS certificates and Funnel enabled for the tailnet.
 
-#### Cons of Tailscale:
+#### Installation
 
-- Primarily a VPN solution, not dedicated solely to tunneling.
-- Might require a learning curve for users unfamiliar with VPNs.
+Install Tailscale from the {{< link href="https://tailscale.com/download" >}}download page{{< /link >}}, join your tailnet, and publish a local port:
 
-#### Installation Process:
-
-1. Install Tailscale on your device from the {{< link href="https://tailscale.com/download" >}}Download Link{{< /link >}}.
-2. Run the following command:
-
-```
+```bash
 sudo tailscale up
+sudo tailscale funnel 3000
 ```
 
-#### Pricing of Tailscale:
+#### Pricing of Tailscale
 
-Tailscale offers a free plan for personal use, with paid plans starting at $5 per user per month for team features.
+The **Personal** plan is free for up to 6 users with unlimited user devices. **Standard** is $8 per seat per month and **Premium** $18 per seat, and you pay for every purchased seat, used or not. Enterprise is custom-priced.
 
 ## 4. LocalXpose
 
-{{< link href="https://localxpose.io/" >}}LocalXpose{{< /link >}} is a feature-rich, user-friendly reverse proxy tool that allows developers to expose their local applications to the internet. Unlike other tunneling solutions, LocalXpose comes with a built-in graphical user interface (GUI), making it easy for non-developers to use as well. It supports various protocols, including HTTP, HTTPS, TCP, and UDP, providing flexibility for a wide range of use cases. Whether you need to test a web application, share a development environment, or enable remote access, LocalXpose allows you to do so securely. One of its standout features is its built-in file server, which allows you to easily share files with others via a public URL. Custom domain support and collaborative features make LocalXpose a strong choice for teams or professionals who want to maintain control over their online presence without complex setup procedures.
+{{< link href="https://localxpose.io/" >}}LocalXpose{{< /link >}} is a tunnel client with a GUI next to the CLI, covering HTTP(S), TCP, TLS and UDP. It also has a built-in file server and request logging with replay, and it runs on Windows, macOS, Linux, FreeBSD and Docker.
 
-{{< image "best_cloudflare_tunnel_alternatives/Localxpose.webp" "Localxpose screenshot" >}}
+{{< image "best_cloudflare_tunnel_alternatives/Localxpose.webp" "LocalXpose diagram of a secure tunnel from the LocalXpose network to several services" >}}
 
-#### Uses:
+#### Pros of LocalXpose
 
-Great for sharing web applications or files with others without complicated setups. It's especially useful for those who want a GUI for tunnel management.
+- HTTP(S), TCP, TLS and UDP tunnels.
+- A GUI (`loclx gui` serves it in your browser) alongside the CLI.
+- File server, header editing, basic and key auth, rate limiting and IP whitelisting on every plan, including free.
+- Custom, wildcard and reserved domains on PRO.
 
-#### Pros of LocalXpose:
+#### Cons of LocalXpose
 
-- Provides tunneling for HTTP, HTTPS, TCP, and UDP.
-- Allows the use of custom domain names for user-friendly URLs.
-- Offers a graphical user interface for easier management and control of tunnels.
-- Includes a built-in file server for easy sharing of files through the tunnel.
-- Can handle wildcard domains, providing flexibility for subdomains.
-- Supports multiple user access, enabling team collaboration.
+- You always need its client installed.
+- The free Starter tier is limited to 2 HTTP(S) tunnels, with time limits and an interstitial page.
+- No visitor OAuth, and no official Agent Skill or MCP server.
 
-#### Cons of LocalXpose:
+#### Installation
 
-- Requires client download for installation.
-- Lacks extensive documentation compared to some competitors.
+Download `loclx` from the {{< link href="https://localxpose.io/download" >}}download page{{< /link >}}, log in, and start an HTTP tunnel, which forwards to `localhost:8080` by default:
 
-#### Installation Process:
-
-Download and install the LocalXpose client from the {{< link href="https://localxpose.io/download" >}}Download Link{{< /link >}}, then run:
-
-```
-./localxpose http 3000
+```bash
+loclx account login
+loclx tunnel http
 ```
 
-#### Pricing of LocalXpose:
+`loclx tunnel http --help` lists the options for other ports and domains.
 
-Plans start at $6 per month, with a free tier available for limited usage.
+#### Pricing of LocalXpose
 
-## 5. Zrok
+Starter is free. **PRO** is $8/month billed yearly ($96/year) for 10 tunnels, with TCP, TLS and UDP and custom and wildcard domains.
 
-{{< link href="https://zrok.io/" >}}Zrok{{< /link >}} is a cutting-edge, open-source alternative to traditional tunneling services, built on zero-trust networking principles. It enables secure sharing of local resources, such as web applications, databases, or internal tools, without exposing them to the public internet. Zrok is designed for users who prioritize control and transparency over convenience, making it an excellent fit for tech-savvy developers and teams with strong security needs. With Zrok, every connection is authenticated, and no resource is accessible without explicit permission, ensuring that even sensitive services remain private. Its open-source nature allows for customization to fit specific requirements, and its zero-trust architecture provides an added layer of security, ensuring that only trusted users and devices can access the tunnels.
+## 5. zrok
 
-{{< image "best_cloudflare_tunnel_alternatives/zrok.webp" "Zrok screenshot" >}}
+{{< link href="https://zrok.io/" >}}zrok{{< /link >}} is an open source (Apache 2.0) sharing tool built on OpenZiti, a zero trust overlay network. Public shares give a web app a public URL, while private shares can only be reached by another zrok user running `zrok2 access private`. You can use NetFoundry's hosted service or run the whole stack yourself.
 
-#### Uses:
+#### Pros of zrok
 
-Zrok is ideal for secure resource sharing and file transfer within a zero-trust environment. It's suited for users who want full control over their network configuration.
+- Open source and fully self-hostable, or hosted by NetFoundry.
+- Private shares for TCP, UDP and SOCKS that only other zrok users can reach.
+- File sharing through the `drive` (WebDAV) and `web` backends.
+- Namespaces and reserved names for stable URLs.
 
-#### Pros of Zrok:
+#### Cons of zrok
 
-- Offers transparency and customization options for tech-savvy users.
-- Provides private, secure access to resources without exposing them publicly.
-- Automatically manages IP addresses and connections, reducing manual configurations.
-- Allows for easy file sharing through tunnels.
-- Supports TCP and UDP protocols, making it adaptable for various use cases.
+- Public shares only accept HTTP-style backends, so TCP and UDP shares are private-only.
+- Version 2.0 (March 2026) renamed the binary to `zrok2` and replaced the old reservation system, so older tutorials no longer work.
+- The hosted service has been unreliable lately: a {{< link href="https://openziti.discourse.group/t/6122" >}}forum thread about 500 errors{{< /link >}} opened on September 25 is still marked as investigating, and users reported 403, 409 and 401 failures through mid-November.
+- Self-hosting means running OpenZiti underneath, which is a lot of machinery.
 
-#### Cons of Zrok:
+#### Installation
 
-- Initial setup can be complex for less technical users.
-- Lacks traffic introspection features.
+Download the `zrok2` binary from {{< link href="https://zrok.io/" >}}zrok.io{{< /link >}}, then create an account, enable your environment, and share:
 
-#### Installation Process:
-
-Since it's open-source, users need to clone the repo and follow the setup guide:
-
+```bash
+zrok2 invite
+zrok2 enable <your-token>
+zrok2 share public localhost:3000
 ```
-git clone https://github.com/openziti/zrok
-```
 
-{{< link href="https://docs.zrok.io/docs/guides/install/" >}}Download Link{{< /link >}}
+The docs now live at netfoundry.io/docs/zrok.
 
+#### Pricing of zrok
 
-#### Pricing of Zrok:
-
-Free to use; requires self-hosting.
+The hosted free tier is $0 with 5GB a day, 25 environments and 50 share backends, plus an interstitial page until you add a credit card. Commercial plans go through NetFoundry, and self-hosting is free. The latest release is v2.0.10 (November 16, 2026).
 
 ## 6. Localtunnel
 
-{{< link href="https://theboroer.github.io/localtunnel-www/" >}}Localtunnel{{< /link >}} is a popular, lightweight tool for quickly sharing your local development server with the world. It operates via a simple Node.js package, which means it can be set up with just a few commands. Despite its simplicity, Localtunnel offers several useful features, such as the ability to select custom subdomains, making it perfect for quick tests or sharing work in progress with clients or collaborators. It’s especially handy for front-end and back-end developers who need to showcase changes to external stakeholders without deploying to a live environment. While Localtunnel doesn’t offer the advanced features of competitors like Ngrok or LocalXpose, its ease of use and free-to-access nature make it a reliable choice for small projects or individual developers looking for a straightforward tunneling tool.
+{{< link href="https://theboroer.github.io/localtunnel-www/" >}}Localtunnel{{< /link >}} is an npm package that gives you a random `loca.lt` HTTPS URL, and it also works as a library inside Node.js apps. It's free, with no accounts and no paid tier, but it's effectively unmaintained.
 
-{{< image "best_cloudflare_tunnel_alternatives/Localtunnel.webp" "Localtunnel screenshot" >}}
+{{< image "best_cloudflare_tunnel_alternatives/Localtunnel.webp" "Localtunnel homepage with the npm install and lt --port quickstart" >}}
 
-#### Uses:
+#### Pros of Localtunnel
 
-It’s great for developers looking for a fast and simple way to test or demo applications without complex setup processes.
+- One npm install and one command.
+- Usable as a library from Node.js code.
+- `--subdomain` requests a specific subdomain if it's free.
+- Free.
 
-#### Pros of Localtunnel:
+#### Cons of Localtunnel
 
-- A simple setup process through npm makes it convenient for JavaScript developers.
-- Works on any platform that supports Node.js.
-- Just run a command, and you’re good to go.
-- Allows users to choose subdomains for their tunnels, enhancing usability.
-- A community-driven project that welcomes contributions.
+- The last release, 2.0.2, shipped in September 2021, and the last code change landed in August 2022. About 150 issues are open, with outage reports as recent as September 2026.
+- 2.0.2 still pins `axios` 0.21.4, which is affected by several high-severity advisories.
+- Browser visitors hit a reminder page asking for a tunnel password, which is the tunneller's public IP.
+- HTTP(S) only: no TCP, TLS or custom domains.
 
-#### Cons of Localtunnel:
+#### Installation
 
-- No support for TCP or custom domains.
-- Requires Node.js installation, which may not suit all users.
-
-#### Installation Process:
-
-Install via npm and expose a port:
-
-```
+```bash
 npm install -g localtunnel
 lt --port 3000
 ```
 
-#### Pricing of Localtunnel:
+#### Pricing of Localtunnel
 
-Free to use.
+Free. It still pulls about 3 million npm downloads a month, so it shows up in a lot of tutorials, but keep it for throwaway tests.
 
 ## 7. localhost.run
 
-{{< link href="https://localhost.run/" >}}localhost.run{{< /link >}} is a simple and effective tunneling service that uses SSH to expose local applications to the internet. Unlike other alternatives, localhost.run doesn’t require you to install any additional software-just an SSH command to create a public tunnel. This clientless approach makes localhost.run an attractive option for users who want quick, one-time access to local services. It supports both HTTP and HTTPS and works across various operating systems as long as SSH is available. While it lacks more advanced features like traffic monitoring or custom domains, localhost.run’s minimalist approach is perfect for those who need to share local services temporarily without a lot of configuration or overhead. It’s often used for one-off demos or quick access to webhooks and testing environments.
+{{< link href="https://localhost.run/" >}}localhost.run{{< /link >}} is the other SSH-only option on this list: no client to install and no sign-up on the free tier.
 
-{{< image "best_cloudflare_tunnel_alternatives/localhost.run.webp" "localhost.run screenshot" >}}
+{{< image "best_cloudflare_tunnel_alternatives/localhost.run.webp" "localhost.run feature list with no download or signup and the $9 per month custom domain plan" >}}
 
-#### Uses:
+#### Pros of localhost.run
 
-Perfect for users who need to expose local apps quickly without setting up any software.
+- Nothing to install; any machine with an SSH client works.
+- No account needed on the free tier.
+- The Custom Domain plan adds your own domain or a stable `lhr.rocks` subdomain, wildcard subdomains, TLS passthrough and TCP over TLS, and up to 5 tunnels at once.
+- An official Agent Skill (`npx skills add localhost-run/agent-skills`).
 
-#### Pros of localhost.run:
+#### Cons of localhost.run
 
-- No installation or configuration is required; just use the provided command.
-- Start tunneling immediately without creating an account.
-- Community-driven, allowing for public contributions and improvements.
-- Works on any OS that can execute SSH commands.
+- Free domains change every few hours and free traffic is speed-limited, which the project frames as an anti-phishing measure.
+- No request inspection, visitor auth or tunnel dashboard.
+- No UDP, and no MCP server.
 
-#### Cons of localhost.run:
+#### Installation
 
-- Limited features compared to other alternatives.
-- No support for non-HTTP protocols.
-
-#### Installation Process:
-
-Simply run this SSH command:
-
-```
+```bash
 ssh -R 80:localhost:3000 localhost.run
 ```
 
-#### Pricing of localhost.run:
+#### Pricing of localhost.run
 
-Free to use.
+The free tier is as above. The {{< link href="https://localhost.run/docs/custom-domains/" >}}Custom Domain plan{{< /link >}} is $9/month billed yearly, with no speed limit.
 
 ## 8. Rathole
 
-{{< link href="https://github.com/rapiz1/rathole" >}}Rathole{{< /link >}} is a high-performance, open-source reverse proxy written in Rust. It is designed for speed and efficiency, making it an excellent choice for users who need to expose services on resource-constrained devices or high-throughput environments. Unlike some other tools, Rathole is self-hosted, meaning you run the server component on your own infrastructure (like a cheap VPS), giving you full control over your data and traffic. It supports secure communication via Noise Protocol and can handle NAT traversal effectively.
+{{< link href="https://github.com/rathole-org/rathole" >}}Rathole{{< /link >}} is a small reverse proxy for NAT traversal written in Rust, which its README pitches as an alternative to frp and ngrok. You run the server on a machine with a public IP (a cheap VPS is enough) and the client next to your service. The repo now lives under the `rathole-org` organization.
 
-{{< image "best_cloudflare_tunnel_alternatives/rathole.webp" "Rathole screenshot" >}}
+{{< image "best_cloudflare_tunnel_alternatives/rathole.webp" "rathole repository page on GitHub" >}}
 
-#### Uses:
+#### Pros of Rathole
 
-Perfect for self-hosters, home lab enthusiasts, and users needing a high-performance, low-latency tunnel for services like game servers or media streaming.
+- Low memory use and high throughput, which suits routers and small boards.
+- TCP and UDP services.
+- Plain TCP transport by default, with optional TLS, Noise Protocol encryption or WebSocket.
+- Every service needs a token, so a stray client can't claim your ports.
+- Apache-2.0, with no limits beyond your server's bandwidth.
 
-#### Pros of Rathole:
+#### Cons of Rathole
 
-- **High Performance:** Written in Rust for minimal resource usage and high speed.
-- **Secure:** Uses Noise Protocol for encryption by default.
-- **Open Source:** Completely free and open-source (MIT/Apache 2.0).
-- **Cross-platform:** Runs on Linux, macOS, Windows, and more.
-- No third-party limits or bandwidth caps (limited only by your VPS).
+- You need your own server with a public IP.
+- Traffic isn't encrypted unless you configure TLS or Noise.
+- No HTTP layer (subdomains, certificates, request inspection), so web apps want a reverse proxy like Caddy in front.
+- The last tagged release is v0.5.0 from October 2023, with only rolling development builds since.
 
-#### Cons of Rathole:
+#### Installation
 
-- **Self-Hosting Required:** You must have a server with a public IP to run the server component.
-- Configuration is file-based (TOML), which might be less intuitive than a CLI-only flow for some.
+Download a binary from {{< link href="https://github.com/rathole-org/rathole/releases" >}}GitHub Releases{{< /link >}}. On the server, create `server.toml`:
 
-#### Installation Process:
+```toml
+[server]
+bind_addr = "0.0.0.0:2333"
 
-Download the binary from {{< link href="https://github.com/rapiz1/rathole/releases" >}}GitHub Releases{{< /link >}}. Create a configuration file `client.toml`:
+[server.services.my_app]
+token = "use_a_secret_that_only_you_know"
+bind_addr = "0.0.0.0:5202"
+```
+
+On the machine with the service, create `client.toml` with the same token:
 
 ```toml
 [client]
-remote_addr = "your-server-ip:2333"
+remote_addr = "myserver.com:2333"
 
-[client.services.myservice]
+[client.services.my_app]
+token = "use_a_secret_that_only_you_know"
 local_addr = "127.0.0.1:3000"
 ```
 
-Then run:
-```bash
-./rathole client.toml
-```
+Then run `./rathole server.toml` on the server and `./rathole client.toml` on the client.
 
-#### Pricing of Rathole:
+#### Pricing of Rathole
 
-**Free** (Open Source). You pay for your own server hosting.
+Free and open source. You pay for the server.
 
-## 9. Tunnelmole
+## 9. Pangolin
 
-{{< link href="https://tunnelmole.com/" >}}Tunnelmole{{< /link >}} is a modern, open-source tunneling tool that focuses on simplicity and standard compliance. It provides a quick way to get a public URL for your localhost server with automatic HTTPS. Tunnelmole is designed to be a lightweight alternative to heavier tools, offering a "zero config" experience. It’s a great option for web developers who just need a quick, reliable HTTPS endpoint for testing.
+{{< link href="https://github.com/fosrl/pangolin" >}}Pangolin{{< /link >}} started as a self-hosted answer to Cloudflare Tunnel, which makes it the closest match here if you want the same model on your own server. A connector on the private side links to your Pangolin server over WireGuard, and the server runs a reverse proxy with identity-aware access, SSO and a dashboard. It now describes itself as an open source platform for secure access to apps, infrastructure and AI, and compares itself to Cloudflare One and Zscaler.
 
-{{< image "best_cloudflare_tunnel_alternatives/tunnelmole.webp" "Tunnelmole screenshot" >}}
+#### Pros of Pangolin
 
-#### Uses:
+- The same shape as Cloudflare Tunnel on infrastructure you control: no open ports at home, a public hostname, and a login in front of it.
+- Identity-aware access with SSO, and a web dashboard for sites and resources.
+- Raw TCP and UDP resources on self-hosted servers, as plain port forwards.
+- Active development, with about 24k stars: 1.26.0 shipped on November 4, 2026, and a 1.27.0 release candidate is out.
+- A managed Pangolin Cloud if you'd rather not run the server.
 
-Best for web developers needing a quick secure URL for webhook testing or sharing local sites.
+#### Cons of Pangolin
 
-#### Pros of Tunnelmole:
+- Self-hosting needs a Linux server with a public IP and a domain, with TCP ports 80 and 443 and UDP ports 51820 and 21820 open.
+- Raw TCP and UDP resources skip Pangolin's authentication, and on Pangolin Cloud they need a remote node that you deploy.
+- The Enterprise Edition is free only for personal use and for companies under $100K in annual revenue.
 
-- **Open Source:** Client code is open source.
-- **Automatic HTTPS:** Gives you a secure URL out of the box.
-- **Simple:** Very easy to install and run.
-- **Lightweight:** Minimal overhead.
+#### Installation
 
-#### Cons of Tunnelmole:
-
-- Fewer enterprise features compared to Ngrok or Cloudflare.
-- Relatively newer tool with a smaller community.
-
-#### Installation Process:
-
-Install via npm or curl:
+On the server, run the quick installer:
 
 ```bash
-npm install -g tunnelmole
-tmole 3000
+curl -fsSL https://static.pangolin.net/get-installer.sh | bash
+sudo ./installer
 ```
 
-#### Pricing of Tunnelmole:
+Then create a site in the dashboard and install a connector next to your service. The {{< link href="https://docs.pangolin.net/manage/sites/install-site" >}}docs{{< /link >}} now recommend the Pangolin CLI for new sites (`pangolin up site`), and existing Newt connectors keep working.
 
-**Free** and open source.
+#### Pricing of Pangolin
 
-## 10. Frp (Fast Reverse Proxy)
+The Community Edition is free under AGPL-3. **Pangolin Cloud** Basic is free for 5 users and 5 sites, Team is $4 per user per month and Business is $9 per user per month.
 
-{{< link href="https://gofrp.org/en/" >}}Frp (Fast Reverse Proxy){{< /link >}} is a high-performance reverse proxy application that allows you to securely expose local services to the internet over TCP, UDP, HTTP, and HTTPS protocols. As an open-source solution, Frp provides the flexibility and control needed for complex tunneling scenarios, making it popular among developers, system administrators, and DevOps teams. Frp can be configured to handle multiple tunnels at once, and it supports load balancing, which is useful for high-traffic applications. Its powerful access control features, combined with its robust protocol support, make it ideal for scenarios where performance and security are critical. Whether you’re working with microservices, APIs, or full-fledged applications, Frp offers the scalability and efficiency needed for demanding environments.
+## 10. frp (Fast Reverse Proxy)
 
-{{< image "best_cloudflare_tunnel_alternatives/frp.webp" "Frp screenshot" >}}
+{{< link href="https://github.com/fatedier/frp" >}}frp{{< /link >}} is the most popular self-hosted reverse proxy for this job, with about 110k stars and regular releases (v0.72.0 on November 4, 2026). You run `frps` on a public server and `frpc` next to your services.
 
-#### Uses:
+{{< image "best_cloudflare_tunnel_alternatives/frp.webp" "frp homepage describing TCP, UDP, HTTP and HTTPS proxying" >}}
 
-Frp is ideal for exposing services to the web securely, especially in high-traffic environments. It’s used for tunneling private networks and services to the public internet.
+#### Pros of frp
 
-#### Pros of Frp:
+- TCP, UDP, HTTP and HTTPS proxies, plus P2P connections through `xtcp`.
+- Custom domains for HTTP, token auth, encryption, compression and load balancing.
+- Transports including QUIC, KCP and WebSocket.
+- Mature and well documented.
 
-- Built for speed and efficiency, making it suitable for high-traffic applications.
-- Can handle TCP, UDP, and HTTP/HTTPS protocols, providing versatility.
-- Extensive options for configuring tunnels according to specific needs.
-- Well-documented for ease of setup and troubleshooting.
-- Offers granular access control settings for enhanced security.
+#### Cons of frp
 
-#### Cons of Frp:
+- You run and secure the server yourself.
+- More configuration than a hosted tunnel, and INI config is deprecated in favor of TOML, YAML or JSON, so older guides need translating.
 
-- Requires server setup, which can be complex for some users.
-- May involve more configuration steps compared to simpler alternatives.
+#### Installation
 
-#### Installation Process:
+A minimal `frpc.toml` that publishes SSH through your server:
 
-Download and set up Frp on your server, then configure it to start your tunnel:
+```toml
+serverAddr = "x.x.x.x"
+serverPort = 7000
 
+[[proxies]]
+name = "ssh"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 22
+remotePort = 6000
 ```
-./frpc -c ./frpc.ini
-```
 
-#### Pricing of Frp:
+Then run `./frps -c ./frps.toml` on the server and `./frpc -c ./frpc.toml` on the client.
 
-Free and open-source.
+#### Pricing of frp
+
+Free and open source (Apache-2.0). You pay for the server.
 
 ## Conclusion
 
-Choosing the right tunneling solution depends on your needs-whether it's simplicity, security, or domain management. Cloudflare Tunnel is ideal for those seeking robust security and scalability but may lack flexibility for some users.
-Pinggy stands out as the top choice, offering a perfect blend of simplicity, affordability, and useful features like collaborative capabilities, TCP/UDP support, and easy QR code sharing, making it especially suited for small teams and developers.
-Other options like Ngrok, Tailscale, and LocalXpose are worth considering based on your specific requirements for security or advanced features. This guide helps you find the best tool for your tunneling needs.
+Pick by what you're replacing. For quick dev tunnels, Pinggy is the closest swap and adds UDP and apex domains, and localhost.run covers simple HTTP over SSH. Ngrok is the pick when you need deep traffic inspection and visitor auth and don't mind the usage meters. Tailscale beats any public tunnel when only your own devices need access. If you like Cloudflare Tunnel's model but want to own the server, Pangolin is the nearest match, and frp or Rathole are lighter options for raw TCP and UDP. And if Cloudflare Tunnel already works for you, a quick tunnel behind `--allowed-mail` is now a reasonable way to show a client a private demo.
