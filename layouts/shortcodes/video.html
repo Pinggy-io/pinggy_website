@@ -7,7 +7,11 @@
 
      Bootstrap's `.ratio` absolutely positions every child to fill the box, so
      the img (later in the DOM) stacks over the video and takes the first
-     click. */}}
+     click.
+
+     onplay adds .is-playing to the container, which fades out the
+     "Watch the demo" label drawn by .videocontainer::after. It fires for
+     both the poster click and a click on the video itself. */}}
 {{ $poster := .Get "poster" }}
 {{ $src := .Get "src" }}
 {{ $type := cond (strings.HasSuffix $src ".webm") "video/webm" "video/mp4" }}
@@ -16,6 +20,7 @@
   <video
     preload="none"
     onclick="this.paused?this.play():this.pause();"
+    onplay="this.parentNode.classList.add('is-playing');"
     loop
     playsinline
   >
