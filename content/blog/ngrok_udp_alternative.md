@@ -1,160 +1,141 @@
 ---
 title: "Ngrok UDP Alternative"
-description: "Learn why Ngrok doesn't support UDP and explore Pinggy as a reliable alternative for secure UDP tunnels. Step-by-step instructions for CLI and Web App."
+description: "Ngrok has no UDP tunnels. Here's how to expose a local UDP service with the Pinggy CLI or the Pinggy App, test it with netcat, and which other tools carry UDP in 2026."
 date: 2025-02-28T14:15:25+05:30
+lastmod: 2026-11-18T14:15:25+05:30
 draft: false
 tags: ["Ngrok Alternative", "networking", "Pinggy"]
 og_image: "images/ngrok_udp_alternative/Ngrok UDP Alternative.png"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNldHRpbmcgVXAgYSBVRFAgVHVubmVsIFVzaW5nIFBpbmdneSIsCiAgImRlc2NyaXB0aW9uIjogIkxlYXJuIGhvdyB0byBjcmVhdGUgYSBzZWN1cmUgVURQIHR1bm5lbCB1c2luZyBQaW5nZ3kuIFRoaXMgZ3VpZGUgd2Fsa3MgeW91IHRocm91Z2ggdGhlIENMSSBhbmQgV2ViIEFwcCBtZXRob2RzIGZvciB0dW5uZWxpbmcgVURQIHRyYWZmaWMgZWZmaWNpZW50bHkuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL25ncm9rX3VkcF9hbHRlcm5hdGl2ZS9OZ3JvayBVRFAgQWx0ZXJuYXRpdmUucG5nIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlRvIGNyZWF0ZSBhIFVEUCB0dW5uZWwgdXNpbmcgUGluZ2d5IENMSSwgZmlyc3QgZG93bmxvYWQgdGhlIFBpbmdneSBDTEkgaHR0cHM6Ly9waW5nZ3kuaW8vY2xpLy4gVGhlbiwgb3BlbiB5b3VyIHRlcm1pbmFsIGFuZCBydW4gdGhlIGZvbGxvd2luZyBjb21tYW5kOiAuL3BpbmdneSAtcCA0NDMgLVIwOmxvY2FsaG9zdDo4MDAwIHVkcEBmcmVlLnBpbmdneS5pbyBSZXBsYWNlICoqODAwMCoqIHdpdGggeW91ciBkZXNpcmVkIHBvcnQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkRvd25sb2FkIGFuZCBpbnN0YWxsIHRoZSBQaW5nZ3kgV2ViIEFwcCBmcm9tIGh0dHBzOi8vcGluZ2d5LmlvL2FwcC8uIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIk9wZW4gdGhlIFBpbmdneSBXZWIgQXBwLCBuYXZpZ2F0ZSB0byAnQ3JlYXRlIFR1bm5lbCcsIHNlbGVjdCAnVURQIFR1bm5lbCcsIGFuZCBjb25maWd1cmUgdGhlIGRlc2lyZWQgcG9ydC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ2xpY2sgJ1NhdmUnIGFuZCAnU3RhcnQgVHVubmVsJyB0byBpbml0aWF0ZSB5b3VyIFVEUCB0dW5uZWwuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNvcHkgdGhlIFJlbW90ZSBVUkwgcHJvdmlkZWQgYnkgUGluZ2d5IGFuZCB1c2UgaXQgZm9yIGZvcndhcmRpbmcgVURQIHRyYWZmaWMuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlRlc3QgdGhlIHR1bm5lbCB1c2luZyBuZXRjYXQgb3Igc29jYXQgYnkgc2VuZGluZyBVRFAgcGFja2V0cyB0byB2ZXJpZnkgcHJvcGVyIGNvbm5lY3Rpdml0eS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIlNldHRpbmcgVXAgYSBVRFAgVHVubmVsIFVzaW5nIFBpbmdneSIsCiAgImRlc2NyaXB0aW9uIjogIkhvdyB0byBleHBvc2UgYSBsb2NhbCBVRFAgc2VydmljZSB0aHJvdWdoIGEgUGluZ2d5IFVEUCB0dW5uZWwgd2l0aCB0aGUgUGluZ2d5IENMSSBvciB0aGUgUGluZ2d5IEFwcCwgYW5kIHRlc3QgaXQgd2l0aCBuZXRjYXQuIE5ncm9rIGRvZXMgbm90IHN1cHBvcnQgVURQIHR1bm5lbHMuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL25ncm9rX3VkcF9hbHRlcm5hdGl2ZS9OZ3JvayBVRFAgQWx0ZXJuYXRpdmUucG5nIiwKICAiZGF0ZVB1Ymxpc2hlZCI6ICIyMDI1LTAyLTI4VDE0OjE1OjI1KzA1OjMwIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjYtMTEtMThUMTQ6MTU6MjUrMDU6MzAiLAogICJzdGVwIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiSW5zdGFsbCB0aGUgUGluZ2d5IENMSSBmcm9tIGh0dHBzOi8vcGluZ2d5LmlvL2NsaS8gd2l0aCB0aGUgb25lLWxpbmUgaW5zdGFsbGVyIGZvciBtYWNPUywgTGludXggb3IgV2luZG93cywgb3Igd2l0aCBucG0gaW5zdGFsbCAtZyBwaW5nZ3kuIFVEUCB0dW5uZWxzIGNhbm5vdCBiZSBjcmVhdGVkIHdpdGggdGhlIHBsYWluIFNTSCBjb21tYW5kLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJSdW4gcGluZ2d5IC1wIDQ0MyAtUjA6bG9jYWxob3N0OjgwMDAgdWRwQGZyZWUucGluZ2d5LmlvLCByZXBsYWNpbmcgODAwMCB3aXRoIHRoZSBwb3J0IHlvdXIgVURQIHNlcnZpY2UgbGlzdGVucyBvbi4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiQ29weSB0aGUgcHVibGljIGhvc3RuYW1lIGFuZCBVRFAgcG9ydCB0aGF0IFBpbmdneSBwcmludHMuIEZyZWUgdHVubmVscyBsYXN0IDYwIG1pbnV0ZXMgYW5kIGdldCBhIG5ldyBwb3J0IG9uIGV2ZXJ5IGNvbm5lY3Rpb247IFBpbmdneSBQcm8gY2FuIHJlc2VydmUgYSBwZXJzaXN0ZW50IFVEUCBwb3J0LiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJBbHRlcm5hdGl2ZWx5LCBpbnN0YWxsIHRoZSBQaW5nZ3kgQXBwIGZyb20gaHR0cHM6Ly9waW5nZ3kuaW8vYXBwLywgZ28gdG8gQ3JlYXRlIFR1bm5lbCwgcGljayBVRFAgVHVubmVsLCBzZXQgdGhlIGxvY2FsIHBvcnQsIGFuZCBjbGljayBTYXZlIGFuZCBTdGFydCBUdW5uZWwgdG8gZ2V0IGEgdWRwOi8vIGFkZHJlc3MuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlRlc3QgdGhlIHR1bm5lbCBieSBydW5uaW5nIG5jIC11IC1sIDgwMDAgb24gdGhlIGxvY2FsIG1hY2hpbmUgYW5kIHNlbmRpbmcgYSBkYXRhZ3JhbSBmcm9tIGFub3RoZXIgbWFjaGluZSB3aXRoIG5jIC11IHRvIHRoZSBwdWJsaWMgaG9zdG5hbWUgYW5kIHBvcnQuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
 outputs:
   - HTML
   - AMP
 ---
 
-{{< link href="https://ngrok.com" >}}Ngrok{{< /link >}} is a popular tunneling tool that allows developers to expose local servers to the internet. However, one major limitation of Ngrok is that it does not support UDP tunnels. This can be a dealbreaker for users who need to expose UDP-based applications such as gaming servers, VoIP services, and custom networking applications.
+{{< link href="https://ngrok.com" >}}Ngrok{{< /link >}} is the tool most people reach for when something on localhost needs to be online, but it only tunnels HTTP, TCP and TLS. There's no UDP, so a game server, a VoIP service, a DNS resolver or a WireGuard endpoint running on your machine can't go through it.
 
-Fortunately, there are alternatives that support UDP tunneling. One of the best options available is [Pinggy](https://pinggy.io), which provides robust UDP tunneling from both the [CLI](https://pinggy.io/cli/) and [Pinggy Web App](https://pinggy.io/app/). Unlike Ngrok, Pinggy allows users to forward UDP traffic seamlessly, making it a powerful solution for developers and network engineers.
-
-In this article, we’ll explore UDP tunnels, their importance, why Ngrok does not support UDP, and how you can set up UDP tunneling with Pinggy. We’ll also highlight other alternatives and discuss why Pinggy is one of the best choices, especially for users who require unlimited bandwidth with the [Pinggy Pro Plan](https://pinggy.io/#prices).
+[Pinggy](https://pinggy.io) can carry UDP. Its [CLI](https://pinggy.io/cli/) and the desktop [Pinggy App](https://pinggy.io/app/) both open UDP tunnels, and the free tier is enough to try one. Below are both ways to set it up, a quick netcat test, and the other tools that tunnel UDP if Pinggy isn't the right fit. Prices and versions were checked on November 18, 2026.
 
 {{< image "ngrok_udp_alternative/Ngrok UDP Alternative.png" "Ngrok UDP Alternative" >}}
 
-{{% tldr %}}  
+{{< llm-context >}}To expose a local UDP service with Pinggy - install the Pinggy CLI (one-line installer from pinggy.io/cli or `npm install -g pinggy`), then run `pinggy -p 443 -R0:localhost:<port> udp@free.pinggy.io` to get a public udp:// hostname and port. The plain SSH command can't carry UDP; ngrok has no UDP tunnels at all.{{< /llm-context >}}
 
-1. **Ngrok Doesn't Support UDP**  
-   - Ngrok primarily supports HTTP, HTTPS, and TCP but lacks UDP tunneling capabilities.  
-   - Developers needing UDP tunnels must seek alternatives.  
+{{% tldr %}}
 
-2. **Why Use Pinggy for UDP Tunneling?**  
-   - Pinggy allows seamless UDP tunneling via both CLI and a Web App.  
-   - It provides a reliable way to expose UDP-based services like gaming servers, VoIP, and IoT applications.  
-
-3. **Setting Up UDP Tunneling with Pinggy**  
-   - **CLI Method**: Download the Pinggy [CLI](https://pinggy.io/cli/) and execute the following command to create a tunnel.
+1. **Ngrok has no UDP.** Its endpoints are HTTP, TCP and TLS only, on every plan.
+2. **Pinggy carries UDP** through its CLI (still labelled beta) or the Pinggy App. The plain SSH command can't, because SSH only forwards TCP.
+3. **One command with the CLI:**
    ```bash
-   ./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io
+   pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io
    ```
-   - **Web App Method**: Install the [Pinggy Web App](https://pinggy.io/app/), configure the port, and start the tunnel with ease.  
+4. **Test it** by listening with `nc -u -l 8000` and sending a datagram to the public address from another machine.
+5. **Other options:** Playit.gg for game servers, LocalXpose and Localtonet as managed tunnels, and frp or chisel if you'd rather run your own relay.
 
-4. **Testing Your UDP Tunnel**  
-   - Use `netcat` or `socat` to send and receive UDP packets, ensuring your tunnel is working correctly.  
+{{% /tldr %}}
 
-{{% /tldr %}}  
+## A UDP tunnel gives a local UDP port a public address
 
-## What Are UDP Tunnels?
-UDP (User Datagram Protocol) is a connectionless, lightweight communication protocol designed for speed and efficiency. Unlike TCP, which ensures packet delivery through acknowledgments and retransmissions, UDP sends data without establishing a connection, making it ideal for time-sensitive applications. While this means that some packets might be lost in transit, the reduced overhead results in minimal latency and high-speed data transfer.
+UDP sends datagrams without a connection, acknowledgements or retransmits. Lost packets stay lost, and in return there's very little latency, which is why it carries most real-time traffic:
 
-### Applications of UDP
-Because of its low-latency nature, UDP is widely used in applications where real-time communication and rapid data transfer are more critical than guaranteed delivery. Some of the most common applications include:
+- **Game servers**, such as Minecraft Bedrock (port 19132), Valheim or Palworld.
+- **Voice and video**, where a late packet is worse than a missing one.
+- **DNS**, which answers most queries over UDP port 53.
+- **VPNs** like WireGuard, which runs entirely over UDP.
+- **IoT telemetry**, where small devices send short readings and can't afford connection overhead.
 
-- **Online Gaming:** Multiplayer games rely on UDP to ensure fast player interactions, reduce lag, and maintain synchronization between game clients and servers.
-- **VoIP and Video Calls:** Services like Skype, Zoom, and Discord use UDP to minimize delays in voice and video transmissions, ensuring smoother conversations without waiting for lost packets to be resent.
-- **Video Streaming:** UDP helps in live-streaming applications where data packets must arrive quickly, even if some are lost, to maintain continuous playback.
-- **DNS Resolution:** The Domain Name System (DNS) primarily uses UDP to resolve domain names quickly, as DNS queries involve small amounts of data that do not require error correction.
-- **IoT and Sensor Networks:** Many IoT devices use UDP to transmit data efficiently while consuming minimal resources, which is crucial for low-power, embedded systems.
+A UDP tunnel puts a public hostname and port in front of a UDP service on your machine. Your client opens an outbound connection to the tunnel's relay, the relay accepts datagrams on its public port, and it forwards them down that connection to your local port. Nothing on your router changes, so it works behind CGNAT and strict firewalls where port forwarding isn't an option.
 
-### What Is a UDP Tunnel?
-A **UDP tunnel** enables users to forward UDP packets from a local machine to a remote server, allowing external access to UDP-based services. This is particularly useful for developers and engineers who need to expose their applications for testing, debugging, or deployment over the internet.
+## Ngrok only tunnels HTTP, TCP and TLS
 
-UDP tunnels work by encapsulating UDP packets within another protocol, such as TCP or another UDP stream, allowing them to traverse firewalls and NAT (Network Address Translation) restrictions that might otherwise block direct UDP communication. By using a reliable tunneling service, users can overcome networking limitations and ensure their applications function seamlessly in remote environments.
+Ngrok's pricing page lists its endpoint protocols as HTTP, TCP and TLS, and none of the plans, from Free through Pay-as-you-go, adds UDP. A TCP endpoint doesn't help either: a game server or a DNS resolver listening for UDP never sees TCP traffic, so the packets have nowhere to land. If you need UDP, you need a different tool. The [ngrok alternatives comparison](/blog/best_ngrok_alternatives/) covers the wider field; the rest of this post sticks to UDP.
 
-## Why Are UDP Tunnels Important?
-UDP tunnels play a critical role in networking and application development, as they allow services that depend on UDP to be accessed remotely. Without UDP tunneling, exposing and managing real-time applications becomes significantly more challenging. Below are some key reasons why UDP tunnels are crucial:
+## Set up a UDP tunnel with the Pinggy CLI
 
-### 1. Hosting a Game Server
-Many multiplayer games require UDP due to its low latency and fast packet delivery. With a UDP tunnel, game developers and server administrators can host their game servers from their local machines and make them accessible to players worldwide.
+UDP is the one tunnel type Pinggy's SSH command can't create, because plain SSH only carries TCP. Install the [Pinggy CLI](https://pinggy.io/cli/) instead: it's one command on macOS, Linux and Windows, or `npm install -g pinggy`.
 
-### 2. Enabling VoIP and Video Conferencing
-Voice-over-IP (VoIP) applications rely on UDP for real-time communication. UDP tunnels help businesses and remote teams run VoIP services like Skype, Zoom, and Discord without worrying about network restrictions blocking UDP traffic.
-
-### 3. DNS and Network Services
-DNS queries often use UDP for rapid resolution of domain names. By using a UDP tunnel, administrators can securely route DNS queries through firewalls or across networks where direct UDP traffic might be restricted.
-
-### 4. IoT and Sensor Data Transmission
-IoT devices frequently transmit small amounts of real-time data using UDP. A UDP tunnel allows these devices to communicate efficiently, even in networks that block UDP traffic by default.
-
-### 5. Bypassing Firewalls and NAT Restrictions
-Many corporate and home networks impose restrictions on UDP traffic, preventing certain applications from functioning properly. UDP tunnels provide a way to bypass these restrictions, ensuring seamless connectivity.
-
-Without a reliable UDP tunneling service, exposing these critical services to external networks for remote access, testing, and deployment would be difficult. This is why choosing a robust UDP tunneling solution like **Pinggy** is essential for developers and network engineers.
-
-
-## Why Ngrok Does Not Support UDP
-Ngrok is primarily designed for HTTP, HTTPS, and TCP traffic. While it excels at exposing web servers and APIs, it lacks UDP support. This limitation arises due to several reasons:
-
-1. **Focus on Web Applications:** Ngrok was originally developed for web developers who primarily work with HTTP-based applications. Its core functionality revolves around securely exposing web servers to the internet.
-2. **Connection-Oriented Protocols:** {{< link href="https://ngrok.com" >}}Ngrok{{< /link >}} specializes in tunneling TCP-based connections, which provide a more reliable and controlled data transmission method compared to UDP, which is connectionless.
-3. **Security and Stability Concerns:** UDP traffic is more difficult to manage securely due to its stateless nature. Ngrok prioritizes security, and implementing UDP support would require additional infrastructure and safeguards.
-4. **Lack of Demand from Core Users:** The majority of Ngrok's user base consists of developers working with web applications and APIs, reducing the need for UDP support.
-
-As a result, if you need to expose a UDP-based service, you will have to look for an alternative like **Pinggy**.
-
-## How to Use Pinggy for UDP Tunneling
-Pinggy is an excellent alternative to Ngrok for UDP tunneling. It allows you to create secure UDP tunnels easily using either the [CLI](https://pinggy.io/cli/) and [Pinggy Web App](https://pinggy.io/app/).
-
-### Step 1: Set Up UDP Tunneling Using the CLI  
-
-Unlike HTTP or TCP tunnels, Pinggy does not provide an SSH command option for UDP tunneling. To create a UDP tunnel, you need to download the [Pinggy CLI](https://pinggy.io/cli/).  
-
-Once downloaded, open your terminal and run the following command (replace **8000** with your desired port):
+Then start the tunnel, replacing `8000` with the port your UDP service listens on:
 
 {{< ssh_command clionly="true">}}
-"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8000 udp@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\"}}}"
+"{\"cli\":{\"windows\":{\"ps\":\"pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\"},\"linux\":{\"ps\":\"pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\",\"cmd\":\"pinggy -p 443 -R0:localhost:8000 udp@free.pinggy.io\"}}}"
 {{</ ssh_command >}}
 
-This will establish a secure UDP tunnel that forwards traffic from your local machine to an externally accessible endpoint.
+Pinggy prints a public hostname and a UDP port. Point your game client, SIP phone or `dig` at that pair and the datagrams arrive on `localhost:8000`. For a Minecraft Bedrock server, the local port is `19132`. If an AI agent or a script is starting the tunnel, add `--notui` to get plain log lines instead of the interactive terminal UI.
 
-### Step 2: Use the Web App (Alternative Method)
-If you prefer a graphical interface, Pinggy also provides a **Web App** for setting up UDP tunnels easily.
-- [Pinggy Web App](https://pinggy.io/app/)
+The [UDP tunnel docs](https://pinggy.io/docs/udp_tunnels/) still label UDP support as beta.
 
-Follow these steps:
-1. **Download the Pinggy Web App** from [Pinggy's official site](https://pinggy.io/app/) and install it according to your operating system.
+## Set up a UDP tunnel with the Pinggy App
 
-{{< image "ngrok_udp_alternative/download_page.png" "Download Page" >}}
+If you'd rather click than type, the [Pinggy App](https://pinggy.io/app/) does the same thing from a window. It's a desktop app for macOS (Apple Silicon and Intel), Windows (x64 and ARM64) and Ubuntu, currently v1.3.8 and marked beta, and it creates HTTP, TCP, UDP and TLS tunnels.
 
-2. **Open the application** and navigate to the **Create Tunnel** section.
+1. **Download the Pinggy App** from [pinggy.io/app](https://pinggy.io/app/) and install it for your operating system.
 
-{{< image "ngrok_udp_alternative/pinggy_app_home.webp" "Pinggy App HomePage" >}}
+{{< image "ngrok_udp_alternative/download_page.png" "Pinggy App download page with macOS, Windows and Linux builds" >}}
 
-3. **Select UDP Tunnel** from the available options.
+2. **Open the app** and go to **Create Tunnel**.
 
-{{< image "ngrok_udp_alternative/pinggy_app_config_tunnel.webp" "UDP Tunnel Page" >}}
+{{< image "ngrok_udp_alternative/pinggy_app_home.webp" "Pinggy App home screen" >}}
 
-4. **Set the Port** – Replace **8000** with the port you want to use.
-5. (Optional) **Enter an Access Token** if you have one.
+3. **Pick UDP Tunnel** from the four tunnel types.
 
-{{< image "ngrok_udp_alternative/pinggy_app_config_tunnel.webp" "Set the Port" >}}
+{{< image "ngrok_udp_alternative/pinggy_app_create_tunnel.webp" "Pinggy App tunnel type picker with HTTP, TCP, TLS and UDP tunnels" >}}
 
-6. **Click 'Save' and 'Start Tunnel'** to initiate the UDP tunnel.
+4. **Set your local port** (8000 in this example). If you have a Pro access token, paste it into **Access Token**.
 
-{{< image "ngrok_udp_alternative/pinggy_app_tunnel_creting.webp" "Save and Start Tunnel" >}}
+{{< image "ngrok_udp_alternative/pinggy_app_config_tunnel.webp" "Pinggy App UDP tunnel configuration with local port 8000 and an access token field" >}}
 
-7. **Copy your Remote URL** – This is the address you will use to forward UDP traffic.
+5. **Click Save and Start Tunnel.**
 
-{{< image "ngrok_udp_alternative/pinggy_app_public_url.webp" "Pinggy Public Url" >}}
+{{< image "ngrok_udp_alternative/pinggy_app_tunnel_creting.webp" "Pinggy App saving and starting a UDP tunnel" >}}
 
+6. **Copy the `udp://` address** at the top of the tunnel page. That's the hostname and port your clients connect to. On the free plan you'll also see the countdown to the 60-minute limit.
 
-## Why Choose Pinggy Over Other Alternatives?
-Pinggy stands out as a **top Ngrok alternative** for UDP tunneling due to the following reasons:
+{{< image "ngrok_udp_alternative/pinggy_app_public_url.webp" "Pinggy App running a free UDP tunnel with its public udp:// address and a 60-minute countdown" >}}
 
-- **Supports both CLI and Web App usage** – Giving users flexibility in setup.
-- **Unlimited bandwidth with the Pro Plan** – No restrictions on data transfer, making it ideal for gaming, VoIP, and high-traffic applications.
-- **Reliable and low-latency UDP tunneling** – Ensuring smooth and efficient communication.
-- **Simple and quick setup** – Requiring minimal configuration.
-- **Better integration for real-time applications** – Such as gaming, VoIP, DNS, and IoT services.
+## Test the tunnel with netcat
 
-With the [Pinggy Pro Plan](https://pinggy.io/#prices), there are no limits on data transfer, making it the ideal solution for heavy UDP usage.
+Before you point a real game or phone at the tunnel, check that datagrams make it through. On the machine running the tunnel, listen on the local port:
 
-## Other Alternatives to Ngrok for UDP Tunneling
-While Pinggy is one of the best solutions for UDP tunneling, there are a few other alternatives you might consider:
+```bash
+nc -u -l 8000
+```
 
-1. **FRP (Fast Reverse Proxy):** A flexible reverse proxy tool that supports both TCP and UDP tunneling.
-2. **{{< link href="https://playit.gg/" >}}playit.gg{{< /link >}}:** Another alternative worth considering. 
-3. **SSH Port Forwarding:** Some configurations of SSH can be used to tunnel UDP traffic indirectly.
+That's the syntax for macOS and the OpenBSD netcat most Linux distros ship. Traditional netcat wants `nc -u -l -p 8000`.
+
+From a different machine, send a line to the public hostname and port Pinggy gave you:
+
+```bash
+echo "hello over udp" | nc -u -w1 <hostname> <port>
+```
+
+The listener should recieve the line within a second. If nothing shows up, check that the port in the tunnel command matches the one you're listening on, and that the free tunnel hasn't hit its 60-minute limit. `socat - UDP:<hostname>:<port>` does the same job if you prefer socat.
+
+## Free and Pro limits for Pinggy UDP tunnels
+
+The free tier needs no sign-up. UDP tunnels get unlimited data transfer, but they last 60 minutes, and the public port changes on every connection, so you hand out a new address each time.
+
+**Pro** is $3/month, or $2.50/month billed yearly. It lets you reserve a persistent UDP port from the dashboard, so the address you give players or devices stays the same, and it removes the time limit. That's the plan to use for a game server your friends join every evening or a device that reports in around the clock.
+
+## Other tools that tunnel UDP
+
+Pinggy isn't the only option. Here's how the other well-known tunnels handle UDP:
+
+| Tool | UDP | Cheapest way to get UDP | Notes |
+|---|---|---|---|
+| {{< link href="https://playit.gg/" >}}Playit.gg{{< /link >}} | Yes | Free: game presets plus generic UDP, 4 ports | Premium ($3/month) adds TCP+UDP tunnels and 16 ports; built for game servers |
+| {{< link href="https://localxpose.io/" >}}LocalXpose{{< /link >}} | Yes | PRO, $8/month billed yearly | The free Starter tier is 2 HTTP(S) tunnels only |
+| {{< link href="https://localtonet.com/" >}}Localtonet{{< /link >}} | Yes | Free: 1 tunnel, stops after 30 minutes per start | About $2/month per tunnel with no timeout; dedicated UDP and mixed UDP/TCP types |
+| {{< link href="https://inlets.dev/" >}}Inlets{{< /link >}} | Yes, on TCP tunnels | Personal, $25/month | UDP since 0.11.13; you run the exit server or use Inlets Cloud |
+| {{< link href="https://github.com/fatedier/frp" >}}frp{{< /link >}} | Yes | Free, self-hosted | v0.72.0; you run `frps` on a server with a public IP |
+| {{< link href="https://github.com/jpillora/chisel" >}}chisel{{< /link >}} | Yes | Free, self-hosted | UDP remotes look like `1.1.1.1:53/udp`; v1.12.0 |
+| {{< link href="https://zrok.io/" >}}zrok{{< /link >}} | Private shares only | Free managed tier (5GB a day) or self-host | The other side has to run `zrok2 access private` |
+| {{< link href="https://tailscale.com/docs/features/tailscale-funnel" >}}Tailscale Funnel{{< /link >}} | No | None | Funnel only serves TLS on ports 443, 8443 and 10000 |
+| {{< link href="https://developers.cloudflare.com/tunnel/" >}}Cloudflare Tunnel{{< /link >}} | Not on quick tunnels | Private networking | Visitors need the Cloudflare One client on their device |
+| Ngrok | No | None | HTTP, TCP and TLS only |
+
+**Playit.gg** is the closest match if all you're hosting is a game server: generic UDP is free, and the agent is open source. **LocalXpose** and **Localtonet** are managed tunnels with UDP, LocalXpose behind its paid plan and Localtonet with a short-lived free tunnel. **frp** and **chisel** are the self-hosted picks, and they cost you a VPS and some config, but the relay is yours. Tailscale is a different story: it's a WireGuard mesh, so UDP works fine between devices inside your tailnet, but Funnel can't publish a UDP port to the public internet.
+
+You'll also see SSH suggested for this. Plain SSH can't forward UDP, and the usual trick is to wrap the datagrams in TCP with `socat` on both ends of an `ssh -L` or `ssh -R` forward. It works for a one-off DNS test, but every lost packet stalls the ones queued behind it, which is teh opposite of what a game or a voice call needs.
 
 ## Conclusion
-If you're looking for a **Ngrok UDP alternative**, Pinggy is the best choice. It provides seamless UDP tunneling via the **CLI and Web App**, supports real-time applications like gaming and VoIP, and offers **unlimited bandwidth** with the [Pinggy Pro Plan](https://pinggy.io/#prices). 
 
-With an easy setup process and reliable performance, Pinggy ensures that your UDP-based services remain accessible from anywhere on the internet. Whether you're hosting a game server, running VoIP services, or working with IoT applications, **Pinggy is the ideal solution** for secure and efficient UDP tunneling.
-
+If ngrok is your tunnel and you hit a UDP service, Pinggy is the quickest fix: install the CLI, run one command, and you have a public UDP address, with a persistent port on Pro for $3/month. Playit.gg is worth a look for game servers, and frp or chisel make sense if you'd rather run the relay yourself. For a wider comparison of tunnels beyond UDP, see the [ngrok alternatives guide](/blog/best_ngrok_alternatives/).
