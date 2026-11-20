@@ -1,0 +1,43 @@
+<!doctype html><meta charset="utf-8">
+<style>
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 300 800; src: url(../../static/fonts/plus-jakarta-sans-latin.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 400 600; src: url(../../static/fonts/jetbrains-mono-latin.woff2) format("woff2"); }
+:root{--bg:#080b12;--accent:#5b9dff;--accent-dim:#2f5fb0;--white:#fff;--muted:#8b95a8;--dim:#5b6475;--line:rgba(255,255,255,.075);--red:#ff6b6b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden}
+body{background:var(--bg);position:relative;font-family:"Plus Jakarta Sans",sans-serif;-webkit-font-smoothing:antialiased}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 85% 70% at 60% 45%,#000 30%,transparent 100%)}
+.glow{position:absolute;border-radius:50%;filter:blur(130px)}
+.g1{width:920px;height:920px;right:-180px;top:-330px;background:rgba(91,157,255,.16)}
+.g2{width:700px;height:700px;left:-230px;bottom:-330px;background:rgba(91,157,255,.07)}
+.wrap{position:relative;height:100%;display:flex;align-items:center;gap:64px;padding:0 110px}
+.left{width:1010px;flex:none}
+h1{font-size:122px;line-height:1.04;font-weight:800;color:var(--white);letter-spacing:-.03em}
+h1 .accent{color:var(--accent)}
+.sub{margin-top:36px;font-size:44px;line-height:1.3;color:#aab4c5;max-width:900px}
+.brand{position:absolute;left:110px;bottom:64px;font-size:22px;color:var(--dim);font-weight:500}
+.brand b{color:var(--muted);font-weight:600}
+.right{flex:1}
+.board{background:rgba(255,255,255,.032);border:1px solid rgba(255,255,255,.09);border-radius:26px;padding:40px 40px 36px}
+.r{margin-bottom:34px}.r:last-child{margin-bottom:0}
+.n{font-family:"JetBrains Mono",monospace;font-size:56px;font-weight:600;color:var(--white);letter-spacing:-.03em;line-height:1}
+.l{font-size:28px;color:var(--muted);margin:8px 0 12px}
+.track{height:12px;border-radius:6px;background:rgba(255,255,255,.07)}
+.fill{height:100%;border-radius:6px;background:rgba(255,255,255,.3);min-width:12px}
+.r.key .n{color:var(--accent)}.r.key .l{color:#e3e9f2;font-weight:600}
+.r.key .fill{background:linear-gradient(90deg,var(--accent-dim),var(--accent))}
+</style>
+<div class="glow g1"></div><div class="glow g2"></div><div class="grid"></div>
+<div class="wrap">
+ <div class="left">
+  <h1>Why Lovable<br>apps <span class="accent">leak</span> their<br>database</h1>
+  <p class="sub">The key is public. Row Level Security is the only lock</p>
+ </div>
+ <div class="right"><div class="board">
+  <div class="r"><div class="n">159,041</div><div class="l">Lovable projects</div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+  <div class="r"><div class="n">34,545</div><div class="l">use Supabase</div><div class="track"><div class="fill" style="width:21.7%"></div></div></div>
+  <div class="r"><div class="n">24,664</div><div class="l">send rows with no login</div><div class="track"><div class="fill" style="width:15.5%"></div></div></div>
+  <div class="r key"><div class="n">7,403</div><div class="l">expose tables with email addresses</div><div class="track"><div class="fill" style="width:4.65%"></div></div></div>
+ </div></div>
+</div>
+<div class="brand"><b>pinggy.io</b> / blog</div>
