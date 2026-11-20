@@ -2409,8 +2409,9 @@ a.spec-card:hover {
 }
 
 /* Play button over the dark poster: a primary-blue square with a white
-   triangle and a label, so it reads clearly on near-black. The video's
-   inline onclick (content/_index.md) adds .is-playing on first click. */
+   triangle and a label, so it reads clearly on near-black. The homepage
+   video's inline onclick (content/_index.md) and the video shortcode's
+   onplay (layouts/shortcodes/video.html) add .is-playing on first play. */
 .videocontainer::after {
   content: "Watch the demo";
   position: absolute;

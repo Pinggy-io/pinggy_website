@@ -82,7 +82,7 @@ Tunnels are free on every plan. Account limits are 1,000 tunnels, 50,000 routes 
 ssh -p 443 -R0:localhost:3000 free.pinggy.io
 ```
 
-{{< video poster="/assets/tunnelvideothumb.webp" src="/assets/pinggy_demo.webm" >}}
+{{< iframe src="https://www.youtube.com/embed/l8GJAfvGIBU" title="Run OpenCode from Any Browser with Pinggy (No SSH Needed)" >}}
 
 It's the closest managed swap for a quick tunnel, and it covers two things Cloudflare doesn't: public UDP tunnels, and raw TCP ports that visitors can reach without installing anything.
 
