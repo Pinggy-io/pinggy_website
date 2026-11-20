@@ -107,6 +107,12 @@ outputs:
 ---
 ```
 
+**Backdate the post 4 to 7 days.** Guest posts imported from a zip are never
+dated today. Set `date` to a day 4 to 7 days before today's date (on
+2026-11-20, anything from 2026-11-13 to 2026-11-16), pick a plausible time, and
+use the same timestamp for `lastmod` and for `datePublished`/`dateModified` in
+the schema. The user asked for this on 2026-11-20.
+
 Three traps here.
 
 **Future dates silently drop the post.** Hugo skips future-dated content, so a
