@@ -159,6 +159,8 @@ Billed per generated second on Alibaba Cloud: $0.05 at 480p, $0.10 at 720p, and 
 
 {{< link href="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" >}}Seedance 2.5{{< /link >}} launched July 31, 2026 and sits at #3 on the with-audio board (1,143). Two changes stand out. It generates high-quality 30-second audio-video clips in a single pass, with multiple rounds of extension after that. And it takes far more references per generation: up to 30 images, 10 video clips, and 10 audio clips, with new reference types such as clay renders and motion references. Output is 480p, 720p, or 1080p, at 4 to 30 seconds.
 
+To call it from code without signing up for ByteDance's own developer platform, you can also go through a third-party gateway such as APIQik, which lists a {{< link href="https://www.apiqik.com/doubao-seedance-2-5-260628" >}}Seedance 2.5 API{{< /link >}} under the model ID `doubao-seedance-2-5-260628` with pay-as-you-go billing.
+
 {{< link href="https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0" >}}Seedance 2.0{{< /link >}} (February 12, 2026), which led the board in May, is still #7 and still a strong pick: 4-15 second multi-shot clips with audio, references of up to 9 images, 3 clips, and 3 audio files, and output up to 4K with 10-bit color through BytePlus, plus faster "2.0 fast" and "2.0 mini" variants. Both models are available in ByteDance's Jimeng and Doubao apps and to developers through the BytePlus ModelArk API, which isn't offered in the United States. Runway also offers Seedance inside its app outside the US.
 
 **Key Features of Seedance 2.5**:
