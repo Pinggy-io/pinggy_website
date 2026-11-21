@@ -1,0 +1,47 @@
+<!doctype html><meta charset="utf-8">
+<style>
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 300 800; src: url(../../static/fonts/plus-jakarta-sans-latin.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 400 600; src: url(../../static/fonts/jetbrains-mono-latin.woff2) format("woff2"); }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow:hidden}
+body{width:1920px;height:1080px;background:#0b1120;font-family:"Plus Jakarta Sans",sans-serif;-webkit-font-smoothing:antialiased;position:relative;color:#fff}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 85% 70% at 60% 45%,#000 30%,transparent 100%)}
+.wrap{position:relative;height:100%;display:flex;align-items:center;gap:80px;padding:0 110px}
+.left{width:900px;flex:none}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:30px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7aa7ff;margin-bottom:34px}
+h1{font-size:118px;line-height:1.02;font-weight:800;letter-spacing:-.03em}
+h1 .a{color:#7aa7ff}
+.sub{margin-top:36px;font-size:42px;line-height:1.35;color:#a3adbd;max-width:860px}
+.right{flex:1}
+.board{border:2px solid rgba(255,255,255,.12);border-radius:28px;padding:48px 50px;background:rgba(255,255,255,.03)}
+.bt{font-family:"JetBrains Mono",monospace;font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:#a3adbd;padding-bottom:26px;margin-bottom:38px;border-bottom:2px solid rgba(255,255,255,.1)}
+.row{margin-bottom:44px}
+.top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.nm{font-size:40px;font-weight:700;color:#e3e9f2}
+.v{font-family:"JetBrains Mono",monospace;font-size:46px;font-weight:600}
+.v small{font-size:28px;color:#a3adbd;font-weight:400}
+.track{height:34px;border-radius:8px;background:rgba(255,255,255,.07)}
+.fill{height:100%;border-radius:8px}
+.old .fill{background:#5b6475}.old .v{color:#c9d2e0}
+.new .fill{background:#5b8dff}.new .v{color:#7aa7ff}
+.delta{margin-top:6px}
+.delta b{font-size:96px;font-weight:800;color:#7aa7ff;letter-spacing:-.03em}
+.delta span{display:block;font-size:30px;color:#a3adbd;line-height:1.3;margin-top:4px}
+.brand{position:absolute;left:110px;bottom:64px;font-size:24px;color:#6b7587}
+.brand b{color:#a3adbd}
+</style>
+<div class="grid"></div>
+<div class="wrap">
+ <div class="left">
+  <div class="eyebrow">Valkey 9.2</div>
+  <h1>Valkey sorted sets lose the <span class="a">skiplist</span></h1>
+  <p class="sub">Valkey 9.2 orders large sorted sets with a 61-way B+ tree</p>
+ </div>
+ <div class="right"><div class="board">
+  <div class="bt">Ordering overhead per member</div>
+  <div class="row old"><div class="top"><span class="nm">skiplist</span><span class="v">50.3 <small>B</small></span></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+  <div class="row new"><div class="top"><span class="nm">B+ tree</span><span class="v">28.5 <small>B</small></span></div><div class="track"><div class="fill" style="width:56.7%"></div></div></div>
+  <div class="delta"><b>-43%</b><span>5M members of 20 bytes, sequential inserts</span></div>
+ </div></div>
+</div>
+<div class="brand"><b>pinggy.io</b> / blog</div>
