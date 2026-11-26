@@ -150,6 +150,8 @@ After a few repetitions, it becomes clear whether the problem is random or tied 
 
 This way, debugging transforms from a one-time reaction into a system for monitoring reliability.
 
+Delivery alerts matter most when messages are time-sensitive. Political campaigns are a clear example: get-out-the-vote texts only work if they land before polls close, and this {{< link href="https://politicalcomms.com/customers/turnout-lift-swing-districts/" >}}Political Comms turnout case study{{< /link >}} shows how much reliable, well-timed text outreach can contribute to results in competitive districts.
+
 ## Conclusion
 
 The reliability of a real-time communication app depends on how well the team can see the entire event flow. Each call must be analyzed from signaling to media statistics. For SMS, from the API request to the delivery status. For identity checks, from the authentication request to the final verification response. That's why the best debugging workflow is:
