@@ -37,7 +37,7 @@ None of that shows up in the demo. It shows up in the three jobs below, and each
 
 ### Map the work the team already does
 
-Staff often know exceptions that never made it into a process document. An editor may know which product claims need a second review, and who covers approvals when the regular reviewer is away. Until somebody writes those rules down, the agent can't follow them. The hours staff spend explaining and testing the workflow belong in the build budget, even though they rarely show up on an engineering estimate.
+Staff often know exceptions that never made it into a process document. An editor may know which product claims need a second review, and who covers approvals when the regular reviewer is away. Until somebody writes those rules down, the agent can't follow them. An <a href="https://corsicatech.com/blog/ai-strategy/" target="_blank">AI strategy guide</a> can help decide which workflows are worth mapping first, so those hours go to the processes most likely to pay back. The hours staff spend explaining and testing the workflow belong in the build budget, even though they rarely show up on an engineering estimate.
 
 ### Connect the apps the workflow uses
 
