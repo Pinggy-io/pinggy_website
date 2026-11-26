@@ -54,7 +54,7 @@ Pinggy gets you from `localhost:8000` to a live public HTTPS URL in one command,
 
 [Model Context Protocol](https://modelcontextprotocol.io/) is Anthropic's open standard for connecting AI models to external tools and data sources. Think of it as a common plug that any MCP-compatible AI client (Claude Desktop, Claude Code, Cursor, Windsurf, OpenAI Agents) uses to call your tools, read your data, or retrieve your prompts.
 
-Instead of writing a custom integration for each AI product, you write one MCP server and all the clients can use it. The protocol defines three primitives:
+Instead of writing a custom integration for each AI product, you write {{< link href="https://contextbolt.com/blog/what-is-mcp/" >}}one MCP server{{< /link >}} and all the clients can use it. The protocol defines three primitives:
 
 - **Tools** - functions the AI can call, like `search_database`, `run_query`, or `send_email`
 - **Resources** - data the AI can read, like files, database tables, or API responses

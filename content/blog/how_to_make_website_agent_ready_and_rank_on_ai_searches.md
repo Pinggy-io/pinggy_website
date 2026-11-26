@@ -139,7 +139,7 @@ If you want the broader strategy layer, pair this implementation guide with {{< 
 
 ## Step 7: Measure AI Search Performance Like an Engineering Loop
 
-Google reports AI-feature traffic inside the standard Search Console Performance report under the `Web` search type, so you can start measuring without special tooling. For ChatGPT Search presence, run prompt-level checks and monitor referral patterns.
+Google reports AI-feature traffic inside the standard Search Console Performance report under the `Web` search type, so you can start measuring without special tooling. For ChatGPT Search presence, run prompt-level checks, use {{< link href="https://slatehq.com/blog/best-llm-optimization-tools" >}}llm optimization tools{{< /link >}} to track brand mentions and citations, and monitor referral patterns.
 
 For richer tracking across models, an AI rank tracker like {{< link href="https://lumirank.ai/" >}}Lumirank{{< /link >}} runs a fixed prompt set daily across ChatGPT, Gemini, Perplexity, Copilot, AI Mode, and AI Overviews and logs visibility, citations, and competitor rank (it has a free plan). For a wider comparison, see these {{< link href="/blog/best_ai_search_analytics_monitoring_tools/" >}}AI search analytics tools{{< /link >}}.
 

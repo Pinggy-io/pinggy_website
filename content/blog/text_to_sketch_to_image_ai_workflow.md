@@ -60,7 +60,7 @@ Pollo AI handles text to sketch generation, realistic images, product concepts, 
 
 ## Step 4: Generate several images from the sketch
 
-Create a small batch from the same sketch and prompt, then compare how each result interprets the subject, materials, depth, and lighting. Keep the composition fixed during this stage so you're judging the visual treatment and nothing else.
+Create a small batch from the same sketch and prompt, then compare how each result interprets the subject, materials, depth, and lighting. Keep the composition fixed during this stage so you're judging the visual treatment and nothing else. Tools such as {{< link href="https://www.adobe.com/products/firefly/features/ai-drawing-generator.html" >}}Adobe Firefly AI drawing tools{{< /link >}} can help explore different artistic interpretations while keeping your original concept as the starting point.
 
 Pick the version with the strongest structure. A result with accurate perspective and the right product shape is usually easier to refine than one with attractive colors and broken geometry.
 
