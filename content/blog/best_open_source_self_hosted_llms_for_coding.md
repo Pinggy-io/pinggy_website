@@ -1,398 +1,389 @@
 ---
 title: "Best Open Source LLMs for Coding to Self-Host in 2026"
-description: "The best open-weight coding LLMs you can self-host as of October 2026, from MiMo-V2.6-Pro and GLM-5.3 down to Qwen3.8-27B on one GPU, with current benchmark scores, licenses and the hardware each one needs."
+
+description: "Compare open-weight coding LLMs for a 24GB GPU, a 128GB Mac or a GPU cluster. Top picks include Kimi K3.1 Pro, Hy4, DeepSeek-V4.1-Flash-1017, Inkling 2, Qwen3.8-27B and Nanbeige4.3-33B, with AA v5.0.2 scores and memory math."
 date: 2026-03-26T14:15:25+05:30
-lastmod: 2026-10-17T09:00:00+05:30
+lastmod: 2026-11-25T09:00:00+05:30
 draft: false
 tags: ["open source LLM", "self-hosted AI", "local LLM", "AI coding agents", "open source"]
-og_image: "images/best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIGNob29zZSBhbmQgc2VsZi1ob3N0IGFuIG9wZW4gc291cmNlIExMTSBmb3IgY29kaW5nIGluIDIwMjYiLAogICJkZXNjcmlwdGlvbiI6ICJUaGUgYmVzdCBvcGVuLXdlaWdodCBjb2RpbmcgTExNcyB5b3UgY2FuIHNlbGYtaG9zdCBhcyBvZiBPY3RvYmVyIDIwMjYsIGZyb20gTWlNby1WMi42LVBybyBhbmQgR0xNLTUuMyBkb3duIHRvIFF3ZW4zLjgtMjdCIG9uIG9uZSBHUFUsIHdpdGggY3VycmVudCBiZW5jaG1hcmsgc2NvcmVzLCBsaWNlbnNlcyBhbmQgdGhlIGhhcmR3YXJlIGVhY2ggb25lIG5lZWRzLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9iZXN0X29wZW5fc291cmNlX3NlbGZfaG9zdGVkX2xsbXNfZm9yX2NvZGluZy9iZXN0X29wZW5fc291cmNlX3NlbGZfaG9zdGVkX2xsbXNfZm9yX2NvZGluZ19iYW5uZXIud2VicCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTEwLTE3VDA5OjAwOjAwKzA1OjMwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIk1hdGNoIHRoZSBtb2RlbCB0byB5b3VyIGhhcmR3YXJlIiwKICAgICAgInRleHQiOiAiT25lIDI0R0IgR1BVIG9yIGEgMzJHQiBNYWMgcnVucyBRd2VuMy44LTI3QiBhdCA0LWJpdCAoMTYtMTlHQikuIEEgMTI4R0IgTWFjIHJ1bnMgUXdlbjMuOC1GbGFzaC1OZXh0IGF0IDQtYml0IHdpdGggaXRzIG4tZ3JhbSB0YWJsZSBvbiBTU0QgKDU2R0Igb2YgR1BVIG1lbW9yeSwgdW5kZXIgdGhlIGRlZmF1bHQgbWFjT1MgR1BVIGxpbWl0IG9mIGFib3V0IDk2R0IpLiBUaHJlZSBvciBmb3VyIDgwR0IgR1BVcyBydW4gR0xNLTUuMy1GbGFzaCBhdCA0LWJpdCAoMTYyLTIxMEdCKS4gRWlnaHQgSDIwMHMgcnVuIE1pTW8tVjIuNi1Qcm8gKGFib3V0IDU3NEdCKSBvciBHTE0tNS4zICg3NTZHQikuIEtpbWkgSzMgbmVlZHMgYXQgbGVhc3QgZWlnaHQgR0IzMDAgb3IgTUkzNTVYIEdQVXMgKDEuNTZUQikuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNoZWNrIHRoZSBsaWNlbnNlIiwKICAgICAgInRleHQiOiAiUXdlbjMuOC0yN0IgaXMgQXBhY2hlIDIuMCwgYW5kIE1pTW8tVjIuNiwgR0xNLTUuMy1GbGFzaCBhbmQgRGVlcFNlZWsgVjQgYXJlIE1JVC4gS2ltaSBLMywgR0xNLTUuMywgUXdlbjMuOC1NYXgsIFF3ZW4zLjgtRmxhc2gtTmV4dCBhbmQgTWluaU1heCBNMyB1c2UgY3VzdG9tIGxpY2Vuc2VzIHdpdGggcmV2ZW51ZSBvciB1c2UtY2FzZSBjb25kaXRpb25zLCBzbyByZWFkIHRoZW0gYmVmb3JlIHJlc2VsbGluZyBpbmZlcmVuY2UuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkluc3RhbGwgT2xsYW1hIGFuZCBPcGVuQ29kZSIsCiAgICAgICJ0ZXh0IjogIlJ1biBjdXJsIC1mc1NMIGh0dHBzOi8vb2xsYW1hLmNvbS9pbnN0YWxsLnNoIHwgc2ggYW5kIGN1cmwgLWZzU0wgaHR0cHM6Ly9vcGVuY29kZS5haS9pbnN0YWxsIHwgYmFzaC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiR2l2ZSB0aGUgbW9kZWwgZW5vdWdoIGNvbnRleHQiLAogICAgICAidGV4dCI6ICJPcGVuQ29kZSBuZWVkcyBhdCBsZWFzdCA2NEsgdG9rZW5zIG9mIGNvbnRleHQsIGFuZCBPbGxhbWEgZGVmYXVsdHMgdG8gNEsgb24gR1BVcyB1bmRlciAyNEdpQiBvZiBWUkFNIGFuZCAzMksgdXAgdG8gNDhHaUIuIFN0YXJ0IHRoZSBzZXJ2ZXIgd2l0aCBPTExBTUFfQ09OVEVYVF9MRU5HVEg9NjQwMDAgb2xsYW1hIHNlcnZlLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAibmFtZSI6ICJMYXVuY2ggdGhlIGNvZGluZyBhZ2VudCIsCiAgICAgICJ0ZXh0IjogIlJ1biBvbGxhbWEgbGF1bmNoIG9wZW5jb2RlIC0tbW9kZWwgcXdlbjMuODoyN2IuIE9uIGFuIEFwcGxlIFNpbGljb24gTWFjLCB1c2UgdGhlIHF3ZW4zLjg6MjdiLW1seCB0YWcgaW5zdGVhZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiT3B0aW9uYWxseSByZWFjaCBhIHJlbW90ZSBHUFUgYm94IHdpdGggUGluZ2d5IiwKICAgICAgInRleHQiOiAiT24gdGhlIEdQVSBtYWNoaW5lLCBydW4gc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjExNDM0IGZyZWUucGluZ2d5LmlvIFwidTpIb3N0OmxvY2FsaG9zdDoxMTQzNFwiIFwiazpjaGFuZ2UtbWVcIiwgdGhlbiBwb2ludCBPcGVuQ29kZSdzIGJhc2VVUkwgYXQgdGhlIHByaW50ZWQgaHR0cHMgVVJMIHBsdXMgL3YxIHdpdGggYXBpS2V5IGNoYW5nZS1tZS4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
+og_image: "images/best_open_source_self_hosted_llms_for_coding/open_coding_llms_nov_2026_banner.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJUZWNoQXJ0aWNsZSIsCiAgImhlYWRsaW5lIjogIkJlc3QgT3BlbiBTb3VyY2UgTExNcyBmb3IgQ29kaW5nIHRvIFNlbGYtSG9zdCBpbiAyMDI2IiwKICAiZGVzY3JpcHRpb24iOiAiQ29tcGFyZSBvcGVuLXdlaWdodCBjb2RpbmcgTExNcyBmb3IgYSAyNEdCIEdQVSwgYSAxMjhHQiBNYWMgb3IgYSBHUFUgY2x1c3Rlci4gVG9wIHBpY2tzIGluY2x1ZGUgS2ltaSBLMy4xIFBybywgSHk0LCBEZWVwU2Vlay1WNC4xLUZsYXNoLTEwMTcsIElua2xpbmcgMiwgUXdlbjMuOC0yN0IgYW5kIE5hbmJlaWdlNC4zLTMzQiwgd2l0aCBBQSB2NS4wLjIgc2NvcmVzIGFuZCBtZW1vcnkgbWF0aC4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvYmVzdF9vcGVuX3NvdXJjZV9zZWxmX2hvc3RlZF9sbG1zX2Zvcl9jb2Rpbmcvb3Blbl9jb2RpbmdfbGxtc19ub3ZfMjAyNl9iYW5uZXIud2VicCIsCiAgImRhdGVQdWJsaXNoZWQiOiAiMjAyNi0wMy0yNlQxNDoxNToyNSswNTozMCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTExLTI1VDA5OjAwOjAwKzA1OjMwIgp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "best_open_source_self_hosted_llms_for_coding/best_open_source_self_hosted_llms_for_coding_banner.webp" "Bar charts of open-weight coding LLMs: Artificial Analysis Intelligence Index v4.3.2 against Claude Opus 5.5, Terminal-Bench 2.1 scores, and the models that fit in 128GB" >}}
+{{< image "best_open_source_self_hosted_llms_for_coding/open_coding_llms_nov_2026_banner.webp" "Two bar charts of open-weight coding models: the Artificial Analysis Intelligence Index v5.0.2, where Kimi K3.1 Pro leads at 47, and Artificial Analysis's Terminal-Bench 4.1 run, with Claude Opus 5.5 as a hosted reference" >}}
 
-Choosing a coding model used to be a decision you made once a year. The open-weight field now moves fast enough that the right answer changes every few weeks, and for most teams the deciding factor turns out to be hardware rather than benchmark scores.
+Self-hosting a coding model is mostly a memory problem. The weights have to fit, and so does everything the agent piles into its context while it reads files, runs tests and reads the output back.
 
-The last six weeks show it. Xiaomi's **MiMo-V2.6-Pro**, released on September 21 under MIT, is now the top open weight on the Artificial Analysis Intelligence Index at 46, ahead of GLM-5.3 (45) and Kimi K3 (44). **DeepSeek-V4.1-Flash** (September 10) tops LiveBench's agentic coding board outright, above Claude Opus 5.5. Neither fits on one GPU. The model that does, **Qwen3.8-27B**, scores 34 on the same index, which still makes it the best of 142 models in its size class.
+The strongest downloadable model on the Artificial Analysis Intelligence Index v5.0.2 is **Kimi K3.1 Pro** at 47, against 59 for Claude Opus 5.5 at max effort. It needs eight Blackwell GPUs. On a single 24GB card the race is closer: Qwen3.8-27B, Inkling 2 Mini and Nanbeige4.3-33B all score 20. Nanbeige finishes 29% of Terminal-Bench 4.1 tasks in Artificial Analysis's run and the other two finish 6%, but its KV cache is more than three times bigger, so on that card it gets half the context.
 
-This guide ranks the coding models you can actually download as of October 6, 2026, and says what hardware each one needs. Scores come from Artificial Analysis (Intelligence Index v4.3.2), LiveBench, and vendor-reported SWE-Bench Pro and Terminal-Bench 2.1 numbers. Hardware figures come from model cards, Unsloth's docs and vLLM's deployment recipes.
+I checked every model below against its Hugging Face card, the <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank">Artificial Analysis leaderboard</a> and the <a href="https://www.tbench.ai/leaderboard" target="_blank">Terminal-Bench 4.1 leaderboard</a>. I didn't run local inference for this comparison. Memory figures come from file sizes and from each model's `config.json`.
 
 {{% tldr %}}
 
-**Top open-weight coding models (Artificial Analysis Intelligence Index v4.3.2, October 2026):**
-1. **MiMo-V2.6-Pro** - Index **46**, MIT, 1.02T/42B, 8x H200 - <a target="_blank" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-MOPD">Get MiMo-V2.6-Pro</a>
-2. **GLM-5.3** - Index **45**, custom license, 756GB of FP8 weights - <a target="_blank" href="https://huggingface.co/zai-org/GLM-5.3">Get GLM-5.3</a>
-3. **Kimi K3** - Index **44**, 2.78T parameters, needs at least 8x GB300 - <a target="_blank" href="https://huggingface.co/moonshotai/Kimi-K3">Get Kimi K3</a>
-4. **GLM-5.3-Flash** - Index **42**, MIT, 320B/18B, 3-4x 80GB GPUs at Q4 - <a target="_blank" href="https://huggingface.co/zai-org/GLM-5.3-Flash">Get GLM-5.3-Flash</a>
-5. **Qwen3.8-Flash-Next** - Index **40**, fits a 128GB machine at 4-bit - <a target="_blank" href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">Get Qwen3.8-Flash-Next</a>
-6. **DeepSeek-V4.1-Flash** - Index **39**, MIT, #1 on LiveBench agentic coding - <a target="_blank" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash">Get DeepSeek-V4.1-Flash</a>
-7. **Qwen3.8-27B** - Index **34**, Apache 2.0, one 24GB GPU - <a target="_blank" href="https://huggingface.co/Qwen/Qwen3.8-27B">Get Qwen3.8-27B</a>
-
-**One GPU: pull Qwen3.8-27B.** It's a 27B dense Apache 2.0 model that needs 16-19GB at 4-bit, and it scores 34 on the index to the next-best small model's 25.
-
-**128GB Mac: Qwen3.8-Flash-Next.** It scores 40, level with Qwen3.8-2.4T-A95B, the open weights behind Qwen3.8-Max. Use Atomic Chat's 4-bit build, which keeps the n-gram table on SSD and needs 56GB of GPU memory instead of 96-114GB.
-
-**One server: GLM-5.3-Flash.** It's MIT and needs 162-210GB at 4-bit, so three or four 80GB GPUs instead of eight.
-
-**Self-hosting tools:** <a target="_blank" href="https://ollama.com">Ollama</a> for local use, <a target="_blank" href="https://github.com/vllm-project/vllm">vLLM</a> for production serving, <a target="_blank" href="https://lmstudio.ai">LM Studio</a> for a desktop GUI.
+1. **One 24GB GPU:** Qwen3.8-27B is the easy pick. Its 18GB Ollama build plus 64K tokens of KV cache comes to about 22GB, under Apache 2.0.
+2. **A 32GB card or a 32GB Mac:** add Nanbeige4.3-33B for shell-heavy agent work, or Inkling 2 Mini for repository fixes. Both are Apache 2.0.
+3. **A 128GB Mac:** Qwen3.8-Flash-Next with Atomic Chat's split GGUF keeps 56GB in GPU memory and a 38GB lookup table on SSD.
+4. **A shared GPU server:** GLM-5.3-Flash (MIT) fits three or four 80GB cards at 4-bit. Inkling 2 Small (Apache 2.0) and DeepSeek-V4.1-Flash-1017 (MIT) fit four H200s.
+5. **An eight-GPU node:** Kimi K3.1 Pro leads every open model on the index and on Terminal-Bench, with Tencent Hy4 second. Both licenses add terms for large API resellers.
 
 {{% /tldr %}}
 
-## How close open weights are to proprietary models
+## Which coding models fit your hardware?
 
-We use {{< link href="https://artificialanalysis.ai/models/open-source" >}}Artificial Analysis{{< /link >}} as the main lens because it runs every model itself rather than reprinting vendor claims. Its Intelligence Index changed in September: v4.3 (September 7) swapped Terminal-Bench 2.1 for **Terminal-Bench 4.0** and replaced τ³-Banking with AutomationBench-AA, and the current **v4.3.2** combines 10 evaluations. Scores fell across the board, so numbers from older articles (including the previous version of this one) aren't comparable.
+A file size tells you how much to download. The running server also needs room for the KV cache (the attention keys and values for every token in context), which grows as the agent reads files and gets tool output back. Ollama multiplies the context by the number of parallel requests, so two people sharing one server need twice the cache.
 
-On the current scale, **Claude Opus 5.5 leads overall at 58**. The best open weight, MiMo-V2.6-Pro, scores 46. The hardware column is the smallest setup that holds the weights, worked out from each model's card, vLLM recipe or Unsloth guide, before KV cache headroom.
+| Machine | Model and license | What to budget for |
+|---|---|---|
+| One 24GB GPU | Qwen3.8-27B, Apache 2.0 | 18GB <a href="https://ollama.com/library/qwen3.8/tags" target="_blank">Ollama download</a>, plus about 4.3GB of KV cache at 64K tokens. |
+| A 32GB GPU or Mac | Inkling 2 Mini or Nanbeige4.3-33B, both Apache 2.0 | 17.6GB and 18.6GB at 4-bit. Thinking Machines recommends 32GB for Inkling, and Nanbeige's cache is about 14GB at 64K. |
+| 128GB Apple Silicon | Qwen3.8-Flash-Next, Qwen Community License | Atomic Chat's split build holds 56.1GB in GPU memory and leaves a 38.4GB table on SSD. |
+| Three or four 80GB GPUs | GLM-5.3-Flash, MIT | <a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank">Unsloth's 4-bit files</a> run 157-200GB. |
+| Four H200s or two B300s | Inkling 2 Small (Apache 2.0) or DeepSeek-V4.1-Flash-1017 (MIT) | 394GB of NVFP4 weights for Inkling, 510GB for DeepSeek with its Engram tables in host RAM. |
+| One eight-GPU node | Tencent Hy4 (Tencent Hy License) or Kimi K3.1 Pro (Kimi K3.1-Pro License) | About 944GB of GPU memory for Hy4-FP8. Kimi's 1.56TB of MXFP4 weights run on eight B300s or two GB300 trays. |
 
-| Model | Params (active) | License | AA Index | Smallest practical setup |
-|---|---|---|---|---|
-| Claude Opus 5.5 *(proprietary)* | - | - | **58** | API only |
-| MiMo-V2.6-Pro | 1.02T (42B) | MIT | **46** | 8x H200 (~574GB, mostly MXFP4) |
-| GLM-5.3 | 744B (40B) | GLM-5.3 License | **45** | 8x H200 (756GB FP8) |
-| Kimi K3 | 2.78T (104B) | Kimi K3 License | **44** | 8x GB300 or 8x MI355X (1.56TB MXFP4) |
-| GLM-5.3-Flash | 320B (18B) | MIT | **42** | 3-4x 80GB GPUs at 4-bit (162-210GB) |
-| Qwen3.8-Max (2.4T-A95B) | 2.4T (95B) | Qwen3.8-Max License | 40 | 8x B300 at NVFP4 (1.32TiB) |
-| Qwen3.8-Flash-Next | 125B (6B) + 51B n-gram table | Qwen Community License | 40 | 128GB machine (56GB in GPU memory at 4-bit, n-gram table on SSD) |
-| DeepSeek-V4.1-Flash | 552B + 196B Engram (16B) | MIT | 39 | 4x H200 with Engram on CPU (~511GB) |
-| MiMo-V2.6-Flash | 309B (15B) | MIT | 38 | 4x H200 (~178GB, mostly MXFP4) |
-| DeepSeek-V4-Pro-0813 | 1.6T (49B) | MIT | 36 | 8x H200 (893GB) |
-| Qwen3.8-27B | 27B dense | Apache 2.0 | 34 | One 24GB GPU (16-19GB at 4-bit) |
-| MiniMax M3 | 428B (23B) | MiniMax Community License | 29 | 4x H100 at 4-bit (213-270GB) |
+### How much context fits on a 24GB card
 
-### Models that fit one GPU or a 128GB machine
+You can estimate the KV cache from a model's `config.json`: 2 (keys and values) x attention layers x KV heads x head dimension x 2 bytes at FP16, for every token. OpenCode wants at least 64K tokens of context, so that's the budget I used.
 
-If your "server" is a laptop or a desktop Mac short of an Ultra, the ceiling is Apple's: the M5 Max tops out at **128GB of unified memory** in both the MacBook Pro and the Mac Studio. That has to hold the weights plus the KV cache, and by default macOS lets the GPU use only about 75% of it, roughly **96GB**. Same index, so these read directly against the table above.
+Qwen3.8-27B is cheap here because only 16 of its 64 layers use full attention. The other 48 are Gated DeltaNet layers, which keep a fixed-size state no matter how long the context gets. With 4 KV heads of 256 dimensions, that's 64KiB per token, or 4.3GB at 64K. Devstral Small 2 has 40 ordinary attention layers with 8 KV heads of 128, so 160KiB per token and 10.7GB. Nanbeige4.3-33B is a plain Llama architecture with 52 layers, which works out to 208KiB per token and 14.0GB.
 
-| Model | Params (active) | ~4-bit memory | AA Index |
-|---|---|---|---|
-| Qwen3.8-Flash-Next | 125B (6B) + n-gram table | 96-114GB (56GB with the table on SSD) | **40** |
-| Qwen3.8-27B | 27B dense + vision | 16-19GB | **34** |
-| Qwen3.6-27B | 27.8B dense | 18GB | 21 |
-| Muse Glimmer 30B | 29.6B dense (incl. vision) | 17GB | 17 |
-| Gemma 4 26B-A4B | 26B (4B) | 14-17GB | 17 (est.) |
-| Gemma 4 31B | 30.7B dense | 17-20GB | 15 |
-| Nemotron 3.5 Lightning | 31.6B (3.6B) | 21-25.5GB | 13 |
-| Nemotron 3 Super 120B-A12B | 120.6B (12.7B) | 64-72GB | 13 |
-| gpt-oss-120b (high) | 117B (5.1B) | ~63GB | 12 |
-| Qwen3-Coder-Next | 79.7B (3B) | 46GB | 9 |
+{{< image "best_open_source_self_hosted_llms_for_coding/kv_cache_24gb_card.webp" "Stacked bar chart of 4-bit weights plus FP16 KV cache at 64K tokens: Qwen3.8-27B 18GB plus 4.3GB, Devstral Small 2 15GB plus 10.7GB, Nanbeige4.3-33B 18.6GB plus 14.0GB, against the 25.8GB of a 24GiB card" >}}
 
-**Bigger doesn't win on a laptop, newer does.** Qwen3.8-27B beats every 120B-class model that fits by more than 20 points, and the only thing above it on a 128GB machine is Qwen3.8-Flash-Next. Its runner-up in the small class is now K2 Horizon MoVA 36B-A4B (Apache 2.0) at 25. GLM-5.3-Flash also squeezes into 128GB with Unsloth's 2-bit quant (a 109GB file), at a real quality cost.
+*Weights: Ollama and bartowski GGUF file sizes. KV cache: computed from each model's `config.json`. Compute buffers and the vision projector are extra.*
 
-### SWE-Bench Pro and Terminal-Bench 2.1
+A "24GB" RTX 4090 holds 24GiB, about 25.8GB, and the driver and compute buffers take a slice of that. Qwen fits with room to spare. Devstral at 25.7GB doesn't. Setting `OLLAMA_KV_CACHE_TYPE=q8_0` halves the cache, which brings Devstral to 20.4GB, but Nanbeige still needs 25.6GB at 64K. On a 24GB card, run it at 32K (22.1GB with a q8 cache), or give it a 32GB card. Inkling 2 Mini is harder to estimate by hand. Most of its layers use 1,024-token sliding windows, so the cache grows slowly, but its looped layers each keep their own cache, and the <a href="https://huggingface.co/blog/inkling2mini" target="_blank">Hugging Face launch post</a> says the 17.6GB IQ4_NL file "fits in 32 GB of GPU RAM or unified memory".
 
-The Intelligence Index measures general capability. For code specifically, SWE-Bench Pro (fixing real issues in real repos) and Terminal-Bench 2.1 (agentic tasks in a shell) have the widest coverage across open weights. These are vendor-reported numbers from each model card, cross-checked against the {{< link href="https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro" >}}SWE-Bench Pro{{< /link >}} and {{< link href="https://huggingface.co/datasets/harborframework/terminal-bench-2.1" >}}Terminal-Bench 2.1{{< /link >}} leaderboards on Hugging Face, sorted by Terminal-Bench.
+## What the benchmarks say
 
-| Model | Released | SWE-Bench Pro (v1) | Terminal-Bench 2.1 |
-|---|---|---|---|
-| DeepSeek-V4.1-Flash | Sep 2026 | Not reported | **90.6** |
-| MiMo-V2.6-Pro | Sep 2026 | Not reported | 89.9 |
-| Kimi K3 | Jul 2026 | Not reported | 88.3 |
-| GLM-5.3 | Aug 2026 | Not reported | 88.2 |
-| DeepSeek-V4-Pro-0813 | Aug 2026 | 55.4 (April preview) | 87.9 |
-| MiMo-V2.6-Flash | Sep 2026 | Not reported | 87.6 |
-| Qwen3.8-Max | Aug 2026 | **67.7** | 86.6 |
-| Ornith-1.5-397B | Aug 2026 | 65.1 | 86.1 |
-| Tencent Hy4-preview | Aug 2026 | 65.7 | 85.4 |
-| GLM-5.3-Flash | Aug 2026 | Not reported | 84.3 |
-| Nex-N2.5-Pro | Sep 2026 | 61.2 | 82.7 |
-| GLM-5.2 | Jun 2026 | 62.1 | 81.0 (Terminus-2) |
-| dots3-note-prev | Aug 2026 | 61.0 | 75.1 |
-| Qwen3.8-27B | Aug 2026 | 61.7 | 73.0 |
-| Poolside Laguna-S-2.1 | Jul 2026 | 59.4 | 70.2 |
-| MiniMax M3 | Jun 2026 | 59.0 | 66.0 |
-| Muse Glimmer 30B | Aug 2026 | 51.2 | 51.7 |
-| Qwen3.8-Flash-Next | Aug 2026 | 62.5 | Not reported |
+Artificial Analysis averages nine evaluations into its <a href="https://artificialanalysis.ai/methodology/intelligence-benchmarking" target="_blank">Intelligence Index v5.0.2</a>, in four equally weighted groups. The coding group is FrontierCode-AA 2.0 (15%) and Terminal-Bench 4.1 (10%). Version 5.0.2 swapped Terminal-Bench 4.0 for 4.1, which keeps the same 66 tasks with stricter verifiers, and regraded FrontierCode for every model. Scores from the v4.x index sit on a different scale. Qwen3.8-27B showed 34 on v4.3.2 and shows 20 on v5.0.2, so never compare an old screenshot with a current one.
 
-The top of the Terminal-Bench column now belongs to open weights. DeepSeek-V4.1-Flash's 90.6 sits above GPT-5.6 Sol's 88.8 (OpenAI-reported) and above Artificial Analysis's own run of Claude Opus 5 (89.1), though below Claude Fable 5.1 (91.4 in AA's run). On SWE-Bench Pro, **Qwen3.8-Max still leads open weights at 67.7**, and the more useful number is Qwen3.8-27B's 61.7 at a fraction of the size.
+The table lists Artificial Analysis's own runs at each model's highest reasoning setting.
 
-Three caveats before you compare these against anything else. **Every number here is vendor-run**, with each lab using its own scaffolding. Scale's standardized {{< link href="https://labs.scale.com/leaderboard/swe_bench_pro" >}}SEAL leaderboard{{< /link >}} tops out at 61.5 (Muse Spark 1.1) and doesn't cover any of these models. **SWE-Bench Pro moved to a V2 dataset on September 22**, so these v1 scores won't line up with new submissions. Qwen's SWE-Bench Pro scores also come from its own corrected version of the v1 tasks. And the frontier has moved on to **Terminal-Bench 4.0**, where Claude Opus 5.5 leads {{< link href="https://www.tbench.ai/" >}}tbench.ai's leaderboard{{< /link >}} at 64.8 and the only open-weight entry so far is GLM-5.3 at 41.8.
+| Model | Index v5.0.2 | Terminal-Bench 4.1 | FrontierCode-AA 2.0 |
+|---|---:|---:|---:|
+| Claude Opus 5.5, max *(hosted reference)* | 59 | 59.1% | 46.9% |
+| Kimi K3.1 Pro | **47** | **68.2%** | 25.5% |
+| Tencent Hy4 | 35 | 37.9% | **31.2%** |
+| DeepSeek-V4.1-Flash-1017 | 32 | 32.3% | 28.2% |
+| GLM-5.3 | 32 | 40.9% | 21.6% |
+| Inkling 2 Small | 31 | 13.6% | 25.4% |
+| MiMo-V2.6-Pro | 30 | 35.4% | 24.0% |
+| MiniMax-M3.1-Flash | 29 | 25.8% | 20.8% |
+| Qwen3.8-Flash-Next | 28 | 24.2% | 27.1% |
+| GLM-5.3-Flash | 28 | 32.8% | 17.2% |
+| MiMo-V2.6-Flash | 27 | 23.7% | 21.6% |
+| Mistral Large 4 | 26 | 24.7% | 15.0% |
+| Nanbeige4.3-33B | 20 | 29.3% | 10.7% |
+| Inkling 2 Mini | 20 | 5.6% | 15.1% |
+| Qwen3.8-27B | 20 | 5.6% | 14.9% |
+| MiniMax-M3 | 19 | 2.0% | 23.0% |
+| Beam 1.0 | 18 | 3.0% | 5.1% |
 
-### What LiveBench adds
+Kimi K3.1 Pro beats Opus 5.5 on Terminal-Bench in this run and trails it badly on FrontierCode, so "best" depends on whether your agent lives in a shell or in a large codebase. Three more open models score near the middle of the table but don't get sections below: InclusionAI's Ling 3.1 Flash 1019 (30, MIT, 560B), StepFun's Step 5 Preview (29) and Meta's gated Muse Spark Open (25). Each needs 530GB or more of weights.
 
-{{< link href="https://livebench.ai/#/?cats=Agentic+Coding" >}}LiveBench{{< /link >}} is the contamination-aware cross-check, and it has now scored most of the August and September releases (not MiMo-V2.6 yet). **DeepSeek-V4.1-Flash leads the entire agentic coding board at 77.27**, above Claude Opus 5.5 at 71.72. Among other open weights, DeepSeek-V4-Flash-Vision-Exp scores 65.10 on agentic coding, Qwen3.8-Max 64.65, Kimi K3 62.17, Qwen3.8-Flash-Next 61.62, Qwen3.8-27B 61.36 and GLM-5.3 60.91. On plain coding, Kimi K3 is still the top base open weight at 81.45.
+### Vendor tests and the agent harness
+
+Lab-reported numbers are useful when one table runs every model through the same harness. Thinking Machines' cards report DeepSWE v1.1 with mini-swe-agent for everyone: DeepSeek-V4.1-Flash-1017 77.0%, MiniMax-M3.1-Flash 73.7%, Inkling 2 Small 72.1%, MiMo-V2.6-Pro 71.9%, GLM-5.3 69.0%, Kimi K3 68.5%, Inkling 2 Mini 48.2% and Qwen3.8-27B 42.2%. On the public Terminal-Bench 4.1 leaderboard, where each entry picks its own agent, Kimi K3.1 Pro with Claude Code scores 59.7% against 65.8% for Opus 5.5. That's lower than its 68.2% in Artificial Analysis's run, which tells you how much the harness moves these numbers.
+
+I left SWE-Bench Pro out. Scale moved it to a <a href="https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro" target="_blank">642-task V2 dataset</a>, most model cards still quote the 731-task v1 set, and Scale's public leaderboard doesn't list the current open models.
 
 ## Best open source LLMs for coding
 
-The list below is a selection of open weights you can download today, roughly in Artificial Analysis index order. Most of the top five need data-center hardware, so read the deployment notes before you plan around them. For a single GPU or a 128GB Mac, skip to Qwen3.8-27B and Qwen3.8-Flash-Next.
+The order roughly follows the index. Scores are Artificial Analysis v5.0.2 unless a lab is named.
 
-### 1. MiMo-V2.6-Pro and MiMo-V2.6-Flash (Xiaomi) - top open weight
+### 1. Kimi K3.1 Pro (Moonshot AI)
+
+{{< image "best_open_source_self_hosted_llms_for_coding/kimi_k3_1_pro.webp" "Hugging Face model page for moonshotai/Kimi-K3.1-Pro, showing the kimi-k3.1-pro license and 2.8T parameters" >}}
+
+*Screenshot: huggingface.co/moonshotai/Kimi-K3.1-Pro.*
+
+Moonshot's <a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank">Kimi K3.1 Pro</a> is post-trained from Kimi K3 and keeps its shape: 2.8T total parameters, 104B active, 896 experts with 16 per token, image input and a 1,048,576-token context. One change matters for long agent sessions: the 24 full-attention Gated MLA layers became Gated DeepSeek Sparse Attention layers. The weights come out of quantization-aware training as MXFP4, so the 1.56TB download is already the small version.
+
+It scores **47**, the highest open-weight result, and 68.2% on Artificial Analysis's Terminal-Bench 4.1 run. The <a href="https://recipes.vllm.ai/moonshotai/Kimi-K3.1-Pro" target="_blank">vLLM recipe</a> runs one tensor-parallel group of eight GPUs on a B300 node, two GB300 trays or an MI355X node, and it needs a vLLM 0.35.0 nightly or the `vllm/vllm-openai:kimi-k31` image, with `--tool-call-parser kimi_k3 --reasoning-parser kimi_k3`. If you write your own agent loop, pass the whole assistant message back each turn, including `reasoning_content`; the card says multi-turn tool use depends on it.
+
+The <a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE" target="_blank">Kimi K3.1-Pro License</a> is MIT-style with two additions. A model-as-a-service business whose revenue with affiliates passes $20 million over 12 months needs a separate agreement, and products above 100 million monthly users or $20 million monthly revenue must show "Kimi K3.1-Pro" in the UI. Internal use is exempt. The older Kimi K3 has the same footprint and scores 23.0% on the public Terminal-Bench 4.1 board against K3.1 Pro's 59.7%, so there's little reason to deploy it now.
+
+### 2. Tencent Hy4 and Hy4 flash
+
+{{< image "best_open_source_self_hosted_llms_for_coding/hy4.webp" "Hugging Face model page for tencent/Hy4, showing the tencent-hy-license and the model introduction" >}}
+
+*Screenshot: huggingface.co/tencent/Hy4.*
+
+Tencent's <a href="https://huggingface.co/tencent/Hy4" target="_blank">Hy4</a> is a 770B mixture-of-experts language model with 49B active parameters, 78 layers, 256 routed experts (8 per token) plus a shared expert, a 1.23B vision encoder and a 1M-token context. Attention is Gated DeepSeek Sparse Attention, and a built-in 3.3B drafter called DFly2 reuses the main model's KV cache for speculative decoding, so it costs no extra cache memory.
+
+Hy4 scores 35, second among open models, and its 31.2% on FrontierCode-AA 2.0 is the best open-weight result on that test. The FP8 checkpoint is 786GB on disk, and <a href="https://recipes.vllm.ai/tencent/Hy4" target="_blank">vLLM's recipe</a> asks for about 944GB of aggregate GPU memory, so plan on one eight-GPU node; the recipe renders 8x B300 and says 8x MI355X runs the FP8 checkpoint. Reasoning has two settings, `no_think` and `high`. The Tencent Hy License is derived from Apache 2.0 with added commercial terms: a model-as-a-service business needs a separate license once revenue passes $50 million a year or a product passes 100 million monthly users, and purely internal use is exempt. Tencent's own card is candid that "a notable gap remains" to top proprietary models on long-horizon coding.
+
+<a href="https://huggingface.co/tencent/Hy4-flash" target="_blank">Hy4 flash</a> is the cheaper sibling: 220B total including 64B of n-gram "Engram" tables, about 12B active. Don't plan on a 128GB Mac. AngelSlim's Q4_K_M GGUF is 168GB, and llama.cpp needs build b12755 or newer to load it. On the public Terminal-Bench 4.1 board it scores 11.8%.
+
+### 3. DeepSeek-V4.1-Flash-1017 (DeepSeek)
+
+{{< image "best_open_source_self_hosted_llms_for_coding/deepseek_v4_1_flash_1017.webp" "Hugging Face model page for deepseek-ai/DeepSeek-V4.1-Flash-1017, showing the MIT license and the model introduction" >}}
+
+*Screenshot: huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017.*
+
+<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank">DeepSeek-V4.1-Flash-1017</a> is an update to V4.1-Flash with the same 510GB of weights under MIT. The design is unusual: a 552B backbone plus 196B of Engram memory that can sit in CPU RAM, 384 experts with 6 active, and 8B active parameters during prefill but 16B during decode. DeepSeek reports Terminal-Bench 4.0 rising from 31.2% to 42.3% (Claude Code harness) and DeepSWE v1.1 from 74.2% to 77.0% (Mini-SWE-V2), the best DeepSWE result among open models.
+
+It scores 32 at max effort and costs $0.60 per index task on Artificial Analysis's run, against $3.68 for Kimi K3.1 Pro. Two practical notes. The release has no Jinja chat template; it ships a Python reference encoder and the <a href="https://github.com/deepseek-ai/deepseek-recipe" target="_blank">deepseek-recipe</a> libraries, so check that your server supports the format before you rely on tool calls. And vLLM documents a <a href="https://recipes.vllm.ai/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">four-H200 setup</a> that puts the Engram tables in pinned host RAM, which frees GPU memory for concurrent sessions.
+
+DeepSeek-V4-Pro-0813 (1.6T total, 49B active, 893GB) now scores 23, below the Flash, so skip it unless it's already deployed. The older 284B {{< link href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" >}}V4-Flash-0731{{< /link >}} still fits a 128GB machine at 3-bit, as our {{< link href="/blog/top_5_local_llm_tools_and_models/" >}}guide to local LLM tools and models{{< /link >}} explains.
+
+### 4. GLM-5.3 and GLM-5.3-Flash (Z.AI)
+
+{{< image "best_open_source_self_hosted_llms_for_coding/glm_5_3.webp" "Hugging Face model page for zai-org/GLM-5.3, showing the glm-5.3 license and 753B parameters" >}}
+
+*Screenshot: huggingface.co/zai-org/GLM-5.3.*
+
+{{< link href="https://huggingface.co/zai-org/GLM-5.3" >}}GLM-5.3{{< /link >}} keeps GLM-5.2's 744B base with 40B active, and every gain comes from post-training. It scores 32, and its 40.9% on Terminal-Bench 4.1 is second only to Kimi among open models. The native FP8 repo is 756GB, which fits eight H200s but not an 8x80GB H100 node. The GLM-5.3 License is MIT-like, except that model-as-a-service operators above $10 billion in revenue need a Z.AI security review first.
+
+**GLM-5.3-Flash** is the one most teams can deploy. It's a 320B MoE with 18B active, under plain MIT, natively multimodal, with a hybrid of linear and sparse attention that Z.AI says cuts the KV cache 4.44x against GLM-5.3. It scores 28 and 32.8% on Terminal-Bench 4.1, better on the shell than several models above it on the index. Unsloth's 4-bit GGUFs run from 157GB (`UD-IQ4_XS`) to 200GB (`UD-Q4_K_XL`), which fits three or four 80GB GPUs, and the 2-bit `UD-Q2_K_XL` is 109GB, at a real cost in quality. Mainline llama.cpp supports it ({{< link href="https://github.com/ggml-org/llama.cpp/pull/27773" >}}PR #27773{{< /link >}}). Ollama only lists `glm-5.3-flash:cloud`, so run the GGUF through llama.cpp or LM Studio.
+
+### 5. Inkling 2 Small and Inkling 2 Mini (Thinking Machines)
+
+{{< image "best_open_source_self_hosted_llms_for_coding/inkling_2_mini.webp" "Hugging Face model page for thinkingmachines/Inkling-2-Mini, showing the Apache 2.0 license and 26.4B parameters" >}}
+
+*Screenshot: huggingface.co/thinkingmachines/Inkling-2-Mini.*
+
+Thinking Machines shipped both under Apache 2.0, with no revenue clauses. <a href="https://huggingface.co/thinkingmachines/Inkling-2-Small" target="_blank">Inkling 2 Small</a> is a 594B MoE with 17B active, 48 layers, 384 experts with 8 per token and a 1M-token context. It was trained in NVFP4, and that 394GB checkpoint needs at least 500GB of aggregate VRAM: two B300s or four H200s. It scores 31 and 25.4% on FrontierCode-AA 2.0, but only 13.6% on Terminal-Bench 4.1. Pick it for repository work under a clean license, not for long shell sessions.
+
+<a href="https://huggingface.co/thinkingmachines/Inkling-2-Mini" target="_blank">Inkling 2 Mini</a> stores 24 layers and runs the middle 12 three times, so each token gets 48 layer passes from 26.4B parameters with 3.4B active (5.4B effective). The native checkpoint is about 20GB. ggml-org's <a href="https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF" target="_blank">GGUFs</a> are 17.6GB at IQ4_NL, 27.8GB at Q8_0 and 52.2GB at BF16, Unsloth goes down to 7.8GB at 1-bit, and Ollama now carries it as `inkling-2-mini` (18-20GB).
+
+Mini ties Qwen3.8-27B at 20 on the index and at 5.6% on Terminal-Bench 4.1, but it got there in 14.7 minutes per task against 31.0, and for $0.59 against $3.53. In Thinking Machines' table it leads Qwen on DeepSWE (48.2% to 42.2%) and on bash-only SWE-bench Verified (79.2% to 77.8%). If most of your day is fixing failing tests, it's the faster of the two.
+
+### 6. MiMo-V2.6-Pro and MiMo-V2.6-Flash (Xiaomi)
 
 {{< image "best_open_source_self_hosted_llms_for_coding/mimo_v2_6_pro.webp" "Hugging Face model page for XiaomiMiMo/MiMo-V2.6-Pro-MOPD, showing the MIT license and 1T parameters" >}}
 
-*Screenshot: huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-MOPD, October 2026.*
+*Screenshot: huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-MOPD.*
 
-Xiaomi published **MiMo-V2.6-Pro** and **MiMo-V2.6-Flash** on September 21, 2026, under a plain MIT license with no revenue thresholds. Each comes in two builds: the `-RL` repos from launch day, and improved `-MOPD` repos published on September 27. Both take text, image, video and audio input, with a 1M-token context, up to 128K output tokens, and a hybrid of sliding-window and global attention plus a multi-token prediction drafter for faster decoding.
+Xiaomi published both under plain MIT, and the improved `-MOPD` repos that followed are the ones to download. They take text, image, video and audio, with a 1M-token context and a multi-token prediction drafter. The <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-MOPD" target="_blank">Pro</a> is a 1.02T MoE with 42B active and about 574GB of mostly MXFP4 weights; vLLM documents eight H200s or four MI355Xs. It scores 30 and 35.4% on Terminal-Bench 4.1. The Flash is 309B with 15B active, about 178GB, and runs on four H200s. It scores 27. Neither leads anything here, but MIT weights, audio input and a Pro that fits four MI355Xs are a combination nobody else offers.
 
-The Pro is a 1.02T-parameter MoE with 42B active (384 experts, 8 active per token). Its weights, mostly 4-bit MXFP4, total about 574GB, and vLLM's recipe needs at least 680GB of VRAM, so the floor is eight H200s. It scores **46** on the Intelligence Index, **89.9 on Terminal-Bench 2.1** and 71.9 on DeepSWE. The Flash is 309B with 15B active, about 178GB of weights, and runs on four H200s. It scores 38 on the index and 87.6 on Terminal-Bench 2.1. Neither reports SWE-Bench Pro or SWE-Bench Verified, and Unsloth has no guide for them yet.
+### 7. MiniMax-M3.1-Flash and MiniMax M3 (MiniMax)
 
-These replace April's MiMo-V2.5-Pro, which Artificial Analysis now marks deprecated at 26.
+{{< image "best_open_source_self_hosted_llms_for_coding/minimax_m3_1_flash.webp" "Hugging Face model page for MiniMaxAI/MiniMax-M3.1-Flash, showing the minimax-community license and model card" >}}
 
-### 2. GLM-5.3 and GLM-5.3-Flash (Z.AI)
+*Screenshot: huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash.*
 
-{{< image "best_open_source_self_hosted_llms_for_coding/glm_5_3.webp" "Hugging Face model page for zai-org/GLM-5.3, showing the GLM-5.3 license and 753B parameters" >}}
+<a href="https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash" target="_blank">MiniMax-M3.1-Flash</a> keeps M3's 428B MoE with 23B active and its 1M-token context, but uses MiniMax Sparse Attention in every layer, adds quantization-aware training and ships a DSpark speculative-decoding head. The weights are 252GB. It scores 29, ten points above M3, and MiniMax reports 73.7% on DeepSWE v1.1 (mini-SWE-agent) and 38.1% on Terminal-Bench 4.0 (Codex harness). For now it runs on vLLM, SGLang or TokenSpeed; the card lists Transformers and Unsloth support as in progress.
 
-*Screenshot: huggingface.co/zai-org/GLM-5.3, October 2026.*
+Read the **MiniMax Community License** before anything else. The base grant is non-commercial. Commercial use needs a "Built with MiniMax M3.1-Flash" notice and a one-time email to MiniMax, and products above $20 million a year need written authorization. The older {{< link href="https://huggingface.co/MiniMaxAI/MiniMax-M3" >}}MiniMax M3{{< /link >}} has the same terms. Its Unsloth GGUFs are 213-270GB at 4-bit and run with dense attention, because llama.cpp doesn't implement MSA.
 
-Z.AI announced **GLM-5.3** on August 14 and published the weights on {{< link href="https://huggingface.co/zai-org/GLM-5.3" >}}Hugging Face{{< /link >}} on August 28, after holding them for two weeks of safety evaluation. The base model is unchanged from GLM-5.2 (744B total, 40B active); every gain comes from post-training. Terminal-Bench 3.0 goes from 4.6 to 28.3, DeepSWE v1.1 from 46.2 to 66.9, and the card reports **88.2 on Terminal-Bench 2.1**. It also scores 84.5% on CyberGym, and Z.AI says it found 2,436 vulnerabilities across 269 real-world projects with it.
-
-The default repo is native FP8: 141 safetensors shards, 756GB, which fits eight H200s but not an 8x80GB H100 node (a BF16 copy also exists at about 1.5TB). It has 78 layers, 256 routed experts with 8 active, a 1M-token context, and thinking at three levels that can't be turned off. The **GLM-5.3 License** is MIT-like, except that model-as-a-service operators above $10 billion in revenue must pass a Z.AI security review first.
-
-**GLM-5.3-Flash** is the one most teams can deploy. Released August 26 under **MIT**, it's a 320B MoE with 18B active, the first natively multimodal GLM-5 model, with a 1M-token context. Its hybrid of linear and sparse attention gives a 4.44x smaller KV cache and about 3x less attention compute than GLM-5.3. It scores **42** on the index, 84.3 on Terminal-Bench 2.1 and 63.4 on DeepSWE, at about $0.25 per task on Artificial Analysis's run. The native FP8 weights (328GB) need an 8x80GB node, but a 4-bit build at 162-210GB (Unsloth's `UD-Q4_K_XL` is 200GB) fits three or four 80GB GPUs or a 256GB Mac, and {{< link href="https://unsloth.ai/docs/models/glm-5.3-flash" >}}Unsloth's 2-bit quant{{< /link >}} needs about 115GB. Mainline llama.cpp {{< link href="https://github.com/ggml-org/llama.cpp/pull/27773" >}}merged support{{< /link >}} on September 30.
-
-### 3. Kimi K3 (Moonshot AI)
-
-{{< image "best_open_source_self_hosted_llms_for_coding/kimi_k3.webp" "Hugging Face model page for moonshotai/Kimi-K3, showing the kimi-k3 license and 2.8T parameters" >}}
-
-*Screenshot: huggingface.co/moonshotai/Kimi-K3, October 2026.*
-
-Moonshot announced {{< link href="https://huggingface.co/moonshotai/Kimi-K3" >}}Kimi K3{{< /link >}} on July 16 and published the weights on July 27. At **2.78T total parameters** with 104B active, it's the largest open-weight model released so far: 896 experts with 16 active per token, 93 layers (69 Kimi Delta Attention plus 24 Gated MLA), a MoonViT-V2 vision encoder and a 1M-token context.
-
-The weights are natively MXFP4 from quantization-aware training, so the 1.56TB download is already the compact form, and vLLM's recipe needs at least eight GB300 or MI355X GPUs, with multiple nodes for production traffic. Unsloth does publish GGUFs, but its recommended 1-bit quant (`UD-IQ1_S`) is still 594GB, and even the smallest file (`UD-Q1_0`) is 466GB. The **Kimi K3 License** permits self-hosting and fine-tuning and exempts internal use, but model-as-a-service operators above $20M in revenue need a separate agreement, and products above 100M monthly users or $20M monthly revenue must show "Kimi K3" in the UI.
-
-Moonshot reports **88.3 on Terminal-Bench 2.1**, 81.2 on FrontierSWE and 67.5 on DeepSWE, with no SWE-Bench Pro number. It's still the top base open weight on LiveBench coding (81.45), and it scores 44 on the index, now third among open weights. API pricing is $3 per million input tokens ($0.30 cached) and $15 per million output.
-
-### 4. Qwen3.8-Max (Alibaba)
-
-{{< image "best_open_source_self_hosted_llms_for_coding/qwen3_8_max.webp" "Hugging Face model page for Qwen/Qwen3.8-2.4T-A95B, the open weights of Qwen3.8-Max" >}}
-
-*Screenshot: huggingface.co/Qwen/Qwen3.8-2.4T-A95B, October 2026.*
-
-Alibaba announced Qwen3.8-Max on August 3 and published the weights as {{< link href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B" >}}Qwen3.8-2.4T-A95B{{< /link >}} on August 12, the first time a Qwen-Max-class model has been open-weighted. It's a 2.4T MoE with 95B active (512 experts, 10 routed plus 1 shared per token), a 262K context extensible to about 1M, and always-on thinking you can dial with `reasoning_effort` (`xhigh`, `medium` or `low`).
-
-It's the **strongest open weight that reports SWE-Bench Pro, at 67.7**, with 86.6 on Terminal-Bench 2.1. Two caveats. The open weights are text-only and not the hosted model: Alibaba's API-only Qwen3.8-Max-0902 update scores 45 on the index while the open weights score 40. And the license is a custom one with attribution required above 100M monthly users or $20M monthly revenue, plus a separate license for model-as-a-service or AI coding and office-assistant businesses with more than $50M a year in revenue, including affiliates. BF16 weights are about 4.9TB. vLLM's recipe runs the NVFP4 build (1.32TiB) on eight B300s, or the FP8 build on 16 B300s or 32 H200s.
-
-### 5. DeepSeek-V4.1-Flash and V4-Pro (DeepSeek)
-
-{{< image "best_open_source_self_hosted_llms_for_coding/deepseek_v4_1_flash.webp" "Hugging Face model page for deepseek-ai/DeepSeek-V4.1-Flash, showing the MIT license and the 552B backbone in its introduction" >}}
-
-*Screenshot: huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash, October 2026.*
-
-**DeepSeek-V4.1-Flash** (September 10, MIT) is the most unusual design here. It's an encoder-decoder model with a 552B backbone plus 196B of "Engram" memory that can sit in CPU RAM, 384 experts with 6 active, and 8B active parameters during prefill but 16B during decode. It has a 1M-token context and 384K output tokens. DeepSeek reports **90.6 on Terminal-Bench 2.1** (88.0 with the Claude Code harness) and 74.2 on DeepSWE, the highest open-weight scores on both, and LiveBench independently puts it at #1 on agentic coding. It scores 39 on the index. The weights are about 511GB, and vLLM's recipe runs it on eight H200s, or four with Engram offloaded to CPU. Unsloth has no GGUF yet, and llama.cpp support is still in review.
-
-**DeepSeek-V4-Pro-0813** (August 13, MIT) is 1.6T total with 49B active, a 1M context and three effort levels, and DeepSeek's API now speaks the OpenAI Responses API natively. Its card reports 87.9 on Terminal-Bench 2.1 and 62.7 on DeepSWE, and it scores 36 on the index. The often-quoted 80.6 SWE-Bench Verified and 55.4 SWE-Bench Pro come from the April preview, not this build. The official weights are already FP4 experts plus FP8, 893GB in total, so the floor is eight H200s. On DeepSeek's API, V4-Flash and V4-Flash-Vision-Exp were retired on September 10 and their names now route to V4.1-Flash. If you'd rather keep the older 284B {{< link href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" >}}V4-Flash-0731{{< /link >}}, it fits a 128GB machine at 3-bit, as our {{< link href="/blog/top_5_local_llm_tools_and_models/" >}}guide to local LLM tools and models{{< /link >}} explains.
-
-### 6. Qwen3.8-Flash-Next (Alibaba) - best for a 128GB machine
+### 8. Qwen3.8-Flash-Next (Alibaba): best for a 128GB machine
 
 {{< image "best_open_source_self_hosted_llms_for_coding/qwen3_8_flash_next.webp" "Hugging Face model page for Qwen/Qwen3.8-Flash-Next, showing the qwen-community-1.0 license" >}}
 
-*Screenshot: huggingface.co/Qwen/Qwen3.8-Flash-Next, October 2026.*
+*Screenshot: huggingface.co/Qwen/Qwen3.8-Flash-Next.*
 
-{{< link href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" >}}Qwen3.8-Flash-Next{{< /link >}} (August 26) is Alibaba's preview of the Qwen4 architecture: 125B parameters with 6B active, plus a 51B n-gram embedding table that can be offloaded to RAM or SSD, Gated DeltaNet with Qwen Sparse Attention, native image input, and a 262K context extensible to 1M. Thinking can be turned off, unlike on Max.
+{{< link href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" >}}Qwen3.8-Flash-Next{{< /link >}} previews the Qwen4 architecture: 125B parameters with 6B active, plus a 51B n-gram embedding table that can live in RAM or on SSD, Gated DeltaNet with Qwen Sparse Attention, image input and a 262K context extensible to 1M. It scores 28, and its 27.1% on FrontierCode-AA 2.0 beats every open model except Hy4 and DeepSeek-V4.1-Flash-1017.
 
-It scores **40** on the index, level with Qwen3.8-2.4T-A95B, the open weights behind Qwen3.8-Max, with **62.5 on SWE-Bench Pro** and 91.9 on LiveCodeBench v6. Read the **Qwen Community License** first: attribution is required above 100M monthly users or $20M monthly revenue, and any company (or affiliate) that runs a model-as-a-service or "AI work assistant" (AI coding or office-productivity) business needs a separate license before commercial use, regardless of size. Purely internal use, with nothing exposed to third parties, is exempt.
+Read the **Qwen Community License** first. Attribution is required above 100 million monthly users or $20 million monthly revenue, and any company that runs a model-as-a-service or "AI work assistant" business (AI coding or office productivity) needs a separate license before commercial use, whatever its size. Purely internal use is exempt. On a Mac, the GGUF you pick matters more than for any other model here; the [setup section below](#running-qwen38-flash-next-on-a-128gb-mac) explains why.
 
-On a Mac, pick the GGUF carefully. Unsloth's {{< link href="https://unsloth.ai/docs/models/qwen3.8-next" >}}guide{{< /link >}} puts the 4-bit quant at 96-114GB, which is at or over the roughly 96GB that macOS lets the GPU use on a 128GB machine. {{< link href="https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF" >}}Atomic Chat's build{{< /link >}} keeps the 38GB n-gram table on SSD instead, so its 4.27bpw quant holds only 56GB in GPU memory, with room left for long context or a second model. Its 3.84bpw build even runs on a 64GB Mac, at a real quality cost. The [setup section below](#running-qwen38-flash-next-on-a-128gb-mac) explains why this works and has the commands.
-
-### 7. Qwen3.8-27B (Alibaba) - best for a single GPU
+### 9. Qwen3.8-27B (Alibaba)
 
 {{< image "best_open_source_self_hosted_llms_for_coding/qwen3_8_27b.webp" "Hugging Face model page for Qwen/Qwen3.8-27B, showing the Apache 2.0 license" >}}
 
-*Screenshot: huggingface.co/Qwen/Qwen3.8-27B, October 2026.*
+*Screenshot: huggingface.co/Qwen/Qwen3.8-27B.*
 
-For anyone without a GPU server, this is the most important model here. Alibaba published {{< link href="https://huggingface.co/Qwen/Qwen3.8-27B" >}}Qwen3.8-27B{{< /link >}} on August 14 under **Apache 2.0**. It's a 27B dense vision-language model with 64 layers (repeating three Gated DeltaNet blocks and one gated attention block) and a 262K context extensible to about 1M.
+For anyone without a GPU server, this is still the default. {{< link href="https://huggingface.co/Qwen/Qwen3.8-27B" >}}Qwen3.8-27B{{< /link >}} (**Apache 2.0**) is a 27B dense vision-language model whose 64 layers repeat three Gated DeltaNet blocks and one gated attention block, with a 262K context. That layout is why its KV cache stays small. Alibaba reports 61.7% on SWE-Bench Pro v1 and 90.3 on LiveCodeBench v6.
 
-The coding numbers are the point: **61.7 on SWE-Bench Pro**, 73.0 on Terminal-Bench 2.1, 90.3 on LiveCodeBench v6 and 42.2 on DeepSWE, more than three times Qwen3.6-27B's 13.3. SWE-Bench Pro and DeepSWE were run with the Claude Code harness, and Terminal-Bench with Terminus. It scores 34 on the index, first of 142 models in its size class and well ahead of Qwen3.6-27B (21).
+It scores 20 at `xhigh` reasoning, 17.5 at `medium` and 15.7 at `low`, and 5.6% on Terminal-Bench 4.1. The real complaint is verbosity: Artificial Analysis measured about 59 output tokens/s and 31 minutes per index task at `xhigh`, twice as long as Inkling 2 Mini for the same score. Turn reasoning down for interactive edits and up for unattended agent runs. Ollama's default `qwen3.8:27b` tag is 18GB, the `27b-mlx` tag runs on Apple's MLX backend, and NVIDIA has published small draft models for speculative decoding.
 
-It needs 16-19GB at 4-bit (a single 24GB card like an RTX 4090, or a 24GB Mac), about 31GB at FP8 and 56GB at BF16, and the default Ollama tag is an 18GB download. The real complaint is verbosity. Artificial Analysis measured it at 47.8 output tokens/s against 222.8 for DeepSeek-V4-Flash-0731, and it took about six times longer to finish the index. Turn reasoning effort down for interactive edits and keep it high for agent runs. If you want a coding specialist instead, Qwen3-Coder-Next (80B, 3B active, 46GB at 4-bit) is fast, but it scores far lower on today's index (9).
+### 10. Nanbeige4.3-33B (Nanbeige)
 
-### 8. MiniMax M3 (MiniMax)
+{{< image "best_open_source_self_hosted_llms_for_coding/nanbeige_4_3_33b.webp" "Hugging Face model page for Nanbeige/Nanbeige4.3-33B, showing the Apache 2.0 license and 33B parameters" >}}
 
-{{< image "best_open_source_self_hosted_llms_for_coding/minimax_m3.webp" "Hugging Face model page for MiniMaxAI/MiniMax-M3, showing the minimax-community license and 427B parameters" >}}
+*Screenshot: huggingface.co/Nanbeige/Nanbeige4.3-33B.*
 
-*Screenshot: huggingface.co/MiniMaxAI/MiniMax-M3, October 2026.*
+<a href="https://huggingface.co/Nanbeige/Nanbeige4.3-33B" target="_blank">Nanbeige4.3-33B</a> (Apache 2.0) is the surprise on the terminal tests. It's a text-only, 33B dense model on the plain Llama architecture with a 512K context. Nanbeige's card runs every model through the same harness and reports 23.8% on Terminal-Bench 4.0 against 6.3% for Qwen3.8-27B, and 65.5% on DeepSWE against 42.5%. Qwen still wins SWE-Bench Pro, 61.7% to 60.3%. Artificial Analysis independently measured 29.3% on Terminal-Bench 4.1, the best result for any model this size, with an index score of 20.
 
-{{< link href="https://huggingface.co/MiniMaxAI/MiniMax-M3" >}}MiniMax M3{{< /link >}} shipped on June 1, with weights on Hugging Face by June 12. It's a 428B MoE with 23B active, a 1M-token context and native image and video input, built around MiniMax Sparse Attention (MSA), which reads each KV cache block only once. MiniMax reports 59.0 on SWE-Bench Pro, 66.0 on Terminal-Bench 2.1 and 74.2 on MCP-Atlas, and it scores 29 on the index.
+The cost is memory, as the chart above shows. Ollama doesn't carry it, so use bartowski's GGUFs (18.6GB at IQ4_XS, 20.8GB at Q4_K_M) with llama.cpp or LM Studio. The card recommends `preserve_thinking=True` and XML tool calls for agent work. On a 24GB card I'd start from this (untested) command, which caps context at 32K and quantizes the cache:
 
-Two things to know. Unsloth's 4-bit GGUFs need 213-270GB, so plan on four H100s, and they're text-only with dense attention because llama.cpp doesn't implement MSA. And the **MiniMax Community License** is restrictive: the base grant is non-commercial, commercial use needs a "Built with MiniMax M3" notice and a one-time notice to MiniMax, and products above $20M a year need written authorization.
+```bash
+llama-server -hf bartowski/Nanbeige_Nanbeige4.3-33B-GGUF:IQ4_XS \
+  --jinja -ngl 99 -c 32768 -fa on -ctk q8_0 -ctv q8_0 \
+  --chat-template-kwargs '{"preserve_thinking": true}' --port 8080
+```
 
-### 9. Muse Glimmer 30B (Meta) - best MCP tool use on one GPU
+### 11. Qwen3.8-Max (Alibaba)
+
+{{< image "best_open_source_self_hosted_llms_for_coding/qwen3_8_max.webp" "Hugging Face model page for Qwen/Qwen3.8-2.4T-A95B, the open weights of Qwen3.8-Max" >}}
+
+*Screenshot: huggingface.co/Qwen/Qwen3.8-2.4T-A95B.*
+
+Alibaba open-weighted Qwen3.8-Max as {{< link href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B" >}}Qwen3.8-2.4T-A95B{{< /link >}}: a text-only 2.4T MoE with 95B active and a 262K context. Its card reports 67.7% on SWE-Bench Pro v1. Artificial Analysis hasn't scored it on the v5 index yet, but measured 11.1% on Terminal-Bench 4.1. vLLM's recipe runs the NVFP4 build (1.32TiB) on eight B300s. The license adds a separate-license requirement for AI coding and office-assistant businesses above $50 million a year. For that hardware, Kimi K3.1 Pro is the stronger choice. Alibaba's newer Qwen4-Max scores 43 but is API-only so far.
+
+### 12. Reflection Beam 1.0 (Reflection)
+
+{{< image "best_open_source_self_hosted_llms_for_coding/beam_1_0.webp" "Hugging Face model page for reflection/Beam-1.0-501B-A23B, showing the Apache 2.0 license" >}}
+
+*Screenshot: huggingface.co/reflection/Beam-1.0-501B-A23B.*
+
+<a href="https://huggingface.co/reflection/Beam-1.0-501B-A23B" target="_blank">Beam 1.0</a> (Apache 2.0) is a text-only 501B MoE with 23B active and a 1M-token context, in BF16, FP8 and NVFP4. The NVFP4 checkpoint is about 280GB, and <a href="https://huggingface.co/blog/reflection-beam" target="_blank">Hugging Face recommends four B200s</a> for shared use. Reflection reports 81.6% on SWE-bench Verified and 66.1% on SWE-Bench Pro v1, but only 43.3% on DeepSWE, and Artificial Analysis measured 3.0% on Terminal-Bench 4.1 with an index score of 18. That gap between single-issue fixes and long agent runs is the pattern to watch for. Beam's strength is speed: 373 output tokens/s on Artificial Analysis, the fastest here, which suits batch refactors and test generation.
+
+### 13. Mistral Large 4, Medium 3.5 and Devstral Small 2 (Mistral AI)
+
+{{< image "best_open_source_self_hosted_llms_for_coding/mistral_large_4.webp" "Hugging Face model page for mistralai/Mistral-Large-4-1T-A52B, showing the model introduction" >}}
+
+*Screenshot: huggingface.co/mistralai/Mistral-Large-4-1T-A52B.*
+
+<a href="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B" target="_blank">Mistral Large 4</a> is a 1T MoE with 52B active including embeddings, 128 experts with 4 per token, image input and a 1M-token context. It now powers Mistral's open-source Vibe coding CLI. It scores 26 and 24.7% on Terminal-Bench 4.1, and the NVFP4 build is 610GB. The Mistral Ecosystem Open-Weight License is a modified MIT that requires a separate license for model-as-a-service businesses.
+
+Mistral Medium 3.5 (128B dense) scores only 5 on the current index, so I'd skip it for agents. The small model is still useful. **Devstral Small 2** (24B, Apache 2.0) is a 15GB Ollama download with image input. Its 10.7GB cache at 64K is the catch from the chart above, so set `OLLAMA_KV_CACHE_TYPE=q8_0` on a 24GB card.
+
+### 14. Muse Glimmer 30B (Meta)
 
 {{< image "best_open_source_self_hosted_llms_for_coding/muse_glimmer_30b.webp" "Hugging Face model page for meta-models/Muse-Glimmer-30B, showing the Apache 2.0 license and model card" >}}
 
-*Screenshot: huggingface.co/meta-models/Muse-Glimmer-30B, October 2026.*
+*Screenshot: huggingface.co/meta-models/Muse-Glimmer-30B.*
 
-Meta Superintelligence Labs released {{< link href="https://huggingface.co/meta-models/Muse-Glimmer-30B" >}}Muse Glimmer{{< /link >}} on August 10: a 29.6B dense multimodal model (including a 1.8B vision encoder) under **Apache 2.0**, with 52 layers and a 131K context. The BF16 weights are about 60GB, and Meta's K-Quant builds bring it under 20GB with 0.2-1.0% degradation, so it fits a 24GB card.
+{{< link href="https://huggingface.co/meta-models/Muse-Glimmer-30B" >}}Muse Glimmer{{< /link >}} (**Apache 2.0**) is a 29.6B dense multimodal model with a 131K context, and Meta's own K-quant builds fit a 24GB card. Meta reports 75.5% on MCP Atlas and its DFlash speculative decoder took an RTX 5090 from 74.9 to 233.4 tokens/s with identical output. On agent coding it's weak: 6 on the index and 0.5% on Terminal-Bench 4.1. Meta's larger Muse Spark Open (816B, 42B active) scores 25, but it's gated behind a custom Muse license and needs 533GB at NVFP4.
 
-Meta's own numbers are strong on tool use: **75.5 on MCP Atlas** against Qwen3.6-27B's 62.5, close to GLM-5.2's 76.8 at 744B parameters, plus 51.2 on SWE-Bench Pro. Independent results are weaker. It scores 17 on the current index, behind Qwen3.6-27B at 21, and Artificial Analysis's launch review called agentic knowledge work "its weakness relative to its size class". Qwen3.8-27B, released four days later, beats it on every benchmark both report. What's left is MCP Atlas and **DFlash**, a block-diffusion speculative decoder that Meta measured going from 74.9 to 233.4 tokens/s on an RTX 5090 with identical output. It runs in Ollama, LM Studio, llama.cpp, MLX, vLLM and SGLang.
+### 15. Nemotron 3.5 Lightning (NVIDIA)
 
-### 10. Nemotron 3.5 Lightning (NVIDIA) - fastest local inference
+{{< image "best_open_source_self_hosted_llms_for_coding/nemotron_3_5_lightning.webp" "Hugging Face model page for NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16, showing the license and an accuracy chart" >}}
 
-{{< image "best_open_source_self_hosted_llms_for_coding/nemotron_3_5_lightning.webp" "Hugging Face model page for NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16, showing the OpenMDW-1.1 license and an accuracy chart" >}}
+*Screenshot: huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16.*
 
-*Screenshot: huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16, October 2026.*
-
-NVIDIA shipped {{< link href="https://artificialanalysis.ai/articles/nemotron-3-5-lightning-launch" >}}Nemotron 3.5 Lightning{{< /link >}} on August 11: a Mamba-2, MoE and attention hybrid with 31.6B total and 3.6B active parameters by Artificial Analysis's count (NVIDIA rounds to 30B and 3B), distilled from Nemotron 3 Ultra, with up to 1M tokens of context. It ships under **OpenMDW-1.1** with weights, training data and recipes all released.
-
-It doesn't compete with Qwen3.8-27B on capability. It scores 13 on the index, level with Nemotron 3 Super and above gpt-oss-120b (12), and NVIDIA reports 51.56 on SWE-bench Verified. Throughput is the pitch: Artificial Analysis measured nearly **670 tokens/s** on the NVFP4 weights at launch. Its 4-bit builds are 21-25.5GB on disk. For a high-volume pipeline (batch refactors, test generation, log triage) that tradeoff can be right; for anything that needs to think, it isn't.
-
-### 11. Mistral Medium 3.5 and Devstral Small 2 (Mistral AI)
-
-{{< image "best_open_source_self_hosted_llms_for_coding/mistral_medium_3_5.webp" "Hugging Face model page for mistralai/Mistral-Medium-3.5-128B, which says it replaces Devstral 2 in Vibe" >}}
-
-*Screenshot: huggingface.co/mistralai/Mistral-Medium-3.5-128B, October 2026.*
-
-Mistral's coding line has consolidated. {{< link href="https://huggingface.co/mistralai/Mistral-Medium-3.5-128B" >}}Mistral Medium 3.5{{< /link >}} (April 2026) is a 128B dense model under a modified MIT license with a 256K context and 77.6% on SWE-bench Verified, and its card says it supersedes Devstral and replaces Devstral 2 in Vibe CLI, Mistral's open-source terminal coding agent. It needs about 80GB at 4-bit but scores only 14 on the current index.
-
-The smaller sibling is why Mistral stays on this list. **Devstral Small 2** (24B, Apache 2.0, December 2025) scores 68.0% on SWE-bench Verified, takes image input, has a 256K context and runs on a single RTX 4090 or a 32GB Mac. Qwen3.8-27B beats it at a similar footprint, but Devstral Small 2 with Vibe CLI is a ready-made workflow.
+{{< link href="https://artificialanalysis.ai/articles/nemotron-3-5-lightning-launch" >}}Nemotron 3.5 Lightning{{< /link >}} is a Mamba-2, MoE and attention hybrid with 31.6B total and 3.6B active parameters, up to 1M tokens of context, and weights, training data and recipes released under **OpenMDW-1.1**. It scores 6 on the index, so it isn't an agent model. Throughput is the pitch: about 314 output tokens/s on Artificial Analysis, and 4-bit builds of 21-25.5GB. For a high-volume pipeline (log triage, docstrings, simple test generation) that tradeoff can be right. NVIDIA's newer Nemotron 3.5 Super VL (124.5B, 12B active) scores 14.
 
 ## Honorable mentions
 
 {{< image "best_open_source_self_hosted_llms_for_coding/starcode2.webp" "StarCoder 2 Open Source LLM by BigCode" >}}
 
-{{< link href="https://github.com/bigcode-project/starcoder2" >}}StarCoder 2{{< /link >}} from BigCode comes in 3B, 7B and 15B sizes with a 16K context. The 15B was trained on 600+ languages from The Stack v2, and every source-code file in its training set carries a Software Heritage identifier, which makes it the most auditable coding model available. Pick it when your blocker is IP compliance rather than capability.
+{{< link href="https://github.com/bigcode-project/starcoder2" >}}StarCoder 2{{< /link >}} from BigCode comes in 3B, 7B and 15B sizes with a 16K context. Every source file in its training set carries a Software Heritage identifier, which makes it the most auditable coding model available. Pick it when your blocker is IP compliance rather than capability.
 
-{{< image "best_open_source_self_hosted_llms_for_coding/kimi_k27_code.webp" "Kimi K2.7-Code Open Source LLM by Moonshot AI" >}}
+{{< image "best_open_source_self_hosted_llms_for_coding/kimi_k27_code.webp" "Hugging Face model page for moonshotai/Kimi-K2.7-Code, showing the model card" >}}
 
-{{< link href="https://huggingface.co/moonshotai/Kimi-K2.7-Code" >}}Kimi K2.7-Code{{< /link >}} (June 12) is Moonshot's coding line: a 1T MoE with 32B active and a 262K context that spends about 30% fewer thinking tokens than K2.6. A HighSpeed variant serves at about 180 tokens/s. It keeps the modified MIT license that K3 dropped, at about a third of K3's size.
+*Screenshot: huggingface.co/moonshotai/Kimi-K2.7-Code.*
+
+{{< link href="https://huggingface.co/moonshotai/Kimi-K2.7-Code" >}}Kimi K2.7-Code{{< /link >}} is a 1T MoE with 32B active and a 262K context under a modified MIT license, at about a third of K3.1 Pro's size. Artificial Analysis measured 1.0% on Terminal-Bench 4.1, so treat it as a code-completion and chat model, not an agent.
 
 {{< image "best_open_source_self_hosted_llms_for_coding/granite_4_2.webp" "Hugging Face model page for ibm-granite/granite-4.2-30b, showing the Apache 2.0 license and model summary" >}}
 
-*Screenshot: huggingface.co/ibm-granite/granite-4.2-30b, October 2026.*
+*Screenshot: huggingface.co/ibm-granite/granite-4.2-30b.*
 
-{{< link href="https://huggingface.co/ibm-granite/granite-4.2-30b" >}}IBM Granite 4.2{{< /link >}} (August 25) comes as dense 3B, 8B and 30B models under Apache 2.0, with a 128K context extendable to 512K and a thinking mode. The 30B scores 57.0 on SWE-bench Verified and 33.29 on SWE-Bench Pro. It isn't competitive on capability, but it's the license-clean enterprise option, as is IBM's older Granite Code line (3B to 34B, trained on 116 languages).
-
-{{< image "best_open_source_self_hosted_llms_for_coding/yi_coder.webp" "Yi-Coder Open Source LLM by 01.AI" >}}
-
-{{< link href="https://github.com/01-ai/Yi-Coder" >}}Yi-Coder{{< /link >}} from 01.AI comes in 1.5B and 9B sizes with a 128K context under Apache 2.0, and Yi-Coder-9B-Chat scores 85.4% on HumanEval. It's small enough for code completion on modest hardware.
-
-**Worth watching:** Reflection AI announced {{< link href="https://reflection.ai/blog/introducing-beam" >}}Beam{{< /link >}} on October 5, a 501B MoE with 23B active that reports 65.5 on SWE-Bench Pro and 80.1 on Terminal-Bench 2.1. The Apache 2.0 weights are promised for later in October but aren't on Hugging Face yet.
+{{< link href="https://huggingface.co/ibm-granite/granite-4.2-30b" >}}IBM Granite 4.2{{< /link >}} comes as dense 3B, 8B and 30B models under Apache 2.0 with a 128K context. IBM reports 57.0% on SWE-bench Verified for the 30B. It isn't competitive on capability, but it's the license-clean enterprise option.
 
 ## How to use these models with a coding agent
 
-The quickest local setup is {{< link href="https://opencode.ai" >}}OpenCode{{< /link >}}, an open-source terminal coding agent, with {{< link href="https://ollama.com" >}}Ollama{{< /link >}} serving the model. Ollama can launch OpenCode directly, so it's a few commands.
+The quickest local setup is {{< link href="https://opencode.ai" >}}OpenCode{{< /link >}}, an open-source terminal coding agent, with {{< link href="https://ollama.com" >}}Ollama{{< /link >}} serving the model. The commands follow the <a href="https://docs.ollama.com/integrations/opencode" target="_blank">Ollama integration guide</a> and the <a href="https://opencode.ai/docs/providers/" target="_blank">OpenCode providers docs</a> for Ollama 0.40.18 and OpenCode v2.
 
-**Step 1: Install Ollama**
+**1. Install Ollama and OpenCode v2**
 
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
+curl -fsSL https://opencode.ai/v2/install | bash
 ```
 
-{{< image "best_open_source_self_hosted_llms_for_coding/install_ollama.webp" "install ollama" >}}
+The v2 installer replaces an OpenCode 1 binary, and v2 still reads a v1 `opencode.json`.
 
-**Step 2: Install OpenCode**
+**2. Give the model enough context**
+
+OpenCode needs at least 64K tokens of context. Ollama's default is 4K under 24GiB of VRAM and 32K from 24 to 48GiB, so <a href="https://docs.ollama.com/context-length" target="_blank">raise it</a>, and halve the cache while you're at it:
 
 ```bash
-curl -fsSL https://opencode.ai/install | bash
+OLLAMA_CONTEXT_LENGTH=65536 OLLAMA_KV_CACHE_TYPE=q8_0 ollama serve
 ```
 
-{{< image "best_open_source_self_hosted_llms_for_coding/install_opencode.webp" "install opencode" >}}
-
-**Step 3: Give the model enough context**
-
-OpenCode needs at least 64K tokens of context, and Ollama's default is smaller on most consumer GPUs: 4K under 24GiB of VRAM and 32K up to 48GiB. Start the server with a bigger window (on macOS, quit the Ollama app first so the port is free):
-
-```bash
-OLLAMA_CONTEXT_LENGTH=64000 ollama serve
-```
-
-**Step 4: Launch OpenCode through Ollama**
+**3. Launch OpenCode through Ollama**
 
 In a second terminal:
 
 ```bash
+ollama pull qwen3.8:27b
 ollama launch opencode --model qwen3.8:27b
 ```
 
-{{< image "best_open_source_self_hosted_llms_for_coding/opencode.webp" "opencode" >}}
+Swap in `inkling-2-mini` on a 32GB Mac. OpenCode v2 also probes `http://127.0.0.1:11434` on its own and lists the models it finds under `/models`, so a plain `opencode` works too. It does the same for LM Studio on port 1234 and vLLM on port 8000, but discovered vLLM models start with tools disabled, so add `"capabilities": { "tools": true }` for that model in your config.
 
-On an Apple Silicon Mac, use the `qwen3.8:27b-mlx` tag (also 18GB), which runs on Apple's MLX backend. Then open your repository and use it like any other terminal coding agent. Qwen3.8-27B thinks a lot by default, so if interactive edits feel slow, lower the reasoning effort for chat and keep it high for long agent runs.
+With the model loaded, run `ollama ps`. The `CONTEXT` column shows the allocated window, and a CPU/GPU split under `PROCESSOR` means some weights spilled onto the CPU. If edits feel slow, check that split before blaming the model.
 
 ## Running Qwen3.8-Flash-Next on a 128GB Mac
 
-Ollama is the easy path for Qwen3.8-27B. Flash-Next on a Mac takes more care, because of a limit Apple's spec sheet doesn't mention: macOS doesn't give the GPU all of unified memory. By default it can wire about 75%, roughly 96GB on a 128GB machine. Check yours (`0` means the default is in force):
+Flash-Next on a Mac takes more care because macOS doesn't give the GPU all of unified memory. By default it can wire about 75%, roughly 96GB on a 128GB machine. Check yours (`0` means the default is in force):
 
 ```bash
 sysctl iogpu.wired_limit_mb
 ```
 
-A standard 4-bit Flash-Next GGUF needs 96-114GB, so it sits at or over that line before you add any KV cache. You can raise the limit with `sudo sysctl iogpu.wired_limit_mb=<MB>`, which lasts until the next reboot (our {{< link href="/blog/self_hosting_llms_on_512gb_m5_ultra_mac_studio/" >}}512GB Mac Studio post{{< /link >}} covers how much to leave macOS), but on a 128GB machine that leaves very little for context. There's a better option.
+A standard 4-bit Flash-Next GGUF needs 96-114GB, at or over that line before any KV cache. You can raise the limit with `sudo sysctl iogpu.wired_limit_mb=<MB>` until the next reboot (our {{< link href="/blog/self_hosting_llms_on_512gb_m5_ultra_mac_studio/" >}}512GB Mac Studio post{{< /link >}} covers how much to leave macOS), but that leaves little for context. There's a better option.
 
 ### Keep the n-gram table on SSD
 
-The 51B n-gram table is a lookup, not a matrix multiply. Each token hashes its last three tokens and reads 16 rows, about 2.7KB, so the table can stay on disk and get paged in on demand. At 36 tokens/s that's roughly 3MB/s of reads, and common n-grams stay in the page cache. llama.cpp memory-maps GGUF files by default, so in principle it already works this way. The catch, per {{< link href="https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF" >}}Atomic Chat's model card{{< /link >}}, is that Metal wires the entire mapped region of any shard that holds a GPU tensor, so a table sharing a shard with other weights gets pinned into GPU memory along with them. Atomic Chat's "AD" builds put the table alone in its own shard, which keeps it out:
+The 51B n-gram table is a lookup, not a matrix multiply. Each token hashes its last three tokens and reads 16 rows, about 2.7KB, so the table can stay on disk and get paged in on demand. llama.cpp memory-maps GGUF files by default, so in principle that already works. The catch, per {{< link href="https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF" >}}Atomic Chat's model card{{< /link >}}, is that Metal wires the whole mapped region of any shard holding a GPU tensor, so a table that shares a shard with other weights gets pinned into GPU memory. Atomic Chat's "AD" builds put the table alone in its own shard.
 
-| Build | GPU memory | On SSD | Mean KLD | Same top-1 token |
-|---|---|---|---|---|
-| `AD-3.84bpw-IQ4_XS-M64` | 45.8GB | 39.1GB | 0.2277 | 82.68% |
-| `AD-4.27bpw-Q4_K_M-M64` | **56.1GB** | 38.4GB | **0.0842** | **89.49%** |
-| `AD-5.00bpw-Q5_K_M-M64` | 56.1GB | 54.4GB | 0.0837 | 89.55% |
-
-Get the 4.27bpw build. It matches the 5.00bpw build within measurement error, and at 56GB it leaves about 40GB under the default limit, so you don't have to touch the sysctl at all. Two caveats on the names. The bpw figure averages the whole file, and the Q5_1 n-gram table is 41% of it, so the expert weights in GPU memory are at 2.5 to 4.5 bits; the KLD column is the quality number to trust. And the 3.84bpw build is the one that gets Flash-Next onto a 64GB Mac (Atomic Chat measured 36 tokens/s on a 64GB M5 Max, and {{< link href="https://lilting.ch/en/articles/qwen38-flash-next-llamacpp-m1max-test" >}}an independent test{{< /link >}} got 17.6 tokens/s on a 64GB M1 Max), but most of its expert weights are at 1.75 bits and its KLD is 2.7 times higher. Mainline llama.cpp has supported the architecture since August 27 ({{< link href="https://github.com/ggml-org/llama.cpp/pull/27742" >}}PR #27742{{< /link >}}). Leave mmap on, which is the default, since that's what makes the table pageable.
+Get `AD-4.27bpw-Q4_K_M-M64`. It holds 56.1GB in GPU memory and leaves 38.4GB on SSD, with a mean KL divergence of 0.0842 and the same top-1 token as the full model 89.49% of the time, within measurement error of the 5.00bpw build. That leaves about 40GB under the default limit, so you don't have to touch the sysctl. The 3.84bpw build gets Flash-Next onto a 64GB Mac, but most of its expert weights drop to 1.75 bits and its KL divergence is 2.7 times higher. Leave mmap on, which is the default, since that's what makes the table pageable.
 
 ### Add a small model next to it
 
-That headroom is enough for a second model, and a good way to use it is to pair Flash-Next as the workhorse with {{< link href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF" >}}Gemma 4 26B-A4B{{< /link >}} for quick jobs and images. Gemma is a mixture-of-experts model with about 4B active parameters, Artificial Analysis estimates it at 17 on the same index, and Unsloth's QAT build is 14.2GB.
-
-| Model | Build | GPU memory |
-|---|---|---|
-| Qwen3.8-Flash-Next | Atomic Chat `AD-4.27bpw-Q4_K_M-M64`, table on SSD | 56.1GB |
-| Gemma 4 26B-A4B | Unsloth QAT `UD-Q4_K_XL` | 14.2GB |
-| **Total weights** | | **~70GB of the ~96GB default** |
-
-OpenCode already splits work this way. Its `small_model` option handles lightweight calls like session titles, and without one those go to your main model, where they compete with the agent turn you're waiting on. Run each model in its own `llama-server`:
+That headroom fits a second model. Pair Flash-Next as the workhorse with {{< link href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF" >}}Gemma 4 26B-A4B{{< /link >}} (about 4B active, 14.2GB in Unsloth's QAT build) for quick calls. Together they take about 70GB of the ~96GB default. Download all three Flash-Next shards first, then start each server in its own terminal:
 
 ```bash
-# Workhorse on port 8080 (Q4_K_M picks the 4.27bpw build)
-llama-server -hf AtomicChat/Qwen3.8-Flash-Next-GGUF:Q4_K_M \
-  --jinja -ngl 99 -c 65536 -fa on -fit off --port 8080
+hf download AtomicChat/Qwen3.8-Flash-Next-GGUF \
+  --include "Qwen3.8-Flash-Next-AD-4.27bpw-Q4_K_M-M64-*.gguf" --local-dir .
+llama-server -m Qwen3.8-Flash-Next-AD-4.27bpw-Q4_K_M-M64-00001-of-00003.gguf \
+  --jinja -ngl 99 -c 65536 -fa on -fit off --alias flash-next --port 8080
 
-# Small model on port 8081
+# In a second terminal
 llama-server -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
-  --jinja -ngl 99 -c 32768 --port 8081
+  --jinja -ngl 99 -c 32768 --alias gemma-4-26b --port 8081
 ```
 
-Flash-Next needs `--jinja` (without it, turns can come out malformed) and `-fit off`, because llama.cpp's automatic memory fitting fails on this architecture. The card doesn't publish KV cache sizes and its own examples stop at 32K, so watch memory pressure in Activity Monitor the first time you push a session toward the 64K that OpenCode needs. Then point OpenCode at both servers in `opencode.json`:
+Flash-Next needs `--jinja` (without it, turns can come out malformed) and `-fit off`, because llama.cpp's automatic memory fitting fails on this architecture. The card doesn't publish KV cache sizes, so watch memory pressure in Activity Monitor the first time a session nears 64K. Then point OpenCode at both servers in `opencode.jsonc`, using the native v2 format. In v2 the small model's job is session titles, set through the built-in `title` agent:
 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
+  "providers": {
     "mac": {
-      "npm": "@ai-sdk/openai-compatible",
       "name": "Flash-Next on this Mac",
-      "options": { "baseURL": "http://localhost:8080/v1" },
-      "models": { "flash-next": { "name": "Qwen3.8-Flash-Next" } }
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "http://localhost:8080/v1" },
+      "models": {
+        "flash-next": {
+          "name": "Qwen3.8-Flash-Next",
+          "capabilities": { "tools": true },
+          "limit": { "context": 65536 }
+        }
+      }
     },
     "mac-small": {
-      "npm": "@ai-sdk/openai-compatible",
       "name": "Gemma on this Mac",
-      "options": { "baseURL": "http://localhost:8081/v1" },
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "http://localhost:8081/v1" },
       "models": { "gemma-4-26b": { "name": "Gemma 4 26B-A4B" } }
     }
   },
   "model": "mac/flash-next",
-  "small_model": "mac-small/gemma-4-26b"
+  "agents": { "title": { "model": "mac-small/gemma-4-26b" } }
 }
 ```
 
-The tradeoff is 14GB that Flash-Next could spend on context, so if long sessions start to squeeze, drop Gemma first. You don't need it for images, either: Flash-Next reads them itself through the 0.9GB `mmproj-Qwen3.8-Flash-Next-F16.gguf` projector in the same repo. And if you'd rather skip the terminal, the {{< link href="https://atomic.chat/" >}}Atomic Chat{{< /link >}} desktop app runs the same builds.
+The tradeoff is 14GB that Flash-Next could spend on context, so drop Gemma first if long sessions get squeezed. Flash-Next reads images itself through the 0.9GB `mmproj-Qwen3.8-Flash-Next-F16.gguf` projector in the same repo, and the {{< link href="https://atomic.chat/" >}}Atomic Chat{{< /link >}} desktop app runs the same builds if you'd rather skip the terminal.
 
 ## Running the model on a GPU box and coding from your laptop
 
-A common setup is a workstation with the GPU at home or in the office and a laptop everywhere else. Ollama only listens on localhost, and it rejects requests whose `Host` header isn't a local name, so a plain tunnel gets `403 Forbidden`. A [Pinggy](https://pinggy.io/) tunnel can rewrite the header and require a key. On the GPU machine, run:
+A common setup is a workstation with the GPU at home or in the office and a laptop everywhere else. Ollama only listens on localhost, and it rejects requests whose `Host` header isn't a local name, so a plain tunnel gets `403 Forbidden`. A [Pinggy](https://pinggy.io/) tunnel can rewrite the header and require a key. Pick a random secret, replace `YOUR_RANDOM_KEY` in both places, and run this on the GPU machine:
 
 ```bash
-ssh -p 443 -R0:localhost:11434 free.pinggy.io "u:Host:localhost:11434" "k:change-me"
+ssh -p 443 -R0:localhost:11434 free.pinggy.io -T -- "u:Host:localhost:11434" "k:YOUR_RANDOM_KEY"
 ```
 
-It prints public HTTPS URLs such as `https://<random>.run.pinggy-free.link`, and requests without `Authorization: Bearer change-me` get a `401`. OpenAI-compatible clients send exactly that header with their API key, so on the laptop you point OpenCode's `opencode.json` at the tunnel and set the key:
+{{< image "best_open_source_self_hosted_llms_for_coding/opencode_remote_ollama_pinggy.webp" "Diagram of OpenCode on a laptop sending a request with a bearer key to a Pinggy URL, Pinggy checking the key and rewriting the Host header to localhost:11434, and the request reaching Ollama on the GPU machine through the SSH tunnel the GPU machine opened" >}}
+
+It prints public HTTPS URLs such as `https://<random>.run.pinggy-free.link`, and a request without `Authorization: Bearer YOUR_RANDOM_KEY` will recieve a `401`. OpenCode v2's built-in Ollama provider sends its `apiKey` as exactly that bearer token, on discovery and on model requests, so on the laptop you only override the endpoint:
 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
-    "gpubox": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama on my GPU box",
-      "options": {
+  "model": "ollama/qwen3.8:27b",
+  "providers": {
+    "ollama": {
+      "settings": {
         "baseURL": "https://<random>.run.pinggy-free.link/v1",
-        "apiKey": "change-me"
-      },
-      "models": {
-        "qwen3.8:27b": { "name": "Qwen3.8-27B" }
+        "apiKey": "YOUR_RANDOM_KEY"
       }
     }
   }
@@ -405,12 +396,14 @@ Free tunnels last 60 minutes and get a new URL each time, which is fine for a qu
 
 Once you've picked a model, these guides cover the rest:
 
-- {{< link href="/blog/how_to_self_host_any_llm_step_by_step_guide/" >}}How to Self-Host Any LLM{{< /link >}} walks through running Ollama and Open WebUI in Docker, downloading a model, and sharing the setup outside your network.
-- {{< link href="/blog/top_5_local_llm_tools_and_models/" >}}Best local LLM tools and models{{< /link >}} compares LM Studio, Unsloth, Ollama and others, and lists which models fit in 128GB.
+- {{< link href="/blog/how_to_self_host_any_llm_step_by_step_guide/" >}}How to Self-Host Any LLM{{< /link >}} walks through running Ollama and Open WebUI in Docker and sharing the setup outside your network.
+- {{< link href="/blog/top_5_local_llm_tools_and_models/" >}}Best local LLM tools and models{{< /link >}} compares LM Studio, Unsloth, Ollama and others.
 - {{< link href="/blog/best_hardware_for_self_hosted_coding_agents/" >}}Best hardware for self-hosted coding agents{{< /link >}} covers GPUs and unified-memory machines.
+
+## Try one issue before standardizing on a model
+
+Pick a bug you've already fixed and check out the commit just before the fix in a disposable worktree. Give each model the issue text, the same tools, the same context limit and the same time budget, and keep the regression test out of its prompt. After each run, apply the test and read the diff. Write down whether the fix passes, how long it took, how many tokens it used and whether you had to steer. On a 24GB card, run it twice: once at the context you'd like and once at the context that actually fits. A model that loses the thread when you cut its window from 64K to 32K will do teh same thing on a real repo.
 
 ## Conclusion
 
-Your hardware picks the model, not the leaderboard. With **one GPU**, run Qwen3.8-27B: Apache 2.0, 16-19GB at 4-bit, and it scores 34 on the index to the next-best small model's 25. With a **128GB Mac**, run Qwen3.8-Flash-Next if its license works for you, in Atomic Chat's build that leaves the n-gram table on SSD; at 56GB it still leaves room for a small second model. With **three or four 80GB GPUs**, run GLM-5.3-Flash under MIT. With **eight H200s**, MiMo-V2.6-Pro is the top open weight and comes with the simplest license of the leaders. Kimi K3 needs at least eight GB300-class GPUs.
-
-On Artificial Analysis's current scale, the best open weight scores 46 to Claude Opus 5.5's 58. On vendor-reported Terminal-Bench 2.1, open weights have caught up. Check both again in a month; this field moves that fast.
+On a 24GB GPU, start with Qwen3.8-27B in Ollama; with 32GB, try Nanbeige4.3-33B or Inkling 2 Mini. Shared servers can run GLM-5.3-Flash, and an eight-GPU node gets you Kimi K3.1 Pro, the open model closest to the hosted frontier. Whichever you pick, test it on one of your own issues, because that's the benchmark that counts.

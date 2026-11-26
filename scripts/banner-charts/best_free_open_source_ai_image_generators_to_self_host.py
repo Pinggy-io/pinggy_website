@@ -1,104 +1,57 @@
 #!/usr/bin/env python3
+"""Render the November English article's AA-Image-T2I v2.1 open-weights chart.
+
+Source: https://artificialanalysis.ai/image/leaderboard/text-to-image/open-weights
+The first eight entries on November 21, 2026, in the published order.
+FLUX.2 [dev] has a fixed rating. Other entries have 95% Elo intervals.
+Run from the desired output directory, then convert the PNG with cwebp.
 """
-Comparison chart for
-content/blog/best_free_open_source_ai_image_generators_to_self_host.md
+import argparse
 
-Source: Artificial Analysis Text-to-Image Arena v2.0, Open Weights view,
-fetched October 7, 2026 (https://artificialanalysis.ai/image/leaderboard/text-to-image/open-weights).
-Single-panel magnitude chart of the top open-weight models by Arena Elo, one bar
-per model (fal's FLUX.2 [dev] Turbo/Flash LoRAs and fal's Ideogram 4.0 distills are left out), with the
-open-weight leader (Alibaba Qwen-Image-2.1) called out in amber. The v2.0 board
-pins FLUX.2 [dev] at exactly 1000, so these numbers are not comparable with the
-pre-September 2026 scale. All figures match the ones cited in the post body.
-
-Usage (see README.md in this folder for the full workflow):
-    python best_free_open_source_ai_image_generators_to_self_host.py
-This writes ai_image_arena_elo.png next to the script; convert to .webp with
-cwebp and drop it in the post's images folder.
-
-House style: light-lavender hatched bars with a purple edge, one amber highlight
-bar for the leader, bold near-black title, recessive dashed grid. Elo is an
-interval scale (0 is not meaningful), so the y-axis starts at a baseline rather
-than zero - the note under the title says so.
-"""
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 
-# ---- house-style tokens ---------------------------------------------------
-BAR_FACE = "#EDEAF7"   # very light lavender - open-weight models
-BAR_EDGE = "#6B5DB8"   # purple
-BAR_HATCH = "///"
-LEAD_FACE = "#FBE7C6"  # light amber - the open-weight leader
-LEAD_EDGE = "#C8801E"
-LEAD_HATCH = "\\\\\\"
-INK = "#1A1A1A"        # title / value labels
-GRID = "#CFCFCF"
-plt.rcParams.update({
-    "font.family": "DejaVu Sans",
-    "font.size": 13,
-    "axes.edgecolor": "#BFBFBF",
-    "text.color": INK,
-    "axes.labelcolor": INK,
-    "xtick.color": INK,
-    "ytick.color": INK,
-})
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--lang", choices=("en", "es"), default="en")
+spanish = parser.parse_args().lang == "es"
+suffix = "_es" if spanish else ""
 
-# ---- data (all values cited in the post) ----------------------------------
-# Artificial Analysis Text-to-Image Arena v2.0 Elo, open weights only
-# (October 7, 2026; scores drift by 1-2 points day to day). FLUX.2 [klein] 9B
-# (941.12) sorts just above Z-Image Turbo (941.07). `lead` flags the leader bar (amber).
-labels = ["Qwen-Image\n2.1", "Ideogram 4.0\n(Quality)", "FLUX.2\n[dev]",
-          "Qwen Image\nMax 2512", "Ming-Image\n0.1-Design", "HunyuanImage\n3.0 Instruct",
-          "Cosmos3\nSuper-T2I", "HiDream\nO1-Image", "FLUX.2\n[klein] 9B",
-          "Z-Image\nTurbo"]
-vals = [1035, 1012, 1000, 999, 997, 996, 994, 981, 941, 941]
-lead = [True, False, False, False, False, False, False, False, False, False]
 
-BASELINE = 900
-YMAX = 1060
+# Name, Elo, lower and upper bounds. The anchor has no sampling interval.
+rows = [
+    ("MiniMax H3-Image", 1066, 1052, 1080),
+    ("Qwen-Image-2.1", 1048, 1036, 1060),
+    ("FLUX 3 Image Klein", 1041, 1030, 1052),
+    ("Fibo 2.0", 1037, 1026, 1048),
+    ("Ideogram 4.0 (Quality)", 1027, 1017, 1037),
+    ("Ideogram 4.0", 1004, 994, 1014),
+    ("Ming-Image-0.1-Design", 1001, 992, 1010),
+    ("FLUX.2 [dev]", 1000, None, None),
+]
 
-fig, ax = plt.subplots(figsize=(12.4, 6.8), dpi=100)
-fig.patch.set_facecolor("white")
-
-fig.suptitle("Best Open-Weight AI Image Generators (2026)",
-             fontsize=25, fontweight="bold", y=0.995, va="top")
-fig.text(0.5, 0.885,
-         "Artificial Analysis Text-to-Image Arena v2.0  ·  open weights only  ·  "
-         "FLUX.2 [dev] = 1000  ·  higher is better  ·  October 7, 2026",
-         fontsize=12, color="#666666", ha="center")
-
-x = list(range(len(vals)))
-for xi, v, p in zip(x, vals, lead):
-    ax.bar(xi, v - BASELINE, bottom=BASELINE, width=0.66,
-           facecolor=LEAD_FACE if p else BAR_FACE,
-           edgecolor=LEAD_EDGE if p else BAR_EDGE,
-           hatch=LEAD_HATCH if p else BAR_HATCH, linewidth=1.1, zorder=3)
-for xi, v in zip(x, vals):
-    ax.text(xi, v + (YMAX - BASELINE) * 0.012, f"{v:,}", ha="center",
-            va="bottom", fontsize=11.5, fontweight="bold")
-
-ax.set_xticks(x)
-ax.set_xticklabels(labels, fontsize=9.5)
-ax.set_ylim(BASELINE, YMAX)
-ax.set_yticks([900, 950, 1000, 1050])
+fig, ax = plt.subplots(figsize=(12, 7), dpi=140)
+fig.subplots_adjust(left=0.33, right=0.89, top=0.78, bottom=0.13)
+fig.text(0.06, 0.91, "Generadores de imágenes de pesos abiertos" if spanish else "Open-weight image generators, ranked", fontsize=30, weight="bold")
+fig.text(0.06, 0.84, "Artificial Analysis Text-to-Image Arena v2.1  /  pesos abiertos, ocho primeros" if spanish else "Artificial Analysis Text-to-Image Arena v2.1  /  open weights, top eight",
+         fontsize=16, color="#414151")
+ax.axvline(1000, color="#898696", linestyle="--", linewidth=1.4, zorder=1)
+for y, (name, score, low, high) in enumerate(rows):
+    if low is None:
+        ax.plot(score, y, marker="D", color="#393543", markersize=8)
+    else:
+        ax.errorbar(score, y, xerr=[[score-low], [high-score]], fmt="o",
+                    color="#6B5DB8", markersize=10, capsize=5, linewidth=2.7)
+    ax.text(1085, y, (str(score) if spanish else f"{score:,}"), ha="left", va="center", fontsize=15, weight="bold")
+ax.set_yticks(range(len(rows)), [row[0] for row in rows], fontsize=15)
+ax.set_ylim(len(rows)-0.45, -0.65)
+ax.set_xlim(986, 1093)
+ax.set_xticks([1000, 1020, 1040, 1060, 1080])
+ax.tick_params(length=0, pad=7)
+ax.set_xlabel("Elo  /  intervalos del 95 %  /  rombo: referencia fija" if spanish else "Elo rating  /  whiskers show 95% intervals  /  diamond is the fixed anchor",
+              fontsize=12, labelpad=12)
+ax.grid(axis="x", color="#D9D7DF", linestyle=":", linewidth=1)
 ax.set_axisbelow(True)
-ax.yaxis.grid(True, linestyle="--", linewidth=0.8, color=GRID)
-ax.set_xlim(-0.7, len(vals) - 0.3)
-for s in ("top", "right"):
-    ax.spines[s].set_visible(False)
-
-open_patch = mpatches.Patch(facecolor=BAR_FACE, edgecolor=BAR_EDGE,
-                            hatch=BAR_HATCH, label="Open weight")
-lead_patch = mpatches.Patch(facecolor=LEAD_FACE, edgecolor=LEAD_EDGE,
-                            hatch=LEAD_HATCH,
-                            label="Open-weight leader (Qwen-Image-2.1)")
-ax.legend(handles=[open_patch, lead_patch], loc="upper right",
-          frameon=False, fontsize=11.5)
-
-fig.subplots_adjust(left=0.06, right=0.975, top=0.80, bottom=0.13)
-
-out = "ai_image_arena_elo.png"
-fig.savefig(out, dpi=100, facecolor="white")
-print("wrote", out)
+for spine in ax.spines.values():
+    spine.set_visible(False)
+fig.savefig(f"ai_image_arena_elo_nov2026{suffix}.png", facecolor="white")
