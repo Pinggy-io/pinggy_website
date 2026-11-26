@@ -33,7 +33,7 @@ rows = [
 fig, ax = plt.subplots(figsize=(12, 7), dpi=140)
 fig.subplots_adjust(left=0.33, right=0.89, top=0.78, bottom=0.13)
 fig.text(0.06, 0.91, "Generadores de imágenes de pesos abiertos" if spanish else "Open-weight image generators, ranked", fontsize=30, weight="bold")
-fig.text(0.06, 0.84, "Artificial Analysis Text-to-Image Arena v2.1  /  21 de noviembre de 2026" if spanish else "Artificial Analysis Text-to-Image Arena v2.1  /  November 21, 2026",
+fig.text(0.06, 0.84, "Artificial Analysis Text-to-Image Arena v2.1  /  pesos abiertos, ocho primeros" if spanish else "Artificial Analysis Text-to-Image Arena v2.1  /  open weights, top eight",
          fontsize=16, color="#414151")
 ax.axvline(1000, color="#898696", linestyle="--", linewidth=1.4, zorder=1)
 for y, (name, score, low, high) in enumerate(rows):

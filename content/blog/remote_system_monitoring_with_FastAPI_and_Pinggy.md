@@ -1,165 +1,198 @@
 ---
 title: "Remote System Monitoring with FastAPI and Pinggy"
-description: "Build a small FastAPI app that reports CPU, memory, swap and disk usage with psutil, then open it from your phone through a password-protected Pinggy tunnel. Tested with FastAPI 0.165.0 and psutil 7.2.2."
+description: "Build a FastAPI app that reports CPU, RAM, memory and disk usage with psutil, then check it from anywhere through a password-protected Pinggy tunnel."
 date: 2024-11-02T14:15:25+05:30
-lastmod: 2026-11-24T15:15:25+05:30
+lastmod: 2026-11-25T15:15:25+05:30
 draft: false
-tags: ["FastAPI", "Python", "remote access", "DevOps"]
-og_image: "images/system_monitoring_fastapi/remote_system_monitoring_fastapi_banner.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIE1vbml0b3IgYSBDb21wdXRlciBSZW1vdGVseSB3aXRoIEZhc3RBUEksIHBzdXRpbCBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiQnVpbGQgYSBzbWFsbCBGYXN0QVBJIGFwcCB0aGF0IHJlcG9ydHMgQ1BVLCBtZW1vcnksIHN3YXAgYW5kIGRpc2sgdXNhZ2Ugd2l0aCBwc3V0aWwsIHRoZW4gb3BlbiBpdCBmcm9tIHlvdXIgcGhvbmUgdGhyb3VnaCBhIHBhc3N3b3JkLXByb3RlY3RlZCBQaW5nZ3kgdHVubmVsLiBUZXN0ZWQgd2l0aCBGYXN0QVBJIDAuMTY1LjAgYW5kIHBzdXRpbCA3LjIuMi4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvc3lzdGVtX21vbml0b3JpbmdfZmFzdGFwaS9yZW1vdGVfc3lzdGVtX21vbml0b3JpbmdfZmFzdGFwaV9iYW5uZXIud2VicCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTExLTI0VDE1OjE1OjI1KzA1OjMwIiwKICAidG9vbCI6IFsKICAgIHsgIkB0eXBlIjogIkhvd1RvVG9vbCIsICJuYW1lIjogIlB5dGhvbiAzLjEzIiB9LAogICAgeyAiQHR5cGUiOiAiSG93VG9Ub29sIiwgIm5hbWUiOiAiRmFzdEFQSSAwLjE2NS4wIiB9LAogICAgeyAiQHR5cGUiOiAiSG93VG9Ub29sIiwgIm5hbWUiOiAicHN1dGlsIDcuMi4yIiB9LAogICAgeyAiQHR5cGUiOiAiSG93VG9Ub29sIiwgIm5hbWUiOiAiT3BlblNTSCBjbGllbnQiIH0KICBdLAogICJzdGVwIjogWwogICAgeyAiQHR5cGUiOiAiSG93VG9TdGVwIiwgIm5hbWUiOiAiQ3JlYXRlIGEgdmlydHVhbCBlbnZpcm9ubWVudCBhbmQgaW5zdGFsbCB0aGUgcGFja2FnZXMiLCAidGV4dCI6ICJSdW4gcHl0aG9uIC1tIHZlbnYgLnZlbnYsIGFjdGl2YXRlIGl0IHdpdGggc291cmNlIC52ZW52L2Jpbi9hY3RpdmF0ZSAob3IgLnZlbnZcXFNjcmlwdHNcXEFjdGl2YXRlLnBzMSBpbiBQb3dlclNoZWxsKSwgdGhlbiBydW4gcGlwIGluc3RhbGwgXCJmYXN0YXBpW3N0YW5kYXJkXVwiIHBzdXRpbC4iIH0sCiAgICB7ICJAdHlwZSI6ICJIb3dUb1N0ZXAiLCAibmFtZSI6ICJXcml0ZSB0aGUgbW9uaXRvcmluZyBhcHAiLCAidGV4dCI6ICJDcmVhdGUgbWFpbi5weSB3aXRoIEZhc3RBUEkgcm91dGVzIHRoYXQgY2FsbCBwc3V0aWw6IC9jcHUsIC9jcHUvY29yZXMgYW5kIC9jcHUvZnJlcXVlbmN5IGZvciB0aGUgcHJvY2Vzc29yLCAvbWVtb3J5IGFuZCAvbWVtb3J5L3N3YXAgZm9yIFJBTSBhbmQgc3dhcCwgL2Rpc2ssIC9kaXNrL3BhcnRpdGlvbnMgYW5kIC9kaXNrL2lvIGZvciBzdG9yYWdlLCAvc3RhdHMgZm9yIGEgb25lLWNhbGwgc3VtbWFyeSwgYW5kIC8gZm9yIGEgcGFnZSB0aGF0IHJlZnJlc2hlcyAvc3RhdHMgZXZlcnkgMiBzZWNvbmRzLiBVc2UgZGVmLCBub3QgYXN5bmMgZGVmLCBmb3Igcm91dGVzIHRoYXQgY2FsbCBwc3V0aWwuY3B1X3BlcmNlbnQoaW50ZXJ2YWw9MSksIGJlY2F1c2UgdGhhdCBjYWxsIGJsb2NrcyBmb3IgYSBzZWNvbmQuIiB9LAogICAgeyAiQHR5cGUiOiAiSG93VG9TdGVwIiwgIm5hbWUiOiAiUnVuIHRoZSBhcHAgb24gbG9jYWxob3N0IiwgInRleHQiOiAiUnVuIGZhc3RhcGkgcnVuIG1haW4ucHkgLS1ob3N0IDEyNy4wLjAuMS4gVGhlIGFwcCBsaXN0ZW5zIG9uIHBvcnQgODAwMCBhbmQgc2VydmVzIGludGVyYWN0aXZlIEFQSSBkb2NzIGF0IGh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kb2NzLiIgfSwKICAgIHsgIkB0eXBlIjogIkhvd1RvU3RlcCIsICJuYW1lIjogIlN0YXJ0IGEgcGFzc3dvcmQtcHJvdGVjdGVkIFBpbmdneSB0dW5uZWwiLCAidGV4dCI6ICJJbiBhIHNlY29uZCB0ZXJtaW5hbCwgcnVuIHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDo4MDAwIGZyZWUucGluZ2d5LmlvIC1UIC0tIGI6bW9uaXRvcjpjaGFuZ2UtbWUgd2l0aCB5b3VyIG93biB1c2VybmFtZSBhbmQgcGFzc3dvcmQuIFBpbmdneSBwcmludHMgYSBwdWJsaWMgSFRUUFMgVVJMIHRoYXQgYXNrcyBmb3IgdGhvc2UgY3JlZGVudGlhbHMuIiB9LAogICAgeyAiQHR5cGUiOiAiSG93VG9TdGVwIiwgIm5hbWUiOiAiT3BlbiB0aGUgbWV0cmljcyBmcm9tIGFueXdoZXJlIiwgInRleHQiOiAiT3BlbiB0aGUgSFRUUFMgVVJMIG9uIHlvdXIgcGhvbmUgb3IgYW5vdGhlciBjb21wdXRlciBhbmQgc2lnbiBpbi4gVGhlIHJvb3QgcGF0aCBzaG93cyBsaXZlIHN0YXRzLCBhbmQgL3N0YXRzLCAvY3B1LCAvbWVtb3J5IGFuZCAvZGlzayByZXR1cm4gSlNPTiB5b3UgY2FuIGFsc28gZmV0Y2ggd2l0aCBjdXJsIC11IG1vbml0b3I6Y2hhbmdlLW1lLiIgfQogIF0KfQo8L3NjcmlwdD4K"
+tags: ["FastAPI", "Python", "remote access", "guide", "Pinggy"]
+og_image: "images/system_monitoring_fastapi/main_img.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiUmVtb3RlIFN5c3RlbSBNb25pdG9yaW5nIHdpdGggRmFzdEFQSSBhbmQgUGluZ2d5IiwKICAiZGVzY3JpcHRpb24iOiAiQnVpbGQgYSBGYXN0QVBJIGFwcCB0aGF0IHJlcG9ydHMgQ1BVLCBSQU0sIG1lbW9yeSBhbmQgZGlzayB1c2FnZSB3aXRoIHBzdXRpbCwgdGhlbiBjaGVjayBpdCBmcm9tIGFueXdoZXJlIHRocm91Z2ggYSBwYXNzd29yZC1wcm90ZWN0ZWQgUGluZ2d5IHR1bm5lbC4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvc3lzdGVtX21vbml0b3JpbmdfZmFzdGFwaS9tYWluX2ltZy53ZWJwIiwKICAiZGF0ZU1vZGlmaWVkIjogIjIwMjYtMTEtMjVUMTU6MTU6MjUrMDU6MzAiLAogICJ0b29sIjogWwogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9Ub29sIiwKICAgICAgIm5hbWUiOiAiUHl0aG9uIDMuMTEgb3IgbmV3ZXIiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9Ub29sIiwKICAgICAgIm5hbWUiOiAiRmFzdEFQSSIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1Rvb2wiLAogICAgICAibmFtZSI6ICJwc3V0aWwiCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9Ub29sIiwKICAgICAgIm5hbWUiOiAiT3BlblNTSCBjbGllbnQiCiAgICB9CiAgXSwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNyZWF0ZSBhbmQgYWN0aXZhdGUgYSB2aXJ0dWFsIGVudmlyb25tZW50IiwKICAgICAgInRleHQiOiAiUnVuIHB5dGhvbiAtbSB2ZW52IC52ZW52LCB0aGVuIGFjdGl2YXRlIGl0IHdpdGggc291cmNlIC52ZW52L2Jpbi9hY3RpdmF0ZSBvbiBMaW51eCBhbmQgbWFjT1Mgb3IgLnZlbnZcXFNjcmlwdHNcXEFjdGl2YXRlLnBzMSBpbiBXaW5kb3dzIFBvd2VyU2hlbGwuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkluc3RhbGwgRmFzdEFQSSBhbmQgcHN1dGlsIiwKICAgICAgInRleHQiOiAiUnVuIHBpcCBpbnN0YWxsIFwiZmFzdGFwaVtzdGFuZGFyZF1cIiBwc3V0aWwuIFRoZSBzdGFuZGFyZCBleHRyYSBpbnN0YWxscyBVdmljb3JuIGFuZCB0aGUgZmFzdGFwaSBjb21tYW5kIGxpbmUgdG9vbC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiV3JpdGUgdGhlIG1vbml0b3Jpbmcgcm91dGVzIiwKICAgICAgInRleHQiOiAiQ3JlYXRlIG1haW4ucHkgd2l0aCBGYXN0QVBJIHJvdXRlcyB0aGF0IGNhbGwgcHN1dGlsOiAvY3B1LCAvY3B1L2NvcmVzIGFuZCAvY3B1L2ZyZXF1ZW5jeSwgL21lbW9yeSBhbmQgL21lbW9yeS9zd2FwLCAvcmFtLCBhbmQgL2Rpc2ssIC9kaXNrL3BhcnRpdGlvbnMgYW5kIC9kaXNrL2lvLiBVc2UgZGVmIHJhdGhlciB0aGFuIGFzeW5jIGRlZiBmb3Igcm91dGVzIHRoYXQgY2FsbCBwc3V0aWwuY3B1X3BlcmNlbnQoaW50ZXJ2YWw9MSksIGJlY2F1c2UgdGhhdCBjYWxsIGJsb2NrcyBmb3IgYSBzZWNvbmQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIlJ1biB0aGUgYXBwIGxvY2FsbHkiLAogICAgICAidGV4dCI6ICJSdW4gZmFzdGFwaSBkZXYgbWFpbi5weSB3aGlsZSBlZGl0aW5nLCBvciBmYXN0YXBpIHJ1biBtYWluLnB5IC0taG9zdCAxMjcuMC4wLjEgZm9yIGEgbG9uZy1ydW5uaW5nIG1vbml0b3IuIFRoZSBhcHAgbGlzdGVucyBvbiBwb3J0IDgwMDAgYW5kIHNlcnZlcyBBUEkgZG9jcyBhdCAvZG9jcy4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgIm5hbWUiOiAiU3RhcnQgYSBwYXNzd29yZC1wcm90ZWN0ZWQgUGluZ2d5IHR1bm5lbCIsCiAgICAgICJ0ZXh0IjogIkluIGEgc2Vjb25kIHRlcm1pbmFsLCBydW4gc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0OjgwMDAgZnJlZS5waW5nZ3kuaW8gLVQgLS0gYjptb25pdG9yOmNoYW5nZS1tZSB3aXRoIHlvdXIgb3duIHVzZXJuYW1lIGFuZCBwYXNzd29yZC4gUGluZ2d5IHByaW50cyBwdWJsaWMgSFRUUFMgVVJMcyB0aGF0IGFzayBmb3IgdGhvc2UgY3JlZGVudGlhbHMuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJuYW1lIjogIkNoZWNrIHRoZSBtZXRyaWNzIHJlbW90ZWx5IiwKICAgICAgInRleHQiOiAiT3BlbiB0aGUgSFRUUFMgVVJMIGZvbGxvd2VkIGJ5IGFuIGVuZHBvaW50IHN1Y2ggYXMgL2NwdSwgL21lbW9yeSBvciAvZGlzaywgc2lnbiBpbiwgYW5kIHJlYWQgdGhlIEpTT04uIEEgZnJlZSB0dW5uZWwgbGFzdHMgNjAgbWludXRlczsgYSBQaW5nZ3kgUHJvIHRva2VuIHJlbW92ZXMgdGhlIGxpbWl0IGFuZCBrZWVwcyBhIGZpeGVkIHN1YmRvbWFpbi4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pgo="
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "system_monitoring_fastapi/remote_system_monitoring_fastapi_banner.webp" "Remote System Monitoring with FastAPI and Pinggy: headline above gauges for the CPU, memory, swap and disk percentages returned by the /stats endpoint" >}}
+{{< image "system_monitoring_fastapi/main_img.webp" "Remote System Monitoring with FastAPI and Pinggy" >}}
 
-{{< llm-context >}}To monitor a computer remotely with FastAPI and Pinggy - run `pip install "fastapi[standard]" psutil`, start the psutil-based app with `fastapi run main.py --host 127.0.0.1` (port 8000), then in a new terminal run `ssh -p 443 -R0:localhost:8000 free.pinggy.io -T -- b:monitor:change-me` to get a password-protected public HTTPS URL for /stats, /cpu, /memory and /disk.{{< /llm-context >}}
+{{< llm-context >}}To monitor a computer remotely with FastAPI and Pinggy - run `pip install "fastapi[standard]" psutil`, start the psutil app with `fastapi run main.py --host 127.0.0.1` (port 8000), then in a new terminal run `ssh -p 443 -R0:localhost:8000 free.pinggy.io -T -- b:monitor:change-me` to get a password-protected public HTTPS URL for /cpu, /memory, /ram and /disk.{{< /llm-context >}}
 
-Every machine you leave running, a home server, a build box or a Raspberry Pi in a cupboard, eventually runs out of something: disk, memory or patience. You usually find out when it's already too late, and usually when you're not sitting in front of it.
+Monitoring system metrics helps you keep applications running smoothly, spot resource leaks and catch bottlenecks before users do.
+In this article, we'll look at how to remotely monitor a machine's CPU, RAM, memory and disk usage using FastAPI and Pinggy.
+The numbers come from the {{< link href="https://pypi.org/project/psutil/" >}}psutil{{< /link >}} library, which reads real-time resource data from the operating system.
+To expose that data we need a small web server, and {{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} is a good fit: a Python framework for building APIs that takes a few lines to set up.
+The FastAPI server runs locally on your machine.
+Many machines sit behind NAT (Network Address Translation) or CGNAT (Carrier-Grade NAT), though, so reaching them from outside is the hard part.
+[Pinggy](https://pinggy.io) solves that with a single SSH command that gives your local server a public HTTPS URL, with no port forwarding and nothing to install.
 
-This guide builds a single-file {{< link href="https://fastapi.tiangolo.com/" >}}FastAPI{{< /link >}} app that reads CPU, memory, swap and disk usage with {{< link href="https://pypi.org/project/psutil/" >}}psutil{{< /link >}} and returns it as JSON, plus a tiny page that refreshes every 2 seconds. Then one SSH command to [Pinggy](https://pinggy.io) puts it on a public HTTPS URL with a password, so you can check the machine from your phone even when it sits behind NAT or CGNAT. No port forwarding, no cloud VM.
+First, let's set up a virtual environment and install `FastAPI` and `psutil`.
+I tested everything below with Python 3.13, FastAPI 0.165.0, fastapi-cli 0.0.34, Uvicorn 0.54.0 and psutil 7.2.2.
 
-I ran everything below in November 2026 on an Apple Silicon Mac with Python 3.13.0, FastAPI 0.165.0 (the `fastapi` CLI 0.0.34) and psutil 7.2.2, and ran the same `main.py` on Linux in a `python:3.13-slim` container. The JSON responses in this post are real output from those runs. I did not test on Windows; the Windows notes come from the psutil docs.
+## Setting Up the Environment and Installing Dependencies
 
-{{% tldr %}}
+### Step 1: Create a Virtual Environment
 
-1. **Install:** `pip install "fastapi[standard]" psutil` in a virtual environment.
-2. **Run the app:** `fastapi run main.py --host 127.0.0.1` serves the metrics on port 8000.
-3. **Open a tunnel with a password:** `ssh -p 443 -R0:localhost:8000 free.pinggy.io -T -- b:monitor:change-me`
-4. **Check it from anywhere:** open the HTTPS URL Pinggy prints, sign in, and read `/stats`, or the live page at `/`.
+A virtual environment keeps each project's packages separate from your system Python and from other projects.
 
-{{% /tldr %}}
-
-## What you're building
-
-The app has one job: answer HTTP requests with numbers psutil reads from the operating system. Each route maps to one psutil call:
-
-| Route | psutil call | What it returns |
-|---|---|---|
-| `/cpu`, `/cpu/cores` | `cpu_percent()` | Overall and per-core CPU usage |
-| `/cpu/frequency` | `cpu_freq()` | Current, min and max frequency in MHz |
-| `/memory`, `/memory/swap` | `virtual_memory()`, `swap_memory()` | RAM and swap usage in bytes and percent |
-| `/disk`, `/disk/partitions`, `/disk/io` | `disk_usage()`, `disk_partitions()`, `disk_io_counters()` | Space, mounts, read/write counters |
-| `/stats` | all of the above | One-call summary for a dashboard |
-| `/` | none | A page that polls `/stats` every 2 seconds |
-
-The app listens on `127.0.0.1:8000`, so nothing outside your machine can reach it directly. The SSH client opens an outbound connection to Pinggy on port 443, and Pinggy sends requests for your public URL back down that connection. Your router never needs an open port.
-
-{{< image "system_monitoring_fastapi/fastapi_monitor_pinggy_architecture.webp" "Sequence diagram: the computer opens an SSH connection to Pinggy on port 443, a request from the phone without a password gets 401 Unauthorized, a request with basic auth goes down the SSH tunnel to FastAPI on localhost:8000, psutil reads CPU, memory and disk, and the JSON comes back to the phone" >}}
-
-## Set up the environment
-
-Create a virtual environment so these packages stay out of your system Python:
+Create one with the `venv` module that ships with Python:
 
 ```bash
 python -m venv .venv
 ```
 
-If `python` isn't found, use `python3`. FastAPI 0.165.0 needs Python 3.11 or newer, so check `python3 --version` first. On a Mac, the `python3` that comes with Apple's command line tools is 3.9.6, and pip on 3.9 quietly installs a much older FastAPI instead of failing. Then activate it:
+> Note: If the command `python` does not work, try `python3`. Current FastAPI needs Python 3.11 or newer, so check `python3 --version` first. The `python3` that comes with Apple's command line tools is 3.9, and pip on 3.9 quietly installs a much older FastAPI instead of failing.
+
+That command creates a new virtual environment in a directory called `.venv`.
+
+### Step 2: Activate the Virtual Environment
+
+Activate the environment so any Python command you run or package you install stays inside it:
+
+#### For Linux, MacOS
 
 ```bash
-# Linux and macOS
 source .venv/bin/activate
+```
 
-# Windows PowerShell
+#### For Windows Powershell
+
+```ps
 .venv\Scripts\Activate.ps1
+```
 
-# Git Bash on Windows
+#### For Windows Bash
+
+```bash
 source .venv/Scripts/activate
 ```
 
-Install FastAPI with its standard extras, plus psutil:
+Once activated, upgrade `pip`, since an old one can pick outdated wheels:
 
 ```bash
 python -m pip install --upgrade pip
-pip install "fastapi[standard]" psutil
 ```
 
-The `[standard]` extra pulls in Uvicorn (the ASGI server that actually serves requests) and the `fastapi` command line tool you'll use to run the app. psutil ships prebuilt wheels for macOS, Windows and 64-bit Linux (x86_64 and ARM), so there's nothing to compile on most machines. On 32-bit ARM, such as a 32-bit Raspberry Pi OS install, PyPI has no wheel, and pip may have to build it from source, which needs `python3-dev` and a C compiler.
+### Step 3: Install FastAPI
 
-## The app, one route group at a time
+Install FastAPI with its standard extras:
 
-Everything lives in one file, `main.py`. I'll go through it in four parts; paste them one after another into teh same file.
+```bash
+pip install "fastapi[standard]"
+```
 
-> **The original code for this post is on GitHub.** ({{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub Link{{< /link >}}) The version below changes a few things: plain `def` instead of `async def` for blocking routes, a correct disk path on macOS, guards for values psutil can't read, and a `/stats` route with a small live page.
+The `[standard]` extra pulls in `uvicorn`, the ASGI server that actually serves requests, and the `fastapi` command line tool you'll use to start the app.
 
-### CPU usage, and why these routes are not async
+### Step 4: Install psutil
+
+Next, install {{< link href="https://pypi.org/project/psutil/" >}}psutil{{< /link >}}.
+It gives Python access to CPU, memory, disk and network usage on Linux, macOS and Windows, and ships prebuilt wheels for all three, so there's usually nothing to compile:
+
+```bash
+pip install psutil
+```
+
+With the dependencies installed, it's time to build the app.
+
+## Build the App to Monitor Your System Metrics
+
+In this section, we'll create routes for CPU, memory, RAM and disk metrics. Everything goes into one file, `main.py`: the first block creates the app, and every later block adds routes to teh same file.
+
+> **Visit this GitHub Repository to access the codebase.** ({{< link href="https://github.com/AbhilashK26/Remote_system_monitoring_with_FastAPI_and_Pinggy" >}}GitHub Link{{< /link >}} ) The code below differs from the repo in one important way: routes use plain `def` instead of `async def`.
+
+### Monitor CPU Usage Metrics
+
+We'll expose three routes for the CPU:
+
+1. `/cpu`: Get the overall CPU usage percentage.
+2. `/cpu/cores`: Get the CPU usage for each core individually.
+3. `/cpu/frequency`: Retrieve the current, minimum, and maximum CPU frequencies.
+
+Here's the **code** that starts `main.py`:
 
 ```python
-import sys
-import time
-
-import psutil
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+import psutil
 
-app = FastAPI(title="System monitor")
-
-# The volume to report in /disk. On macOS, "/" is the read-only system
-# volume, so your files live on /System/Volumes/Data.
-ROOT = {"win32": "C:\\", "darwin": "/System/Volumes/Data"}.get(sys.platform, "/")
-
-# The first non-blocking cpu_percent() call returns 0.0,
-# so take a baseline when the app starts.
-psutil.cpu_percent(interval=None)
-
+app = FastAPI()
 
 @app.get("/cpu")
 def get_cpu_usage():
-    # Blocks for 1 second while psutil samples the CPU
+    # Blocks for one second while psutil samples the CPU
     return {"cpu_usage": psutil.cpu_percent(interval=1)}
-
 
 @app.get("/cpu/cores")
 def get_cpu_cores():
     return {"core_usage": psutil.cpu_percent(interval=1, percpu=True)}
 
-
 @app.get("/cpu/frequency")
 def get_cpu_frequency():
-    freq = psutil.cpu_freq()
-    if freq is None:  # the OS reported no frequency, common in Linux VMs
+    frequency = psutil.cpu_freq()
+    if frequency is None:  # some VMs and containers report nothing
         return {"current": None, "min": None, "max": None}
-    return {"current": freq.current, "min": freq.min, "max": freq.max}
+    return {
+        "current": frequency.current,
+        "min": frequency.min,
+        "max": frequency.max,
+    }
 ```
 
-`psutil.cpu_percent(interval=1)` measures CPU time, sleeps for one second, measures again and returns the difference as a percentage. That sleep is the reason these routes use `def`. FastAPI runs a `def` route in a thread pool, but it runs an `async def` route directly on the event loop, so a one-second blocking call inside `async def` freezes every other request for that second.
+`psutil.cpu_percent(interval=1)` samples the CPU, sleeps for one second and samples again, and that sleep is why these routes are plain `def`. FastAPI runs a `def` route in a thread pool, but an `async def` route runs directly on the event loop, so a blocking call there freezes every other request. I timed five simultaneous requests to `/cpu`: about 1 second with `def`, 5 seconds with `async def`.
 
-I measured it. Five simultaneous requests to `/cpu` took **5.05 seconds with `async def` and 1.04 seconds with `def`**. The first version of this post used `async def` everywhere, which is an easy mistake to make because it looks faster.
+On `/cpu/frequency`, `current` is a live value only on Linux and usually the fixed nominal speed elsewhere, and some virtual machines return no frequency at all, hence the `None` check.
 
-Real responses from the Mac:
+The **outputs** of the different endpoints will be displayed as follows:
+
+- `/cpu`:
 
 ```json
-{"cpu_usage": 54.6}
+{ "cpu_usage": 45.3 }
 ```
+
+{{< image "system_monitoring_fastapi/cpu_usage1.webp" "FastAPI application to monitor CPU metrics" >}}
+
+- `/cpu/cores`:
 
 ```json
-{"core_usage": [80.6, 77.0, 74.0, 69.0, 69.7, 64.0, 12.0, 18.0, 20.0, 17.0, 8.0]}
+{ "core_usage": [50.2, 45.1, 40.5, 60.7] }
 ```
+
+{{< image "system_monitoring_fastapi/cpu_usage2.webp" "FastAPI application to monitor CPU metrics" >}}
+
+- `/cpu/frequency`:
 
 ```json
-{"current": 4056, "min": 696, "max": 4056}
+{ "current": 2200.0, "min": 1000.0, "max": 3500.0 }
 ```
 
-There's one value per logical CPU, 11 on this machine. Frequency needs care. The {{< link href="https://psutil.readthedocs.io/en/stable/#psutil.cpu_freq" >}}psutil docs{{< /link >}} say `current` is a live value only on Linux and usually the fixed nominal value elsewhere. Some machines don't report a frequency at all: in the Linux container on Docker Desktop (an ARM virtual machine), `psutil.cpu_freq()` returned `None` and the route answered `{"current": null, "min": null, "max": null}`. Without the `if freq is None` check, that route would crash with a 500.
+{{< image "system_monitoring_fastapi/cpu_usage3.webp" "FastAPI application to monitor CPU metrics" >}}
 
-### Memory and swap
+### Track Memory and Swap Usage
+
+Next, we'll add routes that show how much memory is in use and how much is available, for both virtual memory and swap.
+
+>**Virtual memory** represents the system's total memory, while **swap memory** refers to disk-based memory used when physical memory is full.
+
+We'll expose two routes:
+
+1. `/memory`: Get the current status of virtual memory.
+2. `/memory/swap`: Retrieve swap memory usage statistics.
+
+Add this **code** to `main.py`:
 
 ```python
 @app.get("/memory")
 def get_memory_usage():
-    mem = psutil.virtual_memory()
+    """Returns virtual memory usage metrics."""
+    memory = psutil.virtual_memory()
     return {
-        "total": mem.total,
-        "available": mem.available,
-        "used": mem.used,
-        "percent": mem.percent,
+        "total": memory.total,
+        "available": memory.available,
+        "used": memory.used,
+        "percent": memory.percent,
     }
 
-
 @app.get("/memory/swap")
-def get_swap_usage():
+def get_swap_memory_usage():
+    """Returns swap memory usage metrics."""
     swap = psutil.swap_memory()
     return {
         "total": swap.total,
@@ -171,26 +204,80 @@ def get_swap_usage():
     }
 ```
 
-From the Mac, which was busy at the time:
+All values are bytes. `used` and `available` don't add up to `total` because the OS counts caches and buffers separately, so watch `available` and `percent`. `sin` and `sout` are bytes swapped in and out since boot, not a rate, and they're always `0` on Windows.
+
+The **responses** from each endpoint will look like this:
+
+- `/memory`:
 
 ```json
-{"total": 19327352832, "available": 3621797888, "used": 6657851392, "percent": 81.3}
+{
+  "total": 16777216000,
+  "available": 8225292288,
+  "used": 7374233600,
+  "percent": 57.3
+}
 ```
+
+{{< image "system_monitoring_fastapi/memory1.webp" "FastAPI application to monitor Memory metrics" >}}
+
+- `/memory/swap`:
 
 ```json
-{"total": 17179869184, "used": 16292118528, "free": 887750656, "percent": 94.8, "sin": 3455472156672, "sout": 89044779008}
+{
+  "total": 8589934592,
+  "used": 1073741824,
+  "free": 7516192768,
+  "percent": 12.5,
+  "sin": 0,
+  "sout": 0
+}
 ```
 
-All values are bytes. Two things trip people up here. First, `used` and `available` don't add up to `total`, because the OS counts caches and buffers separately. Watch `available` and `percent`: psutil calculates `percent` as `(total - available) / total`, which you can check against the numbers above (81.3%). Second, `sin` and `sout` are bytes swapped in and out since boot, not a rate, and psutil always reports them as `0` on Windows.
+{{< image "system_monitoring_fastapi/memory2.webp" "FastAPI application to monitor Memory metrics" >}}
 
-The old version of this post had a separate `/ram` route that returned `virtual_memory().percent`. That's the same number as `percent` above, so it's folded into `/stats` now.
+### Monitor RAM Utilization
 
-### Disk space and I/O
+Sometimes you only want one number. This route returns RAM usage as a percentage, the same value as `percent` in `/memory`, which is handy for a quick check from a phone:
+
+1. `/ram`: Returns RAM usage in percentage.
+
+Add this **code** to `main.py`:
+
+```python
+@app.get("/ram")
+def get_ram_usage():
+    """Returns RAM usage in percentage."""
+    return {"ram_usage": psutil.virtual_memory().percent}
+```
+
+The **response** from the endpoint will look like this:
+
+- `/ram`:
+
+```json
+{ "ram_usage": 45.2 }
+```
+
+{{< image "system_monitoring_fastapi/ram1.webp" "FastAPI application to monitor RAM metrics" >}}
+
+### Disk Usage and I/O Statistics
+
+Disk metrics tell you how much storage is used, which filesystems are mounted and how much reading and writing is going on.
+
+We'll expose three routes:
+
+1. `/disk`: Returns overall disk usage for the root filesystem.
+2. `/disk/partitions`: Provides information about mounted disk partitions.
+3. `/disk/io`: Displays disk I/O statistics.
+
+Add this **code** to `main.py`:
 
 ```python
 @app.get("/disk")
 def get_disk_usage():
-    disk = psutil.disk_usage(ROOT)
+    """Returns disk usage metrics for the root filesystem."""
+    disk = psutil.disk_usage("/")
     return {
         "total": disk.total,
         "used": disk.used,
@@ -198,9 +285,9 @@ def get_disk_usage():
         "percent": disk.percent,
     }
 
-
 @app.get("/disk/partitions")
 def get_disk_partitions():
+    """Returns information about mounted disk partitions."""
     return {
         "partitions": [
             {
@@ -213,201 +300,151 @@ def get_disk_partitions():
         ]
     }
 
-
 @app.get("/disk/io")
 def get_disk_io():
-    io = psutil.disk_io_counters()
-    if io is None:  # diskless machines and some containers
-        return {}
+    """Returns disk I/O statistics."""
+    io_stats = psutil.disk_io_counters()
     return {
-        "read_count": io.read_count,
-        "write_count": io.write_count,
-        "read_bytes": io.read_bytes,
-        "write_bytes": io.write_bytes,
-        "read_time": io.read_time,
-        "write_time": io.write_time,
+        "read_count": io_stats.read_count,
+        "write_count": io_stats.write_count,
+        "read_bytes": io_stats.read_bytes,
+        "write_bytes": io_stats.write_bytes,
+        "read_time": io_stats.read_time,
+        "write_time": io_stats.write_time,
     }
 ```
 
-The `ROOT` constant at the top exists because of macOS. Since macOS Catalina, `/` is a read-only system volume (cryptographically sealed since Big Sur), and your files live on `/System/Volumes/Data`. Both share one APFS container, so `total` is the same but `used` is not. On my Mac, `psutil.disk_usage("/")` said **32.3%** and `/System/Volumes/Data` said **92.1%**, which matches what `df -h` reports for each. If you monitor `/` on a Mac you'll never see the disk filling up.
+On a Mac, `/` is a read-only system volume and your files live on `/System/Volumes/Data`, so pass that path to `disk_usage()` instead. On my Mac, `/` showed 50% used while the data volume was at 96%. On Windows, use `"C:\\"`. The `/disk/io` counters are totals since boot, with times in milliseconds; fetch twice and divide the difference by the seconds in between to get a rate.
+
+The **responses** from each endpoint will look like this:
+
+- `/disk`:
 
 ```json
-{"total": 494384795648, "used": 405570715648, "free": 34875441152, "percent": 92.1}
-```
-
-`percent` matches `df`, so on Linux it can look about 5% higher than `used / total`, because ext4 reserves space for root. On Linux the code checks `/`; change `ROOT` if your data sits on another mount.
-
-`/disk/partitions` lists mounted filesystems, not raw partitions. On macOS that's about ten APFS volumes. Here are the first two, trimmed:
-
-```json
-{"partitions": [
-  {"device": "/dev/disk3s1s1", "mountpoint": "/", "fstype": "apfs", "opts": "ro,local,rootfs,dovolfs,journaled,multilabel"},
-  {"device": "/dev/disk3s6", "mountpoint": "/System/Volumes/VM", "fstype": "apfs", "opts": "rw,noexec,local,dovolfs,dontbrowse,journaled,multilabel,noatime"}
-]}
-```
-
-`/disk/io` returns counters since boot, with `read_time` and `write_time` in milliseconds:
-
-```json
-{"read_count": 244152370, "write_count": 101445034, "read_bytes": 4924097228800, "write_bytes": 2702919000064, "read_time": 152689373, "write_time": 7055048}
-```
-
-To get a rate, fetch it twice and divide the difference by the seconds between the calls. `disk_io_counters()` returns `None` on a machine with no disks, hence the guard, and on Windows the psutil docs say you may need to run `diskperf -y` once before it sees any disks.
-
-### A one-call summary and a live page
-
-```python
-@app.get("/stats")
-async def get_stats():
-    # Nothing here blocks, so it can run on the event loop. interval=None
-    # returns CPU usage since the previous call in the same thread.
-    return {
-        "cpu_percent": psutil.cpu_percent(interval=None),
-        "memory_percent": psutil.virtual_memory().percent,
-        "swap_percent": psutil.swap_memory().percent,
-        "disk_percent": psutil.disk_usage(ROOT).percent,
-        "load_avg": [round(x, 2) for x in psutil.getloadavg()],
-        "uptime_s": int(time.time() - psutil.boot_time()),
-    }
-
-
-PAGE = """<!doctype html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>System monitor</title>
-<body style="font-family: system-ui; max-width: 420px; margin: 2rem auto; padding: 0 1rem">
-<h1>System monitor</h1>
-<pre id="out">loading...</pre>
-<script>
-async function tick() {
-  const r = await fetch("/stats");
-  document.getElementById("out").textContent = JSON.stringify(await r.json(), null, 2);
+{
+  "total": 500107862016,
+  "used": 237081992192,
+  "free": 263025547776,
+  "percent": 47.5
 }
-tick();
-setInterval(tick, 2000);
-</script>
-"""
-
-
-@app.get("/", response_class=HTMLResponse)
-def dashboard():
-    return PAGE
 ```
 
-`/stats` is the one route that is `async def`, and on purpose. With `interval=None`, `cpu_percent()` doesn't block; it returns usage since the previous call. psutil keeps that "previous call" per thread, though. When I first wrote `/stats` as a plain `def`, it returned `"cpu_percent": 0.0` on the first request, because it ran on a fresh thread-pool thread with no baseline. As `async def` it runs on the main thread, where the baseline call at import time already happened, and the first request returns a real number:
+{{< image "system_monitoring_fastapi/disk1.webp" "FastAPI application to monitor Disk metrics" >}}
+
+- `/disk/partitions`:
 
 ```json
-{"cpu_percent": 45.6, "memory_percent": 82.1, "swap_percent": 92.0, "disk_percent": 92.1, "load_avg": [10.84, 8.63, 8.49], "uptime_s": 1038549}
+{
+  "partitions": [
+    {
+      "device": "/dev/sda1",
+      "mountpoint": "/",
+      "fstype": "ext4",
+      "opts": "rw,relatime"
+    }
+  ]
+}
 ```
 
-`load_avg` is the 1, 5 and 15 minute load average. Read it relative to the core count: 10.8 on an 11-core machine is close to fully busy. On Windows psutil emulates it, and the first 5 seconds of calls return `[0.0, 0.0, 0.0]`.
+{{< image "system_monitoring_fastapi/disk2.webp" "FastAPI application to monitor Disk metrics" >}}
 
-The page at `/` is deliberately plain: a `<pre>` block that fetches `/stats` every 2 seconds. Because it uses a relative URL, it works the same on localhost and behind the tunnel.
+- `/disk/io`:
 
-## Run it locally
+```json
+{
+  "read_count": 1000000,
+  "write_count": 500000,
+  "read_bytes": 1048576000,
+  "write_bytes": 524288000,
+  "read_time": 5000,
+  "write_time": 2000
+}
+```
+
+{{< image "system_monitoring_fastapi/disk3.webp" "FastAPI application to monitor Disk metrics" >}}
+
+## Run the FastAPI Application locally
+
+With all the routes in `main.py`, start the app in development mode:
+
+```bash
+fastapi dev main.py
+```
+
+`fastapi dev` binds to `127.0.0.1:8000` and reloads whenever you save the file.
+
+{{< image "host_fastapi_app/fastapi_dev_app.webp" "Run fastapi dev command" >}}
+
+For a machine you leave running, use production mode instead, which skips the file watcher:
 
 ```bash
 fastapi run main.py --host 127.0.0.1
 ```
 
+Keep `--host 127.0.0.1`: `fastapi run` binds to `0.0.0.0` by default, which would put your metrics on the local network for anyone who knows the port. Both commands start Uvicorn under the hood, so `uvicorn main:app --host 127.0.0.1 --port 8000` works too.
+
+## Check the output
+
+To view the results, open your browser and go to:
+
+`http://127.0.0.1:8000/<required-endpoint>`
+
+Replace `<required-endpoint>` with the route you want, such as `/cpu`, `/memory` or `/disk`, and you'll see the current numbers as JSON. FastAPI also generates interactive API docs at `http://127.0.0.1:8000/docs`, where you can call every route from the browser.
+
+## Remotely Access Your FastAPI App Using Pinggy
+[Pinggy](https://pinggy.io) makes your local FastAPI app reachable from the internet, even if your machine is behind NAT or CGNAT.
+The SSH client opens an outbound connection on port 443, and Pinggy sends requests for your public URL back down it, so your router needs no open port.
+
+Leave the app running and run this in a second terminal:
+
+```bash
+ssh -p 443 -R0:localhost:8000 free.pinggy.io -T
 ```
- ⚡️ Starting FastAPI in production mode
 
- 🐍 Using import string: main:app
+Note: Replace the port 8000 in the command with the port where your FastAPI app is running.
 
- 🌐 Server started at http://127.0.0.1:8000
-    Documentation at http://127.0.0.1:8000/docs
-```
-
-I use `fastapi run` here rather than `fastapi dev`. `dev` turns on auto-reload, which is handy while editing and wasteful for something you leave running. `--host 127.0.0.1` matters because `fastapi run` binds to `0.0.0.0` by default, which would put your metrics on the local network for anyone who knows the port. `fastapi dev` already defaults to `127.0.0.1`. Both use port 8000.
-
-Open `http://127.0.0.1:8000/stats` to check the JSON, or `http://127.0.0.1:8000/docs` for the interactive API docs FastAPI generates from the routes:
-
-{{< image "system_monitoring_fastapi/fastapi_monitor_swagger_docs.webp" "FastAPI Swagger UI at /docs listing the System monitor routes: /cpu, /cpu/cores, /cpu/frequency, /memory, /memory/swap, /disk, /disk/partitions, /disk/io, /stats and /" >}}
-*Screenshot: the app's own /docs page, November 2026.*
-
-## Put it online with Pinggy
-
-Leave the app running and open a second terminal. This command opens the tunnel and puts HTTP basic auth in front of it. Pick your own username and password instead of `monitor` and `change-me`:
+A monitoring endpoint shouldn't be open to anyone who finds the URL, since it shows your load, disks and mount options. Add HTTP basic auth by putting a Pinggy option after `--`, with your own username and password in place of `monitor` and `change-me`:
 
 ```bash
 ssh -p 443 -R0:localhost:8000 free.pinggy.io -T -- b:monitor:change-me
 ```
 
-`-R0:localhost:8000` asks Pinggy to forward traffic to your local port 8000, `-T` skips the interactive terminal, and everything after `--` is a Pinggy option; `b:user:pass` turns on basic auth. Here's what it printed for me (I replaced my public IP in the hostnames with a documentation address):
-
-```
-Allocated port 7 for remote forward to localhost:8000
-You are not authenticated.
-Your tunnel will expire in 60 minutes. Upgrade to Pinggy Pro to get unrestricted tunnels. https://dashboard.pinggy.io
-https://wcmqq-203-0-113-7.free.pinggy.net
-https://wzmvb-203-0-113-7.run.pinggy-free.link
-```
-
-"You are not authenticated" means no Pinggy account token was used, which is fine for the free tier. It has nothing to do with the basic auth you just set. Either URL works.
-
-Check the password from any machine:
-
-```bash
-curl -s -o /dev/null -w "%{http_code}\n" https://wzmvb-203-0-113-7.run.pinggy-free.link/stats
-# 401
-
-curl -u monitor:change-me https://wzmvb-203-0-113-7.run.pinggy-free.link/stats
-# {"cpu_percent":54.2,"memory_percent":82.4,"swap_percent":91.9,"disk_percent":92.1,...}
-```
-
-Without credentials you get a `401` from Pinggy and the request never reaches your app. With them, you get the same JSON as on localhost. **Don't skip the password**: anyone who finds the URL could otherwise read your disk layout, mount options and load. psutil doesn't expose secrets, but there's no reason to hand that out.
-
-To change the port or add options without editing the command by hand, use the builder:
+The builder below generates the same command if you want to change the port or credentials:
 
 {{< pinggytunnel box="true" tunnelstring="Paste this command to start a tunnel to FastAPI:" portstring="FastAPI Port" localport="8000" webdebugenabled=false keepalive=true passwordCheck=true basicusername="monitor" basicpass="change-me" >}}
 {{< /pinggytunnel >}}
 
-### Open it on your phone
+Pinggy prints two public HTTPS URLs. Either one works:
 
-Open the URL in your phone's browser and enter the username and password when it asks. On a free tunnel, browsers see a one-time Pinggy page that starts with "Caution - you are about to visit a website that is served for free through pinggy.io". Tap **Enter site** and that browser won't see it again. The page is only for browsers, so `curl`, scripts and other API clients never recieve it. A client can also skip it by sending an `X-Pinggy-No-Screen` header, and Pro tunnels don't show it at all.
-
-After that, `/` shows the live summary and refreshes every 2 seconds. Here it is on an iPhone-sized screen through the tunnel:
-
-{{< image "system_monitoring_fastapi/fastapi_monitor_phone_dashboard.webp" "The System monitor page open through a Pinggy URL on a phone-sized screen, showing cpu_percent 55.2, memory_percent 82.5, swap_percent 92.6, disk_percent 92.1, the load average and uptime" >}}
-
-## Keeping it up for more than an hour
-
-A free tunnel closes after 60 minutes, and every new one gets a new random URL. For a quick check that's fine. For a machine you want to look at any time, you have two options.
-
-A reconnect loop brings the tunnel back on its own, but the URL still changes each time, so you'd have to read it from the terminal:
-
-```bash
-while true; do
-  ssh -p 443 -o ServerAliveInterval=60 -R0:localhost:8000 free.pinggy.io -T -- b:monitor:change-me
-  sleep 5
-done
+```
+You are not authenticated.
+Your tunnel will expire in 60 minutes. Upgrade to Pinggy Pro to get unrestricted tunnels. https://dashboard.pinggy.io
+https://fmrge-203-0-113-7.free.pinggy.net
+https://gjsre-203-0-113-7.run.pinggy-free.link
 ```
 
-`ServerAliveInterval=60` sends a keepalive every minute, so a quiet connection isn't dropped by a NAT box in between. For a stable address, use a Pinggy Pro token: tunnels have no time limit, and a subdomain you assign to the token in the [Pinggy dashboard](https://dashboard.pinggy.io) comes back on every start:
+"You are not authenticated" only means no Pinggy account token was used, which is fine on the free tier. Add the endpoint to the end of the URL to get its output. For CPU usage, that's:
 
-```bash
-ssh -p 443 -R0:localhost:8000 -T <your-token>@pro.pinggy.io -- b:monitor:change-me
-```
+`https://gjsre-203-0-113-7.run.pinggy-free.link/cpu`
 
-Run the app and the tunnel under something that survives a logout, such as a `tmux` session or a systemd service, if the machine is headless.
+{{< image "system_monitoring_fastapi/pinggy_command_img.webp" "Pinggy command" >}}
 
-## Where this approach stops
+Leave out `-T` and Pinggy shows a live request log in the terminal, like the one above. When I tested the password, a request without credentials got a `401` from Pinggy and never reached the app, and `curl -u monitor:change-me <url>/cpu` returned the JSON.
 
-This is a "how's the box doing right now" tool. It keeps no history, sends no alerts and watches one machine. If you need graphs over time or alerts when the disk passes 90%, use something built for it: {{< link href="https://github.com/prometheus/node_exporter" >}}Prometheus node_exporter{{< /link >}} exposes the same kind of numbers on port 9100 for Prometheus to scrape, and {{< link href="https://github.com/nicolargo/glances" >}}Glances{{< /link >}} (`glances -w`) gives you a ready-made web UI on port 61208. Both sit behind a Pinggy tunnel the same way this app does. For checking that a site is up from the outside, see [how to monitor uptime for free](/blog/how_to_monitor_uptime_for_free/).
+Paste the URL into your browser and enter the username and password. On a free tunnel, browsers first see a one-time Pinggy notice page; click **Enter site** and you won't see it again. Scripts and `curl` never recieve that page.
 
-Two more limits. Inside a Docker container, psutil reads the kernel's numbers, so memory and CPU reflect the host (or the Docker Desktop VM), not the container's limits: my container reported 14.9 GB of RAM because that's what the VM had. And `cpu_percent(interval=1)` really does cost a second per request, so don't point a 1-second poller at `/cpu`; use `/stats`.
+Output would look like:
 
-## Troubleshooting
+{{< image "system_monitoring_fastapi/pinggy_output.webp" "Output through Pinggy" >}}
 
-- **`cpu_percent` is `0.0`.** It was called with `interval=None` and no earlier call in that thread. Keep `/stats` as `async def`, or use `interval=1` in a `def` route.
-- **`/cpu/frequency` returns nulls.** psutil can't read the frequency on that platform, usually a VM or container. Expected, not a bug.
-- **The browser keeps asking for a password.** Check the username and password match what you put after `b:`. Test with `curl -u user:pass <url>/stats`; a `401` means the credentials are wrong.
-- **The browser shows a Pinggy "Caution" page.** That's the free-tier page described above. Tap **Enter site** once.
-- **SSH prints a post-quantum key exchange warning.** Recent OpenSSH clients print `WARNING: connection is not using a post-quantum key exchange algorithm` when the server doesn't offer one. It's a warning, not an error: I saw it with OpenSSH 10.3p1 and the tunnel worked normally.
-- **The URL stopped working after an hour.** The free tunnel expired. Run the command again for a new URL, or use the loop or a Pro token above.
+## Benefits of Using Pinggy to Expose Your FastAPI Application
+
+1. **One command**: No cloud VM, no deployment and no router changes. The app stays on your machine.
+2. **Works behind NAT and CGNAT**: The tunnel is an outbound SSH connection on port 443, which most networks allow.
+3. **HTTPS by default**: The public URL uses TLS, so the metrics and your basic auth password are encrypted in transit.
+4. **Access control at the edge**: Basic auth (`b:user:pass`), bearer keys and IP allow lists stop requests before they reach FastAPI.
+5. **Free tier limits**: A free tunnel closes after 60 minutes and gets a new random URL each time. For a machine you check every day, a Pro token removes the time limit and keeps a fixed subdomain.
 
 ## Conclusion
 
-The whole setup is one Python file and one SSH command. psutil reads the numbers, FastAPI turns them into routes, and Pinggy gets them out from behind NAT with a password in front. Most of the work is in the details: plain `def` for anything that blocks, the right disk path on macOS, and a guard for values psutil can't read on every platform.
-
-To try it, run `fastapi run main.py --host 127.0.0.1`, start the tunnel with your own `b:user:pass`, and open `/stats` from your phone. If you want to deploy a FastAPI app rather than monitor a machine, see [how to host a FastAPI app without a server](/blog/host_a_fastapi_app_without_a_server/).
+psutil reads the numbers, a few plain `def` routes in FastAPI turn them into JSON, and one SSH command to [Pinggy](https://pinggy.io) puts them on a password-protected HTTPS URL. That's enough to check CPU, memory and disk on a machine behind NAT or CGNAT from your phone, without opening a port.

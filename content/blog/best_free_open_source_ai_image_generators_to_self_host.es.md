@@ -1,24 +1,26 @@
 ---
 title: "Los mejores modelos de IA de pesos abiertos para generar imágenes en local en 2026"
 slug: "mejores-generadores-de-imagenes-ia-de-codigo-abierto"
-description: "Clasificación de modelos de imagen de pesos abiertos en noviembre de 2026: MiniMax H3-Image, FLUX 3 Image Klein y Fibo 2.0. Compara sus licencias, descargas y requisitos de GPU."
+description: "Clasificación de modelos de imagen de pesos abiertos: MiniMax H3-Image, FLUX 3 Image Klein y Fibo 2.0. Compara sus licencias, descargas y requisitos de GPU."
 date: 2025-08-28T14:15:25+05:30
-lastmod: 2026-11-20T18:30:00+05:30
+lastmod: 2026-11-25T18:30:00+05:30
 draft: false
 # Las etiquetas se mantienen en inglés (el sitio en español tiene las taxonomías
 # desactivadas), así que el eyebrow se fija a mano para que no salga en inglés.
 eyebrow: "Generación de imágenes con IA"
 tags: ["AI Image Generation", "self-hosted", "open source", "Machine Learning"]
-og_image: "images/best_free_open_source_ai_image_generators/ai_image_arena_elo_nov2026.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJUZWNoQXJ0aWNsZSIsCiAgImhlYWRsaW5lIjogIkxvcyBtZWpvcmVzIG1vZGVsb3MgZGUgSUEgZGUgcGVzb3MgYWJpZXJ0b3MgcGFyYSBnZW5lcmFyIGltw6FnZW5lcyBlbiBsb2NhbCBlbiAyMDI2IiwKICAiZGVzY3JpcHRpb24iOiAiQ2xhc2lmaWNhY2nDs24gZGUgbW9kZWxvcyBkZSBpbWFnZW4gZGUgcGVzb3MgYWJpZXJ0b3MgZW4gbm92aWVtYnJlIGRlIDIwMjY6IE1pbmlNYXggSDMtSW1hZ2UsIEZMVVggMyBJbWFnZSBLbGVpbiB5IEZpYm8gMi4wLiBDb21wYXJhIHN1cyBsaWNlbmNpYXMsIGRlc2NhcmdhcyB5IHJlcXVpc2l0b3MgZGUgR1BVLiIsCiAgImRhdGVQdWJsaXNoZWQiOiAiMjAyNS0wOC0yOFQxNDoxNToyNSswNTozMCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTExLTIwVDE4OjMwOjAwKzA1OjMwIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2Jlc3RfZnJlZV9vcGVuX3NvdXJjZV9haV9pbWFnZV9nZW5lcmF0b3JzL2FpX2ltYWdlX2FyZW5hX2Vsb19ub3YyMDI2LndlYnAiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNub2xvZ8OtYSIsCiAgICAiSGVycmFtaWVudGFzIGRlIElBIiwKICAgICJBdXRvYWxvamFtaWVudG8iCiAgXSwKICAia2V5d29yZHMiOiBbCiAgICAiZ2VuZXJhY2nDs24gZGUgaW3DoWdlbmVzIGNvbiBJQSIsCiAgICAibW9kZWxvcyBkZSBwZXNvcyBhYmllcnRvcyIsCiAgICAiYXV0b2Fsb2phbWllbnRvIiwKICAgICJNaW5pTWF4IEgzLUltYWdlIiwKICAgICJGTFVYIDMgSW1hZ2UgS2xlaW4iLAogICAgIkZpYm8gMi4wIgogIF0sCiAgImluTGFuZ3VhZ2UiOiAiZXMiCn0KPC9zY3JpcHQ+"
+og_image: "images/best_free_open_source_ai_image_generators/ai_image_generators.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJUZWNoQXJ0aWNsZSIsCiAgImhlYWRsaW5lIjogIkxvcyBtZWpvcmVzIG1vZGVsb3MgZGUgSUEgZGUgcGVzb3MgYWJpZXJ0b3MgcGFyYSBnZW5lcmFyIGltw6FnZW5lcyBlbiBsb2NhbCBlbiAyMDI2IiwKICAiZGVzY3JpcHRpb24iOiAiQ2xhc2lmaWNhY2nDs24gZGUgbW9kZWxvcyBkZSBpbWFnZW4gZGUgcGVzb3MgYWJpZXJ0b3M6IE1pbmlNYXggSDMtSW1hZ2UsIEZMVVggMyBJbWFnZSBLbGVpbiB5IEZpYm8gMi4wLiBDb21wYXJhIHN1cyBsaWNlbmNpYXMsIGRlc2NhcmdhcyB5IHJlcXVpc2l0b3MgZGUgR1BVLiIsCiAgImRhdGVQdWJsaXNoZWQiOiAiMjAyNS0wOC0yOFQxNDoxNToyNSswNTozMCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTExLTI1VDE4OjMwOjAwKzA1OjMwIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2Jlc3RfZnJlZV9vcGVuX3NvdXJjZV9haV9pbWFnZV9nZW5lcmF0b3JzL2FpX2ltYWdlX2dlbmVyYXRvcnMud2VicCIsCiAgImFydGljbGVTZWN0aW9uIjogWwogICAgIlRlY25vbG9nw61hIiwKICAgICJIZXJyYW1pZW50YXMgZGUgSUEiLAogICAgIkF1dG9hbG9qYW1pZW50byIKICBdLAogICJrZXl3b3JkcyI6IFsKICAgICJnZW5lcmFjacOzbiBkZSBpbcOhZ2VuZXMgY29uIElBIiwKICAgICJtb2RlbG9zIGRlIHBlc29zIGFiaWVydG9zIiwKICAgICJhdXRvYWxvamFtaWVudG8iLAogICAgIk1pbmlNYXggSDMtSW1hZ2UiLAogICAgIkZMVVggMyBJbWFnZSBLbGVpbiIsCiAgICAiRmlibyAyLjAiCiAgXSwKICAiaW5MYW5ndWFnZSI6ICJlcyIKfQo8L3NjcmlwdD4="
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "best_free_open_source_ai_image_generators/ai_image_arena_elo_nov2026_es.webp" "Puntuaciones Elo e intervalos del 95 %. H3-Image encabeza la tabla con 1066 puntos, seguido de Qwen-Image-2.1 y FLUX 3 Image Klein." >}}
+{{< image "best_free_open_source_ai_image_generators/ai_image_generators.webp" "Banner con el texto Open-Source Image Models You Can Self-Host sobre un collage de imágenes de muestra generadas con IA" >}}
 
-MiniMax H3-Image encabeza la clasificación de modelos de pesos abiertos de Artificial Analysis. Antes de descargarlo, haz cuentas: el modelo de imagen y su codificador de texto suman unos **135 GB en disco**, incluso sin el expansor de instrucciones opcional. Para una GeForce de **8 GB de VRAM**, FLUX 3 Image Klein tiene una configuración INT8 documentada.
+La generación de imágenes con IA ya no depende solo de APIs alojadas. Los modelos de pesos abiertos ya igualan a los servicios alojados en fotorrealismo y en seguir instrucciones, y autoalojarlos es una opción práctica y no un experimento de fin de semana: sin límites de uso y con costes previsibles. Si prefieres no gestionar GPU, un <a href="https://higgsfield.ai/ai-image" target="_blank">generador de imágenes alojado</a> como Higgsfield, una suite creativa completa, te da comodidad, no un modelo de mejor calidad.
+
+**H3-Image** de MiniMax encabeza la clasificación de pesos abiertos de la <a href="https://artificialanalysis.ai/image/leaderboard/text-to-image/open-weights" target="_blank">Text-to-Image Arena de Artificial Analysis</a> con 1066 puntos Elo, por delante de **Qwen-Image-2.1** (1048) y **FLUX 3 Image Klein** (1041). Encabezar la tabla no lo convierte en la opción mas fácil: el flujo de referencia de H3-Image ocupa unos 135 GB, mientras que Klein tiene una configuración INT8 que cabe en una GeForce de 8 GB. Lo que mas pesa son las licencias: muchos de los modelos «abiertos» más fuertes se publican con licencias no comerciales, con límites de ingresos o restringidas por región. Esta guía repasa los modelos que vale la pena autoalojar, lo que permite de verdad cada licencia y cómo ejecutarlos.
 
 {{% tldr %}}
 
@@ -31,7 +33,9 @@ MiniMax H3-Image encabeza la clasificación de modelos de pesos abiertos de Arti
 
 ## Qué mide la clasificación
 
-Artificial Analysis presenta imágenes generadas a partir de una instrucción de texto y recoge preferencias humanas en comparaciones a ciegas. Estas son las ocho primeras entradas de **AA-Image-T2I v2.1** en la consulta del 21 de noviembre de 2026, cuando H3-Image tenía 3344 muestras. Las puntuaciones cambian al llegar nuevos votos. FLUX.2 [dev] sirve de referencia fija en 1000 puntos. <a href="https://artificialanalysis.ai/image/leaderboard/text-to-image/open-weights" target="_blank">Clasificación de Artificial Analysis</a>.
+Artificial Analysis presenta imágenes generadas a partir de una instrucción de texto y recoge preferencias humanas en comparaciones a ciegas. Estas son las ocho primeras entradas de **AA-Image-T2I v2.1**; la puntuación de H3-Image se basa en 3344 muestras. Las puntuaciones cambian al llegar nuevos votos. FLUX.2 [dev] sirve de referencia fija en 1000 puntos. <a href="https://artificialanalysis.ai/image/leaderboard/text-to-image/open-weights" target="_blank">Clasificación de Artificial Analysis</a>.
+
+{{< image "best_free_open_source_ai_image_generators/ai_image_arena_elo_nov2026_es.webp" "Puntuaciones Elo e intervalos del 95 %. H3-Image encabeza la tabla con 1066 puntos, seguido de Qwen-Image-2.1 y FLUX 3 Image Klein." >}}
 
 | Puesto | Configuración evaluada | Elo | Licencia de los pesos o vía de acceso |
 | ---: | --- | ---: | --- |

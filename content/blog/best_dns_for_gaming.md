@@ -1,12 +1,12 @@
 ---
 title: "Best DNS for Gaming in 2026"
-description: "Compare public DNS resolvers for gaming, time real launcher lookups, and choose a working replacement for Mullvad, Surfshark, or Quad9 in France."
+description: "Compare public DNS resolvers for gaming, test them with ping and real launcher lookups, and set DNS on Windows, macOS, Linux, routers, and consoles."
 date: 2024-11-21T14:15:25+05:30
-lastmod: 2026-11-20T23:20:00+05:30
+lastmod: 2026-11-25T23:20:00+05:30
 draft: false
 og_image: "images/best_dns_for_gaming/dns_for_gaming.webp"
 tags: ["gaming", "DNS", "networking", "guide"]
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkJlc3QgRE5TIGZvciBHYW1pbmcgaW4gMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogIkNvbXBhcmUgcHVibGljIEROUyByZXNvbHZlcnMgZm9yIGdhbWluZywgdGltZSByZWFsIGxhdW5jaGVyIGxvb2t1cHMsIGFuZCBjaG9vc2UgYSB3b3JraW5nIHJlcGxhY2VtZW50IGZvciBNdWxsdmFkLCBTdXJmc2hhcmssIG9yIFF1YWQ5IGluIEZyYW5jZS4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvYmVzdF9kbnNfZm9yX2dhbWluZy9kbnNfZm9yX2dhbWluZy53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNob29zZSB0d28gcmVzb2x2ZXJzIGF2YWlsYWJsZSBpbiB5b3VyIHJlZ2lvbiB3aXRoIHRoZSBmaWx0ZXJpbmcgeW91IHdhbnQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNvbXBhcmUgRE5TIHF1ZXJ5IHRpbWVzIGFuZCB0aW1lb3V0cyBmb3IgdGhlIHNhbWUgbGF1bmNoZXIgaG9zdG5hbWVzIGZyb20geW91ciB1c3VhbCBjb25uZWN0aW9uLiBJbmNsdWRlIHlvdXIgY3VycmVudCBETlMgYXMgYSBiYXNlbGluZS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRW50ZXIgdGhlIHByZWZlcnJlZCBhbmQgYWx0ZXJuYXRlIGFkZHJlc3NlcyBpbiB5b3VyIGRldmljZSBvciByb3V0ZXIgRE5TIHNldHRpbmdzLCBzYXZlLCB0aGVuIHRlc3QgYSBsYXVuY2hlciBsb2dpbiBhbmQgYSBwYXRjaCBkb3dubG9hZC4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkJlc3QgRE5TIGZvciBHYW1pbmcgaW4gMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogIkNvbXBhcmUgcHVibGljIEROUyByZXNvbHZlcnMgZm9yIGdhbWluZywgdGVzdCB0aGVtIHdpdGggcGluZyBhbmQgcmVhbCBsYXVuY2hlciBsb29rdXBzLCBhbmQgc2V0IEROUyBvbiBXaW5kb3dzLCBtYWNPUywgTGludXgsIHJvdXRlcnMsIGFuZCBjb25zb2xlcy4iLAogICJpbWFnZSI6ICJodHRwczovL3BpbmdneS5pby9pbWFnZXMvYmVzdF9kbnNfZm9yX2dhbWluZy9kbnNfZm9yX2dhbWluZy53ZWJwIiwKICAic3RlcCI6IFsKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNob29zZSB0d28gcmVzb2x2ZXJzIGF2YWlsYWJsZSBpbiB5b3VyIHJlZ2lvbiB3aXRoIHRoZSBmaWx0ZXJpbmcgeW91IHdhbnQuIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIkNvbXBhcmUgRE5TIHF1ZXJ5IHRpbWVzIGFuZCB0aW1lb3V0cyBmb3IgdGhlIHNhbWUgbGF1bmNoZXIgaG9zdG5hbWVzIGZyb20geW91ciB1c3VhbCBjb25uZWN0aW9uLiBJbmNsdWRlIHlvdXIgY3VycmVudCBETlMgYXMgYSBiYXNlbGluZS4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiRW50ZXIgdGhlIHByZWZlcnJlZCBhbmQgYWx0ZXJuYXRlIGFkZHJlc3NlcyBpbiB5b3VyIGRldmljZSBvciByb3V0ZXIgRE5TIHNldHRpbmdzLCBzYXZlLCB0aGVuIHRlc3QgYSBsYXVuY2hlciBsb2dpbiBhbmQgYSBwYXRjaCBkb3dubG9hZC4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
 outputs:
   - HTML
   - AMP
@@ -14,11 +14,6 @@ outputs:
 {{< image "best_dns_for_gaming/dns_for_gaming.webp" "A game controller and Ethernet cable beside the title Best DNS for Gaming in 2026" >}}
 
 If your game takes a long time to sign in or find a patch server, try timing a DNS lookup. A different resolver can return the launcher's address faster or point it to a closer download mirror. Once you're in a match, your client already has the server's IP address. Changing DNS won't shorten that trip.
-
-Two November deadlines matter if you set DNS manually:
-
-- **Surfshark or Quad9.** If your router or console uses Surfshark's `194.169.169.169`, replace it before November 24, 2026, when <a href="https://support.surfshark.com/hc/en-us/articles/26246613550610-What-is-Surfshark-public-DNS" target="_blank">Surfshark starts retiring its public DNS</a>. The same deadline applies to Quad9 users connecting from France, where <a href="https://quad9.net/news/blog/au-revoir-france/" target="_blank">Quad9 plans to withdraw service</a>. For an unfiltered replacement, enter `1.1.1.1` and `1.0.0.1`. For malware filtering in France, DNS4EU offers `86.54.11.1` and `86.54.11.201`.
-- **Mullvad public DNS.** November 2, 2026 was <a href="https://mullvad.net/en/blog/shutting-down-our-public-encrypted-dns-servers-and-sponsoring-quad9-instead" target="_blank">Mullvad's deadline for switching manually configured devices</a>. If your browser still points to `dns.mullvad.net`, replace its DNS over HTTPS URL. Cloudflare's unfiltered endpoint is `https://cloudflare-dns.com/dns-query`. On a Mac with a Mullvad DNS profile, replace the profile. Mullvad VPN has its own DNS inside the tunnel.
 
 ### Comparison Table for Best DNS for Gaming
 <table style="width:100%;border-collapse:collapse;">
@@ -53,7 +48,7 @@ Two November deadlines matter if you set DNS manually:
 <tr style="background:#f9fbfd;">
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://quad9.net/" target="_blank">Quad9</a></strong></td>
   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">9.9.9.9<br>149.112.112.112</td>
-   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Blocks known malicious domains. French service is scheduled to end November 24, 2026.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">Blocks known malicious domains. Quad9 is withdrawing its service from France.</td>
 </tr>
 <tr>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://dns.watch/" target="_blank">DNS.Watch</a></strong></td>
@@ -78,7 +73,7 @@ Two November deadlines matter if you set DNS manually:
 <tr>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;"><strong><a href="https://joindns4.eu/for-public" target="_blank">DNS4EU</a></strong></td>
    <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">86.54.11.100 / 86.54.11.200 (unfiltered)<br>86.54.11.1 / 86.54.11.201 (protective)</td>
-   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">EU-funded public resolver launched June 2025; five filter variants, GDPR-aligned.</td>
+   <td style="border:1px solid #ddd;padding:0.4em 0.4em;text-align:left;">EU-funded public resolver; five filter variants, GDPR-aligned.</td>
 </tr>
 </tbody>
 </table>
@@ -89,7 +84,7 @@ Two November deadlines matter if you set DNS manually:
 1. **DNS does not lower in-game ping**:
    - Once you're in a match, traffic goes to the game server's IP directly. DNS is not in the loop.
    - DNS affects launcher startup, login, matchmaking, voice, and patch CDN lookups - so a faster resolver makes those feel more consistent.
-2. **Resolvers worth testing in 2026**:
+2. **Resolvers worth testing**:
    - <a href="https://1.1.1.1/" target="_blank">Cloudflare (1.1.1.1)</a>, plus 1.1.1.2 (malware) and 1.1.1.3 (malware + adult)
    - <a href="https://developers.google.com/speed/public-dns" target="_blank">Google Public DNS (8.8.8.8)</a>
    - <a href="https://www.opendns.com/" target="_blank">OpenDNS (208.67.222.222)</a> - unavailable in France and certain French territories
@@ -121,8 +116,33 @@ A few things matter more than the rest.
 Latency is the round-trip time for a query and response. The cheapest win is picking a resolver with a point-of-presence near you. A resolver that's great in Frankfurt may be mediocre from Mumbai.
 
 - **What it actually helps**: faster service handshakes during login, matchmaking, and patch starts.
+- **Tools to use**: `ping` for a quick check; {{< link href="https://www.grc.com/dns/benchmark.htm" >}}GRC DNS Benchmark{{< /link >}} on Windows (still actively maintained), {{< link href="https://github.com/mrwiora/NAMEinator" >}}NAMEinator{{< /link >}} (the maintained namebench successor), or `dnsperf` on Linux. Google's original Namebench is long abandoned - skip it.
 
-On macOS or Linux with `dig` installed, run these from the connection you play on. The first command uses the default DNS server seen by `dig`. A browser using its own encrypted DNS or a device with split DNS can use a different resolver. The other two send the same question directly to Cloudflare and Google.
+##### Steps to Test Latency Using `ping`:
+
+1. Open your terminal or command prompt.
+2. Type and press Enter.
+   ````plaintext
+   ping 8.8.8.8
+   ````
+3. Observe the output for the time taken (`time=XX ms`) to measure the round-trip latency.
+
+##### **Example Output:**
+{{< image "best_dns_for_gaming/ping_result.webp" "ICMP round-trip times to 8.8.8.8" >}}
+
+The `time=XX ms` values indicate the latency. Lower values mean better latency. Keep in mind this is the network round trip to the resolver's IP address, not the time it takes to answer a DNS query. An ICMP echo reply can come back even when DNS queries fail.
+
+###### Comparing Multiple DNS Servers
+
+Repeat the `ping` test with other DNS servers like Cloudflare's `1.1.1.1`:
+
+```plaintext
+ping 1.1.1.1
+```
+
+###### Timing a Real DNS Lookup
+
+`ping` is good for a shortlist. To time the lookup itself on macOS or Linux with `dig` installed, run these from the connection you play on. The first command uses the default DNS server seen by `dig`. A browser using its own encrypted DNS or a device with split DNS can use a different resolver. The other two send the same question directly to Cloudflare and Google.
 
 ```sh
 dig store.steampowered.com A +stats
@@ -130,10 +150,10 @@ dig @1.1.1.1 store.steampowered.com A +stats
 dig @8.8.8.8 store.steampowered.com A +stats
 ```
 
-Look for `status: NOERROR`, an answer, and the `Query time` in milliseconds. Repeat with a few hostnames your launcher uses. Repeated queries often hit a cache, so keep the first result separate from the repeats and count timeouts alongside successful replies. These commands test ordinary DNS. On Windows, <a href="https://www.grc.com/dns/benchmark.htm" target="_blank">GRC DNS Benchmark</a> also offers DoH and DoT tests in its paid version 2.
+Look for `status: NOERROR`, an answer, and the `Query time` in milliseconds. Repeat with a few hostnames your launcher uses. Repeated queries often hit a cache, so keep the first result seperate from the repeats and count timeouts alongside successful replies. These commands test ordinary DNS. On Windows, <a href="https://www.grc.com/dns/benchmark.htm" target="_blank">GRC DNS Benchmark</a> also offers DoH and DoT tests in its paid version 2.
 
 #### 2. Reliability
-Every public resolver goes down eventually, including the fast ones. On 14 July 2025 Cloudflare withdrew the routes for 1.1.1.0/24, 1.0.0.0/24, and 2606:4700:4700::/48 for 62 minutes, from 21:52 to 22:54 UTC. A config change made a month earlier had quietly attached the resolver prefixes to a pre-production service; touching that service pulled 1.1.1.1 off the internet. Not an attack, just a misconfiguration, and most 1.1.1.1 users worldwide lost DNS over UDP, TCP, and DoT for the hour. Cloudflare's {{< link href="https://blog.cloudflare.com/cloudflare-1-1-1-1-incident-on-july-14-2025/" >}}incident writeup{{< /link >}} is worth reading.
+Every public resolver goes down eventually, including the fast ones. In one incident, Cloudflare withdrew the routes for 1.1.1.0/24, 1.0.0.0/24, and 2606:4700:4700::/48 for 62 minutes. A config change made a month earlier had quietly attached the resolver prefixes to a pre-production service; touching that service pulled 1.1.1.1 off the internet. Not an attack, just a misconfiguration, and most 1.1.1.1 users worldwide lost DNS over UDP, TCP, and DoT for the hour. Cloudflare's {{< link href="https://blog.cloudflare.com/cloudflare-1-1-1-1-incident-on-july-14-2025/" >}}incident writeup{{< /link >}} is worth reading.
 
 A second operator can keep lookups working through a provider outage. For unfiltered DNS, one possible pair is Cloudflare's `1.1.1.1` and Google's `8.8.8.8`. If your home network relies on family filtering, use two addresses from the same filtering profile. A device can query either address, so adding an unfiltered alternate leaves a way around the filter.
 
@@ -151,7 +171,7 @@ Cloudflare, Google, and Quad9 use {{< link href="https://en.wikipedia.org/wiki/A
 
 ### Top DNS Servers for Gaming
 
-Here are the best DNS servers to test for gaming performance in 2026:
+Here are the best DNS servers to test for gaming performance:
 
 #### 1. Cloudflare DNS (1.1.1.1)
    - **Primary DNS**: 1.1.1.1
@@ -192,13 +212,11 @@ Here are the best DNS servers to test for gaming performance in 2026:
    - **Secondary DNS**: 149.112.112.112
    - **ECS-enabled**: 9.9.9.11 / 149.112.112.11 (same blocking, but forwards EDNS Client Subnet)
    - **Unsecured**: 9.9.9.10 / 149.112.112.10 (no malware blocking; still DNSSEC-validating)
-   - **Features**: Security-focused resolver that blocks known malicious domains. DoH, DoT, and, since 31 March 2026, DNS over QUIC and DNS over HTTP/3 across the whole network.
+   - **Features**: Security-focused resolver that blocks known malicious domains. DoH, DoT, DNS over QUIC, and DNS over HTTP/3 across the whole network.
 
-   **Playing in France?** <a href="https://quad9.net/news/blog/au-revoir-france/" target="_blank">Quad9 plans to withdraw service from France on November 24, 2026</a>. For malware filtering on a French home network, DNS4EU's protective addresses are `86.54.11.1` and `86.54.11.201`.
+   <a href="https://quad9.net/news/blog/quad9-enables-dnssec-on-all-service-endpoints/" target="_blank">All Quad9 endpoints validate DNSSEC</a>. Even the unfiltered endpoint returns `SERVFAIL` if a signed domain fails validation.
 
-   Since June 15, 2026, <a href="https://quad9.net/news/blog/quad9-enables-dnssec-on-all-service-endpoints/" target="_blank">all Quad9 endpoints validate DNSSEC</a>. Even the unfiltered endpoint returns `SERVFAIL` if a signed domain fails validation.
-
-   The other Quad9 detail that matters for gaming is ECS. The default 9.9.9.9 does not forward your subnet to authoritative servers, which is good for privacy and occasionally bad for patch downloads, because some CDNs then steer you off your nearest mirror. If your downloads feel slower on Quad9 than on Cloudflare, try 9.9.9.11 before writing the resolver off.
+   The other Quad9 detail that matters for gaming is ECS. The default 9.9.9.9 does not forward your subnet to authoritative servers, which is good for privacy and occasionaly bad for patch downloads, because some CDNs then steer you off your nearest mirror. If your downloads feel slower on Quad9 than on Cloudflare, try 9.9.9.11 before writing the resolver off.
 
 #### 6. DNS.Watch (84.200.69.80)
    - **Primary DNS**: 84.200.69.80
@@ -240,11 +258,7 @@ Here are the best DNS servers to test for gaming performance in 2026:
 
 ### Select the Best DNS Server Based on Latency  
 
-A quick way to check the network path is `ping 8.8.8.8`. The `time` in the output is the round trip to that IP address. An ICMP echo reply can come back even when DNS queries fail.
-
-{{< image "best_dns_for_gaming/ping_result.webp" "ICMP round-trip times to 8.8.8.8" >}}
-
-The <a href="https://github.com/Moksh45/DNS-Latency-Checker" target="_blank">DNS Latency Checker script</a> automates that ping comparison. Use its results to shortlist nearby resolvers, then run the DNS queries above. If your current resolver answers reliably and switching makes no noticeable difference to login or downloads, keep your existing settings.
+The <a href="https://github.com/Moksh45/DNS-Latency-Checker" target="_blank">DNS Latency Checker script</a> automates the `ping` comparison from earlier across several resolvers. Use its results to shortlist nearby resolvers, then run the DNS queries above. If your current resolver answers reliably and switching makes no noticeable difference to login or downloads, keep your existing settings.
 
 {{< image "best_dns_for_gaming/script_result.webp" "Resolvers sorted by average ICMP round-trip time" >}}
 

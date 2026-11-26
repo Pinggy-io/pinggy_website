@@ -1,159 +1,183 @@
 ---
 title: "How to Set Up Raspberry Pi Tunnel for Remote Access"
-description: "SSH into a Raspberry Pi and open its web apps from anywhere with a Pinggy tunnel, no port forwarding. Tested commands, a systemd unit that starts the tunnel at boot, and how to lock it down."
+description: "Set up a Raspberry Pi tunnel for remote access with Pinggy. Open web apps over HTTPS, SSH into your Pi from anywhere, and start the tunnel at boot with systemd, no port forwarding."
 date: 2025-07-18T14:15:25+05:30
-lastmod: 2026-11-24T14:15:25+05:30
+lastmod: 2026-11-25T14:15:25+05:30
 draft: false
-og_image: "images/raspberry_pi_tunnel/raspberry_pi_tunnel_banner.webp"
+og_image: "/images/raspberry_pi_tunnel/raspberry_pi_tunnel_banner.png"
 tags: ["raspberry pi", "ssh", "remote access", "iot"]
-eyebrow: "Raspberry Pi"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJIb3dUbyIsCiAgIm5hbWUiOiAiSG93IHRvIFNldCBVcCBhIFJhc3BiZXJyeSBQaSBUdW5uZWwgZm9yIFJlbW90ZSBBY2Nlc3MiLAogICJkZXNjcmlwdGlvbiI6ICJTU0ggaW50byBhIFJhc3BiZXJyeSBQaSBhbmQgb3BlbiBpdHMgd2ViIGFwcHMgZnJvbSBhbnl3aGVyZSB3aXRoIGEgUGluZ2d5IHR1bm5lbCwgbm8gcG9ydCBmb3J3YXJkaW5nLiBUZXN0ZWQgY29tbWFuZHMsIGEgc3lzdGVtZCB1bml0IHRoYXQgc3RhcnRzIHRoZSB0dW5uZWwgYXQgYm9vdCwgYW5kIGhvdyB0byBsb2NrIGl0IGRvd24uIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL3Jhc3BiZXJyeV9waV90dW5uZWwvcmFzcGJlcnJ5X3BpX3R1bm5lbF9iYW5uZXIud2VicCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTExLTI0VDE0OjE1OjI1KzA1OjMwIiwKICAidG90YWxUaW1lIjogIlBUMTBNIiwKICAiZXN0aW1hdGVkQ29zdCI6IHsgIkB0eXBlIjogIk1vbmV0YXJ5QW1vdW50IiwgImN1cnJlbmN5IjogIlVTRCIsICJ2YWx1ZSI6ICIwIiB9LAogICJ0b29sIjogWyB7ICJAdHlwZSI6ICJIb3dUb1Rvb2wiLCAibmFtZSI6ICJQaW5nZ3kiIH0sIHsgIkB0eXBlIjogIkhvd1RvVG9vbCIsICJuYW1lIjogIk9wZW5TU0giIH0gXSwKICAic3RlcCI6IFsKICAgIHsgIkB0eXBlIjogIkhvd1RvU3RlcCIsICJuYW1lIjogIlR1cm4gb24gU1NIIG9uIHRoZSBSYXNwYmVycnkgUGkiLCAidGV4dCI6ICJFbmFibGUgU1NIIGluIFJhc3BiZXJyeSBQaSBJbWFnZXIsIGluIHJhc3BpLWNvbmZpZywgb3Igd2l0aCBzdWRvIHN5c3RlbWN0bCBlbmFibGUgLS1ub3cgc3NoLiBDcmVhdGUgYSBrZXkgb24gdGhlIFBpIHdpdGggc3NoLWtleWdlbiAtdCBlZDI1NTE5LiIgfSwKICAgIHsgIkB0eXBlIjogIkhvd1RvU3RlcCIsICJuYW1lIjogIk9wZW4gYSBUQ1AgdHVubmVsIHRvIHBvcnQgMjIiLCAidGV4dCI6ICJPbiB0aGUgUGksIHJ1biBzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6MjIgdGNwQGZyZWUucGluZ2d5LmlvIC1UIGFuZCBub3RlIHRoZSB0Y3A6Ly9ob3N0OnBvcnQgYWRkcmVzcyBpdCBwcmludHMuIiB9LAogICAgeyAiQHR5cGUiOiAiSG93VG9TdGVwIiwgIm5hbWUiOiAiU1NIIGluIGZyb20gYW55d2hlcmUiLCAidGV4dCI6ICJGcm9tIHlvdXIgbGFwdG9wLCBydW4gc3NoIC1wIDxwb3J0PiBwaUA8aG9zdD4gd2l0aCB0aGUgaG9zdCBhbmQgcG9ydCBmcm9tIHRoZSB0Y3A6Ly8gYWRkcmVzcy4iIH0sCiAgICB7ICJAdHlwZSI6ICJIb3dUb1N0ZXAiLCAibmFtZSI6ICJPcGVuIGEgd2ViIGFwcCBvdmVyIEhUVFBTIiwgInRleHQiOiAiRm9yIGEgd2ViIGFwcCBvbiBwb3J0IDgwODAsIHJ1biBzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6ODA4MCBmcmVlLnBpbmdneS5pbyAtVCBhbmQgb3BlbiB0aGUgSFRUUFMgVVJMIGl0IHByaW50cy4iIH0sCiAgICB7ICJAdHlwZSI6ICJIb3dUb1N0ZXAiLCAibmFtZSI6ICJTdGFydCB0aGUgdHVubmVsIGF0IGJvb3QiLCAidGV4dCI6ICJDcmVhdGUgL2V0Yy9zeXN0ZW1kL3N5c3RlbS9waW5nZ3ktc3NoLnNlcnZpY2UgcnVubmluZyB0aGUgdHVubmVsIGNvbW1hbmQgd2l0aCBTZXJ2ZXJBbGl2ZUludGVydmFsPTMwIGFuZCBSZXN0YXJ0PWFsd2F5cywgdGhlbiBydW4gc3VkbyBzeXN0ZW1jdGwgZW5hYmxlIC0tbm93IHBpbmdneS1zc2ggYW5kIHJlYWQgdGhlIGFkZHJlc3Mgd2l0aCBqb3VybmFsY3RsIC11IHBpbmdneS1zc2guIiB9LAogICAgeyAiQHR5cGUiOiAiSG93VG9TdGVwIiwgIm5hbWUiOiAiTG9jayBpdCBkb3duIiwgInRleHQiOiAiVHVybiBvZmYgU1NIIHBhc3N3b3JkIGxvZ2lucyBpbiAvZXRjL3NzaC9zc2hkX2NvbmZpZy5kLzEwLWtleXMtb25seS5jb25mIGFuZCByZXN0cmljdCB3aG8gY2FuIHJlYWNoIHRoZSB0dW5uZWwgd2l0aCAtLSB3OjxDSURSPi4iIH0KICBdCn0KPC9zY3JpcHQ+Cg=="
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkhvdyB0byBTZXQgVXAgUmFzcGJlcnJ5IFBpIFR1bm5lbCBmb3IgUmVtb3RlIEFjY2VzcyIsCiAgImRlc2NyaXB0aW9uIjogIlNldCB1cCBSYXNwYmVycnkgUGkgdHVubmVscyBmb3IgcmVtb3RlIGFjY2VzcyB3aXRoIFBpbmdneTogYW4gSFRUUCB0dW5uZWwgZm9yIHdlYiBhcHBzLCBhIFRDUCB0dW5uZWwgZm9yIFNTSCwgYW5kIGEgc3lzdGVtZCBzZXJ2aWNlIHRoYXQgc3RhcnRzIHRoZSB0dW5uZWwgYXQgYm9vdCwgd2l0aCBubyBwb3J0IGZvcndhcmRpbmcuIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vYXNzZXRzL2hlYWRlci53ZWJwIiwKICAidG90YWxUaW1lIjogIlBUMTBNIiwKICAiZXN0aW1hdGVkQ29zdCI6IHsKICAgICJAdHlwZSI6ICJNb25ldGFyeUFtb3VudCIsCiAgICAiY3VycmVuY3kiOiAiVVNEIiwKICAgICJ2YWx1ZSI6ICIwIgogIH0sCiAgInRvb2wiOiB7CiAgICAiQHR5cGUiOiAiSG93VG9Ub29sIiwKICAgICJuYW1lIjogIlBpbmdneSIKICB9LAogICJzdGVwIjogW3sKICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgInRleHQiOiAiRW5hYmxlIFNTSCBvbiB5b3VyIFJhc3BiZXJyeSBQaSBpbiBSYXNwYmVycnkgUGkgSW1hZ2VyLCBpbiByYXNwaS1jb25maWcsIG9yIGJ5IHJ1bm5pbmcgJ3N1ZG8gc3lzdGVtY3RsIGVuYWJsZSAtLW5vdyBzc2gnLiBSYXNwYmVycnkgUGkgT1MgaGFzIG5vIGRlZmF1bHQgcGkgdXNlciwgc28gdXNlIHRoZSB1c2VybmFtZSB5b3UgY3JlYXRlZC4iLAogICAgIm5hbWUiOiAiRW5hYmxlIFNTSCBvbiBSYXNwYmVycnkgUGkiCiAgfSx7CiAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICJ0ZXh0IjogIkZvciBhbiBIVFRQIHR1bm5lbCwgcnVuICdzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6ODA4MCBxckBmcmVlLnBpbmdneS5pbycgKHJlcGxhY2UgODA4MCB3aXRoIHlvdXIgcG9ydCkuIEZvciBhbiBTU0ggdHVubmVsLCBydW4gJ3NzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoyMiB0Y3BAZnJlZS5waW5nZ3kuaW8nLiIsCiAgICAibmFtZSI6ICJDcmVhdGUgVHVubmVsIgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAidGV4dCI6ICJPcGVuIHRoZSBIVFRQUyBVUkwgUGluZ2d5IHByaW50cywgb3IgY29ubmVjdCB3aXRoICdzc2ggLXAgPHBvcnQ+IDx1c2VyPkA8aG9zdD4nIHVzaW5nIHRoZSB0Y3A6Ly8gYWRkcmVzcyBpdCBwcmludHMuIiwKICAgICJuYW1lIjogIkFjY2VzcyBZb3VyIFBpIFJlbW90ZWx5IgogIH0sewogICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAidGV4dCI6ICJSdW4gdGhlIHR1bm5lbCBjb21tYW5kIGFzIGEgc3lzdGVtZCBzZXJ2aWNlIHdpdGggUmVzdGFydD1vbi1mYWlsdXJlIHNvIGl0IGNvbWVzIGJhY2sgYWZ0ZXIgYSByZWJvb3Qgb3IgYSBkcm9wcGVkIGNvbm5lY3Rpb24uIFVzZSBhIFBpbmdneSBQcm8gdG9rZW4gZm9yIGFuIGFkZHJlc3MgdGhhdCBzdGF5cyB0aGUgc2FtZS4iLAogICAgIm5hbWUiOiAiU3RhcnQgdGhlIFR1bm5lbCBhdCBCb290IgogIH1dCn0KPC9zY3JpcHQ+Cg=="
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "raspberry_pi_tunnel/raspberry_pi_tunnel_banner.webp" "Raspberry Pi tunnel for remote access: a Raspberry Pi with SSH on port 22 and a web app on port 8080, each reachable from anywhere through a Pinggy tunnel" >}}
+{{< image "raspberry_pi_tunnel/raspberry_pi_tunnel_banner.png" "Raspberry Pi tunnel for remote access" >}}
 
-{{< llm-context >}}To reach a Raspberry Pi remotely with Pinggy - enable SSH with `sudo systemctl enable --now ssh`, then on the Pi run `ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io -T` and connect from anywhere with `ssh -p <port> pi@<host>` using the tcp:// address it prints. For a web app on the Pi (for example port 8080), run `ssh -p 443 -R0:localhost:8080 free.pinggy.io -T` to get a public HTTPS URL.{{< /llm-context >}}
+{{< llm-context >}}To reach a Raspberry Pi remotely with Pinggy - enable SSH with `sudo systemctl enable --now ssh`, then on the Pi run `ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io` and connect from anywhere with `ssh -p <port> <user>@<host>` using the tcp:// address it prints. For a web app on the Pi (for example port 8080), run `ssh -p 443 -R0:localhost:8080 qr@free.pinggy.io` to get a public HTTPS URL.{{< /llm-context >}}
 
-A Raspberry Pi tends to end up somewhere useful and awkward: behind a home router, on a shelf at your parents' place, or on a mobile hotspot in a shed. Reaching it from the local network is easy. Reaching it from anywhere else is where people give up and leave a monitor plugged in.
+A Raspberry Pi is a small Linux computer that ends up running all sorts of things: web servers, IoT dashboards, Home Assistant, a camera feed. Reaching it on your home network is easy. Reaching it from work or from your phone on mobile data is where most people get stuck.
 
-You don't need port forwarding or a static IP for this. The Pi opens an outbound SSH connection to Pinggy, and Pinggy gives you a public address that leads back down that connection. It takes one command for SSH access and one for a web app. With a short systemd unit, the tunnel comes back on its own after a reboot.
-
-Everything below was run on November 25, 2026, on Debian 13 "trixie" arm64, the same base as the current Raspberry Pi OS (the 2026-10-06 release). The device side ran in a container with systemd as PID 1, and I connected through live Pinggy tunnels from a Mac. I didn't have real Pi hardware for this run. The commands don't depend on it, but the Pi-specific setup steps come from the Raspberry Pi documentation.
+Port forwarding often fails because many ISPs now put you behind CG-NAT. A tunnel turns the problem around: the Pi makes an outbound SSH connection, and you get a public address that leads back to it. Below are the commands for an HTTP tunnel, an SSH tunnel, and a systemd service that brings the tunnel back after a reboot.
 
 {{% tldr %}}
 
-1. **Turn on SSH on the Pi:** `sudo systemctl enable --now ssh`, or use the SSH switch in Raspberry Pi Imager when you flash the card.
-2. **Open a TCP tunnel to port 22** on the Pi:
+1. **Enable SSH on your Raspberry Pi:**
    ```bash
-   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io -T
+   sudo systemctl enable --now ssh
    ```
-3. **Connect from anywhere** with the address it prints, `tcp://<host>:<port>`:
+
+2. **Create an HTTP tunnel** (replace `8080` with your port):
    ```bash
-   ssh -p <port> pi@<host>
+   ssh -p 443 -R0:localhost:8080 qr@free.pinggy.io
    ```
-4. **Open a web app** on the Pi (port 8080 here) over HTTPS:
+
+3. **Create an SSH tunnel** for remote terminal access:
    ```bash
-   ssh -p 443 -R0:localhost:8080 free.pinggy.io -T
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
    ```
-5. **Start the tunnel at boot** with a systemd unit, and switch to a Pro token for an address that stays the same.
+
+4. Use the public URL or `tcp://` address Pinggy prints to reach your Raspberry Pi from anywhere on the internet.
+
+5. Sign in to <a href="https://dashboard.pinggy.io" target="_blank" >dashboard.pinggy.io</a> for a Pro token: a stable address and no 60-minute limit.
 
 {{% /tldr %}}
 
-## Why the Pi dials out instead of you dialling in
+## What is a Raspberry Pi tunnel?
 
-Port forwarding needs three things to line up: a router you control, a public IPv4 address on that router, and an ISP that doesn't block inbound traffic. Plenty of connections fail at least one. Mobile data and many fiber plans put you behind carrier-grade NAT, where your router gets a private carrier address, the real public IPv4 is shared with other customers, and no inbound port reaches you at all. Our [CGNAT guide](/blog/access_home_server_raspberry_pi_behind_cgnat/) shows how to check whether you're in that situation.
+A Raspberry Pi tunnel is a connection that lets you reach your Pi over the internet even though it sits behind your home router and NAT (Network Address Translation). The Pi connects out to Pinggy over SSH on port 443, which almost every network allows, and `-R0:localhost:<port>` asks Pinggy to send traffic from a public address back down that connection to a port on the Pi.
 
-A reverse tunnel turns the direction around. The Pi runs a normal `ssh` client and connects out to Pinggy on port 443, which almost every network allows. The `-R0:localhost:22` part asks Pinggy to forward a public port back down that connection to port 22 on the Pi. When you connect to the public address, the path is: your laptop -> Pinggy -> the SSH connection the Pi opened -> the Pi's sshd. Nothing on the router changes.
+There are two types of tunnels you'll commonly use with a Raspberry Pi:
 
-{{< image "raspberry_pi_tunnel/raspberry_pi_two_tunnels_pinggy.webp" "Diagram: a Raspberry Pi behind a home router opens two outbound SSH connections to Pinggy on port 443, one a TCP tunnel to its SSH server on port 22 that a laptop reaches with ssh, the other an HTTP tunnel to a web app on port 8080 that a phone opens over HTTPS" >}}
+**HTTP tunnels** are for web applications, dashboards, or anything else that speaks HTTP. You get an HTTPS URL with a valid certificate.
 
-Each tunnel in this guide forwards one port. SSH on port 22 needs a TCP tunnel (`tcp@`), because SSH isn't HTTP. A web dashboard gets an HTTP tunnel, which gives it an HTTPS URL with a valid certificate. Run one command per port.
+**TCP tunnels** carry SSH, so you get terminal access to your Pi's command line. SSH isn't HTTP, which is why port 22 needs a TCP tunnel (`tcp@`). The same tunnel type works for databases or other TCP services. Each tunnel forwards one port.
 
-## Turn on SSH on the Pi
+## Why traditional port forwarding doesn't work
 
-Raspberry Pi OS ships with the SSH server turned off. The Raspberry Pi docs list four ways to turn it on. Use whichever fits how you set the Pi up:
+Most home networks use NAT, which means your Pi doesn't have a public IP address of its own. Port forwarding asks your router to send a public port to the Pi, and it has several limitations:
 
-- **When you flash the card:** in Raspberry Pi Imager, open **Customisation > Remote Access** and switch on **Enable SSH**. You can paste your public key there too, which skips passwords from the start.
-- **On the Pi's desktop:** **Preferences > Control Centre > Interfaces**, then enable SSH.
-- **From a terminal on the Pi:** `sudo raspi-config` -> **3 Interface Options** -> **I1 SSH**. In a script, `sudo raspi-config nonint do_ssh 0` does the same thing.
-- **With only the SD card in a reader:** create an empty file called `ssh` on the boot partition (`/boot/firmware/ssh` once the Pi is running). Since there's no default user, also add a `userconf.txt` there with one line, `username:hash`, where the hash comes from `openssl passwd -6`. Then boot the Pi.
+- Many ISPs, and most mobile data plans, use CG-NAT, where your public IPv4 is shared with other customers and no inbound port reaches you. Our [CGNAT guide](/blog/access_home_server_raspberry_pi_behind_cgnat/) shows how to check.
+- Router configuration varies by manufacturer, and ISP routers often lock it
+- An open port exposes the Pi directly to every scanner on the internet
+- Dynamic IP addresses change, so you also need dynamic DNS
+- Corporate and public networks block inbound traffic
 
-On any Debian-based OS, including Raspberry Pi OS, plain systemd works too:
+A tunnel avoids all of this because the connection starts on the Pi, so nothing on the router changes.
+
+## Setting up SSH on your Raspberry Pi
+
+Raspberry Pi OS, now based on Debian 13 "Trixie", ships with the SSH server turned off. It also has no default `pi` user any more: you pick a username in Raspberry Pi Imager or on first boot, so swap `pi` in the commands below for yours.
+
+### Enable SSH service
+
+The easiest way is to switch on SSH in Raspberry Pi Imager's customisation settings when you flash the card, and paste your public key there to skip passwords from teh start. For a headless Pi that's already flashed, create an empty file called `ssh` on the boot partition, plus a `userconf.txt` with one line, `username:hash` (the hash comes from `openssl passwd -6`).
+
+If you're already on the Pi, run:
 
 ```bash
 sudo systemctl enable --now ssh
 ```
 
-On a fresh Debian 13 system, that created the `ssh.service` links and started sshd listening on port 22 for IPv4 and IPv6.
-
-There's no default `pi` user any more. Raspberry Pi OS dropped it in 2022, and you now pick a username in Imager or on first boot. I use `pi` in the commands below; replace it with yours.
-
-One small thing before the first tunnel: create an SSH key on the Pi if it doesn't have one.
+To verify SSH is running:
 
 ```bash
-ssh-keygen -t ed25519
+sudo systemctl status ssh
 ```
 
-Without a key, Pinggy's server asks `tcp@free.pinggy.io's password:` when you run the tunnel command in a terminal. The free tier doesn't check it, so pressing Enter works (I tried it to be sure teh prompt really accepts nothing), but a script or a systemd service can't press Enter. With a key in `~/.ssh`, the prompt doesn't appear. (Run non-interactively with `-T` and no terminal, it didn't prompt even without a key in my tests, but the key costs nothing.)
+Also create an SSH key on the Pi with `ssh-keygen -t ed25519`. Without one, Pinggy asks for a password when you start a tunnel. Pressing Enter works, but a systemd service can't press Enter.
 
-## SSH into the Pi through a TCP tunnel
+### Secure your SSH configuration
 
-On the Pi, start a TCP tunnel to port 22:
+A tunnel to port 22 puts your Pi's SSH server on the internet, so turn off password logins once your key works. Create `/etc/ssh/sshd_config.d/10-keys-only.conf`:
+
+```
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+```
+
+sshd takes the first value it finds in alphabetical file order, hence the `10-` prefix. Check and reload:
 
 ```bash
-ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io -T
+sudo sshd -t && sudo systemctl reload ssh
 ```
 
-The first time, ssh asks you to confirm Pinggy's host key; type `yes`. Then it prints the public address. This is the real output from the test, with my IP address replaced by a documentation address:
+If you always connect from known addresses, add `-- w:198.51.100.0/24` (your range) to the tunnel command and Pinggy drops everyone else.
 
-```
-Allocated port 2 for remote forward to localhost:22
-You are not authenticated.
-Your tunnel will expire in 60 minutes. Upgrade to Pinggy Pro to get unrestricted tunnels. https://dashboard.pinggy.io
-tcp://bqgqx-203-0-113-7.run.pinggy-free.link:36185
-```
+## Creating a Raspberry Pi HTTP tunnel
 
-The hostname contains your public IP address with dashes, so be careful where you paste it. The "Allocated port 2" line is internal to the SSH session; the port you connect to is the one at the end of the `tcp://` line. From your laptop, anywhere:
+HTTP tunnels are the right choice for web-based services on your Pi: a web server, an IoT dashboard, a security camera interface, or any app that serves content over HTTP.
 
-```bash
-ssh -p 36185 pi@bqgqx-203-0-113-7.run.pinggy-free.link
-```
+### Step-by-step HTTP tunnel setup
 
-{{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command on the Pi to start an SSH tunnel:" portstring="SSH Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="You can customize the command with additional options:" >}}
-{{< /pinggytunnel >}}
+1. **Start your web service** on your Pi. For example, a Python web server (replace `8080` with your desired port):
+   ```bash
+   python3 -m http.server 8080
+   ```
 
-Anything that runs over SSH works through the same address. I copied my laptop's key to the Pi with `ssh-copy-id -p 36185 pi@<host>`, which asked for the Pi's password once, and `scp -P 36185 note.txt pi@<host>:~/` copied a file across. Note that `scp` takes a capital `-P` for the port. Other tools that ride on ssh, like `rsync -e "ssh -p 36185"` or VS Code's Remote-SSH, take the same host and port.
+2. **Create the HTTP tunnel** using Pinggy in a second terminal (replace `8080` with your actual port):
+   ```bash
+   ssh -p 443 -R0:localhost:8080 qr@free.pinggy.io
+   ```
 
-### Stop the host key prompt on every new URL
+   {{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"./pinggy -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \",\"cmd\":\"ssh -p 443 -R0:localhost:8080 -t qr@free.pinggy.io \"}}}"
+   {{</ ssh_command >}}
 
-A free tunnel gets a new hostname and port each time it starts. ssh tracks host keys by hostname, so it asks "Are you sure you want to continue connecting?" for every new one, even though the Pi's key hasn't changed. Tell ssh to file all of them under one name in `~/.ssh/config` on your laptop:
+   The `qr@` prefix adds a QR code you can scan with your phone. For plain output in a script, use `free.pinggy.io -T` instead.
+
+3. **Access your Pi remotely** using the public URL Pinggy prints. It will look something like:
+   `https://randomstring.run.pinggy-free.link`
+
+{{< image "hosting_a_vue_app_without_a_server/pinggy_public_url.webp" "Pinggy public url" >}}
+
+On the free tier, browsers see a one-time Pinggy notice page before your app, and the tunnel ends after 60 minutes. The next one gets a new URL.
+
+### HTTP tunnel use cases
+
+HTTP tunnels work well for:
+- **Home automation dashboards** like Home Assistant (port 8123) or [Node-RED](/blog/self_hosting_node_red/) (port 1880)
+- **Security camera feeds** and monitoring systems
+- **IoT device management** interfaces
+- **Personal cloud storage** and web-based file managers
+- **Development servers** for testing web applications
+
+Many Pi dashboards have no login, so add `-- b:admin:some-long-password` to the tunnel command and Pinggy asks for a password first.
+
+## Setting up SSH tunnel for Raspberry Pi
+
+SSH tunnels give you command-line access to your Pi from anywhere, for administration, troubleshooting, and file transfers with `scp` or `rsync`.
+
+### Creating an SSH tunnel
+
+1. **Create the SSH tunnel** on the Pi using this command:
+   ```bash
+   ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io
+   ```
+
+   {{< pinggytunnel box="true" mode="tcp" tunnelstring="Paste this command to start an SSH tunnel:" portstring="SSH Port" localport="22" webdebugenabled=false keepalive=true tryYourselfText="You can customize the command with additional options:" >}}
+   {{< /pinggytunnel >}}
+
+2. **Note the connection details** provided by Pinggy. You'll recieve something like:
+   `tcp://randomstring.run.pinggy-free.link:36185`
+
+3. **Connect to your Pi remotely** using the host and port from that address (replace `pi` with your username):
+   ```bash
+   ssh -p 36185 pi@randomstring.run.pinggy-free.link
+   ```
+
+   {{< image "iot/url.webp" "Raspberry Pi tunnel connection details" >}}
+
+Every free tunnel gets a new hostname, so ssh asks you to confirm the host key each time. This in `~/.ssh/config` on your laptop makes it ask only once:
 
 ```
 Host *.run.pinggy-free.link
-    User pi
     HostKeyAlias raspberrypi
 ```
 
-With that in place, I connected to a second tunnel address with `StrictHostKeyChecking=yes` and got straight in, because ssh found the Pi's key under `raspberrypi`. You also get a real check out of it: if a different machine ever answers on a tunnel address, ssh refuses to connect. Use a separate alias per Pi if you tunnel more than one.
+### Start the tunnel at boot with systemd
 
-## Open a web app on the Pi over HTTPS
-
-For anything that speaks HTTP, use an HTTP tunnel instead. It gives you an HTTPS URL with a valid certificate, which matters for phones and for apps that refuse plain HTTP. As a stand-in app, serve a folder on port 8080:
-
-```bash
-mkdir -p ~/www && echo "<h1>Hello from raspberrypi</h1>" > ~/www/index.html
-cd ~/www && python3 -m http.server 8080
-```
-
-In a second terminal on the Pi:
-
-```bash
-ssh -p 443 -R0:localhost:8080 free.pinggy.io -T
-```
-
-```
-Allocated port 9 for remote forward to localhost:8080
-You are not authenticated.
-Your tunnel will expire in 60 minutes. Upgrade to Pinggy Pro to get unrestricted tunnels. https://dashboard.pinggy.io
-https://ctqqj-203-0-113-7.run.pinggy-free.link
-https://rkjoz-203-0-113-7.free.pinggy.net
-```
-
-Both URLs lead to the same app, and requests to either one recieve the same answer. `curl` on the first one returned `HTTP/1.0 200 OK` from `SimpleHTTP/0.6 Python/3.13.5` and the one-line page. A browser sees a one-time Pinggy notice page first on free tunnels ("Caution - you are about to visit a website that is served for free through pinggy.io"). Click through it once. API clients and `curl` don't get it.
-
-Swap 8080 for whatever your Pi actually runs: 1880 for [Node-RED](/blog/self_hosting_node_red/), 8123 for Home Assistant. Home Assistant needs one setting first. Pinggy adds `X-Forwarded-For`, `X-Forwarded-Host`, `X-Forwarded-Proto` and `Forwarded` headers to every request, and Home Assistant refuses proxied requests unless **Trust X-Forwarded-For** is on and the proxy is listed under **Trusted proxies**. Forward to `127.0.0.1:8123` instead of `localhost:8123` and list `127.0.0.1`, because `localhost` can resolve to `::1` on the Pi and then the proxy address won't match. The [smart home guide](/blog/remote_access_smart_home_apps_behind_cgnat/) walks through it. If you'd rather not change the app, add `-- x:noreverseproxy` to the tunnel command. With that flag my header-echo server received only `Host`, `User-Agent` and `Accept`.
-
-Two variations are worth knowing:
-
-- **A QR code for your phone.** Start the tunnel with `ssh -p 443 -t -R0:localhost:8080 qr@free.pinggy.io` in a real terminal. Instead of plain lines, you get a full-screen view with both URLs and a QR code you can scan.
-- **A password in front of the app.** Many Pi dashboards have no login at all. Append `-- b:admin:some-long-password` to the command and Pinggy asks for basic auth before any request reaches the Pi.
-
-## Start the tunnel at boot with systemd
-
-A tunnel typed into a terminal dies when you close the terminal, when the Wi-Fi drops, and after 60 minutes on the free tier. For a Pi that should be reachable all the time, let systemd own it. Create `/etc/systemd/system/pinggy-ssh.service`:
+A tunnel typed into a terminal stops when you close it, when the network drops, or after 60 minutes on the free tier, so let systemd run it. Create `/etc/systemd/system/pinggy-ssh.service`:
 
 ```ini
 [Unit]
@@ -164,21 +188,14 @@ Wants=network-online.target
 [Service]
 User=pi
 ExecStart=/usr/bin/ssh -p 443 -T -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes -R0:localhost:22 tcp@free.pinggy.io
-Restart=always
+Restart=on-failure
 RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-What the options do:
-
-- `User=pi` runs the tunnel as your user, so it uses the key in `/home/pi/.ssh` and never hits the password prompt.
-- `StrictHostKeyChecking=accept-new` accepts Pinggy's host key the first time, since nobody is there to type `yes`.
-- `ServerAliveInterval=30` with `ServerAliveCountMax=3` makes ssh notice a dead connection within about 90 seconds and exit. Without them, a tunnel can sit "connected" over a network that went away.
-- `Restart=always` brings it back whenever it exits, however it exits. Pinggy's own [run-on-startup guide](/docs/run_tunnel_on_startup/linux/) uses `Restart=on-failure`; `always` also covers a clean exit.
-
-Enable it and read the address from the journal:
+Enable it and read the current address from the journal:
 
 ```bash
 sudo systemctl daemon-reload
@@ -186,81 +203,10 @@ sudo systemctl enable --now pinggy-ssh
 sudo journalctl -u pinggy-ssh -o cat | grep tcp:// | tail -1
 ```
 
-`systemd-analyze verify` passed on the unit. To test recovery, I killed the ssh process with `kill -9`. systemd logged `Failed with result 'signal'`, `Scheduled restart job, restart counter is at 1`, and printed a fresh `tcp://` address 10 seconds later. After a full restart of the machine, both `ssh` and `pinggy-ssh` came up active by themselves.
+When the network dies or Pinggy closes a free tunnel, ssh exits with an error and `Restart=on-failure` starts a new tunnel 10 seconds later. If the service fails with `status=217/USER`, the `User=` line names an account that doesn't exist on this Pi; change it and run `daemon-reload` again.
 
-I also left the service alone to watch the free-tier limit. The tunnel opened at 04:09 UTC, and at 05:13 Pinggy dropped it. ssh printed `Connection to free.pinggy.io closed by remote host.` and exited with `status=255/EXCEPTION`. systemd scheduled a restart 10 seconds later, and the new tunnel came up on a different hostname and port. So the 60-minute limit doesn't need any extra handling. `Restart=always` covers it.
-
-That fresh address is the catch on the free tier: **every reconnect gets a new hostname and port**, so you have to read the journal to find it. If you only need the Pi now and then, that's fine. For an address that stays the same, use a Pinggy Pro token (from [dashboard.pinggy.io](https://dashboard.pinggy.io)) in the `ExecStart` line:
-
-```bash
-ssh -p 443 -R0:localhost:22 <your-token>+tcp@pro.pinggy.io -T
-```
-
-Per Pinggy's pricing page and TCP tunnel docs, Pro tunnels have no 60-minute limit and keep a persistent address and TCP port, which you can reserve in the dashboard. Pro costs $2.50 a month billed annually, or $3 billed monthly, as of November 25, 2026. I didn't have a Pro token on the test machine, so the Pro line is from the docs, not from this run.
-
-For a second tunnel, such as the web app, copy the unit to `pinggy-web.service` and change the port and the host part (`free.pinggy.io` instead of `tcp@free.pinggy.io`).
-
-## Lock it down
-
-A tunnel to port 22 puts your Pi's SSH server on the internet, so treat it like any public server. Three things are worth doing, and the first two take a minute.
-
-**Turn off password logins.** Once your key works, create `/etc/ssh/sshd_config.d/10-keys-only.conf`:
-
-```
-PasswordAuthentication no
-KbdInteractiveAuthentication no
-```
-
-Then check and reload:
-
-```bash
-sudo sshd -t && sudo systemctl reload ssh
-```
-
-sshd reads the files in `sshd_config.d` in alphabetical order, and the first value it finds wins. That's why the file name starts with `10-`: it beats any `50-something.conf` that an installer drops in later with `PasswordAuthentication yes`. I tested that exact case with `sshd -T`. After the reload, a password attempt through the tunnel got `Permission denied (publickey)`.
-
-**Know that the Pi can't see who is connecting.** Every login through the tunnel shows up in the Pi's log as coming from localhost:
-
-```
-Accepted publickey for pi from ::1 port 49498 ssh2: ED25519 SHA256:...
-```
-
-The connection really does arrive from the local ssh client, which forwards what Pinggy sends it. That breaks IP-based tools on the Pi. fail2ban sees every failed login coming from `::1`, which it ignores by default as the machine's own address, so it never bans anyone who comes through the tunnel. And if you made it ban `::1`, you'd lock out every login through the tunnel, yours included. An `AllowUsers pi@198.51.100.*` rule never matches either. Do the IP filtering at Pinggy instead, before traffic reaches the Pi. The `w:` option takes addresses or CIDR ranges:
-
-```bash
-ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io -T -- w:198.51.100.0/24
-```
-
-I tested both cases. With my own address on the list, ssh connected normally. With only `198.51.100.0/24` on the list, the connection ended right away with `Connection closed by 139.162.14.64`, which is Pinggy's server, and the Pi never saw it. The allowlist only fits if you connect from addresses you know, such as your office or a VPS.
-
-**Keep the Pi updated.** `sudo apt update && sudo apt full-upgrade` is still the main defence for anything that faces the internet.
-
-## Other ways to reach a Pi
-
-A TCP tunnel gives you real SSH, so `scp`, `rsync`, VS Code and port forwarding all work, and an HTTP tunnel opens any web app. If you only want a shell in a browser, there are two other options:
-
-<table style="width:100%;border-collapse:collapse;font-size:0.95em">
-<thead><tr><th style="text-align:left;padding:8px;border-bottom:2px solid #ddd">Option</th><th style="text-align:left;padding:8px;border-bottom:2px solid #ddd">What you get</th><th style="text-align:left;padding:8px;border-bottom:2px solid #ddd">Free tier</th><th style="text-align:left;padding:8px;border-bottom:2px solid #ddd">Catch</th></tr></thead>
-<tbody>
-<tr><td style="padding:8px;border-bottom:1px solid #eee">Pinggy tunnel (this guide)</td><td style="padding:8px;border-bottom:1px solid #eee">Real SSH and any web app, from any client</td><td style="padding:8px;border-bottom:1px solid #eee">60-minute tunnels, new address each time</td><td style="padding:8px;border-bottom:1px solid #eee">Stable address needs Pro</td></tr>
-<tr><td style="padding:8px;border-bottom:1px solid #eee"><a href="/docs/devices/">Pinggy Devices</a></td><td style="padding:8px;border-bottom:1px solid #eee">Shell in the Pinggy dashboard, plus tunnel management</td><td style="padding:8px;border-bottom:1px solid #eee">1 device, 1 open shell</td><td style="padding:8px;border-bottom:1px solid #eee">Needs the Pinggy CLI, which only has x64 and arm64 builds</td></tr>
-<tr><td style="padding:8px;border-bottom:1px solid #eee"><a href="https://www.raspberrypi.com/documentation/services/connect.html" target="_blank">Raspberry Pi Connect</a></td><td style="padding:8px;border-bottom:1px solid #eee">Shell and screen sharing in a browser</td><td style="padding:8px;border-bottom:1px solid #eee">Free for personal accounts</td><td style="padding:8px;border-bottom:1px solid #eee">No port access, so no scp or web apps; needs Bookworm or later</td></tr>
-</tbody>
-</table>
-
-Pinggy Devices needs the Pinggy CLI on the Pi. `curl -fsSL https://pinggy.io/install.sh | sh` installed v0.6.10 for linux-arm64 in my test, into `~/.pinggy/bin` with a link in `~/.local/bin`, and never used sudo. The installer only has x64 and arm64 builds, though, so the Pi needs the 64-bit Raspberry Pi OS. On the original Pi Zero, a Pi 1 or a Pi 2, which only run the 32-bit OS, it stops with "unsupported CPU", while the plain `ssh` commands in this guide work on every Pi. For a full desktop rather than a shell, see the [VNC guide](/blog/remotely_connect_to_iol__using_vnc/).
-
-## Troubleshooting
-
-- **`tcp@free.pinggy.io's password:`** - the Pi has no SSH key. Press Enter, or run `ssh-keygen -t ed25519` once so the prompt goes away for good.
-- **`kex_exchange_identification: read: Connection reset by peer`** - the tunnel is up, but nothing listens on that port on the Pi. The tunnel's own output says so too, with `connect_to localhost port 22: failed.` Check `systemctl status ssh` and turn SSH on as above.
-- **`Connection closed by <ip>` right away** - your address isn't on the tunnel's `w:` allowlist.
-- **`Could not resolve hostname ...run.pinggy-free.link`** - that tunnel has ended and its hostname is gone. Free tunnels end after about 60 minutes, and the restarted one has a new hostname and port, so look in `journalctl -u pinggy-ssh`.
-- **ssh warns that the host key changed** - if you use the `HostKeyAlias` config, that's a real warning, so check which machine answered before you accept anything.
-- **The browser shows a Pinggy caution page** - that's the free-tier notice; click through it once. It doesn't appear for `curl`, apps or webhooks.
+Each free restart brings a new hostname and port. For a fixed address, use `<your-token>+tcp@pro.pinggy.io` in `ExecStart` and reserve a TCP port in the dashboard, because the port changes per connection even on Pro. Pro costs $3 a month, or $2.50 a month billed yearly.
 
 ## Conclusion
 
-Most of the work is the two commands: `ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io -T` for the terminal, and the same command without `tcp@` for a web app. The systemd unit keeps the tunnel running, and keys-only SSH plus a Pinggy allowlist take care of the risk that comes with a public SSH port.
-
-To check it yourself, start the tunnel on your Pi, turn off Wi-Fi on your phone, and SSH in over mobile data from an app like Termius. If that works, the Pi is reachable from anywhere your phone is. When the changing address starts to bother you, a Pro token is a one-line change in the unit file.
+With {{< link href="https://pinggy.io" >}}Pinggy{{< /link >}}, a TCP tunnel to port 22 gives you a terminal on your Pi and an HTTP tunnel opens any web app on it, with no port forwarding and no trouble behind CG-NAT. Add the systemd unit so the tunnel survives reboots, keep SSH keys-only, and move to a Pro token once the changing address gets annoying.

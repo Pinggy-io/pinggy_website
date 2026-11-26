@@ -1,20 +1,22 @@
 ---
 title: "Best Open-Weight AI Image Models to Self-Host in 2026, Ranked"
-description: "Compare self-hosted AI image generators in November 2026. See MiniMax H3-Image, FLUX 3 Image Klein and Fibo 2.0 ranked by Arena Elo, with hardware and license details."
+description: "Compare the best self-hosted AI image generators. See MiniMax H3-Image, FLUX 3 Image Klein and Fibo 2.0 ranked by Arena Elo, with hardware and license details."
 date: 2025-08-28T14:15:25+05:30
-lastmod: 2026-11-20T18:30:00+05:30
+lastmod: 2026-11-25T18:30:00+05:30
 draft: false
 tags: ["AI Image Generation", "self-hosted", "open source", "Machine Learning"]
-og_image: "images/best_free_open_source_ai_image_generators/ai_image_arena_elo_nov2026.webp"
-schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJUZWNoQXJ0aWNsZSIsCiAgImhlYWRsaW5lIjogIkJlc3QgT3Blbi1XZWlnaHQgQUkgSW1hZ2UgTW9kZWxzIHRvIFNlbGYtSG9zdCBpbiAyMDI2LCBSYW5rZWQiLAogICJkZXNjcmlwdGlvbiI6ICJDb21wYXJlIHNlbGYtaG9zdGVkIEFJIGltYWdlIGdlbmVyYXRvcnMgaW4gTm92ZW1iZXIgMjAyNi4gU2VlIE1pbmlNYXggSDMtSW1hZ2UsIEZMVVggMyBJbWFnZSBLbGVpbiBhbmQgRmlibyAyLjAgcmFua2VkIGJ5IEFyZW5hIEVsbywgd2l0aCBoYXJkd2FyZSBhbmQgbGljZW5zZSBkZXRhaWxzLiIsCiAgImRhdGVQdWJsaXNoZWQiOiAiMjAyNS0wOC0yOFQxNDoxNToyNSswNTozMCIsCiAgImRhdGVNb2RpZmllZCI6ICIyMDI2LTExLTIwVDE4OjMwOjAwKzA1OjMwIiwKICAiaW1hZ2UiOiAiaHR0cHM6Ly9waW5nZ3kuaW8vaW1hZ2VzL2Jlc3RfZnJlZV9vcGVuX3NvdXJjZV9haV9pbWFnZV9nZW5lcmF0b3JzL2FpX2ltYWdlX2FyZW5hX2Vsb19ub3YyMDI2LndlYnAiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJBSSBUb29scyIsCiAgICAiU2VsZi1Ib3N0aW5nIgogIF0sCiAgImtleXdvcmRzIjogWwogICAgIkFJIGltYWdlIGdlbmVyYXRpb24iLAogICAgInNlbGYtaG9zdGVkIEFJIiwKICAgICJvcGVuLXdlaWdodCBpbWFnZSBtb2RlbHMiLAogICAgIlF3ZW4tSW1hZ2UtMi4xIiwKICAgICJJZGVvZ3JhbSA0LjAiLAogICAgIkZMVVguMiIsCiAgICAiRkxVWC4yIGtsZWluIiwKICAgICJRd2VuLUltYWdlLTI1MTIiLAogICAgIk1pbmctSW1hZ2UtMC4xLURlc2lnbiIsCiAgICAiSHVueXVhbkltYWdlIDMuMCIsCiAgICAiQ29zbW9zMy1TdXBlci1UZXh0MkltYWdlIiwKICAgICJLcmVhIDIiLAogICAgIkZJQk8iLAogICAgIlN0YWJsZSBEaWZmdXNpb24gMy41IiwKICAgICJOVklESUEgU2FuYSIsCiAgICAiU2Vuc2VOb3ZhIFUxLjUiLAogICAgIlotSW1hZ2UgVHVyYm8iLAogICAgIkNvbWZ5VUkiLAogICAgIlN3YXJtVUkiLAogICAgIkZvcmdlIE5lbyIsCiAgICAiTWluaU1heCBIMy1JbWFnZSIsCiAgICAiRkxVWCAzIEltYWdlIEtsZWluIiwKICAgICJGaWJvIDIuMCIsCiAgICAiTU9TUy1JbWFnZSIKICBdCn0KPC9zY3JpcHQ+"
+og_image: "images/best_free_open_source_ai_image_generators/ai_image_generators.webp"
+schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJUZWNoQXJ0aWNsZSIsCiAgImhlYWRsaW5lIjogIkJlc3QgT3Blbi1XZWlnaHQgQUkgSW1hZ2UgTW9kZWxzIHRvIFNlbGYtSG9zdCBpbiAyMDI2LCBSYW5rZWQiLAogICJkZXNjcmlwdGlvbiI6ICJDb21wYXJlIHRoZSBiZXN0IHNlbGYtaG9zdGVkIEFJIGltYWdlIGdlbmVyYXRvcnMuIFNlZSBNaW5pTWF4IEgzLUltYWdlLCBGTFVYIDMgSW1hZ2UgS2xlaW4gYW5kIEZpYm8gMi4wIHJhbmtlZCBieSBBcmVuYSBFbG8sIHdpdGggaGFyZHdhcmUgYW5kIGxpY2Vuc2UgZGV0YWlscy4iLAogICJkYXRlUHVibGlzaGVkIjogIjIwMjUtMDgtMjhUMTQ6MTU6MjUrMDU6MzAiLAogICJkYXRlTW9kaWZpZWQiOiAiMjAyNi0xMS0yNVQxODozMDowMCswNTozMCIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2ltYWdlcy9iZXN0X2ZyZWVfb3Blbl9zb3VyY2VfYWlfaW1hZ2VfZ2VuZXJhdG9ycy9haV9pbWFnZV9nZW5lcmF0b3JzLndlYnAiLAogICJhcnRpY2xlU2VjdGlvbiI6IFsKICAgICJUZWNobm9sb2d5IiwKICAgICJBSSBUb29scyIsCiAgICAiU2VsZi1Ib3N0aW5nIgogIF0sCiAgImtleXdvcmRzIjogWwogICAgIkFJIGltYWdlIGdlbmVyYXRpb24iLAogICAgInNlbGYtaG9zdGVkIEFJIiwKICAgICJvcGVuLXdlaWdodCBpbWFnZSBtb2RlbHMiLAogICAgIlF3ZW4tSW1hZ2UtMi4xIiwKICAgICJJZGVvZ3JhbSA0LjAiLAogICAgIkZMVVguMiIsCiAgICAiRkxVWC4yIGtsZWluIiwKICAgICJRd2VuLUltYWdlLTI1MTIiLAogICAgIk1pbmctSW1hZ2UtMC4xLURlc2lnbiIsCiAgICAiSHVueXVhbkltYWdlIDMuMCIsCiAgICAiQ29zbW9zMy1TdXBlci1UZXh0MkltYWdlIiwKICAgICJLcmVhIDIiLAogICAgIkZJQk8iLAogICAgIlN0YWJsZSBEaWZmdXNpb24gMy41IiwKICAgICJOVklESUEgU2FuYSIsCiAgICAiU2Vuc2VOb3ZhIFUxLjUiLAogICAgIlotSW1hZ2UgVHVyYm8iLAogICAgIkNvbWZ5VUkiLAogICAgIlN3YXJtVUkiLAogICAgIkZvcmdlIE5lbyIsCiAgICAiTWluaU1heCBIMy1JbWFnZSIsCiAgICAiRkxVWCAzIEltYWdlIEtsZWluIiwKICAgICJGaWJvIDIuMCIsCiAgICAiTU9TUy1JbWFnZSIKICBdCn0KPC9zY3JpcHQ+"
 outputs:
   - HTML
   - AMP
 ---
 
-{{< image "best_free_open_source_ai_image_generators/ai_image_arena_elo_nov2026.webp" "November 2026 open-weight image Arena ratings. H3-Image leads at 1,066, followed by Qwen-Image-2.1 at 1,048 and FLUX 3 Image Klein at 1,041." >}}
+{{< image "best_free_open_source_ai_image_generators/ai_image_generators.webp" "Banner reading Open-Source Image Models You Can Self-Host, over a collage of AI-generated sample images" >}}
 
-MiniMax H3-Image leads the <a href="https://artificialanalysis.ai/image/leaderboard/text-to-image/open-weights" target="_blank">Artificial Analysis open-weights leaderboard</a> at **1,066 Elo**. Downloading its reference pipeline takes about 135 GB before the optional prompt expander. If you have an 8 GB GeForce card, FLUX 3 Image Klein is a more practical starting point. It scores **1,041**, and Black Forest Labs publishes an INT8 workflow for that memory budget.
+AI image generation is no longer a hosted-API-only game. Open-weight models now match hosted services on photorealism and prompt following, and self-hosting them is a practical option rather then a weekend experiment, with no rate limits and costs you can predict. If you'd rather not manage GPUs, a hosted <a href="https://higgsfield.ai/ai-image" target="_blank">AI Image Generator</a> like Higgsfield, a full AI creative suite, buys you convenience, not better model quality.
+
+MiniMax's **H3-Image** leads the open-weight board on the <a href="https://artificialanalysis.ai/image/leaderboard/text-to-image/open-weights" target="_blank">Artificial Analysis Text-to-Image Arena</a> at 1,066 Elo, ahead of **Qwen-Image-2.1** (1,048) and **FLUX 3 Image Klein** (1,041). Topping the board doesn't make it the easy pick: H3-Image's reference pipeline is about a 135 GB download, while Klein has an INT8 workflow that fits an 8 GB GeForce card. The bigger catch is licensing: many of the strongest "open" models ship under non-commercial, revenue-capped or region-limited terms. This guide covers the models worth self-hosting, what each license realy allows, and how to run them.
 
 {{% tldr %}}
 
@@ -27,7 +29,9 @@ MiniMax H3-Image leads the <a href="https://artificialanalysis.ai/image/leaderbo
 
 ## How the open-weight models rank
 
-Artificial Analysis ranks text-to-image systems using blind, head-to-head human preferences. These are the first eight entries in its AA-Image-T2I v2.1 open-weights view, in the November 21, 2026 snapshot with 3,344 samples for H3-Image. The live scores move as votes arrive. Each row represents the configuration voters saw. The board keeps FLUX.2 [dev] fixed at 1,000.
+Artificial Analysis ranks text-to-image systems using blind, head-to-head human preferences. These are the first eight entries in its AA-Image-T2I v2.1 open-weights view, where H3-Image's rating rests on 3,344 samples. The live scores move as votes arrive. Each row represents the configuration voters saw. The board keeps FLUX.2 [dev] fixed at 1,000.
+
+{{< image "best_free_open_source_ai_image_generators/ai_image_arena_elo_nov2026.webp" "Open-weight image Arena ratings from Artificial Analysis. H3-Image leads at 1,066, followed by Qwen-Image-2.1 at 1,048 and FLUX 3 Image Klein at 1,041." >}}
 
 | Arena rank | Model or configuration | Elo | Published weight license |
 | ---: | --- | ---: | --- |
@@ -70,7 +74,7 @@ The Kommunity license grants qualifying users below US$5 million in annualized g
 
 *Text-rendering sample from the Qwen-Image-2.1 model card. Source: {{< link href="https://huggingface.co/Qwen/Qwen-Image-2.1" >}}Qwen on Hugging Face{{< /link >}}.*
 
-Qwen-Image-2.1 is a unified text-to-image and image-editing model released on September 20, 2026, and scores 1,048 on the open-weight Arena. Its visual generation component is 7B parameters (32 single-stream DiT layers). Three features stand out. It generates native transparent (RGBA) images, so logos and stickers need no background-removal step. It accepts up to 10 reference images for editing and composition, which is how the model card's group photo was built from six separate portraits. And one checkpoint handles both generation and editing, through the `QwenImage21Pipeline`, which ships in the stable Diffusers v0.41.0 release (October 6) with CPU offload for smaller GPUs.
+Qwen-Image-2.1 is a unified text-to-image and image-editing model that scores 1,048 on the open-weight Arena. Its visual generation component is 7B parameters (32 single-stream DiT layers). Three features stand out. It generates native transparent (RGBA) images, so logos and stickers need no background-removal step. It accepts up to 10 reference images for editing and composition, which is how the model card's group photo was built from six separate portraits. And one checkpoint handles both generation and editing, through the `QwenImage21Pipeline`, which ships in the stable Diffusers v0.41.0 release with CPU offload for smaller GPUs.
 
 The catch is the license. The Qwen Research License allows use "FOR NON-COMMERCIAL PURPOSES ONLY", which it defines as research or evaluation, and commercial use needs a separate license from Alibaba. That's a step back from Qwen-Image-2512's Apache 2.0, so if you're building a product, consider Qwen-Image-2512. The <a href="https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo" target="_blank">Qwen-Image-2.1-Turbo checkpoint</a> uses eight denoising steps for both generation and editing under the same research license. The ranking above is for the original checkpoint.
 
@@ -82,7 +86,7 @@ The catch is the license. The Qwen Research License allows use "FOR NON-COMMERCI
 
 For creators who prefer a hosted solution instead of managing open-weight models themselves, {{< link href="https://ideogram.ai/" >}}Ideogram AI{{< /link >}} offers an accessible platform for generating high-quality images with precise text and layout control.
 
-Ideogram's first open-weight release, shipped June 3, 2026, is a 9.3B diffusion transformer built around **structured JSON prompts**: you specify layout, color palettes and text placement directly, with bounding boxes, instead of hoping the model interprets your wording. The nf4 quantized checkpoint fits a single 24GB consumer GPU, and there's an fp8 checkpoint too. On the Arena, the Quality entry (generated through Ideogram's API) scores 1,027, and the plain entry scores 1,004. Ideogram also offers newer models through its <a href="https://developer.ideogram.ai/ideogram-api/models" target="_blank">hosted API, including 4.6</a>. For self-hosting, use the 4.0 repository below.
+Ideogram's first open-weight release is a 9.3B diffusion transformer built around **structured JSON prompts**: you specify layout, color palettes and text placement directly, with bounding boxes, instead of hoping the model interprets your wording. The nf4 quantized checkpoint fits a single 24GB consumer GPU, and there's an fp8 checkpoint too. On the Arena, the Quality entry (generated through Ideogram's API) scores 1,027, and the plain entry scores 1,004. Ideogram also offers newer models through its <a href="https://developer.ideogram.ai/ideogram-api/models" target="_blank">hosted API, including 4.6</a>. For self-hosting, use the 4.0 repository below.
 
 Read the license before you deploy anything: the weights are under the Ideogram 4 Non-Commercial license, which counts generating material to advertise or promote revenue-generating products as commercial use. With a commercial agreement from Ideogram in place, the marketing layouts, product brochures and brand assets it produces can be assembled into an interactive digital {{< link href="https://www.flipsnack.com/" >}}flipbook{{< /link >}}.
 
@@ -92,9 +96,9 @@ Read the license before you deploy anything: the weights are under the Ideogram 
 
 {{< image "best_free_open_source_ai_image_generators/flux2.webp" "FLUX.2 sample editing workflow" >}}
 
-FLUX.2, released November 25, 2025, succeeds the FLUX.1 architecture that set the bar for open-weight quality. FLUX.2 [dev] is a 32B-parameter model with 4-megapixel output and built-in **multi-reference support**: pass up to 10 reference images (a character, an art style, a product) and it combines them without fine-tuning or LoRAs. It runs well on NVIDIA RTX hardware with FP8 quantization, and it's the reference point the whole Arena is scored against (exactly 1,000).
+FLUX.2 succeeds the FLUX.1 architecture that set the bar for open-weight quality. FLUX.2 [dev] is a 32B-parameter model with 4-megapixel output and built-in **multi-reference support**: pass up to 10 reference images (a character, an art style, a product) and it combines them without fine-tuning or LoRAs. It runs well on NVIDIA RTX hardware with FP8 quantization, and it's the reference point the whole Arena is scored against (exactly 1,000).
 
-FLUX.2 [dev] ships under the FLUX non-commercial license, which permits certain commercial uses of outputs subject to its restrictions. Running the model as a commercial service requires separate rights. See the <a href="https://huggingface.co/black-forest-labs/FLUX.2-dev/blob/main/LICENSE.md" target="_blank">FLUX.2 [dev] license</a>. If you need a permissive license or a small GPU, look at **FLUX.2 [klein] 4B** (January 2026): 4 billion parameters, Apache 2.0, multi-reference editing, and as little as 13GB of VRAM (Black Forest Labs names the RTX 3090 and 4070). The larger [klein] 9B scores 931 but goes back to the non-commercial license.
+FLUX.2 [dev] ships under the FLUX non-commercial license, which permits certain commercial uses of outputs subject to its restrictions. Running the model as a commercial service requires separate rights. See the <a href="https://huggingface.co/black-forest-labs/FLUX.2-dev/blob/main/LICENSE.md" target="_blank">FLUX.2 [dev] license</a>. If you need a permissive license or a small GPU, look at **FLUX.2 [klein] 4B**: 4 billion parameters, Apache 2.0, multi-reference editing, and as little as 13GB of VRAM (Black Forest Labs names the RTX 3090 and 4070). The larger [klein] 9B scores 931 but goes back to the non-commercial license.
 
 **Best for** high-resolution assets, character consistency and multi-reference composition ([dev]), and commercial work on a consumer GPU ([klein] 4B). Weights: {{< link href="https://huggingface.co/black-forest-labs" >}}Black Forest Labs on Hugging Face{{< /link >}}.
 
@@ -102,7 +106,7 @@ FLUX.2 [dev] ships under the FLUX non-commercial license, which permits certain 
 
 {{< image "best_free_open_source_ai_image_generators/qwen.webp" "Qwen-Image vs Qwen-Image-2512 side-by-side of a jungle waterfall, from Qwen's Finer Natural Detail comparison" >}}
 
-Qwen-Image-2512 is the December 2025 update of the original Qwen-Image, a roughly 20B-parameter model under **Apache 2.0**. The November open-weights board does not list this exact checkpoint. The update brought three improvements: more realistic people (less of the waxy, over-smoothed "AI look"), finer natural detail in landscapes and fur, and better text rendering for slides, infographics and posters.
+Qwen-Image-2512 is an update of the original Qwen-Image, a roughly 20B-parameter model under **Apache 2.0**. The open-weights board does not list this exact checkpoint. The update brought three improvements: more realistic people (less of the waxy, over-smoothed "AI look"), finer natural detail in landscapes and fur, and better text rendering for slides, infographics and posters.
 
 Qwen-Image-2512 has an Apache 2.0 license for teams that need commercial use. One naming note: "qwen-image-max" is also a hosted model on Alibaba Cloud's API, and Alibaba doesn't say whether it runs these exact weights, so use the Hugging Face name when you self-host.
 
@@ -114,7 +118,7 @@ Qwen-Image-2512 has an Apache 2.0 license for teams that need commercial use. On
 
 *Sample outputs from the Ming-Image-0.1-Design model card. Source: {{< link href="https://huggingface.co/inclusionAI/Ming-Image-0.1-Design" >}}InclusionAI on Hugging Face{{< /link >}}.*
 
-Ming-Image-0.1-Design, from Ant Group's InclusionAI, arrived in September 2026 and is the most specialized model here: a 6B text-to-image model for UI layouts, infographics, posters and other text-rich designs. It generates complete compositions rather than single objects, supports RGBA output with transparent backgrounds, and scores 1,001 on the Arena, with a reported interval of 992 to 1,010 around the estimate. It's MIT licensed, so commercial use is fine.
+Ming-Image-0.1-Design, from Ant Group's InclusionAI, is the most specialized model here: a 6B text-to-image model for UI layouts, infographics, posters and other text-rich designs. It generates complete compositions rather than single objects, supports RGBA output with transparent backgrounds, and scores 1,001 on the Arena, with a reported interval of 992 to 1,010 around the estimate. It's MIT licensed, so commercial use is fine.
 
 The recommended settings are 2048x2048 at 12 sampling steps in BF16, served through vLLM-Omni. The model card reports validation on one CUDA GPU with 80 GiB of VRAM. It gives no minimum for a consumer GPU.
 
@@ -126,7 +130,7 @@ The recommended settings are 2048x2048 at 12 sampling steps in BF16, served thro
 
 *Banner from the HunyuanImage 3.0 README. Source: {{< link href="https://github.com/Tencent-Hunyuan/HunyuanImage-3.0" >}}Tencent on GitHub{{< /link >}}.*
 
-Tencent's HunyuanImage 3.0 uses a Mixture-of-Experts design with 64 experts and 80 billion total parameters, 13 billion active per token. In January 2026 Tencent added **HunyuanImage 3.0 Instruct** and an Instruct-Distil variant, and Instruct scores 986 on the open-weight Arena (the base model scores 932).
+Tencent's HunyuanImage 3.0 uses a Mixture-of-Experts design with 64 experts and 80 billion total parameters, 13 billion active per token. Tencent later added **HunyuanImage 3.0 Instruct** and an Instruct-Distil variant, and Instruct scores 986 on the open-weight Arena (the base model scores 932).
 
 Two practical constraints. Hardware: Tencent recommends at least three 80 GB GPUs for its base configuration and eight 80 GB GPUs for Instruct. License: the Tencent Hunyuan Community License doesn't apply in the European Union, the United Kingdom or South Korea, and services with more than 100 million monthly active users need a separate license from Tencent.
 
@@ -136,9 +140,9 @@ Two practical constraints. Hardware: Tencent recommends at least three 80 GB GPU
 
 {{< image "best_free_open_source_ai_image_generators/cosmos3_sample.webp" "Cosmos3-Super-Text2Image sample image of hands shaping a clay vase on a pottery wheel" >}}
 
-Cosmos3-Super-Text2Image is the text-to-image model in NVIDIA's **Cosmos 3** family, built for Physical AI work such as robotics, autonomous driving and simulation. It went up on Hugging Face at the end of May 2026 as a 64B-parameter Mixture-of-Transformers model with an autoregressive tower and a diffusion tower, and its grounding in physical scenes shows in lighting, materials and spatial layout. Its agentic configuration scores 996 on the November board.
+Cosmos3-Super-Text2Image is the text-to-image model in NVIDIA's **Cosmos 3** family, built for Physical AI work such as robotics, autonomous driving and simulation. It's a 64B-parameter Mixture-of-Transformers model with an autoregressive tower and a diffusion tower, and its grounding in physical scenes shows in lighting, materials and spatial layout. Its agentic configuration scores 996 on the board.
 
-The "(agentic)" label refers to a sampling loop, not built-in reasoning. NVIDIA's agentic upsampling recipe generates candidates, scores each with a vision-language critic, and rewrites the prompt from the critic's feedback, and its defaults call hosted third-party models for the rewriting and the critique. The non-agentic run scores 988, and a 4-step distilled checkpoint released in July scores 973. The weights are under the permissive OpenMDW 1.1 license and serve through vLLM-Omni, SGLang and Diffusers, but NVIDIA recommends an 8xH100 node, or 4xH200/GB200, and has only tested BF16.
+The "(agentic)" label refers to a sampling loop, not built-in reasoning. NVIDIA's agentic upsampling recipe generates candidates, scores each with a vision-language critic, and rewrites the prompt from the critic's feedback, and its defaults call hosted third-party models for the rewriting and the critique. The non-agentic run scores 988, and a 4-step distilled checkpoint scores 973. The weights are under the permissive OpenMDW 1.1 license and serve through vLLM-Omni, SGLang and Diffusers, but NVIDIA recommends an 8xH100 node, or 4xH200/GB200, and has only tested BF16.
 
 **Best for** physically grounded scenes, and teams with data-center GPUs who want a commercially licensed model near the top of the board. Weights: {{< link href="https://huggingface.co/nvidia/Cosmos3-Super-Text2Image" >}}NVIDIA on Hugging Face{{< /link >}}.
 
@@ -146,7 +150,7 @@ The "(agentic)" label refers to a sampling loop, not built-in reasoning. NVIDIA'
 
 {{< image "best_free_open_source_ai_image_generators/Krea.webp" "Krea 2 sample generations" >}}
 
-Krea 2 launched as a hosted model in May 2026, and on June 22 Krea released its weights as two downloadable 12B-parameter checkpoints: **Raw**, an undistilled base for fine-tuning and LoRA training, and **Turbo**, an 8-step distilled version for fast iteration at 1K to 2K resolution. Krea pitches it on aesthetic range rather than a single polished default style. On the Arena, the Krea 2 entries are hosted builds that Artificial Analysis doesn't list as open weights, so there's no Arena score for the files you can download.
+Krea 2 started out as a hosted model, and Krea later released its weights as two downloadable 12B-parameter checkpoints: **Raw**, an undistilled base for fine-tuning and LoRA training, and **Turbo**, an 8-step distilled version for fast iteration at 1K to 2K resolution. Krea pitches it on aesthetic range rather than a single polished default style. On the Arena, the Krea 2 entries are hosted builds that Artificial Analysis doesn't list as open weights, so there's no Arena score for the files you can download.
 
 Read the <a href="https://www.krea.ai/krea-2-licensing" target="_blank">Krea 2 Community License</a> before deploying commercially. It's free for organizations under $1 million in annual revenue, you must run your own content filtering, any AI model you distribute that contains or derives from it must have a name starting with "Krea", and Krea can terminate the license on 30 days' notice. That's a lot more conditions than an Apache or MIT grant.
 
@@ -166,7 +170,7 @@ The samples above come from the original FIBO, which is an 8B-parameter DiT that
 
 {{< image "best_free_open_source_ai_image_generators/stable_diffusion.webp" "Grid of Stable Diffusion 3.5 sample images, including potion bottles and a neon Drive On garage" >}}
 
-Stable Diffusion 3.5 Large is an 8.1B-parameter model released in October 2024. It makes sense if you already use a workflow or adapter that targets this checkpoint. The Stability AI Community License permits commercial use for organizations below its $1 million annual revenue threshold, subject to the license terms.
+Stable Diffusion 3.5 Large is an 8.1B-parameter model from an earlier generation than most of this list. It makes sense if you already use a workflow or adapter that targets this checkpoint. The Stability AI Community License permits commercial use for organizations below its $1 million annual revenue threshold, subject to the license terms.
 
 **Best for** general-purpose generation, older workflows, and hardware that can't fit the larger models. Weights: {{< link href="https://huggingface.co/stabilityai/stable-diffusion-3.5-large" >}}Stability AI on Hugging Face{{< /link >}}.
 
@@ -182,7 +186,7 @@ The authors report generating a 1024 x 1024 image in under a second on a 16 GB l
 
 {{< image "best_free_open_source_ai_image_generators/sensenova.webp" "RETRO-COLA vintage soda ad poster generated by SenseNova-U1.5 Preview" >}}
 
-SenseNova-U1.5-8B-MoT, released in final form on August 20, 2026 after a July preview, uses a Mixture-of-Transformers backbone that runs understanding and generation as separate streams sharing attention, instead of bolting a diffusion head onto a language model (about 17.5B parameters in total). That split reduces the interference that usually hurts one capability when a single model is trained for both, and it shows up as native 4K generation plus multi-reference instruction editing, like merging a product shot with a separate background reference in one pass. It's Apache 2.0 and isn't on the Arena yet.
+SenseNova-U1.5-8B-MoT, now out of preview, uses a Mixture-of-Transformers backbone that runs understanding and generation as separate streams sharing attention, instead of bolting a diffusion head onto a language model (about 17.5B parameters in total). That split reduces the interference that usually hurts one capability when a single model is trained for both, and it shows up as native 4K generation plus multi-reference instruction editing, like merging a product shot with a separate background reference in one pass. It's Apache 2.0 and isn't on the Arena yet.
 
 **Best for** native 4K output, multi-image instruction editing, and teams that want an Apache-licensed unified model. Weights: {{< link href="https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT" >}}SenseTime on Hugging Face{{< /link >}}.
 
@@ -190,7 +194,7 @@ SenseNova-U1.5-8B-MoT, released in final form on August 20, 2026 after a July pr
 
 {{< image "best_free_open_source_ai_image_generators/mage_flow.webp" "Mage-Flow cover image: a wizard in an MSRA robe beneath jewelled Mage-Flow lettering" >}}
 
-Mage-Flow, published by Microsoft in July 2026, is a 4B-parameter model for text-to-image generation and instruction-based editing, built from a co-designed tokenizer (Mage-VAE) and diffusion transformer (NR-MMDiT). The distilled Turbo checkpoint generates a 1024px image in 0.59 seconds on an A100 with about 18-20GB of memory. Microsoft describes the family as intended for research. Its repository lists separate text-to-image and editing checkpoints, and the <a href="https://huggingface.co/microsoft/Mage-Flow-Turbo" target="_blank">official Turbo model card</a> lists MIT. We could not verify anonymous access to the Turbo weight files.
+Mage-Flow, from Microsoft, is a 4B-parameter model for text-to-image generation and instruction-based editing, built from a co-designed tokenizer (Mage-VAE) and diffusion transformer (NR-MMDiT). The distilled Turbo checkpoint generates a 1024px image in 0.59 seconds on an A100 with about 18-20GB of memory. Microsoft describes the family as intended for research. Its repository lists separate text-to-image and editing checkpoints, and the <a href="https://huggingface.co/microsoft/Mage-Flow-Turbo" target="_blank">official Turbo model card</a> lists MIT. We could not verify anonymous access to the Turbo weight files.
 
 **Best for** studying efficient generation-plus-editing designs. Sources: {{< link href="https://github.com/microsoft/Mage" >}}microsoft/Mage on GitHub{{< /link >}} and the {{< link href="https://huggingface.co/papers/2607.19064" >}}Mage-Flow paper{{< /link >}}.
 
@@ -200,7 +204,7 @@ Mage-Flow, published by Microsoft in July 2026, is a 4B-parameter model for text
 
 **{{< link href="https://huggingface.co/Tongyi-MAI/Z-Image-Turbo" >}}Z-Image Turbo{{< /link >}}** (Alibaba Tongyi-MAI) is a 6B, Apache 2.0 model that needs only 8 function evaluations per image and "fits comfortably within 16G VRAM consumer devices". Its 938 Elo makes it a useful comparison for anyone testing small models on a 16 GB card.
 
-**{{< link href="https://huggingface.co/HiDream-ai/HiDream-O1-Image" >}}HiDream-O1-Image{{< /link >}}** (May 2026, about 8.8B, MIT) scores 978. **{{< link href="https://huggingface.co/baidu/ERNIE-Image" >}}ERNIE-Image{{< /link >}}** from Baidu (April 2026, 8B, Apache 2.0) runs on 24GB consumer GPUs and scores 909, with a Turbo variant at 916.
+**{{< link href="https://huggingface.co/HiDream-ai/HiDream-O1-Image" >}}HiDream-O1-Image{{< /link >}}** (about 8.8B, MIT) scores 978. **{{< link href="https://huggingface.co/baidu/ERNIE-Image" >}}ERNIE-Image{{< /link >}}** from Baidu (8B, Apache 2.0) runs on 24GB consumer GPUs and scores 909, with a Turbo variant at 916.
 
 **MOSS-Image** is a 5B option for posters and layouts under Apache 2.0. OpenMOSS provides Base and SFT checkpoints and demonstrates how the SFT version groups text in a whiteboard layout. Choose Base if you plan to fine-tune. <a href="https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base" target="_blank">OpenMOSS checkpoint comparison</a>.
 
@@ -230,13 +234,13 @@ Source: {{< link href="https://github.com/mcmonkeyprojects/SwarmUI" >}}SwarmUI o
 
 {{< image "best_free_open_source_ai_image_generators/comfyui.webp" "ComfyUI Screenshot" >}}
 
-ComfyUI is the power users' choice. Its node-based interface lets you build "workflows", visual graphs of the generation pipeline, and it's usually the first interface to support new model families. For H3-Image, start with the local text-to-image or editing template linked from the MiniMax model card. A Partner Node calls a hosted API even when ComfyUI itself runs locally. The <a href="https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.46.0" target="_blank">ComfyUI v0.46.0 release notes</a> describe the November 18 release. It serves on port 8188.
+ComfyUI is the power users' choice. Its node-based interface lets you build "workflows", visual graphs of the generation pipeline, and it's usually the first interface to support new model families. For H3-Image, start with the local text-to-image or editing template linked from the MiniMax model card. A Partner Node calls a hosted API even when ComfyUI itself runs locally. The <a href="https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.46.0" target="_blank">ComfyUI v0.46.0 release notes</a> list what changed in that version. It serves on port 8188.
 
 Source: {{< link href="https://github.com/Comfy-Org/ComfyUI" >}}ComfyUI on GitHub{{< /link >}}.
 
 ### 3. Forge Neo
 
-The original Forge, an optimized fork of the classic Stable Diffusion WebUI, hasn't had a commit since mid-2025 and never added FLUX.2 support. Its maintained successor is **Forge Neo**, the `neo` branch of Haoming02's sd-webui-forge-classic, which describes itself as a continuation of the latest version of Forge. It keeps the familiar single-page interface on a memory-management backend rewritten from ComfyUI's, and it supports Krea 2, Z-Image, ERNIE, Qwen-Image and FLUX.2 [klein] (but not FLUX.2 [dev]). For new users on consumer hardware, it's still the gentlest way in. It serves on port 7860.
+The original Forge, an optimized fork of the classic Stable Diffusion WebUI, is no longer maintained and never added FLUX.2 support. Its maintained successor is **Forge Neo**, the `neo` branch of Haoming02's sd-webui-forge-classic, which describes itself as a continuation of the latest version of Forge. It keeps the familiar single-page interface on a memory-management backend rewritten from ComfyUI's, and it supports Krea 2, Z-Image, ERNIE, Qwen-Image and FLUX.2 [klein] (but not FLUX.2 [dev]). For new users on consumer hardware, it's still the gentlest way in. It serves on port 7860.
 
 Source: {{< link href="https://github.com/Haoming02/sd-webui-forge-classic" >}}Haoming02/sd-webui-forge-classic (Forge Neo) on GitHub{{< /link >}}.
 
