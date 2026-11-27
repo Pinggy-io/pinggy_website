@@ -519,8 +519,9 @@ function Install-Pinggy {
     }
 
     # Runs $pinggyPath by its full path, with -b, as Invoke-DeviceLogin does. connect reads DEVICE_AGENT_TOKEN
-    # from the environment it inherits, and reads no key, so it runs the same with no console. The token leaves the
-    # environment before the service question, so no later command inherits it.
+    # from the environment it inherits. It reads the console for 1 question, whether the dashboard may reach this
+    # machine's files. With no console it asks nothing and leaves file access on. The token leaves the environment
+    # before the service question, so no later command inherits it.
     function Invoke-DeviceConnect {
         $connectArguments = @('device', 'connect', '-b')
         if ($env:PINGGY_MANAGE) { $connectArguments += @('--manage', $env:PINGGY_MANAGE) }

@@ -20,7 +20,8 @@
 # Setting, from the dashboard's command:
 #   DEVICE_AGENT_TOKEN  a device token. `pinggy device connect` runs with no email and no code. Every update question
 #                       is still asked, and a pinggy older than 0.6.2 ignores the token. The token reaches the CLI in
-#                       its environment, never on a command line. Set it on sh, not on curl, so curl never holds it
+#                       its environment, never on a command line. Set it on sh, not on curl, so curl never holds it.
+#                       In a terminal, connect asks whether the dashboard may reach this machine's files
 #
 # Overrides, for dev and tests:
 #   PINGGY_VERSION     a release tag, such as v0.6.1. Default: the version pinggy.io publishes, or for an npm copy the
@@ -836,18 +837,23 @@ offer_daemon_restart() {
 }
 
 # Runs $pinggy_path, the copy this script installed, updated or kept, by its full path, so another pinggy earlier on
-# PATH does not answer. connect reads DEVICE_AGENT_TOKEN from the environment this script passes on, and reads no
-# key, so it runs the same with no terminal. -b is the default now. It is passed anyway, so an older pinggy the user
-# kept runs the agent in its daemon too. The token leaves the environment before the service question, so no later
-# command inherits it.
+# PATH does not answer. connect reads DEVICE_AGENT_TOKEN from the environment this script passes on. It asks 1
+# question, whether the dashboard may reach this machine's files, so it reads /dev/tty when there is one. With none it
+# reads /dev/null, asks nothing, and leaves file access on. Never this script's stdin, which under `curl | sh` holds
+# the rest of the script. -b is the default now. It is passed anyway, so an older pinggy the user kept runs the agent
+# in its daemon too. The token leaves the environment before the service question, so no later command inherits it.
 connect_with_device_token() {
     export DEVICE_AGENT_TOKEN
     say ""
+    connect_input=/dev/null
+    if has_terminal; then
+        connect_input=/dev/tty
+    fi
     status=0
     if [ -n "${PINGGY_MANAGE:-}" ]; then
-        "$pinggy_path" device connect -b --manage "$PINGGY_MANAGE" </dev/null || status=$?
+        "$pinggy_path" device connect -b --manage "$PINGGY_MANAGE" <"$connect_input" || status=$?
     else
-        "$pinggy_path" device connect -b </dev/null || status=$?
+        "$pinggy_path" device connect -b <"$connect_input" || status=$?
     fi
     unset DEVICE_AGENT_TOKEN
     if [ "$status" -ne 0 ]; then
