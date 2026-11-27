@@ -1,8 +1,8 @@
 ---
-title: "Pinggy Devices - remote terminal and tunnels for your machines"
-description: "Connect a machine to the Pinggy dashboard with 1 install command. Open a terminal on it from your browser, see its CPU and memory, and start or stop its tunnels. Works behind NAT and firewalls."
+title: "Pinggy Devices - remote terminal, files, and tunnels for your machines"
+description: "Connect a machine to the Pinggy dashboard with 1 install command. Open a terminal, manage its files, see its CPU and memory, and start or stop its tunnels from your browser. Works behind NAT and firewalls."
 date: 2026-11-01T12:00:00+05:30
-lastmod: 2026-11-11T12:00:00+05:30
+lastmod: 2026-11-26T12:00:00+05:30
 draft: false
 ---
 
@@ -11,6 +11,7 @@ draft: false
 Pinggy Devices connects a machine to the {{< link href="https://dashboard.pinggy.io/pinggy-devices" >}}Pinggy dashboard{{</ link >}}. Once a machine is connected, you can:
 
 - Open a terminal on it from your browser.
+- Browse its files, make folders, and rename, copy, move, or delete files and folders.
 - See its hostname, OS, CPU, and memory, with live CPU, load, and memory usage.
 - List its tunnels and saved tunnel configs, and start, stop, restart, or edit them.
 - See an activity log of what happened on the device, with source IP addresses.
@@ -127,6 +128,51 @@ The **Tunnels** tab lists the tunnels running on the machine and the tunnel conf
 
 Tunnels started from the dashboard run in the background on the machine, as `pinggy start -b` does. Stopping the device agent leaves running tunnels alone. See the [Pinggy CLI](/docs/cli/) docs for saved configs and background tunnels.
 
+## Manage files on a device
+
+Open the device in the dashboard and go to the **Files** tab. It opens in the home folder of the user who runs the agent. From it you can:
+
+- Browse the machine's folders, sort them, and show hidden files.
+- See an item's size, permissions, owner, and dates.
+- Make folders, and rename, copy, move, or delete files and folders.
+
+{{< figure src="/doc_img/pinggy_devices/files_tab.webp" alt="Files tab of a Pinggy device in the dashboard, with a folder list and the details of the selected folder" >}}
+
+Select items with their checkboxes, then pick an action from the selection bar or from the `...` menu on a row.
+
+{{< figure src="/doc_img/pinggy_devices/files_actions_menu.webp" alt="Actions menu in the Pinggy Devices Files tab, with Rename, Copy to, Move to, Copy path, and Delete" >}}
+
+- **Changes run as the user who ran `pinggy`**, with that user's permissions, as the terminal does.
+- **Delete has no trash.** Deleting a folder asks you to type its name first.
+- **If a name is already taken** in the destination, the dashboard asks whether to skip the item, keep both, or replace the existing one.
+- **Progress shows in a tray on the tab**, with each item that failed and why. Keep the device page open until a change finishes. Leaving the page stops the items not started yet.
+- **Pinggy does not delete or move** system folders, home folders, the Pinggy CLI's own files, or a mounted disk.
+- **The Files tab does not upload or download files.** It works on the machine's own disks.
+
+{{< figure src="/doc_img/pinggy_devices/files_changes_tray.webp" alt="Changes tray in the Pinggy Devices Files tab, showing a folder moving to another disk" >}}
+
+If the Files tab is greyed out, the CLI on that machine is older than 0.6.11. Run the install command again to update it.
+
+### Turn file access on or off
+
+The person on the machine decides whether the dashboard can reach its files. `pinggy device login` and `pinggy device connect` ask once, before the agent starts:
+
+```
+Allow file access from the Pinggy dashboard? Your account can browse, copy, move
+and delete this machine's files from the browser. [Y/n]
+```
+
+To change the answer later, run 1 of these on the machine:
+
+```bash
+pinggy device connect --files off   # turn file access off
+pinggy device connect --files on    # turn it back on
+```
+
+- **Without a terminal**, as with the token install in a CI job, nothing asks and file access is on.
+- **`pinggy device status`** shows whether file access is on.
+- **File access covers the Files tab only.** A shell in the Terminal tab can still reach the same files.
+
 ## Plans
 
 | Plan | Devices | Shells open on 1 device | Shells open across all devices |
@@ -135,7 +181,7 @@ Tunnels started from the dashboard run in the background on the machine, as `pin
 | Pro | 25 per seat | 10 | 25 per seat |
 | Enterprise | 25 per seat | 10 | 25 per seat |
 
-A Pro plan with 3 seats allows 75 devices and 75 open shells, with at most 10 on any 1 device. See [pricing](/#prices) for the plans.
+A Pro plan with 3 seats allows 75 devices and 75 open shells, with at most 10 on any 1 device. Every plan gets the Files tab on every device. See [pricing](/#prices) for the plans.
 
 ## Commands
 
@@ -153,6 +199,7 @@ A Pro plan with 3 seats allows 75 devices and 75 open shells, with at most 10 on
 | `-b` | `login`, `connect` | Run the agent in the background, in the daemon. This is the default |
 | `--token <TOKEN>` | `connect` | The device token from the dashboard. It is not the tunnel token of the same name |
 | `--name <NAME>` | `login` | The device name. Default: the machine's hostname |
+| `--files on`, `--files off` | `login`, `connect` | Allow or refuse file access from the dashboard, without asking. See [Turn file access on or off](#turn-file-access-on-or-off) |
 
 1 machine holds 1 device credential. Running a second agent with the same credential does not work: the dashboard refuses the second connection while the first one is open.
 
@@ -161,10 +208,11 @@ A Pro plan with 3 seats allows 75 devices and 75 open shells, with at most 10 on
 - **The machine only makes an outbound connection.** It accepts no incoming connection.
 - **The device token is saved in `device.json`** in the CLI's config directory: `~/.config/pinggy/` on macOS and Linux, where only your user can read it, and `%APPDATA%\pinggy\` on Windows.
 - **The agent never logs what you type in a shell.** The copy of a shell's screen that redraws a reopened tab is kept in memory only, and it is gone when the shell ends.
-- **The Activity tab** lists the device's events, with source IP addresses.
+- **The Activity tab** lists the device's events, with source IP addresses. File changes from the Files tab do not show in it.
+- **The person on the machine can turn file access off** with `pinggy device connect --files off`. See [Turn file access on or off](#turn-file-access-on-or-off).
 - **To revoke a device, delete it or rotate its token in the dashboard.** `pinggy device remove` only deletes the token from the machine. A machine without its token cannot authenticate a delete.
 
-Anyone signed in to your Pinggy account can open a shell on your devices. Turn on 2-factor authentication for your account.
+Anyone signed in to your Pinggy account can open a shell on your devices and change their files. Turn on 2-factor authentication for your account.
 
 ## Pinggy Devices and remote management
 
@@ -181,3 +229,5 @@ Anyone signed in to your Pinggy account can open a shell on your devices. Turn o
 | The agent stops and says the token was refused or revoked | The device was deleted or its token was rotated. Add the device again |
 | `this Linux uses musl libc, as Alpine does` | Install with `npm install -g pinggy` |
 | Terminal tab greyed out | Update the CLI: run the install command again |
+| Files tab greyed out | Update the CLI to 0.6.11 or later: run the install command again |
+| `File access is off on this device` | On the machine, run `pinggy device connect --files on` |
