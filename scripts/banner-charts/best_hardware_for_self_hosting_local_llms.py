@@ -1,8 +1,10 @@
 """Render the model-download-size chart in the local LLM hardware guide.
 
-Source: Ollama registry manifests for the nine default four-bit tags linked in
-the article (Q4_K_M, or MXFP4 for gpt-oss). Sizes are the sum of all layers in
-decimal GB, so Qwen3.8 27B includes its vision projector. Keep these numbers in
+Source: Ollama registry manifests for the default four-bit tags linked in the
+article (Q4_K_M, or NVFP4 for Inkling 2 Mini), summed over all layers in decimal GB, so
+the vision models include their projectors. The two largest rows
+have no local Ollama tag: GLM 5.3 Flash and Inkling 2 Small are Unsloth's
+UD-Q4_K_XL GGUFs on Hugging Face. Keep these numbers in
 sync with the model table in content/blog/best_hardware_for_self_hosting_local_llms*.md.
 
 This body chart uses the copper-on-paper palette of the post's other two body
@@ -40,13 +42,14 @@ if args.font_dir:
 COPPER, COPPER_DARK, COPPER_SOFT = "#b4652a", "#8a4a1c", "#f6ebe1"
 INK, MUTED, RULE, PAPER = "#1c1b19", "#6b655c", "#ddd5c9", "#f8f4ee"
 
-models = ["Qwen3 8B", "Qwen3 14B", "gpt-oss 20B (MoE)", "Qwen3.8 27B", "Qwen3 32B",
-          "Llama 3.3 70B", "gpt-oss 120B (MoE)", "Qwen3.5 122B-A10B (MoE)", "Llama 3.1 405B"]
-download_gb = [5.2, 9.3, 13.8, 17.7, 20.2, 42.5, 65.4, 81.4, 243.1]
+models = ["Qwen3.5 9B", "Gemma 4 12B", "Bonsai 2 27B (ternary)", "Qwen3.8 27B",
+          "Inkling 2 Mini 26B (MoE)", "Qwen3.6 35B-A3B (MoE)", "Mistral Medium 3.5 128B",
+          "Nemotron 3 Super 120B (MoE)", "GLM 5.3 Flash 320B (MoE)", "Inkling 2 Small 594B (MoE)"]
+download_gb = [6.6, 8.0, 8.3, 17.7, 19.0, 22.6, 80.2, 86.8, 199.7, 354.2]
 
 title = "¿Cuánta memoria necesita un LLM local?" if spanish else "How much memory does a local LLM need?"
-subtitle = ("Descargas de Ollama a 4 bits en GB, antes de la caché KV y los búferes del motor" if spanish
-            else "Ollama 4-bit download sizes in GB, before the KV cache and runtime buffers")
+subtitle = ("Descargas a 4 bits en GB (Ollama; las dos mayores de Hugging Face), antes de la caché KV" if spanish
+            else "4-bit download sizes in GB (Ollama; the two largest from Hugging Face), before the KV cache")
 xlabel = "Tamaño de la descarga (GB decimales)" if spanish else "Model download size (decimal GB)"
 
 fig, ax = plt.subplots(figsize=(11, 7.2), dpi=150)
@@ -62,10 +65,10 @@ bars = ax.barh(models, download_gb, height=0.62, color=COPPER_SOFT,
 for bar in bars:
     bar.set_edgecolor(COPPER)
 ax.invert_yaxis()
-labels = [(f"{size:g} GB".replace(".", ",") if spanish else f"{size:g} GB") for size in download_gb]
+labels = [(f"{size:.1f} GB".replace(".", ",") if spanish else f"{size:.1f} GB") for size in download_gb]
 ax.bar_label(bars, labels=labels, padding=6, fontsize=12.5, weight="bold", color=INK, family=mono)
-ax.set_xlim(0, 280)
-ax.set_xticks([0, 50, 100, 150, 200, 250])
+ax.set_xlim(0, 400)
+ax.set_xticks([0, 100, 200, 300])
 ax.tick_params(axis="both", length=0, labelsize=12.5, pad=8, colors=INK)
 for label in ax.get_yticklabels():
     label.set_family(sans)

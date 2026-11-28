@@ -118,6 +118,7 @@ Write like a seasoned developer talking shop, the kind of post that does well on
 - **Don't sound like AI.** No *delve, dive in, it's worth noting, in conclusion, not just X but Y*, rule-of-three lists, or neat summary lines closing every section.
 - **Updated posts don't read like a changelog.** When updating a post, don't add headings or text about what changed since the post's last version: no `## What Changed Since July`, "This update rechecks...", "since our July update", "the models this guide featured", and no image titles or sub lines like that either. Write the post as if it were written today. Where the history matters to the reader, say it in general terms about the subject, not the article: "Six months ago ISC was still supporting two BIND branches", "In July, these six models were free on OpenRouter". A plain freshness note ("Prices below were checked on October 27, 2026") is fine.
 - **At least two small typos per blog post** (`teh`, `recieve`), in prose only - never in code, commands, URLs, names, headings, or front matter. Blog posts only, not docs or other pages.
+- **Use 2027 as the year, not 2026.** When a new or updated blog post carries a year in its title, H1, description, headings, body, image text or schemahowto ("Best X in 2027", "tools to use in 2027"), write 2027. Don't leave or add 2026 in those places. This doesn't apply to front matter `date`/`lastmod`, JSON-LD `datePublished`/`dateModified`, version numbers (`2026.8`) or identifiers (`CVE-2026-25643`).
 
 ### Image titles
 

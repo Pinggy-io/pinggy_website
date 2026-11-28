@@ -1,10 +1,10 @@
 ---
  title: "Localtunnel - Easiest way to create a local tunnel" 
- description: "Open a local tunnel to localhost with a single command using Pinggy. No downloads required. Just paste one command to get local tunnels."
+ description: "Open a local tunnel to localhost with one command using Pinggy: HTTP and TCP over plain SSH, UDP through the Pinggy CLI, and end-to-end encrypted TLS tunnels."
  date: 2024-06-22T00:15:25+05:30
- lastmod: 2026-11-25T14:15:25+05:30
- tags: ["local tunnel", "Pinggy", "secure tunneling"]
- schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkxvY2FsdHVubmVsIC0gRWFzaWVzdCB3YXkgdG8gY3JlYXRlIGEgbG9jYWwgdHVubmVsIiwKICAiZGVzY3JpcHRpb24iOiAiUXVpY2sgZ3VpZGUgdG8gZXhwb3NpbmcgYSBsb2NhbCBzZXJ2aWNlIHdpdGggYSBQaW5nZ3kgbG9jYWwgdHVubmVsOiBvbmUgU1NIIGNvbW1hbmQgZm9yIEhUVFAgb3IgVENQLCBwbHVzIGhvdyB0byBwcm90ZWN0IHRoZSBwdWJsaWMgVVJMLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2Fzc2V0cy9oZWFkZXIud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTdGFydCB5b3VyIGxvY2FsIGFwcCBhbmQgbm90ZSBpdHMgcG9ydCwgZm9yIGV4YW1wbGUgODAwMC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiT3BlbiBhbiBIVFRQIHR1bm5lbCBieSBydW5uaW5nOiBzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6ODAwMCBxckBmcmVlLnBpbmdneS5pbyIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcGVuIGEgVENQIHR1bm5lbCBmb3IgU1NILCBkYXRhYmFzZXMgb3IgZ2FtZSBzZXJ2ZXJzIGJ5IHJ1bm5pbmc6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoyMiB0Y3BAZnJlZS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiUHJvdGVjdCB0aGUgVVJMIHdpdGggYmFzaWMgYXV0aCAoYjp1c2VyOnBhc3MpLCBhIGJlYXJlciBrZXkgKGs6KSBvciBhbiBJUCBhbGxvd2xpc3QgKHc6KSBhZGRlZCB0byB0aGUgc2FtZSBjb21tYW5kLiIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTaWduIGluIHRvIHRoZSBQaW5nZ3kgZGFzaGJvYXJkIGFuZCB1c2UgeW91ciB0b2tlbiBmb3IgcGVyc2lzdGVudCBzdWJkb21haW5zIGFuZCBjdXN0b20gZG9tYWlucy4iCiAgICB9CiAgXQp9Cjwvc2NyaXB0Pg=="
+ lastmod: 2026-11-27T14:15:25+05:30
+ tags: ["local tunnel", "tunneling", "localhost", "Pinggy"]
+ schemahowto: "PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9sZCtqc29uIj4KewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmcvIiwKICAiQHR5cGUiOiAiSG93VG8iLAogICJuYW1lIjogIkxvY2FsdHVubmVsIC0gRWFzaWVzdCB3YXkgdG8gY3JlYXRlIGEgbG9jYWwgdHVubmVsIiwKICAiZGVzY3JpcHRpb24iOiAiUXVpY2sgZ3VpZGUgdG8gZXhwb3NpbmcgYSBsb2NhbCBzZXJ2aWNlIHdpdGggYSBQaW5nZ3kgbG9jYWwgdHVubmVsOiBvbmUgY29tbWFuZCBmb3IgSFRUUCwgVENQLCBVRFAgb3IgVExTLCBwbHVzIGhvdyB0byBwcm90ZWN0IHRoZSBwdWJsaWMgVVJMLiIsCiAgImltYWdlIjogImh0dHBzOi8vcGluZ2d5LmlvL2Fzc2V0cy9oZWFkZXIud2VicCIsCiAgInN0ZXAiOiBbCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJTdGFydCB5b3VyIGxvY2FsIGFwcCBhbmQgbm90ZSBpdHMgcG9ydCwgZm9yIGV4YW1wbGUgODAwMC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiT3BlbiBhbiBIVFRQIHR1bm5lbCBieSBydW5uaW5nOiBzc2ggLXAgNDQzIC1SMDpsb2NhbGhvc3Q6ODAwMCBxckBmcmVlLnBpbmdneS5pbyIKICAgIH0sCiAgICB7CiAgICAgICJAdHlwZSI6ICJIb3dUb1N0ZXAiLAogICAgICAidGV4dCI6ICJPcGVuIGEgVENQIHR1bm5lbCBmb3IgU1NILCBkYXRhYmFzZXMgb3IgZ2FtZSBzZXJ2ZXJzIGJ5IHJ1bm5pbmc6IHNzaCAtcCA0NDMgLVIwOmxvY2FsaG9zdDoyMiB0Y3BAZnJlZS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiT3BlbiBhIFVEUCB0dW5uZWwgZm9yIGdhbWUgc2VydmVycyBvciBWb0lQIHdpdGggdGhlIFBpbmdneSBDTEk6IHBpbmdneSAtcCA0NDMgLVIwOmxvY2FsaG9zdDoxOTEzMiB1ZHBAZnJlZS5waW5nZ3kuaW8iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiT3BlbiBhbiBlbmQtdG8tZW5kIGVuY3J5cHRlZCBUTFMgdHVubmVsLCB3aGVyZSB5b3VyIGxvY2FsIHNlcnZlciB0ZXJtaW5hdGVzIFRMUzogc3NoIC1wIDQ0MyAtUjA6bG9jYWxob3N0Ojg0NDMgdGxzQGZyZWUucGluZ2d5LmlvIgogICAgfSwKICAgIHsKICAgICAgIkB0eXBlIjogIkhvd1RvU3RlcCIsCiAgICAgICJ0ZXh0IjogIlByb3RlY3QgdGhlIFVSTCB3aXRoIGJhc2ljIGF1dGggKGI6dXNlcjpwYXNzKSwgYSBiZWFyZXIga2V5IChrOikgb3IgYW4gSVAgYWxsb3dsaXN0ICh3OikgYWRkZWQgdG8gdGhlIHNhbWUgY29tbWFuZC4iCiAgICB9LAogICAgewogICAgICAiQHR5cGUiOiAiSG93VG9TdGVwIiwKICAgICAgInRleHQiOiAiU2lnbiBpbiB0byB0aGUgUGluZ2d5IGRhc2hib2FyZCBhbmQgdXNlIHlvdXIgdG9rZW4gZm9yIHBlcnNpc3RlbnQgc3ViZG9tYWlucyBhbmQgY3VzdG9tIGRvbWFpbnMuIgogICAgfQogIF0KfQo8L3NjcmlwdD4K"
  draft: false 
  og_image: "/assets/header.webp"
  outputs:
@@ -21,7 +21,7 @@ ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io
 
 Simply replace <kbd>8000</kbd> with your desired port number. The `qr@` part also prints a QR code in the terminal, so you can open the tunnel on your phone without typing the URL. For additional features and customization options, visit https://pinggy.io.
 
-{{< llm-context >}}To create a local tunnel with Pinggy - start your app (for example on port 8000), then run `ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io` to get a public HTTPS URL. For TCP services such as SSH, run `ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io` instead.{{< /llm-context >}}
+{{< llm-context >}}To create a local tunnel with Pinggy - start your app (for example on port 8000), then run `ssh -p 443 -R0:localhost:8000 qr@free.pinggy.io` to get a public HTTPS URL. For TCP services such as SSH, run `ssh -p 443 -R0:localhost:22 tcp@free.pinggy.io`; for UDP, use the Pinggy CLI with `pinggy -p 443 -R0:localhost:19132 udp@free.pinggy.io`; for end-to-end TLS, use `tls@free.pinggy.io`.{{< /llm-context >}}
 
 {{< video poster="/assets/tunnelvideothumb.webp" src="/assets/pinggy_demo.webm" >}}
 
@@ -48,6 +48,8 @@ Simply replace <kbd>8000</kbd> with your desired port number. The `qr@` part als
 
 * HTTP tunnel: `ssh -p 443 -R0:localhost:<your-port> qr@free.pinggy.io`
 * TCP tunnel: `ssh -p 443 -R0:localhost:<your-port> tcp@free.pinggy.io`
+* UDP tunnel (Pinggy CLI): `pinggy -p 443 -R0:localhost:<your-port> udp@free.pinggy.io`
+* TLS tunnel, end to end encrypted: `ssh -p 443 -R0:localhost:<your-port> tls@free.pinggy.io`
 * Use the <a href="https://dashboard.pinggy.io/" target="_blank">Pinggy Dashboard</a> for tokens and custom domains.
 {{% /tldr %}}
 
@@ -107,6 +109,39 @@ If you'd rather have an app than an SSH command, the Pinggy CLI takes the same a
 
    On the free plan the port changes every time you reconnect. Pro lets you reserve one in the dashboard. More detail is in the [TCP tunnel docs](/docs/tcp_tunnels/).
 
+### UDP Local Tunnel Setup:
+
+Game servers (Minecraft Bedrock on 19132, Valheim, Palworld), VoIP and DNS run over UDP, and the plain `ssh` client can't carry it, because SSH port forwarding only moves TCP streams. For UDP you need the Pinggy CLI, which takes the same arguments as the SSH command.
+
+1. Install the CLI from the [Pinggy CLI page](/cli/), or with `npm install -g pinggy`.
+
+2. Start the UDP tunnel, replacing `19132` with your server's port:
+
+   ```
+   ./pinggy -p 443 -R0:localhost:19132 udp@free.pinggy.io
+   ```
+
+   On Windows, run `./pinggy.exe` with the same arguments.
+
+3. The CLI prints a public host and UDP port. Put those into the game or app on the other side, for example under **Servers > Add Server** in Minecraft Bedrock. To check the path before you blame the game, run `nc -u -l 9000` locally, tunnel port 9000, and type into `nc -u HOST PORT` from another network; each line should show up in the first terminal.
+
+   As with TCP, the free port changes on every reconnect, and Pro lets you reserve one. The [UDP tunnel docs](/docs/udp_tunnels/) have the details.
+
+### TLS Local Tunnel Setup:
+
+An HTTP tunnel terminates HTTPS at Pinggy's edge. A TLS tunnel doesn't: Pinggy routes the connection by the hostname in the TLS handshake (SNI) and passes the encrypted bytes through, so the session runs end to end between the visitor and your own server, and Pinggy never sees the plaintext. Use it when the tunnel provider shouldn't read the traffic, or for a TLS service that isn't plain HTTP.
+
+1. Start the TLS tunnel, replacing `8443` with the port your TLS server listens on:
+{{< ssh_command >}}
+"{\"cli\":{\"windows\":{\"ps\":\"./pinggy.exe -p 443 -R0:localhost:8443 tls@free.pinggy.io\",\"cmd\":\"./pinggy.exe -p 443 -R0:localhost:8443 tls@free.pinggy.io\"},\"linux\":{\"ps\":\"./pinggy -p 443 -R0:localhost:8443 tls@free.pinggy.io\",\"cmd\":\"./pinggy -p 443 -R0:localhost:8443 tls@free.pinggy.io\"}},\"ssh\":{\"windows\":{\"ps\":\"ssh -p 443 -R0:localhost:8443 tls@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8443 tls@free.pinggy.io\"},\"linux\":{\"ps\":\"ssh -p 443 -R0:localhost:8443 tls@free.pinggy.io\",\"cmd\":\"ssh -p 443 -R0:localhost:8443 tls@free.pinggy.io\"}}}"
+{{</ ssh_command >}}
+
+2. You get a hostname and no port number, because clients connect to it on port 443.
+
+3. Your local server terminates TLS, so it needs a certificate for that hostname. A self-signed one is fine for testing, though clients will warn. For real use, pair the tunnel with a [custom domain](/docs/custom_domain/) on Pro and a certificate you issue for your own domain. Since Pinggy can't read the requests, HTTP options like basic auth, bearer keys and header rewrites don't apply here; IP allowlisting with `w:` still works. The [TLS tunnel docs](/docs/tls_tunnels/) cover the rest.
+
+If you want the opposite, Pinggy handling TLS in front of a plain TCP service, that's a [TLS-over-TCP tunnel](/docs/tlstcp_tunnels/) (`tlstcp@free.pinggy.io`).
+
 ## Alternative: VPS with SSH Port Forwarding
 
 For a DIY approach, you can rent a VPS and use SSH remote port forwarding (`ssh -R`) to expose local services through it. That means keeping a server patched, setting `GatewayPorts` in its `sshd_config`, opening firewall ports, managing SSH keys and adding your own TLS certificate if you want HTTPS. You get full control, and you pay for it in setup time and upkeep.
@@ -143,4 +178,4 @@ Free tunnels show a short screening page on the first browser visit, which helps
 
 ## Conclusion
 
-Local tunnels let developers and IT teams expose a local environment in seconds for development, testing, demos, webhooks or remote administration. They get around NAT, CGNAT and firewall limits, and they handle more than just HTTP. With Pinggy, it's one SSH command and nothing to install. Just remember to add authentication before you share teh link, and close the tunnel when you no longer need it.
+Local tunnels let developers and IT teams expose a local environment in seconds for development, testing, demos, webhooks or remote administration. They get around NAT, CGNAT and firewall limits, and they carry TCP, UDP and TLS as well as HTTP. With Pinggy, it's one SSH command and nothing to install. Just remember to add authentication before you share teh link, and close the tunnel when you no longer need it.
