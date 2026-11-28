@@ -2,6 +2,7 @@
 title: "Remote Access to Home Assistant and Self-Hosted Smart Home Apps Behind CGNAT"
 description: "Your ISP put you behind Carrier-Grade NAT, so port forwarding is dead. Here is how to reach Home Assistant, Frigate, Zigbee2MQTT, ESPHome and Node-RED from outside the house using an outbound tunnel, including the trusted_proxies settings that Home Assistant needs before it will answer."
 date: 2026-09-03T11:30:00+05:30
+lastmod: 2026-11-27T11:30:00+05:30
 draft: false
 og_image: "images/remote_access_smart_home_apps_behind_cgnat/remote_access_smart_home_apps_behind_cgnat_banner.webp"
 tags: ["smart home", "CGNAT", "networking", "remote access", "self-hosted"]
@@ -11,7 +12,7 @@ outputs:
   - AMP
 ---
 
-{{< llm-context >}}To reach a self-hosted smart home app behind CGNAT with Pinggy - on the machine running the app, run `ssh -p 443 -R0:127.0.0.1:8123 free.pinggy.io` (8123 is Home Assistant; use 8581 for Homebridge, 6052 for ESPHome, 1880 for Node-RED, 8971 for Frigate) to get a public HTTPS URL. In Home Assistant, also turn on Trust X-Forwarded-For and add `127.0.0.1` to Trusted proxies under Settings > System > Network > HTTP server, or it answers 400 Bad Request.{{< /llm-context >}}
+{{< llm-context >}}To reach a self-hosted smart home app behind CGNAT with Pinggy - on the machine running the app, run `ssh -p 443 -R0:127.0.0.1:8123 free.pinggy.io` (8123 is Home Assistant, or 80 on new Home Assistant OS installs; use 8581 for Homebridge, 6052 for ESPHome, 1880 for Node-RED, 8971 for Frigate) to get a public HTTPS URL. In Home Assistant, also turn on Trust X-Forwarded-For and add `127.0.0.1` to Trusted proxies under Settings > System > Network > HTTP server, or it answers 400 Bad Request.{{< /llm-context >}}
 
 {{< image "remote_access_smart_home_apps_behind_cgnat/remote_access_smart_home_apps_behind_cgnat_banner.webp" "Remote access to self-hosted smart home apps behind CGNAT" >}}
 
@@ -29,17 +30,19 @@ Home Assistant's own documentation calls Carrier-Grade NAT "becoming fairly comm
 ```bash
 ssh -p 443 -R0:127.0.0.1:8123 free.pinggy.io
 ```
-`8123` is Home Assistant. Swap in `8581` (Homebridge), `8080` (openHAB, Zigbee2MQTT), `6052` (ESPHome), `1880` (Node-RED), `8091` (Z-Wave JS UI) or `8971` (Frigate).
+`8123` is Home Assistant (new Home Assistant OS installs listen on `80` instead). Swap in `8581` (Homebridge), `8080` (openHAB, Zigbee2MQTT), `6052` (ESPHome), `1880` (Node-RED), `8091` (Z-Wave JS UI) or `8971` (Frigate).
 
 **Add auth first:** append `b:youruser:yourpassword` to the command. Verified `401` without credentials, `200` with.
 
-**Alternatives:** <a href="https://www.nabucasa.com/pricing/" target="_blank">Home Assistant Cloud</a> ($6.50/month) covers Home Assistant only; <a href="https://tailscale.com/pricing" target="_blank">Tailscale's free plan</a> needs a client on every viewer; Cloudflare Tunnel is free but <a href="https://blog.cloudflare.com/updated-tos" target="_blank">still restricts self-hosted video</a>, ruling out Frigate.
+**Alternatives:** <a href="https://www.nabucasa.com/pricing/" target="_blank">Home Assistant Link</a>, formerly Home Assistant Cloud ($6.50/month), covers Home Assistant only; <a href="https://tailscale.com/pricing" target="_blank">Tailscale's free plan</a> needs a client on every viewer; Cloudflare Tunnel is free but <a href="https://blog.cloudflare.com/updated-tos" target="_blank">still restricts self-hosted video</a>, ruling out Frigate.
 
 {{% /tldr %}}
 
 ## Why port forwarding cannot work
 
-Standard NAT translates your LAN's private addresses to the public address on your router's WAN interface. You control that router, so you can punch a hole in it. Carrier-Grade NAT adds a second layer you do not control: your router's WAN address is itself private, drawn from the `100.64.0.0/10` block RFC 6598 reserved in 2012 for exactly this purpose, and your traffic is translated again at the carrier's NAT. We go deeper in {{< link href="/blog/how_nat_traversal_works/" >}}how NAT traversal works{{< /link >}}.
+Standard NAT translates your LAN's private addresses to the public address on your router's WAN interface. You control that router, so you can punch a hole in it. Carrier-Grade NAT adds a second layer you do not control: your router's WAN address is itself private, drawn from the `100.64.0.0/10` block RFC 6598 reserved for exactly this purpose, and your traffic is translated again at the carrier's NAT. We go deeper in {{< link href="/blog/how_nat_traversal_works/" >}}how NAT traversal works{{< /link >}}.
+
+{{< image "remote_access_smart_home_apps_behind_cgnat/cgnat_double_nat_home_assistant.webp" "A phone's inbound request is dropped at the ISP's carrier NAT, while an outbound SSH tunnel on port 443 from Home Assistant passes through both NAT layers to Pinggy" >}}
 
 Each consequence looks like a different bug. **Port forwarding silently does nothing:** the rule saves, the status page says active, UPnP may even report success, but the ISP has no rule sending port 8123 to you. **Dynamic DNS resolves to an address that is not yours:** DuckDNS works fine, it just publishes the carrier's shared address. And while many CGNAT deployments hand out a real IPv6 prefix, the coffee-shop Wi-Fi you are reaching home from is often IPv4-only, so an AAAA-only setup fails exactly where you need it.
 
@@ -57,7 +60,7 @@ If your ISP has a documented escape hatch, try it first: we have write-ups for {
 
 ## Know which port you are exposing
 
-Getting this wrong is how people publish an admin panel by accident.
+Getting this wrong is how people publish an admin panel by accident, so check befor you tunnel anything.
 
 <table style="width:100%;border-collapse:collapse;table-layout:fixed;">
 <thead>
@@ -73,7 +76,7 @@ Getting this wrong is how people publish an admin panel by accident.
   <td style="border:1px solid #ddd;padding:0.5em;">Home Assistant</td>
   <td style="border:1px solid #ddd;padding:0.5em;"><code>8123</code></td>
   <td style="border:1px solid #ddd;padding:0.5em;">Yes, plus optional MFA</td>
-  <td style="border:1px solid #ddd;padding:0.5em;">2026.8+ Home Assistant OS installs default to <code>80</code></td>
+  <td style="border:1px solid #ddd;padding:0.5em;">New Home Assistant OS installs from 2026.8 listen on <code>80</code>; older ones keep <code>8123</code></td>
 </tr>
 <tr>
   <td style="border:1px solid #ddd;padding:0.5em;">Homebridge UI</td>
@@ -128,7 +131,7 @@ Open that URL from your phone on mobile data and Home Assistant's login page loa
 
 **Use `127.0.0.1`, not `localhost`.** On a dual-stack host `-R0:localhost:8123` resolves to `::1` first, so requests reach your app from IPv6 loopback instead. That matters next, because the address your app sees is the address you must trust. If you prefer `localhost`, trust both.
 
-**An app on another machine** works too, since the forward destination is resolved by the SSH client: point it at a LAN address with `-R0:192.168.1.50:8123`. This is the practical answer for Home Assistant OS. Verified against a live tunnel, the app then sees the connection arriving from the tunnel host's LAN address, so that is what you trust rather than loopback.
+**An app on another machine** works too, since the forward destination is resolved by the SSH client: point it at a LAN address with `-R0:192.168.1.50:8123` (or `:80` on a Home Assistant OS box installed from 2026.8 on). This is the practical answer for Home Assistant OS. Verified against a live tunnel, the app then sees the connection arriving from the tunnel host's LAN address, so that is what you trust rather than loopback.
 
 ## Make Home Assistant accept the tunnel
 
@@ -158,6 +161,8 @@ Verified: the app then sees `Host: localhost:8123`, while `X-Forwarded-Host` sti
 
 `X-Forwarded-For` carries the real visitor IP, which is what Home Assistant's IP banning keys on, and `X-Forwarded-Proto: https` sets the request scheme so the app builds `https://` URLs instead of `http://`. But an untrusted proxy gets to set neither: Home Assistant rejects the request with 400 rather than believing it.
 
+{{< image "remote_access_smart_home_apps_behind_cgnat/home_assistant_trusted_proxies_pinggy.webp" "Sequence diagram of a phone request through Pinggy to Home Assistant, which sees peer 127.0.0.1 and answers 400 Bad Request unless 127.0.0.1 is in trusted_proxies with use_x_forwarded_for on" >}}
+
 On 2026.8 and later, go to **Settings > System > Network > HTTP server**, turn on **Trust X-Forwarded-For**, and add the address from the log message to **Trusted proxies**. On older installs the same thing lives in `configuration.yaml`:
 
 ```yaml
@@ -168,7 +173,7 @@ http:
     - ::1
 ```
 
-If you upgraded, your old `http:` block was imported automatically and a repair issue raised asking you to delete it. Check the imported values first.
+If you upgraded, your old `http:` block was imported automatically and a repair issue raised asking you to delete it. Check the imported values first: if the import failed, Home Assistant starts on default HTTP settings with no proxy trust, and you're back to the same 400. Saving these settings restarts Home Assistant.
 
 Do not widen the trust to `0.0.0.0/0` to silence the error: `trusted_proxies` lists who is allowed to tell Home Assistant the client's IP, so trusting everything lets any caller forge it, poisoning your logs and defeating IP banning. With a CIDR, the docs require the network address (`192.168.1.0/24`), not a host address.
 
@@ -190,7 +195,7 @@ Edge auth is a wrapper, not a replacement. Inside Home Assistant, turn on multi-
 
 ## The other apps
 
-Only the port and caveats change. **Frigate** needs its authenticated port plus basic auth, and its WebRTC path wants UDP on 8555, which no HTTP tunnel carries; the UI falls back to MSE or HLS, a second or two behind live but fine for reviewing events. Keep it patched: CVE-2026-25643 was a remote command execution issue in the go2rtc stream config before 0.16.4. **Zigbee2MQTT** needs `auth_token` set *and* the basic auth. **ESPHome** and **Node-RED** ship without authentication and both amount to code execution on the host, so add an IP allowlist at minimum; our {{< link href="/blog/self_hosting_node_red/" >}}Node-RED guide{{< /link >}} covers them.
+Only the port and caveats change. **Frigate** needs its authenticated port plus basic auth, and its WebRTC path wants UDP on 8555, which no HTTP tunnel carries. That matters less than it sounds: MSE, Frigate's default live view, works fine through the tunnel, and WebRTC is only needed for two-way talk or when MSE fails. Keep it patched: CVE-2026-25643 (CVSS 9.1, public exploits) was an authenticated command injection in the go2rtc stream config, fixed in 0.16.4, and the current release line is 0.18.x. **Zigbee2MQTT** needs `auth_token` set *and* the basic auth. **ESPHome** (its dashboard is now called the Device Builder; set `ESPHOME_USERNAME` and `ESPHOME_PASSWORD`) and **Node-RED** ship without authentication and both amount to code execution on the host, so add an IP allowlist at minimum; our {{< link href="/blog/self_hosting_node_red/" >}}Node-RED guide{{< /link >}} covers them.
 
 When what you need is not HTTP, prefix the hostname for a raw TCP tunnel:
 
@@ -226,7 +231,7 @@ RestartSec=10s
 WantedBy=multi-user.target
 ```
 
-Home Assistant OS has no general-purpose shell, so either use the **Advanced SSH & Web Terminal** add-on, whose `init_commands` option runs commands on start, or better, run the tunnel on a separate always-on LAN machine pointed at Home Assistant's LAN address. That keeps tunnel restarts independent of Home Assistant's, and one box can carry tunnels for several apps.
+Home Assistant OS has no general-purpose shell, so either use the **Advanced SSH & Web Terminal** app (add-ons are called apps now), whose `init_commands` option runs commands on start, or better, run the tunnel on a separate always-on LAN machine pointed at Home Assistant's LAN address. That keeps tunnel restarts independent of Home Assistant's, and one box can carry tunnels for several apps.
 
 ## How this compares
 
@@ -247,7 +252,7 @@ Home Assistant OS has no general-purpose shell, so either use the **Advanced SSH
   <td style="border:1px solid #ddd;padding:0.5em;">Fails silently, and exposes the port to scanners</td>
 </tr>
 <tr>
-  <td style="border:1px solid #ddd;padding:0.5em;">Home Assistant Cloud</td>
+  <td style="border:1px solid #ddd;padding:0.5em;">Home Assistant Link (formerly Cloud)</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Yes</td>
   <td style="border:1px solid #ddd;padding:0.5em;">$6.50/mo, $65/yr</td>
   <td style="border:1px solid #ddd;padding:0.5em;">Home Assistant only, nothing else</td>
@@ -273,14 +278,14 @@ Home Assistant OS has no general-purpose shell, so either use the **Advanced SSH
 </tbody>
 </table>
 
-Home Assistant Cloud is the right default if Home Assistant is all you need: one toggle, and it registers cloudhooks automatically. Tailscale folded Personal Plus into its free tier in April 2026 at up to 6 users and unlimited devices, and it gets you the whole LAN rather than one app - but it is the wrong tool for handing someone a link. The combination is often best: a mesh VPN for your own access, a tunnel for whatever needs a public URL. See {{< link href="/blog/top_open_source_tailscale_alternatives/" >}}Tailscale alternatives{{< /link >}} and {{< link href="/blog/how_to_set_up_port_forwarding_even_behind_cgnat/" >}}port forwarding behind CGNAT{{< /link >}}.
+Home Assistant Link, the new name for Home Assistant Cloud, is the right default if Home Assistant is all you need: one toggle, and it registers cloudhooks automatically. Tailscale's free Personal plan now covers up to 6 users and unlimited devices for non-commercial use, and it gets you the whole LAN rather than one app - but it is the wrong tool for handing someone a link. The combination is often best: a mesh VPN for your own access, a tunnel for whatever needs a public URL. See {{< link href="/blog/top_open_source_tailscale_alternatives/" >}}Tailscale alternatives{{< /link >}} and {{< link href="/blog/how_to_set_up_port_forwarding_even_behind_cgnat/" >}}port forwarding behind CGNAT{{< /link >}}.
 
 ## What a tunnel does not fix
 
-**UDP does not ride an HTTP tunnel**, so Frigate's WebRTC view falls back to MSE or HLS. **Local discovery stays local:** mDNS, HomeKit pairing and Matter commissioning are link-local by design, so commission devices at home and use the tunnel for the dashboard. **Every request round-trips through a relay**, so the local URL is always faster, which is why setting both URLs matters. **Camera streams are bandwidth**, and your home upload is the ceiling. **The tunnel is a dependency**, so keep a second path in. And **a URL is a credential** - rotate it if it leaks.
+**UDP does not ride an HTTP tunnel**, so Frigate's WebRTC view and two-way talk don't work; its default MSE view does. **Local discovery stays local:** mDNS, HomeKit pairing and Matter commissioning are link-local by design, so commission devices at home and use the tunnel for the dashboard. **Every request round-trips through a relay**, so the local URL is always faster, which is why setting both URLs matters. **Camera streams are bandwidth**, and your home upload is the ceiling. **The tunnel is a dependency**, so keep a second path in. And **a URL is a credential** - rotate it if it leaks.
 
-## Wrapping up
+## Conclusion
 
-CGNAT is not a misconfiguration to be fixed, it is your ISP's architecture. What changes is the direction of the connection: once the machine inside your house is the one dialling out, the carrier NAT is not involved.
+CGNAT is how your ISP built the network, not something you misconfigured, so the fix is to have Home Assistant or the box next to it dial out instead of waiting for inbound connections. Set `trusted_proxies` to the address your app actually sees, add edge auth before you share teh URL, and run the tunnel with a fixed subdomain under a service manager so it survives reboots.
 
-The mechanical part is one command. What is worth getting right is everything around it: `trusted_proxies` set to the address your app actually sees, `127.0.0.1` in the forward, edge auth in place before the URL exists, and a fixed subdomain under a service manager. The {{< link href="https://pinggy.io/docs/" >}}Pinggy documentation{{< /link >}} covers custom domains and the remaining tunnel types.
+The [Pinggy documentation](https://pinggy.io/docs/) covers custom domains and the other tunnel types.
